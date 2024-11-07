@@ -1,0 +1,115 @@
+---
+indexpage:
+  title: Documentación de StorageGRID 11,9
+  summary: StorageGRID de NetApp es una suite de almacenamiento de objetos definido
+    por software que admite diferentes casos de uso en entornos de multinube pública,
+    privada e híbrida. StorageGRID ofrece compatibilidad nativa con la API de Amazon
+    S3 y proporciona innovaciones líderes en el sector, como la gestión automatizada
+    del ciclo de vida, para almacenar, proteger y conservar datos no estructurados
+    de forma rentable durante largos periodos.
+  keywords: storagegrid documentation
+  lead: StorageGRID de NetApp es una suite de almacenamiento de objetos definido por
+    software que admite diferentes casos de uso en entornos de multinube pública,
+    privada e híbrida. StorageGRID ofrece compatibilidad nativa con la API de Amazon
+    S3 y proporciona innovaciones líderes en el sector, como la gestión automatizada
+    del ciclo de vida, para almacenar, proteger y conservar datos no estructurados
+    de forma rentable durante largos periodos.
+  tiles:
+  - title: Manos a la obra
+    links:
+    - title: Notas de la versión
+      url: "/release-notes/index.html"
+    - title: Novedades
+      url: "/upgrade/whats-new.html"
+    - title: Más información sobre StorageGRID
+      url: "/primer/index.html"
+    - title: Directrices sobre redes
+      url: "/network/index.html"
+    - title: Inicio rápido de StorageGRID
+      url: "/primer/quick-start.html"
+  - title: Instala, actualiza y corrige
+    links:
+    - title: Instalar dispositivos StorageGRID
+      url: https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/index.html
+    - title: Instalar StorageGRID en Red Hat Enterprise Linux
+      url: "/rhel/index.html"
+    - title: Instalar StorageGRID en Ubuntu o Debian
+      url: "/ubuntu/index.html"
+    - title: Instale StorageGRID en VMware
+      url: "/vmware/index.html"
+    - title: Actualice a la nueva versión de StorageGRID
+      url: "/upgrade/index.html"
+    - title: Aplicar revisión
+      url: "/maintain/storagegrid-hotfix-procedure.html"
+  - title: Configure la cuadrícula
+    links:
+    - title: Administre StorageGRID
+      url: "/admin/index.html"
+    - title: Gestión de objetos con ILM
+      url: "/ilm/index.html"
+    - title: Endurecimiento del sistema
+      url: "/harden/index.html"
+    - title: Configure StorageGRID para FabricPool
+      url: "/fabricpool/index.html"
+  - title: Gestione objetos
+    links:
+    - title: Usar una cuenta de inquilino
+      url: "/tenant/index.html"
+    - title: USE LA API DE REST DE S3
+      url: "/s3/index.html"
+    - title: Usar la API de REST de Swift (fin de vida útil)
+      url: "/swift/index.html"
+  - title: Supervisión y solución de problemas
+    links:
+    - title: Supervisa tu cuadrícula
+      url: "/monitor/index.html"
+    - title: Solucione problemas en la cuadrícula
+      url: "/troubleshoot/index.html"
+    - title: Revisar los registros de auditoría
+      url: "/audit/index.html"
+  - title: Amplíe y mantenga su grid
+    links:
+    - title: Añada volúmenes, nodos y sitios
+      url: "/expand/index.html"
+    - title: Mantenga su grid
+      url: "/maintain/index.html"
+    - title: Recupere o sustituya nodos
+      url: "/maintain/warnings-and-considerations-for-grid-node-recovery.html"
+    - title: Mantenimiento de dispositivos StorageGRID
+      url: https://docs.netapp.com/us-en/storagegrid-appliances/commonhardware/index.html
+  - title: Instrucciones adicionales
+    links:
+    - title: Habilite StorageGRID
+      url: https://docs.netapp.com/us-en/storagegrid-enable/index.html
+    - title: Biblioteca de vídeos de StorageGRID
+      url: https://www.youtube.com/playlist?list=PLdXI3bZJEw7nh2wGRA65iulXhtXwLiqrY
+    - title: Servicios de aprendizaje de NetApp
+      url: https://www.netapp.com/support-and-training/netapp-university/
+    - title: Gestión de StorageGRID mediante BlueXP
+      url: https://docs.netapp.com/us-en/bluexp-storagegrid/index.html
+  - title: Más recursos
+    links:
+    - title: Página de soporte de StorageGRID
+      url: https://mysupport.netapp.com/site/products/all/details/5d9f1107e01d9c0001ee50f6/guideme-tab
+    - title: Herramienta de matriz de interoperabilidad de NetApp (IMT)
+      url: https://imt.netapp.com/matrix/#welcome
+    - title: Base de conocimientos de StorageGRID
+      url: https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID
+    - title: Blog de NetApp
+      url: https://netapp.com/blog/
+    - title: Comunidad de NetApp
+      url: https://community.netapp.com/
+  - title: Otras versiones
+    links:
+    - title: Documentación de StorageGRID 11,8
+      url: https://docs.netapp.com/us-en/storagegrid-118/index.html
+    - title: Documentación de StorageGRID 11,7
+      url: https://docs.netapp.com/us-en/storagegrid-117/index.html
+    - title: Documentación de StorageGRID 11,6
+      url: https://docs.netapp.com/us-en/storagegrid-116/index.html
+    - title: Documentación de StorageGRID 11,5
+      url: https://docs.netapp.com/us-en/storagegrid-115/index.html
+    - title: Documentación de StorageGRID 11,4
+      url: https://docs.netapp.com/sgws-114/index.jsp
+    - title: Documentación de StorageGRID 11,3
+      url: https://docs.netapp.com/sgws-113/index.jsp

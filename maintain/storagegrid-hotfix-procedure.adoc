@@ -1,0 +1,53 @@
+---
+permalink: maintain/storagegrid-hotfix-procedure.html 
+sidebar: sidebar 
+keywords: apply hotfix, install hotfix, replace primary admin node 
+summary: Es posible que deba aplicar una revisión a su sistema StorageGRID si se detectan y resuelven problemas con el software entre versiones de funciones. 
+---
+= Procedimiento de revisión de StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es posible que deba aplicar una revisión a su sistema StorageGRID si se detectan y resuelven problemas con el software entre versiones de funciones.
+
+Las correcciones urgentes de StorageGRID contienen cambios de software que se pueden hacer disponibles fuera de una función o una versión de revisión. Los mismos cambios se incluyen en una versión futura. Además, cada versión de revisión contiene un resumen de todas las revisiones previas dentro de la característica o versión de revisión.
+
+
+
+== Consideraciones para aplicar una revisión
+
+No puede aplicar una revisión de StorageGRID cuando se está ejecutando otro procedimiento de mantenimiento. Por ejemplo, no se puede aplicar una revisión mientras se está ejecutando un procedimiento de decomiso, expansión o recuperación.
+
+
+NOTE: Si un procedimiento de retirada de nodo o sitio está en pausa, puede aplicar una revisión de forma segura. Además, puede ser capaz de aplicar una revisión durante las fases finales de un procedimiento de actualización de StorageGRID. Consulte las instrucciones para actualizar el software StorageGRID para obtener detalles.
+
+Después de cargar la revisión en Grid Manager, la revisión se aplica automáticamente al nodo de administración principal. A continuación, puede aprobar la aplicación de la revisión al resto de los nodos del sistema StorageGRID.
+
+Si una revisión no se puede aplicar a uno o más nodos, el motivo del error aparece en la columna Detalles de la tabla de progreso de la revisión. Debe resolver los problemas que causaron los fallos y luego volver a intentar todo el proceso. Los nodos con una aplicación de la revisión realizada con éxito anteriormente se omitirán en aplicaciones posteriores. Puede volver a intentar de forma segura el proceso de revisión tantas veces como sea necesario hasta que todos los nodos se hayan actualizado. La revisión debe instalarse correctamente en todos los nodos de cuadrícula para que la aplicación se complete.
+
+Mientras los nodos de cuadrícula se actualizan con la nueva versión de revisión, los cambios reales en una revisión sólo pueden afectar a servicios específicos en tipos de nodos específicos. Por ejemplo, una revisión sólo podría afectar al servicio LDR en nodos de almacenamiento.
+
+
+
+== Cómo se aplican las revisiones para la recuperación y expansión
+
+Después de que se haya aplicado una revisión a la cuadrícula, el nodo de administración principal instala automáticamente la misma versión de revisión en los nodos restaurados por operaciones de recuperación o agregados en una expansión.
+
+Sin embargo, si necesita recuperar el nodo de administración principal, debe instalar manualmente la versión de StorageGRID correcta y, a continuación, aplicar la revisión. La versión final de StorageGRID del nodo de administrador principal debe coincidir con la versión de los otros nodos de la cuadrícula.
+
+En el ejemplo siguiente se ilustra cómo aplicar una revisión al recuperar el nodo de administración principal:
+
+. Suponga que la cuadrícula está ejecutando una versión de StorageGRID 11._A.B_ con la revisión más reciente. La “versión de cuadrícula” es 11._A.B.y_.
+. Se produce un error en el nodo del administrador principal.
+. Vuelva a poner en marcha el nodo de administración principal con StorageGRID 11._A.B_ y realice el procedimiento de recuperación.
++
+
+NOTE: Como es necesario para que coincida con la versión de grid, puede utilizar una versión inferior al poner en marcha el nodo, no es necesario poner en marcha primero la versión principal.
+
+. A continuación, aplica la revisión 11._A.B.y_ al nodo de administración principal.
+
+
+Para obtener más información, consulte link:configuring-replacement-primary-admin-node.html["Configure el nodo de administración principal de reemplazo"].

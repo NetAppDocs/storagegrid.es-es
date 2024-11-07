@@ -1,0 +1,106 @@
+---
+permalink: vmware/collecting-information-about-your-deployment-environment.html 
+sidebar: sidebar 
+keywords: how to collect information about your deployment environment 
+summary: Antes de implementar nodos de grid, debe recopilar información acerca de la configuración de red y el entorno de VMware. 
+---
+= Recopile información sobre el entorno de implementación
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de implementar nodos de grid, debe recopilar información acerca de la configuración de red y el entorno de VMware.
+
+
+NOTE: Es más eficiente realizar una instalación única de todos los nodos, en lugar de instalar algunos ahora y algunos nodos más adelante.
+
+
+
+== Información sobre VMware
+
+Debe acceder al entorno de implementación y recopilar información sobre el entorno de VMware, las redes que se crearon para las redes de grid, administrador y cliente, y los tipos de volúmenes de almacenamiento que se usarán para los nodos de almacenamiento.
+
+Debe recopilar información sobre el entorno de VMware, incluidos los siguientes:
+
+* El nombre de usuario y la contraseña de una cuenta de VMware vSphere que tenga los permisos adecuados para completar la implementación.
+* Información de configuración de red, host y almacén de datos para cada máquina virtual de nodo StorageGRID.
+
+
+
+NOTE: VMware Live vMotion hace que salte el tiempo del reloj de la máquina virtual y no es compatible con los nodos de grid de ningún tipo. Aunque es poco frecuente, las horas de reloj incorrectas pueden provocar la pérdida de datos o actualizaciones de configuración.
+
+
+
+== Información de red de cuadrícula
+
+Debe recopilar información sobre la red de VMware que se creó para la red de grid de StorageGRID (obligatoria), incluidos los siguientes elementos:
+
+* El nombre de la red.
+* El método que se utiliza para asignar direcciones IP, ya sea estáticas o DHCP.
++
+** Si utiliza direcciones IP estáticas, los detalles de redes necesarios para cada nodo de grid (dirección IP, puerta de enlace, máscara de red).
+** Si utiliza DHCP, la dirección IP del nodo de administración principal en la red de grid. Consulte link:how-grid-nodes-discover-primary-admin-node.html["La forma en que los nodos de grid detectan el nodo de administrador principal"] para obtener más información.
+
+
+
+
+
+
+== Información de la red de administrador
+
+Para los nodos que se conectarán a la red de administrador de StorageGRID opcional, deberá recopilar información acerca de la red de VMware creada para esta red, incluidos los siguientes:
+
+* El nombre de la red.
+* El método que se utiliza para asignar direcciones IP, ya sea estáticas o DHCP.
++
+** Si utiliza direcciones IP estáticas, los detalles de redes necesarios para cada nodo de grid (dirección IP, puerta de enlace, máscara de red).
+** Si utiliza DHCP, la dirección IP del nodo de administración principal en la red de grid. Consulte link:how-grid-nodes-discover-primary-admin-node.html["La forma en que los nodos de grid detectan el nodo de administrador principal"] para obtener más información.
+
+
+* Lista de subredes externas (ESL) para la red de administración.
+
+
+
+
+== Información de la red de clientes
+
+Para los nodos que se conectarán a la red de cliente de StorageGRID opcional, deberá recopilar información acerca de la red de VMware creada para esta red, incluidos los siguientes:
+
+* El nombre de la red.
+* El método que se utiliza para asignar direcciones IP, ya sea estáticas o DHCP.
+* Si utiliza direcciones IP estáticas, los detalles de redes necesarios para cada nodo de grid (dirección IP, puerta de enlace, máscara de red).
+
+
+
+
+== Información sobre interfaces adicionales
+
+De manera opcional, puede añadir enlaces o interfaces de acceso a la máquina virtual en vCenter después de instalar el nodo. Por ejemplo, es posible que desee agregar una interfaz troncal a un nodo de administración o puerta de enlace, de modo que pueda utilizar interfaces VLAN para separar el tráfico que pertenece a diferentes aplicaciones o inquilinos. O bien, es posible que desee añadir una interfaz de acceso para utilizarla en un grupo de alta disponibilidad (ha).
+
+Las interfaces que agregue se muestran en la página interfaces VLAN y en la página grupos ha de Grid Manager.
+
+* Si agrega una interfaz troncal, configure una o varias interfaces VLAN para cada nueva interfaz principal. Consulte link:../admin/configure-vlan-interfaces.html["Configure las interfaces VLAN"].
+* Si agrega una interfaz de acceso, debe añadirla directamente a los grupos de alta disponibilidad. Consulte link:../admin/configure-high-availability-group.html["configuración de grupos de alta disponibilidad"].
+
+
+
+
+== Volúmenes de almacenamiento para nodos de almacenamiento virtual
+
+Debe recopilar la siguiente información para los nodos de almacenamiento basados en máquinas virtuales:
+
+* El número y tamaño de los volúmenes de almacenamiento (LUN de almacenamiento) que desea añadir. Consulte link:storage-and-performance-requirements.html["Los requisitos de almacenamiento y rendimiento"].
+
+
+
+
+== Información sobre la configuración de grid
+
+Debe recopilar información para configurar la cuadrícula:
+
+* Licencia de Grid
+* Direcciones IP del servidor del protocolo de tiempo de redes (NTP)
+* Direcciones IP del servidor DNS
+

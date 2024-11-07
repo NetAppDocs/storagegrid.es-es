@@ -1,0 +1,98 @@
+---
+permalink: monitor/viewing-nodes-page.html 
+sidebar: sidebar 
+keywords: nodes page 
+summary: Cuando necesite información más detallada sobre el sistema de StorageGRID que la que proporciona la consola, se puede usar la página Nodos para ver métricas de todo el grid, cada sitio del grid y cada nodo de un sitio. 
+---
+= Vea la página Nodes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cuando necesite información más detallada sobre el sistema de StorageGRID que la que proporciona la consola, se puede usar la página Nodos para ver métricas de todo el grid, cada sitio del grid y cada nodo de un sitio.
+
+En la tabla Nodos, se muestra información de resumen de toda la cuadrícula, cada sitio y cada nodo. Si un nodo está desconectado o tiene una alerta activa, aparece un icono junto al nombre del nodo. Si el nodo está conectado y no tiene alertas activas, no se muestra ningún icono.
+
+
+NOTE: Cuando un nodo no está conectado a la cuadrícula, como durante la actualización o un estado desconectado, es posible que algunas métricas no estén disponibles o se excluyan de los totales de la ubicación y la cuadrícula. Después de que un nodo se vuelva a conectar a la cuadrícula, espere varios minutos para que los valores se estabilicen.
+
+
+NOTE: Para cambiar las unidades de los valores de almacenamiento que se muestran en Grid Manager, seleccione el menú desplegable de usuario en la parte superior derecha del Grid Manager y, a continuación, seleccione *Preferencias de usuario*.
+
+
+NOTE: Las capturas de pantalla mostradas son ejemplos. Los resultados pueden variar en función de la versión de StorageGRID.
+
+image::../media/nodes_table.png[Menú nodos]
+
+
+
+== Iconos de estado de conexión
+
+Si un nodo está desconectado de la cuadrícula, aparece cualquiera de los siguientes iconos junto al nombre del nodo.
+
+[cols="1a,3a,3a"]
+|===
+| . | Descripción | Acción necesaria 
+
+
+ a| 
+image:../media/icon_alarm_blue_unknown.png["icono de signo de interrogación azul"]
+ a| 
+*No conectado - Desconocido*
+
+Por una razón desconocida, un nodo está desconectado o los servicios del nodo se desactivan inesperadamente. Por ejemplo, un servicio del nodo podría estar detenido o podría haber perdido la conexión de red debido a un fallo de alimentación o a un corte inesperado.
+
+La alerta *no se puede comunicar con el nodo* también puede activarse. Otras alertas también pueden estar activas.
+ a| 
+Requiere atención inmediata. link:monitoring-system-health.html#view-current-and-resolved-alerts["Seleccione cada alerta"] y siga las acciones recomendadas.
+
+Por ejemplo, es posible que deba reiniciar un servicio que haya detenido o reiniciar el host del nodo.
+
+*Nota*: Un nodo puede aparecer como Desconocido durante las operaciones de cierre administradas. Puede ignorar el estado Desconocido en estos casos.
+
+
+
+ a| 
+image:../media/icon_alarm_gray_administratively_down.png["icono de questionmark gris"]
+ a| 
+*No conectado - administrativamente abajo*
+
+Por un motivo esperado, el nodo no está conectado a la cuadrícula.
+
+Por ejemplo, el nodo o los servicios del nodo se han apagado correctamente, el nodo se está reiniciando o se está actualizando el software. Una o más alertas también pueden estar activas.
+
+En función del problema subyacente, estos nodos suelen volver a estar en línea sin ninguna intervención.
+ a| 
+Determine si alguna alerta afecta a este nodo.
+
+Si hay una o más alertas activas, link:monitoring-system-health.html#view-current-and-resolved-alerts["Seleccione cada alerta"]siga las acciones recomendadas.
+
+|===
+Si un nodo está desconectado de la cuadrícula, puede tener una alerta subyacente, pero solo aparecerá el icono «No conectado». Para ver las alertas activas de un nodo, seleccione el nodo.
+
+
+
+== Iconos de alerta
+
+Si hay una alerta activa de un nodo, aparece uno de los siguientes iconos junto al nombre del nodo:
+
+image:../media/icon_alert_red_critical.png["Alerta de icono Rojo crítico"] *Crítico*: Existe una condición anormal que ha detenido las operaciones normales de un nodo o servicio StorageGRID. Debe abordar el problema subyacente de inmediato. Se pueden producir interrupciones del servicio y pérdida de datos si no se resuelve el problema.
+
+image:../media/icon_alert_orange_major.png["Alerta de icono naranja principal"] *Mayor*: Existe una condición anormal que está afectando las operaciones actuales o acercándose al umbral de una alerta crítica. Debe investigar las alertas principales y solucionar cualquier problema subyacente para garantizar que esta condición no detenga el funcionamiento normal de un nodo o servicio de StorageGRID.
+
+image:../media/icon_alert_yellow_minor.png["Alerta de icono menor amarilla"] *Menor*: El sistema funciona normalmente, pero existe una condición anormal que podría afectar la capacidad del sistema para funcionar si continúa. Debe supervisar y resolver alertas menores que no borren por sí solas para asegurarse de que no den lugar a un problema más grave.
+
+
+
+== Vea detalles de un sistema, sitio o nodo
+
+Para filtrar la información que se muestra en la tabla de nodos, introduzca una cadena de búsqueda en el campo *Search*. Puede buscar por nombre de sistema, nombre mostrado o tipo (por ejemplo, introduzca *gat* para localizar rápidamente todos los nodos de Gateway).
+
+Para ver la información de la cuadrícula, el sitio o el nodo:
+
+* Seleccione el nombre de la cuadrícula para ver un resumen de las estadísticas de todo el sistema StorageGRID.
+* Seleccione un sitio de centro de datos específico para ver un resumen de las estadísticas de todos los nodos de ese sitio.
+* Seleccione un nodo concreto para ver información detallada de ese nodo.
+

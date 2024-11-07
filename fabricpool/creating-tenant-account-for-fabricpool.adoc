@@ -1,0 +1,106 @@
+---
+permalink: fabricpool/creating-tenant-account-for-fabricpool.html 
+sidebar: sidebar 
+keywords: fabricPool, tenant, SSO 
+summary: Debe crear una cuenta de inquilino en el Gestor de grid para uso de FabricPool. 
+---
+= Cree una cuenta de inquilino para FabricPool
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe crear una cuenta de inquilino en el Gestor de grid para uso de FabricPool.
+
+Las cuentas de inquilino permiten a las aplicaciones cliente almacenar y recuperar objetos en StorageGRID. Cada cuenta de inquilino tiene su propio ID de cuenta, grupos y usuarios autorizados, bloques y objetos.
+
+Para obtener detalles sobre esta tarea, consulte link:../admin/creating-tenant-account.html["Cree una cuenta de inquilino"]. Para utilizar el asistente de configuración de FabricPool para completar esta tarea, vaya a link:use-fabricpool-setup-wizard-steps.html["Acceda al asistente de configuración de FabricPool y complete este"].
+
+.Antes de empezar
+* Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Tienes link:../admin/admin-group-permissions.html["permisos de acceso específicos"].
+
+
+.Pasos
+. Seleccione *ARRENDATARIOS*.
+. Seleccione *Crear*.
+. Para los pasos Enter details, introduzca la siguiente información.
++
+[cols="1a,3a"]
+|===
+| Campo | Descripción 
+
+
+ a| 
+Nombre
+ a| 
+Un nombre para la cuenta de inquilino. Los nombres de inquilinos no necesitan ser únicos. Cuando se crea la cuenta de arrendatario, recibe un ID de cuenta numérico único.
+
+
+
+ a| 
+Descripción (opcional)
+ a| 
+Descripción para ayudar a identificar al inquilino.
+
+
+
+ a| 
+Tipo de cliente
+ a| 
+Debe ser *S3* para FabricPool.
+
+
+
+ a| 
+Cuota de almacenamiento (opcional)
+ a| 
+Deje este campo en blanco para FabricPool.
+
+|===
+. Para el paso Seleccionar permisos:
++
+.. No seleccione *Permitir servicios de plataforma*.
++
+Normalmente, los inquilinos de FabricPool no necesitan usar servicios de plataforma, como la replicación de CloudMirror.
+
+.. Opcionalmente, selecciona *Usar fuente de identidad propia*.
+.. No seleccione *Permitir selección S3*.
++
+Los inquilinos de FabricPool no suelen utilizar S3 Select.
+
+.. Opcionalmente, seleccione *Usar conexión de federación de grid* para permitir que el inquilino utilice un link:../admin/grid-federation-overview.html["conexión de federación de grid"]clon de cuenta y replicación entre grid. A continuación, seleccione la conexión de federación de cuadrícula que desea utilizar.
+
+
+. Para el paso Definir acceso root, especifique qué usuario tendrá el permiso de acceso root inicial para la cuenta de arrendatario, en función de si el sistema StorageGRID utiliza link:../admin/using-identity-federation.html["federación de identidades"], link:../admin/configuring-sso.html["Inicio de sesión único (SSO)"]o ambos.
++
+[cols="1a,2a"]
+|===
+| Opción | Haga esto 
+
+
+ a| 
+Si la federación de identidades no está activada
+ a| 
+Especifique la contraseña que se utilizará al iniciar sesión en el inquilino como usuario raíz local.
+
+
+
+ a| 
+Si la federación de identidades está activada
+ a| 
+.. Seleccione un grupo federado existente para tener permiso de acceso raíz para el inquilino.
+.. Opcionalmente, especifique la contraseña que se utilizará al iniciar sesión en el inquilino como usuario raíz local.
+
+
+
+
+ a| 
+Si se activan tanto la federación de identidades como el inicio de sesión único (SSO)
+ a| 
+Seleccione un grupo federado existente para tener permiso de acceso raíz para el inquilino. Ningún usuario local puede iniciar sesión.
+
+|===
+. Seleccione *Crear arrendatario*.
+

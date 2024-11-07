@@ -1,0 +1,80 @@
+---
+permalink: maintain/restoring-network-connectivity-for-isolated-nodes.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, network connection, restore network connection, isolated node, restore isolated node connection 
+summary: En determinadas circunstancias, es posible que uno o más grupos de nodos no puedan ponerse en contacto con el resto de la cuadrícula. Por ejemplo, los cambios en la dirección IP de todo el sitio o la cuadrícula pueden dar lugar a nodos aislados. 
+---
+= Restaure la conectividad de red para nodos aislados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En determinadas circunstancias, es posible que uno o más grupos de nodos no puedan ponerse en contacto con el resto de la cuadrícula. Por ejemplo, los cambios en la dirección IP de todo el sitio o la cuadrícula pueden dar lugar a nodos aislados.
+
+.Acerca de esta tarea
+El aislamiento de nodos se indica mediante:
+
+* Alertas, como *No se puede comunicar con el nodo* (*Alertas* > *Actual*)
+* Diagnóstico relacionado con la conectividad (*SOPORTE* > *Herramientas* > *Diagnóstico*)
+
+
+Entre las consecuencias de tener nodos aislados se incluyen las siguientes:
+
+* Si se aíslan varios nodos, es posible que no pueda iniciar sesión o acceder a Grid Manager.
+* Si se aíslan varios nodos, es posible que los valores de cuota y uso de almacenamiento que se muestran en la consola del administrador de inquilinos estén desactualizados. Los totales se actualizarán cuando se restaure la conectividad de red.
+
+
+Para resolver el problema de aislamiento, se ejecuta una utilidad de línea de comandos en cada nodo aislado o en un nodo de un grupo (todos los nodos de una subred que no contiene el nodo de administración principal) que está aislado de la cuadrícula. La utilidad proporciona a los nodos la dirección IP de un nodo no aislado en la cuadrícula, lo que permite que el nodo aislado o grupo de nodos vuelva a ponerse en contacto con toda la cuadrícula.
+
+
+NOTE: Si el sistema de nombres de dominio de multidifusión (mDNS) está desactivado en las redes, es posible que tenga que ejecutar la utilidad de línea de comandos en cada nodo aislado.
+
+.Pasos
+Este procedimiento no se aplica cuando solo algunos servicios están fuera de línea o informan de errores de comunicación.
+
+. Acceda al nodo y compruebe `/var/local/log/dynip.log` si hay mensajes de aislamiento.
++
+Por ejemplo:
+
++
+[listing]
+----
+[2018-01-09T19:11:00.545] UpdateQueue - WARNING -- Possible isolation, no contact with other nodes.
+If this warning persists, manual action might be required.
+----
++
+Si utiliza la consola de VMware, contendrá un mensaje que podría aislar el nodo.
+
++
+En las implementaciones de Linux, los mensajes de aislamiento aparecerían en `/var/log/storagegrid/node/<nodename>.log` los archivos.
+
+. Si los mensajes de aislamiento son recurrentes y persistentes, ejecute el siguiente comando:
++
+`add_node_ip.py <address>`
+
++
+Donde `<address>` es la dirección IP de un nodo remoto conectado a la cuadrícula.
+
++
+[listing]
+----
+# /usr/sbin/add_node_ip.py  10.224.4.210
+
+Retrieving local host information
+Validating remote node at address 10.224.4.210
+Sending node IP hint for 10.224.4.210 to local node
+Local node found on remote node. Update complete.
+----
+. Verifique lo siguiente para cada nodo que estaba aislado previamente:
++
+** Los servicios del nodo han comenzado.
+** El estado del servicio Dynamic IP es Running después de ejecutar el `storagegrid-status` comando.
+** En la página Nodes, el nodo ya no aparece desconectado del resto de la cuadrícula.
+
+
+
+
+
+NOTE: Si la ejecución `add_node_ip.py` del comando no resuelve el problema, podría haber otros problemas de red que deban resolverse.

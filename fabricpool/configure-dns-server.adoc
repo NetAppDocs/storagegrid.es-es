@@ -1,0 +1,33 @@
+---
+permalink: fabricpool/configure-dns-server.html 
+sidebar: sidebar 
+keywords: dns, vip, virtual ip, fqdn, server name 
+summary: Después de configurar los grupos de alta disponibilidad, los puntos finales del equilibrador de carga y los nombres de dominio S3, debe asegurarse de que el DNS incluya las entradas necesarias para StorageGRID. 
+---
+= Configure el servidor DNS
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Después de configurar grupos de alta disponibilidad, puntos finales de equilibrio de carga y nombres de dominio de punto final S3, debe asegurarse de que el DNS incluya las entradas necesarias para StorageGRID. Debe incluir una entrada DNS para cada nombre del certificado de seguridad y para cada dirección IP que pueda utilizar.
+
+Consulte link:../admin/managing-load-balancing.html["Consideraciones que tener en cuenta al equilibrio de carga"].
+
+
+
+== Entradas DNS para el nombre del servidor StorageGRID
+
+Agregue entradas DNS para asociar el nombre del servidor StorageGRID (nombre de dominio completo) a cada dirección IP de StorageGRID que utilice. Las direcciones IP que introduzca en el DNS dependen de si va a utilizar un grupo de alta disponibilidad de nodos de equilibrio de carga:
+
+* Si ha configurado un grupo de alta disponibilidad, ONTAP se conectará a las direcciones IP virtuales de dicho grupo de alta disponibilidad.
+* Si no está utilizando un grupo de alta disponibilidad, ONTAP puede conectarse al servicio de equilibrador de carga de StorageGRID mediante la dirección IP de cualquier nodo de puerta de enlace o nodo de administración.
+* Si el nombre del servidor resuelve más de una dirección IP, ONTAP establece conexiones de cliente con todas las direcciones IP (hasta un máximo de 16 direcciones IP). Las direcciones IP se recogen en un método round-robin cuando se establecen conexiones.
+
+
+
+
+== Entradas DNS para solicitudes virtuales de estilo alojado
+
+Si ha definido link:../admin/configuring-s3-api-endpoint-domain-names.html["Nombres de dominio de punto final S3"] y utilizará solicitudes virtuales de estilo hospedado, agregue entradas DNS para todos los nombres de dominio de punto final S3 necesarios, incluidos los nombres comodín.

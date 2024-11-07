@@ -1,0 +1,39 @@
+---
+permalink: audit/sysu-node-start.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, SYSU, Node Start 
+summary: 'Cuando se reinicia un servicio, este mensaje se genera para indicar si el cierre anterior estaba limpio \(ordenado\) o desordenado \(inesperado\).' 
+---
+= SYSU: Inicio del nodo
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cuando se reinicia un servicio, este mensaje se genera para indicar si el cierre anterior estaba limpio (ordenado) o desordenado (inesperado).
+
+[cols="1a,1a,4a"]
+|===
+| Codificación | Campo | Descripción 
+
+
+ a| 
+TRANSFORMACIÓN DIGITAL
+ a| 
+Apagado limpio
+ a| 
+La naturaleza del cierre:
+
+SUCS: El sistema se cerró limpiamente.
+
+DSDN: El sistema no se ha apagado correctamente.
+
+VRGN: El sistema se inició por primera vez tras la instalación del servidor (o la reinstalación).
+
+|===
+El mensaje no indica si se inició el servidor host, sólo el servicio de informes. Este mensaje se puede utilizar para:
+
+* Detectar discontinuidad en el seguimiento de auditoría.
+* Determine si un servicio presenta errores durante el funcionamiento (ya que la naturaleza distribuida del sistema StorageGRID puede enmascarar estos fallos). El Administrador del servidor reinicia automáticamente un servicio fallido.
+

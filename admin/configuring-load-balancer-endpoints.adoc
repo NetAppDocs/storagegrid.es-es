@@ -1,0 +1,553 @@
+---
+permalink: admin/configuring-load-balancer-endpoints.html 
+sidebar: sidebar 
+keywords: how to configure load balancer endpoint, how to attach certificate to load balancer endpoint 
+summary: Los extremos del equilibrador de carga determinan los puertos y protocolos de red que los clientes S3 pueden utilizar al conectarse al equilibrador de carga de StorageGRID en los nodos de gateway y admin. También puede utilizar puntos finales para acceder a Grid Manager, Tenant Manager o ambos. 
+---
+= Configurar puntos finales del equilibrador de carga
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los extremos del equilibrador de carga determinan los puertos y protocolos de red que los clientes S3 pueden utilizar al conectarse al equilibrador de carga de StorageGRID en los nodos de gateway y admin. También puede utilizar puntos finales para acceder a Grid Manager, Tenant Manager o ambos.
+
+
+TIP: Se han eliminado los detalles de Swift de esta versión del sitio del documento. Consulte https://docs.netapp.com/us-en/storagegrid-118/admin/configuring-client-connections.html["Configure las conexiones de clientes S3 y Swift"^].
+
+.Antes de empezar
+* Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Usted tiene el link:admin-group-permissions.html["Permiso de acceso raíz"].
+* Ha revisado el link:managing-load-balancing.html["consideraciones que tener en cuenta al equilibrio de carga"].
+* Si ha reasignado anteriormente un puerto que desea utilizar para el punto final del equilibrador de carga, tiene link:../maintain/removing-port-remaps.html["se ha eliminado el mapa de puertos"].
+* Ha creado cualquier grupo de alta disponibilidad que desee utilizar. Se recomiendan los grupos de ALTA DISPONIBILIDAD, pero no es obligatorio. Consulte link:managing-high-availability-groups.html["Gestión de grupos de alta disponibilidad"].
+* Si va a utilizar el punto final del equilibrador de carga link:../admin/manage-s3-select-for-tenant-accounts.html["Inquilinos de S3 para S3 Select"], no debe utilizar las direcciones IP ni los FQDN de ningún nodo bare-metal. Solo se permiten dispositivos de servicios y nodos de software basados en VMware para los extremos del equilibrador de carga utilizados para S3 Select.
+* Ha configurado las interfaces VLAN que desea utilizar. Consulte link:configure-vlan-interfaces.html["Configure las interfaces VLAN"].
+* Si crea un extremo de HTTPS (recomendado), tiene la información del certificado de servidor.
++
+
+NOTE: Los cambios en el certificado de extremo pueden tardar hasta 15 minutos en aplicarse a todos los nodos.
+
++
+** Para cargar un certificado, necesita el certificado de servidor, la clave privada de certificado y, opcionalmente, un bundle de CA.
+** Para generar un certificado, se necesitan todos los nombres de dominio y las direcciones IP que utilizarán los clientes S3 para acceder al punto final. También debe conocer el asunto (nombre distintivo).
+** Si desea usar el certificado de API de StorageGRID S3 (que también puede utilizarse para conexiones directamente a nodos de almacenamiento), ya sustituyó el certificado predeterminado por un certificado personalizado firmado por una entidad de certificación externa. Consulte link:../admin/configuring-custom-server-certificate-for-storage-node.html["Configure los certificados de API S3"].
+
+
+
+
+
+
+== Cree un extremo de equilibrador de carga
+
+Cada extremo de equilibrador de carga de cliente S3 especifica un puerto, un tipo de cliente (S3) y un protocolo de red (HTTP o HTTPS). Los extremos de balanceo de carga de la interfaz de gestión especifican un puerto, un tipo de interfaz y una red de cliente que no es de confianza.
+
+
+
+=== Acceda al asistente
+
+.Pasos
+. Seleccione *CONFIGURACIÓN* > *Red* > *terminales de equilibrador de carga*.
+. Para crear un punto final para un cliente S3 o Swift, seleccione la pestaña Cliente *S3 o Swift*.
+. Para crear un punto final para acceder a Grid Manager, Tenant Manager o ambos, seleccione la pestaña *Interfaz de administración*.
+. Seleccione *Crear*.
+
+
+
+
+=== Introduzca los detalles de los extremos
+
+.Pasos
+. Seleccione las instrucciones adecuadas para introducir los detalles del tipo de punto final que desea crear.
+
+
+[role="tabbed-block"]
+====
+.Cliente S3 o Swift
+--
+[cols="1a,3a"]
+|===
+| Campo | Descripción 
+
+
+ a| 
+Nombre
+ a| 
+Nombre descriptivo para el punto final, que aparecerá en la tabla de la página Load equilibrer Endpoints.
+
+
+
+ a| 
+Puerto
+ a| 
+El puerto StorageGRID que desea usar para el equilibrio de carga. Este campo se establece por defecto en 10433 para el primer punto final que cree, pero puede introducir cualquier puerto externo no utilizado de 1 a 65535.
+
+Si ingresa *80* o *8443*, el punto final se configura solo en los nodos de Gateway, a menos que haya liberado el puerto 8443. A continuación, puede utilizar el puerto 8443 como punto final S3 y el puerto se configurará en los nodos Gateway y Admin.
+
+
+
+ a| 
+Tipo de cliente
+ a| 
+Tipo de aplicación cliente que utilizará este extremo, ya sea *S3* o *Swift*.
+
+
+
+ a| 
+Protocolo de red
+ a| 
+El protocolo de red que utilizarán los clientes al conectarse a este extremo.
+
+* Seleccione *HTTPS* para una comunicación segura cifrada con TLS (recomendado). Debe asociar un certificado de seguridad para poder guardar el extremo.
+* Seleccione *HTTP* para una comunicación no cifrada y menos segura. Utilice HTTP sólo para una cuadrícula que no sea de producción.
+
+
+|===
+--
+.Interfaz de gestión
+--
+[cols="1a,3a"]
+|===
+| Campo | Descripción 
+
+
+ a| 
+Nombre
+ a| 
+Nombre descriptivo para el punto final, que aparecerá en la tabla de la página Load equilibrer Endpoints.
+
+
+
+ a| 
+Puerto
+ a| 
+El puerto StorageGRID que desea utilizar para acceder al Administrador de grid, el Administrador de inquilinos o ambos.
+
+* Grid Manager: *8443*
+* Administrador de Inquilinos: *9443*
+* Tanto Grid Manager como Tenant Manager: *443*
+
+
+*Nota*: Puede utilizar estos puertos preestablecidos u otros puertos disponibles.
+
+
+
+ a| 
+Tipo de interfaz
+ a| 
+Seleccione el botón de opción de la interfaz StorageGRID a la que accederá desde este punto final.
+
+
+
+ a| 
+Red cliente no confiable
+ a| 
+Seleccione *Sí* si este punto final debe ser accesible para las redes de clientes que no sean de confianza. De lo contrario, seleccione *No*.
+
+Cuando selecciona *Sí*, el puerto está abierto en todas las redes cliente que no sean de confianza.
+
+*Nota*: Solo puede configurar un puerto para que esté abierto o cerrado a las redes de clientes que no sean de confianza al crear el punto final del equilibrador de carga.
+
+|===
+--
+====
+. Seleccione *continuar*.
+
+
+
+
+=== Seleccione un modo de enlace
+
+.Pasos
+. Seleccione un modo de enlace para el punto final para controlar cómo se accede al punto final mediante cualquier dirección IP o mediante direcciones IP e interfaces de red específicas.
++
+Algunos modos de vinculación están disponibles para extremos de cliente o para extremos de interfaz de gestión. Aquí se enumeran todos los modos para ambos tipos de punto final.
+
++
+[cols="1a,3a"]
+|===
+| Modo | Descripción 
+
+
+ a| 
+Global (por defecto para puntos finales de cliente)
+ a| 
+Los clientes pueden acceder al punto final mediante la dirección IP de cualquier nodo de gateway o nodo de administración, la dirección IP virtual (VIP) de cualquier grupo de alta disponibilidad en cualquier red o un FQDN correspondiente.
+
+Utilice la configuración *Global* a menos que necesite restringir la accesibilidad de este punto final.
+
+
+
+ a| 
+IP virtuales de grupos de alta disponibilidad
+ a| 
+Los clientes deben usar una dirección IP virtual (o el FQDN correspondiente) de un grupo de alta disponibilidad para acceder a este extremo.
+
+Los puntos finales con este modo de enlace pueden utilizar el mismo número de puerto, siempre y cuando los grupos de alta disponibilidad que seleccione para los puntos finales no se superpongan.
+
+
+
+ a| 
+Interfaces de nodos
+ a| 
+Los clientes deben usar las direcciones IP (o FQDN correspondientes) de las interfaces de nodo seleccionadas para acceder a este punto final.
+
+
+
+ a| 
+Tipo de nodo (solo extremos de cliente)
+ a| 
+En función del tipo de nodo que seleccione, los clientes deben usar la dirección IP (o el FQDN correspondiente) de cualquier nodo de administración o la dirección IP (o el FQDN correspondiente) de cualquier nodo de puerta de enlace para acceder a este extremo.
+
+
+
+ a| 
+Todos los nodos de administración (predeterminado para los extremos de la interfaz de gestión)
+ a| 
+Los clientes deben usar la dirección IP (o el FQDN correspondiente) de cualquier nodo de administración para acceder a este extremo.
+
+|===
++
+Si más de un punto final utiliza el mismo puerto, StorageGRID utiliza este orden de prioridad para decidir qué punto final utilizar: *IP virtuales de grupos HA* > *Interfaces de nodo* > *Tipo de nodo* > *Global*.
+
++
+Si va a crear extremos de la interfaz de gestión, solo se permiten los nodos de administrador.
+
+. Si ha seleccionado *IP virtuales de grupos ha*, seleccione uno o más grupos ha.
++
+Si va a crear extremos de interfaz de gestión, seleccione VIP asociadas sólo a nodos de administración.
+
+. Si ha seleccionado *interfaces de nodo*, seleccione una o más interfaces de nodo para cada nodo de administración o nodo de puerta de enlace que desee asociar con este extremo.
+. Si seleccionó *Tipo de nodo*, seleccione Nodos de administración, que incluye tanto el nodo de administración principal como cualquier nodo de administración no principal, o Nodos de puerta de enlace.
+
+
+
+
+=== Controle el acceso de inquilinos
+
+
+NOTE: Un punto final de la interfaz de gestión puede controlar el acceso de inquilino sólo cuando el punto final tiene el <<enter-endpoint-details,Tipo de interfaz de gestor de inquilinos>>.
+
+.Pasos
+. Para el paso *Acceso de inquilino*, seleccione una de las siguientes opciones:
++
+[cols="1a,2a"]
+|===
+| Campo | Descripción 
+
+
+ a| 
+Permitir todos los inquilinos (predeterminado)
+ a| 
+Todas las cuentas de inquilino pueden usar este extremo para acceder a sus bloques.
+
+Debe seleccionar esta opción si aún no ha creado ninguna cuenta de arrendatario. Después de agregar cuentas de arrendatario, puede editar el punto final del equilibrador de carga para permitir o bloquear cuentas específicas.
+
+
+
+ a| 
+Permitir arrendatarios seleccionados
+ a| 
+Solo las cuentas de inquilino seleccionadas pueden usar este extremo para acceder a sus bloques.
+
+
+
+ a| 
+Bloquear inquilinos seleccionados
+ a| 
+Las cuentas de inquilino seleccionadas no pueden utilizar este punto final para acceder a sus bloques. Todos los demás inquilinos pueden usar este extremo.
+
+|===
+. Si está creando un punto final *HTTP*, no necesita adjuntar un certificado. Seleccione *Crear* para agregar el nuevo punto final del equilibrador de carga. A continuación, vaya a <<after-you-finish,Después de terminar>>. De lo contrario, seleccione *continuar* para adjuntar el certificado.
+
+
+
+
+=== Adjunte el certificado
+
+.Pasos
+. Si está creando un extremo *HTTPS*, seleccione el tipo de certificado de seguridad que desea asociar al extremo.
++
+El certificado protege las conexiones entre los clientes S3 y el servicio Load Balancer en los nodos de administración o Gateway.
+
++
+** *Cargar certificado*. Seleccione esta opción si tiene certificados personalizados para cargar.
+** *Generar certificado*. Seleccione esta opción si tiene los valores necesarios para generar un certificado personalizado.
+** *Utilice el certificado StorageGRID S3*. Seleccione esta opción si desea usar el certificado API global de S3, que también se puede utilizar para conexiones directamente a nodos de almacenamiento.
++
+No puede seleccionar esta opción a menos que haya reemplazado el certificado API S3 predeterminado, firmado por la CA de grid, con un certificado personalizado firmado por una entidad de certificación externa. Consulte link:../admin/configuring-custom-server-certificate-for-storage-node.html["Configure los certificados de API S3"].
+
+** *Utilice el certificado de interfaz de gestión*. Seleccione esta opción si desea usar el certificado de interfaz de gestión global, que también se puede utilizar para conexiones directas a los nodos de administración.
+
+
+. Si no está utilizando el certificado StorageGRID S3, cargue o genere el certificado.
++
+[role="tabbed-block"]
+====
+.Cargue el certificado
+--
+.. Seleccione *cargar certificado*.
+.. Cargue los archivos de certificado de servidor requeridos:
++
+*** *Certificado de servidor*: El archivo de certificado de servidor personalizado en codificación PEM.
+*** *Clave privada del certificado*: El archivo de clave privada del certificado del servidor personalizado (`.key`).
++
+
+NOTE: Las claves privadas EC deben ser de 224 bits o más. Las claves privadas RSA deben ser de 2048 bits o más.
+
+*** *Paquete CA*: Un único archivo opcional que contiene los certificados de cada entidad emisora de certificados intermedia (CA). El archivo debe contener cada uno de los archivos de certificado de CA codificados con PEM, concatenados en el orden de la cadena de certificados.
+
+
+.. Expanda *Detalles del certificado* para ver los metadatos de cada certificado que haya cargado. Si cargó un paquete de CA opcional, cada certificado aparece en su propia pestaña.
++
+*** Seleccione *Descargar certificado* para guardar el archivo de certificado o seleccione *Descargar paquete de CA* para guardar el paquete de certificados.
++
+Especifique el nombre del archivo de certificado y la ubicación de descarga. Guarde el archivo con la extensión `.pem`.
+
++
+Por ejemplo: `storagegrid_certificate.pem`
+
+*** Seleccione *Copiar certificado PEM* o *Copiar paquete de CA PEM* para copiar el contenido del certificado para pegarlo en otro lugar.
+
+
+.. Seleccione *Crear*. + se crea el punto final del equilibrador de carga. El certificado personalizado se utiliza para todas las nuevas conexiones subsiguientes entre los clientes S3 o la interfaz de gestión y el extremo.
+
+
+--
+.Generar certificado
+--
+.. Seleccione *generar certificado*.
+.. Especifique la información del certificado:
++
+[cols="1a,3a"]
+|===
+| Campo | Descripción 
+
+
+ a| 
+Nombre de dominio
+ a| 
+Uno o varios nombres de dominio completos que se deben incluir en el certificado. Utilice un * como comodín para representar varios nombres de dominio.
+
+
+
+ a| 
+IP
+ a| 
+Una o más direcciones IP que se incluirán en el certificado.
+
+
+
+ a| 
+Asunto (opcional)
+ a| 
+X,509 Asunto o nombre distinguido (DN) del propietario del certificado.
+
+Si no se introduce ningún valor en este campo, el certificado generado utiliza el primer nombre de dominio o la dirección IP como nombre común del asunto (CN).
+
+
+
+ a| 
+Días válidos
+ a| 
+Núm. De días después de la creación que caduca el certificado.
+
+
+
+ a| 
+Agregue extensiones de uso de claves
+ a| 
+Si se selecciona (predeterminado y recomendado), las extensiones de uso de claves y uso de claves ampliado se agregan al certificado generado.
+
+Estas extensiones definen el propósito de la clave contenida en el certificado.
+
+*Nota*: Deje esta casilla de verificación seleccionada a menos que experimente problemas de conexión con clientes antiguos cuando los certificados incluyen estas extensiones.
+
+|===
+.. Seleccione *generar*.
+.. Seleccione *Detalles del certificado* para ver los metadatos del certificado generado.
++
+*** Seleccione *Descargar certificado* para guardar el archivo de certificado.
++
+Especifique el nombre del archivo de certificado y la ubicación de descarga. Guarde el archivo con la extensión `.pem`.
+
++
+Por ejemplo: `storagegrid_certificate.pem`
+
+*** Seleccione *Copiar certificado PEM* para copiar el contenido del certificado para pegarlo en otro lugar.
+
+
+.. Seleccione *Crear*.
++
+Se crea el punto final del equilibrador de carga. El certificado personalizado se utiliza para todas las nuevas conexiones subsiguientes entre clientes S3 o la interfaz de gestión y este extremo.
+
+
+
+--
+====
+
+
+
+
+=== Después de terminar
+
+.Pasos
+. Si utiliza un DNS, asegúrese de que el DNS incluya un registro para asociar el nombre de dominio completo (FQDN) de StorageGRID a cada dirección IP que utilizarán los clientes para realizar conexiones.
++
+La dirección IP que introduzca en el registro DNS depende de si se utiliza un grupo de alta disponibilidad de nodos con balanceo de carga:
+
++
+** Si ha configurado un grupo de alta disponibilidad, los clientes se conectarán a las direcciones IP virtuales de dicho grupo de alta disponibilidad.
+** Si no está utilizando un grupo HA, los clientes se conectarán al servicio de equilibrador de carga de StorageGRID mediante la dirección IP de un nodo de puerta de enlace o nodo de administración.
++
+También debe asegurarse de que el registro DNS hace referencia a todos los nombres de dominio de extremo requeridos, incluidos los nombres de comodín.
+
+
+
+. Proporcione a los clientes S3 la información necesaria para conectarse al punto final:
++
+** Número de puerto
+** Nombre de dominio o dirección IP completos
+** Los detalles de certificado necesarios
+
+
+
+
+
+
+== Ver y editar puntos finales del equilibrador de carga
+
+Puede ver detalles de los extremos de equilibrador de carga existentes, incluidos los metadatos de certificado para un extremo protegido. Puede cambiar determinados valores para un punto final.
+
+* Para ver información básica de todos los puntos finales de equilibrio de carga, revise las tablas en la página Puntos Finales de Equilibrador de Carga.
+* Para ver todos los detalles acerca de un extremo específico, incluidos los metadatos del certificado, seleccione el nombre del extremo en la tabla. La información que se muestra varía en función del tipo de punto final y de cómo se configura.
++
+image::../media/load_balancer_endpoint_details.png[Detalles del punto final del equilibrador de carga]
+
+* Para editar un punto final, utilice el menú *Acciones* de la página Puntos Finales de Equilibrador de Carga.
++
+
+NOTE: Si pierde acceso a Grid Manager al editar el puerto de un extremo de interfaz de gestión, actualice la URL y el puerto para recuperar el acceso.
+
++
+
+TIP: Después de editar un extremo, es posible que deba esperar hasta 15 minutos para que los cambios se apliquen a todos los nodos.
+
++
+[cols="1a, 2a,2a"]
+|===
+| Tarea | Menú Actions | Detalles 
+
+
+ a| 
+Editar el nombre del extremo
+ a| 
+.. Seleccione la casilla de verificación para el punto final.
+.. Seleccione *acciones* > *Editar nombre de punto final*.
+.. Introduzca el nuevo nombre.
+.. Seleccione *Guardar*.
+
+ a| 
+.. Seleccione el nombre del extremo para mostrar los detalles.
+.. Seleccione el icono de edición image:../media/icon_edit_tm.png["Icono Editar"].
+.. Introduzca el nuevo nombre.
+.. Seleccione *Guardar*.
+
+
+
+
+ a| 
+Edite el puerto de punto final
+ a| 
+.. Seleccione la casilla de verificación para el punto final.
+.. Selecciona *Acciones* > *Editar puerto de punto final*
+.. Introduzca un número de puerto válido.
+.. Seleccione *Guardar*.
+
+ a| 
+_n/a_
+
+
+
+ a| 
+Edite el modo de enlace de punto final
+ a| 
+.. Seleccione la casilla de verificación para el punto final.
+.. Seleccione *acciones* > *Editar modo de enlace de punto final*.
+.. Actualice el modo de enlace según sea necesario.
+.. Seleccione *Guardar cambios*.
+
+ a| 
+.. Seleccione el nombre del extremo para mostrar los detalles.
+.. Seleccione *Editar modo de enlace*.
+.. Actualice el modo de enlace según sea necesario.
+.. Seleccione *Guardar cambios*.
+
+
+
+
+ a| 
+Editar certificado de extremo
+ a| 
+.. Seleccione la casilla de verificación para el punto final.
+.. Seleccione *acciones* > *Editar certificado de punto final*.
+.. Cargue o genere un nuevo certificado personalizado o comience a utilizar el certificado global S3, según sea necesario.
+.. Seleccione *Guardar cambios*.
+
+ a| 
+.. Seleccione el nombre del extremo para mostrar los detalles.
+.. Seleccione la ficha *Certificado*.
+.. Seleccione *Editar certificado*.
+.. Cargue o genere un nuevo certificado personalizado o comience a utilizar el certificado global S3, según sea necesario.
+.. Seleccione *Guardar cambios*.
+
+
+
+
+ a| 
+Editar el acceso de inquilinos
+ a| 
+.. Seleccione la casilla de verificación para el punto final.
+.. Selecciona *Acciones* > *Editar acceso de inquilino*.
+.. Elija una opción de acceso diferente, seleccione o elimine arrendatarios de la lista, o realice ambas acciones.
+.. Seleccione *Guardar cambios*.
+
+ a| 
+.. Seleccione el nombre del extremo para mostrar los detalles.
+.. Seleccione la pestaña *Acceso de inquilino*.
+.. Selecciona *Editar acceso de inquilino*.
+.. Elija una opción de acceso diferente, seleccione o elimine arrendatarios de la lista, o realice ambas acciones.
+.. Seleccione *Guardar cambios*.
+
+
+|===
+
+
+
+
+== Retire los extremos del equilibrador de carga
+
+Puede eliminar uno o varios puntos finales mediante el menú *acciones* o puede eliminar un único punto final de la página de detalles.
+
+
+CAUTION: Para evitar interrupciones en el cliente, actualice las aplicaciones cliente S3 afectadas antes de eliminar un punto final del equilibrador de carga. Actualice cada cliente para que se conecte utilizando un puerto asignado a otro extremo de equilibrador de carga. Asegúrese de actualizar también la información de certificado necesaria.
+
+
+NOTE: Si pierde el acceso a Grid Manager al eliminar un extremo de interfaz de gestión, actualice la dirección URL.
+
+* Para eliminar uno o varios puntos finales:
++
+.. En la página Equilibrador de Carga, seleccione la casilla de verificación de cada punto final que desee eliminar.
+.. Seleccione *acciones* > *Quitar*.
+.. Seleccione *OK*.
+
+
+* Para eliminar un extremo de la página de detalles:
++
+.. En la página Equilibrador de Carga, seleccione el nombre del punto final.
+.. Seleccione *Quitar* en la página de detalles.
+.. Seleccione *OK*.
+
+
+

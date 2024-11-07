@@ -1,0 +1,36 @@
+---
+permalink: monitor/reviewing-audit-messages.html 
+sidebar: sidebar 
+keywords: how to review audit messages, how to view audit messages 
+summary: Los mensajes de auditoría pueden ayudarle a comprender mejor las operaciones detalladas del sistema StorageGRID. Es posible usar registros de auditoría para solucionar problemas y evaluar el rendimiento. 
+---
+= Revisar los mensajes de auditoría
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los mensajes de auditoría pueden ayudarle a comprender mejor las operaciones detalladas del sistema StorageGRID. Es posible usar registros de auditoría para solucionar problemas y evaluar el rendimiento.
+
+Durante el funcionamiento normal del sistema, todos los servicios de StorageGRID generan mensajes de auditoría de la siguiente manera:
+
+* Los mensajes de auditoría del sistema están relacionados con el mismo sistema de auditoría, los estados del nodo de grid, la actividad de tareas en todo el sistema y las operaciones de backup de servicio.
+* Los mensajes de auditoría del almacenamiento de objetos están relacionados con el almacenamiento y la gestión de objetos dentro de StorageGRID, incluidos el almacenamiento y la recuperación de objetos, el nodo de grid a nodos de grid y las verificaciones.
+* Los mensajes de auditoría de lectura y escritura del cliente se registran cuando una aplicación cliente S3 realiza una solicitud para crear, modificar o recuperar un objeto.
+* Los mensajes de auditoría de gestión registran las solicitudes de los usuarios a la API de gestión.
+
+
+Cada nodo de administración almacena los mensajes de auditoría en archivos de texto. El recurso compartido de auditoría contiene el archivo activo (audit.log) y registros de auditoría comprimidos de los días anteriores. Cada nodo de la cuadrícula también almacena una copia de la información de auditoría generada en el nodo.
+
+Puede acceder a los archivos log de auditoría directamente desde la línea de comandos del nodo de administración.
+
+StorageGRID puede enviar información de auditoría de forma predeterminada o cambiar el destino:
+
+* StorageGRID se establece de forma predeterminada en destinos de auditoría de nodo local.
+* Las entradas del registro de auditoría de Grid Manager y Tenant Manager pueden enviarse a un nodo de almacenamiento.
+* De manera opcional, se puede cambiar el destino de los registros de auditoría y enviar información de auditoría a un servidor de syslog externo. Se siguen generando y almacenando registros locales de registros de auditoría cuando se configura un servidor de syslog externo.
+* link:../monitor/configure-audit-messages.html["Obtenga información sobre la configuración de los mensajes de auditoría y los destinos de registro"].
+
+
+Para obtener más información sobre el archivo log de auditoría, el formato de los mensajes de auditoría, los tipos de mensajes de auditoría y las herramientas disponibles para analizar los mensajes de auditoría, consulte link:../audit/index.html["Revisar los registros de auditoría"].

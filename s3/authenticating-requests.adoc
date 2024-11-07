@@ -1,0 +1,32 @@
+---
+permalink: s3/authenticating-requests.html 
+sidebar: sidebar 
+keywords: authenticate requests, authenticating, requests 
+summary: El sistema StorageGRID admite el acceso autenticado y anónimo a objetos mediante la API de S3. 
+---
+= Autenticar solicitudes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El sistema StorageGRID admite el acceso autenticado y anónimo a objetos mediante la API de S3.
+
+La API S3 admite la versión 2 de Signature y la versión 4 de Signature para autenticar solicitudes de API S3.
+
+Las solicitudes autenticadas deben firmarse mediante su ID de clave de acceso y su clave de acceso secreta.
+
+El sistema StorageGRID soporta dos métodos de autenticación: El encabezado HTTP `Authorization` y el uso de parámetros de consulta.
+
+
+
+== Utilice el encabezado autorización HTTP
+
+El encabezado HTTP `Authorization` es utilizado por todas las operaciones de la API S3 excepto las solicitudes anónimas cuando lo permite la política de bloque.  `Authorization`El encabezado contiene toda la información de firma necesaria para autenticar una solicitud.
+
+
+
+== Utilice los parámetros de consulta
+
+Puede utilizar parámetros de consulta para agregar información de autenticación a una URL. Esto se conoce como firma previa de la dirección URL, que se puede utilizar para otorgar acceso temporal a recursos específicos. Los usuarios con la URL prefirmada no necesitan conocer la clave de acceso secreta para acceder al recurso, lo que permite proporcionar acceso restringido de terceros a un recurso.

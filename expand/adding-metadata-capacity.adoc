@@ -1,0 +1,55 @@
+---
+permalink: expand/adding-metadata-capacity.html 
+sidebar: sidebar 
+keywords: metadata capacity, add, adding, expand, expansion, guidelines, Storage Nodes, metadata storage 
+summary: Para garantizar que haya espacio adecuado disponible para los metadatos de objetos, puede que deba realizar un procedimiento de ampliación para añadir nuevos nodos de almacenamiento en cada sitio. 
+---
+= Añada capacidad de metadatos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para garantizar que haya espacio adecuado disponible para los metadatos de objetos, puede que deba realizar un procedimiento de ampliación para añadir nuevos nodos de almacenamiento en cada sitio.
+
+StorageGRID reserva espacio para los metadatos del objeto en el volumen 0 de cada nodo de almacenamiento. En cada sitio se mantienen tres copias de todos los metadatos de objetos, distribuidas uniformemente por todos los nodos de almacenamiento.
+
+Puede usar Grid Manager para supervisar la capacidad de metadatos de los nodos de almacenamiento y calcular la rapidez con la que se consume la capacidad de metadatos. Además, la alerta *almacenamiento de metadatos bajo* se activa para un nodo de almacenamiento cuando el espacio de metadatos utilizado alcanza determinados umbrales.
+
+Tenga en cuenta que la capacidad de metadatos de objetos de un grid se puede consumir con mayor rapidez que la capacidad de almacenamiento de objetos, en función de cómo se utilice el grid. Por ejemplo, si normalmente procesa grandes cantidades de objetos pequeños o añade grandes cantidades de metadatos de usuario o etiquetas a objetos, es posible que deba añadir nodos de almacenamiento para aumentar la capacidad de metadatos aunque haya suficiente capacidad de almacenamiento de objetos.
+
+Para obtener más información, consulte lo siguiente:
+
+* link:../admin/managing-object-metadata-storage.html["Gestione el almacenamiento de metadatos de objetos"]
+* link:../monitor/monitoring-storage-capacity.html#monitor-object-metadata-capacity-for-each-storage-node["Supervise la capacidad de metadatos de los objetos para cada nodo de almacenamiento"]
+
+
+
+
+== Directrices para aumentar la capacidad de metadatos
+
+Antes de añadir nodos de almacenamiento para aumentar la capacidad de metadatos, revise las siguientes directrices y limitaciones:
+
+* Suponiendo que haya suficiente capacidad de almacenamiento de objetos disponible, tener más espacio disponible para los metadatos de objetos aumenta el número de objetos que se pueden almacenar en su sistema StorageGRID.
+* Es posible aumentar la capacidad de metadatos de un grid si se añaden uno o varios nodos de almacenamiento a cada sitio.
+* El espacio real reservado para los metadatos del objeto en un nodo de almacenamiento determinado depende de la opción de almacenamiento de espacio reservado de metadatos (configuración para todo el sistema), la cantidad de RAM asignada al nodo y el tamaño del volumen del nodo 0.
+* No se puede aumentar la capacidad de metadatos añadiendo volúmenes de almacenamiento a los nodos de almacenamiento existentes, ya que los metadatos se almacenan solo en el volumen 0.
+* No se puede aumentar la capacidad de los metadatos añadiendo un sitio nuevo.
+* StorageGRID conserva tres copias de todos los metadatos de objetos en cada sitio. Por esta razón, la capacidad de metadatos de su sistema está limitada por la capacidad de metadatos de su sitio más pequeño.
+* Cuando se añade capacidad de metadatos, debe añadir el mismo número de nodos de almacenamiento a cada sitio.
+
+
+Consulte la link:../admin/managing-object-metadata-storage.html["Descripción del espacio reservado de metadatos"].
+
+
+
+== La forma en que se redistribuyen los metadatos cuando se añaden nodos de almacenamiento
+
+Cuando se añaden nodos de almacenamiento en una expansión, StorageGRID redistribuye los metadatos de objetos existentes a los nodos nuevos de cada sitio, lo que aumenta la capacidad general de metadatos del grid. No se requiere ninguna acción del usuario.
+
+La figura siguiente muestra cómo StorageGRID redistribuye los metadatos de objetos cuando añade nodos de almacenamiento en una expansión. El lado izquierdo de la figura representa el volumen 0 de tres nodos de almacenamiento antes de la ampliación. Los metadatos consumen una parte relativamente grande del espacio de metadatos disponible de cada nodo y se ha activado la alerta *almacenamiento de metadatos bajo*.
+
+El lado derecho de la figura muestra cómo se redistribuyen los metadatos existentes después de agregar dos nodos de almacenamiento al sitio. La cantidad de metadatos en cada nodo ha disminuido, la alerta *almacenamiento de metadatos bajo* ya no se activa y ha aumentado el espacio disponible para los metadatos.
+
+image::../media/metadata_space_after_expansion.png[Diagrama de metadatos redistribuido después de agregar dos nodos de almacenamiento]

@@ -1,0 +1,166 @@
+---
+permalink: ilm/example-5-ilm-rules-and-policy-for-strict-ingest-behavior.html 
+sidebar: sidebar 
+keywords: strict ingest example, example ILM rule, information lifecycle rule examples 
+summary: Puede usar un filtro de ubicación y el comportamiento de ingesta estricto de una regla para evitar que los objetos se guarden en una ubicación de centro de datos en particular. 
+---
+= Ejemplo 5: Reglas de ILM y política para el comportamiento de consumo estricto
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede usar un filtro de ubicación y el comportamiento de ingesta estricto de una regla para evitar que los objetos se guarden en una ubicación de centro de datos en particular.
+
+En este ejemplo, un inquilino con sede en París no quiere almacenar algunos objetos fuera de la UE debido a preocupaciones regulatorias. Otros objetos, incluidos todos los objetos de otras cuentas de inquilino, pueden almacenarse en el centro de datos de París o en el centro de datos de EE. UU.
+
+
+CAUTION: Las siguientes reglas y políticas de ILM son solo ejemplos. Existen varias formas de configurar las reglas de ILM. Antes de activar una nueva política, simule para confirmar que funcionará según lo previsto para proteger el contenido de la pérdida.
+
+.Información relacionada
+* link:data-protection-options-for-ingest.html["Opciones de procesamiento"]
+* link:create-ilm-rule-select-ingest-behavior.html["Create ILM rule: Seleccione el comportamiento de ingesta"]
+
+
+
+
+== Regla 1 de ILM, por ejemplo 5: Ingesta estricta para garantizar el centro de datos de París
+
+Esta regla de ILM de ejemplo usa el comportamiento de ingesta estricto para garantizar que los objetos que ha ahorrado un inquilino basado en París en cubos S3 con la región establecida en la región eu-West-3 (París) nunca se almacenen en el centro de datos de EE. UU.
+
+Esta regla se aplica a objetos que pertenecen al arrendatario de París y que tienen la región de cubo S3 establecida en eu-West-3 (París).
+
+[cols="1a,2a"]
+|===
+| Definición de regla | Valor de ejemplo 
+
+
+ a| 
+Cuenta de inquilino
+ a| 
+Inquilino de París
+
+
+
+ a| 
+Filtro avanzado
+ a| 
+La restricción de ubicación es igual a eu-west-3
+
+
+
+ a| 
+Pools de almacenamiento
+ a| 
+Sitio 1 (París)
+
+
+
+ a| 
+Nombre de regla
+ a| 
+Ingesta estricta para garantizar el centro de datos París
+
+
+
+ a| 
+Tiempo de referencia
+ a| 
+Tiempo de ingesta
+
+
+
+ a| 
+Ubicaciones
+ a| 
+El día 0, mantenga dos copias replicadas para siempre en el sitio 1 (París)
+
+
+
+ a| 
+Comportamiento de ingesta
+ a| 
+Estricto. Utilice siempre las colocaciones de esta regla durante el procesamiento. La ingesta falla si no es posible almacenar dos copias del objeto en el centro de datos de París.
+
+|===
+image::../media/ilm_rule_1_example_5_strict_ingest.png[Ejemplo de ingesta estricta de la regla ILM 1 5]
+
+
+
+== Regla 2 de ILM, por ejemplo 5: Ingesta equilibrada de otros objetos
+
+Esta regla de ILM de ejemplo utiliza el comportamiento de ingesta equilibrada para proporcionar una eficiencia de ILM óptima para cualquier objeto que no sea coincidente con la primera regla. Se almacenarán dos copias de todos los objetos compatibles con esta regla: Una en el centro de datos estadounidense y una en el centro de datos de París. Si la regla no se puede cumplir inmediatamente, las copias provisionales se almacenan en cualquier ubicación disponible.
+
+Esta regla se aplica a objetos que pertenecen a cualquier arrendatario y a cualquier región.
+
+[cols="1a,2a"]
+|===
+| Definición de regla | Valor de ejemplo 
+
+
+ a| 
+Cuenta de inquilino
+ a| 
+Ignorar
+
+
+
+ a| 
+Filtro avanzado
+ a| 
+_No especificado_
+
+
+
+ a| 
+Pools de almacenamiento
+ a| 
+Sitio 1 (París) y Sitio 2 (EE.UU.)
+
+
+
+ a| 
+Nombre de regla
+ a| 
+2 copias 2 centros de datos
+
+
+
+ a| 
+Tiempo de referencia
+ a| 
+Tiempo de ingesta
+
+
+
+ a| 
+Ubicaciones
+ a| 
+Desde el día 0, mantenga dos copias replicadas para siempre en dos centros de datos
+
+
+
+ a| 
+Comportamiento de ingesta
+ a| 
+Equilibrado. Los objetos que coinciden con esta regla se colocan de acuerdo con las instrucciones de colocación de la regla, si es posible. De lo contrario, las copias provisionales se realizan en cualquier lugar disponible.
+
+|===
+
+
+== Política de ILM, por ejemplo 5: Combinar comportamientos de consumo
+
+La política de ILM de ejemplo incluye dos reglas que tienen comportamientos de consumo diferentes.
+
+Una política de ILM que usa dos comportamientos de consumo diferentes puede incluir reglas de ILM como las siguientes:
+
+* Almacene objetos que pertenecen al inquilino de París y que tienen la región de cubo de S3 establecida en eu-West-3 (París) solo en el centro de datos de París. No se procese correctamente si el centro de datos de París no está disponible.
+* Almacenar todos los demás objetos (incluidos los que pertenecen al inquilino de París, pero que tienen una región de bloques diferente) tanto en el centro de datos de EE. UU. Como en el de París. Realice copias provisionales en cualquier ubicación disponible si la instrucción de colocación no se puede satisfacer.
+
+
+Al simular la directiva de ejemplo, espera que los objetos de prueba se evalúen de la siguiente forma:
+
+* Cualquier objeto que pertenezca al inquilino de París y que tenga la región de bloque de S3 establecida en eu-West-3 se ajusta a la primera regla y se almacena en el centro de datos de París. Como la primera regla usa un procesamiento estricto, estos objetos nunca se almacenan en el centro de datos de EE. UU. Si los nodos de almacenamiento del centro de datos de París no están disponibles, la ingesta falla.
+* Todos los demás objetos coinciden con la segunda regla, incluidos los objetos que pertenecen al arrendatario de París y que no tienen la región del cubo S3 establecida en eu-west-3. Se guarda una copia de cada objeto en cada centro de datos. Sin embargo, como la segunda regla utiliza procesamiento equilibrado, si un centro de datos no está disponible, se guardan dos copias provisionales en cualquier ubicación disponible.
+

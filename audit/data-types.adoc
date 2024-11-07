@@ -1,0 +1,61 @@
+---
+permalink: audit/data-types.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, data, types, UI32, UI64, FC32, IPAD, CSTR, IPAD 
+summary: Se utilizan diferentes tipos de datos para almacenar información en mensajes de auditoría. 
+---
+= Tipos de datos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se utilizan diferentes tipos de datos para almacenar información en mensajes de auditoría.
+
+[cols="1a,4a"]
+|===
+| Tipo | Descripción 
+
+
+ a| 
+UI32
+ a| 
+Entero largo sin signo (32 bits); puede almacenar los números de 0 a 4,294,967,295.
+
+
+
+ a| 
+UI64
+ a| 
+Entero doble largo sin signo (64 bits); puede almacenar los números de 0 a 18,446,744,073,709,551,615.
+
+
+
+ a| 
+FC32
+ a| 
+Constante de cuatro caracteres; un valor entero sin signo de 32 bits representado como cuatro caracteres ASCII como ABCD.
+
+
+
+ a| 
+IPAD
+ a| 
+Se usa para direcciones IP.
+
+
+
+ a| 
+CSTR
+ a| 
+Matriz de longitud variable de caracteres UTF-8. Los caracteres se pueden escapar con las siguientes convenciones:
+
+* La barra invertida es \\.
+* El retorno del carro es \r.
+* Las comillas dobles son \ʺ.
+* La alimentación de línea (nueva línea) es \n.
+* Los caracteres se pueden sustituir por sus equivalentes hexadecimales (en el formato \xHH, donde HH es el valor hexadecimal que representa el carácter).
+
+
+|===

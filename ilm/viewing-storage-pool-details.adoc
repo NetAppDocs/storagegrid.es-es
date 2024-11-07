@@ -1,0 +1,58 @@
+---
+permalink: ilm/viewing-storage-pool-details.html 
+sidebar: sidebar 
+keywords: storage pool, view details 
+summary: Es posible ver los detalles de un pool de almacenamiento para determinar dónde se usa el pool de almacenamiento y para ver qué nodos y calidades de almacenamiento se incluyen. 
+---
+= Ver detalles del pool de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es posible ver los detalles de un pool de almacenamiento para determinar dónde se usa el pool de almacenamiento y para ver qué nodos y calidades de almacenamiento se incluyen.
+
+.Antes de empezar
+* Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Tienes link:../admin/admin-group-permissions.html["permisos de acceso específicos"].
+
+
+.Pasos
+. Seleccione *ILM* > *agrupaciones de almacenamiento*.
++
+La tabla Storage Pools incluye la siguiente información para cada pool de almacenamiento que incluye nodos de almacenamiento:
+
++
+** *Nombre*: El nombre exclusivo para mostrar de la agrupación de almacenamiento.
+** *Node count*: El número de nodos en el pool de almacenamiento.
+** *Uso de almacenamiento*: El porcentaje del espacio total utilizable que se ha utilizado para los datos de objetos en este nodo. Este valor no incluye metadatos de objetos.
+** * Capacidad total*: El tamaño del pool de almacenamiento, que equivale a la cantidad total de espacio utilizable para los datos de objetos para todos los nodos del pool de almacenamiento.
+** *Uso de ILM*: Cómo se está utilizando actualmente el pool de almacenamiento. Es posible que un pool de almacenamiento no se utilice o que se utilice en una o más reglas de ILM, perfiles de código de borrado, o ambas.
+
+
+. Para ver los detalles de un pool de almacenamiento específico, seleccione su nombre.
++
+Se muestra la página de detalles del pool de almacenamiento.
+
+. Vea la pestaña *Nodos* para obtener información sobre los nodos de almacenamiento incluidos en el grupo de almacenamiento.
++
+En la tabla se incluye la siguiente información para cada nodo:
+
++
+** Nombre del nodo
+** Nombre del sitio
+** Grado de almacenamiento
+** Uso de almacenamiento: El porcentaje del espacio útil total para datos de objeto que se ha utilizado para el nodo de almacenamiento.
++
+
+NOTE: El mismo valor de Uso de almacenamiento (%) también se muestra en el gráfico Almacenamiento usado - Datos de objeto para cada nodo de almacenamiento (seleccione *NODOS* > *_NODO de almacenamiento_* > *Almacenamiento*).
+
+
+
+. Consulte la pestaña *ILM usage* para determinar si el pool de almacenamiento se está utilizando actualmente en reglas de ILM o perfiles de codificación de borrado.
+. Opcionalmente, vaya a la página de reglas de ILM * para conocer y administrar las reglas que utilizan el grupo de almacenamiento.
++
+Consulte la link:working-with-ilm-rules-and-ilm-policies.html["Instrucciones para trabajar con reglas de ILM"].
+
+

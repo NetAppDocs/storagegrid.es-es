@@ -1,0 +1,16 @@
+---
+permalink: release-notes/index.html 
+sidebar: sidebar 
+keywords: release notes 
+summary: Obtenga información específica de versión sobre problemas solucionados y problemas conocidos. 
+---
+= Notas de la versión
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Obtenga información específica de versión sobre problemas solucionados y problemas conocidos.
+
+Inicie sesión en el sitio de soporte de NetApp para https://library.netapp.com/ecm/ecm_download_file/ECMLP3330064["Vea o descargue un archivo PDF"^] contener las notas de la versión de StorageGRID 11,9.

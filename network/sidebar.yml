@@ -1,0 +1,42 @@
+---
+section: network
+title: Directrices sobre redes
+entries:
+- title: Redes StorageGRID
+  pdf-filename: Directrices para redes de StorageGRID
+  url: "/network/index.html"
+- title: Tipos de red StorageGRID
+  url: "/network/storagegrid-network-types.html"
+- title: Ejemplos de topología de red
+  entries:
+  - title: Topología de red de cuadrícula
+    url: "/network/grid-network-topology.html"
+  - title: Topología de red de administrador
+    url: "/network/admin-network-topology.html"
+  - title: Topología de la red de cliente
+    url: "/network/client-network-topology.html"
+  - title: Topología para las tres redes
+    url: "/network/topology-for-all-three-networks.html"
+- title: Requisitos de red
+  url: "/network/networking-requirements-and-guidelines.html"
+- title: Requisitos específicos de la red
+  url: "/network/network-specific-requirements.html"
+- title: Consideraciones sobre redes específicas de la implementación
+  entries:
+  - title: Implementaciones de Linux
+    url: "/network/linux-deployments.html"
+  - title: Conexión a redes y puertos para los servicios de plataforma y los pools
+      de almacenamiento en cloud
+    url: "/network/networking-and-ports-for-platform-services-and-cloud-storage-pools.html"
+  - title: Nodos del dispositivo
+    url: "/network/appliance-nodes.html"
+- title: Instalación y aprovisionamiento de red
+  url: "/network/network-installation-and-provisioning.html"
+- title: Directrices posteriores a la instalación
+  url: "/network/post-installation-guidelines.html"
+- title: Referencia de puerto de red
+  entries:
+  - title: Comunicaciones internas de los nodos de grid
+    url: "/network/internal-grid-node-communications.html"
+  - title: Comunicaciones externas
+    url: "/network/external-communications.html"

@@ -1,0 +1,42 @@
+---
+permalink: admin/protecting-against-cross-site-request-forgery-csrf.html 
+sidebar: sidebar 
+keywords: csrf, cross site request forgery, token 
+summary: 'Puede ayudar a protegerse contra ataques de falsificación de solicitudes entre sitios \(CSRF\) contra StorageGRID utilizando tokens CSRF para mejorar la autenticación que utiliza cookies. El administrador de grid y el administrador de inquilinos habilitan automáticamente esta característica de seguridad; otros clientes de API pueden elegir si habilitar la función cuando se conectan.' 
+---
+= Protección contra falsificación de solicitudes entre sitios (CSRF)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede ayudar a protegerse contra ataques de falsificación de solicitudes entre sitios (CSRF) contra StorageGRID mediante tokens CSRF para mejorar la autenticación que usa cookies. El administrador de grid y el administrador de inquilinos habilitan automáticamente esta característica de seguridad; otros clientes de API pueden elegir si habilitar la función cuando se conectan.
+
+Un atacante que pueda activar una solicitud a un sitio diferente (por ejemplo, con UNA POST de formulario HTTP) puede provocar ciertas solicitudes mediante las cookies del usuario que ha iniciado sesión.
+
+StorageGRID ayuda a proteger contra ataques de CSRF mediante tokens CSRF. Cuando se activa, el contenido de una cookie específica debe coincidir con el contenido de un encabezado específico o de un parámetro DE cuerpo DE POST específico.
+
+Para habilitar la función, se debe establecer `csrfToken` el parámetro en `true` durante la autenticación. El valor predeterminado es `false`.
+
+[listing]
+----
+curl -X POST --header "Content-Type: application/json" --header "Accept: application/json" -d "{
+  \"username\": \"MyUserName\",
+  \"password\": \"MyPassword\",
+  \"cookie\": true,
+  \"csrfToken\": true
+}" "https://example.com/api/v3/authorize"
+----
+Cuando es verdadero, una `GridCsrfToken` cookie se establece con un valor aleatorio para los inicios de sesión en Grid Manager, y la `AccountCsrfToken` cookie se establece con un valor aleatorio para los inicios de sesión en el gestor de inquilinos.
+
+Si la cookie está presente, todas las solicitudes que puedan modificar el estado del sistema (POST, PUT, PATCH, DELETE) deben incluir una de las siguientes:
+
+*  `X-Csrf-Token`El encabezado, con el valor del encabezado definido en el valor de la cookie de token CSRF.
+* Para puntos finales que aceptan un cuerpo codificado en forma: Un `csrfToken` parámetro de cuerpo de solicitud codificado en forma.
+
+
+Consulte la documentación de API en línea para obtener detalles y ejemplos adicionales.
+
+
+NOTE: Las solicitudes que tienen un conjunto de cookies de token CSRF también aplicarán el encabezado de tipo de contenido: Aplicación/json para cualquier solicitud que espere un cuerpo de solicitud JSON como una protección adicional contra los ataques CSRF.

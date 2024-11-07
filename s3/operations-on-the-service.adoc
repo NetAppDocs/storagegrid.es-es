@@ -1,0 +1,42 @@
+---
+permalink: s3/operations-on-the-service.html 
+sidebar: sidebar 
+keywords: listbuckets, get service, operations on the service 
+summary: El sistema StorageGRID admite operaciones en el servicio. 
+---
+= Operaciones en el servicio
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El sistema StorageGRID admite las siguientes operaciones en el servicio.
+
+[cols="1a,2a"]
+|===
+| Funcionamiento | Implementación 
+
+
+ a| 
+ListCuchers
+
+(Anteriormente llamado GET Service)
+ a| 
+Se implementa con todo el comportamiento de la API DE REST de Amazon S3. Reservado el derecho a realizar modificaciones.
+
+
+
+ a| 
+Obtenga el uso del almacenamiento
+ a| 
+La solicitud StorageGRID link:get-storage-usage-request.html["Obtenga el uso del almacenamiento"]le indica la cantidad total de almacenamiento que utiliza una cuenta y de cada bloque asociado a la cuenta. Se trata de una operación en el servicio con una ruta de acceso de / y un parámetro de consulta personalizado (`?x-ntap-sg-usage`) agregada.
+
+
+
+ a| 
+OPCIONES /
+ a| 
+Las aplicaciones cliente pueden emitir `OPTIONS /` solicitudes al puerto S3 de un nodo de almacenamiento, sin proporcionar credenciales de autenticación S3, para determinar si el nodo de almacenamiento está disponible. Puede usar esta solicitud para supervisar o para permitir que los equilibradores de carga externos identifiquen cuando un nodo de almacenamiento esté inactivo.
+
+|===

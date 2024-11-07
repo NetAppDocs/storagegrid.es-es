@@ -1,0 +1,26 @@
+---
+permalink: admin/configuring-network-settings.html 
+sidebar: sidebar 
+keywords: network settings, vlan interface, traffic classification 
+summary: Puede configurar varios ajustes de red desde el Gestor de cuadrícula para ajustar el funcionamiento del sistema StorageGRID. 
+---
+= Configure los ajustes de red
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede configurar varios ajustes de red desde el Gestor de cuadrícula para ajustar el funcionamiento del sistema StorageGRID.
+
+
+
+== Configure las interfaces VLAN
+
+Puede link:configure-vlan-interfaces.html["Cree interfaces de LAN virtual (VLAN)"]aislar y crear particiones de tráfico para mejorar la seguridad, la flexibilidad y el rendimiento. Cada interfaz de VLAN está asociada con una o varias interfaces principales en los nodos de administración y de puerta de enlace. Puede utilizar interfaces VLAN en grupos de alta disponibilidad y en extremos de equilibrador de carga para segregar el tráfico cliente o administrador por aplicación o inquilino.
+
+
+
+== Directivas de clasificación de tráfico
+
+Puede utilizar link:managing-traffic-classification-policies.html["políticas de clasificación de tráfico"] para identificar y gestionar diferentes tipos de tráfico de red, incluido el tráfico relacionado con bloques específicos, inquilinos, subredes de clientes o extremos de equilibrador de carga. Estas políticas pueden ayudar a limitar y supervisar el tráfico.

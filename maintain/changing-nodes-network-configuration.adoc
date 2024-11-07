@@ -1,0 +1,210 @@
+---
+permalink: maintain/changing-nodes-network-configuration.html 
+sidebar: sidebar 
+keywords: storagegrid, network configuration, node network configuration 
+summary: Puede cambiar la configuración de red de uno o varios nodos con la herramienta Cambiar IP. Puede cambiar la configuración de la red de cuadrícula o agregar, cambiar o quitar las redes de administrador o de cliente. 
+---
+= Cambie la configuración de red de los nodos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede cambiar la configuración de red de uno o varios nodos con la herramienta Cambiar IP. Puede cambiar la configuración de la red de cuadrícula o agregar, cambiar o quitar las redes de administrador o de cliente.
+
+.Antes de empezar
+Tiene el `Passwords.txt` archivo.
+
+.Acerca de esta tarea
+*Linux:* Si va a agregar un nodo de cuadrícula a la red de administración o a la red de cliente por primera vez, y no ha configurado previamente ADMIN_NETWORK_TARGET o CLIENT_NETWORK_TARGET en el archivo de configuración de nodo, debe hacerlo ahora.
+
+Consulte las instrucciones de instalación de StorageGRID para su sistema operativo Linux:
+
+* link:../rhel/index.html["Instalar StorageGRID en Red Hat Enterprise Linux"]
+* link:../ubuntu/index.html["Instalar StorageGRID en Ubuntu o Debian"]
+
+
+*Electrodomésticos:* En los dispositivos StorageGRID, si el Cliente o la Red de administración no se configuraron en el Instalador de dispositivos StorageGRID durante la instalación inicial, la red no se puede agregar utilizando solo la herramienta Cambiar IP. En primer lugar, debe https://docs.netapp.com/us-en/storagegrid-appliances/commonhardware/placing-appliance-into-maintenance-mode.html["coloque el aparato en modo de mantenimiento"^] configurar los enlaces, devolver el dispositivo al modo de funcionamiento normal y, a continuación, utilizar la herramienta Cambiar IP para modificar la configuración de red. Consulte la https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/configuring-network-links.html["procedimiento para configurar enlaces de red"^].
+
+Es posible cambiar el valor de la dirección IP, la máscara de subred, la puerta de enlace o MTU para uno o más nodos de cualquier red.
+
+También puede agregar o quitar un nodo de una red cliente o de una red administrativa:
+
+* Puede añadir un nodo a una red cliente o a una red de administrador si añade una dirección IP/máscara de subred en esa red al nodo.
+* Puede quitar un nodo de una red cliente o de una red de administrador si elimina la dirección IP/máscara de subred del nodo en esa red.
++
+Los nodos no se pueden eliminar de la red de grid.
+
+
+
+
+NOTE: Los intercambios de direcciones IP no están permitidos. Si debe intercambiar direcciones IP entre nodos de cuadrícula, debe utilizar una dirección IP intermedia temporal.
+
+
+NOTE: Si está habilitado el inicio de sesión único (SSO) para el sistema StorageGRID y va a cambiar la dirección IP de un nodo de administración, tenga en cuenta que cualquier confianza de la parte que dependa configurada mediante la dirección IP del nodo de administración (en lugar de su nombre de dominio completo, como se recomienda) pasará a ser no válida. Ya no podrá iniciar sesión en el nodo. Inmediatamente después de cambiar la dirección IP, debe actualizar o volver a configurar la confianza del interlocutor que confía en el nodo en los Servicios de Federación de Active Directory (AD FS) con la nueva dirección IP. Consulte las instrucciones para link:../admin/configuring-sso.html["Configuración de SSO"].
+
+
+NOTE: Todos los cambios realizados en la red mediante la herramienta Cambiar IP se propagan al firmware del instalador para los dispositivos StorageGRID. De este modo, si se vuelve a instalar el software StorageGRID en un dispositivo o si se pone un dispositivo en modo de mantenimiento, la configuración de red será correcta.
+
+.Pasos
+. Inicie sesión en el nodo de administración principal:
++
+.. Introduzca el siguiente comando: `ssh admin@_primary_Admin_Node_IP_`
+.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
+.. Introduzca el siguiente comando para cambiar a raíz: `su -`
+.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
+
+
++
+Al iniciar sesión como root, la petición de datos cambia de `$` a `#`.
+
+. Inicie la herramienta Change IP introduciendo el siguiente comando: `change-ip`
+. Introduzca la clave de acceso de aprovisionamiento en el aviso de.
++
+Aparece el menú principal.
+
++
+image::../media/change_ip_tool_main_menu.png[Captura de pantalla que muestra la pantalla de bienvenida de la herramienta Change IP]
+
+. Si lo desea, seleccione *1* para elegir los nodos que desea actualizar. A continuación, seleccione una de las siguientes opciones:
++
+** *1*: Un solo nodo -- seleccione por nombre
+** *2*: Un solo nodo -- seleccione por sitio y luego por nombre
+** *3*: Un solo nodo -- seleccione por IP actual
+** *4*: Todos los nodos de un sitio
+** *5*: Todos los nodos de la red
++
+*Nota:* Si desea actualizar todos los nodos, deje que "All" permanezca seleccionado.
+
+
+
++
+Después de hacer su selección, aparece el menú principal, con el campo *nodos seleccionados* actualizado para reflejar su elección. Todas las acciones posteriores se realizan solo en los nodos que se muestran.
+
+. En el menú principal, seleccione la opción *2* para editar la información de IP/máscara, puerta de enlace y MTU para los nodos seleccionados.
++
+.. Seleccione la red en la que desea realizar los cambios:
++
+--
+*** *1*: Red de red
+*** *2*: Red de administración
+*** *3*: Red cliente
+*** *4*: Todas las redes
+
+
+--
++
+--
+Después de realizar su selección, la petición de datos muestra el nombre del nodo, el nombre de red (Grid, Admin o Client), el tipo de datos (IP/mask, pasarela o MTU) y valor actual.
+
+Si se edita la dirección IP, la longitud del prefijo, la puerta de enlace o la MTU de una interfaz configurada para DHCP, la interfaz se cambiará a estática. Cuando se selecciona para cambiar una interfaz configurada por DHCP, se muestra una advertencia para informarle de que la interfaz cambiará a estática.
+
+Las interfaces configuradas como `fixed` no se pueden editar.
+
+--
+.. Para establecer un nuevo valor, introdúzcalo en el formato que se muestra para el valor actual.
+.. Para dejar sin modificar el valor actual, pulse *Intro*.
+.. Si el tipo de datos es `IP/mask`, puede eliminar el administrador o la red cliente del nodo introduciendo *d* o *0,0.0,0/0*.
+.. Después de editar todos los nodos que desea cambiar, introduzca *q* para volver al menú principal.
++
+Los cambios se mantienen hasta que se borran o se aplican.
+
+
+
+. Revise los cambios seleccionando una de las siguientes opciones:
++
+** *5*: Muestra las ediciones en la salida que está aislada para mostrar sólo el elemento cambiado. Los cambios se resaltan en verde (adiciones) o rojo (eliminaciones), como se muestra en la salida de ejemplo:
++
+image::../media/change_ip_tool_edit_ip_mask_sample_output.png[captura de pantalla descrita por el texto circundante]
+
+** *6*: Muestra las ediciones en salida que muestran la configuración completa. Los cambios se resaltan en verde (adiciones) o rojo (eliminaciones).
++
+
+NOTE: Algunas interfaces de línea de comandos pueden mostrar adiciones y eliminaciones utilizando formato de tachado. La visualización adecuada depende del cliente de terminal que admita las secuencias de escape de VT100 necesarias.
+
+
+
+. Seleccione la opción *7* para validar todos los cambios.
++
+Esta validación garantiza que no se violen las reglas para las redes Grid, Admin y Client, como no utilizar subredes superpuestas.
+
++
+En este ejemplo, la validación devolvió errores.
+
++
+image::../media/change_ip_tool_validate_sample_error_messages.gif[captura de pantalla descrita por el texto circundante]
+
++
+En este ejemplo, se ha aprobado la validación.
+
++
+image::../media/change_ip_tool_validate_sample_passed_messages.gif[captura de pantalla descrita por el texto circundante]
+
+. Una vez aprobada la validación, elija una de las siguientes opciones:
++
+** *8*: Guardar los cambios no aplicados.
++
+Esta opción le permite salir de la herramienta Cambiar IP e iniciarla de nuevo más tarde, sin perder ningún cambio no aplicado.
+
+** *10*: Aplique la nueva configuración de red.
+
+
+. Si ha seleccionado la opción *10*, elija una de las siguientes opciones:
++
+** *Aplicar*: Aplique los cambios inmediatamente y reinicie automáticamente cada nodo si es necesario.
++
+Si la nueva configuración de red no requiere ningún cambio físico de red, puede seleccionar *aplicar* para aplicar los cambios inmediatamente. Los nodos se reiniciarán automáticamente si es necesario. Se mostrarán los nodos que se deban reiniciar.
+
+** *Fase*: Aplique los cambios la próxima vez que se reinicien manualmente los nodos.
++
+Si necesita realizar cambios físicos o virtuales en la configuración de red para que funcione la nueva configuración de red, debe utilizar la opción *Stage*, apagar los nodos afectados, realizar los cambios físicos de red necesarios y reiniciar los nodos afectados. Si selecciona *aplicar* sin realizar primero estos cambios de red, los cambios normalmente fallarán.
+
++
+
+NOTE: Si utiliza la opción *Stage*, debe reiniciar el nodo Lo antes posible. después de la configuración provisional para minimizar las interrupciones.
+
+** *CANCELAR*: No realice ningún cambio de red en este momento.
++
+Si no sabía que los cambios propuestos requieren que se reinicien los nodos, puede aplazar los cambios para minimizar el impacto del usuario. Si selecciona *cancelar*, volverá al menú principal y mantendrá los cambios para que los pueda aplicar más tarde.
+
++
+Al seleccionar *aplicar* o *fase*, se genera un nuevo archivo de configuración de red, se realiza el aprovisionamiento y los nodos se actualizan con nueva información de trabajo.
+
++
+Durante el aprovisionamiento, la salida muestra el estado a medida que se aplican las actualizaciones.
+
++
+[listing]
+----
+Generating new grid networking description file...
+
+Running provisioning...
+
+Updating grid network configuration on Name
+----
+
+
++
+Después de aplicar o almacenar en zona intermedia los cambios, se genera un nuevo paquete de recuperación como resultado del cambio de configuración de cuadrícula.
+
+. Si ha seleccionado *fase*, siga estos pasos después de finalizar el aprovisionamiento:
++
+.. Realice los cambios necesarios en la red virtual o física.
++
+*Cambios físicos en la red*: Realice los cambios físicos necesarios en la red, apagando el nodo de forma segura si es necesario.
+
++
+*Linux*: Si está agregando el nodo a una red de administración o a una red cliente por primera vez, asegúrese de que ha agregado la interfaz como se describe en link:linux-adding-interfaces-to-existing-node.html["Linux: Añadir interfaces al nodo existente"].
+
+.. Reinicie los nodos afectados.
+
+
+. Seleccione *0* para salir de la herramienta Cambiar IP una vez que hayan finalizado los cambios.
+. Descargue un nuevo paquete de recuperación desde Grid Manager.
++
+.. Seleccione *MANTENIMIENTO* > *sistema* > *paquete de recuperación*.
+.. Introduzca la clave de acceso de aprovisionamiento.
+
+
+

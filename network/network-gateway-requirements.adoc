@@ -1,0 +1,19 @@
+---
+permalink: network/network-gateway-requirements.html 
+sidebar: sidebar 
+keywords: network gateway requirements 
+summary: Siga estos requisitos y directrices para las puertas de enlace o routers de red. 
+---
+= Requisitos de puerta de enlace de red
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Siga estos requisitos y directrices para las puertas de enlace o routers de red.
+
+* Si se establece, la puerta de enlace para una red determinada debe estar dentro de la subred de la red específica.
+* Si configura una interfaz con direcciones estáticas, debe especificar una dirección de puerta de enlace distinta de 0.0.0.0.
+* Si no tiene una puerta de enlace, lo mejor es establecer la dirección de la puerta de enlace para que sea la dirección IP de la interfaz de red.
+

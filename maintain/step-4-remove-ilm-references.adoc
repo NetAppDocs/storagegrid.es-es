@@ -1,0 +1,44 @@
+---
+permalink: maintain/step-4-remove-ilm-references.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, remove ilm reference 
+summary: 'En el paso 4 \(Eliminar referencias de ILM\) del asistente del sitio de retirada, debe eliminar o editar cualquier regla de ILM no utilizada que haga referencia al sitio, incluso si las reglas no se utilizan en ninguna política de ILM.' 
+---
+= Paso 4: Eliminar referencias de ILM
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En el paso 4 (Eliminar referencias de ILM) del asistente del sitio de retirada, debe eliminar o editar las reglas de ILM no utilizadas que hagan referencia al sitio, incluso si las reglas no se usan en ninguna política de ILM.
+
+.Pasos
+. Determine si alguna regla de ILM sin usar se refiere al sitio.
++
+Si aparece alguna regla de ILM, esas reglas siguen refiriéndose al sitio, pero no se utilizan en ninguna política.
+
++
+
+NOTE: Cuando StorageGRID decomisiona el sitio, desactivará automáticamente todos los perfiles de código de borrado no utilizados que hagan referencia al sitio y eliminará automáticamente los grupos de almacenamiento no utilizados que hagan referencia al sitio. El pool de almacenamiento Todos los nodos de almacenamiento (StorageGRID 11,6 y anteriores) se elimina porque utiliza el sitio Todos los sitios.
+
+. Edite o elimine cada regla no utilizada:
++
+** Para editar una regla, vaya a la página de reglas de ILM y actualice todas las ubicaciones con un perfil de código de borrado o un pool de almacenamiento que haga referencia al sitio. A continuación, vuelva a *Paso 4 (Eliminar referencias de ILM)*.
+** Para eliminar una regla, seleccione el icono de papelera image:../media/icon_trash_can.png["CAN de papelera de iconos"]y seleccione *OK*.
++
+
+NOTE: Debe eliminar la regla *Hacer 2 copias* antes de poder retirar un sitio.
+
+
+
+. Confirme que ninguna regla de ILM no utilizada hace referencia al sitio y que el botón *Siguiente* está habilitado.
+. Seleccione *Siguiente*.
++
+
+NOTE: Los pools de almacenamiento restantes y los perfiles de codificación de borrado que hagan referencia al sitio dejarán de ser válidos cuando se elimine el sitio. Cuando StorageGRID decomisiona el sitio, desactivará automáticamente todos los perfiles de código de borrado no utilizados que hagan referencia al sitio y eliminará automáticamente los grupos de almacenamiento no utilizados que hagan referencia al sitio. El pool de almacenamiento Todos los nodos de almacenamiento (StorageGRID 11,6 y anteriores) se elimina porque utiliza el sitio Todos los sitios.
+
++
+Aparece el paso 5 (resolver conflictos de nodos).
+
+

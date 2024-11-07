@@ -1,0 +1,104 @@
+---
+permalink: tenant/signing-in-to-tenant-manager.html 
+sidebar: sidebar 
+keywords: how to sign in to tenant manager 
+summary: Para acceder al Administrador de inquilinos, introduzca la URL del inquilino en la barra de direcciones de un navegador web compatible. 
+---
+= Inicie sesión en el Administrador de inquilinos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para acceder al Gestor de Inquilinos, introduzca la URL del inquilino en la barra de direcciones de un link:../admin/web-browser-requirements.html["navegador web compatible"].
+
+.Antes de empezar
+* Tiene sus credenciales de inicio de sesión.
+* Dispone de una dirección URL para acceder al gestor de inquilinos, tal y como proporciona el administrador de grid. La dirección URL tendrá el aspecto de uno de estos ejemplos:
++
+`\https://FQDN_or_Admin_Node_IP/`
+
++
+`\https://FQDN_or_Admin_Node_IP:port/`
+
++
+`\https://FQDN_or_Admin_Node_IP/?accountId=20-digit-account-id`
+
++
+`\https://FQDN_or_Admin_Node_IP:port/?accountId=20-digit-account-id`
+
++
+La URL siempre incluye un nombre de dominio completo (FQDN), la dirección IP de un nodo de administración o la dirección IP virtual de un grupo de alta disponibilidad de nodos de administración. También puede incluir un número de puerto, el ID de cuenta de inquilino de 20 dígitos o ambos.
+
+* Si la URL no incluye el ID de cuenta de 20 dígitos del inquilino, tiene este ID de cuenta.
+* Está utilizando una link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Las cookies están habilitadas en su navegador web.
+* Pertenece a un grupo de usuarios que tiene link:tenant-management-permissions.html["permisos de acceso específicos"].
+
+
+.Pasos
+. Iniciar una link:../admin/web-browser-requirements.html["navegador web compatible"].
+. En la barra de dirección del navegador, introduzca la URL para acceder al Administrador de inquilinos.
+. Si se le solicita una alerta de seguridad, instale el certificado con el asistente de instalación del explorador.
+. Inicie sesión en el Administrador de inquilinos.
++
+La pantalla de inicio de sesión que aparece depende de la dirección URL introducida y de si se ha configurado el inicio de sesión único (SSO) para StorageGRID.
+
++
+[role="tabbed-block"]
+====
+.No se utiliza SSO
+--
+Si StorageGRID no utiliza SSO, aparecerá una de las siguientes pantallas:
+
+** La página de inicio de sesión de Grid Manager. Seleccione el enlace *Inscrito de inquilino*.
++
+image::../media/tenant_login_link.png[Enlace de inicio de sesión de inquilinos en la página de inicio de sesión de Grid Manager]
+
+** La página de inicio de sesión del administrador de inquilinos. Es posible que el campo *Cuenta* ya esté completado, como se muestra a continuación.
++
+image::../media/tenant_user_sign_in.png[Página de inicio de sesión en el Gestor de inquilinos]
+
++
+... Si no se muestra el ID de cuenta de 20 dígitos del arrendatario, seleccione el nombre de la cuenta de arrendatario si aparece en la lista de cuentas recientes o introduzca el ID de cuenta.
+... Introduzca su nombre de usuario y contraseña.
+... Seleccione *Iniciar sesión*.
++
+Aparece el panel de control del gestor de inquilinos.
+
+... Si recibió una contraseña inicial de otra persona, seleccione *_username_* > *Cambiar contraseña* para proteger su cuenta.
+
+
+
+
+--
+.Uso de SSO
+--
+Si StorageGRID utiliza SSO, aparece una de las siguientes pantallas:
+
+** La página de SSO de su organización. Por ejemplo:
++
+image::../media/sso_organization_page.gif[Ejemplo de organización Iniciar sesión en la página SSO]
+
++
+Ingrese sus credenciales estándar de SSO y seleccione *Iniciar sesión*.
+
+** La página de inicio de sesión SSO de inquilino Manager.
++
+image::../media/sign_in_sso.png[Inicie sesión en una cuenta de inquilino si SSO está habilitado]
+
++
+... Si no se muestra el ID de cuenta de 20 dígitos del arrendatario, seleccione el nombre de la cuenta de arrendatario si aparece en la lista de cuentas recientes o introduzca el ID de cuenta.
+... Seleccione *Iniciar sesión*.
+... Inicie sesión con sus credenciales SSO estándar en la página de inicio de sesión SSO de su organización.
++
+Aparece el panel de control del gestor de inquilinos.
+
+
+
+
+
+--
+====
+

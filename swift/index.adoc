@@ -1,0 +1,17 @@
+---
+permalink: swift/index.html 
+sidebar: sidebar 
+keywords: openstack swift api support, swift rest api 
+summary: La compatibilidad con la API de Swift ha llegado al final de su vida útil y se quitará en una futura versión. 
+---
+= Use la API DE REST de Swift
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La compatibilidad con la API de Swift ha llegado al final de su vida útil y se quitará en una futura versión.
+
+
+TIP: Se han eliminado los detalles de Swift de esta versión del sitio del documento. Consulte https://docs.netapp.com/us-en/storagegrid-118/swift/index.html["StorageGRID 11,8: Use la API REST DE Swift"^].

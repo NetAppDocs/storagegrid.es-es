@@ -1,0 +1,174 @@
+---
+permalink: maintain/restoring-volume.html 
+sidebar: sidebar 
+keywords: storagegrid, restore, volume 
+summary: Puede restaurar datos de objetos para un volumen de almacenamiento o un nodo de almacenamiento con errores mediante Grid Manager. También puede utilizar Grid Manager para supervisar los procesos de restauración en curso y mostrar un historial de restauración. 
+---
+= Restaurar datos de objetos con Grid Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede restaurar los datos de objetos para un volumen de almacenamiento con errores o un nodo de almacenamiento mediante Grid Manager. También puede utilizar Grid Manager para supervisar los procesos de restauración en curso y mostrar un historial de restauración.
+
+.Antes de empezar
+* Completó cualquiera de estos procedimientos para formatear los volúmenes con errores:
++
+** link:../maintain/remounting-and-reformatting-appliance-storage-volumes.html["Volver a montar y volver a formatear los volúmenes de almacenamiento de los dispositivos (pasos manuales)"]
+** link:../maintain/remounting-and-reformatting-storage-volumes-manual-steps.html["Volver a montar y volver a formatear los volúmenes de almacenamiento (pasos manuales)"]
+
+
+* Ha confirmado que el nodo de almacenamiento en el que va a restaurar objetos tiene un estado de conexión de *Connected* image:../media/icon_alert_green_checkmark.png["icono de alerta verde marca de verificación"] en la pestaña *NODES* > *Overview* en Grid Manager.
+* Ha confirmado lo siguiente:
++
+** No hay una expansión de grid para agregar un nodo de almacenamiento en curso.
+** La retirada de nodo de almacenamiento no está en curso o no tiene errores.
+** No está en curso la recuperación de un volumen de almacenamiento con fallos.
+** No hay una recuperación de un nodo de almacenamiento con una unidad del sistema con fallos en curso.
+** No hay un trabajo de nuevo equilibrio de CE en curso.
+** La clonación de nodos del dispositivo no está en curso.
+
+
+
+
+.Acerca de esta tarea
+Después de reemplazar las unidades y realizar los pasos manuales para formatear los volúmenes, Grid Manager muestra los volúmenes como candidatos para la restauración en la pestaña *MANTENIMIENTO* > *Restauración de volumen* > *Nodos para restaurar*.
+
+Siempre que sea posible, restaure los datos de objetos con la página de restauración de volúmenes de Grid Manager. Puede <<enable-auto-restore-mode,active el modo de restauración automática>>iniciar automáticamente la restauración de volumen cuando los volúmenes estén listos para restaurarse o <<manually-restore,realizar la restauración de volúmenes manualmente>>. Siga estas directrices:
+
+* Si los volúmenes se enumeran en *MANTENIMIENTO* > *Restauración de volumen* > *Nodos a restaurar*, restaure los datos del objeto como se describe en los siguientes pasos. Se enumerará los volúmenes si:
++
+** Se produjo un error en algunos volúmenes de almacenamiento de un nodo, pero no en todos
+** Todos los volúmenes de almacenamiento de un nodo tienen errores y se reemplazan por la misma cantidad de volúmenes o más volúmenes
+
+
++
+La página de restauración de volumen en Grid Manager también le permite <<view-restoration-progress,supervise el proceso de restauración de volúmenes>>y.<<view-restoration-history,ver el historial de restauración>>
+
+* Si los volúmenes no aparecen en Grid Manager como candidatos para la restauración, siga los pasos correspondientes para usar `repair-data` el script para restaurar datos de objetos:
++
+** link:restoring-object-data-to-storage-volume.html["Restauración de datos de objeto en un volumen de almacenamiento (fallo de unidad de sistema)"]
+** link:restoring-object-data-to-storage-volume-where-system-drive-is-intact.html["Restaure los datos de objetos al volumen de almacenamiento donde la unidad del sistema esté intacta"]
+** link:restoring-object-data-to-storage-volume-for-appliance.html["Restaure datos de objetos al volumen de almacenamiento de dispositivo"]
++
+
+NOTE: El script repair-data está obsoleto y se eliminará en una versión futura.
+
+
+
++
+Si el nodo de almacenamiento recuperado contiene menos volúmenes que el nodo que sustituye, deberá utilizar `repair-data` el script.
+
+
+
+Es posible restaurar dos tipos de datos de objetos:
+
+* Los objetos de datos replicados se restauran desde otras ubicaciones, suponiendo que las reglas de ILM del grid se configuraron para que haya copias de objetos disponibles.
++
+** Si se configuró una regla de ILM para almacenar una sola copia replicada y esa copia estaba en un volumen de almacenamiento que falló, no podrá recuperar el objeto.
+** Si la única copia restante de un objeto se encuentra en un Cloud Storage Pool, StorageGRID debe emitir varias solicitudes al extremo Cloud Storage Pool para restaurar datos de objetos.
+
+
+* Los objetos de datos con código de borrado (EC) se restauran reensamblando los fragmentos almacenados. El algoritmo de código de borrado vuelve a crear los fragmentos dañados o perdidos a partir de los datos y fragmentos de paridad restantes.
++
+Las reparaciones de datos codificados para borrado pueden comenzar con algunos nodos de almacenamiento sin conexión. Sin embargo, si no se pueden tener en cuenta todos los datos con código de borrado, no se podrá completar la reparación. La reparación se completará después de que todos los nodos estén disponibles.
+
+
+
+
+NOTE: La restauración de volúmenes depende de la disponibilidad de recursos donde se almacenan las copias de objetos. El progreso de la restauración de volúmenes no es lineal y puede tardar días o semanas en completarse.
+
+
+
+== [[enable-auto-restore-mode]]Habilite el modo de restauración automática
+
+Cuando se habilita el modo de restauración automática, la restauración de volúmenes se inicia automáticamente cuando los volúmenes están listos para restaurarse.
+
+.Pasos
+. En Grid Manager, vaya a *MANTENIMIENTO* > *Restauración de volumen*.
+. Seleccione la pestaña *Nodos a restaurar*, luego deslice el interruptor para *Modo de restauración automática* a la posición habilitada.
+. Cuando aparezca el cuadro de diálogo de confirmación, revise los detalles.
++
+[NOTE]
+====
+** No podrá iniciar manualmente trabajos de restauración de volúmenes en ningún nodo.
+** Las restauraciones de volumen se iniciarán automáticamente solo cuando no haya otros procedimientos de mantenimiento en curso.
+** Puede supervisar el estado del trabajo desde la página de supervisión de progreso.
+** StorageGRID reintenta automáticamente restauraciones de volumen que no se inician.
+
+
+====
+. Cuando comprenda los resultados de habilitar el modo de restauración automática, seleccione *Sí* en el cuadro de diálogo de confirmación.
++
+Puede desactivar el modo de restauración automática en cualquier momento.
+
+
+
+
+
+== [[Manually-restore]]Restaurar manualmente el nodo o el volumen fallido
+
+Siga estos pasos para restaurar un nodo o volumen con errores.
+
+.Pasos
+. En Grid Manager, vaya a *MANTENIMIENTO* > *Restauración de volumen*.
+. Seleccione la pestaña *Nodos a restaurar*, luego deslice el interruptor para *Modo de restauración automática* a la posición desactivada.
++
+El número de la pestaña indica la cantidad de nodos con volúmenes que requieren restaurar.
+
+. Expanda cada nodo para ver los volúmenes que necesita restauración y su estado.
+. Corrija los problemas que impidan la restauración de cada volumen. Los problemas se indicarán al seleccionar *Esperando pasos manuales*, si se muestra como el estado del volumen.
+. Seleccione un nodo para restaurar donde todos los volúmenes indican el estado Listo para restaurar.
++
+Solo es posible restaurar los volúmenes de un nodo a la vez.
+
++
+Cada volumen del nodo debe indicar que está listo para restaurar.
+
+. Seleccione *Iniciar restauración*.
+. Aborda cualquier advertencia que pueda aparecer o selecciona *Iniciar de todos modos* para ignorar las advertencias e iniciar la restauración.
+
+
+Los nodos se mueven de la pestaña *Nodes to restore* a la pestaña *Restoration Progress* cuando comienza la restauración.
+
+Si no se puede iniciar una restauración de volumen, el nodo vuelve a la pestaña *Nodes to restore*.
+
+
+
+== [[view-restore-progress]]Ver progreso de restauración
+
+La pestaña *Progreso de la restauración* muestra el estado del proceso de restauración del volumen y la información sobre los volúmenes de un nodo que se está restaurando.
+
+Las tasas de reparación de datos para objetos replicados y con código de borrado en todos los volúmenes son medias que resumen todas las restauraciones en curso, incluidas las restauraciones iniciadas con el `repair-data` script. También se indica el porcentaje de objetos en esos volúmenes que están intactos y no requieren restauración.
+
+
+NOTE: La restauración de datos replicada depende de la disponibilidad de los recursos donde se almacenan las copias replicadas. El progreso de la restauración de datos replicados no es lineal y puede tardar días o semanas en completarse.
+
+La sección Trabajos de restauración muestra información sobre restauraciones de volúmenes iniciadas desde Grid Manager.
+
+* El número del encabezado de la sección Trabajos de restauración indica el número de volúmenes que se restauran o se ponen en cola para la restauración.
+* En la tabla se muestra información sobre cada volumen del nodo que se está restaurando y su progreso.
++
+** El progreso de cada nodo muestra el porcentaje de cada trabajo.
+** Expanda la columna Detalles para mostrar la hora de inicio de la restauración y el ID del trabajo.
+
+
+* Si falla la restauración de un volumen:
++
+** La columna Estado indica `failed (attempting retry)`, y se volverá a intentar automáticamente.
+** Si han fallado varios trabajos de restauración, el trabajo más reciente se volverá a intentar automáticamente en primer lugar.
+** La alerta *EC repair failure* se activa si los reintentos continúan fallando. Siga los pasos de la alerta para resolver el problema.
+
+
+
+
+
+
+== [[view-restore-history]]Ver historial de restauración
+
+La pestaña *Historial de restauración* muestra información sobre todas las restauraciones de volumen que se han completado con éxito.
+
+
+NOTE: Los tamaños no son aplicables para los objetos replicados y solo aparecen para las restauraciones que contienen objetos de datos con código de borrado (EC).

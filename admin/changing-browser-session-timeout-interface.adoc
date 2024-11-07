@@ -1,0 +1,70 @@
+---
+permalink: admin/changing-browser-session-timeout-interface.html 
+sidebar: sidebar 
+keywords: security, browser inactivity timeout, management API stack track 
+summary: La configuración de seguridad de la interfaz le permite controlar si los usuarios están desconectados si están inactivos durante más de la cantidad de tiempo especificada y si se incluye un seguimiento de pila en las respuestas de error de la API. 
+---
+= Cambie la configuración de seguridad de la interfaz
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La configuración de seguridad de la interfaz le permite controlar si los usuarios están desconectados si están inactivos durante más de la cantidad de tiempo especificada y si se incluye un seguimiento de pila en las respuestas de error de la API.
+
+.Antes de empezar
+* Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Tienes link:admin-group-permissions.html["Permiso de acceso raíz"].
+
+
+.Acerca de esta tarea
+La página *Configuración de seguridad* incluye la configuración *Tiempo de espera de inactividad del navegador* y *Seguimiento de pila de API de administración*.
+
+Tiempo de espera de inactividad del explorador:: Indica cuánto tiempo puede permanecer inactivo el explorador de un usuario antes de que se cierre la sesión. El valor predeterminado es 15 minutos.
++
+--
+El tiempo de espera de inactividad del navegador también se controla mediante lo siguiente:
+
+* Temporizador StorageGRID independiente no configurable, que se incluye para la seguridad del sistema. El token de autenticación de cada usuario caduca 16 horas después de que el usuario inicia sesión. Cuando caduca la autenticación de un usuario, ese usuario se cierra automáticamente, incluso si el tiempo de espera de inactividad del navegador está desactivado o no se ha alcanzado el valor del tiempo de espera del explorador. Para renovar el token, el usuario debe volver a iniciar sesión.
+* Configuración de tiempo de espera para el proveedor de identidad, asumiendo que el inicio de sesión único (SSO) está activado para StorageGRID.
++
+Si se activa SSO y se agota el tiempo de espera del explorador de un usuario, el usuario debe volver a introducir sus credenciales SSO para volver a acceder a StorageGRID. Consulte link:configuring-sso.html["Configurar el inicio de sesión único"].
+
+
+
+--
+Seguimiento de la pila de API de gestión:: Controla si se devuelve un seguimiento de pila en las respuestas de error de la API de Grid Manager y de Tenant Manager.
++
+--
+Esta opción está desactivada de forma predeterminada, pero es posible que desee activar esta funcionalidad para un entorno de prueba. En general, debe dejar el rastreo de pila desactivado en entornos de producción para evitar revelar detalles internos del software cuando se producen errores de API.
+
+--
+
+
+.Pasos
+. Selecciona *CONFIGURACIÓN* > *SEGURIDAD* > *CONFIGURACIÓN DE SEGURIDAD*.
+. Seleccione la pestaña *Interfaz*.
+. Para cambiar la configuración del tiempo de espera de inactividad del navegador:
++
+.. Expande el acordeón.
+.. Para cambiar el período de tiempo de espera, especifique un valor entre 60 segundos y 7 días. El tiempo de espera predeterminado es de 15 minutos.
+.. Para desactivar esta función, desactive la casilla de verificación.
+.. Seleccione *Guardar*.
++
+La nueva configuración no afecta a los usuarios que están conectados actualmente. Los usuarios deben iniciar sesión de nuevo o actualizar sus exploradores para que la nueva configuración de tiempo de espera surta efecto.
+
+
+
+. Para cambiar la configuración del seguimiento de pila de API de administración:
++
+.. Expande el acordeón.
+.. Active la casilla de verificación para devolver un seguimiento de pila en las respuestas de error de la API de Grid Manager y de Tenant Manager.
++
+
+CAUTION: Deje desactivado el rastreo de pila en entornos de producción para evitar revelar los detalles internos del software cuando se produzcan errores de API.
+
+.. Seleccione *Guardar*.
+
+
+

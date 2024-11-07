@@ -1,0 +1,86 @@
+= ¿Qué procedimiento debo usar?
+:allow-uri-read: 
+
+
+
+
+== ¿Qué procedimiento debo usar?
+
+Siempre que sea posible, restaure los datos del objeto utilizando la página *Volume restoration* en Grid Manager.
+
+* Si los volúmenes aparecen en *MANTENIMIENTO* > *Restauración de volumen* > *Nodos a restaurar*, restaure los datos del objeto con la link:../maintain/restoring-volume.html["Página de restauración de volúmenes en Grid Manager"].
+* Si los volúmenes no aparecen en *MANTENIMIENTO* > *Restauración de volumen* > *Nodos a restaurar*, siga los pasos que se indican a continuación para usar `repair-data` el script para restaurar los datos del objeto.
++
+Si el nodo de almacenamiento recuperado contiene menos volúmenes que el nodo que sustituye, deberá utilizar `repair-data` el script.
+
+
+
+
+NOTE: El script repair-data está obsoleto y se eliminará en una versión futura. Cuando sea posible, utilice el link:../maintain/restoring-volume.html["Procedimiento de restauración de volúmenes en Grid Manager"].
+
+
+
+== Utilice `repair-data` el script para restaurar datos de objetos
+
+.Antes de empezar
+* Ha confirmado que el nodo de almacenamiento recuperado tiene un estado de conexión de *Connected*  en la pestaña *NODES* image:../media/icon_alert_green_checkmark.png["icono de alerta verde marca de verificación"]> *Overview* en Grid Manager.
+
+
+.Acerca de esta tarea
+Los datos de objetos se pueden restaurar desde otros nodos de almacenamiento o un pool de almacenamiento en cloud, suponiendo que las reglas de ILM del grid se hayan configurado de forma que las copias de objetos estén disponibles.
+
+Tenga en cuenta lo siguiente:
+
+* Si se configuró una regla de ILM para almacenar una sola copia replicada y esa copia estaba en un volumen de almacenamiento que falló, no podrá recuperar el objeto.
+* Si la única copia restante de un objeto se encuentra en un Cloud Storage Pool, StorageGRID debe emitir varias solicitudes al extremo Cloud Storage Pool para restaurar datos de objetos. Antes de realizar este procedimiento, póngase en contacto con el soporte técnico para obtener ayuda a la hora de calcular el plazo de recuperación y los costes asociados.
+
+
+
+
+== Acerca del `repair-data` script
+
+Para restaurar los datos de objetos, se ejecuta `repair-data` el script. Este script inicia el proceso de restauración de datos de objetos y funciona con el análisis de ILM para garantizar que se cumplan las reglas de ILM.
+
+Seleccione *Datos replicados* o *Datos con código de borrado (EC)* a continuación para conocer las diferentes opciones para el `repair-data` script, en función de si está restaurando datos replicados o datos con código de borrado. Si necesita restaurar ambos tipos de datos, debe ejecutar ambos conjuntos de comandos.
+
+
+NOTE: Para obtener más información sobre el `repair-data` script, introduzca `repair-data --help` desde la línea de comandos del nodo de administración principal.
+
+
+NOTE: El script repair-data está obsoleto y se eliminará en una versión futura. Cuando sea posible, utilice el link:../maintain/restoring-volume.html["Procedimiento de restauración de volúmenes en Grid Manager"].
+
+[role="tabbed-block"]
+====
+.Datos replicados
+--
+Hay dos comandos disponibles para restaurar los datos replicados, según si necesita reparar el nodo completo o solo ciertos volúmenes del nodo:
+
+`repair-data start-replicated-node-repair`
+
+`repair-data start-replicated-volume-repair`
+
+Puede realizar un seguimiento de las reparaciones de los datos replicados con este comando:
+
+`repair-data show-replicated-repair-status`
+
+--
+.Datos con código de borrado (EC)
+--
+Hay dos comandos disponibles para restaurar datos codificados de borrado a partir de si necesita reparar el nodo completo o solo ciertos volúmenes en el nodo:
+
+`repair-data start-ec-node-repair`
+
+`repair-data start-ec-volume-repair`
+
+Puede realizar un seguimiento de las reparaciones de datos codificados de borrado con este comando:
+
+`repair-data show-ec-repair-status`
+
+
+NOTE: Las reparaciones de datos codificados para borrado pueden comenzar con algunos nodos de almacenamiento sin conexión. Sin embargo, si no se pueden tener en cuenta todos los datos con código de borrado, no se podrá completar la reparación. La reparación se completará después de que todos los nodos estén disponibles.
+
+
+NOTE: El trabajo de reparación de la CE reserva temporalmente una gran cantidad de almacenamiento. Es posible que se activen las alertas de almacenamiento, pero se resolverán cuando se complete la reparación. Si no hay suficiente almacenamiento para la reserva, el trabajo de reparación de la CE fallará. Las reservas de almacenamiento se liberan cuando se completa el trabajo de reparación de EC, tanto si el trabajo ha fallado como si ha sido correcto.
+
+--
+====

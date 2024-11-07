@@ -1,0 +1,152 @@
+---
+permalink: s3/use-s3-select.html 
+sidebar: sidebar 
+keywords: use S3 Select, S3 Select 
+summary: StorageGRID admite las siguientes cláusulas Select de Amazon S3, tipos de datos, operadores y palabras clave reservadas para el comando SelectObjectContent. 
+---
+= Utilice S3 Select
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID admite las siguientes cláusulas, tipos de datos y operadores de selección de Amazon S3 para el link:select-object-content.html["SelectObjectContent"].
+
+
+NOTE: No se admiten los elementos que no aparecen en la lista.
+
+Para obtener la sintaxis, consulte link:select-object-content.html["SelectObjectContent"]. Para obtener más información acerca de S3 Select, consulte la https://docs.aws.amazon.com/AmazonS3/latest/userguide/selecting-content-from-objects.html["Documentación de AWS para S3 Select"^].
+
+Solo las cuentas de inquilino con S3 Select habilitado pueden emitir consultas de SelectObjectContent. Consulte la link:../admin/manage-s3-select-for-tenant-accounts.html["Consideraciones y requisitos para usar S3 Select"].
+
+
+
+== Cláusulas
+
+* SELECCIONAR lista
+* CLÁUSULA FROM
+* Cláusula WHERE
+* Cláusula LIMIT
+
+
+
+
+== Tipos de datos
+
+* bool
+* entero
+* cadena
+* flotante
+* decimal, numérico
+* fecha/hora
+
+
+
+
+== Operadores
+
+
+
+=== Operadores lógicos
+
+* Y..
+* NO
+* O.
+
+
+
+
+=== Operadores de comparación
+
+* <
+* >
+* <=
+* >=
+* =
+* =
+* <>
+* !=
+* ENTRE
+* PULG
+
+
+
+
+=== Operadores de comparación de patrones
+
+* COMO
+* _
+* %
+
+
+
+
+=== Operadores unitarios
+
+* ES NULL
+* NO ES NULL
+
+
+
+
+=== Operadores de matemáticas
+
+* +
+* -
+* *
+* /
+* %
+
+
+StorageGRID sigue la prioridad del operador de Amazon S3 Select.
+
+
+
+== Funciones de agregados
+
+* MEDIA()
+* RECUENTO (*)
+* MÁX.()
+* MIN()
+* SUMA()
+
+
+
+
+== Funciones condicionales
+
+* CASO
+* COALCE
+* NULLIF
+
+
+
+
+== Funciones de conversión
+
+* CAST (para tipo de datos compatible)
+
+
+
+
+== Funciones de fecha
+
+* FECHA_AÑADIR
+* DIF_FECHA
+* EXTRAER
+* TO_STRING
+* TO_TIMESTAMP
+* UTCNOW
+
+
+
+
+== Funciones de cadena
+
+* CHAR_LENGTH, CHARACTER_LENGTH
+* INFERIOR
+* SUBCADENA
+* RECORTE
+* SUPERIOR
+

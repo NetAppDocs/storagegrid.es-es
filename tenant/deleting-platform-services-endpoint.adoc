@@ -1,0 +1,36 @@
+---
+permalink: tenant/deleting-platform-services-endpoint.html 
+sidebar: sidebar 
+keywords: how to delete tenant platform services endpoint 
+summary: Puede eliminar un extremo si ya no desea utilizar el servicio de plataforma asociado. 
+---
+= Eliminar extremo de servicios de plataforma
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede eliminar un extremo si ya no desea utilizar el servicio de plataforma asociado.
+
+.Antes de empezar
+* Ha iniciado sesión en el gestor de inquilinos mediante un link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Pertenece a un grupo de usuarios que tiene el link:tenant-management-permissions.html["Gestionar puntos finales o permisos de acceso raíz"].
+
+
+.Pasos
+. Seleccione *STORAGE (S3)* > *Platform Services Endpoints*.
++
+Aparece la página de extremos de servicios de plataforma y muestra la lista de extremos de servicios de plataforma que ya se han configurado.
+
+. Seleccione la casilla de verificación de cada punto final que desee suprimir.
++
+
+NOTE: Si elimina un extremo de servicios de plataforma que está en uso, el servicio de plataforma asociado se deshabilitará para todos los bloques que utilicen el extremo. Se descartarán las solicitudes que aún no se hayan completado. Se continuarán generando todas las solicitudes nuevas hasta que cambie la configuración de bloque para que ya no haga referencia a URN eliminado. StorageGRID informará de estas solicitudes como errores irrecuperables.
+
+. Seleccione *acciones* > *Eliminar punto final*.
++
+Aparecerá un mensaje de confirmación.
+
+. Seleccione *Eliminar punto final*.
+

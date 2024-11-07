@@ -1,0 +1,50 @@
+---
+permalink: maintain/viewing-server-manager-status-and-version.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, server manager, status, version 
+summary: Para cada nodo de cuadrícula, puede ver el estado y la versión actuales de Server Manager que se ejecuta en ese nodo de cuadrícula. También puede obtener el estado actual de todos los servicios que se ejecutan en ese nodo de grid. 
+---
+= Ver el estado y la versión de Server Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para cada nodo de cuadrícula, puede ver el estado y la versión actuales de Server Manager que se ejecuta en ese nodo de cuadrícula. También puede obtener el estado actual de todos los servicios que se ejecutan en ese nodo de grid.
+
+.Antes de empezar
+Tiene el `Passwords.txt` archivo.
+
+.Pasos
+. Inicie sesión en el nodo de grid:
++
+.. Introduzca el siguiente comando: `ssh admin@_grid_node_IP_`
+.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
+.. Introduzca el siguiente comando para cambiar a raíz: `su -`
+.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
+
+
++
+Al iniciar sesión como root, la petición de datos cambia de `$` a `#`.
+
+. Ver el estado actual de Server Manager que se está ejecutando en el nodo de grid: `*service servermanager status*`
++
+Se informa del estado actual de Server Manager que se ejecuta en el nodo de cuadrícula (en ejecución o no). Si el estado del Administrador del servidor es `running`, aparece la hora a la que se ha estado ejecutando desde la última vez que se inició. Por ejemplo:
+
++
+[listing]
+----
+servermanager running for 1d, 13h, 0m, 30s
+----
+. Ver la versión actual de Server Manager que se ejecuta en un nodo de grid: `*service servermanager version*`
++
+Se muestra la versión actual. Por ejemplo:
+
++
+[listing]
+----
+11.1.0-20180425.1905.39c9493
+----
+. Cierre la sesión del shell de comandos: `*exit*`
+

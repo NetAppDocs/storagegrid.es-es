@@ -1,0 +1,156 @@
+---
+section: audit
+title: Revisar los registros de auditoría
+entries:
+- title: Registros y mensajes de auditoría
+  pdf-filename: Revise los registros de auditoría de StorageGRID
+  url: "/audit/index.html"
+- title: Auditar el flujo y la retención de mensajes
+  url: "/audit/audit-message-flow-and-retention.html"
+- title: Acceda al archivo de registro de auditoría
+  url: "/audit/accessing-audit-log-file.html"
+- title: Rotación del archivo de registro de auditoría
+  url: "/audit/audit-log-file-rotation.html"
+- title: Formato del archivo de registro de auditoría
+  entries:
+  - title: Ejemplo de formato del registro de auditoría
+    pdf-filename: Formato del archivo de registro de auditoría
+    url: "/audit/audit-log-file-format.html"
+  - title: Utilice la herramienta de explicación de auditoría
+    url: "/audit/using-audit-explain-tool.html"
+  - title: Utilice la herramienta de suma de auditoría
+    url: "/audit/using-audit-sum-tool.html"
+- title: Formato de mensaje de auditoría
+  entries:
+  - title: Ejemplo de mensaje de auditoría
+    pdf-filename: Formato de mensaje de auditoría
+    url: "/audit/audit-message-format.html"
+  - title: Tipos de datos
+    url: "/audit/data-types.html"
+  - title: Datos específicos de un evento
+    url: "/audit/event-specific-data.html"
+  - title: Elementos comunes de los mensajes de auditoría
+    url: "/audit/common-elements-in-audit-messages.html"
+  - title: Ejemplos de mensajes de auditoría
+    url: "/audit/audit-message-examples.html"
+- title: Auditar los mensajes y el ciclo de vida del objeto
+  entries:
+  - title: "¿Cuándo se generan los mensajes de auditoría?"
+    url: "/audit/audit-messages-and-object-lifecycle.html"
+  - title: Transacciones de procesamiento de objetos
+    url: "/audit/object-ingest-transactions.html"
+  - title: 'Objeto: Eliminar transacciones'
+    url: "/audit/object-delete-transactions.html"
+  - title: El objeto recupera las transacciones
+    url: "/audit/object-retrieve-transactions.html"
+  - title: Mensajes de actualización de metadatos
+    url: "/audit/metadata-update-messages.html"
+- title: Auditar mensajes
+  entries:
+  - title: Descripciones de los mensajes
+    pdf-filename: Auditar mensajes
+    url: "/audit/audit-messages-main.html"
+  - title: Auditar categorías de mensajes
+    entries:
+    - title: Mensajes de auditoría del sistema
+      url: "/audit/system-audit-messages.html"
+    - title: Mensajes de auditoría del almacenamiento de objetos
+      url: "/audit/object-storage-audit-messages.html"
+    - title: El cliente lee los mensajes de auditoría
+      url: "/audit/client-read-audit-messages.html"
+    - title: El cliente escribe mensajes de auditoría
+      url: "/audit/client-write-audit-messages.html"
+    - title: Mensaje de auditoría de gestión
+      url: "/audit/management-audit-message.html"
+    - title: Mensajes de auditoría de ILM
+      url: "/audit/ilm-audit-messages.html"
+  - title: Referencia de mensajes de auditoría
+    entries:
+    - title: 'BROR: Solicitud de solo lectura de bucket'
+      url: "/audit/bror-bucket-read-only-request.html"
+    - title: 'CBRB: Inicio de recepción de objetos'
+      url: "/audit/cbrb-object-receive-begin.html"
+    - title: 'CBRE: Fin de recepción de objeto'
+      url: "/audit/cbre-object-receive-end.html"
+    - title: 'CBSB: Inicio de envío de objeto'
+      url: "/audit/cbsb-object-send-begin.html"
+    - title: 'CBSE: Fin de envío de objeto'
+      url: "/audit/cbse-object-send-end.html"
+    - title: 'CGRR: Solicitud de Replicación de Cuadrícula Cruzada'
+      url: "/audit/cgrr-cross-grid-replication-request.html"
+    - title: 'EBDL: Eliminación de bloque vacío'
+      url: "/audit/ebdl-empty-bucket-delete.html"
+    - title: 'EBKR: Solicitud de depósito vacío'
+      url: "/audit/ebkr-empty-bucket-request.html"
+    - title: 'ECMC: Falta el fragmento de datos con código de borrado'
+      url: "/audit/ecmc-missing-erasure-coded-data-fragment.html"
+    - title: 'ECOC: Fragmento de datos con código de borrado corrupto'
+      url: "/audit/ecoc-corrupt-erasure-coded-data-fragment.html"
+    - title: 'ETAF: Error de autenticación de seguridad'
+      url: "/audit/etaf-security-authentication-failed.html"
+    - title: 'GNRG: Registro GNDS'
+      url: "/audit/gnrg-gnds-registration.html"
+    - title: 'GNUR: Registro de GNDS'
+      url: "/audit/gnur-gnds-unregistration.html"
+    - title: 'GTED: La tarea de la red terminó'
+      url: "/audit/gted-grid-task-ended.html"
+    - title: 'GTST: Se ha iniciado la tarea de cuadrícula'
+      url: "/audit/gtst-grid-task-started.html"
+    - title: 'GTSU: Se ha enviado la tarea de la cuadrícula'
+      url: "/audit/gtsu-grid-task-submitted.html"
+    - title: 'IDEL: Eliminación de ILM iniciada'
+      url: "/audit/idel-ilm-initiated-delete.html"
+    - title: 'LKCU: Limpieza de objetos sobrescritos'
+      url: "/audit/lkcu-overwritten-object-cleanup.html"
+    - title: 'LKDM: Limpieza de objetos filtrados'
+      url: "/audit/lkdm-leaked-object-cleanup.html"
+    - title: 'LLST: Ubicación perdida'
+      url: "/audit/llst-location-lost.html"
+    - title: 'MGAU: Mensaje de auditoría de gestión'
+      url: "/audit/mgau-management-audit-message.html"
+    - title: 'OLST: El sistema detectó un objeto perdido'
+      url: "/audit/olst-system-detected-lost-object.html"
+    - title: 'ORLM: Se cumplen las reglas de objeto'
+      url: "/audit/orlm-object-rules-met.html"
+    - title: 'OVWR: Sobrescritura de objetos'
+      url: "/audit/ovwr-object-overwrite.html"
+    - title: 'S3SL: S3 Seleccione la solicitud'
+      url: "/audit/s3-select-request.html"
+    - title: 'SADD: Desactivación de auditoría de seguridad'
+      url: "/audit/sadd-security-audit-disable.html"
+    - title: 'SADE: Activación de auditoría de seguridad'
+      url: "/audit/sade-security-audit-enable.html"
+    - title: 'SCMT: Confirmación del almacén de objetos'
+      url: "/audit/scmt-object-store-commit.html"
+    - title: 'SDEL: ELIMINACIÓN DE S3'
+      url: "/audit/sdel-s3-delete.html"
+    - title: 'SGET: S3 GET'
+      url: "/audit/sget-s3-get.html"
+    - title: 'SHEA: CABEZA S3'
+      url: "/audit/shea-s3-head.html"
+    - title: 'SPOS: PUBLICACIÓN DE S3'
+      url: "/audit/spos-s3-post.html"
+    - title: 'SPUT: S3 PUT'
+      url: "/audit/sput-s3-put.html"
+    - title: 'SREM: Almacén de objetos Quitar'
+      url: "/audit/srem-object-store-remove.html"
+    - title: 'SUPD: Se han actualizado metadatos S3'
+      url: "/audit/supd-s3-metadata-updated.html"
+    - title: 'SVRF: Fallo de verificación del almacén de objetos'
+      url: "/audit/svrf-object-store-verify-fail.html"
+    - title: 'SVRU: Verificación del almacén de objetos desconocida'
+      url: "/audit/svru-object-store-verify-unknown.html"
+    - title: 'SYSD: Parada del nodo'
+      url: "/audit/sysd-node-stop.html"
+    - title: 'SYST: Nodo detenido'
+      url: "/audit/syst-node-stopping.html"
+    - title: 'SYSU: Inicio del nodo'
+      url: "/audit/sysu-node-start.html"
+    - title: 'WDEL: ELIMINACIÓN de Swift'
+      url: "/audit/wdel-swift-delete.html"
+    - title: 'WGET: Swift GET'
+      url: "/audit/wget-swift-get.html"
+    - title: 'WHEA: CABEZA de Swift'
+      url: "/audit/whea-swift-head.html"
+    - title: 'WPUT: SWIFT PUT'
+      url: "/audit/wput-swift-put.html"

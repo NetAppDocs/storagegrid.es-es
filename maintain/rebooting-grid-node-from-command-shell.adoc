@@ -1,0 +1,37 @@
+---
+permalink: maintain/rebooting-grid-node-from-command-shell.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, reboot node, command shell reboot 
+summary: Si necesita supervisar la operación de reinicio más de cerca o si no puede acceder a Grid Manager, puede iniciar sesión en el nodo de cuadrícula y ejecutar el comando de reinicio del Administrador del servidor desde el shell de comandos. 
+---
+= Reinicie el nodo de cuadrícula desde el shell de comandos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si necesita supervisar la operación de reinicio más de cerca o si no puede acceder a Grid Manager, puede iniciar sesión en el nodo de cuadrícula y ejecutar el comando de reinicio del Administrador del servidor desde el shell de comandos.
+
+.Antes de empezar
+Tiene el `Passwords.txt` archivo.
+
+.Pasos
+. Inicie sesión en el nodo de grid:
++
+.. Introduzca el siguiente comando: `ssh admin@_grid_node_IP_`
+.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
+.. Introduzca el siguiente comando para cambiar a raíz: `su -`
+.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
+
+
++
+Al iniciar sesión como root, la petición de datos cambia de `$` a `#`.
+
+. Opcionalmente, detenga los servicios: `service servermanager stop`
++
+Detener los servicios es un paso opcional pero recomendado. Los servicios pueden tardar hasta 15 minutos en apagarse y es posible que desee iniciar sesión en el sistema de forma remota para supervisar el proceso de apagado antes de reiniciar el nodo en el siguiente paso.
+
+. Reinicie el nodo de cuadrícula: `reboot`
+. Cierre la sesión del shell de comandos: `exit`
+

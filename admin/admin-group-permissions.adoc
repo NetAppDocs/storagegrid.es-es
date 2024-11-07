@@ -1,0 +1,210 @@
+---
+permalink: admin/admin-group-permissions.html 
+sidebar: sidebar 
+keywords: admin group permissions 
+summary: Al crear grupos de usuarios de administrador, debe seleccionar uno o más permisos para controlar el acceso a funciones específicas de Grid Manager. A continuación, puede asignar cada usuario a uno o varios de estos grupos de administración para determinar qué tareas puede realizar el usuario. 
+---
+= Permisos de grupo de administradores
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Al crear grupos de usuarios de administrador, debe seleccionar uno o más permisos para controlar el acceso a funciones específicas de Grid Manager. A continuación, puede asignar cada usuario a uno o varios de estos grupos de administración para determinar qué tareas puede realizar el usuario.
+
+Debe asignar al menos un permiso a cada grupo; de lo contrario, los usuarios pertenecientes a ese grupo no podrán iniciar sesión en Grid Manager o en la API de gestión de grid.
+
+De forma predeterminada, cualquier usuario que pertenezca a un grupo que tenga al menos un permiso puede realizar las siguientes tareas:
+
+* Inicie sesión en Grid Manager
+* Vea la consola
+* Puede ver las páginas Nodes
+* Ver las alertas actuales y resueltas
+* Cambiar su propia contraseña (sólo usuarios locales)
+* Ver cierta información proporcionada en las páginas de configuración y mantenimiento
+
+
+
+
+== Interacción entre permisos y modo de acceso
+
+Para todos los permisos, la configuración del *modo de acceso* del grupo determina si los usuarios pueden cambiar la configuración y realizar operaciones o si sólo pueden ver la configuración y las características relacionadas. Si un usuario pertenece a varios grupos y cualquier grupo está establecido en *sólo lectura*, el usuario tendrá acceso de sólo lectura a todos los ajustes y características seleccionados.
+
+En las siguientes secciones se describen los permisos que se pueden asignar al crear o editar un grupo de administradores. Cualquier funcionalidad que no se haya mencionado explícitamente requiere el permiso *acceso raíz*.
+
+
+
+== Acceso raíz
+
+Este permiso proporciona acceso a todas las funciones de administración de grid.
+
+
+
+== Cambiar la contraseña raíz del inquilino
+
+Este permiso proporciona acceso a la opción *Cambiar contraseña raíz* de la página arrendatarios, lo que le permite controlar quién puede cambiar la contraseña del usuario raíz local del arrendatario. Este permiso también se usa para migrar claves S3 cuando se habilita la función de importación de claves S3. Los usuarios que no tienen este permiso no pueden ver la opción *Cambiar contraseña raíz*.
+
+
+NOTE: Para conceder acceso a la página arrendatarios, que contiene la opción *Cambiar contraseña root*, también asigne el permiso *Cuentas de arrendatario*.
+
+
+
+== Configuración de la página de topología de grid
+
+Este permiso permite acceder a las fichas Configuración de la página *SUPPORT* > *Tools* > *Topología de cuadrícula*.
+
+
+NOTE: La página de topología de cuadrícula ha quedado obsoleta y se eliminará en una versión futura.
+
+
+
+== ILM
+
+Este permiso permite acceder a las siguientes opciones del menú *ILM*:
+
+* Bases de datos
+* Normativas
+* Etiquetas de políticas
+* Pools de almacenamiento
+* Grados de almacenamiento
+* Regiones
+* Búsqueda de metadatos de objetos
+
+
+
+NOTE: Los usuarios deben tener los permisos *Other grid Configuration* y *Grid Topology page Configuration* para administrar los grados de almacenamiento.
+
+
+
+== Mantenimiento
+
+Los usuarios deben tener permiso de mantenimiento para utilizar estas opciones:
+
+* *CONFIGURACIÓN* > *Control de acceso*:
++
+** Contraseñas de grid
+
+
+* *CONFIGURACIÓN* > *Red*:
++
+** Nombres de dominio de punto final S3
+
+
+* *MANTENIMIENTO* > *tareas*:
++
+** Retirada
+** Expansión
+** Comprobación de existencia de objeto
+** Recuperación
+
+
+* *MANTENIMIENTO* > *sistema*:
++
+** Paquete de recuperación
+** Actualización de software
+
+
+* *SOPORTE* > *Herramientas*:
++
+** Registros
+
+
+
+
+Los usuarios que no tienen el permiso de mantenimiento pueden ver, pero no editar, estas páginas:
+
+* *MANTENIMIENTO* > *Red*:
++
+** Servidores DNS
+** Red Grid
+** Servidores NTP
+
+
+* *MANTENIMIENTO* > *sistema*:
++
+** Licencia
+
+
+* *CONFIGURACIÓN* > *Red*:
++
+** Nombres de dominio de punto final S3
+
+
+* *CONFIGURACIÓN* > *Seguridad*:
++
+** Certificados
+
+
+* *CONFIGURACIÓN* > *Supervisión*:
++
+** Servidor de auditoría y syslog
+
+
+
+
+
+
+== Gestionar alertas
+
+Este permiso proporciona acceso a opciones para gestionar alertas. Los usuarios deben tener este permiso para gestionar las silencios, las notificaciones de alerta y las reglas de alerta.
+
+
+
+== Consulta de métricas
+
+Este permiso proporciona acceso a:
+
+* *SOPORTE* > *Herramientas* > *Métricas* página
+* Consultas personalizadas de métricas de Prometheus utilizando la sección *Metrics* de la API de administración de grid
+* Tarjetas del panel de control de Grid Manager que contienen métricas
+
+
+
+
+== Búsqueda de metadatos de objetos
+
+Este permiso proporciona acceso a la página *ILM* > *Búsqueda de metadatos de objetos*.
+
+
+
+== Otra configuración de cuadrícula
+
+Este permiso proporciona acceso a opciones de configuración de cuadrícula adicionales.
+
+
+TIP: Para ver estas opciones adicionales, los usuarios también deben tener el permiso *Configuración de página de topología de cuadrícula*.
+
+* *ILM*:
++
+** Grados de almacenamiento
+
+
+* *CONFIGURACIÓN* > *sistema*:
+* *SOPORTE* > *OTRO*:
++
+** Coste del enlace
+
+
+
+
+
+
+== Administrador de dispositivos de almacenamiento
+
+Este permiso proporciona:
+
+* Acceso al SANtricity System Manager de E-Series en dispositivos de almacenamiento a través de Grid Manager.
+* La capacidad de realizar tareas de solución de problemas y mantenimiento en la pestaña Gestionar unidades para los dispositivos que admiten estas operaciones.
+
+
+
+
+== Cuentas de inquilino
+
+Este permiso permite:
+
+* Acceda a la página Tenedores, donde puede crear, editar y eliminar cuentas de arrendatario
+* Ver las políticas de clasificación de tráfico existentes
+* Ver tarjetas de consola de Grid Manager que contienen detalles de arrendatario
+

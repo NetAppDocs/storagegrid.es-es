@@ -1,0 +1,52 @@
+---
+permalink: admin/editing-traffic-classification-policy.html 
+sidebar: sidebar 
+keywords: edit traffic classification policy 
+summary: Puede editar una directiva de clasificación de tráfico para cambiar su nombre o descripción, o para crear, editar o eliminar cualquier regla o límite para la directiva. 
+---
+= Edite la política de clasificación de tráfico
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede editar una directiva de clasificación de tráfico para cambiar su nombre o descripción, o para crear, editar o eliminar cualquier regla o límite para la directiva.
+
+.Antes de empezar
+* Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Usted tiene el link:admin-group-permissions.html["Permiso de acceso raíz"].
+
+
+.Pasos
+. Seleccione *CONFIGURACIÓN* > *Red* > *Clasificación de tráfico*.
++
+Aparece la página Políticas de clasificación de tráfico y las políticas existentes se muestran en una tabla.
+
+. Edite la política mediante el menú Acciones o la página de detalles. Consulte link:../admin/creating-traffic-classification-policies.html["crear políticas de clasificación de tráfico"] para ver qué introducir.
++
+[role="tabbed-block"]
+====
+.Menú Actions
+--
+.. Seleccione la casilla de verificación de la política.
+.. Selecciona *Acciones* > *Editar*.
+
+
+--
+.Detalles
+--
+.. Seleccione el nombre de la política.
+.. Seleccione el botón *Editar* junto al nombre de la política.
+
+
+--
+====
+. Para el paso Introducir nombre de política, edite opcionalmente el nombre o la descripción de la política y seleccione *Continuar*.
+. Para el paso Agregar reglas de coincidencia, opcionalmente agregue una regla o edite el *Tipo* y *Valor de coincidencia* de la regla existente, y seleccione *Continuar*.
+. Para el paso Establecer límites, opcionalmente agregue, edite o elimine un límite, y seleccione *Continuar*.
+. Revise la política actualizada y seleccione *Guardar y continuar*.
++
+Los cambios realizados en la directiva se guardan y el tráfico de red se gestiona de acuerdo con las directivas de clasificación del tráfico. Puede ver los gráficos de tráfico y comprobar que las directivas están aplicando los límites de tráfico que espera.
+
+

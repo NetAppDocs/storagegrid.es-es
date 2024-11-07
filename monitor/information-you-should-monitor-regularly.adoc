@@ -1,0 +1,83 @@
+---
+permalink: monitor/information-you-should-monitor-regularly.html 
+sidebar: sidebar 
+keywords: when to monitor, what to monitor 
+summary: Aunque el sistema de StorageGRID puede seguir funcionando cuando se producen errores o alguna parte del grid no está disponible, debe supervisar y solucionar posibles problemas antes de que afecten la eficiencia o la disponibilidad del grid. 
+---
+= Qué y cuándo supervisar
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Aunque el sistema de StorageGRID puede seguir funcionando cuando se producen errores o alguna parte del grid no está disponible, debe supervisar y solucionar posibles problemas antes de que afecten a la eficiencia o la disponibilidad del grid.
+
+.Antes de empezar
+* Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Tienes link:../admin/admin-group-permissions.html["permisos de acceso específicos"].
+
+
+.Acerca de las tareas de supervisión
+Un sistema ocupado genera grandes cantidades de información. La siguiente lista proporciona orientación sobre la información más importante para supervisar de forma continua.
+
+[cols="1a,1a"]
+|===
+| Qué supervisar | Frecuencia 
+
+
+ a| 
+link:monitoring-system-health.html["Estado del sistema"]
+ a| 
+Diariamente
+
+
+
+ a| 
+Ratio al que link:monitoring-storage-capacity.html["Capacidad de metadatos y objetos de Storage Node"]se está consumiendo
+ a| 
+Semanal
+
+
+
+ a| 
+link:monitoring-information-lifecycle-management.html["Operaciones de gestión del ciclo de vida de la información"]
+ a| 
+Semanal
+
+
+
+ a| 
+link:monitoring-network-connections-and-performance.html["Redes y recursos del sistema"]
+ a| 
+Semanal
+
+
+
+ a| 
+link:monitoring-tenant-activity.html["Actividad de inquilino"]
+ a| 
+Semanal
+
+
+
+ a| 
+link:monitoring-object-ingest-and-retrieval-rates.html["S3 operaciones cliente"]
+ a| 
+Semanal
+
+
+
+ a| 
+link:monitoring-load-balancing-operations.html["Operaciones de equilibrio de carga"]
+ a| 
+Tras la configuración inicial y tras cualquier cambio en la configuración
+
+
+
+ a| 
+link:grid-federation-monitor-connections.html["Conexiones de federación de grid"]
+ a| 
+Semanal
+
+|===

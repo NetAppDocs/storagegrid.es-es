@@ -1,0 +1,22 @@
+---
+permalink: network/admin-network-requirements.html 
+sidebar: sidebar 
+keywords: admin network requirements, guidelines for admin network, aesl 
+summary: La red administrativa es opcional. Si planea configurar una red de administración, siga estos requisitos y directrices. 
+---
+= Requisitos de la red de administración
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La red administrativa es opcional. Si planea configurar una red de administración, siga estos requisitos y directrices.
+
+Los usos típicos de la red de administración incluyen conexiones de administración, AutoSupport, KMS y conexiones a servidores críticos como NTP, DNS y LDAP si estas conexiones no se proporcionan a través de la red de grid o la red de cliente.
+
+
+NOTE: La Red de administración y ESL pueden ser exclusivos de cada nodo, siempre que se pueda acceder a los servicios de red y clientes deseados.
+
+
+NOTE: Debe definir al menos una subred en la red de administración para habilitar las conexiones entrantes desde subredes externas. Las rutas estáticas se generan automáticamente en cada nodo para cada subred de la ESL.

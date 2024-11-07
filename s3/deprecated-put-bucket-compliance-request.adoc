@@ -1,0 +1,111 @@
+---
+permalink: s3/deprecated-put-bucket-compliance-request.html 
+sidebar: sidebar 
+keywords: S3 REST API, S3 operations, PUT deprecated compliance requests 
+summary: La solicitud de cumplimiento de normativas PUT Bucket quedó obsoleta. Sin embargo, puede seguir utilizando esta solicitud para modificar la configuración de cumplimiento de un bloque compatible heredado existente. 
+---
+= Obsoleto: Solicitud de cumplimiento de bloques PUT
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La solicitud de cumplimiento de normativas PUT Bucket quedó obsoleta. Sin embargo, puede seguir utilizando esta solicitud para modificar la configuración de cumplimiento de un bloque compatible heredado existente. Por ejemplo, puede colocar un bloque existente en la retención legal o aumentar su período de retención.
+
+[NOTE]
+====
+La función de cumplimiento de StorageGRID que estaba disponible en versiones anteriores de StorageGRID quedó obsoleta y se reemplazó por el bloqueo de objetos de S3. En la siguiente sección, se ofrecen más detalles:
+
+* link:../s3/use-s3-api-for-s3-object-lock.html["Use la API REST DE S3 para configurar el bloqueo de objetos de S3"]
+* https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/How_to_manage_legacy_Compliant_buckets_in_StorageGRID_11.5["Base de conocimientos de NetApp: Cómo gestionar bloques heredados que cumplen con la normativa StorageGRID 11.5"^]
+
+
+====
+Debe tener el permiso s3:PutBucketCompliance o ser la raíz de la cuenta para completar esta operación.
+
+Debe especificar un valor para cada campo de la configuración de cumplimiento al emitir una solicitud DE cumplimiento PUT Bucket.
+
+
+
+== Ejemplo de solicitud
+
+Esta solicitud de ejemplo modifica la configuración de cumplimiento para el depósito denominado `mybucket`. En este ejemplo, los objetos de `mybucket` ahora se conservarán durante dos años (1.051.200 minutos) en lugar de un año, a partir del momento en que el objeto se ingiere en la cuadrícula. No existe ningún derecho legal en este segmento. Cada objeto se eliminará automáticamente después de dos años.
+
+[listing, subs="specialcharacters,quotes"]
+----
+PUT /mybucket/?x-ntap-sg-compliance HTTP/1.1
+Date: _date_
+Authorization: _authorization name_
+Host: _host_
+Content-Length: 152
+
+<SGCompliance>
+  <RetentionPeriodMinutes>1051200</RetentionPeriodMinutes>
+  <LegalHold>false</LegalHold>
+  <AutoDelete>true</AutoDelete>
+</SGCompliance>
+----
+[cols="1a,2a"]
+|===
+| Nombre | Descripción 
+
+
+ a| 
+RetentionPeriodonMinutes
+ a| 
+La duración del período de retención para los objetos que se añadió a este bloque, en minutos. El período de retención se inicia cuando el objeto se ingiere en la cuadrícula.
+
+*Importante* Al especificar un nuevo valor para RetentionPeriodMinutes, debe especificar un valor que sea igual o mayor que el período de retención actual del bucket. Después de definir el período de retención del depósito, no puede disminuir ese valor; solo puede aumentarlo.
+
+
+
+ a| 
+LegalHold
+ a| 
+* Cierto: Este segmento está actualmente bajo un control legal. Los objetos de este depósito no se pueden eliminar hasta que se levante la conservación legal, incluso si ha caducado su período de retención.
+* Falso: Este segmento no está actualmente bajo un derecho. Los objetos de este bloque se pueden eliminar cuando expire su período de retención.
+
+
+
+
+ a| 
+Eliminación automática
+ a| 
+* True: Los objetos de este bloque se eliminarán automáticamente cuando expire su período de retención, a menos que el bloque se encuentre bajo una retención legal.
+* False: Los objetos de este bloque no se eliminarán automáticamente cuando finalice el período de retención. Debe eliminar estos objetos manualmente si necesita eliminarlos.
+
+
+|===
+
+
+== Consistencia para la configuración de cumplimiento
+
+Cuando se actualiza la configuración de cumplimiento de normativas para un bloque de S3 con una solicitud DE cumplimiento PUT Bucket, StorageGRID intenta actualizar los metadatos del bloque en el grid. De forma predeterminada, StorageGRID utiliza la consistencia *strong-global* para garantizar que todos los sitios del centro de datos y todos los nodos de almacenamiento que contienen metadatos del depósito tengan consistencia de lectura tras escritura para los ajustes de cumplimiento modificados.
+
+Si StorageGRID no puede lograr la consistencia *fuerte-global* porque un sitio de centro de datos o varios nodos de almacenamiento en un sitio no están disponibles, el código de estado HTTP para la respuesta es `503 Service Unavailable.`
+
+Si recibe esta respuesta, debe ponerse en contacto con el administrador de grid para garantizar que los servicios de almacenamiento requeridos estén disponibles en Lo antes posible.. Si el administrador de grid no puede poner a disposición suficientes nodos de almacenamiento en cada sitio, el soporte técnico puede indicarle que vuelva a intentar la solicitud fallida forzando la consistencia del *sitio fuerte*.
+
+
+CAUTION: Nunca fuerce la consistencia de *strong-site* para el cumplimiento de PUT bucket a menos que se le haya indicado hacerlo por el soporte técnico y a menos que comprenda las posibles consecuencias de usar este nivel.
+
+Cuando la consistencia se reduce a *strong-site*, StorageGRID garantiza que la configuración de cumplimiento actualizada tendrá consistencia de lectura tras escritura solo para las solicitudes de los clientes dentro de un sitio. Esto significa que el sistema StorageGRID podría tener temporalmente varias configuraciones incoherentes para este bloque hasta que todos los sitios y nodos de almacenamiento estén disponibles. La configuración incoherente puede dar como resultado un comportamiento inesperado y no deseado. Por ejemplo, si va a colocar un bloque bajo una conservación legal y fuerza una menor coherencia, la configuración de cumplimiento anterior del bloque (es decir, la retención legal) puede seguir vigente en algunos sitios del centro de datos. Como resultado, los objetos que cree que están en retención legal se pueden eliminar cuando caduque su período de retención, ya sea por el usuario o por AutoDelete, si está activado.
+
+Para forzar el uso de la consistencia *strong-site*, vuelva a emitir la solicitud de cumplimiento de PUT Bucket e incluya `Consistency-Control` el encabezado de solicitud HTTP, de la siguiente manera:
+
+[listing]
+----
+PUT /mybucket/?x-ntap-sg-compliance HTTP/1.1
+Consistency-Control: strong-site
+----
+
+
+== Respuestas de error
+
+* Si el depósito no se ha creado para ser compatible, el código de estado HTTP para la respuesta es `404 Not Found`.
+* Si `RetentionPeriodMinutes` en la solicitud es inferior al período de retención actual del depósito, el código de estado HTTP es `400 Bad Request`.
+
+
+.Información relacionada
+link:deprecated-put-bucket-request-modifications-for-compliance.html["Obsoleto: PONGA modificaciones de solicitud de cucharón para el cumplimiento"]

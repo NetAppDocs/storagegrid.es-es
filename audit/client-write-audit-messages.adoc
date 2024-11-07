@@ -1,0 +1,100 @@
+---
+permalink: audit/client-write-audit-messages.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, messages, client write, OVWR, SDEL, SPOS, SPUT, SUPD, WDEL, WPUT, S3 
+summary: Los mensajes de auditoría de escritura del cliente se registran cuando una aplicación cliente de S3 realiza una solicitud para crear o modificar un objeto. 
+---
+= El cliente escribe mensajes de auditoría
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los mensajes de auditoría de escritura del cliente se registran cuando una aplicación cliente de S3 realiza una solicitud para crear o modificar un objeto.
+
+[cols="1a,3a,1a,1a"]
+|===
+| Codificación | Descripción | Utilizado por | Consulte 
+
+
+ a| 
+OVWR
+ a| 
+Objeto Overwrite: Registra una transacción para sobrescribir un objeto con otro.
+ a| 
+Clientes S3 y Swift
+ a| 
+link:ovwr-object-overwrite.html["OVWR: Sobrescritura de objetos"]
+
+
+
+ a| 
+SDEL
+ a| 
+S3 DELETE: Registra una transacción realizada correctamente para eliminar un objeto o bloque.
+
+*Nota:* Si la transacción opera en un subrecurso, el mensaje de auditoría incluirá el campo S3SR.
+ a| 
+Cliente S3
+ a| 
+link:sdel-s3-delete.html["SDEL: ELIMINACIÓN DE S3"]
+
+
+
+ a| 
+SPO
+ a| 
+S3 POST: Registra una transacción realizada correctamente para restaurar un objeto del almacenamiento AWS Glacier en un Pool de almacenamiento en cloud.
+ a| 
+Cliente S3
+ a| 
+link:spos-s3-post.html["SPOS: PUBLICACIÓN DE S3"]
+
+
+
+ a| 
+SPUT
+ a| 
+S3 PUT: Registra una transacción realizada correctamente para crear un nuevo objeto o bloque.
+
+*Nota:* Si la transacción opera en un subrecurso, el mensaje de auditoría incluirá el campo S3SR.
+ a| 
+Cliente S3
+ a| 
+link:sput-s3-put.html["SPUT: S3 PUT"]
+
+
+
+ a| 
+SUPD
+ a| 
+S3 Metadata Updated: Registra una transacción correcta para actualizar los metadatos de un objeto o bloque existente.
+ a| 
+Cliente S3
+ a| 
+link:supd-s3-metadata-updated.html["SUPD: Se han actualizado metadatos S3"]
+
+
+
+ a| 
+¡WDEL
+ a| 
+Swift DELETE: Registra una transacción realizada correctamente para eliminar un objeto o un contenedor.
+ a| 
+Cliente Swift
+ a| 
+link:wdel-swift-delete.html["WDEL: ELIMINACIÓN de Swift"]
+
+
+
+ a| 
+WPUT
+ a| 
+Swift PUT: Registra una transacción correcta para crear un nuevo objeto o contenedor.
+ a| 
+Cliente Swift
+ a| 
+link:wput-swift-put.html["WPUT: SWIFT PUT"]
+
+|===

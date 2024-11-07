@@ -1,0 +1,60 @@
+---
+permalink: ilm/when-to-use-cloud-storage-pools.html 
+sidebar: sidebar 
+keywords: use cloud storage pool, benefits of cloud storage pools 
+summary: Con Cloud Storage Pools, puede crear un backup o organizar los datos en niveles en una ubicación externa. Además, puede hacer backups o organizar los datos en más de un cloud. 
+---
+= Cuándo usar Cloud Storage Pools
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Con Cloud Storage Pools, puede crear un backup o organizar los datos en niveles en una ubicación externa. Además, puede hacer backups o organizar los datos en más de un cloud.
+
+
+
+== Backup de datos de StorageGRID en ubicaciones externas
+
+Puede usar un pool de almacenamiento en cloud para realizar backup de objetos StorageGRID en una ubicación externa.
+
+Si no se puede acceder a las copias en StorageGRID, se pueden utilizar los datos de objetos en el pool de almacenamiento en cloud para atender las solicitudes de los clientes. Sin embargo, es posible que necesite emitir una solicitud S3 RestoreObject para acceder a la copia del objeto de backup en Cloud Storage Pool.
+
+Los datos del objeto en un pool de almacenamiento en cloud también se pueden utilizar para recuperar los datos perdidos de StorageGRID debido a un fallo del volumen de almacenamiento o del nodo de almacenamiento. Si la única copia restante de un objeto se encuentra en un pool de almacenamiento en el cloud, StorageGRID restaura temporalmente el objeto y crea una nueva copia en el nodo de almacenamiento recuperado.
+
+Para implantar una solución de backup:
+
+. Cree un único pool de almacenamiento en el cloud.
+. Configure una regla de ILM que almacene copias de objetos en los nodos de almacenamiento de forma simultánea (como copias replicadas o codificadas por borrado) y una única copia de objetos en el Cloud Storage Pool.
+. Añada la regla a la política de ILM. A continuación, simule y active la directiva.
+
+
+
+
+== Organice los datos en niveles desde StorageGRID a ubicaciones externas
+
+Puede utilizar un pool de almacenamiento en cloud para almacenar objetos fuera del sistema StorageGRID. Por ejemplo, supongamos que tiene un gran número de objetos que necesita retener, pero espera tener acceso a esos objetos rara vez, si es que alguna vez. Puede usar un pool de almacenamiento en cloud para organizar los objetos en niveles para reducir el almacenamiento y liberar espacio en StorageGRID.
+
+Para implementar una solución por niveles:
+
+. Cree un único pool de almacenamiento en el cloud.
+. Configure una regla de ILM que mueva objetos que no se usen frecuentemente desde nodos de almacenamiento a Cloud Storage Pool.
+. Añada la regla a la política de ILM. A continuación, simule y active la directiva.
+
+
+
+
+== Mantenga varios extremos de cloud
+
+Puede configurar varios extremos de Cloud Storage Pool si desea organizar en niveles o realizar backups de datos de objetos en más de una nube. Los filtros de las reglas de ILM permiten especificar los objetos que se almacenan en cada Cloud Storage Pool. Por ejemplo, es posible que desee almacenar objetos de algunos clientes o buckets en Amazon S3 Glacier y objetos de otros inquilinos o buckets en el almacenamiento de Azure Blob. O bien, es posible que desee mover datos entre el almacenamiento de Amazon S3 Glacier y Azure Blob.
+
+
+NOTE: Cuando se utilizan varios extremos de Cloud Storage Pool, tenga en cuenta que un objeto se puede almacenar solo en un Cloud Storage Pool cada vez.
+
+Para implementar varios extremos de cloud:
+
+. Cree hasta 10 pools de almacenamiento en cloud.
+. Configure las reglas de ILM para almacenar los datos de los objetos adecuados en el momento adecuado en cada pool de almacenamiento de cloud. Por ejemplo, almacene objetos del depósito A en Cloud Storage Pool A y almacene objetos del depósito B en Cloud Storage Pool B. O almacene objetos en Cloud Storage Pool A durante algún tiempo y, a continuación, muévalos al Cloud Storage Pool B.
+. Añada las reglas a la política de ILM. A continuación, simule y active la directiva.
+

@@ -1,0 +1,64 @@
+---
+permalink: audit/bror-bucket-read-only-request.html 
+sidebar: sidebar 
+keywords: bror, bucket read only request, empty bucket, audit message, 
+summary: El servicio LDR genera este mensaje de auditoría cuando un depósito entra o sale del modo de sólo lectura. Por ejemplo, un depósito entra en modo de solo lectura mientras se vacía. 
+---
+= BROR: Solicitud de solo lectura de bucket
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El servicio LDR genera este mensaje de auditoría cuando un depósito entra o sale del modo de sólo lectura. Por ejemplo, un bucket entra en modo de solo lectura mientras se eliminan todos los objetos.
+
+[cols="1a,1a,4a"]
+|===
+| Codificación | Campo | Descripción 
+
+
+ a| 
+BKHD
+ a| 
+UUID de bloque
+ a| 
+El ID de bloque.
+
+
+
+ a| 
+BROV
+ a| 
+Valor de solicitud de sólo lectura del segmento
+ a| 
+Si el depósito se está convirtiendo en de solo lectura o si está dejando el estado de solo lectura (1 = de solo lectura, 0 = no de solo lectura).
+
+
+
+ a| 
+BROS
+ a| 
+Motivo de sólo lectura del depósito
+ a| 
+El motivo por el que el depósito se convierte en de sólo lectura o deja el estado de sólo lectura. Por ejemplo, emptyBucket.
+
+
+
+ a| 
+S3AI
+ a| 
+S3 ID de cuenta de inquilino
+ a| 
+El ID de la cuenta de inquilino que envió la solicitud. Un valor vacío indica acceso anónimo.
+
+
+
+ a| 
+S3BK
+ a| 
+S3 cucharón
+ a| 
+El nombre de bloque de S3.
+
+|===

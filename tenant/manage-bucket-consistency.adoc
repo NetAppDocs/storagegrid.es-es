@@ -1,0 +1,84 @@
+---
+permalink: tenant/manage-bucket-consistency.html 
+sidebar: sidebar 
+keywords: how to manage bucket consistency, how to change bucket consistency, read after new write, read-after-new-write, strong site, strong-site, strong global, strong-global 
+summary: Los valores de coherencia se pueden utilizar para especificar la disponibilidad de cambios de configuración de bloques, así como para proporcionar un equilibrio entre la disponibilidad de los objetos dentro de un bloque y la coherencia de dichos objetos en distintos nodos de almacenamiento y sitios. Puede cambiar los valores de coherencia para que sean diferentes de los valores predeterminados para que las aplicaciones cliente puedan satisfacer sus necesidades operativas. 
+---
+= Gestione la coherencia de los bloques
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los valores de coherencia se pueden utilizar para especificar la disponibilidad de cambios de configuración de bloques, así como para proporcionar un equilibrio entre la disponibilidad de los objetos dentro de un bloque y la coherencia de dichos objetos en distintos nodos de almacenamiento y sitios. Puede cambiar los valores de coherencia para que sean diferentes de los valores predeterminados para que las aplicaciones cliente puedan satisfacer sus necesidades operativas.
+
+.Antes de empezar
+* Ha iniciado sesión en el gestor de inquilinos mediante un link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Pertenece a un grupo de usuarios que tiene el link:tenant-management-permissions.html["Gestione todos los bloques o permisos de acceso raíz"]. Estos permisos anulan la configuración de los permisos en las políticas de grupo o bloque.
+
+
+
+
+== Directrices de coherencia de bloques
+
+La coherencia de bloques se utiliza para determinar la coherencia de las aplicaciones cliente que afectan a los objetos dentro de ese bloque S3. En general, debe utilizar la consistencia *Read-after-new-write* para sus cubos.
+
+
+
+== [[change-bucket-consistency]]Cambie la consistencia del bloque
+
+Si la consistencia de *Read-after-new-write* no cumple con los requisitos de la aplicación cliente, puede cambiar la consistencia configurando la consistencia del depósito o usando el `Consistency-Control` encabezado. El `Consistency-Control` cabezal anula la consistencia del cucharón.
+
+
+NOTE: Cuando se cambia la consistencia de un depósito, sólo se garantiza que los objetos que se ingieren después del cambio cumplan con la configuración revisada.
+
+.Pasos
+. Seleccione *Ver cubos* en el panel de control o seleccione *ALMACENAMIENTO (S3)* > *Buckets*.
+. Seleccione el nombre del cubo de la tabla.
++
+Aparece la página de detalles bucket.
+
+. En la pestaña *Opciones de cucharón*, selecciona el acordeón **.
+. Seleccione una coherencia para las operaciones realizadas en los objetos de este bloque.
++
+** *Todo*: Proporciona el más alto nivel de consistencia. Todos los nodos reciben los datos inmediatamente o se produce un error en la solicitud.
+** *Strong-global*: Garantiza la consistencia de lectura tras escritura para todas las solicitudes de los clientes en todos los sitios.
+** *Strong-site*: Garantiza la consistencia de lectura después de escritura para todas las solicitudes de los clientes dentro de un sitio.
+** *Read-after-new-write* (por defecto): Proporciona consistencia de lectura después de escritura para nuevos objetos y consistencia eventual para las actualizaciones de objetos. Ofrece garantías de alta disponibilidad y protección de datos. Recomendado para la mayoría de los casos.
+** *Disponible*: Proporciona consistencia eventual tanto para nuevos objetos como para actualizaciones de objetos. Para los cubos S3, utilice solo según sea necesario (por ejemplo, para un depósito que contiene valores de registro que rara vez se leen, o para operaciones HEAD u GET en claves que no existen). No se admite para bloques de FabricPool S3.
+
+
+. Seleccione *Guardar cambios*.
+
+
+
+
+== Qué sucede cuando se cambia la configuración del bloque
+
+Los cubos tienen varios ajustes que afectan al comportamiento de los cubos y los objetos dentro de esos cubos.
+
+Los siguientes ajustes de cucharón utilizan la consistencia *strong* de forma predeterminada. Si no hay dos o más nodos de almacenamiento disponibles en ningún sitio, o si no hay un sitio disponible, es posible que no esté disponible ningún cambio en estos ajustes.
+
+* link:deleting-s3-bucket-objects.html["Eliminación de bloque vacío en segundo plano"]
+* link:enabling-or-disabling-last-access-time-updates.html["Hora del último acceso"]
+* link:../s3/create-s3-lifecycle-configuration.html["Ciclo de vida del cucharón"]
+* link:../s3/bucket-and-group-access-policies.html["Política de bloques"]
+* link:../s3/operations-on-buckets.html["Etiquetado de cucharones"]
+* link:changing-bucket-versioning.html["Control de versiones del cucharón"]
+* link:using-s3-object-lock.html["Bloqueo de objetos de S3"]
+* link:../admin/reviewing-storagegrid-encryption-methods.html#bucket-encryption-table["Cifrado de bloques"]
+
+
+
+NOTE: El valor de coherencia para el control de versiones de bloque, el bloqueo de objetos de S3 y el cifrado de bloque no se puede establecer en un valor que no es muy consistente.
+
+Los siguientes ajustes de cucharón no utilizan una gran consistencia y tienen una mayor disponibilidad para los cambios. Los cambios en estos ajustes pueden tardar algún tiempo antes de tener un efecto.
+
+* link:considerations-for-platform-services.html["Configuración de servicios de plataforma: Notificación, replicación o integración de búsqueda"]
+* link:configuring-cross-origin-resource-sharing-cors.html["Configuración de CORS"]
+* <<change-bucket-consistency,Cambie la consistencia del cucharón>>
+
+
+
+TIP: Si la consistencia predeterminada utilizada al cambiar la configuración del depósito no cumple con los requisitos de la aplicación cliente, puede cambiar la consistencia mediante `Consistency-Control` la cabecera para link:../s3/put-bucket-consistency-request.html["API REST DE S3"]o mediante las `force` opciones o. `reducedConsistency`link:understanding-tenant-management-api.html["API de gestión de inquilinos"]

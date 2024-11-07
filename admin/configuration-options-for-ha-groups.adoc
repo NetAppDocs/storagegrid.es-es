@@ -1,0 +1,66 @@
+---
+permalink: admin/configuration-options-for-ha-groups.html 
+sidebar: sidebar 
+keywords: ha groups, best practices, high availability group options 
+summary: El diagrama siguiente proporciona ejemplos de diferentes formas de configurar los grupos de alta disponibilidad. Cada opción tiene ventajas y desventajas. 
+---
+= Opciones de configuración para grupos de alta disponibilidad
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los diagramas siguientes proporcionan ejemplos de diferentes formas de configurar grupos de alta disponibilidad. Cada opción tiene ventajas y desventajas.
+
+En los diagramas, el azul indica la interfaz primaria del grupo de alta disponibilidad y el amarillo indica la interfaz de backup del grupo de alta disponibilidad.
+
+image::../media/high_availability_examples.png[Ejemplos de HA]
+
+La tabla resume las ventajas de cada configuración de alta disponibilidad que se muestra en el diagrama.
+
+[cols="1a,2a,2a"]
+|===
+| Configuración | Ventajas | Desventajas 
+
+
+ a| 
+Alta disponibilidad de Active-Backup
+ a| 
+* Gestionada por StorageGRID sin dependencias externas.
+* Rápida recuperación tras fallos.
+
+ a| 
+* Solo un nodo de un grupo de alta disponibilidad está activo. Al menos un nodo por grupo de alta disponibilidad estará inactivo.
+
+
+
+
+ a| 
+Operación por turnos DNS
+ a| 
+* Mayor rendimiento total.
+* Sin hosts inactivos.
+
+ a| 
+* Conmutación al respaldo lenta, que puede depender del comportamiento del cliente.
+* Requiere la configuración del hardware fuera de StorageGRID.
+* Necesita una comprobación del estado implementada por el cliente.
+
+
+
+
+ a| 
+Alta disponibilidad activo-activo
+ a| 
+* El tráfico se distribuye entre varios grupos de alta disponibilidad.
+* Alto rendimiento de agregado escalable con el número de grupos de alta disponibilidad.
+* Rápida recuperación tras fallos.
+
+ a| 
+* Más complejo de configurar.
+* Requiere la configuración del hardware fuera de StorageGRID.
+* Necesita una comprobación del estado implementada por el cliente.
+
+
+|===

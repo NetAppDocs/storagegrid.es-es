@@ -1,0 +1,44 @@
+---
+permalink: maintain/forcing-service-to-terminate.html 
+sidebar: sidebar 
+keywords: storagegrid, terminate service, terminating service, force terminate 
+summary: 'Si tiene que detener un servicio de inmediato, puede utilizar `force-stop` el comando.' 
+---
+= Fuerce el servicio para terminar
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si tiene que detener un servicio de inmediato, puede utilizar `force-stop` el comando.
+
+.Antes de empezar
+Tiene el `Passwords.txt` archivo.
+
+.Pasos
+. Inicie sesión en el nodo de grid:
++
+.. Introduzca el siguiente comando: `ssh admin@_grid_node_IP_`
+.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
+.. Introduzca el siguiente comando para cambiar a raíz: `su -`
+.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
+
+
++
+Al iniciar sesión como root, la petición de datos cambia de `$` a `#`.
+
+. Forzar manualmente la finalización del servicio: `service _servicename_ force-stop`
++
+Por ejemplo:
+
++
+[listing]
+----
+service ldr force-stop
+----
++
+El sistema espera 30 segundos antes de terminar el servicio.
+
+. Cierre la sesión del shell de comandos: `exit`
+

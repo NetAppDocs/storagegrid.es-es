@@ -1,0 +1,83 @@
+---
+permalink: tenant/understanding-tenant-management-api.html 
+sidebar: sidebar 
+keywords: how to understand tenant management api 
+summary: Puede realizar tareas de administración del sistema mediante la API REST de gestión de inquilinos en lugar de la interfaz de usuario de inquilino Manager. Por ejemplo, se recomienda utilizar la API para automatizar operaciones o crear varias entidades, como los usuarios, más rápidamente. 
+---
+= Comprender la API de gestión de inquilinos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede realizar tareas de administración del sistema mediante la API REST de gestión de inquilinos en lugar de la interfaz de usuario de inquilino Manager. Por ejemplo, se recomienda utilizar la API para automatizar operaciones o crear varias entidades, como los usuarios, más rápidamente.
+
+API de gestión de inquilinos:
+
+* Utiliza la plataforma API de código abierto de Swagger. Swagger proporciona una interfaz de usuario intuitiva que permite a los desarrolladores y no desarrolladores interactuar con la API. La interfaz de usuario de Swagger proporciona detalles y documentación completos para cada operación de API.
+* Utiliza link:tenant-management-api-versioning.html["creación de versiones para dar cabida a actualizaciones no disruptivas"].
+
+
+Para acceder a la documentación de Swagger para la API de gestión de inquilinos:
+
+. Inicie sesión en el Administrador de inquilinos.
+. En la parte superior del Administrador de inquilinos, selecciona el icono de ayuda y selecciona *Documentación de API*.
+
+
+
+
+== Operaciones de API
+
+La API de gestión de inquilinos organiza las operaciones de API disponibles en las siguientes secciones:
+
+* *CUENTA*: Operaciones en la cuenta de inquilino actual, incluida la obtención de información de uso de almacenamiento.
+* *AUTH*: Operaciones para realizar la autenticación de sesión de usuario.
++
+La API de administración de arrendatarios admite el esquema de autenticación de token Bearer. Para un inicio de sesión de inquilino, proporcione un nombre de usuario, una contraseña y un AccountID en el cuerpo JSON de la solicitud de autenticación (es decir, `POST /api/v3/authorize`). Si el usuario se autentica correctamente, se devuelve un token de seguridad. Este token se debe proporcionar en el encabezado de las posteriores solicitudes de API ("autorización: Token del portador").
+
++
+Para obtener información sobre cómo mejorar la seguridad de autenticación, consulte link:protecting-against-cross-site-request-forgery-csrf.html["Protección contra falsificación de solicitudes entre sitios"].
+
++
+
+NOTE: Si está habilitado el inicio de sesión único (SSO) para el sistema StorageGRID, debe realizar diferentes pasos para la autenticación. Consulte la link:../admin/using-grid-management-api.html["Instrucciones de uso de la API de gestión de grid"].
+
+* *Config*: Operaciones relacionadas con el lanzamiento del producto y versiones de la API de Gestión de Inquilinos. Puede mostrar la versión de la versión del producto y las versiones principales de la API que admite esa versión.
+* *Contenedores*: Operaciones en S3 cubos o contenedores Swift.
+* *Funciones desactivadas*: Operaciones para ver características que podrían haber sido desactivadas.
+* *Endpoints*: Operaciones para gestionar un endpoint. Los extremos permiten que un bloque de S3 use un servicio externo para la replicación de CloudMirror de StorageGRID, notificaciones o integración de búsqueda.
+* *Grid-federation-connections*: Operaciones en conexiones de federación de grid y replicación entre grid.
+* *GRUPOS*: Operaciones para administrar grupos de inquilinos locales y para recuperar grupos de inquilinos federados de una fuente de identidad externa.
+* *Identity-source*: Operaciones para configurar una fuente de identidad externa y sincronizar manualmente la información federada del grupo y del usuario.
+* *ilm*: Operaciones en la configuración de gestión del ciclo de vida de la información (ILM).
+* *REGIONS*: Operaciones para determinar qué regiones se han configurado para el sistema StorageGRID.
+* *S3*: Operaciones para administrar las claves de acceso S3 para los usuarios inquilinos.
+* *S3-OBJECT-LOCK*: Operaciones en la configuración global de S3 Object Lock, utilizada para apoyar el cumplimiento normativo.
+* *Usuarios*: Operaciones para ver y administrar usuarios inquilinos.
+
+
+
+
+== Detalles de la operación
+
+Al expandir cada operación de API, puede ver su acción HTTP, su URL de extremo, una lista de cualquier parámetro requerido o opcional, un ejemplo del cuerpo de la solicitud (cuando sea necesario) y las posibles respuestas.
+
+image::../media/tenant_api_swagger_example.gif[Ejemplo que muestra la operación DE OBTENER grupos en la API de Swagger]
+
+
+
+== Emita solicitudes API
+
+
+CAUTION: Cualquier operación de API que realice mediante la página web de Documentación de API es operaciones en directo. Tenga cuidado de no crear, actualizar o eliminar datos de configuración u otros datos por error.
+
+.Pasos
+. Seleccione la acción HTTP para ver los detalles de la solicitud.
+. Determine si la solicitud requiere parámetros adicionales, como un ID de grupo o de usuario. A continuación, obtenga estos valores. Es posible que primero deba emitir una solicitud de API diferente para obtener la información que necesita.
+. Determine si necesita modificar el cuerpo de solicitud de ejemplo. Si es así, puede seleccionar *Modelo* para conocer los requisitos de cada campo.
+. Seleccione *probar*.
+. Proporcione los parámetros necesarios o modifique el cuerpo de la solicitud según sea necesario.
+. Seleccione *Ejecutar*.
+. Revise el código de respuesta para determinar si la solicitud se ha realizado correctamente.
+

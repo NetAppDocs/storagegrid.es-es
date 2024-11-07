@@ -1,0 +1,59 @@
+---
+permalink: tenant/ilm-policy-tags.html 
+sidebar: sidebar 
+keywords: how to assign ilm policy tag to bucket 
+summary: Seleccione una etiqueta de política de ILM para asignarla a un bloque en función de sus requisitos de almacenamiento de objetos. 
+---
+= Aplique una etiqueta de política de ILM a un bloque
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Elija una etiqueta de política de ILM para aplicarla a un bloque en función de sus requisitos de almacenamiento de objetos.
+
+La política de ILM controla dónde se almacenan los datos de objetos y si se eliminan después de un cierto período de tiempo. Su administrador de grid crea políticas de ILM y las asigna a las etiquetas de políticas de ILM cuando usa varias políticas activas.
+
+
+NOTE: Evite reasignar con frecuencia la etiqueta de política de un bucket. De lo contrario, pueden producirse problemas de rendimiento.
+
+.Antes de empezar
+* Ha iniciado sesión en el gestor de inquilinos mediante un link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Pertenece a un grupo de usuarios que tiene el link:tenant-management-permissions.html["Acceso raíz, Gestionar todos los bloques o Ver todos los bloques"]. Estos permisos anulan la configuración de permisos en las políticas de grupo o bloque.
+
+
+.Pasos
+. Seleccione *Ver cubos* en el panel de control o seleccione *ALMACENAMIENTO (S3)* > *Buckets*.
++
+Aparecerá la página Buckets. Según sea necesario, puede ordenar la información por cualquier columna o puede avanzar y retroceder por la lista.
+
+. Seleccione el nombre del bloque al que desea asignar una etiqueta de política de ILM.
++
+También puede cambiar la asignación de etiquetas de política de ILM de un bloque que ya tenga una etiqueta asignada.
+
++
+
+NOTE: Los valores de recuento de objetos y espacio utilizado que se muestran son estimaciones. Estas estimaciones se ven afectadas por el tiempo de los ingests, la conectividad de red y el estado del nodo. Si los bloques tienen habilitado el control de versiones, las versiones de objetos eliminados se incluyen en el recuento de objetos.
+
+. En la pestaña Bucket options, expanda el acordeón de etiqueta de política de ILM. Este acordeón solo aparece si el administrador de grid ha habilitado el uso de etiquetas de política personalizadas.
+. Lea la descripción de cada etiqueta de política para determinar qué etiqueta se debe aplicar al depósito.
++
+
+CAUTION: Si se cambia la etiqueta de política de ILM de un bloque, se activará la reevaluación de ILM de todos los objetos del bloque. Si la nueva política conserva los objetos durante un tiempo limitado, los objetos más antiguos se eliminarán.
+
+. Seleccione el botón de radio de la etiqueta que desea asignar al depósito.
+. Seleccione *Guardar cambios*. Se establecerá una nueva etiqueta de cubo de S3 en el bloque con la clave `NTAP-SG-ILM-BUCKET-TAG` y el valor del nombre de la etiqueta de política de ILM.
++
+
+CAUTION: Asegúrese de que las aplicaciones S3 no anulen ni eliminen accidentalmente la nueva etiqueta de depósito. Si se omite esta etiqueta al aplicar un TagSet nuevo al bloque, los objetos del bloque se volverán a evaluar según la política de ILM predeterminada.
+
++
+
+CAUTION: Establezca y modifique las etiquetas de políticas de ILM mediante solo la API del administrador de inquilinos o del administrador de inquilinos donde se valida la etiqueta de política de ILM. No modifique `NTAP-SG-ILM-BUCKET-TAG` la etiqueta de la política de ILM con la API S3 PutBucketTagging o la API S3 DeleteBucketTagging.
+
++
+
+NOTE: El cambio de la etiqueta de política asignada a un bloque tiene un impacto temporal en el rendimiento mientras los objetos se reevalúan con la nueva política de ILM.
+
+

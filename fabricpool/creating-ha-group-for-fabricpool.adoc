@@ -1,0 +1,99 @@
+---
+permalink: fabricpool/creating-ha-group-for-fabricpool.html 
+sidebar: sidebar 
+keywords: fabricPool, high availability group, HA group, create, creating, virtual IP, VIP, active interface, backup interface 
+summary: 'Al configurar StorageGRID para su uso con FabricPool, puede opcionalmente crear uno o varios grupos de alta disponibilidad (ha). Un grupo de alta disponibilidad es una colección de nodos que contiene cada uno de ellos el servicio de equilibrador de carga de StorageGRID. Un grupo de alta disponibilidad puede contener nodos de pasarela, nodos de administración o ambos.' 
+---
+= Crear un grupo de alta disponibilidad para FabricPool
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Al configurar StorageGRID para su uso con FabricPool, puede opcionalmente crear uno o varios grupos de alta disponibilidad (ha). Un grupo de alta disponibilidad es una colección de nodos que contiene cada uno de ellos el servicio de equilibrador de carga de StorageGRID. Un grupo de alta disponibilidad puede contener nodos de pasarela, nodos de administración o ambos.
+
+Puede usar un grupo de alta disponibilidad para ayudar a mantener disponibles las conexiones de datos FabricPool. Un grupo de alta disponibilidad utiliza direcciones IP virtuales (VIP) para proporcionar acceso de alta disponibilidad al servicio Load Balancer. Si falla la interfaz activa en el grupo HA, una interfaz de backup puede gestionar la carga de trabajo con poco impacto en las operaciones de FabricPool.
+
+Para obtener detalles sobre esta tarea, consulte link:../admin/managing-high-availability-groups.html["Gestión de grupos de alta disponibilidad"]. Para utilizar el asistente de configuración de FabricPool para completar esta tarea, vaya a link:use-fabricpool-setup-wizard-steps.html["Acceda al asistente de configuración de FabricPool y complete este"].
+
+.Antes de empezar
+* Ha revisado el link:best-practices-for-high-availability-groups.html["prácticas recomendadas para grupos de alta disponibilidad"].
+* Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Usted tiene el link:../admin/admin-group-permissions.html["Permiso de acceso raíz"].
+* Si planea utilizar una VLAN, ha creado la interfaz VLAN. Consulte link:../admin/configure-vlan-interfaces.html["Configure las interfaces VLAN"].
+
+
+.Pasos
+. Seleccione *CONFIGURACIÓN* > *Red* > *grupos de alta disponibilidad*.
+. Seleccione *Crear*.
+. Para el paso *Enter details*, complete los siguientes campos.
++
+[cols="1a,2a"]
+|===
+| Campo | Descripción 
+
+
+ a| 
+Nombre del GRUPO HA
+ a| 
+Un nombre mostrado exclusivo para este grupo HA.
+
+
+
+ a| 
+Descripción (opcional)
+ a| 
+La descripción de este grupo de alta disponibilidad.
+
+|===
+. Para el paso *Agregar interfaces*, seleccione las interfaces de nodo que desea utilizar en este grupo HA.
++
+Utilice los encabezados de columna para ordenar las filas o introduzca un término de búsqueda para localizar las interfaces más rápidamente.
+
++
+Puede seleccionar uno o varios nodos, pero solo puede seleccionar una interfaz para cada nodo.
+
+. Para el paso *Priorize interfaces*, determine la interfaz principal y cualquier interfaz de respaldo para este grupo HA.
++
+Arrastre las filas para cambiar los valores en la columna *Orden de prioridad*.
+
++
+La primera interfaz de la lista es la interfaz principal. La interfaz Primary es la interfaz activa a menos que se produzca un fallo.
+
++
+Si el grupo de alta disponibilidad incluye más de una interfaz y la interfaz activa falla, las direcciones IP virtuales (VIP) se mueven a la primera interfaz de respaldo en el orden de prioridad. Si falla esa interfaz, las direcciones VIP pasan a la siguiente interfaz de respaldo, etc. Cuando se resuelven los fallos, las direcciones VIP vuelven a la interfaz de mayor prioridad disponible.
+
+. Para el paso *Introducir direcciones IP*, complete los siguientes campos.
++
+[cols="1a,2a"]
+|===
+| Campo | Descripción 
+
+
+ a| 
+CIDR de subred
+ a| 
+La dirección de la subred VIP en CIDR notation&#8212;Una dirección IPv4 seguida de una barra diagonal y la longitud de subred (0-32).
+
+La dirección de red no debe tener ningún bit de host configurado. Por ejemplo, `192.16.0.0/22`.
+
+
+
+ a| 
+Dirección IP de la puerta de enlace (opcional)
+ a| 
+Opcional. Si las direcciones IP de ONTAP utilizadas para acceder a StorageGRID no están en la misma subred que las direcciones VIP de StorageGRID, introduzca la dirección IP de la puerta de enlace local VIP de StorageGRID. La dirección IP de la puerta de enlace local debe estar dentro de la subred VIP.
+
+
+
+ a| 
+Dirección IP virtual
+ a| 
+Introduzca al menos una y como máximo diez direcciones VIP para la interfaz activa en el grupo de alta disponibilidad. Todas las direcciones VIP deben estar dentro de la subred VIP.
+
+Al menos una dirección debe ser IPv4. De manera opcional, es posible especificar direcciones IPv4 e IPv6 adicionales.
+
+|===
+. Seleccione *Crear grupo ha* y, a continuación, seleccione *Finalizar*.
+

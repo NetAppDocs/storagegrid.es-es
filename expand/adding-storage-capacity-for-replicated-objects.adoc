@@ -1,0 +1,24 @@
+---
+permalink: expand/adding-storage-capacity-for-replicated-objects.html 
+sidebar: sidebar 
+keywords: replication, replicated, copies, capacity, storage nodes, expand, expansion 
+summary: 'Si la política de gestión del ciclo de vida de la información \(ILM\) para la implementación incluye una regla que crea copias replicadas de objetos, debe considerar cuánto almacenamiento debe agregar y dónde añadir los nuevos volúmenes de almacenamiento o los nodos de almacenamiento.' 
+---
+= Agregar capacidad de almacenamiento para objetos replicados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si la política de gestión de ciclo de vida de la información (ILM) para la implementación incluye una regla que crea copias replicadas de objetos, debe considerar cuánto almacenamiento añadir y dónde añadir los nuevos volúmenes de almacenamiento o nodos de almacenamiento.
+
+Para obtener una guía sobre dónde añadir almacenamiento adicional, examine las reglas de ILM que crean copias replicadas. Si las reglas de ILM crean dos o más copias de objetos, planifique añadir almacenamiento en cada ubicación donde se realicen copias de objetos. Como ejemplo simple, si tiene un grid de dos sitios y una regla de ILM que crea una copia de objeto en cada sitio, debe link:../expand/adding-storage-volumes-to-storage-nodes.html["añadir almacenamiento"] ir a cada sitio para aumentar la capacidad general de objetos del grid. Para obtener más información sobre la replicación de objetos, consulte link:../ilm/what-replication-is.html["Qué es la replicación"].
+
+Por motivos de rendimiento, debe intentar mantener la capacidad de almacenamiento y la potencia de computación equilibrada en varios sitios. Así pues, para este ejemplo, debería añadir el mismo número de nodos de almacenamiento a cada sitio o volúmenes de almacenamiento adicionales en cada sitio.
+
+Si tiene una política de ILM más compleja que incluye reglas para colocar objetos en distintas ubicaciones en función de criterios como el nombre del bloque o reglas que cambian las ubicaciones de objetos con el tiempo, su análisis de dónde se necesita almacenamiento para la expansión será similar, pero más complejo.
+
+Un gráfico que muestra la rapidez con la que se consume la capacidad de almacenamiento general puede ayudarle a comprender cuánto almacenamiento debe añadir a la expansión y cuándo se necesitará el espacio de almacenamiento adicional. Puede utilizar Grid Manager para link:../monitor/monitoring-storage-capacity.html["supervise y cree un gráfico de la capacidad de almacenamiento"].
+
+Al planificar los plazos de una expansión, recuerde considerar cuánto tiempo puede tardar en obtener e instalar almacenamiento adicional.

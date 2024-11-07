@@ -1,0 +1,94 @@
+---
+permalink: s3/get-bucket-consistency-request.html 
+sidebar: sidebar 
+keywords: S3 REST API, S3 operations, GET bucket consistency 
+summary: La solicitud OBTENER coherencia de bloques permite determinar la coherencia que se aplica a un bloque en particular. 
+---
+= OBTENGA coherencia de bloques
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La solicitud OBTENER coherencia de bloques permite determinar la coherencia que se aplica a un bloque en particular.
+
+La consistencia predeterminada se establece en garantía de lectura tras escritura para los objetos recién creados.
+
+Debe tener el permiso s3:GetBucketConsistency, o bien ser la raíz de la cuenta, para completar esta operación.
+
+
+
+== Ejemplo de solicitud
+
+[listing, subs="specialcharacters,quotes"]
+----
+GET /bucket?x-ntap-sg-consistency HTTP/1.1
+Date: _date_
+Authorization: _authorization string_
+Host: _host_
+----
+
+
+== Respuesta
+
+En el XML de respuesta, `<Consistency>` devolverá uno de los siguientes valores:
+
+[cols="1a,2a"]
+|===
+| Coherencia | Descripción 
+
+
+ a| 
+todo
+ a| 
+Todos los nodos reciben los datos inmediatamente o se produce un error en la solicitud.
+
+
+
+ a| 
+fuerte en todo el mundo
+ a| 
+Garantiza la coherencia de lectura tras escritura para todas las solicitudes del cliente en todos los sitios.
+
+
+
+ a| 
+sitio seguro
+ a| 
+Garantiza la coherencia de lectura tras escritura para todas las solicitudes del cliente dentro de un sitio.
+
+
+
+ a| 
+lectura-después-nueva-escritura
+ a| 
+(Predeterminado) proporciona coherencia de lectura tras escritura para los nuevos objetos y coherencia final para las actualizaciones de objetos. Ofrece garantías de alta disponibilidad y protección de datos. Recomendado para la mayoría de los casos.
+
+
+
+ a| 
+disponible
+ a| 
+Proporciona consistencia eventual tanto para nuevos objetos como para actualizaciones de objetos. Para los cubos S3, utilice solo según sea necesario (por ejemplo, para un depósito que contiene valores de registro que rara vez se leen, o para operaciones HEAD u GET en claves que no existen). No se admite para bloques de FabricPool S3.
+
+|===
+
+
+== Ejemplo de respuesta
+
+[listing]
+----
+HTTP/1.1 200 OK
+Date: Fri, 18 Sep 2020 01:02:18 GMT
+Connection: CLOSE
+Server: StorageGRID/11.5.0
+x-amz-request-id: 12345
+Content-Length: 127
+Content-Type: application/xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Consistency xmlns="http://s3.storagegrid.com/doc/2015-02-01/">read-after-new-write</Consistency>
+----
+.Información relacionada
+link:consistency-controls.html["Valores de coherencia"]

@@ -1,0 +1,67 @@
+---
+permalink: upgrade/obtaining-required-materials-for-software-upgrade.html 
+sidebar: sidebar 
+keywords: upgrade, requirements, rhel, red hat, linux, ubuntu, debian 
+summary: Antes de comenzar la actualización de software, obtenga todos los materiales necesarios. 
+---
+= Obtenga los materiales necesarios para una actualización de software
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de comenzar la actualización de software, obtenga todos los materiales necesarios.
+
+[cols="1a,3a"]
+|===
+| Elemento | Notas 
+
+
+ a| 
+Portátil de servicio
+ a| 
+El portátil de servicio debe tener:
+
+* Puerto de red
+* Cliente SSH (por ejemplo, PuTTY)
+
+
+
+
+ a| 
+link:../admin/web-browser-requirements.html["Navegador web compatible"]
+ a| 
+Normalmente, el navegador admite cambios para cada versión de StorageGRID. Asegúrese de que su navegador sea compatible con la nueva versión de StorageGRID.
+
+
+
+ a| 
+Clave de acceso de aprovisionamiento
+ a| 
+La frase de contraseña se crea y documenta cuando se instala el sistema StorageGRID por primera vez. La clave de acceso de aprovisionamiento no aparece en `Passwords.txt` el archivo.
+
+
+
+ a| 
+Linux RPM o archivo DEB
+ a| 
+Si hay algún nodo implementado en hosts Linux, debe link:linux-installing-rpm-or-deb-package-on-all-hosts.html["Descargue e instale el paquete RPM o DEB en todos los hosts"]antes de comenzar la actualización.
+
+Asegúrese de que su sistema operativo cumple con los requisitos mínimos de versión de núcleo de StorageGRID:
+
+* link:../rhel/installing-linux.html["Instalar StorageGRID en hosts Red Hat Enterprise Linux"]
+* link:../ubuntu/installing-linux.html["Instale StorageGRID en hosts Ubuntu o Debian"]
+
+
+
+
+ a| 
+Documentación de StorageGRID
+ a| 
+* link:../release-notes/index.html["Notas de la versión"] Para StorageGRID 11,9 (es necesario iniciar sesión). Asegúrese de leerlos detenidamente antes de iniciar la actualización.
+* https://kb.netapp.com/hybrid/StorageGRID/Maintenance/StorageGRID_11.9_software_upgrade_resolution_guide["Guía de resolución de actualización de software StorageGRID"^] para la versión principal a la que está actualizando (es necesario iniciar sesión)
+* Otros https://docs.netapp.com/us-en/storagegrid-family/index.html["Documentación de StorageGRID"^], según sea necesario.
+
+
+|===

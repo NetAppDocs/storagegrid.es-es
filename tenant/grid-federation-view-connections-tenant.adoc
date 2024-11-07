@@ -1,0 +1,91 @@
+---
+permalink: tenant/grid-federation-view-connections-tenant.html 
+sidebar: sidebar 
+keywords: grid federation connection, view, clear error, last error 
+summary: Si su cuenta de inquilino tiene el permiso de conexión Usar federación de grid, puede ver las conexiones permitidas. 
+---
+= Ver conexiones de federación de grid
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si su cuenta de inquilino tiene el permiso *Usar conexión de federación de grid*, puede ver las conexiones permitidas.
+
+.Antes de empezar
+* La cuenta de inquilino tiene el permiso *Use grid federation connection*.
+* Ha iniciado sesión en el gestor de inquilinos mediante un link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Pertenece a un grupo de usuarios que tiene el link:tenant-management-permissions.html["Permiso de acceso raíz"].
+
+
+.Pasos
+. Selecciona *STORAGE (S3)* > *Grid federation connections*.
++
+Aparece la página de conexión de Grid federation e incluye una tabla que resume la siguiente información:
+
++
+[cols="1a,2a"]
+|===
+| Columna | Descripción 
+
+
+ a| 
+Nombre de conexión
+ a| 
+Las conexiones de federación de grid que este inquilino tiene permiso para utilizar.
+
+
+
+ a| 
+Buckets con replicación entre grid
+ a| 
+Para cada conexión de federación de grid, los buckets de inquilinos que tienen habilitada la replicación entre grid. Los objetos agregados a estos cubos se replicarán en la otra cuadrícula de la conexión.
+
+
+
+ a| 
+Último error
+ a| 
+Para cada conexión de federación de grid, se produce el error más reciente, si lo hay, cuando los datos se están replicando en la otra cuadrícula. Consulte <<clear-last-error,Borre el último error>>.
+
+|===
+. Si lo desea, seleccione un nombre de cubo para link:viewing-s3-bucket-details.html["ver detalles del período"].
+
+
+
+
+== [[clear-last-error]]Borrar el último error
+
+Un error puede aparecer en la columna *last error* por uno de estos motivos:
+
+* No se ha encontrado la versión del objeto de origen.
+* No se ha encontrado el depósito de origen.
+* Se ha suprimido el depósito de destino.
+* Una cuenta diferente ha vuelto a crear el bloque de destino.
+* Se ha suspendido el control de versiones del bloque de destino.
+* La misma cuenta ha vuelto a crear el depósito de destino, pero ahora no tiene versiones.
+
+
+
+NOTE: Esta columna solo muestra el último error de replicación entre cuadrículas que se produce; no se mostrarán los errores anteriores que podrían haberse producido.
+
+.Pasos
+. Si aparece un mensaje en la columna *Último error*, vea el texto del mensaje.
++
+Por ejemplo, este error indica que el depósito de destino para la replicación entre grid estaba en un estado no válido, posiblemente porque el control de versiones estaba suspendido o porque se activó el bloqueo de objetos S3.
+
++
+image::../media/grid-federation-cgr-object-example-last-error.png[grid-federation-cgr-object-example-last-error]
+
+. Realice las acciones recomendadas. Por ejemplo, si se suspendió el control de versiones en el bloque de destino para la replicación entre grid, vuelva a habilitar el control de versiones para ese bloque.
+. Seleccione la conexión de la tabla.
+. Seleccione *Borrar error*.
+. Seleccione *Sí* para borrar el mensaje y actualizar el estado del sistema.
+. Espere 5-6 minutos e incorpore un objeto nuevo en el bloque. Confirme que el mensaje de error no vuelve a aparecer.
++
+
+NOTE: Para asegurarse de que el mensaje de error se borra, espere al menos 5 minutos después de la marca de tiempo del mensaje antes de introducir un nuevo objeto.
+
+. Para determinar si se ha producido un fallo en la replicación de algún objeto debido al error del depósito, consulte link:../admin/grid-federation-retry-failed-replication.html["Identifique y vuelva a intentar operaciones de replicación fallidas"].
+

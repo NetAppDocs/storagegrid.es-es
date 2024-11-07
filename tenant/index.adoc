@@ -1,0 +1,62 @@
+---
+permalink: tenant/index.html 
+sidebar: sidebar 
+keywords: use tenant account 
+summary: 'Una cuenta de inquilino permite usar la API DE REST de simple Storage Service (S3) o la API DE REST de Swift para almacenar y recuperar objetos en un sistema StorageGRID.' 
+---
+= Usar una cuenta de inquilino
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Una cuenta de inquilino permite usar la API DE REST de simple Storage Service (S3) o la API DE REST de Swift para almacenar y recuperar objetos en un sistema StorageGRID.
+
+
+
+== ¿Qué es una cuenta de inquilino?
+
+Cada cuenta de inquilino tiene sus propios grupos locales o federados, usuarios, bloques S3 o contenedores Swift, y objetos.
+
+Las cuentas de arrendatario se pueden utilizar para segregar objetos almacenados por diferentes entidades. Por ejemplo, pueden utilizarse varias cuentas de inquilino en cualquiera de estos casos de uso:
+
+* *Caso de uso empresarial:* Si el sistema StorageGRID se está utilizando dentro de una empresa, el almacenamiento de objetos de la cuadrícula puede estar segregado por los diferentes departamentos de la organización. Por ejemplo, puede haber cuentas de inquilino para el departamento de marketing, el departamento de soporte al cliente, el departamento de recursos humanos, etc.
++
+
+NOTE: Si utiliza el protocolo cliente S3, también puede utilizar bloques S3 y políticas de bucket para separar objetos entre los departamentos de una empresa. No es necesario crear cuentas de arrendatario independientes. Consulte las instrucciones de implantación para link:../s3/bucket-and-group-access-policies.html["Bloques de S3 y políticas de bloques"]obtener más información.
+
+* *Caso de uso del proveedor de servicios:* Si un proveedor de servicios utiliza el sistema StorageGRID, el almacenamiento de objetos de la cuadrícula puede estar segregado por las diferentes entidades que arriendan el almacenamiento. Por ejemplo, puede que haya cuentas de inquilino para la empresa A, la empresa B, la empresa C, etc.
+
+
+
+
+== Cómo crear una cuenta de inquilino
+
+Las cuentas de arrendatario las crea un link:../admin/managing-tenants.html["El administrador de grid de StorageGRID que utiliza Grid Manager"]. Al crear una cuenta de inquilino, el administrador de grid especifica lo siguiente:
+
+* Información básica, como el nombre del inquilino, el tipo de cliente (S3) y la cuota de almacenamiento opcional.
+* Permisos para la cuenta de inquilino, como si la cuenta de inquilino puede usar los servicios de la plataforma S3, configurar su propio origen de identidad, usar S3 Select o usar una conexión de federación de grid.
+* Acceso raíz inicial para el inquilino, basado en si el sistema StorageGRID utiliza usuarios y grupos locales, federación de identidades o inicio de sesión único (SSO).
+
+
+Además, los administradores de grid pueden habilitar la configuración de bloqueo de objetos de S3 para el sistema StorageGRID si las cuentas de inquilinos S3 necesitan cumplir con los requisitos normativos. Cuando se habilita el bloqueo de objetos S3, todas las cuentas de inquilinos S3 pueden crear y gestionar bloques conforme a la normativa.
+
+
+
+=== Configure los inquilinos S3
+
+Después de un link:../admin/creating-tenant-account.html["Se crea la cuenta de inquilino de S3"], puede acceder al Gestor de inquilinos para realizar tareas como las siguientes:
+
+* Configurar la federación de identidades (a menos que el origen de identidad se comparta con la cuadrícula)
+* Gestionar grupos y usuarios
+* Utilice la federación de grid para la clonación de cuentas y la replicación entre grid
+* Gestión de claves de acceso de S3
+* Cree y gestione bloques de S3
+* Utilice los servicios de la plataforma S3
+* Utilice S3 Select
+* Supervise el uso del almacenamiento
+
+
+
+TIP: Aunque puede crear y administrar buckets S3 con el Gestor de inquilinos, debe usar un link:../s3/index.html["Cliente S3"] OR link:use-s3-console.html["S3 Consola"] para ingerir y gestionar objetos.

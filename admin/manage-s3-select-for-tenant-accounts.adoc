@@ -1,0 +1,76 @@
+---
+permalink: admin/manage-s3-select-for-tenant-accounts.html 
+sidebar: sidebar 
+keywords: s3 select, selectobjectcontent, best practices, object format, s3 select requirements 
+summary: Puede permitir que determinados inquilinos S3 usen S3 Select para emitir solicitudes SelectObjectContent en objetos individuales. 
+---
+= Gestione S3 Select para cuentas de inquilinos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede permitir que determinados inquilinos S3 usen S3 Select para emitir solicitudes SelectObjectContent en objetos individuales.
+
+S3 Select proporciona una forma eficiente de buscar en grandes cantidades de datos sin tener que implementar una base de datos y recursos asociados para permitir las búsquedas. También reduce el coste y la latencia de la recuperación de datos.
+
+
+
+== ¿Qué es S3 Select?
+
+S3 Select permite que los clientes S3 utilicen solicitudes SelectObjectContent para filtrar y recuperar solo los datos necesarios de un objeto. La implementación de StorageGRID de S3 Select incluye un subconjunto de comandos y funciones de S3 Select.
+
+
+
+== Consideraciones y requisitos para usar S3 Select
+
+
+
+=== Requisitos de administración de grid
+
+El administrador de grid debe conceder a los inquilinos la Capacidad Select S3. Seleccione *Permitir S3 Seleccionar* Cuando link:creating-tenant-account.html["crear un inquilino"] o link:editing-tenant-account.html["edición de un arrendatario"].
+
+
+
+=== Requisitos de formato de objeto
+
+El objeto que desea consultar debe tener uno de los siguientes formatos:
+
+* *CSV*. Se puede utilizar tal cual o comprimir en archivos GZIP o bzip2.
+* *Parquet*. Requisitos adicionales para objetos de parquet:
++
+** S3 Select solo admite la compresión en columnas usando GZIP o Snappy. S3 Select no admite la compresión de objetos completos para objetos de parquet.
+** S3 La selección no es compatible con la salida de parquet. Debe especificar el formato de salida como CSV o JSON.
+** El tamaño máximo del grupo de filas sin comprimir es de 512 MB.
+** Debe utilizar los tipos de dato especificados en el esquema del objeto.
+** No puede utilizar los tipos lógicos INTERVAL, JSON, LIST, TIME o UUID.
+
+
+
+
+
+
+=== Requisitos de los extremos
+
+La solicitud SelectObjectContent debe enviarse a un link:configuring-load-balancer-endpoints.html["Extremo del equilibrador de carga de StorageGRID"].
+
+Los nodos de administración y puerta de enlace utilizados por el punto final deben ser uno de los siguientes:
+
+* Un nodo de dispositivo de servicios
+* Nodo de software basado en VMware
+* Nodo bare metal que ejecuta un kernel con cgroup v2 habilitado
+
+
+
+
+=== Consideraciones generales
+
+Las consultas no pueden enviarse directamente a los nodos de almacenamiento.
+
+
+CAUTION: Las solicitudes SelectObjectContent pueden reducir el rendimiento de equilibrio de carga de todos los clientes S3 y todos los inquilinos. Habilite esta función solo cuando sea necesario y solo para inquilinos de confianza.
+
+Consulte la link:../s3/use-s3-select.html["Instrucciones para usar S3 Select"].
+
+Para ver link:../monitor/reviewing-support-metrics.html["Gráficos Grafana"]las operaciones de S3 Select a lo largo del tiempo, selecciona *SUPPORT* > *Tools* > *Metrics* en Grid Manager.

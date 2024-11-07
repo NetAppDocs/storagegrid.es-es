@@ -1,0 +1,69 @@
+---
+permalink: maintain/restoring-audit-log-on-recovered-non-primary-admin-node.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, restore audit log, non-primary admin node 
+summary: Si pudo conservar el registro de auditoría del nodo de administración no primario con errores, de manera que se conserve la información del registro de auditoría histórico, puede copiarla al nodo de administración no primario que se está recuperando. 
+---
+= Restaure el registro de auditoría en el nodo de administración no primario recuperado
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si pudo conservar el registro de auditoría del nodo de administración no primario con errores, de manera que se conserve la información del registro de auditoría histórico, puede copiarla al nodo de administración no primario que se está recuperando.
+
+.Antes de empezar
+* El nodo de administración recuperado está instalado y en ejecución.
+* Ha copiado los registros de auditoría en otra ubicación después de un error en el nodo de administración original.
+
+
+.Acerca de esta tarea
+Si falla un nodo de administrador, los registros de auditoría guardados en ese nodo de administrador se perderán potencialmente. Es posible conservar los datos que no se perderán al copiar los registros de auditoría del nodo administrador con errores y luego restaurar estos registros de auditoría en el nodo de administrador recuperado. Según el error, es posible que no se puedan copiar los registros de auditoría del nodo administrador con errores. En ese caso, si la implementación tiene más de un nodo de administración, puede recuperar los registros de auditoría de otro nodo de administración a medida que se replican los registros de auditoría a todos los nodos de administrador.
+
+Si solo hay un nodo de administración y el registro de auditoría no se puede copiar del nodo fallido, el nodo de administración recuperado comienza a registrar eventos en el registro de auditoría como si la instalación fuera nueva.
+
+Debe recuperar una Lo antes posible. de nodo de administrador para restaurar la funcionalidad de registro.
+
+[NOTE]
+====
+De manera predeterminada, se envía la información de auditoría al registro de auditoría en los nodos admin. Puede omitir estos pasos si se aplica alguna de las siguientes situaciones:
+
+* Se configuraron un servidor de syslog externo y registros de auditoría ahora se envían al servidor de syslog en lugar de a los nodos de administrador.
+* Ha especificado explícitamente que los mensajes de auditoría se deben guardar sólo en los nodos locales que los han generado.
+
+
+Consulte link:../monitor/configure-audit-messages.html["Configurar los mensajes de auditoría y los destinos de registro"] para obtener más información.
+
+====
+.Pasos
+. Inicie sesión en el nodo de administración recuperado:
++
+.. Introduzca el siguiente comando: +
+`ssh admin@recovery_Admin_Node_IP`
+.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
+.. Introduzca el siguiente comando para cambiar a raíz: `su -`
+.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
+
+
++
+Después de iniciar sesión como root, la petición de datos cambia de `$` a `#`.
+
+. Compruebe qué archivos de auditoría se han conservado:
++
+`cd /var/local/log`
+
+. Copie los archivos de registro de auditoría conservados en el nodo admin recuperado:
++
+`scp admin@grid_node_IP:/var/local/tmp/saved-audit-logs/YYYY*`
+
++
+Cuando se lo pida, introduzca la contraseña de administrador.
+
+. Por motivos de seguridad, elimine los registros de auditoría del nodo de grid con errores después de verificar que se han copiado correctamente al nodo de administrador recuperado.
+. Actualice la configuración de usuario y grupo de los archivos de registro de auditoría en el nodo de administración recuperado:
++
+`chown ams-user:bycast *`
+
+. Cerrar sesión como raíz: `exit`
+

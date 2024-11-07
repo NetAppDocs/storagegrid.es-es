@@ -1,0 +1,53 @@
+---
+permalink: s3/upload-part-copy.html 
+sidebar: sidebar 
+keywords: UploadPart, UploadPartCopy, multipart uploads, uploads, 
+summary: La operación UploadPartCopy carga una parte de un objeto copiando datos de un objeto existente como origen de datos. 
+---
+= UploadPartCopy
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La operación UploadPartCopy carga una parte de un objeto copiando datos de un objeto existente como origen de datos.
+
+La operación UploadPartCopy se implementa con todo el comportamiento de la API DE REST DE Amazon S3. Reservado el derecho a realizar modificaciones.
+
+Esta solicitud lee y escribe los datos de objetos especificados en `x-amz-copy-source-range` el sistema StorageGRID.
+
+Se admiten los siguientes encabezados de solicitud:
+
+* `x-amz-copy-source-if-match`
+* `x-amz-copy-source-if-none-match`
+* `x-amz-copy-source-if-unmodified-since`
+* `x-amz-copy-source-if-modified-since`
+
+
+
+
+== Solicitar encabezados para el cifrado del servidor
+
+Si especificó el cifrado SSE-C para la solicitud CreateMultipartUpload, también debe incluir los siguientes encabezados de solicitud en cada solicitud UploadPartCopy:
+
+* `x-amz-server-side-encryption-customer-algorithm`: Especificar `AES256`.
+* `x-amz-server-side-encryption-customer-key`: Especifique la misma clave de cifrado que proporcionó en la solicitud CreateMultipartUpload.
+* `x-amz-server-side-encryption-customer-key-MD5`: Especifique el mismo resumen de MD5 que proporcionó en la solicitud CreateMultipartUpload.
+
+
+Si el objeto de origen se cifra utilizando una clave proporcionada por el cliente (SSE-C), debe incluir los siguientes tres encabezados en la solicitud UploadPartCopy, para que el objeto se pueda descifrar y copiar:
+
+* `x-amz-copy-source​-server-side​-encryption​-customer-algorithm`: Especificar `AES256`.
+* `x-amz-copy-source​-server-side-encryption-customer-key`: Especifique la clave de cifrado que proporcionó al crear el objeto de origen.
+* `x-amz-copy-source​-server-side-encryption-customer-key-MD5`: Especifique el resumen MD5 que proporcionó cuando creó el objeto de origen.
+
+
+
+CAUTION: Las claves de cifrado que proporcione no se almacenan nunca. Si pierde una clave de cifrado, perderá el objeto correspondiente. Antes de utilizar las claves proporcionadas por el cliente para proteger los datos de objetos, revise las consideraciones en link:using-server-side-encryption.html["Usar cifrado del servidor"].
+
+
+
+== Creación de versiones
+
+La carga de varias partes consiste en operaciones independientes para iniciar la carga, enumerar cargas, cargar piezas, ensamblar las piezas cargadas y completar la carga. Los objetos se crean (y se versionan si corresponde) cuando se realiza la operación CompleteMultipartUpload.

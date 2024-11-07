@@ -1,0 +1,98 @@
+---
+permalink: audit/cbsb-object-send-begin.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, CBSB, Object Send Begin 
+summary: Durante las operaciones normales del sistema, los bloques de contenido se transfieren de forma continua entre diferentes nodos a medida que se accede a los datos, se replican y se conservan. Cuando se inicia la transferencia de un bloque de contenido de un nodo a otro, la entidad de origen emite este mensaje. 
+---
+= CBSB: Inicio de envío de objeto
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Durante las operaciones normales del sistema, los bloques de contenido se transfieren de forma continua entre diferentes nodos a medida que se accede a los datos, se replican y se conservan. Cuando se inicia la transferencia de un bloque de contenido de un nodo a otro, la entidad de origen emite este mensaje.
+
+[cols="1a,1a,4a"]
+|===
+| Codificación | Campo | Descripción 
+
+
+ a| 
+CNID
+ a| 
+Identificador de conexión
+ a| 
+El identificador único de la sesión/conexión nodo a nodo.
+
+
+
+ a| 
+CBID
+ a| 
+Identificador de bloque de contenido
+ a| 
+Identificador único del bloque de contenido que se está transfiriendo.
+
+
+
+ a| 
+CTDR
+ a| 
+Dirección de transferencia
+ a| 
+Indica si la transferencia CBID se inició mediante inserción o se inició con extracción:
+
+INSERCIÓN: La entidad emisora solicitó la operación de transferencia.
+
+PULL: La entidad receptora solicitó la operación de transferencia.
+
+
+
+ a| 
+CTSR
+ a| 
+Entidad de origen
+ a| 
+El ID de nodo de la fuente (remitente) de la transferencia CBID.
+
+
+
+ a| 
+CTD
+ a| 
+Entidad de destino
+ a| 
+El ID de nodo del destino (receptor) de la transferencia CBID.
+
+
+
+ a| 
+CTSS
+ a| 
+Recuento de secuencias de inicio
+ a| 
+Indica el primer recuento de secuencias solicitado. Si la transferencia se realiza correctamente, comienza a partir del número de secuencias.
+
+
+
+ a| 
+CTE
+ a| 
+Recuento de secuencias finales esperadas
+ a| 
+Indica el último recuento de secuencias solicitado. Si se realiza correctamente, la transferencia se considera completa cuando se ha recibido este recuento de secuencias.
+
+
+
+ a| 
+TRANSFORMACIÓN DIGITAL
+ a| 
+Estado de inicio de transferencia
+ a| 
+Estado en el momento en que se inició la transferencia:
+
+SUCS: La transferencia se inició correctamente.
+
+|===
+Este mensaje de auditoría significa que se ha iniciado una operación de transferencia de datos nodo a nodo en un único elemento de contenido, según lo identifica su identificador de bloque de contenido. La operación solicita datos de "Start Sequence Count" a "Contador de secuencia final esperado". El envío y la recepción de nodos se identifican mediante sus ID de nodo. Esta información se puede utilizar para realizar un seguimiento del flujo de datos del sistema y, cuando se combina con mensajes de auditoría de almacenamiento, para comprobar el número de réplicas.

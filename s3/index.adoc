@@ -1,0 +1,206 @@
+---
+permalink: s3/index.html 
+sidebar: sidebar 
+keywords: about s3, s3 rest api, s3 overview 
+summary: 'StorageGRID admite la API de simple Storage Service \(S3\), que se implementa como un conjunto de servicios web de transferencia de estado de representación \(REST\).' 
+---
+= Versiones y actualizaciones compatibles con la API de REST DE S3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID admite la API de simple Storage Service (S3), que se implementa como un conjunto de servicios web de transferencia de estado de representación (REST).
+
+La compatibilidad con la API REST DE S3 permite conectar las aplicaciones orientadas a servicios desarrolladas para servicios web S3 con el almacenamiento de objetos en las instalaciones que utiliza el sistema StorageGRID. Se requieren cambios mínimos en el uso actual de llamadas API DE REST DE S3 en una aplicación cliente.
+
+
+
+== Versiones compatibles
+
+StorageGRID admite las siguientes versiones específicas de S3 y HTTP.
+
+[cols="1a,1a"]
+|===
+| Elemento | Versión 
+
+
+ a| 
+Especificación de la API S3
+ a| 
+http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html["Documentación de Amazon Web Services (AWS): Referencia de API de Amazon simple Storage Service"^]
+
+
+
+ a| 
+HTTP
+ a| 
+1,1
+
+Para obtener más información acerca de HTTP, vea HTTP/1.1 (RFC 7230-35).
+
+https://datatracker.ietf.org/doc/html/rfc2616["RFC de IETF 2616: Protocolo de transferencia de hipertexto (HTTP/1.1)"^]
+
+*Nota*: StorageGRID no admite canalización HTTP/1.1.
+
+|===
+
+
+== Actualizaciones del soporte de la API de REST DE S3
+
+[cols="1a,4a"]
+|===
+| Liberar | Comentarios 
+
+
+ a| 
+11,9
+ a| 
+* Se ha agregado soporte para valores de suma de comprobación SHA-256 calculados previamente para las siguientes solicitudes y cabeceras soportadas. Puede utilizar esta función para verificar la integridad de los objetos cargados:
++
+** Completa multipartCarga: `x-amz-checksum-sha256`
+** CreateMultipartUpload: `x-amz-checksum-algorithm`
+** GetObject: `x-amz-checksum-mode`
+** Objeto de cabecera: `x-amz-checksum-mode`
+** ListParts
+** Objeto PutObject: `x-amz-checksum-sha256`
+** Parte de carga: `x-amz-checksum-sha256`
+
+
+* Se ha añadido la capacidad del administrador de grid de controlar la retención a nivel de inquilino y la configuración de cumplimiento de normativas. Esta configuración afecta a la configuración de bloqueo de objetos S3.
++
+** Modo de retención predeterminado de buckets y modo de retención de objetos: Gobernanza o cumplimiento de normativas, si lo permite el administrador de grid.
+** Período de retención por defecto del depósito y fecha de retención del objeto: Debe ser menor o igual que lo permitido por el período de retención máximo definido por el administrador de grid.
+
+
+* Soporte mejorado para `aws-chunked` codificación de contenido y valores de streaming `x-amz-content-sha256`. Limitaciones:
++
+** Si está presente, `chunk-signature` es opcional y no está validado
+** Si está presente, `x-amz-trailer` el contenido se ignora
+
+
+
+
+
+
+ a| 
+11,8
+ a| 
+Se han actualizado los nombres de las operaciones S3 para que coincidan con los nombres utilizados en el http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html["Documentación de Amazon Web Services (AWS): Referencia de API de Amazon simple Storage Service"^].
+
+
+
+ a| 
+11,7
+ a| 
+* Agregado link:quick-reference-support-for-aws-apis.html["Referencia rápida: Solicitudes de API de S3 admitidas"].
+* Se ha añadido soporte para el uso del modo de GOBIERNO con S3 Object Lock.
+* Se ha añadido soporte para la cabecera de respuesta específica de StorageGRID `x-ntap-sg-cgr-replication-status` para las solicitudes de objetos GET Object y HEAD Object. Este encabezado proporciona el estado de replicación de un objeto para la replicación entre grid.
+* Las solicitudes SelectObjectContent ahora admiten objetos de Parquet.
+
+
+
+
+ a| 
+11,6
+ a| 
+* Se ha agregado soporte para el uso `partNumber` del parámetro request en las solicitudes GET Object y HEAD Object.
+* Se añadió compatibilidad con un modo de retención predeterminado y un período de retención predeterminado en el nivel de bloque para S3 Object Lock.
+* Se ha añadido compatibilidad con `s3:object-lock-remaining-retention-days` la clave de condición de política para establecer el rango de períodos de retención permitidos para los objetos.
+* Se ha cambiado el tamaño máximo de _recommended_ para una única operación PUT Object a 5 GiB (5.368.709.120 bytes). Si tiene objetos que sean mayores de 5 GIB, utilice la carga de varias partes en su lugar.
+
+
+
+
+ a| 
+11,5
+ a| 
+* Se ha agregado compatibilidad para gestionar el cifrado de bloques.
+* Se añadió compatibilidad con el bloqueo de objetos S3 y las solicitudes de cumplimiento heredadas obsoletas.
+* Se ha agregado soporte para el uso DE DELETE Multiple Objects en cubos con versiones.
+* El `Content-MD5` encabezado de solicitud ahora está correctamente soportado.
+
+
+
+
+ a| 
+11,4
+ a| 
+* Se añadió compatibilidad con el etiquetado DE bloques DE DELETE, GET Bucket y PUT Bucket. No se admiten etiquetas de asignación de costes.
+* En el caso de bloques creados en StorageGRID 11.4, ya no es necesario restringir los nombres de claves de objetos para cumplir con las prácticas recomendadas de rendimiento.
+* Se ha añadido soporte para las notificaciones de bloques en el `s3:ObjectRestore:Post` tipo de evento.
+* Ahora se aplican los límites de tamaño de AWS para piezas multiparte. Cada parte de una carga de varias partes debe tener entre 5 MIB y 5 GIB. La última parte puede ser menor que 5 MIB.
+* Añadido soporte para TLS 1,3
+
+
+
+
+ a| 
+11,3
+ a| 
+* Se ha añadido compatibilidad con el cifrado en el servidor de los datos de objetos con las claves proporcionadas por el cliente (SSE-C).
+* Se ha añadido soporte para operaciones de ciclo de vida de SUPRESIÓN, OBTENCIÓN y COLOCACIÓN DE bloques (sólo acción de caducidad) y para `x-amz-expiration` la cabecera de respuesta.
+* Se han actualizado PUT Object, PUT Object - Copy y Multipart Upload para describir el impacto de las reglas de ILM que utilizan la colocación síncrona en el procesamiento.
+* Ya no se admiten los cifrados TLS 1.1.
+
+
+
+
+ a| 
+11,2
+ a| 
+Compatibilidad añadida para la restauración DE objetos POSTERIOR para uso con pools de almacenamiento en cloud. Se añadió compatibilidad con el uso de la sintaxis AWS para ARN, claves de condición de política y variables de política en políticas de grupos y bloques. Se seguirán soportando las políticas de grupo y bloque existentes que utilicen la sintaxis StorageGRID.
+
+*Nota:* los usos de ARN/URN en otra configuración JSON/XML, incluidos los utilizados en las características personalizadas de StorageGRID, no han cambiado.
+
+
+
+ a| 
+11,1
+ a| 
+Se ha añadido soporte para el uso compartido de recursos de origen cruzado (CORS), HTTP para conexiones de clientes S3 a nodos de grid y configuraciones de cumplimiento en bloques.
+
+
+
+ a| 
+11,0
+ a| 
+Se añadió compatibilidad para configurar servicios de plataforma (replicación de CloudMirror, notificaciones e integración de búsqueda de Elasticsearch) para los bloques. También se ha agregado soporte para las restricciones de ubicación de etiquetado de objetos para bloques y la coherencia disponible.
+
+
+
+ a| 
+10,4
+ a| 
+Se ha agregado compatibilidad con los cambios de análisis de ILM en las versiones, las actualizaciones de página de nombres de dominio de extremo, las condiciones y variables en las directivas, los ejemplos de directivas y el permiso PutOverwriteObject.
+
+
+
+ a| 
+10,3
+ a| 
+Se ha añadido compatibilidad con las versiones.
+
+
+
+ a| 
+10,2
+ a| 
+Se ha añadido compatibilidad con las políticas de acceso a grupos y bloques y para la copia de varias partes (cargar artículo - copia).
+
+
+
+ a| 
+10,1
+ a| 
+Se añadió compatibilidad con la carga de varias partes, las solicitudes de estilo hospedado virtual y la autenticación v4.
+
+
+
+ a| 
+10,0
+ a| 
+Soporte inicial de la API DE REST de S3 por parte del sistema StorageGRID.la versión actualmente admitida de _simple Storage Service API Reference_ es 2006-03-01.
+
+|===

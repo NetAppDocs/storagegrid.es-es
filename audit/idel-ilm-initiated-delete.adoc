@@ -1,0 +1,161 @@
+---
+permalink: audit/idel-ilm-initiated-delete.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, IDEL, ILM Initiated Delete 
+summary: Este mensaje se genera cuando ILM inicia el proceso de eliminación de un objeto. 
+---
+= IDEL: Eliminación de ILM iniciada
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Este mensaje se genera cuando ILM inicia el proceso de eliminación de un objeto.
+
+El mensaje IDEL se genera en cualquiera de estas situaciones:
+
+* *Para objetos compatibles con bloques S3*: Este mensaje se genera cuando ILM inicia el proceso de eliminación automática de un objeto debido a que su período de retención ha caducado (suponiendo que la configuración de eliminación automática está activada y la retención legal está desactivada).
+* *Para objetos en cubos S3 no compatibles*. Este mensaje se genera cuando ILM inicia el proceso de eliminación de un objeto porque no hay instrucciones de ubicación en las políticas de ILM activas que actualmente se aplican al objeto.
+
+
+[cols="1a,1a,4a"]
+|===
+| Codificación | Campo | Descripción 
+
+
+ a| 
+CBID
+ a| 
+Identificador de bloque de contenido
+ a| 
+El CBID del objeto.
+
+
+
+ a| 
+CMPA
+ a| 
+Cumplimiento: Eliminación automática
+ a| 
+Para objetos solo en bloques de S3 que cumplen con la normativa. 0 (falso) o 1 (verdadero), que indica si un objeto compatible debe eliminarse automáticamente cuando finalice su período de retención, a menos que el segmento se encuentre bajo una retención legal.
+
+
+
+ a| 
+CMPL
+ a| 
+Cumplimiento: Conservación legal
+ a| 
+Para objetos solo en bloques de S3 que cumplen con la normativa. 0 (falso) o 1 (verdadero), que indica si el cubo está actualmente bajo un derecho.
+
+
+
+ a| 
+CMPR
+ a| 
+Cumplimiento: Período de retención
+ a| 
+Para objetos solo en bloques de S3 que cumplen con la normativa. La duración del período de retención del objeto en minutos.
+
+
+
+ a| 
+CTME
+ a| 
+Cumplimiento de normativas: Tiempo de consumo
+ a| 
+Para objetos solo en bloques de S3 que cumplen con la normativa. Tiempo de procesamiento del objeto. Puede agregar el período de retención en minutos a este valor para determinar cuándo se puede eliminar el objeto del bloque.
+
+
+
+ a| 
+DMRK
+ a| 
+Eliminar ID de versión del marcador
+ a| 
+El código de versión del marcador de borrado creado al eliminar un objeto de un bloque con versiones. Las operaciones en los depósitos no incluyen este campo.
+
+
+
+ a| 
+CSIZ
+ a| 
+Tamaño de contenido
+ a| 
+El tamaño del objeto en bytes.
+
+
+
+ a| 
+BLOQUEOS
+ a| 
+Ubicaciones
+ a| 
+La ubicación de almacenamiento de los datos del objeto dentro del sistema StorageGRID. El valor para LOCS es "" si el objeto no tiene ubicaciones (por ejemplo, se ha eliminado).
+
+CLEC: Para los objetos con código de borrado, el ID de perfil de codificación de borrado y el ID de grupo de codificación de borrado que se aplica a los datos del objeto.
+
+CLDI: Para los objetos replicados, el ID de nodo LDR y el ID de volumen de la ubicación del objeto.
+
+CLNL: ID de nodo DE ARCO de la ubicación del objeto si se archivan los datos del objeto.
+
+
+
+ a| 
+RUTA
+ a| 
+S3 Cubo/llave
+ a| 
+El nombre del cubo S3 y el nombre de la clave S3.
+
+
+
+ a| 
+TRANSFORMACIÓN DIGITAL
+ a| 
+Resultado
+ a| 
+Resultado de la operación de ILM.
+
+SUCS: La operación de ILM fue exitosa.
+
+
+
+ a| 
+REGLA
+ a| 
+Etiqueta de reglas
+ a| 
+* Si un objeto de un bloque de S3 compatible se elimina automáticamente debido a que su período de retención ha caducado, este campo está en blanco.
+* Si el objeto se está eliminando porque no hay más instrucciones de ubicación que se apliquen actualmente al objeto, este campo muestra la etiqueta legible para seres humanos de la última regla de ILM que se aplicó al objeto.
+
+
+
+
+ a| 
+SGRP
+ a| 
+Planta (grupo)
+ a| 
+Si está presente, el objeto se eliminó en el sitio especificado, que no es el sitio donde se ingirió el objeto.
+
+
+
+ a| 
+UUID
+ a| 
+Identificador único universal
+ a| 
+El identificador del objeto dentro del sistema StorageGRID.
+
+
+
+ a| 
+VSID
+ a| 
+ID de versión
+ a| 
+El código de versión de la versión específica de un objeto que se eliminó. Las operaciones en cubos y objetos en depósitos sin versiones no incluyen este campo.
+
+|===

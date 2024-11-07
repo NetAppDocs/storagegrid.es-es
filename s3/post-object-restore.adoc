@@ -1,0 +1,83 @@
+---
+permalink: s3/post-object-restore.html 
+sidebar: sidebar 
+keywords: post, RestoreObject, object 
+summary: Puede utilizar la solicitud S3 RestoreObject para restaurar un objeto almacenado en un Cloud Storage Pool. 
+---
+= RestoreObject
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede utilizar la solicitud S3 RestoreObject para restaurar un objeto almacenado en un Cloud Storage Pool.
+
+
+
+== Tipo de solicitud admitido
+
+StorageGRID solo admite solicitudes RestoreObject para restaurar un objeto. No apoya el `SELECT` tipo de restauración. Seleccione Solicitudes devueltas `XNotImplemented`.
+
+
+
+== Creación de versiones
+
+De forma opcional, especifique si desea `versionId` restaurar una versión específica de un objeto en un bloque con versiones. Si no especifica `versionId`, se restaurará la versión más reciente del objeto
+
+
+
+== Comportamiento de RestoreObject en objetos de Cloud Storage Pool
+
+Si se ha almacenado un objeto en un link:../ilm/what-cloud-storage-pool-is.html["Pool de almacenamiento en cloud"], una solicitud RestoreObject tiene el siguiente comportamiento, según el estado del objeto. Consulte link:head-object.html["Objeto principal"] para obtener más información.
+
+
+NOTE: Si un objeto se almacena en un pool de almacenamiento en la nube y una o más copias del objeto también existen en la cuadrícula, no es necesario restaurar el objeto emitiendo una solicitud RestoreObject. En su lugar, la copia local se puede recuperar directamente mediante una solicitud GetObject.
+
+[cols="1a,2a"]
+|===
+| Estado del objeto | Comportamiento de RestoreObject 
+
+
+ a| 
+El objeto se ingiere en StorageGRID pero aún no se ha evaluado por ILM, o el objeto no está en un pool de almacenamiento cloud
+ a| 
+`403 Forbidden`, `InvalidObjectState`
+
+
+
+ a| 
+Objeto en el pool de almacenamiento en cloud pero todavía no ha realizado la transición a un estado no recuperable
+ a| 
+`200 OK` No se realizan cambios.
+
+*Nota*: Antes de que un objeto haya sido trasladado a un estado no recuperable, no puede cambiar su estado `expiry-date`.
+
+
+
+ a| 
+Objeto que ha pasado a un estado no recuperable
+ a| 
+`202 Accepted` Restaura una copia recuperable del objeto en Cloud Storage Pool durante el Núm. De días especificado en el cuerpo de la solicitud. Al final de este período, el objeto se devuelve a un estado no recuperable.
+
+De forma opcional, utilice el `Tier` elemento request para determinar cuánto tiempo tardará el trabajo de restauración en finalizar (`Expedited`, `Standard` o `Bulk`). Si no especifica `Tier`, se utilizará el `Standard` nivel.
+
+*Importante*: Si un objeto ha sido trasladado a S3 Glacier Deep Archive o el Cloud Storage Pool usa almacenamiento de Azure Blob, no puede restaurarlo usando el `Expedited` nivel. Se devuelve el siguiente error `403 Forbidden` , `InvalidTier`: `Retrieval option is not supported by this storage class`.
+
+
+
+ a| 
+Objeto en proceso de restauración a partir de un estado no recuperable
+ a| 
+`409 Conflict`, `RestoreAlreadyInProgress`
+
+
+
+ a| 
+Objeto completamente restaurado en el pool de almacenamiento en cloud
+ a| 
+`200 OK`
+
+*Nota:* Si un objeto ha sido restaurado a un estado recuperable, puede cambiarlo `expiry-date` volviendo a emitir la solicitud RestoreObject con un nuevo valor para `Days`. La fecha de restauración se actualiza en relación con la hora de la solicitud.
+
+|===

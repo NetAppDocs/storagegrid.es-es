@@ -1,0 +1,41 @@
+---
+permalink: maintain/preparing-appliance-for-reinstallation-platform-replacement-only.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, appliance, reinstallation appliance, reinstall appliance 
+summary: Al recuperar un nodo de cuadrícula que se alojó en un dispositivo de servicios, primero debe preparar el dispositivo para la reinstalación del software StorageGRID. 
+---
+= Preparar el aparato para su reinstalación (sólo sustitución de la plataforma)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Al recuperar un nodo de cuadrícula que se alojó en un dispositivo de servicios, primero debe preparar el dispositivo para la reinstalación del software StorageGRID.
+
+Realice este procedimiento solo si va a reemplazar un nodo con errores alojado en un dispositivo de servicios. No siga estos pasos si el nodo que ha fallado estaba alojado originalmente en VMware o un host Linux.
+
+.Pasos
+. Inicie sesión en el nodo de la cuadrícula con errores:
++
+.. Introduzca el siguiente comando: `ssh admin@_grid_node_IP_`
+.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
+.. Introduzca el siguiente comando para cambiar a raíz: `su -`
+.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
+
+
++
+Al iniciar sesión como root, la petición de datos cambia de `$` a `#`.
+
+. Prepare el dispositivo para la instalación del software StorageGRID. Introduzca: `sgareinstall`
+. Cuando se le solicite continuar, introduzca: `y`
++
+El dispositivo se reinicia y la sesión SSH finaliza. Normalmente tarda unos 5 minutos en estar disponible el instalador de dispositivos de StorageGRID; aunque en algunos casos es posible que deba esperar hasta 30 minutos.
+
++
+El dispositivo de servicios se restablece y ya no se puede acceder a los datos en el nodo de grid. Las direcciones IP configuradas durante el proceso de instalación original deben permanecer intactas; sin embargo, se recomienda confirmarlo cuando finalice el procedimiento.
+
++
+Después de ejecutar `sgareinstall` el comando, se eliminan todas las cuentas, contraseñas y claves SSH aprovisionadas por StorageGRID y se generan nuevas claves de host.
+
+

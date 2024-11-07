@@ -1,0 +1,55 @@
+---
+permalink: audit/ebkr-empty-bucket-request.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, EBKR, Empty Bucket Request 
+summary: 'Este mensaje indica que un usuario ha enviado una solicitud para activar o desactivar el depósito vacío (es decir, para suprimir objetos de depósito o para dejar de suprimir objetos).' 
+---
+= EBKR: Solicitud de depósito vacío
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Este mensaje indica que un usuario ha enviado una solicitud para activar o desactivar el depósito vacío (es decir, para suprimir objetos de depósito o para dejar de suprimir objetos).
+
+[cols="1a,1a,4a"]
+|===
+| Codificación | Campo | Descripción 
+
+
+ a| 
+BUID
+ a| 
+UUID de bloque
+ a| 
+El ID de bloque.
+
+
+
+ a| 
+EBJS
+ a| 
+Configuración de JSON de bloque vacío
+ a| 
+Contiene el JSON que representa la configuración actual del bucket vacío.
+
+
+
+ a| 
+S3AI
+ a| 
+S3 ID de cuenta de inquilino
+ a| 
+El ID de cuenta de inquilino del usuario que envió la solicitud. Un valor vacío indica acceso anónimo.
+
+
+
+ a| 
+S3BK
+ a| 
+Bloque de S3
+ a| 
+El nombre de bloque de S3.
+
+|===

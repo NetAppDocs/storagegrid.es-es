@@ -1,0 +1,150 @@
+---
+permalink: expand/rebalancing-erasure-coded-data-after-adding-storage-nodes.html 
+sidebar: sidebar 
+keywords: erasure coding, EC, rebalancing, site rebalance procedure 
+summary: Después de agregar nodos de almacenamiento, puede usar el procedimiento de reequilibrio de codificación de borrado para redistribuir fragmentos con código de borrado entre los nodos de almacenamiento nuevos y existentes. 
+---
+= Reequilibre los datos con código de borrado tras añadir nodos de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Después de agregar nodos de almacenamiento, puede usar el procedimiento de reequilibrio de código de borrado (EC) para redistribuir fragmentos con código de borrado entre los nodos de almacenamiento nuevos y existentes.
+
+.Antes de empezar
+* Completó los pasos de ampliación para añadir los nuevos nodos de almacenamiento.
+* Ha revisado el link:considerations-for-rebalancing-erasure-coded-data.html["consideraciones que tener en cuenta al reequilibrar los datos codificados a borrado"].
+* Usted entiende que los datos de objetos replicados no se moverán con este procedimiento y que el procedimiento de reequilibrio de EC no tenga en cuenta el uso de datos replicados en cada nodo de almacenamiento al determinar dónde se deben mover datos codificados con borrado.
+* Tiene el `Passwords.txt` archivo.
+
+
+.Qué sucede cuando se ejecuta este procedimiento
+Antes de iniciar el procedimiento, tenga en cuenta lo siguiente:
+
+* El procedimiento de reequilibrio de EC no se iniciará si uno o más volúmenes están sin conexión (desmontados) o si están en línea (montados), pero en estado de error.
+* El procedimiento de reequilibrio CE se reserva temporalmente una gran cantidad de almacenamiento. Es posible que se activen las alertas de almacenamiento, pero se resolverán cuando se complete el reequilibrio. Si no hay suficiente almacenamiento para la reserva, se producirá un error en el procedimiento de reequilibrio de la CE. Las reservas de almacenamiento se liberan cuando finaliza el procedimiento de reequilibrio de EC, tanto si el procedimiento ha fallado como si ha sido correcto.
+* Si un volumen deja de estar conectado mientras el procedimiento de reequilibrio de EC está en curso, el procedimiento de reequilibrio finalizará. Cualquier fragmento de datos que ya haya movido permanecerá en sus nuevas ubicaciones y no se perderá ningún dato.
++
+Puede volver a ejecutar el procedimiento después de que todos los volúmenes estén nuevamente en línea.
+
+* Cuando se ejecuta el procedimiento de reequilibrio de EC, el rendimiento de las operaciones de ILM y las operaciones del cliente S3 puede verse afectado.
++
+
+NOTE: Las operaciones de la API de S3 para cargar objetos (o piezas de objetos) pueden fallar durante el procedimiento de reequilibrio de EC si necesitan más de 24 horas para completarse. Las OPERACIONES PUT DE larga duración fallarán si la regla de ILM aplicable utiliza una colocación equilibrada o estricta en la ingesta. Se informará del siguiente error: `500 Internal Server Error`.
+
+* Durante este procedimiento, todos los nodos tienen un límite de capacidad de almacenamiento del 80 %. Los nodos que superan este límite, pero que aún se almacenan por debajo de la partición de datos de destino, se excluyen de:
++
+** El valor de desequilibrio del sitio
+** Cualquier condición de finalización de tareas
++
+
+NOTE: La partición de datos de destino se calcula dividiendo los datos totales de una ubicación entre el número de nodos.
+
+
+
+* *Condiciones de finalización de trabajo*. El procedimiento de reequilibrio de EC se considera completo cuando se cumple alguna de las siguientes situaciones:
++
+** No puede mover más datos con código de borrado.
+** Los datos de todos los nodos están dentro de una desviación del 5% de la partición de datos de destino.
+** El procedimiento ha estado en ejecución durante 30 días.
+
+
+
+
+.Pasos
+. [[Review_Object_Storage]]Revise los detalles del almacenamiento de objetos actual para el sitio que planea reequilibrar.
++
+.. Selecciona *NODOS*.
+.. Seleccione el primer nodo de almacenamiento del sitio.
+.. Seleccione la ficha *almacenamiento*.
+.. Coloque el cursor sobre el gráfico Storage Used - Object Data para ver la cantidad actual de datos replicados y datos codificados de borrado en el nodo de almacenamiento.
+.. Repita estos pasos para ver los otros nodos de almacenamiento del sitio.
+
+
+. Inicie sesión en el nodo de administración principal:
++
+.. Introduzca el siguiente comando: `ssh admin@_primary_Admin_Node_IP_`
+.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
+.. Introduzca el siguiente comando para cambiar a raíz: `su -`
+.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
++
+Al iniciar sesión como root, la petición de datos cambia de `$` a `#`.
+
+
+
+. Inicie el procedimiento:
++
+inicio de datos de balance --site «_site-name_»
+
++
+Para «_site-name_», especifique el primer sitio en el que ha agregado nuevos nodos o nodos de almacenamiento. Escriba `site-name` entre comillas.
+
++
+Se inicia el procedimiento de reequilibrio de EC y se devuelve un ID de trabajo.
+
+. Copie el ID del trabajo.
+. [[view-status]]Controle el estado del procedimiento de reequilibrio de EC.
++
+** Para ver el estado de un único procedimiento de reequilibrio de EC:
++
+`rebalance-data status --job-id _job-id_`
+
++
+Para `_job-id_`, especifique el ID devuelto al iniciar el procedimiento.
+
+** Para ver el estado del procedimiento de reequilibrio de EC actual y de cualquier procedimiento completado anteriormente:
++
+`rebalance-data status`
+
++
+[NOTE]
+====
+Para obtener ayuda sobre el comando de reequilibrio de datos:
+
+`rebalance-data --help`
+
+====
+
+
+. Realice pasos adicionales según el estado devuelto:
++
+**  `State`Si es `In progress`, la operación de nuevo equilibrio de EC sigue en ejecución. Deberá supervisar el procedimiento de forma periódica hasta que finalice.
++
+Use el `Site Imbalance` valor para evaluar el uso desequilibrado de los datos de código de borrado en los nodos de almacenamiento del sitio. Este valor puede ir desde 1,0 a 0, donde 0 indica que el uso de los datos con codificación de borrado está equilibrado en todos los nodos de almacenamiento del sitio.
+
++
+La tarea de reequilibrio de EC se considera completada y se detendrá cuando los datos de todos los nodos estén dentro de una desviación del 5 % de la partición de datos de destino.
+
+** Si `State` es `Success`, opcionalmente <<review_object_storage,revisar el almacenamiento de objetos>> para ver los detalles actualizados de la dirección.
++
+Los datos codificados con borrado ahora deberían tener más equilibrio entre los nodos de almacenamiento ubicados en las instalaciones.
+
+**  `State`Si es `Failure`:
++
+... Confirmar que todos los nodos de almacenamiento del sitio están conectados a la cuadrícula.
+... Compruebe y resuelva las alertas que puedan afectar a estos nodos de almacenamiento.
+... Reinicie el procedimiento de reequilibrio de EC:
++
+`rebalance-data start –-job-id _job-id_`
+
+... <<view-status,Ver el estado>> del nuevo procedimiento.  `State`Si continúa `Failure`, póngase en contacto con el soporte técnico.
+
+
+
+
+. Si el procedimiento de reequilibrio de EC genera demasiada carga (por ejemplo, se ven afectadas las operaciones de ingesta), detenga el procedimiento.
++
+`rebalance-data pause --job-id _job-id_`
+
+. Si necesita finalizar el procedimiento de reequilibrio de EC (por ejemplo, para poder realizar una actualización del software StorageGRID), introduzca lo siguiente:
++
+`rebalance-data terminate --job-id _job-id_`
+
++
+
+NOTE: Cuando finaliza un procedimiento de reequilibrio de EC, todos los fragmentos de datos que ya se hayan movido permanecen en sus nuevas ubicaciones. Los datos no se mueven de nuevo a la ubicación original.
+
+. Si utiliza la codificación de borrado en más de una instalación, ejecute este procedimiento para el resto de las ubicaciones afectadas.
+

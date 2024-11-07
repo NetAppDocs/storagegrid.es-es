@@ -1,0 +1,51 @@
+---
+permalink: maintain/replacing-primary-admin-node.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, replace primary admin node, replacing primary admin node, primary admin node 
+summary: Para recuperar un nodo de administrador principal, primero es necesario reemplazar el hardware físico o virtual. 
+---
+= Sustituya el nodo de administración principal
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para recuperar un nodo de administrador principal, primero es necesario reemplazar el hardware físico o virtual.
+
+Puede reemplazar un nodo de administración principal con fallos por un nodo de administración principal que se ejecute en la misma plataforma, o bien puede reemplazar un nodo de administración principal que se ejecute en VMware o un host Linux por un nodo de administración principal alojado en un dispositivo de servicios.
+
+Utilice el procedimiento que coincida con la plataforma de reemplazo seleccionada para el nodo. Una vez completado el procedimiento de sustitución de nodo (que es adecuado para todos los tipos de nodos), dicho procedimiento le dirigirá al siguiente paso para la recuperación del nodo de administración principal.
+
+[cols="1a,2a"]
+|===
+| Plataforma de sustitución | Procedimiento 
+
+
+ a| 
+VMware
+ a| 
+link:all-node-types-replacing-vmware-node.html["Sustituya un nodo VMware"]
+
+
+
+ a| 
+Linux
+ a| 
+link:all-node-types-replacing-linux-node.html["Sustituya un nodo Linux"]
+
+
+
+ a| 
+Dispositivos de servicios
+ a| 
+link:replacing-failed-node-with-services-appliance.html["Sustituya un dispositivo de servicios"]
+
+
+
+ a| 
+OpenStack
+ a| 
+Las operaciones de recuperación ya no son compatibles con los archivos de disco de máquinas virtuales y los scripts de OpenStack que proporciona NetApp. Si necesita recuperar un nodo que se ejecuta en una implementación de OpenStack, descargue los archivos para el sistema operativo Linux. Luego, siga el procedimiento para link:all-node-types-replacing-linux-node.html["Reemplazar un nodo Linux"].
+
+|===

@@ -1,0 +1,40 @@
+---
+permalink: tenant/duplicating-group.html 
+sidebar: sidebar 
+keywords: how to duplicate tenant group 
+summary: Puede crear nuevos grupos más rápidamente duplicando un grupo existente. 
+---
+= Grupo duplicado
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede crear nuevos grupos más rápidamente duplicando un grupo existente.
+
+.Antes de empezar
+* Ha iniciado sesión en el gestor de inquilinos mediante un link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Pertenece a un grupo de usuarios que tiene el permiso de acceso root. Consulte link:tenant-management-permissions.html["Permisos de gestión de inquilinos"].
+
+
+.Pasos
+. Seleccione *ADMINISTRACIÓN de ACCESO* > *grupos*.
+. Seleccione la casilla de control del grupo que desea duplicar.
+. Seleccione *Duplicar grupo*. Para obtener más detalles sobre la creación de un grupo, consulte las instrucciones para crear grupos para link:creating-groups-for-s3-tenant.html["Un inquilino de S3"] o para link:creating-groups-for-swift-tenant.html["Un inquilino de Swift"].
+. Seleccione la ficha *Grupo local* para crear un grupo local o seleccione la ficha *Grupo federado* para importar un grupo desde el origen de identidad configurado previamente.
++
+Si el inicio de sesión único (SSO) está activado para el sistema StorageGRID, los usuarios que pertenezcan a grupos locales no podrán iniciar sesión en el gestor de inquilinos, aunque pueden utilizar aplicaciones cliente para gestionar los recursos del inquilino, en función de link:tenant-management-permissions.html["permisos de grupo"].
+
+. Introduzca el nombre del grupo.
++
+** *Grupo local*: Introduzca tanto un nombre para mostrar como un nombre exclusivo. Puede editar el nombre para mostrar más adelante.
+** *Grupo federado*: Introduzca el nombre único. Para Active Directory, el nombre único es el nombre asociado al `sAMAccountName` atributo. Para OpenLDAP, el nombre único es el nombre asociado al `uid` atributo.
+
+
+. Seleccione *continuar*.
+. Según sea necesario, modifique los permisos para este grupo.
+. Seleccione *continuar*.
+. Según sea necesario, si va a duplicar un grupo para un inquilino S3, seleccione opcionalmente una directiva diferente de los botones de opción * Agregar directiva S3*. Si seleccionó una política personalizada, actualice la cadena JSON como sea necesario.
+. Seleccione *Crear grupo*.
+

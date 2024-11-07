@@ -1,0 +1,39 @@
+---
+permalink: monitor/managing-alerts.html 
+sidebar: sidebar 
+keywords: alert rules, managing alerts, alerts, alert notifications. edit alert rules 
+summary: El sistema de alertas proporciona una interfaz fácil de usar para detectar, evaluar y resolver los problemas que pueden ocurrir durante el funcionamiento de StorageGRID. 
+---
+= Gestionar alertas
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El sistema de alertas proporciona una interfaz fácil de usar para detectar, evaluar y resolver los problemas que pueden ocurrir durante el funcionamiento de StorageGRID.
+
+Las alertas se activan en niveles de gravedad específicos cuando las condiciones de regla de alerta se evalúan como verdaderas. Cuando se activa una alerta, se realizan las siguientes acciones:
+
+* Se muestra un icono de gravedad de alerta en el panel de control de Grid Manager y el recuento de alertas actuales se incrementa.
+* La alerta se muestra en la página de resumen *NODES* y en la ficha *NODES* > *_node_* > *Overview*.
+* Se envía una notificación por correo electrónico, suponiendo que se haya configurado un servidor SMTP y que se hayan proporcionado direcciones de correo electrónico para los destinatarios.
+* Se envía una notificación de Protocolo simple de administración de red (SNMP), suponiendo que haya configurado el agente SNMP de StorageGRID.
+
+
+Es posible crear alertas personalizadas, editar o deshabilitar alertas, y gestionar notificaciones de alertas.
+
+Si quiere más información:
+
+* Vea el vídeo: https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2eea81c5-8323-417f-b0a0-b1ff008506c1["Vídeo: Descripción general de alertas"^]
++
+[link=https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2eea81c5-8323-417f-b0a0-b1ff008506c1]
+image::../media/video-screenshot-alert-overview-118.png[Vídeo: Descripción general de alertas]
+
+* Vea el vídeo: https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=54af90c4-9a38-4136-9621-b1ff008604a3["Vídeo: Alertas personalizadas"^]
++
+[link=https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=54af90c4-9a38-4136-9621-b1ff008604a3]
+image::../media/video-screenshot-alert-create-custom-118.png[Vídeo: Alertas personalizadas]
+
+* Consulte la link:alerts-reference.html["Referencia de alertas"].
+

@@ -1,0 +1,70 @@
+---
+permalink: tenant/changing-bucket-versioning.html 
+sidebar: sidebar 
+keywords: how to change bucket versioning, disabled versioning, enabled versioning, suspended versioning 
+summary: Si utiliza un inquilino S3, puede cambiar el estado de control de versiones de los bloques S3. 
+---
+= Cambiar el control de versiones del objeto para un bloque
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si utiliza un inquilino S3, puede cambiar el estado de control de versiones de los bloques S3.
+
+.Antes de empezar
+* Ha iniciado sesión en el gestor de inquilinos mediante un link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Pertenece a un grupo de usuarios que tiene el link:tenant-management-permissions.html["Gestione todos los bloques o permisos de acceso raíz"]. Estos permisos anulan la configuración de los permisos en las políticas de grupo o bloque.
+* Verificó que el número necesario de nodos y sitios de almacenamiento está disponible. Si no hay dos o más nodos de almacenamiento disponibles en ningún sitio, o si no hay un sitio disponible, los cambios realizados en estos ajustes podrían no estar disponibles.
+
+
+.Acerca de esta tarea
+Puede habilitar o suspender el control de versiones de objetos de un bloque. Después de activar el control de versiones para un depósito, no puede volver a un estado sin versiones. Sin embargo, puede suspender el control de versiones del bloque.
+
+* Desactivado: El control de versiones no se ha activado nunca
+* Activado: El control de versiones está activado
+* Suspendido: El control de versiones se ha habilitado anteriormente y se ha suspendido
+
+
+Para obtener más información, consulte lo siguiente:
+
+* link:../s3/object-versioning.html["Control de versiones de objetos"]
+* link:../ilm/example-4-ilm-rules-and-policy-for-s3-versioned-objects.html["Reglas de ILM y políticas para objetos con versiones de S3 (ejemplo 4)"]
+* link:../ilm/how-objects-are-deleted.html["Cómo se eliminan los objetos"]
+
+
+.Pasos
+. Seleccione *Ver cubos* en el panel de control o seleccione *ALMACENAMIENTO (S3)* > *Buckets*.
+. Seleccione el nombre del cubo de la tabla.
++
+Aparece la página de detalles bucket.
+
+. Desde la pestaña *Opciones de cubo*, selecciona el acordeón *Control de versiones de objeto*.
+. Seleccione un estado de control de versiones para los objetos de este bloque.
++
+El control de versiones de objetos debe permanecer habilitado para un bucket que se utiliza para la replicación entre grid. Si se habilita el bloqueo de objetos S3 o la compatibilidad con versiones heredadas, se desactivarán las opciones *versiones de objetos*.
+
++
+[cols="1a,3a"]
+|===
+| Opción | Descripción 
+
+
+ a| 
+Habilite el control de versiones
+ a| 
+Habilite el control de versiones de objetos si desea almacenar cada versión de cada objeto en este bloque. A continuación, puede recuperar versiones anteriores de un objeto según sea necesario.
+
+Los objetos que ya estaban en el bloque se versionarán cuando los modifique un usuario.
+
+
+
+ a| 
+Suspender las versiones
+ a| 
+Suspenda el control de versiones de objetos si ya no desea crear nuevas versiones de objetos. Aún puede recuperar cualquier versión de objeto existente.
+
+|===
+. Seleccione *Guardar cambios*.
+

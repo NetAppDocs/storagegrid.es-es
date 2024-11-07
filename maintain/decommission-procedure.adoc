@@ -1,0 +1,24 @@
+---
+permalink: maintain/decommission-procedure.html 
+sidebar: sidebar 
+keywords: how to decommission 
+summary: Puede realizar un procedimiento de retirada del servicio para quitar de forma permanente nodos de cuadrícula o de todo un sitio del sistema StorageGRID. 
+---
+= Retirada del nodo o sitio
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede realizar un procedimiento de retirada del servicio para quitar de forma permanente nodos de cuadrícula o de todo un sitio del sistema StorageGRID.
+
+Para quitar un nodo de cuadrícula o un sitio, realice uno de los siguientes procedimientos de retirada:
+
+* Ejecute un link:grid-node-decommissioning.html["retirada del nodo de grid"] para quitar uno o varios nodos, que pueden encontrarse en uno o varios sitios. Los nodos que quita pueden estar en línea y conectados al sistema StorageGRID, o bien pueden estar desconectados y desconectados.
+* Realice un link:considerations-for-removing-site.html["retirada del sitio"] para eliminar un sitio. Usted realiza un *retiro del sitio conectado* si todos los nodos están conectados a StorageGRID. Realiza un *desmantelamiento del sitio desconectado* si todos los nodos están desconectados de StorageGRID. Si el sitio contiene una combinación de nodos conectados y desconectados, debe volver a conectar todos los nodos desconectados.
++
+
+CAUTION: Antes de retirar un sitio desconectado, póngase en contacto con su representante de cuenta de NetApp. NetApp revisará sus requisitos antes de habilitar todos los pasos en el asistente del sitio de retirada. No debería intentar retirar un sitio desconectado si cree que podría recuperar el sitio o recuperar datos de objeto del sitio.
+
+

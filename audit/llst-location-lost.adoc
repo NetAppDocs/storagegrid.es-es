@@ -1,0 +1,99 @@
+---
+permalink: audit/llst-location-lost.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, LLST, Location Lost 
+summary: 'Este mensaje se genera siempre que no se encuentre una ubicación para una copia de objeto \(replicada o con código de borrado\).' 
+---
+= LLST: Ubicación perdida
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Este mensaje se genera siempre que no se encuentra una ubicación para una copia de objeto (replicada o con código de borrado).
+
+[cols="1a,1a,4a"]
+|===
+| Codificación | Campo | Descripción 
+
+
+ a| 
+CBIL
+ a| 
+CBID
+ a| 
+El CBID afectado.
+
+
+
+ a| 
+EPR
+ a| 
+Perfil de código de borrado
+ a| 
+Para datos de objetos codificados mediante borrado. El ID del perfil de código de borrado utilizado.
+
+
+
+ a| 
+LLEYP
+ a| 
+Tipo de ubicación
+ a| 
+CLDI (Online): Para datos de objeto replicados
+
+CLEC (en línea): Para datos de objetos codificados con borrado
+
+CLNL (Nearline): Para los datos de objetos replicados archivados
+
+
+
+ a| 
+NOID
+ a| 
+ID del nodo de origen
+ a| 
+El ID de nodo en el que se han perdido las ubicaciones.
+
+
+
+ a| 
+PCLD
+ a| 
+Ruta al objeto replicado
+ a| 
+La ruta completa a la ubicación del disco de los datos de objeto perdidos. Sólo se devuelve cuando LTYP tiene un valor de CLDI (es decir, para objetos replicados).
+
+Toma la forma `/var/local/rangedb/2/p/13/13/00oJs6X%{h{U)SeUFxE@`
+
+
+
+ a| 
+TRANSFORMACIÓN DIGITAL
+ a| 
+Resultado
+ a| 
+Siempre ninguno. RSLT es un campo de mensaje obligatorio, pero no es relevante para este mensaje. NO SE utiliza NINGUNO en lugar de SUCS para que este mensaje no se filtre.
+
+
+
+ a| 
+TSRC
+ a| 
+Origen de activación
+ a| 
+USUARIO: Activado por el usuario
+
+SYST: Sistema activado
+
+
+
+ a| 
+UUID
+ a| 
+ID único universal
+ a| 
+El identificador del objeto afectado del sistema StorageGRID.
+
+|===

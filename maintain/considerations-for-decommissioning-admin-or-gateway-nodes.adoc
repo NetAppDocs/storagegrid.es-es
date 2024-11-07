@@ -1,0 +1,36 @@
+---
+permalink: maintain/considerations-for-decommissioning-admin-or-gateway-nodes.html 
+sidebar: sidebar 
+keywords: storagegrid, decommission admin node, decommission gateway node 
+summary: Revise las consideraciones para retirar un nodo de administración o un nodo de gateway. 
+---
+= Consideraciones sobre el desmantelamiento de los nodos de administración o gateway
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Revise las consideraciones para retirar un nodo de administración o un nodo de gateway.
+
+
+
+== Consideraciones para el nodo de administración
+
+* No puede retirar el nodo de administración principal.
+* No puede retirar un nodo de administración si una de sus interfaces de red forma parte de un grupo de alta disponibilidad. Primero es necesario quitar las interfaces de red del grupo de alta disponibilidad. Consulte las instrucciones para link:../admin/managing-high-availability-groups.html["Gestionar grupos de alta disponibilidad"].
+* Según sea necesario, puede cambiar de forma segura las políticas de ILM mientras decomisiona un nodo de administración.
+* Si retira de servicio un nodo de administración y está habilitado el inicio de sesión único (SSO) para su sistema StorageGRID, debe recordar que debe eliminar la confianza de la parte que confía del nodo desde los Servicios de Federación de Active Directory (AD FS).
+* Si utiliza link:../admin/grid-federation-overview.html["federación de grid"], asegúrese de que la dirección IP del nodo que va a decomisionar no se haya especificado para una conexión de federación de grid.
+* Cuando retire un nodo de administrador desconectado, perderá los registros de auditoría de ese nodo; sin embargo, estos registros también deben existir en el nodo de administración principal.
+
+
+
+
+== Consideraciones para el nodo de puerta de enlace
+
+* No puede retirar un nodo de puerta de enlace si una de sus interfaces de red forma parte de un grupo de alta disponibilidad (HA). Primero es necesario quitar las interfaces de red del grupo de alta disponibilidad. Consulte las instrucciones para link:../admin/managing-high-availability-groups.html["Gestionar grupos de alta disponibilidad"].
+* Según sea necesario, puede cambiar con seguridad las políticas de ILM mientras decomisiona un nodo de puerta de enlace.
+* Si utiliza link:../admin/grid-federation-overview.html["federación de grid"], asegúrese de que la dirección IP del nodo que va a decomisionar no se haya especificado para una conexión de federación de grid.
+* Puede retirar un nodo de puerta de enlace de forma segura mientras está desconectado.
+

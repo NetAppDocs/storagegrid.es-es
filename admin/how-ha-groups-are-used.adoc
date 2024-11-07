@@ -1,0 +1,78 @@
+---
+permalink: admin/how-ha-groups-are-used.html 
+sidebar: sidebar 
+keywords: ha groups, high availability group 
+summary: Puede usar grupos de alta disponibilidad para proporcionar conexiones de alta disponibilidad a StorageGRID para datos de objetos y para uso administrativo. 
+---
+= ¿Cómo se utilizan los grupos de alta disponibilidad?
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede usar grupos de alta disponibilidad para proporcionar conexiones de alta disponibilidad a StorageGRID para datos de objetos y para uso administrativo.
+
+* Un grupo de alta disponibilidad puede proporcionar conexiones administrativas de alta disponibilidad al administrador de grid o al administrador de inquilinos.
+* Un grupo de alta disponibilidad puede proporcionar conexiones de datos de alta disponibilidad a los clientes S3.
+* Un grupo de alta disponibilidad que contiene una sola interfaz le permite proporcionar muchas direcciones VIP y establecer explícitamente direcciones IPv6.
+
+
+Un grupo de alta disponibilidad solo puede proporcionar alta disponibilidad si todos los nodos incluidos en el grupo proporcionan los mismos servicios. Cuando crea un grupo de alta disponibilidad, añada interfaces desde los tipos de nodos que proporcionan los servicios necesarios.
+
+* *Admin Nodes*: Incluye el servicio Load Balancer y permite el acceso al Grid Manager o al arrendatario Manager.
+* * Nodos de Gateway*: Incluye el servicio de Equilibrador de Carga.
+
+
+[cols="1a,2a"]
+|===
+| Objetivo del grupo de alta disponibilidad | Añada nodos de este tipo al grupo de alta disponibilidad 
+
+
+ a| 
+Acceso a Grid Manager
+ a| 
+* Nodo de administración principal (*primario*)
+* Nodos de administrador no primario
+
+
+*Nota:* el nodo de administración principal debe ser la interfaz principal. Algunos procedimientos de mantenimiento solo se pueden realizar desde el nodo de administración principal.
+
+
+
+ a| 
+Acceso solo al administrador de inquilinos
+ a| 
+* Nodos de administrador primario o no primario
+
+
+
+
+ a| 
+Acceso de cliente S3 -- Servicio de equilibrador de carga
+ a| 
+* Nodos de administración
+* Nodos de puerta de enlace
+
+
+
+
+ a| 
+Acceso de clientes S3 para link:../admin/manage-s3-select-for-tenant-accounts.html["S3 Select"]
+ a| 
+* Dispositivos de servicios
+* Nodos de software basados en VMware
+
+
+*Nota*: Se recomiendan los grupos DE HA cuando se usa S3 Select, pero no es necesario.
+
+|===
+
+
+== Limitaciones en el uso de grupos de alta disponibilidad con Grid Manager o Intenant Manager
+
+Si falla un servicio de Grid Manager o de arrendatario Manager, no se activa la conmutación por error del grupo de alta disponibilidad.
+
+Si ha iniciado sesión en Grid Manager o en el arrendatario Manager cuando se produce la conmutación por error, ha cerrado sesión y debe volver a iniciar sesión para reanudar la tarea.
+
+Algunos procedimientos de mantenimiento no se pueden realizar cuando el nodo de administración principal no está disponible. Durante la conmutación por error, puede utilizar Grid Manager para supervisar el sistema StorageGRID.

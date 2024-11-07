@@ -1,0 +1,29 @@
+---
+permalink: network/grid-network-topology.html 
+sidebar: sidebar 
+keywords: grid network topology 
+summary: La topología de red más sencilla se crea configurando la red de cuadrícula únicamente. 
+---
+= Topología de red de cuadrícula
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La topología de red más sencilla se crea configurando la red de cuadrícula únicamente.
+
+Al configurar Grid Network, se establecen la dirección IP del host, la máscara de subred y la dirección IP de la puerta de enlace para la interfaz eth0 de cada nodo de la cuadrícula.
+
+Durante la configuración, debe agregar todas las subredes de red de cuadrícula a la Lista de subredes de red de cuadrícula (GNSL). Esta lista incluye todas las subredes de todos los sitios y podría incluir también subredes externas que proporcionan acceso a servicios críticos como NTP, DNS o LDAP.
+
+En la instalación, la interfaz de red de cuadrícula aplica rutas estáticas para todas las subredes de la GNSL y establece la ruta predeterminada del nodo a la puerta de enlace de red de cuadrícula si se ha configurado alguna. GNSL no es necesario si no hay ninguna red de cliente y la puerta de enlace de red de cuadrícula es la ruta predeterminada del nodo. También se generan rutas de host a todos los demás nodos de la cuadrícula.
+
+En este ejemplo, todo el tráfico comparte la misma red, incluido el tráfico relacionado con solicitudes de cliente S3 y funciones administrativas y de mantenimiento.
+
+
+NOTE: Esta topología es adecuada para implementaciones de un único sitio que no están disponibles externamente, implementaciones de prueba de concepto o de prueba, o cuando un equilibrador de carga de terceros actúa como límite de acceso del cliente. Cuando sea posible, la red de red debe utilizarse exclusivamente para el tráfico interno. Tanto la red de administración como la red de cliente tienen restricciones de firewall adicionales que bloquean el tráfico externo a los servicios internos. Se admite el uso de Grid Network para el tráfico de clientes externos, pero este uso ofrece menos capas de protección.
+
+image::../media/grid_network.png[Red Grid]
+
+image::../media/grid_network_ips.png[Las IP de red de grid]

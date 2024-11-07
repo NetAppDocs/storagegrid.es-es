@@ -1,0 +1,51 @@
+---
+permalink: maintain/gathering-required-materials-site-decom.html 
+sidebar: sidebar 
+keywords: storagegrid, decommission 
+summary: Antes de retirar de servicio un sitio, debe obtener los siguientes materiales. 
+---
+= Reúna los materiales necesarios
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de retirar de servicio un sitio, debe obtener los siguientes materiales.
+
+[cols="1a,2a"]
+|===
+| Elemento | Notas 
+
+
+ a| 
+Archivo de paquete de recuperación `.zip`
+ a| 
+Debe descargar el archivo de Recovery Package más reciente `.zip`(`sgws-recovery-package-id-revision.zip` ). Puede utilizar el archivo de paquete de recuperación para restaurar el sistema si se produce un fallo.
+
+link:downloading-recovery-package.html["Descargue el paquete de recuperación"]
+
+
+
+ a| 
+`Passwords.txt` archivo
+ a| 
+Este archivo contiene las contraseñas que se necesitan para acceder a los nodos de grid en la línea de comandos y se incluye en el paquete de recuperación.
+
+
+
+ a| 
+Clave de acceso de aprovisionamiento
+ a| 
+La frase de contraseña se crea y documenta cuando se instala el sistema StorageGRID por primera vez. La clave de acceso de aprovisionamiento no está en `Passwords.txt` el archivo.
+
+
+
+ a| 
+Descripción de la topología del sistema StorageGRID antes de decomisionar
+ a| 
+Si está disponible, obtenga cualquier documentación que describa la topología actual del sistema.
+
+|===
+.Información relacionada
+link:../admin/web-browser-requirements.html["Requisitos del navegador web"]

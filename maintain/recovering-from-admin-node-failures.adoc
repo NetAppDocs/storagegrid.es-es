@@ -1,0 +1,23 @@
+---
+permalink: maintain/recovering-from-admin-node-failures.html 
+sidebar: sidebar 
+keywords: recover, admin node failure, workflow 
+summary: El proceso de recuperación de un nodo de administrador depende de si se trata del nodo de administrador principal o del nodo de administrador que no es primario. 
+---
+= Recuperación de nodo de administración principal o no principal
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El proceso de recuperación de un nodo de administrador depende de si se trata del nodo de administrador principal o del nodo de administrador que no es primario.
+
+Los pasos de alto nivel para recuperar un nodo de administración primario o no primario son los mismos, aunque los detalles de los pasos son distintos.
+
+Siga siempre el procedimiento de recuperación correcto para el nodo de administrador que se va a recuperar. Los procedimientos tienen el mismo aspecto en un nivel alto, pero difieren en los detalles.
+
+.Opciones
+* link:recovering-from-primary-admin-node-failures.html["Recupere desde fallos del nodo de administrador principal"]
+* link:recovering-from-non-primary-admin-node-failures.html["Recupere el sistema de fallos de nodos de administrador que no son primarios"]
+

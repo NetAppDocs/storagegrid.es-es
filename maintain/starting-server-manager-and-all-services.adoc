@@ -1,0 +1,36 @@
+---
+permalink: maintain/starting-server-manager-and-all-services.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, server manager, start server manager, start services, start all services 
+summary: Es posible que necesite iniciar Server Manager, que también inicia todos los servicios en el nodo de cuadrícula. 
+---
+= Inicie Server Manager y todos los servicios
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es posible que necesite iniciar Server Manager, que también inicia todos los servicios en el nodo de cuadrícula.
+
+.Antes de empezar
+Tiene el `Passwords.txt` archivo.
+
+.Acerca de esta tarea
+Al iniciar Server Manager en un nodo de cuadrícula en el que ya se está ejecutando, se produce un reinicio de Server Manager y de todos los servicios del nodo de cuadrícula.
+
+.Pasos
+. Inicie sesión en el nodo de grid:
++
+.. Introduzca el siguiente comando: `ssh admin@_grid_node_IP_`
+.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
+.. Introduzca el siguiente comando para cambiar a raíz: `su -`
+.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
+
+
++
+Al iniciar sesión como root, la petición de datos cambia de `$` a `#`.
+
+. Inicie Server Manager: `service servermanager start`
+. Cierre la sesión del shell de comandos: `exit`
+

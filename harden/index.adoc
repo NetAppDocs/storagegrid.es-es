@@ -1,0 +1,28 @@
+---
+permalink: harden/index.html 
+sidebar: sidebar 
+keywords: Hardening guidelines, system, security 
+summary: El endurecimiento del sistema es el proceso de eliminar tantos riesgos de seguridad como sea posible a través de un sistema StorageGRID. 
+---
+= Consideraciones generales sobre el refuerzo del sistema
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El endurecimiento del sistema es el proceso de eliminar tantos riesgos de seguridad como sea posible a través de un sistema StorageGRID.
+
+Al instalar y configurar StorageGRID, utilice estas directrices para ayudarle a cumplir los objetivos de seguridad prescritos en cuanto a confidencialidad, integridad y disponibilidad.
+
+Ya tiene que estar utilizando las prácticas recomendadas estándares del sector para reforzar los sistemas. Por ejemplo, utiliza contraseñas seguras para StorageGRID, utiliza HTTPS en lugar de HTTP y habilita la autenticación basada en certificados cuando esté disponible.
+
+StorageGRID sigue la https://security.netapp.com/policy/["Política de gestión de vulnerabilidades de NetApp"^]. Las vulnerabilidades notificadas se verifican y se tratan de acuerdo con el proceso de respuesta a incidentes de seguridad del producto.
+
+Al reforzar un sistema StorageGRID, tenga en cuenta lo siguiente:
+
+* *Cuál de las tres redes StorageGRID* has implementado. Todos los sistemas StorageGRID deben utilizar la red de cuadrícula, pero también puede utilizar la red de administración, la red de cliente o ambas. Cada red tiene diferentes consideraciones de seguridad.
+* *El tipo de plataformas* que usas para los nodos individuales de tu sistema StorageGRID. Los nodos StorageGRID se pueden implementar en máquinas virtuales de VMware, en un motor de contenedores en hosts Linux o como dispositivos de hardware dedicados. Cada tipo de plataforma tiene su propio conjunto de mejores prácticas de optimización.
+* *Cuán de confianza son las cuentas de inquilino*. Si es un proveedor de servicios con cuentas de inquilino que no son de confianza, tendrá problemas de seguridad diferentes a si solo utiliza clientes internos de confianza.
+* *Qué requisitos y convenciones de seguridad* sigue tu organización. Es posible que deba cumplir requisitos normativos o corporativos específicos.
+

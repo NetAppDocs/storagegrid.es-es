@@ -1,0 +1,212 @@
+---
+permalink: maintain/rename-grid-site-node-overview.html 
+sidebar: sidebar 
+keywords: rename grid, rename site, rename node, display name, system name 
+summary: Según sea necesario, puede cambiar los nombres mostrados en Grid Manager para toda la cuadrícula, cada sitio y cada nodo. Puede actualizar los nombres mostrados de forma segura y siempre que lo necesite. 
+---
+= Utilice el procedimiento de cambio de nombre
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Según sea necesario, puede cambiar los nombres mostrados en Grid Manager para toda la cuadrícula, cada sitio y cada nodo. Puede actualizar los nombres mostrados de forma segura y siempre que lo necesite.
+
+
+
+== ¿Qué es el procedimiento de cambio de nombre?
+
+Cuando se instala StorageGRID inicialmente, se especifica un nombre para la cuadrícula, cada sitio y cada nodo. Estos nombres iniciales se conocen como _nombres del sistema_, y son los nombres mostrados inicialmente en StorageGRID.
+
+Los nombres del sistema son necesarios para las operaciones internas de StorageGRID y no se pueden cambiar. Sin embargo, puede utilizar el procedimiento de cambio de nombre para definir nuevos _nombres de visualización_ para la cuadrícula, cada sitio y cada nodo. Estos nombres mostrados aparecen en varias ubicaciones de StorageGRID en lugar de (o en algunos casos, además de) los nombres del sistema subyacentes.
+
+Utilice el procedimiento de cambio de nombre para corregir errores tipográficos, para implementar una convención de nomenclatura diferente o para indicar que se han reubicado un sitio y todos sus nodos. A diferencia de los nombres del sistema, los nombres para mostrar se pueden actualizar siempre que sea necesario y sin afectar a las operaciones de StorageGRID.
+
+
+
+== ¿Dónde aparecen los nombres del sistema y de visualización?
+
+En la siguiente tabla se resume dónde se muestran los nombres del sistema y los nombres mostrados en la interfaz de usuario de StorageGRID y en los archivos StorageGRID.
+
+[cols="2a,2a,3a"]
+|===
+| Ubicación | Nombre del sistema | Nombre para mostrar 
+
+
+ a| 
+Páginas de Grid Manager
+ a| 
+Se muestra a menos que se cambie el nombre del elemento
+ a| 
+Si se cambia el nombre de un elemento, se muestra en lugar del nombre del sistema en estas ubicaciones:
+
+* Consola
+* Nodos
+* Páginas de configuración para grupos de alta disponibilidad, extremos del equilibrador de carga, interfaces VLAN, servidores de gestión de claves, contraseñas de grid y control de firewall
+* Alertas
+* Definiciones de pools de almacenamiento
+* Página de consulta de metadatos de objetos
+* Páginas relacionadas con procedimientos de mantenimiento, incluidas actualización, corrección urgente, actualización de SANtricity OS, retirada, comprobación de expansión, recuperación y existencia de objetos
+* Páginas de soporte (registros y diagnósticos)
+* Página Single Sign-On, junto al nombre de host del nodo de administración en la tabla para los detalles del nodo de administración
+
+
+
+
+ a| 
+*NODOS* > pestaña *Overview* para un nodo
+ a| 
+Siempre se muestra
+ a| 
+Sólo se muestra si se cambia el nombre del elemento
+
+
+
+ a| 
+Páginas heredadas en Grid Manager (por ejemplo, *SUPPORT* > *Grid Topology*)
+ a| 
+Se muestra
+ a| 
+No se muestra
+
+
+
+ a| 
+*Node-health* API
+ a| 
+Siempre devuelto
+ a| 
+Devuelto sólo si se cambia el nombre del elemento
+
+
+
+ a| 
+Prompt cuando se utiliza SSH para acceder a un nodo
+ a| 
+Se muestra como nombre principal a menos que se haya cambiado el nombre del elemento:
+
+`admin@SYSTEM-NAME: ~ $`
+
+Se incluye entre paréntesis cuando se cambia el nombre del elemento:
+
+`admin@DISPLAY-NAME(SYSTEM-NAME):~ $`
+ a| 
+Se muestra como nombre principal cuando se cambia el nombre del elemento:
+
+`admin@DISPLAY-NAME(SYSTEM-NAME):~ $`
+
+
+
+ a| 
+`Passwords.txt` En el paquete de recuperación
+ a| 
+Se muestra como `Server Name`
+ a| 
+Se muestra como `Display Name`
+
+
+
+ a| 
+`/etc/hosts` en todos los nodos
+
+Por ejemplo:
+
+`10.96.99.128 SYSTEM-NAME 28989c59-a2c3-4d30-bb09-6879adf2437f DISPLAY-NAME localhost-grid # storagegrid-gen-host`
+ a| 
+Siempre se muestra en la segunda columna
+ a| 
+Cuando se cambia el nombre del elemento, se muestra en la cuarta columna
+
+
+
+ a| 
+`topology-display-names.json`, Incluido con los datos de AutoSupport
+ a| 
+No incluido
+ a| 
+Vacío a menos que se haya cambiado el nombre de los elementos; de lo contrario, asigna los ID de cuadrícula, sitio y nodo a sus nombres mostrados.
+
+|===
+
+
+== Requisitos de nombre para mostrar
+
+Antes de utilizar este procedimiento, revise los requisitos para los nombres mostrados.
+
+
+
+=== Nombres mostrados de los nodos
+
+Los nombres mostrados de los nodos deben seguir estas reglas:
+
+* Debe ser único en todo el sistema StorageGRID.
+* No puede ser el mismo que el nombre del sistema para cualquier otro elemento del sistema StorageGRID.
+* Debe contener al menos 1 y no más de 32 caracteres.
+* Puede contener números, guiones (-) y letras mayúsculas y minúsculas.
+* Puede comenzar o terminar con una letra o un número, pero no puede comenzar ni terminar con un guion.
+* No puede ser todos los números.
+* No son sensibles a mayúsculas/minúsculas. Por ejemplo, `DC1-ADM` y `dc1-adm` se consideran duplicados.
+
+
+Puede cambiar el nombre de un nodo con un nombre mostrado que anteriormente utilizaba otro nodo, siempre y cuando el cambio de nombre no tenga como resultado un nombre mostrado duplicado o un nombre de sistema.
+
+
+
+=== Nombres mostrados para cuadrícula y sitios
+
+Los nombres mostrados para la cuadrícula y los sitios siguen las mismas reglas con estas excepciones:
+
+* Puede incluir espacios.
+* Puede incluir estos caracteres especiales: `= - _ : , . @ !`
+* Puede comenzar y terminar con los caracteres especiales, incluidos los guiones.
+* Puede ser todos los números o caracteres especiales.
+
+
+
+
+== Mostrar las mejores prácticas de nombres
+
+Si tiene pensado cambiar el nombre de varios elementos, documente el esquema de nomenclatura general antes de utilizar este procedimiento. Crea un sistema que garantice que los nombres sean únicos, consistentes y fáciles de entender de un vistazo.
+
+Puede utilizar cualquier convención de nomenclatura que se ajuste a los requisitos de su organización. Considere estas sugerencias básicas de lo que incluir:
+
+* *Indicador del sitio*: Si tiene varios sitios, agregue un código de sitio a cada nombre de nodo.
+* *Tipo de nodo*: Los nombres de nodo suelen indicar el tipo del nodo. Puede utilizar abreviaturas como `s`, `adm` y `gw` (nodo de almacenamiento, nodo de administración y nodo de puerta de enlace).
+* *Número de nodo*: Si un sitio contiene más de uno de un tipo de nodo en particular, agregue un número único al nombre de cada nodo.
+
+
+Piense dos veces antes de agregar detalles específicos a los nombres que probablemente cambien con el tiempo. Por ejemplo, no incluya direcciones IP en los nombres de nodos porque estas direcciones se pueden cambiar. Del mismo modo, la ubicación de los bastidores o los números de modelo de los dispositivos pueden cambiar si mueve el equipo o actualiza el hardware.
+
+
+
+=== Nombres mostrados de ejemplo
+
+Supongamos que su sistema StorageGRID tiene tres centros de datos y tiene nodos de diferentes tipos en cada centro de datos. Los nombres mostrados pueden ser tan simples como los siguientes:
+
+* *Grid*: `StorageGRID Deployment`
+* *Primer sitio*: `Data Center 1`
++
+** `dc1-adm1`
+** `dc1-s1`
+** `dc1-s2`
+** `dc1-s3`
+** `dc1-gw1`
+
+
+* *Segundo sitio*: `Data Center 2`
++
+** `dc2-adm2`
+** `dc2-s1`
+** `dc2-s2`
+** `dc2-s3`
+
+
+* *Tercer sitio*: `Data Center 3`
++
+** `dc3-s1`
+** `dc3-s2`
+** `dc3-s3`
+
+
+

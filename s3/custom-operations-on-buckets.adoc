@@ -1,0 +1,98 @@
+---
+permalink: s3/custom-operations-on-buckets.html 
+sidebar: sidebar 
+keywords: operations, buckets, custom, storagegrid bucket operations 
+summary: El sistema StorageGRID admite operaciones personalizadas que se añaden a la API DE REST DE la versión S3. 
+---
+= Operaciones personalizadas de StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El sistema StorageGRID admite operaciones personalizadas que se añaden a la API DE REST DE la versión S3.
+
+La siguiente tabla enumera las operaciones personalizadas que admite StorageGRID.
+
+[cols="1a,2a"]
+|===
+| Funcionamiento | Descripción 
+
+
+ a| 
+link:get-bucket-consistency-request.html["OBTENGA coherencia de bloques"]
+ a| 
+Devuelve la coherencia aplicada a un bloque determinado.
+
+
+
+ a| 
+link:put-bucket-consistency-request.html["PONGA la consistencia del cucharón"]
+ a| 
+Establece la coherencia aplicada a un bloque determinado.
+
+
+
+ a| 
+link:get-bucket-last-access-time-request.html["GET Bucket última hora de acceso"]
+ a| 
+Devuelve si las actualizaciones del último tiempo de acceso están habilitadas o deshabilitadas para un bloque en particular.
+
+
+
+ a| 
+link:put-bucket-last-access-time-request.html["PUT Bucket última hora de acceso"]
+ a| 
+Permite habilitar o deshabilitar las actualizaciones del último tiempo de acceso para un bloque en particular.
+
+
+
+ a| 
+link:delete-bucket-metadata-notification-configuration-request.html["Configuración de notificaciones de metadatos de DELETE Bucket"]
+ a| 
+Elimina el XML de configuración de notificación de metadatos asociado a un bloque en particular.
+
+
+
+ a| 
+link:get-bucket-metadata-notification-configuration-request.html["OBTENGA la configuración de notificación de metadatos del bloque de datos"]
+ a| 
+Devuelve el XML de configuración de notificación de metadatos asociado a un bloque determinado.
+
+
+
+ a| 
+link:put-bucket-metadata-notification-configuration-request.html["Configuración de notificaciones de metadatos de PUT Bucket"]
+ a| 
+Configura el servicio de notificación de metadatos para un bloque.
+
+
+
+ a| 
+link:get-storage-usage-request.html["Obtenga el uso del almacenamiento"]
+ a| 
+Indica la cantidad total de almacenamiento que utiliza una cuenta y para cada depósito asociado a la cuenta.
+
+
+
+ a| 
+link:deprecated-put-bucket-request-modifications-for-compliance.html["Obsoleto: CreateBucket con configuración de cumplimiento"]
+ a| 
+Obsoleto y no compatible: Ya no puede crear nuevos bloques con el cumplimiento de normativas habilitado.
+
+
+
+ a| 
+link:deprecated-get-bucket-compliance-request.html["En desuso: OBTENGA el cumplimiento de normativas de bloques"]
+ a| 
+Obsoleto pero compatible: Devuelve la configuración de cumplimiento vigente para un bloque compatible existente.
+
+
+
+ a| 
+link:deprecated-put-bucket-compliance-request.html["Obsoleto: PUT Bucket Compliance"]
+ a| 
+Obsoleto pero compatible: Permite modificar la configuración de cumplimiento de un bloque compatible heredado.
+
+|===

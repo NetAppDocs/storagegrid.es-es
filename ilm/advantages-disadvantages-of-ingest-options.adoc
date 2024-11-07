@@ -1,0 +1,98 @@
+---
+permalink: ilm/advantages-disadvantages-of-ingest-options.html 
+sidebar: sidebar 
+keywords: ingest options, balance ingest, strict ingest, dual commit ingest 
+summary: 'Comprender las ventajas y las desventajas de cada una de las tres opciones de protección de datos en el procesamiento \(balanceado, estricto o compromiso doble\) puede ayudarle a decidir cuál seleccionar para una regla de ILM.' 
+---
+= Ventajas, desventajas y limitaciones de las opciones de ingesta
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Comprender las ventajas y las desventajas de cada una de las tres opciones de protección de datos en el procesamiento (confirmación equilibrada, estricta o doble) puede ayudarle a decidir cuál seleccionar para una regla de ILM.
+
+Para obtener una visión general de las opciones de ingesta, consulte link:data-protection-options-for-ingest.html["Opciones de procesamiento"].
+
+
+
+== Ventajas de las opciones equilibradas y estrictas
+
+En comparación con el registro doble, que crea copias provisionales durante la ingesta, las dos opciones de colocación sincrónica pueden proporcionar las siguientes ventajas:
+
+* *Mejor seguridad de datos*: Los datos de objeto están protegidos inmediatamente como se especifica en las instrucciones de colocación de la regla ILM, que se pueden configurar para proteger contra una amplia variedad de condiciones de fallo, incluyendo la falla de más de una ubicación de almacenamiento. La confirmación doble solo puede protegerse contra la pérdida de una única copia local.
+* *Funcionamiento de red más eficiente*: Cada objeto se procesa una sola vez, ya que se ingiere. Dado que el sistema StorageGRID no necesita realizar un seguimiento o eliminar copias provisionales, hay menos carga de procesamiento y se consume menos espacio de la base de datos.
+* *(equilibrado) recomendado*: La opción equilibrada proporciona una eficiencia óptima de ILM. Se recomienda utilizar la opción Balanced a menos que se requiera un comportamiento de ingesta estricto o que el grid cumpla todos los criterios para utilizar Dual commit.
+* *(estricta) certeza acerca de las ubicaciones de objetos*: La opción estricta garantiza que los objetos se almacenen inmediatamente de acuerdo con las instrucciones de colocación en la regla ILM.
+
+
+
+
+== Desventajas de las opciones equilibradas y estrictas
+
+En comparación con la confirmación doble, las opciones equilibradas y estrictas tienen algunas desventajas:
+
+* *Procesamiento de clientes más largos*: Las latencias de procesamiento de clientes pueden ser más largas. Cuando utiliza las opciones equilibradas o estrictas, no se devuelve al cliente un mensaje de ingesta correcta hasta que se creen y almacenen todos los fragmentos con código de borrado o las copias replicadas. Sin embargo, lo más probable es que los datos de objetos lleguen a su ubicación final mucho más rápido.
+* *(Estrictas) mayores tasas de fallo de ingesta*: Con la opción estricta, la ingesta falla siempre que StorageGRID no puede hacer inmediatamente todas las copias especificadas en la regla de ILM. Es posible que observe tasas elevadas de error de procesamiento si una ubicación de almacenamiento necesaria está temporalmente sin conexión o si los problemas de red provocan retrasos en la copia de objetos entre sitios.
+* * (Estricta) las ubicaciones de carga de varias partes de S3 pueden no ser las esperadas en algunas circunstancias*: Con estricta, se espera que los objetos se coloquen como se describe en la regla ILM o que falle el procesamiento. Sin embargo, con una carga de varias partes de S3 KB, se evalúa ILM para cada parte del objeto conforme se procesa, y para el objeto en su conjunto cuando se completa la carga de varias partes. En las siguientes circunstancias, esto podría dar lugar a colocaciones que son diferentes de lo esperado:
++
+** *Si ILM cambia mientras una carga multiparte de S3 está en curso*: Debido a que cada pieza se coloca según la regla que está activa cuando se ingiere la pieza, es posible que algunas partes del objeto no cumplan los requisitos actuales de ILM cuando se completa la carga de varias partes. En estos casos, la ingesta del objeto no falla. En su lugar, cualquier pieza que no se coloque correctamente se pone en cola para la reevaluación de ILM y posteriormente se mueve a la ubicación correcta.
+** *Cuando las reglas de ILM filtran el tamaño*: Al evaluar ILM para una pieza, StorageGRID filtra el tamaño de la pieza, no el tamaño del objeto. Esto significa que las partes de un objeto se pueden almacenar en ubicaciones que no cumplan con los requisitos de ILM para el objeto como un todo. Por ejemplo, si una regla especifica que todos los objetos de 10 GB o más se almacenan en DC1 mientras que todos los objetos más pequeños se almacenan en DC2, al ingerir cada parte de 1 GB de una carga multiparte de 10 partes se almacena en DC2. Cuando se evalúa ILM para el objeto, todas las partes del objeto se mueven a DC1.
+
+
+* *(estricta) la ingesta no falla cuando las etiquetas de objeto o los metadatos se actualizan y las colocaciones recientemente requeridas no se pueden hacer*: Con estricto, se espera que los objetos se coloquen como se describe en la regla ILM o que falle el procesamiento. Sin embargo, cuando se actualizan metadatos o etiquetas de un objeto que ya está almacenado en la cuadrícula, el objeto no se vuelve a procesar. Esto significa que cualquier cambio en la ubicación del objeto que se desencadene por la actualización no se realiza inmediatamente. Los cambios de colocación se realizan cuando la ILM se vuelve a evaluar por los procesos normales de ILM en segundo plano. Si no se pueden realizar cambios de ubicación necesarios (por ejemplo, porque no está disponible una nueva ubicación requerida), el objeto actualizado conserva su ubicación actual hasta que los cambios de ubicación sean posibles.
+
+
+
+
+== Limitaciones en la ubicación de objetos con las opciones equilibradas y estrictas
+
+Las opciones equilibradas o estrictas no se pueden usar para reglas de ILM que tengan alguna de estas instrucciones de ubicación:
+
+* Ubicación en un pool de almacenamiento en cloud desde el día 0.
+* Colocaciones en un pool de almacenamiento en la nube cuando la regla tiene un tiempo de creación definido por el usuario como su tiempo de referencia.
+
+
+Estas restricciones se deben a que StorageGRID no puede realizar copias de forma sincrónica en un pool de almacenamiento en la nube y la hora de creación definida por el usuario podría resolverse en el presente.
+
+
+
+== Cómo interactúan las reglas de ILM y la coherencia para afectar a la protección de datos
+
+Tanto su regla de ILM como su elección de coherencia afectan al modo en que se protegen los objetos. Estos ajustes pueden interactuar.
+
+Por ejemplo, el comportamiento de ingesta seleccionado para una regla de ILM afecta a la ubicación inicial de las copias del objeto, mientras que la consistencia utilizada cuando se almacena un objeto afecta a la ubicación inicial de los metadatos de objetos. Dado que StorageGRID necesita acceso a los datos y metadatos de un objeto para satisfacer las solicitudes del cliente, seleccionar niveles de protección correspondientes para la consistencia y el comportamiento de ingesta puede proporcionar una mejor protección de datos inicial y respuestas del sistema más predecibles.
+
+A continuación encontrará un breve resumen de los valores de coherencia disponibles en StorageGRID:
+
+* *Todos*: Todos los nodos reciben metadatos de objeto inmediatamente o la solicitud fallará.
+* *Strong-global*: Los metadatos de objetos se distribuyen inmediatamente a todos los sitios. Garantiza la coherencia de lectura tras escritura para todas las solicitudes del cliente en todos los sitios.
+* *Strong-site*: Los metadatos de objetos se distribuyen inmediatamente a otros nodos en el sitio. Garantiza la coherencia de lectura tras escritura para todas las solicitudes del cliente dentro de un sitio.
+* *Read-after-new-write*: Proporciona consistencia de lectura después de escritura para nuevos objetos y consistencia eventual para actualizaciones de objetos. Ofrece garantías de alta disponibilidad y protección de datos. Recomendado para la mayoría de los casos.
+* *Disponible*: Proporciona consistencia eventual tanto para nuevos objetos como para actualizaciones de objetos. Para los cubos S3, utilice solo según sea necesario (por ejemplo, para un depósito que contiene valores de registro que rara vez se leen, o para operaciones HEAD u GET en claves que no existen). No se admite para bloques de FabricPool S3.
+
+
+
+NOTE: Antes de seleccionar un valor de consistencia, link:../s3/consistency-controls.html["lea la descripción completa de la consistencia"]. Debe comprender los beneficios y las limitaciones antes de cambiar el valor predeterminado.
+
+
+
+== Un ejemplo de cómo pueden interactuar las reglas de coherencia e ILM
+
+Suponga que tiene un grid de dos sitios con la siguiente regla de ILM y la siguiente consistencia:
+
+* *Norma ILM*: Cree dos copias de objetos, una en el sitio local y otra en un sitio remoto. Use un comportamiento de ingesta estricto.
+* *Consistencia*: Fuerte-global (los metadatos de objetos se distribuyen inmediatamente a todos los sitios).
+
+
+Cuando un cliente almacena un objeto en el grid, StorageGRID realiza copias de objetos y distribuye los metadatos en ambos sitios antes de devolver el éxito al cliente.
+
+El objeto está completamente protegido contra la pérdida en el momento del mensaje de procesamiento correcto. Por ejemplo, si el sitio local se pierde poco después del procesamiento, seguirán existiendo copias de los datos del objeto y los metadatos del objeto en el sitio remoto. El objeto se puede recuperar completamente.
+
+Si, en cambio, utiliza la misma regla de ILM y la coherencia del sitio fuerte, es posible que el cliente reciba un mensaje de éxito después de replicar los datos de objetos en el sitio remoto, pero antes de que los metadatos de los objetos se distribuyan allí. En este caso, el nivel de protección de los metadatos de objetos no coincide con el nivel de protección de los datos de objetos. Si el sitio local se pierde poco después del procesamiento, se pierden los metadatos del objeto. No se puede recuperar el objeto.
+
+La interrelación entre las reglas de coherencia y de ILM puede ser compleja. Póngase en contacto con NetApp si necesita ayuda.
+
+.Información relacionada
+link:example-5-ilm-rules-and-policy-for-strict-ingest-behavior.html["Ejemplo 5: Reglas de ILM y política para el comportamiento de consumo estricto"]

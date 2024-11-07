@@ -1,0 +1,35 @@
+---
+permalink: maintain/checking-storage-state-after-recovering-storage-volumes.html 
+sidebar: sidebar 
+keywords: storagegrid, storage volume recovery, storage state, storage volume 
+summary: Después de recuperar los volúmenes de almacenamiento, debe comprobar que el estado deseado del nodo de almacenamiento está establecido en online y que el estado estará en línea de forma predeterminada cada vez que se reinicie el servidor del nodo de almacenamiento. 
+---
+= Comprobar el estado del almacenamiento después de recuperar los volúmenes de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Después de recuperar los volúmenes de almacenamiento, debe comprobar que el estado deseado del nodo de almacenamiento está establecido en online y que el estado estará en línea de forma predeterminada cada vez que se reinicie el servidor del nodo de almacenamiento.
+
+.Antes de empezar
+* Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
+* El nodo de almacenamiento se ha recuperado y se completó la recuperación de datos.
+
+
+.Pasos
+. Seleccione *SUPPORT* > *Tools* > *Topología de cuadrícula*.
+. Compruebe los valores de *Nodo de almacenamiento recuperado* > *LDR* > *Almacenamiento* > *Estado de almacenamiento -- deseado* y *Estado de almacenamiento -- actual*.
++
+El valor de ambos atributos debe ser en línea.
+
+. Si el estado de almacenamiento -- deseado está establecido en sólo lectura, realice los siguientes pasos:
++
+.. Haga clic en la ficha *Configuración*.
+.. En la lista desplegable *Estado de almacenamiento -- deseado*, seleccione *Online*.
+.. Haga clic en *aplicar cambios*.
+.. Haga clic en la ficha *Descripción general* y confirme que los valores de *Estado de almacenamiento -- deseado* y *Estado de almacenamiento -- actual* se actualizan a Online.
+
+
+

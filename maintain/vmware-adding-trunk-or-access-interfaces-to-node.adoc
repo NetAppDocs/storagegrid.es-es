@@ -1,0 +1,61 @@
+---
+permalink: maintain/vmware-adding-trunk-or-access-interfaces-to-node.html 
+sidebar: sidebar 
+keywords: add extra interface to node, access interface, VM interface 
+summary: Puede añadir una conexión troncal adicional o interfaces de acceso a un nodo de máquina virtual después de haberse instalado. Las interfaces que agregue se muestran en la página interfaces de VLAN y la página ha groups. 
+---
+= VMware: Añada tronco o interfaces de acceso a un nodo
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede añadir un enlace troncal o una interfaz de acceso a un nodo de máquina virtual una vez que se ha instalado el nodo. Las interfaces que agregue se muestran en la página interfaces de VLAN y la página ha groups.
+
+.Antes de empezar
+* Usted tiene acceso a las instrucciones para link:../vmware/index.html["Instalación de StorageGRID en su plataforma VMware"].
+* Tiene máquinas virtuales VMware Node de administrador y Gateway Node.
+* Tiene una subred de red que no se utiliza como Grid, Admin o Client Network.
+* Tiene el `Passwords.txt` archivo.
+* Tienes link:../admin/admin-group-permissions.html["permisos de acceso específicos"].
+
+
+
+CAUTION: No intente agregar interfaces a un nodo mientras haya una actualización de software, un procedimiento de recuperación o un procedimiento de expansión activo.
+
+.Acerca de esta tarea
+Siga estos pasos para añadir una o varias interfaces adicionales a un nodo de VMware después de instalar el nodo. Por ejemplo, es posible que desee agregar una interfaz troncal a un nodo de administración o puerta de enlace, de modo que pueda utilizar interfaces VLAN para separar el tráfico que pertenece a diferentes aplicaciones o inquilinos. O bien, puede que desee añadir una interfaz de acceso para utilizarla en un grupo de alta disponibilidad.
+
+Si añade una interfaz troncal, debe configurar una interfaz VLAN en StorageGRID. Si agrega una interfaz de acceso, puede añadir la interfaz directamente a un grupo de alta disponibilidad; no es necesario configurar una interfaz de VLAN.
+
+Es posible que el nodo no esté disponible durante un breve periodo de tiempo cuando se añaden interfaces.
+
+.Pasos
+. En vCenter, añada un nuevo adaptador de red (tipo VMXNEL3) a una máquina virtual de nodo de administración y nodo de puerta de enlace. Seleccione las casillas de verificación *Connected* y *Connect at Power On*.
++
+image::../media/vcenter.png[VCenter]
+
+. Use SSH para iniciar sesión en el nodo de administrador o en el nodo de puerta de enlace.
+. Utilice esta opción `ip link show` para confirmar que se ha detectado la nueva interfaz de red ens256.
++
+[listing]
+----
+ip link show
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1400 qdisc mq state UP mode DEFAULT group default qlen 1000
+    link/ether 00:50:56:a0:4e:5b brd ff:ff:ff:ff:ff:ff
+3: eth1: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN mode DEFAULT group default qlen 1000
+    link/ether 00:50:56:a0:fa:ce brd ff:ff:ff:ff:ff:ff
+4: eth2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1400 qdisc mq state UP mode DEFAULT group default qlen 1000
+    link/ether 00:50:56:a0:d6:87 brd ff:ff:ff:ff:ff:ff
+5: ens256: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq master ens256vrf state UP mode DEFAULT group default qlen 1000
+    link/ether 00:50:56:a0:ea:88 brd ff:ff:ff:ff:ff:ff
+----
+
+
+.Después de terminar
+* Si agregó una o más interfaces troncales, vaya a link:../admin/configure-vlan-interfaces.html["Configure las interfaces VLAN"] para configurar una o más interfaces VLAN para cada nueva interfaz principal.
+* Si añadió una o más interfaces de acceso, vaya a link:../admin/configure-high-availability-group.html["configuración de grupos de alta disponibilidad"] para añadir las nuevas interfaces directamente a grupos de alta disponibilidad.
+

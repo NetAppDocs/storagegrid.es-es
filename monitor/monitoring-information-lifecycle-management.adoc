@@ -1,0 +1,76 @@
+---
+permalink: monitor/monitoring-information-lifecycle-management.html 
+sidebar: sidebar 
+keywords: lifecycle management, lifecycle, monitoring, ILM, information lifecycle management 
+summary: 'El sistema de gestión de la vida útil de la información \(ILM\) proporciona gestión de datos para todos los objetos almacenados en el grid. Debe supervisar las operaciones de ILM para averiguar si el grid puede manejar la carga actual o si se necesitan más recursos.' 
+---
+= Supervise la gestión del ciclo de vida de la información
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El sistema de gestión del ciclo de vida de la información (ILM) proporciona gestión de datos para todos los objetos almacenados en el grid. Debe supervisar las operaciones de ILM para averiguar si el grid puede manejar la carga actual o si se necesitan más recursos.
+
+.Acerca de esta tarea
+El sistema StorageGRID gestiona los objetos aplicando las políticas de ILM activas. Las políticas de ILM y las reglas de ILM asociadas determinan cuántas copias se realizan, el tipo de copias que se crean, el lugar donde se ubican las copias y el lapso de tiempo que se conserva cada copia.
+
+La ingesta de objetos y otras actividades relacionadas con objetos pueden superar la velocidad a la que StorageGRID puede evaluar el ILM, lo que hace que el sistema ponga en la cola de objetos cuyas instrucciones de ubicación de ILM no se pueden completar prácticamente en tiempo real. Debe supervisar si StorageGRID sigue el ritmo de las acciones del cliente.
+
+
+
+== Utilizar el separador del panel de control de Grid Manager
+
+.Pasos
+Utilice la pestaña ILM en el panel de Grid Manager para supervisar las operaciones de ILM:
+
+. Inicie sesión en Grid Manager.
+. En la consola, seleccione la pestaña ILM y tenga en cuenta los valores de la tarjeta de la cola de ILM (objetos) y la tarjeta de la tasa de evaluación de ILM.
++
+Se esperan picos temporales en la tarjeta de cola de ILM (objetos) en la consola. Sin embargo, si la cola sigue aumentando y en nunca se reduce, el grid necesita más recursos para funcionar de forma eficiente: O bien más nodos de almacenamiento o, si la política de ILM coloca objetos en ubicaciones remotas, más ancho de banda de red.
+
+
+
+
+
+== Use la página NODES
+
+.Pasos
+Además, investigue las colas de ILM usando la página *NODES*:
+
+
+NOTE: Los gráficos de la página *NODES* se reemplazarán con las tarjetas correspondientes del tablero de mando en una futura versión de StorageGRID.
+
+. Selecciona *NODOS*.
+. Seleccione *_grid name_* > *ILM*.
+. Coloque el cursor sobre el gráfico de cola de ILM para ver el valor de los siguientes atributos en un momento dado:
++
+** *Objetos en cola (desde operaciones de cliente)*: El número total de objetos que esperan la evaluación de ILM debido a operaciones de cliente (por ejemplo, procesamiento).
+** *Objetos en cola (de todas las operaciones)*: El número total de objetos que esperan la evaluación de ILM.
+** *Velocidad de exploración (objetos/seg.)*: Velocidad a la que se escanean los objetos de la cuadrícula y se colocan en cola para ILM.
+** *Tasa de evaluación (objetos/s)*: La velocidad actual a la que se evalúan los objetos en comparación con la política ILM de la cuadrícula.
+
+
+. En la sección ILM Queue, observe los siguientes atributos.
++
+
+NOTE: La sección de la cola de ILM se incluye solo para el grid. Esta información no se muestra en la pestaña ILM para un sitio o nodo de almacenamiento.
+
++
+** *Período de escaneo - Estimado*: El tiempo estimado para completar una exploración completa de ILM de todos los objetos.
++
+
+NOTE: Un análisis completo no garantiza que se haya aplicado ILM a todos los objetos.
+
+** *Reparaciones intentadas*: El número total de operaciones de reparación de objetos para los datos replicados que se han intentado. Este número aumenta cada vez que un nodo de almacenamiento intenta reparar un objeto de riesgo alto. Si el Grid está ocupado, se da prioridad a las reparaciones de ILM de alto riesgo.
++
+
+NOTE: La misma reparación de objeto puede volver a incrementarse si la replicación ha fallado después de la reparación.
+
+
+
++
+Estos atributos pueden ser útiles cuando se supervisa el progreso de la recuperación de volumen del nodo de almacenamiento. Si el número de reparaciones que se intentaron ha dejado de aumentar y se ha completado una exploración completa, es probable que la reparación haya finalizado.
+
+

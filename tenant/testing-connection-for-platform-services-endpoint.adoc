@@ -1,0 +1,39 @@
+---
+permalink: tenant/testing-connection-for-platform-services-endpoint.html 
+sidebar: sidebar 
+keywords: how to test platform services endpoint connection 
+summary: Si la conexión a un servicio de plataforma ha cambiado, puede probar la conexión del extremo para validar que el recurso de destino existe y que se puede acceder a él utilizando las credenciales especificadas. 
+---
+= Probar la conexión para el extremo de servicios de la plataforma
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si la conexión a un servicio de plataforma ha cambiado, puede probar la conexión del extremo para validar que el recurso de destino existe y que se puede acceder a él utilizando las credenciales especificadas.
+
+.Antes de empezar
+* Ha iniciado sesión en el gestor de inquilinos mediante un link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Pertenece a un grupo de usuarios que tiene el link:tenant-management-permissions.html["Gestionar puntos finales o permisos de acceso raíz"].
+
+
+.Acerca de esta tarea
+StorageGRID no valida que las credenciales tengan los permisos correctos.
+
+.Pasos
+. Seleccione *STORAGE (S3)* > *Platform Services Endpoints*.
++
+Aparece la página de extremos de servicios de plataforma y muestra la lista de extremos de servicios de plataforma que ya se han configurado.
+
+. Seleccione el extremo cuya conexión desea probar.
++
+Aparece la página de detalles del extremo.
+
+. Seleccione *probar conexión*.
++
+** Aparece un mensaje de éxito si se puede acceder al extremo con las credenciales especificadas. La conexión con el extremo se valida desde un nodo en cada sitio.
+** Aparece un mensaje de error si se produce un error en la validación del extremo. Si necesita modificar el extremo para corregir el error, seleccione *Configuración* y actualice la información. A continuación, seleccione *probar y guardar los cambios*.
+
+
+

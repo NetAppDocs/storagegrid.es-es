@@ -1,0 +1,52 @@
+---
+permalink: monitor/viewing-load-balancer-tab.html 
+sidebar: sidebar 
+keywords: load balancer tab 
+summary: La pestaña Load Balancer incluye gráficos de rendimiento y diagnóstico relacionados con la operación del servicio Load Balancer. 
+---
+= Abra el separador Equilibrador de Carga
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La pestaña Load Balancer incluye gráficos de rendimiento y diagnóstico relacionados con la operación del servicio Load Balancer.
+
+La pestaña Load Balancer se muestra para los nodos de administrador y de puerta de enlace, cada sitio y todo el grid. Para cada sitio, la pestaña Load Balancer proporciona un resumen de las estadísticas de todos los nodos de ese sitio. Para toda la cuadrícula, la pestaña Load Balancer proporciona un resumen de las estadísticas de todos los sitios.
+
+Si no se está ejecutando ninguna E/S a través del servicio de Equilibrador de Carga, o no hay ningún equilibrador de carga configurado, los gráficos muestran “No hay datos”.
+
+image::../media/nodes_page_load_balancer_tab.png[Pestaña Nodes Page Load Balancer]
+
+
+
+== Solicitar tráfico
+
+Este gráfico proporciona una media móvil de 3 minutos del rendimiento de los datos transmitidos entre los extremos del equilibrador de carga y los clientes que realizan las solicitudes, en bits por segundo.
+
+
+NOTE: Este valor se actualiza al finalizar cada solicitud. Como resultado, este valor puede diferir del rendimiento en tiempo real a tasas de solicitud bajas o a solicitudes de larga duración. Puede consultar la ficha Red para obtener una vista más realista del comportamiento actual de la red.
+
+
+
+== Tasa de solicitudes entrantes
+
+Este gráfico proporciona una media móvil de 3 minutos del número de nuevas solicitudes por segundo, desglosadas por tipo de solicitud (GET, PUT, HEAD y DELETE). Este valor se actualiza cuando se han validado los encabezados de una nueva solicitud.
+
+
+
+== Duración media de la solicitud (no error)
+
+Este gráfico proporciona una media móvil de 3 minutos de duración de las solicitudes, desglosada por tipo de solicitud (GET, PUT, HEAD y DELETE). Cada duración de la solicitud comienza cuando el servicio Load Balancer analiza una cabecera de solicitud y finaliza cuando se devuelve el cuerpo de respuesta completo al cliente.
+
+
+
+== Tasa de respuesta de error
+
+Este gráfico proporciona un promedio móvil de 3 minutos del número de respuestas de error devueltas a clientes por segundo, desglosado por el código de respuesta de error.
+
+.Información relacionada
+* link:monitoring-load-balancing-operations.html["Supervisar las operaciones de equilibrio de carga"]
+* link:../admin/index.html["Administre StorageGRID"]
+

@@ -1,0 +1,58 @@
+---
+permalink: tenant/deleting-s3-bucket.html 
+sidebar: sidebar 
+keywords: how to delete S3 bucket 
+summary: Puede usar el administrador de inquilinos para eliminar un bloque de S3 que esté vacío. 
+---
+= Eliminar bloque de S3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede usar el administrador de inquilinos para eliminar uno o varios bloques de S3 vacíos.
+
+.Antes de empezar
+* Ha iniciado sesión en el gestor de inquilinos mediante un link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Pertenece a un grupo de usuarios que tiene el link:tenant-management-permissions.html["Gestione todos los bloques o permisos de acceso raíz"]. Estos permisos anulan la configuración de los permisos en las políticas de grupo o bloque.
+* Los cucharones que desea eliminar están vacíos. Si los depósitos que desea suprimir están _NOT_ vacíos, link:../tenant/deleting-s3-bucket-objects.html["suprimir objetos del depósito"].
+
+
+.Acerca de esta tarea
+Estas instrucciones describen cómo eliminar un bloque de S3 mediante el administrador de inquilinos. También puede eliminar S3 cubos utilizando link:understanding-tenant-management-api.html["API de gestión de inquilinos"]o el link:../s3/operations-on-buckets.html["API REST DE S3"].
+
+No se puede eliminar un bucket de S3 si contiene objetos, versiones de objetos no actuales o marcadores de eliminación. Para obtener más información sobre cómo se suprimen los objetos con versiones S3, consulte link:../ilm/how-objects-are-deleted.html["Cómo se eliminan los objetos"].
+
+.Pasos
+. Seleccione *Ver cubos* en el panel de control o seleccione *ALMACENAMIENTO (S3)* > *Buckets*.
++
+Aparece la página Buckets y muestra todos los bloques S3 existentes.
+
+. Utilice el menú *Acciones* o la página de detalles de un cubo específico.
++
+[role="tabbed-block"]
+====
+.Menú Actions
+--
+.. Seleccione la casilla de verificación de cada bloque que desee eliminar.
+.. Selecciona *Acciones* > *Eliminar cubos*.
+
+
+--
+.Detalles
+--
+.. Seleccione un nombre de cubo para mostrar sus detalles.
+.. Seleccione *Eliminar cubo*.
+
+
+--
+====
+. Cuando aparezca el cuadro de diálogo de confirmación, seleccione *Sí*.
++
+StorageGRID confirma que cada cucharón está vacío y, a continuación, elimina cada cucharón. Esta operación puede llevar algunos minutos.
+
++
+Si un segmento no está vacío, aparece un mensaje de error. Antes de poder eliminar el depósito, debe link:../tenant/deleting-s3-bucket-objects.html["elimine todos los objetos y cualquier marcador de borrado del depósito"]hacerlo.
+
+

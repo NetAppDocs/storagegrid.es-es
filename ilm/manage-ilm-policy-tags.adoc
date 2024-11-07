@@ -1,0 +1,65 @@
+---
+permalink: ilm/manage-ilm-policy-tags.html 
+sidebar: sidebar 
+keywords: ILM policy tag 
+summary: Puede ver detalles de etiqueta de política de ILM, editar una etiqueta o quitar una etiqueta. 
+---
+= Gestione etiquetas de políticas de ILM
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede ver detalles de etiqueta de política de ILM, editar una etiqueta o quitar una etiqueta.
+
+.Antes de empezar
+* Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Usted tiene el link:../admin/admin-group-permissions.html["permisos de acceso requeridos"].
+
+
+
+
+== Vea los detalles de la etiqueta de la política de ILM
+
+Para ver los detalles de una etiqueta:
+
+. Selecciona *ILM* > *Etiquetas de política*.
+. Seleccione el nombre de la política de la tabla. Aparece la página de detalles de la etiqueta.
+. En la página de detalles, vea el historial anterior de políticas asignadas.
+. Para ver una política, selecciónela.
+
+
+
+
+== Editar la etiqueta de política de ILM
+
+
+NOTE: Los nombres y las descripciones de las etiquetas son visibles para los inquilinos. Elija valores que ayuden a los inquilinos a tomar una decisión informada al seleccionar etiquetas de política para asignarlas a sus bloques. Por ejemplo, si la política asignada suprimirá objetos después de un período de tiempo, podría comunicarlo en la descripción. No incluya información confidencial en estos campos.
+
+Para editar la descripción de una etiqueta existente:
+
+. Selecciona *ILM* > *Etiquetas de política*.
+. Seleccione la casilla de verificación para la etiqueta y luego seleccione *Editar*.
++
+También puede seleccionar el nombre de la etiqueta. Aparece la página de detalles de la etiqueta, y puede seleccionar *Editar* en esa página.
+
+. Cambie la descripción de la etiqueta según sea necesario
+. Seleccione *Guardar*.
+
+
+
+
+== Quite la etiqueta de política de ILM
+
+Al eliminar una etiqueta de política, se aplicará la política por defecto a todos los depósitos asignados a esa etiqueta.
+
+Para eliminar una etiqueta:
+
+. Selecciona *ILM* > *Etiquetas de política*.
+. Seleccione la casilla de verificación para la etiqueta y luego seleccione * Eliminar *. Se muestra un cuadro de diálogo de confirmación.
++
+También puede seleccionar el nombre de la etiqueta. Aparece la página de detalles de la etiqueta, y puede seleccionar *Eliminar* en esa página.
+
+. Seleccione *Sí* para eliminar la etiqueta.
+

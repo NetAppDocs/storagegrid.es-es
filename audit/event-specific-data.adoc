@@ -1,0 +1,23 @@
+---
+permalink: audit/event-specific-data.html 
+sidebar: sidebar 
+keywords: audit message, event, shea, s3 head 
+summary: Cada mensaje de auditoría del registro de auditoría registra datos específicos de un evento del sistema. 
+---
+= Datos específicos de un evento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cada mensaje de auditoría del registro de auditoría registra datos específicos de un evento del sistema.
+
+Después del contenedor de apertura `[AUDT:` que identifica el mensaje en sí, el siguiente juego de atributos proporciona información sobre el evento o la acción descrita por el mensaje de auditoría. Estos atributos se resaltan en el siguiente ejemplo:
+
+[]
+====
+2018-12-SUST08:24:45.921845 [AUDT:*\[RSLT\(FC32\):SUCS\]* *\[TIME\(UI64\):11454 60025621595611246499\[SUST08\[SAIP\(IPAD\):"10.224.0 60025621595611246499.100 60025621595611246499"\[S3AI\(ECSTR\):"CSTR\\\\"[CSTR\][CSTR\\][CSTR]\\\\[CSTR][CSTR]\\\\[CSTR][CSTR][CSTR\\\\\\\\"[CSTR][CSTR][CSTR][CSTR\\\\\\\\\\\[CSTR][CSTR][CSTR][CSTR][CSTR][CSTR\\\\\\\\\\\[CSTR][CSTR][CSTR][CSTR][CSTR][CSTR][CSTR][CSTR\\\\\\\\\\\\\\[KJC][KJC\\\ 15552417629170647261 12281045 1543998285921845 10 30720
+
+====
+ `ATYP`El elemento (subrayado en el ejemplo) identifica qué evento generó el mensaje. Este mensaje de ejemplo incluye link:shea-s3-head.html["SHEA"]el código de mensaje ([ATYP(FC32):SHEA]), que indica que se generó mediante una solicitud de S3 HEAD correcta.

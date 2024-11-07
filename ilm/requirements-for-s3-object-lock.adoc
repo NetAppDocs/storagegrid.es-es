@@ -1,0 +1,107 @@
+---
+permalink: ilm/requirements-for-s3-object-lock.html 
+sidebar: sidebar 
+keywords: requirements, s3 object lock, compliant ilm rule, compliant ilm policy 
+summary: Debe revisar los requisitos para habilitar la configuración global de bloqueo de objetos de S3, los requisitos para crear reglas de ILM y políticas de ILM conformes con la normativa, y las restricciones que StorageGRID coloca en bloques y objetos que usan el bloqueo de objetos S3. 
+---
+= Requisitos para el bloqueo de objetos de S3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe revisar los requisitos para habilitar la configuración global de bloqueo de objetos de S3, los requisitos para crear reglas de ILM y políticas de ILM conformes con la normativa, y las restricciones que StorageGRID coloca en bloques y objetos que usan el bloqueo de objetos S3.
+
+
+
+== Requisitos para usar el valor global de bloqueo de objetos S3
+
+* Debe habilitar la configuración global de Object Lock mediante el administrador de grid o la API de gestión de grid antes de que cualquier inquilino de S3 pueda crear un bucket con el bloqueo de objetos S3 habilitado.
+* Al habilitar el ajuste global de Object Lock, todas las cuentas de inquilinos S3 pueden crear bloques con el bloqueo de objetos S3 habilitado.
+* Después de habilitar la configuración global S3 Object Lock, no puede desactivar la configuración.
+* No puede activar el bloqueo de objetos S3 global a menos que la regla predeterminada en todas las políticas de ILM activas sea _compliant_ (es decir, la regla predeterminada debe cumplir con los requisitos de los bloques con bloqueo de objetos S3 habilitado).
+* Cuando se habilita la configuración global S3 Object Lock, no se puede crear una nueva política de ILM ni activar una política de ILM existente a menos que la regla predeterminada de la política sea compatible. Una vez habilitada la configuración global S3 Object Lock, las reglas de ILM y las páginas de políticas de ILM indican qué reglas de ILM cumplen.
+
+
+
+
+== Requisitos para las reglas de ILM que cumplen con las normativas
+
+Si desea habilitar la configuración global Bloqueo de objetos S3, debe asegurarse de que la regla predeterminada de todas las políticas de ILM activas sea compatible. Una regla conforme a las normativas satisface los requisitos de ambos bloques con el bloqueo de objetos S3 habilitado y de cualquier bloque existente con el cumplimiento de normativas heredado habilitado:
+
+* Debe crear al menos dos copias de objetos replicados o una copia con código de borrado.
+* Estas copias deben existir en los nodos de almacenamiento durante todo el tiempo que dure cada línea en las instrucciones de colocación.
+* Las copias de objetos no se pueden guardar en un pool de almacenamiento en la nube.
+* Al menos una línea de las instrucciones de colocación debe comenzar en el día 0, usando *tiempo de ingesta* como tiempo de referencia.
+* Al menos una línea de las instrucciones de colocación debe ser “Para siempre”.
+
+
+
+
+== Requisitos para las políticas de ILM
+
+Cuando se habilita la configuración global Bloqueo de objetos S3, las políticas de ILM activas e inactivas pueden incluir reglas que cumplen y no cumplen.
+
+* La regla predeterminada de una política de ILM activa o inactiva debe cumplir.
+* Las reglas no compatibles solo se aplican a objetos de los depósitos que no tienen activado el bloqueo de objetos S3 o que no tienen activada la función de cumplimiento de normativas heredada.
+* Las reglas que cumplen las normativas se pueden aplicar a los objetos de cualquier bloque; no es necesario habilitar el bloqueo de objetos S3 o la conformidad heredada para el bloque.
+
+
+link:example-7-compliant-ilm-policy-for-s3-object-lock.html["Ejemplo de una política de ILM conforme a la normativa para S3 Object Lock"]
+
+
+
+== Requisitos para bloques con bloqueo de objetos de S3 habilitado
+
+* Si la opción de configuración global de bloqueo de objetos S3 se encuentra habilitada para el sistema StorageGRID, puede usar el administrador de inquilinos, la API de gestión de inquilinos o la API REST de S3 para crear bloques con el bloqueo de objetos S3 habilitado.
+* Si planea utilizar el bloqueo de objetos S3, debe habilitar el bloqueo de objetos S3 al crear el bloque. No puede activar el bloqueo de objetos S3 para un depósito existente.
+* Cuando se habilita el bloqueo de objetos S3 para un bloque, StorageGRID habilita automáticamente el control de versiones para ese bloque. No puede desactivar el bloqueo de objetos de S3 ni suspender el control de versiones del depósito.
+* De manera opcional, puede especificar un modo de retención y un período de retención predeterminados para cada bloque mediante el administrador de inquilinos, la API de gestión de inquilinos o la API DE REST S3. La configuración de retención predeterminada del depósito se aplica solo a los nuevos objetos agregados al depósito que no tienen su propia configuración de retención. Puede anular esta configuración predeterminada especificando un modo de retención y Retain-until-date para cada versión del objeto cuando se cargue.
+* Se admite la configuración de ciclo de vida de bloques para los bloques con S3 Object Lock habilitado.
+* La replicación de CloudMirror no es compatible para bloques con el bloqueo de objetos S3 habilitado.
+
+
+
+
+== Requisitos para objetos en bloques con S3 Object Lock habilitado
+
+* Para proteger una versión de objeto, puede especificar la configuración de retención predeterminada para el bloque, o bien puede especificar la configuración de retención para cada versión de objeto. La configuración de retención a nivel de objeto se puede especificar mediante la aplicación cliente S3 o la API DE REST S3.
+* La configuración de retención se aplica a versiones individuales de objetos. Una versión de objeto puede tener una configuración de retención hasta fecha y una retención legal, una pero no la otra, o ninguna. Al especificar una configuración de retención hasta fecha o de retención legal para un objeto, sólo se protege la versión especificada en la solicitud. Puede crear nuevas versiones del objeto, mientras que la versión anterior del objeto permanece bloqueada.
+
+
+
+
+== Ciclo de vida de los objetos en bloques con S3 Object Lock habilitado
+
+Cada objeto que se guarda en un depósito con S3 Object Lock habilitado pasa por las siguientes etapas:
+
+. *Procesamiento de objetos*
++
+Cuando se agrega una versión de objeto al depósito que tiene S3 Object Lock habilitado, la configuración de retención se aplica de la siguiente manera:
+
++
+** Si se especifica la configuración de retención para el objeto, se aplica la configuración de nivel de objeto. Se ignoran todos los valores predeterminados de los depósitos.
+** Si no se especifica ninguna configuración de retención para el objeto, se aplica la configuración de bloque predeterminada, si existe.
+** Si no se especifica ninguna configuración de retención para el objeto o el depósito, el objeto no está protegido por S3 Object Lock.
+
+
++
+Si se aplica una configuración de retención, tanto el objeto como cualquier metadatos definidos por el usuario S3 se protegen.
+
+. *Retención y eliminación de objetos*
++
+StorageGRID almacena varias copias de cada objeto protegido durante el período de retención especificado. El número y el tipo exactos de copias de objetos y las ubicaciones de almacenamiento están determinados por las reglas conformes a la normativa de las políticas de ILM activas. Si se puede eliminar un objeto protegido antes de alcanzar su fecha de retención hasta la fecha, depende de su modo de retención.
+
++
+** Si un objeto se encuentra bajo una conservación legal, nadie puede eliminarlo, independientemente de su modo de retención.
+
+
+
+
+.Información relacionada
+* link:../tenant/creating-s3-bucket.html["Cree un bloque de S3"]
+* link:../tenant/update-default-retention-settings.html["Actualizar S3 Retención predeterminada de bloqueo de objetos"]
+* link:../s3/use-s3-api-for-s3-object-lock.html["Use la API REST DE S3 para configurar el bloqueo de objetos de S3"]
+* link:example-7-compliant-ilm-policy-for-s3-object-lock.html["Ejemplo 7: Política de ILM conforme con la normativa para el bloqueo de objetos S3"]
+

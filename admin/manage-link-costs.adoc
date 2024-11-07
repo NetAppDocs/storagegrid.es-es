@@ -1,0 +1,87 @@
+---
+permalink: admin/manage-link-costs.html 
+sidebar: sidebar 
+keywords: link cost, site latency, manage link costs, prioritize sites 
+summary: Los costes de enlace le permiten priorizar qué sitio de centro de datos proporciona un servicio solicitado cuando existen dos o más centros de datos. Puede ajustar los costes de vínculo para reflejar la latencia entre los sitios. 
+---
+= Gestionar costes de enlaces
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los costes de enlace le permiten priorizar qué sitio de centro de datos proporciona un servicio solicitado cuando existen dos o más centros de datos. Puede ajustar los costes de vínculo para reflejar la latencia entre los sitios.
+
+
+
+== ¿Qué son los costes de enlace?
+
+* Los costes de enlace se utilizan para priorizar qué copia de objetos se utiliza para llevar a cabo las recuperaciones de objetos.
+* Los costes de enlace los utiliza la API de gestión de grid y la API de gestión de inquilinos para determinar qué servicios StorageGRID internos utilizar.
+* Los costes de enlace los utiliza el servicio de equilibrio de carga en los nodos de administración y de gateway para dirigir las conexiones de cliente. Consulte link:../admin/managing-load-balancing.html["Consideraciones que tener en cuenta al equilibrio de carga"].
+
+
+El diagrama muestra una cuadrícula de tres sitios con costes de enlace configurados entre sitios:
+
+image::../media/link_costs.gif[Diagrama conceptual para vincular costes entre centros de datos]
+
+* El servicio Load Balancer en los nodos de administración y de puerta de enlace distribuye equitativamente las conexiones de los clientes a todos los nodos de almacenamiento en el mismo sitio del centro de datos y a cualquier sitio del centro de datos con un coste de enlace de 0.
++
+En el ejemplo, un nodo de puerta de enlace en el sitio del centro de datos 1 (DC1) distribuye igualmente conexiones de cliente a nodos de almacenamiento en DC1 y a nodos de almacenamiento en DC2. Un nodo de puerta de enlace en DC3 envía conexiones de cliente sólo a los nodos de almacenamiento en DC3.
+
+* Al recuperar un objeto que existe como varias copias replicadas, StorageGRID recupera la copia en el centro de datos que tiene el coste de enlace más bajo.
++
+En el ejemplo, si una aplicación cliente de DC2 recupera un objeto almacenado tanto en DC1 como en DC3, el objeto se recupera de DC1, porque el coste del enlace de DC1 a DC2 es 0, que es inferior al coste del enlace de DC3 a DC2 (25).
+
+
+
+Los costes de enlace son números relativos arbitrarios sin unidad de medida específica. Por ejemplo, un costo de enlace de 50 se utiliza de forma menos preferente que un costo de enlace de 25. En la tabla se muestran los costes de los enlaces más utilizados.
+
+[cols="1a,1a,2a"]
+|===
+| Enlace | Coste del enlace | Notas 
+
+
+ a| 
+Entre sitios físicos del centro de datos
+ a| 
+25 (predeterminado)
+ a| 
+Centros de datos conectados por un enlace WAN.
+
+
+
+ a| 
+Entre las ubicaciones lógicas del centro de datos en la misma ubicación física
+ a| 
+0
+ a| 
+Centros de datos lógicos en el mismo edificio físico o campus conectados por una LAN.
+
+|===
+
+
+== Actualizar costes de enlace
+
+Puede actualizar los costes de enlace entre los sitios de centros de datos para reflejar la latencia entre los sitios.
+
+.Antes de empezar
+* Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Usted tiene el link:admin-group-permissions.html["Permiso de configuración de la página de topología de cuadrícula"].
+
+
+.Pasos
+. Selecciona *SOPORTE* > *OTRO* > *Costo de enlace*.
++
+image::../media/configuring_link_costs.png[Coste del enlace]
+
+. Seleccione un sitio en *origen de enlace* e introduzca un valor de coste entre 0 y 100 en *destino de enlace*.
++
+No puede cambiar el coste del enlace si el origen es el mismo que el destino.
+
++
+Para cancelar los cambios, seleccione image:../media/nms_revert.gif["icono de deshacer"]*Revertir*.
+
+. Seleccione *aplicar cambios*.
+

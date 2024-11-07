@@ -1,0 +1,107 @@
+---
+permalink: maintain/step-1-select-site.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, select site 
+summary: Para determinar si un sitio se puede retirar del servicio, comience por acceder al asistente del sitio de retirada. 
+---
+= Paso 1: Seleccione Sitio
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para determinar si un sitio se puede retirar del servicio, comience por acceder al asistente del sitio de retirada.
+
+.Antes de empezar
+* Usted ha obtenido todos los materiales requeridos.
+* Ha revisado las consideraciones para eliminar un sitio.
+* Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Usted tiene el link:../admin/admin-group-permissions.html["Permiso de acceso raíz o permisos de mantenimiento e ILM"].
+
+
+.Pasos
+. Seleccione *MANTENIMIENTO* > *tareas* > *misión*.
+. Seleccione *Sitio de misión*.
++
+Aparece el paso 1 (Seleccionar sitio) del asistente de ubicación de misión. Este paso incluye una lista alfabética de los sitios de su sistema StorageGRID.
+
++
+image::../media/decommission_site_step_select_site.png[Retirar sitio Paso 1 Seleccionar sitio]
+
+. Consulte los valores de la columna *capacidad de almacenamiento utilizada* para determinar cuánto almacenamiento se está utilizando actualmente para los datos de objetos de cada sitio.
++
+La capacidad de almacenamiento utilizada es una estimación. Si los nodos están sin conexión, la capacidad de almacenamiento utilizada es el último valor conocido del sitio.
+
++
+** Para la retirada de un sitio conectado, este valor representa la cantidad de datos de objeto que debe moverse a otros sitios o eliminarse mediante ILM antes de poder retirar este sitio de forma segura.
+** Para una retirada de sitios desconectada, este valor representa cuánto del almacenamiento de datos del sistema quedará inaccesible cuando usted retire este sitio.
++
+
+NOTE: Si su política de ILM se diseñó para ofrecer protección contra la pérdida de un solo sitio, las copias de sus datos de objetos aún deben existir en los sitios restantes.
+
+
+
+. Revise las razones en la columna *DECOMmission posible* para determinar qué sitios pueden ser retirados del servicio actualmente.
++
+
+NOTE: Si hay más de una razón por la que un sitio no puede ser desmantelado, se muestra la razón más crítica.
+
++
+[cols="1a,1a,1a"]
+|===
+| Razón posible de retirada | Descripción | Paso siguiente 
+
+
+ a| 
+Marca de verificación verde (image:../media/icon_alert_green_checkmark.png["Icono Alerta verde marca de verificación"])
+ a| 
+Puede retirar este sitio.
+ a| 
+Vaya a <<decommission_possible,el siguiente paso>>.
+
+
+
+ a| 
+No. Este sitio contiene el nodo de administración principal.
+ a| 
+No puede retirar un sitio que contenga el nodo de administración principal.
+ a| 
+Ninguno. No puede realizar este procedimiento.
+
+
+
+ a| 
+No. Este sitio contiene uno o más nodos de archivo.
+ a| 
+No puede retirar un sitio que contenga un nodo de archivado.
+ a| 
+Ninguno. No puede realizar este procedimiento.
+
+
+
+ a| 
+No. Todos los nodos de este sitio están desconectados. Póngase en contacto con el representante de cuenta de NetApp.
+ a| 
+No puede realizar una retirada de sitio conectado a menos que todos los nodos del sitio estén conectados (image:../media/icon_alert_green_checkmark.png["Icono Alerta verde marca de verificación"]).
+ a| 
+Si desea realizar una retirada de sitios sin conexión, debe ponerse en contacto con su representante de cuenta de NetApp, que revisará sus requisitos y activará el resto del asistente para la retirada de sitios.
+
+*IMPORTANTE*: Nunca desconecte los nodos en línea para poder eliminar un sitio. Perderá datos.
+
+|===
++
+El ejemplo muestra un sistema StorageGRID con tres sitios. La marca de verificación verde (image:../media/icon_alert_green_checkmark.png["Icono Alerta verde marca de verificación"]) para los sitios de Raleigh y Sunnyvale indica que puede retirar esos sitios. Sin embargo, no puede retirar el sitio de Vancouver porque contiene el nodo de administración principal.
+
+
+
+[[decommission_possible]]
+. Si es posible retirar el servicio, seleccione el botón de opción de la planta.
++
+El botón *Siguiente* está activado.
+
+. Seleccione *Siguiente*.
++
+Se muestra el paso 2 (Ver detalles).
+
+

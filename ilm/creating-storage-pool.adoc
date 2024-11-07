@@ -1,0 +1,73 @@
+---
+permalink: ilm/creating-storage-pool.html 
+sidebar: sidebar 
+keywords: create storage pool 
+summary: Se crean pools de almacenamiento para determinar dónde el sistema StorageGRID almacena los datos de objetos y el tipo de almacenamiento utilizado. Cada pool de almacenamiento incluye uno o más sitios y una o más calidades de almacenamiento. 
+---
+= Cree un pool de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se crean pools de almacenamiento para determinar dónde el sistema StorageGRID almacena los datos de objetos y el tipo de almacenamiento utilizado. Cada pool de almacenamiento incluye uno o más sitios y una o más calidades de almacenamiento.
+
+
+NOTE: Cuando se instala StorageGRID 11,9 en un nuevo grid, se crean automáticamente pools de almacenamiento para cada sitio. Sin embargo, si instaló inicialmente StorageGRID 11,6 o una versión anterior, los pools de almacenamiento no se crean automáticamente para cada sitio.
+
+Si desea crear agrupaciones de almacenamiento en la nube para almacenar datos de objetos fuera del sistema StorageGRID, consulte la link:what-cloud-storage-pool-is.html["Información sobre el uso de Cloud Storage Pools"].
+
+.Antes de empezar
+* Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Tienes link:../admin/admin-group-permissions.html["permisos de acceso específicos"].
+* Revisó las directrices para crear pools de almacenamiento.
+
+
+.Acerca de esta tarea
+Los pools de almacenamiento determinan dónde se almacenan los datos de objeto. La cantidad de pools de almacenamiento que necesita depende del número de sitios del grid y de los tipos de copias que desee: Replicadas o codificadas por borrado.
+
+* Para la replicación y la codificación de borrado a un solo sitio, cree un pool de almacenamiento para cada sitio. Por ejemplo, si desea almacenar copias de objetos replicados en tres sitios, cree tres pools de almacenamiento.
+* Para la codificación de borrado en tres o más sitios, cree un pool de almacenamiento que incluya una entrada para cada sitio. Por ejemplo, si desea borrar objetos de código en tres sitios, cree un pool de almacenamiento.
++
+
+NOTE: No incluya el sitio Todos los sitios en un pool de almacenamiento que se utilizará en un perfil de código de borrado. En su lugar, agregue una entrada independiente al pool de almacenamiento para cada sitio que almacene los datos con código de borrado. <<entries,este paso>>Consulte para ver un ejemplo.
+
+* Si tiene más de un grado de almacenamiento, no cree un pool de almacenamiento que incluya diferentes grados de almacenamiento en un solo sitio. Consulte la link:guidelines-for-creating-storage-pools.html["Directrices para crear pools de almacenamiento"].
+
+
+.Pasos
+. Seleccione *ILM* > *agrupaciones de almacenamiento*.
++
+En la pestaña Storage Pools, se muestra todos los pools de almacenamiento definidos.
+
++
+
+NOTE: Para las instalaciones nuevas de StorageGRID 11,6 o versiones anteriores, el pool de almacenamiento Todos los nodos de almacenamiento se actualiza automáticamente cada vez que se añaden sitios de centros de datos nuevos. No utilice este pool en reglas de ILM.
+
+. Para crear una nueva agrupación de almacenamiento, seleccione *Crear*.
+. Introduzca un nombre único para el pool de almacenamiento. Utilice un nombre que sea fácil de identificar cuando configure perfiles de código de borrado y reglas de ILM.
+. En la lista desplegable *Sitio*, seleccione un sitio para esta agrupación de almacenamiento.
++
+Cuando se selecciona un sitio, el número de nodos de almacenamiento de la tabla se actualiza automáticamente.
+
++
+En general, no utilice el sitio Todos los sitios en ningún pool de almacenamiento. Las reglas de ILM que utilizan un pool de almacenamiento All Sites colocan los objetos en cualquier sitio disponible, lo que le otorga menos control de la ubicación de los objetos. Además, un pool de almacenamiento All Sites utiliza inmediatamente los nodos de almacenamiento en un sitio nuevo, lo que podría no ser el comportamiento esperado.
+
+. En la lista desplegable *Storage grade*, seleccione el tipo de almacenamiento que se utilizará si una regla de ILM utiliza este grupo de almacenamiento.
++
+El grado de almacenamiento, _incluye todos los grados de almacenamiento_, incluye todos los nodos de almacenamiento en el sitio seleccionado. Si creó grados de almacenamiento adicionales para los nodos de almacenamiento del grid, estos se enumeran en el menú desplegable.
+
+. [[Entradas]]Si desea utilizar el grupo de almacenamiento en un perfil de codificación de borrado de varios sitios, seleccione *Agregar más nodos* para agregar una entrada para cada sitio al grupo de almacenamiento.
++
+
+NOTE: Se le advertirá si agrega más de una entrada con diferentes grados de almacenamiento para un sitio.
+
++
+Para eliminar una entrada, seleccione el icono Eliminar image:../media/icon-x-to-remove.png["icono de eliminar"].
+
+. Cuando esté satisfecho con sus selecciones, seleccione *Guardar*.
++
+El nuevo pool de almacenamiento se añadirá a la lista.
+
+

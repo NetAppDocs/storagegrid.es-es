@@ -1,0 +1,31 @@
+---
+permalink: s3/deprecated-put-bucket-request-modifications-for-compliance.html 
+sidebar: sidebar 
+keywords: S3 REST API, S3 operations, deprecated bucket requests for compliance 
+summary: El elemento XML de SGCompliance está obsoleto. Anteriormente, podía incluir este elemento personalizado de StorageGRID en el cuerpo de solicitud XML opcional de las solicitudes de CreateBucket para crear un depósito compatible. 
+---
+= Obsoleto: Modificaciones de la solicitud de CreateBucket para el cumplimiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El elemento XML de SGCompliance está obsoleto. Anteriormente, podía incluir este elemento personalizado de StorageGRID en el cuerpo de solicitud XML opcional de las solicitudes de CreateBucket para crear un depósito compatible.
+
+[NOTE]
+====
+La función de cumplimiento de StorageGRID que estaba disponible en versiones anteriores de StorageGRID quedó obsoleta y se reemplazó por el bloqueo de objetos de S3. En la siguiente sección, se ofrecen más detalles:
+
+* link:../s3/use-s3-api-for-s3-object-lock.html["Use la API REST DE S3 para configurar el bloqueo de objetos de S3"]
+* https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/How_to_manage_legacy_Compliant_buckets_in_StorageGRID_11.5["Base de conocimientos de NetApp: Cómo gestionar bloques heredados que cumplen con la normativa StorageGRID 11.5"^]
+
+
+====
+Ya no se pueden crear bloques nuevos con el cumplimiento de normativas habilitado. Se devuelve el siguiente mensaje de error si intenta utilizar las modificaciones de solicitud de CreateBucket para la conformidad con el fin de crear un nuevo depósito compatible:
+
+[listing]
+----
+The Compliance feature is deprecated.
+Contact your StorageGRID administrator if you need to create new Compliant buckets.
+----

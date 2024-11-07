@@ -1,0 +1,122 @@
+---
+permalink: fabricpool/use-fabricpool-setup-wizard.html 
+sidebar: sidebar 
+keywords: fabricPool, FabricPool setup wizard, ontap system manager 
+summary: Puede usar el asistente de configuración de FabricPool para configurar StorageGRID como el sistema de almacenamiento de objetos para un nivel de cloud de FabricPool. Después de completar el asistente de configuración, puede introducir los detalles necesarios en ONTAP System Manager. 
+---
+= Use el asistente de configuración de FabricPool: Consideraciones y requisitos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede usar el asistente de configuración de FabricPool para configurar StorageGRID como el sistema de almacenamiento de objetos para un nivel de cloud de FabricPool. Después de completar el asistente de configuración, puede introducir los detalles necesarios en ONTAP System Manager.
+
+
+
+== Cuándo utilizar el asistente de configuración de FabricPool
+
+El asistente de configuración de FabricPool lo guiará a través de cada paso de configuración de StorageGRID para su uso con FabricPool y configurará automáticamente ciertas entidades para usted, como ILM y las políticas de clasificación de tráfico. Como parte de completar el asistente, descargará un archivo que podrá utilizar para introducir valores en ONTAP System Manager. Utilice el asistente para configurar su sistema con mayor rapidez y asegurarse de que su configuración cumple las prácticas recomendadas de StorageGRID y FabricPool.
+
+Suponiendo que dispone de permiso de acceso de raíz, puede completar el asistente de configuración de FabricPool cuando comience a utilizar el Administrador de grid de StorageGRID, o bien puede acceder al asistente y completarlo en cualquier momento posterior. En función de los requisitos, también puede configurar algunos o todos los elementos necesarios manualmente y, a continuación, utilizar el asistente para ensamblar los valores que ONTAP necesita en un único archivo.
+
+
+TIP: Use el asistente de configuración de FabricPool a menos que sepa que tiene requisitos especiales o que su implementación requerirá una personalización significativa.
+
+
+
+== Antes de utilizar el asistente
+
+Confirme que ha completado estos pasos de requisitos previos.
+
+
+
+=== Revise las prácticas recomendadas
+
+* Usted tiene una comprensión general de la link:information-needed-to-attach-storagegrid-as-cloud-tier.html["Información necesaria para adjuntar StorageGRID como nivel de nube"].
+* Ha revisado las prácticas recomendadas de FabricPool para:
++
+** link:best-practices-for-high-availability-groups.html["Grupos de alta disponibilidad"]
+** link:best-practices-for-load-balancing.html["Balanceo de carga"]
+** link:best-practices-ilm.html["Reglas y políticas de ILM"]
+
+
+
+
+
+
+=== Obtenga direcciones IP y configure interfaces VLAN
+
+Si va a configurar un grupo de alta disponibilidad, sabrá a qué nodos se conectará ONTAP y a qué red StorageGRID se usará. También sabe qué valores introducir para la subred CIDR, la dirección IP de la puerta de enlace y las direcciones IP virtuales (VIP).
+
+Si planea utilizar una LAN virtual para segregar el tráfico de FabricPool, ya habrá configurado la interfaz de VLAN. Consulte link:../admin/configure-vlan-interfaces.html["Configure las interfaces VLAN"].
+
+
+
+=== Configurar la federación de identidades y SSO
+
+Si tiene pensado utilizar la federación de identidades o el inicio de sesión único (SSO) para el sistema StorageGRID, tiene activadas estas funciones. También sabe qué grupo federado debe tener acceso raíz para la cuenta de inquilino que utilizará ONTAP. Consulte link:../admin/using-identity-federation.html["Usar la federación de identidades"] y link:../admin/configuring-sso.html["Configurar el inicio de sesión único"].
+
+
+
+=== Obtener y configurar nombres de dominio
+
+* Sabe qué nombre de dominio completo (FQDN) debe utilizar para StorageGRID. Las entradas del servidor de nombres de dominio (DNS) asignarán este FQDN a las direcciones IP virtuales (VIP) del grupo de alta disponibilidad que cree con el asistente. Consulte link:../fabricpool/configure-dns-server.html["Configurar el servidor DNS"].
+* Si planea utilizar S3 solicitudes virtuales de estilo hospedado, tiene link:../admin/configuring-s3-api-endpoint-domain-names.html["Nombres de dominio de punto final S3 configurados"]. ONTAP utiliza URL de estilo de ruta de forma predeterminada, pero se recomienda el uso de solicitudes virtuales de estilo hospedado.
+
+
+
+
+=== Revisión de los requisitos del equilibrio de carga y del certificado de seguridad
+
+Si tiene pensado utilizar el equilibrador de carga StorageGRID, ha revisado el link:../admin/managing-load-balancing.html["consideraciones que tener en cuenta al equilibrio de carga"]. Tiene los certificados que cargará o los valores necesarios para generar un certificado.
+
+Si planea utilizar un punto final de equilibrio de carga externo (de terceros), tiene el nombre de dominio completo (FQDN), el puerto y el certificado para ese equilibrador de carga.
+
+
+
+=== Confirmar la configuración del pool de almacenamiento ILM
+
+Si instaló inicialmente StorageGRID 11,6 o una versión anterior, configuró el pool de almacenamiento que utilizará. En general, debe crear un pool de almacenamiento para cada sitio de StorageGRID que utilizará para almacenar los datos de ONTAP.
+
+
+NOTE: Este requisito no se aplica si instaló inicialmente StorageGRID 11,7 o 11,8. Cuando instala cualquiera de estas versiones inicialmente, se crean automáticamente pools de almacenamiento para cada sitio.
+
+
+
+== Relación entre ONTAP y el nivel de cloud de StorageGRID
+
+El asistente de FabricPool lo guiará por el proceso de creación de un único nivel de cloud de StorageGRID que incluye un inquilino de StorageGRID, un conjunto de claves de acceso y un bloque de StorageGRID. Puede asociar este nivel de cloud de StorageGRID a uno o más niveles locales de ONTAP.
+
+La práctica recomendada general es asociar un solo nivel cloud a varios niveles locales en un clúster. Sin embargo, según sus requisitos, es posible que desee utilizar más de un bloque o incluso más de un inquilino StorageGRID para los niveles locales en un único clúster. El uso de diferentes bloques e inquilinos permite aislar el acceso a los datos y los datos entre las capas locales de ONTAP, pero resulta más complejo de configurar y gestionar.
+
+NetApp no recomienda vincular un único nivel de cloud a niveles locales en varios clústeres.
+
+
+NOTE: Para conocer las mejores prácticas para usar StorageGRID con NetApp MetroCluster™ y FabricPool Mirror, consulte https://www.netapp.com/pdf.html?item=/media/17239-tr4598pdf.pdf["TR-4598: Prácticas recomendadas de FabricPool en ONTAP"^].
+
+
+
+=== Opcional: Use un bloque diferente para cada nivel local
+
+Para utilizar más de un bloque para los niveles locales de un clúster de ONTAP, añada más de un nivel de cloud de StorageGRID en ONTAP. Cada nivel de cloud comparte el mismo grupo de alta disponibilidad, extremo de balanceador de carga, inquilino y claves de acceso, pero utiliza un contenedor diferente (bloque de StorageGRID). Siga estos pasos generales:
+
+. En Grid Manager de StorageGRID, complete el asistente de configuración de FabricPool para el primer nivel de cloud.
+. En ONTAP System Manager, añada un nivel de cloud y utilice el archivo que ha descargado desde StorageGRID para proporcionar los valores necesarios.
+. En el Administrador de inquilinos de StorageGRID, inicie sesión en el inquilino que creó el asistente y cree un segundo bloque.
+. Vuelva a completar el asistente FabricPool. Seleccione el grupo de alta disponibilidad existente, el extremo del equilibrador de carga y el inquilino. A continuación, seleccione el nuevo bloque que creó manualmente. Cree una regla de ILM nueva para el nuevo bloque y active una política de ILM para incluir esa regla.
+. En ONTAP, añada un segundo nivel de cloud, pero proporcione el nuevo nombre del bloque.
+
+
+
+
+=== Opcional: Use un inquilino y un depósito diferentes para cada nivel local
+
+Para usar más de un inquilino y conjuntos diferentes de claves de acceso para los niveles locales de un clúster de ONTAP, añada más de un nivel de cloud de StorageGRID en ONTAP. Cada nivel de cloud comparte el mismo grupo de alta disponibilidad, extremo de balanceador de carga, pero utiliza un inquilino, claves de acceso y contenedor (bloque de StorageGRID) diferentes. Siga estos pasos generales:
+
+. En Grid Manager de StorageGRID, complete el asistente de configuración de FabricPool para el primer nivel de cloud.
+. En ONTAP System Manager, añada un nivel de cloud y utilice el archivo que ha descargado desde StorageGRID para proporcionar los valores necesarios.
+. Vuelva a completar el asistente FabricPool. Seleccione el grupo de alta disponibilidad existente y el extremo del equilibrador de carga. Cree un inquilino y un bloque nuevos. Cree una regla de ILM nueva para el nuevo bloque y active una política de ILM para incluir esa regla.
+. En ONTAP, añada un segundo nivel de cloud pero proporcione la nueva clave de acceso, la clave secreta y el nombre del bloque.
+

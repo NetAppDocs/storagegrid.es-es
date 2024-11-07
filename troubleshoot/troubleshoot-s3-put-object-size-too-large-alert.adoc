@@ -1,0 +1,107 @@
+---
+permalink: troubleshoot/troubleshoot-s3-put-object-size-too-large-alert.html 
+sidebar: sidebar 
+keywords: how to troubleshoot S3 PUT Object size too large alert, S3 PutObject size 
+summary: La alerta S3 PUT Object size too large se activa si un arrendatario intenta una operación PutObject que no es de varias partes que supera el límite de tamaño de S3 GB de 5 GiB. 
+---
+= Solución de problemas S3 Alerta de tamaño de objeto de COLOCACIÓN demasiado grande
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La alerta S3 PUT Object size too large se activa si un arrendatario intenta una operación PutObject que no es de varias partes que supera el límite de tamaño de S3 GB de 5 GiB.
+
+.Antes de empezar
+* Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Tienes link:../admin/admin-group-permissions.html["permisos de acceso específicos"].
+
+
+Determine qué inquilinos utilizan objetos mayores de 5 GiB, para que pueda notificarlos.
+
+.Pasos
+. Vaya a *CONFIGURACIÓN* > *Monitoreo* > *Servidor de auditoría y syslog*.
+. Si las escrituras de cliente son Normal, acceda al registro de auditoría:
++
+.. Introduzca `ssh admin@_primary_Admin_Node_IP_`
+.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
+.. Introduzca el siguiente comando para cambiar a raíz: `su -`
+.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
++
+Al iniciar sesión como root, la petición de datos cambia de `$` a `#`.
+
+.. Introduzca `cd /var/local/log`
++
+[NOTE]
+====
+link:../monitor/configure-audit-messages.html#select-audit-information-destinations["Obtenga información sobre los destinos para la información de auditoría"].
+
+====
+.. Identifique qué inquilinos están usando objetos mayores de 5 GiB.
++
+... Introduzca `zgrep SPUT * | egrep "CSIZ\(UI64\):([5-9]|[1-9][0-9]+)[0-9]{9}"`
+... Para cada mensaje de auditoría en los resultados, consulte `S3AI` el campo para determinar el ID de cuenta de inquilino. Utilice los otros campos del mensaje para determinar la dirección IP utilizada por el cliente, el depósito y el objeto:
++
+[cols="1a,2a"]
+|===
+| Codificación | Descripción 
+
+
+| SAIP  a| 
+IP de origen
+
+
+
+| S3AI  a| 
+ID de inquilino
+
+
+
+| S3BK  a| 
+Cucharón
+
+
+
+| S3KY  a| 
+Objeto
+
+
+
+| CSIZ  a| 
+Tamaño (bytes)
+
+|===
++
+*Ejemplo de resultados de registro de auditoría*
+
++
+[listing]
+----
+audit.log:2023-01-05T18:47:05.525999 [AUDT:[RSLT(FC32):SUCS][CNID(UI64):1672943621106262][TIME(UI64):804317333][SAIP(IPAD):"10.96.99.127"][S3AI(CSTR):"93390849266154004343"][SACC(CSTR):"bhavna"][S3AK(CSTR):"06OX85M40Q90Y280B7YT"][SUSR(CSTR):"urn:sgws:identity::93390849266154004343:root"][SBAI(CSTR):"93390849266154004343"][SBAC(CSTR):"bhavna"][S3BK(CSTR):"test"][S3KY(CSTR):"large-object"][CBID(UI64):0x077EA25F3B36C69A][UUID(CSTR):"A80219A2-CD1E-466F-9094-B9C0FDE2FFA3"][CSIZ(UI64):6040000000][MTME(UI64):1672943621338958][AVER(UI32):10][ATIM(UI64):1672944425525999][ATYP(FC32):SPUT][ANID(UI32):12220829][AMID(FC32):S3RQ][ATID(UI64):4333283179807659119]]
+----
+
+
+
+
+. Si las escrituras del cliente no son normales, use el ID de inquilino de la alerta para identificar el inquilino:
++
+.. Vaya a *SUPPORT* > *Tools* > *Logs*. Recopile registros de la aplicación para el nodo de almacenamiento en la alerta. Especifique 15 minutos antes y después de la alerta.
+.. Extraiga el archivo y vaya a `bycast.log`:
++
+`/GID<grid_id>_<time_stamp>/<site_node>/<time_stamp>/grid/bycast.log`
+
+.. Busque el log `method=PUT` e identifique al cliente en `clientIP` el campo.
++
+*Ejemplo bycast.log*
+
++
+[listing]
+----
+Jan  5 18:33:41 BHAVNAJ-DC1-S1-2-65 ADE: |12220829 1870864574 S3RQ %CEA 2023-01-05T18:33:41.208790| NOTICE   1404 af23cb66b7e3efa5 S3RQ: EVENT_PROCESS_CREATE - connection=1672943621106262 method=PUT name=</test/4MiB-0> auth=<V4> clientIP=<10.96.99.127>
+----
+
+
+. Informe a los inquilinos que el tamaño máximo de PutObject es de 5 GiB y que utilicen cargas de varias partes para objetos de más de 5 GiB.
+. Ignore la alerta durante una semana si la aplicación ha cambiado.
+

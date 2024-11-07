@@ -1,0 +1,63 @@
+---
+permalink: maintain/selecting-start-recovery-to-configure-storage-node.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, storage node 
+summary: Después de reemplazar un nodo de almacenamiento, debe seleccionar Iniciar recuperación en el Administrador de grid para configurar el nodo nuevo como reemplazo del nodo con error. 
+---
+= Seleccione Start Recovery para configurar Storage Node
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Después de reemplazar un nodo de almacenamiento, debe seleccionar Iniciar recuperación en el Administrador de grid para configurar el nodo nuevo como reemplazo del nodo con error.
+
+.Antes de empezar
+* Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Usted tiene el link:../admin/admin-group-permissions.html["Permiso de mantenimiento o acceso raíz"].
+* Tiene la clave de acceso de aprovisionamiento.
+* Implementó y configuró el nodo de reemplazo.
+* Tiene la fecha de inicio de cualquier trabajo de reparación para datos codificados de borrado.
+* Ha verificado que el nodo de almacenamiento no se ha reconstruido en los últimos 15 días.
+
+
+.Acerca de esta tarea
+Si el nodo de almacenamiento está instalado como un contenedor en un host Linux, debe realizar este paso solo si uno de estos valores es true:
+
+* Ha tenido que utilizar `--force` el indicador para importar el nodo, o ha emitido `storagegrid node force-recovery _node-name_`
+* Tenía que hacer una reinstalación de nodo completa o tenía que restaurar /var/local.
+
+
+.Pasos
+. En Grid Manager, seleccione *MANTENIMIENTO* > *tareas* > *recuperación*.
+. Seleccione el nodo de cuadrícula que desea recuperar en la lista Pending Nodes.
++
+Los nodos aparecen en la lista después de que fallan, pero no puede seleccionar un nodo hasta que se haya reinstalado y esté listo para la recuperación.
+
+. Introduzca la *frase de paso de aprovisionamiento*.
+. Haga clic en *Iniciar recuperación*.
++
+image::../media/4b_select_recovery_node.png[Captura de pantalla que muestra la página Mantenimiento > recuperación]
+
+. Supervise el progreso de la recuperación en la tabla recuperando Grid Node.
++
+
+NOTE: Mientras se está ejecutando el procedimiento de recuperación, puede hacer clic en *Restablecer* para iniciar una nueva recuperación. Aparece un cuadro de diálogo que indica que el nodo quedará en un estado indeterminado si restablece el procedimiento.
+
++
+image::../media/recovery_reset_warning.gif[captura de pantalla que muestra el cuadro de diálogo de advertencia de restablecimiento de recuperación]
+
++
+Si desea volver a intentar la recuperación después de restablecer el procedimiento, debe restaurar el nodo a un estado preinstalado, de la manera siguiente:
+
++
+** *VMware*: Elimine el nodo de la cuadrícula virtual desplegada. A continuación, una vez que esté listo para reiniciar la recuperación, vuelva a poner el nodo en marcha.
+** *Linux*: Reinicie el nodo ejecutando este comando en el host Linux: `storagegrid node force-recovery _node-name_`
+
+
+. Cuando el nodo de almacenamiento alcance la etapa «Esperando pasos manuales», vaya a link:remounting-and-reformatting-storage-volumes-manual-steps.html["Volver a montar y volver a formatear los volúmenes de almacenamiento (pasos manuales)"].
++
+image::../media/recovery_reset_button.gif[captura de pantalla que muestra el escenario "esperando pasos manuales"]
+
+

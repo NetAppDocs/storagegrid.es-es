@@ -1,0 +1,328 @@
+---
+permalink: admin/creating-tenant-account.html 
+sidebar: sidebar 
+keywords: create tenant, tenant account 
+summary: Debe crear al menos una cuenta de inquilino para controlar el acceso al almacenamiento en su sistema de StorageGRID. 
+---
+= Cree una cuenta de inquilino
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe crear al menos una cuenta de inquilino para controlar el acceso al almacenamiento en su sistema de StorageGRID.
+
+Los pasos para crear una cuenta de inquilino varían en función de si link:using-identity-federation.html["federación de identidades"]están configurados y link:configuring-sso.html["inicio de sesión único"]si la cuenta de Grid Manager que se utiliza para crear la cuenta de inquilino pertenece a un grupo de administradores con el permiso de acceso raíz.
+
+.Antes de empezar
+* Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Usted tiene el link:admin-group-permissions.html["Acceso raíz o cuentas de inquilino"].
+* Si la cuenta de arrendatario utilizará el origen de identidad configurado para el Administrador de grid y desea otorgar permiso de acceso raíz para la cuenta de arrendatario a un grupo federado, ha importado ese grupo federado en el Gestor de grid. No es necesario asignar ningún permiso de Grid Manager a este grupo de administración. Consulte link:managing-admin-groups.html["Gestione los grupos de administradores"].
+* Si desea permitir que un inquilino de S3 clone los datos de su cuenta y replique objetos de bucket en otro grid mediante una conexión de federación de grid:
++
+** Tienes link:grid-federation-create-connection.html["se ha configurado la conexión de federación de grid"].
+** El estado de la conexión es *Conectado*.
+** Tiene permiso de acceso raíz.
+** Ha revisado las consideraciones para link:grid-federation-manage-tenants.html["gestionar los inquilinos permitidos para la federación de grid"].
+** Si la cuenta de arrendatario utilizará el origen de identidad configurado para Grid Manager, ha importado el mismo grupo federado en Grid Manager en ambas cuadrículas.
++
+Al crear el inquilino, seleccionará este grupo para que tenga el permiso inicial de acceso raíz para las cuentas de inquilino de origen y de destino.
+
++
+
+TIP: Si este grupo de administración no existe en ambas cuadrículas antes de crear el arrendatario, el arrendatario no se replica en el destino.
+
+
+
+
+
+
+
+== Acceda al asistente
+
+.Pasos
+. Seleccione *ARRENDATARIOS*.
+. Seleccione *Crear*.
+
+
+
+
+== Introduzca los detalles
+
+.Pasos
+. Introduzca los detalles del arrendatario.
++
+[cols="1a,3a"]
+|===
+| Campo | Descripción 
+
+
+ a| 
+Nombre
+ a| 
+Un nombre para la cuenta de inquilino. Los nombres de inquilinos no necesitan ser únicos. Cuando se crea la cuenta de inquilino, recibe un ID de cuenta único de 20 dígitos.
+
+
+
+ a| 
+Descripción (opcional)
+ a| 
+Descripción para ayudar a identificar al inquilino.
+
+Si va a crear un inquilino que utilizará una conexión de federación de grid, opcionalmente, utilice este campo para ayudar a identificar cuál es el inquilino de origen y cuál es el inquilino de destino. Por ejemplo, esta descripción para un inquilino creado en Grid 1 también aparecerá para el inquilino replicado en Grid 2: «Este inquilino se creó en Grid 1».
+
+
+
+ a| 
+Tipo de cliente
+ a| 
+El tipo de protocolo de cliente que usará este inquilino, ya sea *S3* o *Swift*.
+
+*Nota*: El soporte para aplicaciones cliente Swift ha sido obsoleto y será eliminado en una versión futura.
+
+
+
+ a| 
+Cuota de almacenamiento (opcional)
+ a| 
+Si desea que este inquilino tenga una cuota de almacenamiento, un valor numérico para la cuota y las unidades.
+
+|===
+. Seleccione *continuar*.
+
+
+
+
+== [[admin-tenant-select-permissions]]Seleccione permisos
+
+.Pasos
+. Opcionalmente, seleccione los permisos básicos que desea que tenga este arrendatario.
++
+
+NOTE: Algunos de estos permisos tienen requisitos adicionales. Para obtener más información, seleccione el icono de ayuda de cada permiso.
+
++
+[cols="1a,3a"]
+|===
+| Permiso | Si se ha seleccionado... 
+
+
+ a| 
+Permitir los servicios de plataforma
+ a| 
+El inquilino puede usar servicios de plataforma S3 como CloudMirror. Consulte link:../admin/manage-platform-services-for-tenants.html["Gestione servicios de plataformas para cuentas de inquilinos de S3"].
+
+
+
+ a| 
+Usar origen de identidad propio
+ a| 
+El inquilino puede configurar y gestionar su propio origen de identidad para usuarios y grupos federados. Esta opción estará deshabilitada si link:../admin/configuring-sso.html["SSO configurado"]tiene para el sistema StorageGRID.
+
+
+
+ a| 
+Permitir selección S3
+ a| 
+El inquilino puede emitir solicitudes de API S3 SelectObjectContent para filtrar y recuperar datos de objetos. Consulte link:../admin/manage-s3-select-for-tenant-accounts.html["Gestione S3 Select para cuentas de inquilinos"].
+
+*Importante*: Las solicitudes de SelectObjectContent pueden disminuir el rendimiento del equilibrador de carga para todos los clientes S3 y todos los inquilinos. Habilite esta función solo cuando sea necesario y solo para inquilinos de confianza.
+
+|===
+. Opcionalmente, seleccione los permisos avanzados que desea que tenga este arrendatario.
++
+[cols="1a,3a"]
+|===
+| Permiso | Si se ha seleccionado... 
+
+
+ a| 
+Conexión de federación de grid
+ a| 
+El inquilino puede usar una conexión de federación de grid, que:
+
+** Hace que este arrendatario y todos los grupos de arrendatarios y usuarios agregados a la cuenta se clonen desde esta cuadrícula (la cuadrícula _source_) a la otra cuadrícula de la conexión seleccionada (la cuadrícula _destination_).
+** Permite a este inquilino configurar la replicación entre grid entre bloques correspondientes en cada grid.
+
+
+Consulte link:../admin/grid-federation-manage-tenants.html["Gestione los inquilinos permitidos para la federación de grid"].
+
+
+
+ a| 
+Bloqueo de objetos de S3
+ a| 
+Permitir que el inquilino utilice características específicas de S3 Object Lock:
+
+** *Establecer el período máximo de retención* define cuánto tiempo se deben retener los nuevos objetos agregados a este cubo, a partir del momento en que se ingieren.
+** *Permitir el modo de cumplimiento* evita que los usuarios sobrescriban o eliminen versiones de objetos protegidos durante el período de retención.
+
+
+|===
+. Seleccione *continuar*.
+
+
+
+
+== Defina el acceso raíz y cree un inquilino
+
+.Pasos
+. Defina el acceso raíz para la cuenta de inquilino, en función de si su sistema StorageGRID utiliza la federación de identidades, el inicio de sesión único (SSO) o ambos.
++
+[cols="1a,2a"]
+|===
+| Opción | Haga esto 
+
+
+ a| 
+Si la federación de identidades no está activada
+ a| 
+Especifique la contraseña que se utilizará al iniciar sesión en el inquilino como usuario raíz local.
+
+
+
+ a| 
+Si la federación de identidades está activada
+ a| 
+.. Seleccione un grupo federado existente para tener permiso de acceso raíz para el inquilino.
+.. Opcionalmente, especifique la contraseña que se utilizará al iniciar sesión en el inquilino como usuario raíz local.
+
+
+
+
+ a| 
+Si se activan tanto la federación de identidades como el inicio de sesión único (SSO)
+ a| 
+Seleccione un grupo federado existente para tener permiso de acceso raíz para el inquilino. Ningún usuario local puede iniciar sesión.
+
+|===
+. Seleccione *Crear arrendatario*.
++
+Aparece un mensaje Correcto y el nuevo arrendatario aparece en la página Inquilinos. Para obtener información sobre cómo ver los detalles del inquilino y supervisar la actividad del inquilino, consulte link:../monitor/monitoring-tenant-activity.html["Supervise la actividad de los inquilinos"].
+
++
+
+NOTE: La aplicación de la configuración de inquilino a través del grid puede tardar 15 minutos o más en función de la conectividad de red, el estado del nodo y las operaciones de Cassandra.
+
+. Si seleccionó el permiso *Usar conexión de federación de grid* para el inquilino:
++
+.. Confirme que se ha replicado un inquilino idéntico en la otra cuadrícula de la conexión. Los inquilinos de ambas cuadrículas tendrán el mismo ID de cuenta de 20 dígitos, nombre, descripción, cuota y permisos.
++
+
+NOTE: Si ve el mensaje de error “Inquilino creado sin un clon”, consulte las instrucciones en link:grid-federation-troubleshoot.html["Solucionar errores de federación de grid"].
+
+.. Si proporcionó una contraseña de usuario raíz local al definir el acceso raíz, link:changing-password-for-tenant-local-root-user.html["cambie la contraseña del usuario raíz local"] para el inquilino replicado.
++
+
+TIP: Un usuario raíz local no puede iniciar sesión en el gestor de inquilinos en la cuadrícula de destino hasta que se cambie la contraseña.
+
+
+
+
+
+
+
+== Iniciar sesión en el inquilino (opcional)
+
+Según sea necesario, puede iniciar sesión en el nuevo inquilino ahora para completar la configuración, o puede iniciar sesión en el inquilino más adelante. Los pasos de inicio de sesión dependen de si ha iniciado sesión en Grid Manager mediante el puerto predeterminado (443) o un puerto restringido. Consulte link:controlling-access-through-firewalls.html["Controle el acceso a un firewall externo"].
+
+
+
+=== Inicie sesión ahora
+
+[cols="1a,3a"]
+|===
+| Si está usando... | Realice lo siguiente... 
+
+
+ a| 
+Puerto 443 y se establece una contraseña para el usuario raíz local
+ a| 
+. Seleccione *Iniciar sesión como root*.
++
+Al iniciar sesión, aparecen enlaces para configurar buckets, federación de identidades, grupos y usuarios.
+
+. Seleccione los vínculos para configurar la cuenta de arrendatario.
++
+Cada enlace abre la página correspondiente en el Administrador de arrendatarios. Para completar la página, consulte la link:../tenant/index.html["instrucciones para el uso de cuentas de inquilino"].
+
+
+
+
+
+ a| 
+Puerto 443 y no ha establecido una contraseña para el usuario raíz local
+ a| 
+Seleccione *Iniciar sesión* e introduzca las credenciales de un usuario en el grupo federado de acceso raíz.
+
+
+
+ a| 
+Un puerto restringido
+ a| 
+. Selecciona *Finalizar*
+. Seleccione *Restringido* en la tabla de arrendatarios para obtener más información sobre el acceso a esta cuenta de arrendatario.
++
+La dirección URL del administrador de inquilinos tiene el siguiente formato:
+
++
+`https://_FQDN_or_Admin_Node_IP:port_/?accountId=_20-digit-account-id_/`
+
++
+** `_FQDN_or_Admin_Node_IP_` Es un nombre de dominio completo o la dirección IP de un nodo de administración
+** `_port_` es el puerto de sólo inquilino
+** `_20-digit-account-id_` Es el ID de cuenta único del inquilino
+
+
+
+
+|===
+
+
+=== Inicie sesión más tarde
+
+[cols="1a,3a"]
+|===
+| Si está usando... | Realice una de estas... 
+
+
+ a| 
+Puerto 443
+ a| 
+* En Grid Manager, seleccione *ARRENDATARIOS* y seleccione *Iniciar sesión* a la derecha del nombre del arrendatario.
+* Introduzca la URL del inquilino en un navegador web:
++
+`https://_FQDN_or_Admin_Node_IP_/?accountId=_20-digit-account-id_/`
+
++
+** `_FQDN_or_Admin_Node_IP_` Es un nombre de dominio completo o la dirección IP de un nodo de administración
+** `_20-digit-account-id_` Es el ID de cuenta único del inquilino
+
+
+
+
+
+
+ a| 
+Un puerto restringido
+ a| 
+* En Grid Manager, seleccione *ARRENDATARIOS* y seleccione *restringido*.
+* Introduzca la URL del inquilino en un navegador web:
++
+`https://_FQDN_or_Admin_Node_IP:port_/?accountId=_20-digit-account-id_`
+
++
+** `_FQDN_or_Admin_Node_IP_` Es un nombre de dominio completo o la dirección IP de un nodo de administración
+** `_port_` es el puerto restringido solo para el inquilino
+** `_20-digit-account-id_` Es el ID de cuenta único del inquilino
+
+
+
+
+|===
+
+
+== Configure el inquilino
+
+Siga las instrucciones descritas en link:../tenant/index.html["Usar una cuenta de inquilino"] para gestionar usuarios y grupos de inquilinos, claves de acceso de S3, buckets, servicios de plataforma y replicación entre grid y clonación de cuentas.

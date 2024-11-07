@@ -1,0 +1,134 @@
+---
+permalink: maintain/rolling-reboot-procedure.html 
+sidebar: sidebar 
+keywords: reboot nodes, rolling reboot procedure 
+summary: Puede realizar un reinicio gradual para reiniciar varios nodos de grid sin provocar una interrupción del servicio. 
+---
+= Realice un reinicio gradual
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede realizar un reinicio gradual para reiniciar varios nodos de grid sin provocar una interrupción del servicio.
+
+.Antes de empezar
+* Ha iniciado sesión en Grid Manager en el nodo de administración principal y está utilizando una link:../admin/web-browser-requirements.html["navegador web compatible"].
++
+
+NOTE: Debe iniciar sesión en el nodo de administración principal para realizar este procedimiento.
+
+* Usted tiene el link:../admin/admin-group-permissions.html["Permiso de mantenimiento o acceso raíz"].
+
+
+.Acerca de esta tarea
+Use este procedimiento si necesita reiniciar varios nodos a la vez. Por ejemplo, puede utilizar este procedimiento después de cambiar el modo FIPS para la cuadrícula link:../admin/manage-tls-ssh-policy.html["Política de seguridad TLS y SSH"]. Cuando cambia el modo FIPS, debe reiniciar todos los nodos para poner en vigor el cambio.
+
+
+TIP: Si solo necesita reiniciar un nodo, puede link:../maintain/rebooting-grid-node-from-grid-manager.html["Reinicie el nodo desde la pestaña Tasks"].
+
+Cuando StorageGRID reinicia nodos de grid, emite `reboot` el comando en cada nodo, lo que hace que el nodo se apague y se reinicie. Todos los servicios se reinician automáticamente.
+
+* Reiniciar un nodo VMware reinicia la máquina virtual.
+* Reiniciar un nodo Linux reinicia el contenedor.
+* Reiniciar un nodo StorageGRID Appliance reinicia la controladora de computación.
+
+
+El procedimiento de reinicio gradual puede reiniciar varios nodos al mismo tiempo, con las siguientes excepciones:
+
+* No se reiniciarán dos nodos del mismo tipo al mismo tiempo.
+* Los nodos de puerta de enlace y los nodos de administración no se reiniciarán al mismo tiempo.
+
+
+En su lugar, estos nodos se reinician secuencialmente para garantizar que los grupos de alta disponibilidad, los datos de objetos y los servicios de nodos cruciales siempre estén disponibles.
+
+Al reiniciar el nodo de administración principal, el explorador pierde temporalmente el acceso a Grid Manager, por lo que ya no puede supervisar el procedimiento. Por este motivo, el nodo de administración principal se reinicia en último lugar.
+
+
+
+== Realice un reinicio gradual
+
+Debe seleccionar los nodos que desea reiniciar, revisar las selecciones, iniciar el procedimiento de reinicio y supervisar el progreso.
+
+
+
+=== Seleccione los nodos
+
+Como primer paso, acceda a la página Rolling reboot y seleccione los nodos que desea reiniciar.
+
+.Pasos
+. Selecciona *MANTENIMIENTO* > *Tareas* > *Reiniciar rodando*.
+. Revise el estado de conexión y los iconos de alerta en la columna *Nombre del nodo*.
++
+
+TIP: No se puede reiniciar un nodo si está desconectado de la cuadrícula. Las casillas de verificación están desactivadas para los nodos con estos iconos: image:../media/icon_alarm_gray_administratively_down.png["icono de signo de interrogación gris"] O image:../media/icon_alarm_blue_unknown.png["icono de signo de interrogación azul"].
+
+. Si algún nodo tiene alertas activas, revise la lista de alertas en la columna *Resumen de alertas*.
++
+
+TIP: Para ver todas las alertas actuales de un nodo, también puede seleccionar la link:../monitor/viewing-overview-tab.html["Pestaña Nodos > Overview"].
+
+. Opcionalmente, realice las acciones recomendadas para resolver las alertas actuales.
+. Opcionalmente, si todos los nodos están conectados y desea reiniciarlos todos, seleccione la casilla de verificación en el encabezado de la tabla y seleccione *Seleccionar todo*. De lo contrario, seleccione cada nodo que desee reiniciar.
++
+Puede utilizar las opciones de filtro de la tabla para ver los subconjuntos de nodos. Por ejemplo, puede ver y seleccionar solo nodos de almacenamiento o todos los nodos de un determinado sitio.
+
+. Selecciona *Revisar selección*.
+
+
+
+
+=== Revisar selección
+
+En este paso, puede determinar cuánto tiempo puede tardar el procedimiento de reinicio total y confirmar que ha seleccionado los nodos correctos.
+
+. En la página de selección Review, revise Summary, que indica cuántos nodos se reiniciarán y el tiempo total estimado para que se reinicien todos los nodos.
+. Opcionalmente, para eliminar un nodo específico de la lista de reinicio, seleccione *Eliminar*.
+. Opcionalmente, para agregar más nodos, seleccione *Paso anterior*, seleccione los nodos adicionales y seleccione *Selección de revisión*.
+. Cuando esté listo para iniciar el procedimiento de reinicio progresivo para todos los nodos seleccionados, seleccione *Reiniciar nodos*.
+. Si seleccionó reiniciar el nodo de administración principal, lea el mensaje de información y seleccione *Sí*.
++
+
+NOTE: El nodo de administración principal será el último nodo en reiniciarse. Mientras este nodo se está reiniciando, se perderá la conexión de su navegador. Cuando el nodo de administración principal vuelva a estar disponible, debe volver a cargar la página de reinicio progresivo.
+
+
+
+
+
+=== Supervisar un reinicio sucesivo
+
+Mientras se ejecuta el procedimiento de reinicio sucesivo, puede supervisarlo desde el nodo de administración principal.
+
+.Pasos
+. Revise el progreso general de la operación, que incluye la siguiente información:
++
+** Número de nodos reiniciados
+** Número de nodos en proceso de reinicio
+** Número de nodos que quedan por reiniciar
+
+
+. Revise la tabla para cada tipo de nodo.
++
+Las tablas proporcionan una barra de progreso de la operación en cada nodo y muestran la etapa de reinicio de ese nodo, que puede ser una de las siguientes:
+
++
+** Esperando reinicio
+** Deteniendo servicios
+** Reiniciando el sistema
+** Iniciando servicios
+** Se completó el reinicio
+
+
+
+
+
+
+== Detenga el procedimiento de reinicio progresivo
+
+Puede detener el procedimiento de reinicio gradual desde el nodo de administración principal. Cuando detenga el procedimiento, cualquier nodo que tenga el estado de detención de servicios, reinicio del sistema o inicio de servicios completará la operación de reinicio. Sin embargo, ya no se realizará el seguimiento de estos nodos como parte del procedimiento.
+
+.Pasos
+. Selecciona *MANTENIMIENTO* > *Tareas* > *Reiniciar rodando*.
+. En el paso *Monitor reboot*, selecciona *Stop reboot procedure*.
+

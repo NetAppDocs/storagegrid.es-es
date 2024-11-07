@@ -1,0 +1,31 @@
+---
+permalink: audit/syst-node-stopping.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, SYST, Node Stopping 
+summary: 'Cuando se detiene correctamente un servicio, este mensaje se genera para indicar que se ha solicitado el cierre y que el servicio ha iniciado su secuencia de apagado. SYST se puede utilizar para determinar si se ha solicitado el apagado antes de reiniciar el servicio \(a diferencia de SYSD, que normalmente se envía después de que se reinicia el servicio.\)' 
+---
+= SYST: Nodo detenido
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cuando se detiene correctamente un servicio, este mensaje se genera para indicar que se ha solicitado el cierre y que el servicio ha iniciado su secuencia de apagado. SYST se puede utilizar para determinar si se solicitó el apagado antes de reiniciar el servicio (a diferencia de SYSD, que normalmente se envía después de que se reinicia el servicio).
+
+[cols="1a,1a,4a"]
+|===
+| Codificación | Campo | Descripción 
+
+
+ a| 
+TRANSFORMACIÓN DIGITAL
+ a| 
+Apagado limpio
+ a| 
+La naturaleza del cierre:
+
+SUCS: El sistema se cerró correctamente.
+
+|===
+El mensaje no indica si el servidor host se está parando, sólo el servicio de creación de informes. El código RSLT de un mensaje SYST no puede indicar un cierre “sucio”, porque el mensaje se genera solo mediante apagados “limpios”.

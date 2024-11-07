@@ -1,0 +1,84 @@
+---
+permalink: troubleshoot/troubleshooting-low-object-data-storage-alert.html 
+sidebar: sidebar 
+keywords: how to troubleshoot the Low object data storage alert 
+summary: La alerta *almacenamiento de objetos bajo* supervisa cuánto espacio está disponible para almacenar datos de objetos en cada nodo de almacenamiento. 
+---
+= Solucionar problemas de la alerta de almacenamiento de datos de objeto bajo
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La alerta *almacenamiento de objetos bajo* supervisa cuánto espacio está disponible para almacenar datos de objetos en cada nodo de almacenamiento.
+
+.Antes de empezar
+* Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Tienes link:../admin/admin-group-permissions.html["permisos de acceso específicos"].
+
+
+.Acerca de esta tarea
+La alerta *Low object data storage* se activa cuando la cantidad total de datos de objetos replicados y borrados en un nodo de almacenamiento cumple con una de las condiciones configuradas en la regla de alerta.
+
+De forma predeterminada, se activa una alerta principal cuando esta condición se evalúa como TRUE:
+
+[listing]
+----
+(storagegrid_storage_utilization_data_bytes/
+(storagegrid_storage_utilization_data_bytes + storagegrid_storage_utilization_usable_space_bytes)) >=0.90
+----
+En esta condición:
+
+* `storagegrid_storage_utilization_data_bytes` Es una estimación del tamaño total de los datos de objetos replicados y codificados de borrado para un nodo de almacenamiento.
+* `storagegrid_storage_utilization_usable_space_bytes` Es la cantidad total de espacio de almacenamiento de objetos restante para un nodo de almacenamiento.
+
+
+Si se activa una alerta de *almacenamiento de datos de objeto bajo* importante o menor, debe realizar un procedimiento de expansión Lo antes posible..
+
+.Pasos
+. Seleccione *ALERTS* > *Current*.
++
+Aparece la página Alertas.
+
+. En la tabla de alertas, expanda el grupo de alertas *almacenamiento de datos de objeto bajo*, si es necesario, y seleccione la alerta que desea ver.
++
+
+NOTE: Seleccione la alerta, no el encabezado de un grupo de alertas.
+
+. Revise los detalles en el cuadro de diálogo y tenga en cuenta lo siguiente:
++
+** Tiempo activado
+** El nombre del sitio y del nodo
+** Los valores actuales de las métricas de esta alerta
+
+
+. Seleccione *NODES* > *_Storage Node o Site_* > *Storage*.
+. Coloque el cursor sobre el gráfico Almacenamiento Utilizado - Datos de Objeto.
++
+Se muestran los siguientes valores:
+
++
+** *Usado (%)*: El porcentaje del espacio útil total que se ha utilizado para datos de objeto.
+** *Utilizado*: La cantidad de espacio útil total que se ha utilizado para los datos de objeto.
+** *Datos replicados*: Estimación de la cantidad de datos de objetos replicados en este nodo, sitio o cuadrícula.
+** *Datos codificados por borrado*: Estimación de la cantidad de datos de objetos codificados por borrado en este nodo, sitio o cuadrícula.
+** *Total*: La cantidad total de espacio utilizable en este nodo, sitio o cuadrícula. El valor utilizado es `storagegrid_storage_utilization_data_bytes` la métrica.
+
+
++
+image::../media/nodes_page_storage_used_object_data.png[Nodos almacenamiento de páginas datos de objeto usados]
+
+. Seleccione los controles de tiempo encima del gráfico para ver el uso del almacenamiento en diferentes periodos de tiempo.
++
+Si se mira el uso del almacenamiento a lo largo del tiempo, puede comprender cuánto almacenamiento se utilizó antes y después de que se activó la alerta, y puede ayudar a calcular cuánto tiempo podría tardar en llenarse el espacio restante del nodo.
+
+. Tan pronto como sea posible, link:../expand/guidelines-for-adding-object-capacity.html["añadir capacidad de almacenamiento"] a su red.
++
+Es posible añadir volúmenes de almacenamiento (LUN) a los nodos de almacenamiento existentes, o bien añadir nuevos nodos de almacenamiento.
+
++
+
+NOTE: Para obtener más información, consulte link:../admin/managing-full-storage-nodes.html["Gestione nodos de almacenamiento completos"].
+
+

@@ -1,0 +1,81 @@
+---
+section: rhel
+title: Instalar StorageGRID en Red Hat Enterprise Linux
+entries:
+- title: Inicio rápido
+  pdf-filename: Instalar StorageGRID en Red Hat Enterprise Linux
+  url: "/rhel/index.html"
+- title: Planificar y preparar la instalación en Red Hat
+  entries:
+  - title: Información y materiales requeridos
+    url: "/rhel/required-materials.html"
+  - title: Descargue y extraiga los archivos de instalación de StorageGRID
+    url: "/rhel/downloading-and-extracting-storagegrid-installation-files.html"
+  - title: Verifique manualmente los archivos de instalación
+    url: "/rhel/download-files-verify.html"
+  - title: Requisitos de software
+    url: "/rhel/software-requirements.html"
+  - title: Requisitos de CPU y RAM
+    url: "/rhel/cpu-and-ram-requirements.html"
+  - title: Los requisitos de almacenamiento y rendimiento
+    url: "/rhel/storage-and-performance-requirements.html"
+  - title: Requisitos de migración de contenedores de nodos
+    url: "/rhel/node-container-migration-requirements.html"
+  - title: Preparar los hosts (Red Hat)
+    entries:
+    - title: Cómo cambia la configuración de todo el host
+      url: "/rhel/how-host-wide-settings-change.html"
+    - title: Instale Linux
+      url: "/rhel/installing-linux.html"
+    - title: Configurar la red host (Red Hat)
+      url: "/rhel/configuring-host-network.html"
+    - title: Configurar el almacenamiento del host
+      url: "/rhel/configuring-host-storage.html"
+    - title: Configurar el volumen de almacenamiento del motor del contenedor
+      url: "/rhel/configuring-docker-storage-volume.html"
+    - title: Instale los servicios de host StorageGRID
+      url: "/rhel/installing-storagegrid-webscale-host-service.html"
+- title: Instalación automatizada (Red Hat)
+  url: "/rhel/automating-installation.html"
+- title: Ponga en marcha nodos de grid virtual (Red Hat)
+  entries:
+  - title: Cree archivos de configuración de nodos para implementaciones de Red Hat
+    url: "/rhel/creating-node-configuration-files.html"
+  - title: La forma en que los nodos de grid detectan el nodo de administrador principal
+    url: "/rhel/how-grid-nodes-discover-primary-admin-node.html"
+  - title: Archivos de configuración del nodo de ejemplo
+    url: "/rhel/example-node-configuration-files.html"
+  - title: Validar la configuración de StorageGRID
+    url: "/rhel/validating-storagegrid-configuration.html"
+  - title: Inicie el servicio de host StorageGRID
+    url: "/rhel/starting-storagegrid-host-service.html"
+- title: Configurar la cuadrícula y completar la instalación (Red Hat)
+  entries:
+  - title: Desplácese hasta Grid Manager
+    url: "/rhel/navigating-to-grid-manager.html"
+  - title: Especifique la información de licencia
+    url: "/rhel/specifying-storagegrid-license-information.html"
+  - title: Agregar sitios
+    url: "/rhel/adding-sites.html"
+  - title: Especifique las subredes de red de red
+    url: "/rhel/specifying-grid-network-subnets.html"
+  - title: Aprobar los nodos de cuadrícula pendientes
+    url: "/rhel/approving-pending-grid-nodes.html"
+  - title: Especifique la información del servidor NTP
+    url: "/rhel/specifying-network-time-protocol-server-information.html"
+  - title: Especifique la información del servidor DNS
+    url: "/rhel/specifying-domain-name-system-server-information.html"
+  - title: Especifique las contraseñas del sistema
+    url: "/rhel/specifying-storagegrid-system-passwords.html"
+  - title: Revisar la configuración y completar la instalación
+    url: "/rhel/reviewing-your-configuration-and-completing-installation.html"
+  - title: Directrices posteriores a la instalación
+    url: "/rhel/post-installation-guidelines.html"
+- title: Instalación de la API de REST
+  url: "/rhel/overview-of-installation-rest-api.html"
+- title: A continuación, ¿dónde ir
+  url: "/rhel/where-to-go-next.html"
+- title: Solucionar problemas de instalación
+  url: "/rhel/troubleshooting-installation-issues.html"
+- title: Ejemplo de /etc/sysconfig/network-scripts
+  url: "/rhel/example-etc-sysconfig-network-scripts.html"

@@ -1,0 +1,78 @@
+---
+permalink: maintain/considerations-for-decommissioning-storage-nodes.html 
+sidebar: sidebar 
+keywords: storage node decommission, considerations, appliance node clone 
+summary: Antes de decomisionar un nodo de almacenamiento, considere si puede clonar el nodo en su lugar. A continuación, si decide decomisionar el nodo, revise cómo gestiona los objetos y metadatos StorageGRID durante el procedimiento de decomisionar. 
+---
+= Consideraciones sobre el decomisionado de nodos de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de decomisionar un nodo de almacenamiento, considere si puede clonar el nodo en su lugar. A continuación, si decide decomisionar el nodo, revise cómo gestiona los objetos y metadatos StorageGRID durante el procedimiento de decomisionar.
+
+
+
+== Cuándo clonar un nodo en lugar de decomisionarlo
+
+Si desea reemplazar un nodo de almacenamiento de dispositivos antiguo por un dispositivo nuevo o más grande, considere la posibilidad de clonar el nodo del dispositivo en lugar de añadir un dispositivo nuevo en una expansión y luego retirar el dispositivo antiguo.
+
+El clonado de nodos de dispositivos le permite reemplazar fácilmente un nodo de dispositivos existente con un dispositivo compatible en el mismo sitio de StorageGRID. El proceso de clonado transfiere todos los datos al dispositivo nuevo, pone el dispositivo nuevo en servicio y deja el dispositivo antiguo en estado previo a la instalación.
+
+Puede clonar un nodo de dispositivo si necesita:
+
+* Sustituya un aparato que esté llegando al final de su vida útil.
+* Actualice un nodo existente para aprovechar la tecnología mejorada del dispositivo.
+* Aumente la capacidad de almacenamiento Grid sin cambiar el número de nodos de almacenamiento en el sistema StorageGRID.
+* Mejore la eficiencia del almacenamiento, como cambiando el modo RAID.
+
+
+Consulte https://docs.netapp.com/us-en/storagegrid-appliances/commonhardware/how-appliance-node-cloning-works.html["Clonado de nodos de dispositivos"^] para obtener más información.
+
+
+
+== Consideraciones sobre los nodos de almacenamiento conectados
+
+Revise las consideraciones que hay que tener en cuenta para decomisionar un nodo de almacenamiento conectado.
+
+* No debe retirar más de 10 nodos de almacenamiento en un único procedimiento de nodo de retirada.
+* En todo momento, el sistema debe incluir suficientes nodos de almacenamiento para satisfacer los requisitos operativos, incluidos los link:understanding-adc-service-quorum.html["Quórum ADC"] y los activoslink:reviewing-ilm-policy-and-storage-configuration.html["Política de ILM"]. Para satisfacer esta restricción, es posible que deba añadir un nodo de almacenamiento nuevo en una operación de ampliación antes de retirar un nodo de almacenamiento existente.
++
+Use precaución al decomisionar nodos de almacenamiento en un grid que contenga nodos solo de metadatos basados en software. Si retira todos los nodos configurados para almacenar _both_ objetos y metadatos, la capacidad de almacenar objetos se elimina de la cuadrícula. Consulte link:../primer/what-storage-node-is.html#types-of-storage-nodes["Tipos de nodos de almacenamiento"] para obtener más información sobre nodos de almacenamiento solo de metadatos.
+
+* Cuando elimina un nodo de almacenamiento, se transfieren grandes volúmenes de datos de objetos a través de la red. Aunque estas transferencias no deben afectar a las operaciones normales del sistema, pueden afectar a la cantidad total de ancho de banda de red que consume el sistema StorageGRID.
+* Las tareas asociadas con el decomisionado de nodos de almacenamiento tienen una prioridad inferior a las tareas asociadas con las operaciones normales del sistema. Esto significa que el decomisionado no interfiere con las operaciones normales del sistema StorageGRID y no necesita programarse desde un punto de inactividad del sistema. Debido a que el desmantelamiento se realiza en segundo plano, es difícil estimar cuánto tiempo tardará el proceso en completarse. En general, la retirada del servicio finaliza con mayor rapidez cuando el sistema está en silencio o si solo se elimina un nodo de almacenamiento al mismo tiempo.
+* Es posible que demore días o semanas en retirar un nodo de almacenamiento. Planifique este procedimiento en consecuencia. Aunque el proceso de retirada del servicio está diseñado para no afectar a las operaciones del sistema, puede limitar otros procedimientos. En general, se deben realizar las actualizaciones o expansiones planificadas del sistema antes de quitar nodos de grid.
+* Si necesita realizar otro procedimiento de mantenimiento mientras se quitan los nodos de almacenamiento, puede link:pausing-and-resuming-decommission-process-for-storage-nodes.html["detenga el procedimiento de decomiso"]reanudarlo una vez completado el otro procedimiento.
++
+
+NOTE: El botón *Pausa* sólo se activa cuando se alcanzan las etapas de evaluación de ILM o de retirada de datos con código de borrado; sin embargo, la evaluación de ILM (migración de datos) continuará ejecutándose en segundo plano.
+
+* No es posible ejecutar operaciones de reparación de datos en ningún nodo de grid cuando se está ejecutando una tarea de decomiso.
+* No debe hacer ningún cambio en una política de ILM mientras se decomisiona un nodo de almacenamiento.
+* Para eliminar los datos de forma permanente y segura, debe borrar las unidades del nodo de almacenamiento una vez completado el procedimiento de retirada.
+
+
+
+
+== Consideraciones sobre los nodos de almacenamiento desconectados
+
+Revise las consideraciones que hay que tener en cuenta para decomisionar un nodo de almacenamiento desconectado.
+
+* Nunca decomisionar un nodo desconectado a menos que esté seguro de que no se pueda conectar o recuperar.
++
+
+CAUTION: No realice este procedimiento si cree que podría ser posible recuperar datos de objetos del nodo. En su lugar, póngase en contacto con el soporte técnico para determinar si es posible la recuperación del nodo.
+
+* Cuando decomisiona un nodo de almacenamiento desconectado, StorageGRID utiliza datos de otros nodos de almacenamiento para reconstruir los datos de objeto y los metadatos que estaban en el nodo desconectado.
+* Se pueden producir pérdidas de datos si decomisiona más de un nodo de almacenamiento desconectado. Es posible que el sistema no pueda reconstruir los datos si no hay suficientes copias de objetos, fragmentos codificados con borrado o metadatos de objetos disponibles. Cuando se decomisionan nodos de almacenamiento en un grid con nodos solo de metadatos basados en software, la retirada de todos los nodos configurados para almacenar tanto objetos como metadatos elimina todo el almacenamiento de objetos del grid. Consulte link:../primer/what-storage-node-is.html#types-of-storage-nodes["Tipos de nodos de almacenamiento"] para obtener más información sobre nodos de almacenamiento solo de metadatos.
++
+
+CAUTION: Si tiene más de un nodo de almacenamiento desconectado que no puede recuperar, póngase en contacto con el soporte técnico para determinar el mejor curso de acción.
+
+* Al retirar un nodo de almacenamiento desconectado, StorageGRID inicia trabajos de reparación de datos al final del proceso de decomisionado. Estos trabajos intentan reconstruir los datos de objeto y los metadatos que se almacenaron en el nodo desconectado.
+* Al retirar un nodo de almacenamiento desconectado, el procedimiento de retirada se completa con relativa rapidez. Sin embargo, los trabajos de reparación de datos pueden tardar días o semanas en ejecutarse y no son supervisados por el procedimiento de decomiso. Debe supervisar manualmente estos trabajos y reiniciarlos según sea necesario. Consulte link:checking-data-repair-jobs.html["Compruebe los trabajos de reparación de datos"].
+* Si decomisiona un nodo de almacenamiento desconectado que contiene la única copia de un objeto, se perderá el objeto. Las tareas de reparación de datos solo pueden reconstruir y recuperar objetos si al menos una copia replicada o hay suficientes fragmentos codificados de borrado en los nodos de almacenamiento conectados actualmente.
+

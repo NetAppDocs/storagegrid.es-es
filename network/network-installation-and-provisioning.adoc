@@ -1,0 +1,36 @@
+---
+permalink: network/network-installation-and-provisioning.html 
+sidebar: sidebar 
+keywords: network install, network provisioning 
+summary: Debe comprender cómo se utilizan Grid Network y las redes de administración y cliente opcionales durante la implementación de nodos y la configuración de grid. 
+---
+= Instalación y aprovisionamiento de red
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe comprender cómo se utilizan Grid Network y las redes de administración y cliente opcionales durante la implementación de nodos y la configuración de grid.
+
+
+
+== Puesta en marcha inicial de un nodo
+
+Cuando implemente un nodo por primera vez, debe conectar el nodo a la red de grid y asegurarse de que tiene acceso al nodo de administración principal. Si la red de cuadrícula está aislada, puede configurar la red de administración en el nodo de administración principal para el acceso de configuración e instalación desde fuera de la red de cuadrícula.
+
+Una red de cuadrícula con una puerta de enlace configurada se convierte en la puerta de enlace predeterminada para un nodo durante la implementación. La puerta de enlace predeterminada permite que los nodos de grid de las subredes independientes se comuniquen con el nodo de administración principal antes de que se haya configurado la cuadrícula.
+
+Si es necesario, las subredes que contienen servidores NTP o que requieren acceso a Grid Manager o API también se pueden configurar como subredes de cuadrícula.
+
+
+
+== Registro automático de nodos con el nodo de administración principal
+
+Una vez que los nodos se han implementado, se registran en el nodo de administrador principal mediante la red de grid. A continuación, puede utilizar Grid Manager, el `configure-storagegrid.py` script Python o la API de instalación para configurar la cuadrícula y aprobar los nodos registrados. Durante la configuración de la cuadrícula, puede configurar varias subredes. Las rutas estáticas a estas subredes a través de la puerta de enlace de red de cuadrícula se crearán en cada nodo cuando complete la configuración de la cuadrícula.
+
+
+
+== Desactivación de la red de administración o de la red de cliente
+
+Si desea desactivar la red de administración o la red de cliente, puede eliminar la configuración de ellos durante el proceso de aprobación de nodos o puede utilizar la herramienta Cambiar IP una vez finalizada la instalación (consulte link:../maintain/configuring-ip-addresses.html["Configurar las direcciones IP"]).

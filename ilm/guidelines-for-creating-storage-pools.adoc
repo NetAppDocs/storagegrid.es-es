@@ -1,0 +1,60 @@
+---
+permalink: ilm/guidelines-for-creating-storage-pools.html 
+sidebar: sidebar 
+keywords: storage pool guidelines 
+summary: Configura y utiliza pools de almacenamiento para protegerse frente a la pérdida de datos distribuyendo los datos entre varios sitios. Las copias replicadas y las copias con código de borrado requieren diferentes configuraciones de pools de almacenamiento. 
+---
+= Directrices para crear pools de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Configura y utiliza pools de almacenamiento para protegerse frente a la pérdida de datos distribuyendo los datos entre varios sitios. Las copias replicadas y las copias con código de borrado requieren diferentes configuraciones de pools de almacenamiento.
+
+Consulte link:using-multiple-storage-pools-for-cross-site-replication.html["Ejemplos de habilitación de la protección contra pérdida de sitios mediante replicación y código de borrado"].
+
+
+
+== Directrices para todos los pools de almacenamiento
+
+* Mantenga las configuraciones del pool de almacenamiento de la forma más sencilla posible. No cree más pools de almacenamiento de los necesarios.
+* Cree pools de almacenamiento con tantos nodos como sea posible. Cada pool de almacenamiento debe contener dos o más nodos. Un pool de almacenamiento con nodos insuficientes puede provocar registros de gestión del ciclo de vida de la información si un nodo deja de estar disponible.
+* Evite crear o usar pools de almacenamiento que se solapen (contienen uno o varios de los mismos nodos). Si los pools de almacenamiento se solapan, es posible que se guarden más de una copia de datos de objetos en el mismo nodo.
+* En general, no use el pool de almacenamiento Todos los nodos de almacenamiento (StorageGRID 11,6 y anteriores) ni el sitio Todos los sitios. Estos elementos se actualizan automáticamente para incluir los nuevos sitios que agregue en una expansión, lo cual podría no ser el comportamiento que desea.
+
+
+
+
+== Directrices para los pools de almacenamiento utilizados para copias replicadas
+
+* Para la protección contra pérdida de sitio mediante link:what-replication-is.html["replicación"], especifique uno o más pools de almacenamiento específicos de la dirección en link:create-ilm-rule-define-placements.html["Instrucciones de colocación para cada regla de ILM"].
++
+Se crea automáticamente un pool de almacenamiento para cada sitio durante la instalación de StorageGRID.
+
++
+El uso de un pool de almacenamiento para cada sitio garantiza que las copias de objetos replicados se coloquen exactamente donde se espere (por ejemplo, una copia de cada objeto en cada sitio para la protección frente a pérdida de sitio).
+
+* Si agrega un sitio en una expansión, cree un nuevo pool de almacenamiento que contenga solo el nuevo sitio. A continuación, link:working-with-ilm-rules-and-ilm-policies.html#edit-an-ilm-rule["Actualice las reglas de ILM"] para controlar qué objetos se almacenan en el nuevo sitio.
+* Si la cantidad de copias es inferior a la cantidad de pools de almacenamiento, el sistema distribuye las copias para equilibrar el uso de disco entre los pools.
+* Si los pools de almacenamiento se superponen (contienen los mismos nodos de almacenamiento), es posible que todas las copias del objeto se guarden en un solo sitio. Debe asegurarse de que los pools de almacenamiento seleccionados no contengan los mismos nodos de almacenamiento.
+
+
+
+
+== Directrices para los pools de almacenamiento utilizados para las copias con código de borrado
+
+* Para la protección contra pérdida de sitio con link:what-erasure-coding-is.html["código de borrado"], cree pools de almacenamiento que consten de al menos tres sitios. Si un pool de almacenamiento incluye solo dos sitios, no puede usar ese pool de almacenamiento para el código de borrado. No hay esquemas de codificación de borrado disponibles para un pool de almacenamiento que tenga dos ubicaciones.
+* La cantidad de nodos de almacenamiento y sitios incluidos en el pool de almacenamiento determina cuáles link:what-erasure-coding-schemes-are.html["esquemas de código de borrado"]están disponibles.
+* Si es posible, un pool de almacenamiento debe incluir más de la cantidad mínima de nodos de almacenamiento necesarios para el esquema de codificación de borrado que seleccione. Por ejemplo, si utiliza un esquema de codificación de borrado 6+3, debe contar con al menos nueve nodos de almacenamiento. Sin embargo, se recomienda tener al menos un nodo de almacenamiento adicional por sitio.
+* Distribuya nodos de almacenamiento en todos los sitios de la forma más equitativa posible. Por ejemplo, para admitir un esquema de codificación de borrado 6+3, configure un pool de almacenamiento que incluya al menos tres nodos de almacenamiento en tres sitios.
+* Si tiene requisitos de alto rendimiento, no se recomienda el uso de un pool de almacenamiento que incluya varios sitios si la latencia de red entre los sitios es superior a 100 ms. A medida que aumenta la latencia, la velocidad a la que StorageGRID puede crear, colocar y recuperar fragmentos de objetos disminuye considerablemente debido al descenso del rendimiento de la red TCP.
++
+La disminución del rendimiento afecta a las tasas máximas alcanzables de ingesta y recuperación de objetos (cuando se seleccionan equilibrados o estrictos como comportamiento de procesamiento) o puede provocar retrasos en la cola de ILM (cuando se selecciona Dual commit como comportamiento de procesamiento). Consulte link:what-ilm-rule-is.html#ilm-rule-ingest-behavior["Comportamiento de procesamiento de reglas de ILM"].
+
++
+
+NOTE: Si el grid incluye solo un sitio, no podrá usar el pool de almacenamiento Todos los nodos de almacenamiento (StorageGRID 11,6 y anteriores) o el sitio Todos los sitios en un perfil de código de borrado. Este comportamiento evita que el perfil no sea válido si se agrega un segundo sitio.
+
+

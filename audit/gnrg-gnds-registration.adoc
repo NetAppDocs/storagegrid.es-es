@@ -1,0 +1,79 @@
+---
+permalink: audit/gnrg-gnds-registration.html 
+sidebar: sidebar 
+keywords: storagegrid, audi, message, GNRG, GNDS Registration 
+summary: El servicio CMN genera este mensaje de auditoría cuando un servicio ha actualizado o registrado información sobre sí mismo en el sistema StorageGRID. 
+---
+= GNRG: Registro GNDS
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El servicio CMN genera este mensaje de auditoría cuando un servicio ha actualizado o registrado información sobre sí mismo en el sistema StorageGRID.
+
+[cols="1a,1a,4a"]
+|===
+| Codificación | Campo | Descripción 
+
+
+ a| 
+TRANSFORMACIÓN DIGITAL
+ a| 
+Resultado
+ a| 
+Resultado de la solicitud de actualización:
+
+* SUCS: Exitoso
+* SVNU: Servicio no disponible
+* GERR: Otro fracaso
+
+
+
+
+ a| 
+GNID
+ a| 
+ID de nodo
+ a| 
+El ID de nodo del servicio que inició la solicitud de actualización.
+
+
+
+ a| 
+GNTP
+ a| 
+Tipo de dispositivo
+ a| 
+Tipo de dispositivo del nodo de cuadrícula (por ejemplo, BLDR para un servicio LDR).
+
+
+
+ a| 
+GNDV
+ a| 
+Versión de modelo de dispositivo
+ a| 
+La cadena que identifica la versión del modelo de dispositivo del nodo de cuadrícula en el paquete DMDL.
+
+
+
+ a| 
+GNGP
+ a| 
+Grupo
+ a| 
+El grupo al que pertenece el nodo de cuadrícula (en el contexto de los costes de enlace y la clasificación de consulta de servicio).
+
+
+
+ a| 
+GNIA
+ a| 
+Dirección IP
+ a| 
+La dirección IP del nodo de grid.
+
+|===
+Este mensaje se genera siempre que un nodo de grid actualiza su entrada en el paquete Grid Nodes.

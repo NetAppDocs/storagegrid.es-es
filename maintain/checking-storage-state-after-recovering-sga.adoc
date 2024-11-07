@@ -1,0 +1,35 @@
+---
+permalink: maintain/checking-storage-state-after-recovering-sga.html 
+sidebar: sidebar 
+keywords: storagegrid, recovery, node recovery, storage state 
+summary: Después de recuperar un nodo de almacenamiento de dispositivo, debe comprobar que el estado deseado del nodo de almacenamiento del dispositivo está establecido en online y que el estado estará en línea de forma predeterminada cada vez que se reinicie el servidor del nodo de almacenamiento. 
+---
+= Compruebe el estado de almacenamiento después de recuperar el nodo de almacenamiento del dispositivo
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Después de recuperar un nodo de almacenamiento de dispositivo, debe comprobar que el estado deseado del nodo de almacenamiento del dispositivo está establecido en online y que el estado estará en línea de forma predeterminada cada vez que se reinicie el servidor del nodo de almacenamiento.
+
+.Antes de empezar
+* Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
+* El nodo de almacenamiento se ha recuperado y se completó la recuperación de datos.
+
+
+.Pasos
+. Seleccione *SUPPORT* > *Tools* > *Topología de cuadrícula*.
+. Compruebe los valores de *Nodo de almacenamiento recuperado* > *LDR* > *Almacenamiento* > *Estado de almacenamiento -- deseado* y *Estado de almacenamiento -- actual*.
++
+El valor de ambos atributos debe ser en línea.
+
+. Si el estado de almacenamiento -- deseado está establecido en sólo lectura, realice los siguientes pasos:
++
+.. Haga clic en la ficha *Configuración*.
+.. En la lista desplegable *Estado de almacenamiento -- deseado*, seleccione *Online*.
+.. Haga clic en *aplicar cambios*.
+.. Haga clic en la ficha *Descripción general* y confirme que los valores de *Estado de almacenamiento -- deseado* y *Estado de almacenamiento -- actual* se actualizan a Online.
+
+
+

@@ -1,0 +1,40 @@
+---
+permalink: audit/scmt-object-store-commit.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, SCMT, Object Store Commit 
+summary: 'El contenido de la cuadrícula no está disponible ni se reconoce como almacenado hasta que se haya asignado \(lo que significa que se ha almacenado de forma persistente\). El contenido almacenado de forma persistente se ha escrito completamente en el disco y ha pasado las comprobaciones de integridad relacionadas. Este mensaje se genera cuando un bloque de contenido se confirma en el almacenamiento.' 
+---
+= SCMT: Confirmación del almacén de objetos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El contenido de la cuadrícula no está disponible ni se reconoce como almacenado hasta que se ha cometido (lo que significa que se ha almacenado de forma persistente). El contenido almacenado de forma persistente se ha escrito completamente en el disco y ha pasado las comprobaciones de integridad relacionadas. Este mensaje se genera cuando un bloque de contenido se confirma en el almacenamiento.
+
+[cols="1a,1a,4a"]
+|===
+| Codificación | Campo | Descripción 
+
+
+ a| 
+CBID
+ a| 
+Identificador de bloque de contenido
+ a| 
+Identificador único del bloque de contenido comprometido con el almacenamiento permanente.
+
+
+
+ a| 
+TRANSFORMACIÓN DIGITAL
+ a| 
+Código de resultado
+ a| 
+Estado en el momento en que el objeto se almacenó en disco:
+
+SUCS: Objeto almacenado correctamente.
+
+|===
+Este mensaje significa que se ha almacenado y verificado completamente un bloque de contenido dado y que ahora se puede solicitar. Se puede utilizar para realizar un seguimiento del flujo de datos dentro del sistema.

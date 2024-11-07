@@ -1,0 +1,68 @@
+---
+permalink: admin/confirming-federated-users-can-sign-in.html 
+sidebar: sidebar 
+keywords: sso configuration 
+summary: 'Antes de habilitar el inicio de sesión único \(SSO\), debe confirmar que al menos un usuario federado puede iniciar sesión en el Gestor de grid y en el Gestor de arrendatarios para cualquier cuenta de arrendatario existente.' 
+---
+= Confirmar que los usuarios federados pueden iniciar sesión
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de habilitar el inicio de sesión único (SSO), debe confirmar que al menos un usuario federado puede iniciar sesión en Grid Manager y en el Gestor de inquilinos para cualquier cuenta de inquilino existente.
+
+.Antes de empezar
+* Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Tienes link:admin-group-permissions.html["permisos de acceso específicos"].
+* Ya ha configurado la federación de identidades.
+
+
+.Pasos
+. Si hay cuentas de inquilino existentes, confirme que ninguno de los inquilinos utiliza su propio origen de identidad.
++
+
+TIP: Al habilitar SSO, el origen de identidad configurado en el Administrador de inquilinos se anula mediante el origen de identidades configurado en Grid Manager. Los usuarios que pertenezcan al origen de identidad del arrendatario ya no podrán iniciar sesión a menos que tengan una cuenta con el origen de identidad de Grid Manager.
+
++
+.. Inicie sesión en el Administrador de arrendatarios para cada cuenta de arrendatario.
+.. Seleccione *ADMINISTRACIÓN de ACCESO* > *federación de identidades*.
+.. Confirme que la casilla de verificación *Habilitar federación de identidad* no está seleccionada.
+.. Si lo es, confirme que los grupos federados que puedan estar en uso para esta cuenta de inquilino ya no son necesarios, desactive la casilla de verificación y seleccione *Guardar*.
+
+
+. Confirme que un usuario federado puede acceder a Grid Manager:
++
+.. En Grid Manager, seleccione *CONFIGURACIÓN* > *Control de acceso* > *grupos de administración*.
+.. Asegúrese de que al menos un grupo federado se ha importado del origen de identidad de Active Directory y de que se le ha asignado el permiso acceso raíz.
+.. Cierre la sesión.
+.. Confirme que puede volver a iniciar sesión en Grid Manager como usuario en el grupo federado.
+
+
+. Si hay cuentas de inquilino existentes, confirme que un usuario federado con permiso de acceso raíz puede iniciar sesión:
++
+.. En Grid Manager, seleccione *ARRENDATARIOS*.
+.. Seleccione la cuenta de arrendatario y seleccione *acciones* > *Editar*.
+.. En la ficha introducir detalles, seleccione *continuar*.
+.. Si la casilla de verificación *Usar fuente de identidad propia* está seleccionada, desmarque la casilla y seleccione *Guardar*.
++
+image::../media/sso_uses_own_identity_source_for_tenant.png[No se ha seleccionado la casilla de verificación Editar cuenta de inquilino > Utilizar origen de identidad propio]
+
++
+Aparece la página inquilino.
+
+.. Seleccione la cuenta de arrendatario, seleccione *Iniciar sesión* e inicie sesión en la cuenta de arrendatario como usuario raíz local.
+.. En el Administrador de inquilinos, seleccione *ADMINISTRACIÓN de ACCESO* > *grupos*.
+.. Asegúrese de que al menos un grupo federado de Grid Manager ha sido asignado el permiso de acceso raíz para este arrendatario.
+.. Cierre la sesión.
+.. Confirme que puede volver a iniciar sesión en el inquilino como usuario en el grupo federado.
+
+
+
+
+.Información relacionada
+* link:requirements-for-sso.html["Requisitos y consideraciones para el inicio de sesión único"]
+* link:managing-admin-groups.html["Gestione los grupos de administradores"]
+* link:../tenant/index.html["Usar una cuenta de inquilino"]
+

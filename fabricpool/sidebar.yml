@@ -1,0 +1,45 @@
+---
+section: fabricpool
+title: Configure StorageGRID para FabricPool
+entries:
+- title: Inicio rápido
+  pdf-filename: Configure StorageGRID para FabricPool
+  url: "/fabricpool/index.html"
+- title: Información necesaria para adjuntar StorageGRID como nivel de cloud
+  url: "/fabricpool/information-needed-to-attach-storagegrid-as-cloud-tier.html"
+- title: Use el asistente de configuración de FabricPool
+  entries:
+  - title: Consideraciones y requisitos
+    url: "/fabricpool/use-fabricpool-setup-wizard.html"
+  - title: Acceda al asistente y complete este
+    url: "/fabricpool/use-fabricpool-setup-wizard-steps.html"
+- title: Configure StorageGRID manualmente
+  entries:
+  - title: Crear grupo de alta disponibilidad
+    url: "/fabricpool/creating-ha-group-for-fabricpool.html"
+  - title: Crear punto final de equilibrador de carga
+    url: "/fabricpool/creating-load-balancer-endpoint-for-fabricpool.html"
+  - title: Cree una cuenta de inquilino
+    url: "/fabricpool/creating-tenant-account-for-fabricpool.html"
+  - title: Cree S3 bucket y obtenga claves de acceso
+    url: "/fabricpool/creating-s3-bucket-and-access-key.html"
+  - title: Configurar ILM para los datos de FabricPool
+    url: "/fabricpool/using-storagegrid-ilm-with-fabricpool-data.html"
+  - title: Crear directiva de clasificación de tráfico
+    url: "/fabricpool/creating-traffic-classification-policy-for-fabricpool.html"
+- title: Configure System Manager de ONTAP
+  url: "/fabricpool/configure-ontap.html"
+- title: Configurar el servidor DNS
+  url: "/fabricpool/configure-dns-server.html"
+- title: Prácticas recomendadas de StorageGRID para FabricPool
+  entries:
+  - title: Prácticas recomendadas para grupos de alta disponibilidad
+    url: "/fabricpool/best-practices-for-high-availability-groups.html"
+  - title: Prácticas recomendadas para el equilibrio de carga para FabricPool
+    url: "/fabricpool/best-practices-for-load-balancing.html"
+  - title: Prácticas recomendadas para ILM
+    url: "/fabricpool/best-practices-ilm.html"
+  - title: Otras prácticas recomendadas
+    url: "/fabricpool/other-best-practices-for-storagegrid-and-fabricpool.html"
+- title: Eliminar datos de FabricPool de StorageGRID
+  url: "/fabricpool/remove-fabricpool-data.html"

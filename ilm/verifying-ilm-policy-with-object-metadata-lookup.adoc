@@ -1,0 +1,53 @@
+---
+permalink: ilm/verifying-ilm-policy-with-object-metadata-lookup.html 
+sidebar: sidebar 
+keywords: verify ilm policy, object metadata lookup 
+summary: Una vez activada una política de ILM, introduzca los objetos de prueba representativos en el sistema StorageGRID y, a continuación, realice una búsqueda de metadatos de objetos para confirmar que las copias se crean como previstas y que se colocan en las ubicaciones correctas. 
+---
+= Comprobar una política de ILM con la búsqueda de metadatos de objetos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Una vez activada una política de ILM, introduzca los objetos de prueba representativos en el sistema StorageGRID y, a continuación, realice una búsqueda de metadatos de objetos para confirmar que las copias se crean como previstas y que se colocan en las ubicaciones correctas.
+
+.Antes de empezar
+Tiene un identificador de objeto, que puede ser uno de: * *UUID*: El identificador único universal del objeto. * *CBID*: Identificador único del objeto dentro de StorageGRID. Es posible obtener el CBID de un objeto del registro de auditoría. Introduzca el CBID en todas las mayúsculas. * *S3 bucket y clave de objeto*: Cuando un objeto se ingiere a través de la interfaz S3, la aplicación cliente utiliza una combinación de cubo y clave de objeto para almacenar e identificar el objeto. Si el bloque de S3 tiene versiones y desea buscar una versión específica de un objeto S3 mediante el bloque y la clave de objeto, tendrá el *ID de versión*.
+
+.Pasos
+. Procese el objeto.
+. Seleccione *ILM* > *Búsqueda de metadatos de objetos*.
+. Escriba el identificador del objeto en el campo *Identificador*. Puede introducir un UUID, CBID o S3 bucket/object-key.
+. De manera opcional, introduzca un ID de versión para el objeto (solo S3).
+. Seleccione *Buscar*.
++
+Se muestran los resultados de la búsqueda de metadatos de los objetos. Esta página incluye los siguientes tipos de información:
+
++
+** Metadatos del sistema, como el ID de objeto (UUID), el tipo de resultado (objeto, marcador de borrado, bloque de S3) y el tamaño lógico del objeto. Consulte la captura de pantalla de ejemplo que aparece a continuación para obtener más información.
+** Todos los pares de valor de clave de metadatos de usuario personalizados asociados con el objeto.
+** Para los objetos S3, cualquier par de etiqueta de objeto clave-valor asociado al objeto.
+** Para las copias de objetos replicadas, la ubicación de almacenamiento actual de cada copia.
+** Para las copias de objetos codificados de borrado, la ubicación actual de almacenamiento de cada fragmento.
+** Para las copias de objetos en un Cloud Storage Pool, la ubicación del objeto, incluido el nombre del bloque externo y el identificador único del objeto.
+** Para objetos segmentados y objetos multipartes, una lista de segmentos de objetos que incluyen identificadores de segmentos y tamaños de datos. Para objetos con más de 100 segmentos, sólo se muestran los primeros 100 segmentos.
+** Todos los metadatos del objeto en el formato de almacenamiento interno sin procesar. Estos metadatos sin procesar incluyen los metadatos internos del sistema que no se garantiza que continúen del lanzamiento al lanzamiento.
+
+
+. Confirme que el objeto está almacenado en la ubicación o ubicaciones correctas y que es el tipo de copia correcto.
++
+Si la opción Auditoría está activada, también puede supervisar el registro de auditoría del mensaje ORLM Object Rules met. El mensaje de auditoría ORLM puede proporcionarle más información sobre el estado del proceso de evaluación de ILM, pero no puede proporcionar información sobre la corrección de la ubicación de los datos de objetos ni la integridad de la política de ILM. Debe evaluar esto usted mismo. Para obtener más información, consulte link:../audit/index.html["Revisar los registros de auditoría"].
+
+
+
+En el ejemplo siguiente se muestran los resultados de búsqueda de metadatos de objetos para un objeto de prueba S3 almacenado como dos copias replicadas.
+
+
+NOTE: La siguiente captura de pantalla es un ejemplo. Los resultados variarán en función de la versión de StorageGRID.
+
+image::../media/object_lookup_results.png[Resultados de la búsqueda de objetos]
+
+.Información relacionada
+link:../s3/index.html["USE LA API DE REST DE S3"]

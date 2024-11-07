@@ -1,0 +1,78 @@
+---
+permalink: maintain/whats-next-performing-additional-recovery-steps-if-required.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, corrective action, additional recovery 
+summary: Según las acciones específicas que haya tomado para ejecutar los nodos StorageGRID en el host de reemplazo, es posible que deba realizar otros pasos de recuperación para cada nodo. 
+---
+= Lo siguiente: Si es necesario, lleve a cabo pasos adicionales de recuperación
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Según las acciones específicas que haya tomado para ejecutar los nodos StorageGRID en el host de reemplazo, es posible que deba realizar otros pasos de recuperación para cada nodo.
+
+La recuperación de nodos está completa si no necesitaba tomar ninguna acción correctiva mientras sustituyó el host Linux o restauró el nodo de la cuadrícula con errores en el nuevo host.
+
+
+
+== Acciones correctivas y pasos siguientes
+
+Durante el reemplazo de nodo, es posible que haya que realizar una de las siguientes acciones correctivas:
+
+* Ha tenido que utilizar `--force` el indicador para importar el nodo.
+* Para any `<PURPOSE>`, el valor de `BLOCK_DEVICE_<PURPOSE>` la variable de archivo de configuración hace referencia a un dispositivo de bloque que no contiene los mismos datos que antes del fallo del host.
+* Emitió `storagegrid node force-recovery _node-name_` para el nodo.
+* Ha agregado un nuevo dispositivo de bloque.
+
+
+Si ha tomado *cualquiera* de estas acciones correctivas, debe realizar pasos adicionales de recuperación.
+
+[cols="2a,1a"]
+|===
+| Tipo de recuperación | Paso siguiente 
+
+
+ a| 
+Nodo de administrador principal
+ a| 
+link:configuring-replacement-primary-admin-node.html["Configure el nodo de administración principal de reemplazo"]
+
+
+
+ a| 
+Nodo de administrador no primario
+ a| 
+link:selecting-start-recovery-to-configure-non-primary-admin-node.html["Seleccione Start Recovery para configurar el nodo de administrador que no es primario"]
+
+
+
+ a| 
+Nodo de puerta de enlace
+ a| 
+link:selecting-start-recovery-to-configure-gateway-node.html["Seleccione Start Recovery para configurar Gateway Node"]
+
+
+
+ a| 
+Nodo de almacenamiento (basado en software):
+
+* Si tenía que utilizar `--force` el indicador para importar el nodo, o si emitió `storagegrid node force-recovery _node-name_`
+* Si tenía que volver a instalar un nodo completo o tenía que restaurar /var/local
+
+ a| 
+link:selecting-start-recovery-to-configure-storage-node.html["Seleccione Start Recovery para configurar Storage Node"]
+
+
+
+ a| 
+Nodo de almacenamiento (basado en software):
+
+* Si ha agregado un nuevo dispositivo de bloque.
+* Si, para Cualquiera `<PURPOSE>`, el valor de `BLOCK_DEVICE_<PURPOSE>` la variable de archivo de configuración hace referencia a un dispositivo de bloque que no contiene los mismos datos que antes del fallo del host.
+
+ a| 
+link:recovering-from-storage-volume-failure-where-system-drive-is-intact.html["Recupérese de un fallo en el volumen de almacenamiento, donde la unidad del sistema está intacta"]
+
+|===

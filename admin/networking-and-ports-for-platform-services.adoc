@@ -1,0 +1,44 @@
+---
+permalink: admin/networking-and-ports-for-platform-services.html 
+sidebar: sidebar 
+keywords: platform services, ports for platform services, 443, 80 
+summary: Si permite que un inquilino de S3 utilice los servicios de plataforma, debe configurar las redes para el grid para garantizar que los mensajes de servicios de plataforma se puedan entregar a sus destinos. 
+---
+= Red y puertos para servicios de plataforma
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si permite que un inquilino de S3 utilice los servicios de plataforma, debe configurar las redes para el grid para garantizar que los mensajes de servicios de plataforma se puedan entregar a sus destinos.
+
+Puede habilitar los servicios de plataforma para una cuenta de inquilino de S3 al crear o actualizar la cuenta de inquilino. Si se habilitan los servicios de plataforma, el inquilino puede crear extremos que sirvan como destino para la replicación de CloudMirror, notificaciones de eventos o mensajes de integración de búsqueda desde sus bloques de S3. Estos mensajes de servicios de plataforma se envían desde los nodos de almacenamiento que ejecutan el servicio ADC a los extremos de destino.
+
+Por ejemplo, los inquilinos pueden configurar los siguientes tipos de extremos de destino:
+
+* Un clúster de Elasticsearch alojado localmente
+* Una aplicación local que admite la recepción de mensajes de Amazon Simple Notification Service
+* Un clúster Kafka alojado localmente
+* Un bloque de S3 alojado localmente en la misma instancia de StorageGRID u otra
+* Un extremo externo, como un extremo en Amazon Web Services.
+
+
+Para garantizar que los mensajes de servicios de plataforma se puedan entregar, debe configurar la red o las redes que contienen los nodos de almacenamiento ADC. Debe asegurarse de que se pueden utilizar los siguientes puertos para enviar mensajes de servicios de plataforma a los extremos de destino.
+
+De forma predeterminada, los mensajes de servicios de plataforma se envían a los siguientes puertos:
+
+* *80*: Para URI de punto final que comienzan con http (la mayoría de los puntos finales)
+* *443*: Para URI de punto final que comienzan con https (la mayoría de los puntos finales)
+* *9092*: Para URI de punto final que comienzan con http o https (solo puntos finales Kafka)
+
+
+Los inquilinos pueden especificar un puerto diferente cuando crean o editan un extremo.
+
+
+NOTE: Si se usa una puesta en marcha de StorageGRID como destino de la replicación de CloudMirror, podrían recibirse mensajes de replicación en un puerto distinto de 80 o 443. Compruebe que el puerto que se utiliza para S3 en la implementación de StorageGRID de destino se especifique en el extremo.
+
+Si utiliza un servidor proxy no transparente, también debe link:configuring-storage-proxy-settings.html["configure las opciones del proxy de almacenamiento"]permitir que los mensajes se envíen a puntos finales externos, como un punto final en Internet.
+
+.Información relacionada
+link:../tenant/index.html["Usar una cuenta de inquilino"]

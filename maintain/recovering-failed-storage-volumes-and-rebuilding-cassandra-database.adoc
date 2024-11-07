@@ -1,0 +1,100 @@
+---
+permalink: maintain/recovering-failed-storage-volumes-and-rebuilding-cassandra-database.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, maintenance, maintain, failed storage volumes, failed volumes, cassandra, cassandra rebuild, rebuild cassandra, cassandra database 
+summary: Debe ejecutar una secuencia de comandos que reformatea y remonta el almacenamiento en volúmenes de almacenamiento con fallos y reconstruye la base de datos Cassandra en el nodo de almacenamiento si el sistema determina que es necesario. 
+---
+= Recuperar volúmenes de almacenamiento con fallos y reconstruir la base de datos de Cassandra
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe ejecutar una secuencia de comandos que reformatea y remonta el almacenamiento en volúmenes de almacenamiento con fallos y reconstruye la base de datos Cassandra en el nodo de almacenamiento si el sistema determina que es necesario.
+
+.Antes de empezar
+* Tiene el `Passwords.txt` archivo.
+* Las unidades del sistema en el servidor están intactas.
+* Se ha identificado la causa del fallo y, si es necesario, ya se ha adquirido un hardware de almacenamiento de reemplazo.
+* El tamaño total del almacenamiento de reemplazo es el mismo que el original.
+* Comprobó que un decomisionado del nodo de almacenamiento no está en curso o que ha pausado el procedimiento para decomisionar el nodo. (En Grid Manager, seleccione *MANTENIMIENTO* > *tareas* > *misión*.)
+* Ha comprobado que una expansión no está en curso. (En Grid Manager, seleccione *MANTENIMIENTO* > *tareas* > *expansión*.)
+* Tienes link:reviewing-warnings-about-storage-volume-recovery.html["se revisaron las advertencias sobre la recuperación del volumen de almacenamiento"].
+
+
+.Pasos
+. Según sea necesario, reemplace el almacenamiento físico o virtual con errores asociado a los volúmenes de almacenamiento con errores que ha identificado y desmontado anteriormente.
++
+No vuelva a montar los volúmenes en este paso. El almacenamiento se vuelve a montar y se añade a `/etc/fstab` en un paso posterior.
+
+. En Grid Manager, vaya a *NODOS* > `*appliance Storage Node*` > *Hardware*. En la sección StorageGRID Appliance de la página, compruebe que el modo RAID de almacenamiento esté en buen estado.
+. Inicie sesión en el nodo de almacenamiento con errores:
++
+.. Introduzca el siguiente comando: `ssh admin@_grid_node_IP_`
+.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
+.. Introduzca el siguiente comando para cambiar a raíz: `su -`
+.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
++
+Al iniciar sesión como root, la petición de datos cambia de `$` a `#`.
+
+
+
+. Utilice un editor de texto (vi o vim) para eliminar volúmenes fallidos del `/etc/fstab` archivo y, a continuación, guarde el archivo.
++
+
+NOTE: No es suficiente comentar un volumen con errores en `/etc/fstab` el archivo. El volumen debe eliminarse `fstab` ya que el proceso de recuperación verifica que todas las líneas del `fstab` archivo coincidan con los sistemas de archivos montados.
+
+. Vuelva a formatear los volúmenes de almacenamiento con fallos y vuelva a generar la base de datos de Cassandra si es necesario. Introduzca: `reformat_storage_block_devices.rb`
++
+** Cuando se desmonta el volumen de almacenamiento 0, las solicitudes y los mensajes indicarán que el servicio Cassandra se está deteniendo.
+** Se le pedirá que reconstruya la base de datos de Cassandra si es necesario.
++
+*** Revise las advertencias. Si no se aplica ninguno de ellos, vuelva a generar la base de datos Cassandra. Introduzca: *Y*
+*** Si hay más de un nodo de almacenamiento desconectado o si se ha reconstruido otro nodo de almacenamiento en los últimos 15 días. Introduzca: *N*
++
+La secuencia de comandos se cerrará sin reconstruir Cassandra. Póngase en contacto con el soporte técnico.
+
+
+
+** Para cada unidad rangedb del nodo de almacenamiento, cuando se le pregunte `Reformat the rangedb drive _<name>_ (device _<major number>:<minor number>_)? [y/n]?`: , Introduzca una de las siguientes respuestas:
++
+*** *y* para volver a formatear una unidad con errores. De esta forma, se vuelve a formatear el volumen de almacenamiento y se añade el volumen de almacenamiento reformateado al `/etc/fstab` archivo.
+*** *n* si la unidad no contiene errores, y no desea volver a formatearla.
++
+
+NOTE: Al seleccionar *n*, se sale de la secuencia de comandos. Monte la unidad (si cree que los datos en ella deben conservarse y que la unidad se ha desmontado de error) o quite la unidad. A continuación, vuelva a ejecutar `reformat_storage_block_devices.rb` el comando.
+
++
+
+NOTE: Algunos procedimientos de recuperación de StorageGRID usan Reaper para gestionar las reparaciones de Cassandra. Las reparaciones se realizan automáticamente tan pronto como se hayan iniciado los servicios relacionados o necesarios. Es posible que note la salida de un script que menciona “reaper” o “Cassandra repair”. Si ve un mensaje de error que indica que la reparación ha fallado, ejecute el comando indicado en el mensaje de error.
+
++
+En el siguiente ejemplo, la unidad `/dev/sdf` se debe volver a formatear y no fue necesario reconstruir Cassandra:
+
++
+[listing]
+----
+root@DC1-S1:~ # reformat_storage_block_devices.rb
+Formatting devices that are not in use...
+Skipping in use device /dev/sdc
+Skipping in use device /dev/sdd
+Skipping in use device /dev/sde
+Reformat the rangedb drive /dev/sdf (device 8:64)? [Y/n]? y
+Successfully formatted /dev/sdf with UUID b951bfcb-4804-41ad-b490-805dfd8df16c
+All devices processed
+Running: /usr/local/ldr/setup_rangedb.sh 12368435
+Cassandra does not need rebuilding.
+Starting services.
+Informing storage services of new volume
+
+Reformatting done.  Now do manual steps to
+restore copies of data.
+----
+
+
+
+
+
+
+Una vez que se reformateen y se vuelvan a montar los volúmenes de almacenamiento y se completen las operaciones de Cassandra necesarias, es posible link:../maintain/restoring-volume.html["Restaurar datos de objetos con Grid Manager"].

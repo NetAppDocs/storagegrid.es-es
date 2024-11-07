@@ -1,0 +1,154 @@
+---
+permalink: s3/initiate-multipart-upload.html 
+sidebar: sidebar 
+keywords: initiate multipart upload, CreateMultipartUpload, upload ID 
+summary: La operación CreateMultipartUpload inicia una carga de varias partes para un objeto y devuelve un ID de carga. 
+---
+= CreateMultipartUpload
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La operación CreateMultipartUpload (anteriormente denominada Iniciar carga de varias partes) inicia una carga de varias partes para un objeto y devuelve un ID de carga.
+
+ `x-amz-storage-class`Se admite el encabezado de solicitud. El valor enviado para `x-amz-storage-class` afecta a la forma en que StorageGRID protege los datos de los objetos durante la ingesta y no al número de copias persistentes del objeto que se almacenan en el sistema StorageGRID (que viene determinado por ILM).
+
+Si la regla de ILM que coincide con un objeto ingerido utiliza el estricto link:../ilm/data-protection-options-for-ingest.html["opción de ingesta"], `x-amz-storage-class` la cabecera no tiene ningún efecto.
+
+Se pueden utilizar los siguientes valores para `x-amz-storage-class`:
+
+* `STANDARD` (Predeterminado)
++
+** *Confirmación doble*: Si la regla ILM especifica la opción de ingesta de confirmación doble, tan pronto como se ingiere un objeto, se crea una segunda copia de ese objeto y se distribuye a un nodo de almacenamiento diferente (confirmación doble). Cuando se evalúa el ciclo de vida de la información, StorageGRID determina si estas copias provisionales iniciales cumplen las instrucciones de colocación que se indican en la regla. Si no es así, es posible que deban realizarse copias de objetos nuevas en ubicaciones diferentes y es posible que las copias provisionales iniciales deban eliminarse.
+** *Equilibrado*: Si la regla de ILM especifica la opción Equilibrada y StorageGRID no puede hacer inmediatamente todas las copias especificadas en la regla, StorageGRID hace dos copias provisionales en diferentes nodos de almacenamiento.
++
+Si StorageGRID puede crear inmediatamente todas las copias de objetos especificadas en la regla de ILM (ubicación síncrona), el `x-amz-storage-class` encabezado no tiene efecto.
+
+
+
+* `REDUCED_REDUNDANCY`
++
+** *Confirmación doble*: Si la regla de ILM especifica la opción Confirmación doble, StorageGRID crea una sola copia provisional a medida que se ingiere el objeto (confirmación única).
+** *Equilibrado*: Si la regla de ILM especifica la opción Equilibrada, StorageGRID hace una sola copia provisional solo si el sistema no puede hacer inmediatamente todas las copias especificadas en la regla. Si StorageGRID puede realizar una colocación síncrona, este encabezado no tiene ningún efecto.  `REDUCED_REDUNDANCY`La opción se usa mejor cuando la regla de ILM que coincide con el objeto crea una copia replicada única. En este caso, utilizar `REDUCED_REDUNDANCY` elimina la creación y la eliminación innecesarias de una copia de objeto adicional para cada operación de ingesta.
+
+
++
+En otras circunstancias, no se recomienda utilizar `REDUCED_REDUNDANCY` la opción. `REDUCED_REDUNDANCY` aumenta el riesgo de pérdida de datos de objetos durante la ingesta. Por ejemplo, puede perder datos si la única copia se almacena inicialmente en un nodo de almacenamiento que falla antes de que se pueda realizar la evaluación de ILM.
+
+
+
+
+CAUTION: Tener solo una copia replicada durante un periodo de tiempo pone los datos en riesgo de pérdida permanente. Si sólo existe una copia replicada de un objeto, éste se pierde si falla un nodo de almacenamiento o tiene un error importante. También perderá temporalmente el acceso al objeto durante procedimientos de mantenimiento, como las actualizaciones.
+
+La especificación `REDUCED_REDUNDANCY` solo afecta al número de copias que se crean cuando se procesa un objeto por primera vez. No afecta a cuántas copias del objeto se realizan cuando el objeto se evalúa mediante las políticas de ILM activas y no da lugar a que los datos se almacenen en niveles más bajos de redundancia del sistema StorageGRID.
+
+
+NOTE: Si está ingiriendo un objeto en un depósito con S3 Object Lock activado, la `REDUCED_REDUNDANCY` opción se ignora. Si está ingiriendo un objeto en un depósito compatible heredado, la `REDUCED_REDUNDANCY` opción devuelve un error. StorageGRID siempre realizará una ingesta con doble confirmación para garantizar que se cumplan los requisitos de cumplimiento.
+
+
+
+== Encabezados de solicitud admitidos
+
+Se admiten los siguientes encabezados de solicitud:
+
+* `Content-Type`
+* `x-amz-checksum-algorithm`
++
+Actualmente, solo se admite el valor de SHA256 para `x-amz-checksum-algorithm`.
+
+* `x-amz-meta-`, seguido de un par nombre-valor que contiene metadatos definidos por el usuario
++
+Cuando especifique la pareja nombre-valor para los metadatos definidos por el usuario, utilice este formato general:
+
++
+[listing]
+----
+x-amz-meta-_name_: `value`
+----
++
+Si desea utilizar la opción *Tiempo de creación definido por el usuario* como Tiempo de referencia para una regla de ILM, debe utilizar `creation-time` como nombre de los metadatos que registran cuando se creó el objeto. Por ejemplo:
+
++
+[listing]
+----
+x-amz-meta-creation-time: 1443399726
+----
++
+El valor para `creation-time` se evalúa como segundos desde el 1 de enero de 1970.
+
++
+
+NOTE: No se permite agregar `creation-time` como metadatos definidos por el usuario si está agregando un objeto a un depósito que tiene activada la conformidad heredada. Se devolverá un error.
+
+* Encabezados de solicitud de bloqueo de objetos S3:
++
+** `x-amz-object-lock-mode`
+** `x-amz-object-lock-retain-until-date`
+** `x-amz-object-lock-legal-hold`
++
+Si se realiza una solicitud sin estos encabezados, la configuración de retención predeterminada del bloque se utiliza para calcular la versión del objeto mantener hasta la fecha.
+
++
+link:../s3/use-s3-api-for-s3-object-lock.html["Use la API REST DE S3 para configurar el bloqueo de objetos de S3"]
+
+
+
+* Encabezados de solicitud SSE:
++
+** `x-amz-server-side-encryption`
+** `x-amz-server-side-encryption-customer-key-MD5`
+** `x-amz-server-side-encryption-customer-key`
+** `x-amz-server-side-encryption-customer-algorithm`
++
+<<Solicitar encabezados para el cifrado del servidor>>
+
+
+
++
+
+NOTE: Para obtener más información sobre cómo StorageGRID trata los caracteres UTF-8, consulte link:put-object.html["Objeto de puta"].
+
+
+
+
+
+== Solicitar encabezados para el cifrado del servidor
+
+Puede utilizar los siguientes encabezados de solicitud para cifrar un objeto de varias partes con cifrado del servidor. Las opciones SSE y SSE-C son mutuamente excluyentes.
+
+* *SSE*: Utilice el siguiente encabezado en la solicitud CreateMultipartUpload si desea cifrar el objeto con una clave única gestionada por StorageGRID. No especifique esta cabecera en ninguna de las solicitudes de artículo de carga.
++
+** `x-amz-server-side-encryption`
+
+
+* *SSE-C*: Utilice los tres encabezados en la solicitud CreateMultipartUpload (y en cada solicitud subsiguiente UploadPart) si desea cifrar el objeto con una clave única que proporcione y administre.
++
+** `x-amz-server-side-encryption-customer-algorithm`: Especificar `AES256`.
+** `x-amz-server-side-encryption-customer-key`: Especifique su clave de cifrado para el nuevo objeto.
+** `x-amz-server-side-encryption-customer-key-MD5`: Especifique el resumen MD5 de la clave de cifrado del nuevo objeto.
+
+
+
+
+
+CAUTION: Las claves de cifrado que proporcione no se almacenan nunca. Si pierde una clave de cifrado, perderá el objeto correspondiente. Antes de utilizar las claves proporcionadas por el cliente para proteger los datos de objetos, revise las consideraciones para link:using-server-side-encryption.html["utilizando cifrado del lado del servidor"].
+
+
+
+== Encabezados de solicitud no compatibles
+
+No se admite el siguiente encabezado de solicitud:
+
+* `x-amz-website-redirect-location`
++
+El `x-amz-website-redirect-location` cabezal devuelve `XNotImplemented`.
+
+
+
+
+
+== Creación de versiones
+
+La carga de varias partes consiste en operaciones independientes para iniciar la carga, enumerar cargas, cargar piezas, ensamblar las piezas cargadas y completar la carga. Los objetos se crean (y se versionan si corresponde) cuando se realiza la operación CompleteMultipartUpload.

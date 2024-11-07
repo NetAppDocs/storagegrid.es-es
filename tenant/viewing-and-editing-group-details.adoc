@@ -1,0 +1,62 @@
+---
+permalink: tenant/viewing-and-editing-group-details.html 
+sidebar: sidebar 
+keywords: how to view and edit group 
+summary: Al ver los detalles de un grupo, puede cambiar el nombre para mostrar del grupo, los permisos, las directivas y los usuarios que pertenecen al grupo. 
+---
+= Ver y editar detalles del grupo
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Al ver los detalles de un grupo, puede cambiar el nombre para mostrar del grupo, los permisos, las directivas y los usuarios que pertenecen al grupo.
+
+.Antes de empezar
+* Ha iniciado sesión en el gestor de inquilinos mediante un link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Pertenece a un grupo de usuarios que tiene el permiso de acceso root.
+
+
+.Pasos
+. Seleccione *ADMINISTRACIÓN de ACCESO* > *grupos*.
+. Seleccione el nombre del grupo cuyos detalles desee ver o editar.
++
+También puede seleccionar *acciones* > *Ver detalles del grupo*.
+
++
+Aparece la página de detalles del grupo. En el siguiente ejemplo, se muestra la página de detalles del grupo S3.
+
++
+image::../media/tenant_group_details.png[Ver detalles del grupo]
+
+. Realice cambios en la configuración del grupo según sea necesario.
++
+
+TIP: Para asegurarse de que se guardan los cambios, seleccione *Guardar cambios* después de realizar cambios en cada sección. Cuando se guarden los cambios, aparecerá un mensaje de confirmación en la esquina superior derecha de la página.
+
++
+.. Si lo desea, seleccione el nombre mostrado o el icono de edición image:../media/icon_edit_tm.png["Icono Editar"]para actualizar el nombre mostrado.
++
+No puede cambiar el nombre único de un grupo. No puede editar el nombre mostrado de un grupo federado.
+
+.. Si lo desea, actualice los permisos.
+.. Para la política de grupo, realice los cambios apropiados para su inquilino de S3.
++
+*** Si va a editar un grupo para un inquilino de S3, seleccione de forma opcional una política de grupo S3 diferente. Si selecciona una política de S3 personalizada, actualice la cadena JSON según sea necesario.
+*** Si está editando un grupo para un inquilino Swift, opcionalmente seleccione o desactive la casilla de verificación *Swift Administrator*.
++
+Para obtener más información sobre el permiso de administrador de Swift, consulte las instrucciones para crear grupos para un inquilino Swift.
+
+
+
+.. Opcionalmente, agregue o elimine usuarios.
+
+
+. Confirme que ha seleccionado *Guardar cambios* para cada sección que haya cambiado.
+
+
+.Información relacionada
+* link:creating-groups-for-s3-tenant.html["Cree grupos para el inquilino de S3"]
+* link:creating-groups-for-swift-tenant.html["Cree grupos para el inquilino Swift"]
+

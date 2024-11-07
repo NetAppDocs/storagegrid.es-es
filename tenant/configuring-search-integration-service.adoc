@@ -1,0 +1,306 @@
+---
+permalink: tenant/configuring-search-integration-service.html 
+sidebar: sidebar 
+keywords: how to configure search integration service 
+summary: Para activar la integración de búsqueda de un depósito, cree XML de configuración de integración de búsqueda y utilice el Gestor de inquilinos para aplicar el XML a un depósito. 
+---
+= Configure el servicio de integración de búsqueda
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para activar la integración de búsqueda de un depósito, cree XML de integración de búsqueda y utilice el gestor de inquilinos para aplicar el XML al bloque.
+
+.Antes de empezar
+* Un administrador de StorageGRID activó los servicios de plataforma para su cuenta de inquilino.
+* Ya ha creado un bucket S3 cuyo contenido desea indexar.
+* El punto final que pretende utilizar como destino para el servicio de integración de búsqueda ya existe y tiene su URN.
+* Pertenece a un grupo de usuarios que tiene el link:tenant-management-permissions.html["Gestione todos los bloques o permisos de acceso raíz"]. Estos permisos anulan la configuración de permisos de las directivas de grupo o de bloque al configurar el bloque mediante el Administrador de inquilinos.
+
+
+.Acerca de esta tarea
+Después de configurar el servicio de integración de búsqueda para un bloque de origen, al crear un objeto o actualizar los metadatos o las etiquetas de un objeto se activan los metadatos de objeto que se enviarán al extremo de destino.
+
+Si habilita el servicio de integración de búsqueda para un depósito que ya contiene objetos, las notificaciones de metadatos no se envían automáticamente para los objetos existentes. Actualice estos objetos existentes para asegurarse de que sus metadatos se agregan al índice de búsqueda de destino.
+
+.Pasos
+. Habilitar la integración de búsqueda para un bloque:
++
+** Utilice un editor de texto para crear el XML de notificación de metadatos necesario para habilitar la integración de búsqueda.
+** Al configurar XML, utilice URN de un extremo de integración de búsqueda como destino.
++
+Los objetos se pueden filtrar según el prefijo del nombre del objeto. Por ejemplo, puede enviar metadatos para objetos con el prefijo `images` a un destino y metadatos para los objetos con el prefijo `videos` a otro. Las configuraciones que tienen prefijos superpuestos no son válidas y se rechazan cuando se envían. Por ejemplo, no se permite una configuración que incluya una regla para los objetos con el prefijo `test` y una segunda regla para los objetos con el prefijo `test2`.
+
++
+Si es necesario, consulte la <<example-notification-config,Ejemplos del XML de configuración de metadatos>>.
+
++
+[listing]
+----
+<MetadataNotificationConfiguration>
+ <Rule>
+    <Status>Enabled</Status>
+    <Prefix></Prefix>
+    <Destination>
+       <Urn>/Urn>
+       </Destination>
+ </Rule>
+</MetadataNotificationConfiguration>
+----
++
+Elementos del XML de configuración de notificación de metadatos:
+
++
+[cols="1a,3a,1a"]
+|===
+| Nombre | Descripción | Obligatorio 
+
+
+ a| 
+MetadataNotificationConfiguration
+ a| 
+Etiqueta de contenedor para las reglas que se usan para especificar los objetos y el destino de las notificaciones de metadatos.
+
+Contiene uno o más elementos Regla.
+ a| 
+Sí
+
+
+
+ a| 
+Regla
+ a| 
+Código de contenedor de una regla que identifica los objetos cuyos metadatos deben agregarse a un índice especificado.
+
+Se rechazan las reglas con prefijos superpuestos.
+
+Incluido en el elemento MetadataNotificationConfiguration.
+ a| 
+Sí
+
+
+
+ a| 
+ID
+ a| 
+Identificador único de la regla.
+
+Incluido en el elemento Regla.
+ a| 
+No
+
+
+
+ a| 
+Estado
+ a| 
+El estado puede ser "activado" o "desactivado". No se toman medidas para las reglas que están desactivadas.
+
+Incluido en el elemento Regla.
+ a| 
+Sí
+
+
+
+ a| 
+Prefijo
+ a| 
+Los objetos que coinciden con el prefijo se ven afectados por la regla y sus metadatos se envían al destino especificado.
+
+Para hacer coincidir todos los objetos, especifique un prefijo vacío.
+
+Incluido en el elemento Regla.
+ a| 
+Sí
+
+
+
+ a| 
+Destino
+ a| 
+Etiqueta de contenedor para el destino de una regla.
+
+Incluido en el elemento Regla.
+ a| 
+Sí
+
+
+
+ a| 
+No
+ a| 
+URN del destino donde se envían los metadatos del objeto. Debe ser URN de un extremo de StorageGRID con las siguientes propiedades:
+
+*** `es` debe ser el tercer elemento.
+*** El URN debe terminar con el índice y el tipo donde se almacenan los metadatos, en la forma `domain-name/myindex/mytype`.
+
+
+Los extremos se configuran con el administrador de inquilinos o la API de gestión de inquilinos. Tienen el siguiente formato:
+
+*** `arn:aws:es:region:account-ID:domain/mydomain/myindex/mytype`
+*** `urn:mysite:es:::mydomain/myindex/mytype`
+
+
+El punto final debe estar configurado antes de enviar el XML de configuración o la configuración fallará con un error 404.
+
+EL VALOR DE URN se incluye en el elemento Destination.
+ a| 
+Sí
+
+|===
+
+
+. En el Administrador de inquilinos, seleccione *ALMACENAMIENTO (S3)* > *Cuchos*.
+. Seleccione el nombre del bloque de origen.
++
+Aparece la página de detalles bucket.
+
+. Seleccione *Servicios de plataforma* > *integración de búsqueda*
+. Seleccione la casilla de verificación *Habilitar integración de búsqueda*.
+. Pegue la configuración de notificación de metadatos en el cuadro de texto y seleccione *Guardar cambios*.
++
+
+NOTE: Un administrador de StorageGRID debe habilitar los servicios de plataforma para cada cuenta de inquilino mediante Grid Manager o la API de gestión. Póngase en contacto con el administrador de StorageGRID si se produce un error al guardar el XML de configuración.
+
+. Compruebe que el servicio de integración de búsqueda está configurado correctamente:
++
+.. Añada un objeto al bloque de origen que cumpla los requisitos para activar una notificación de metadatos tal y como se especifica en el XML de configuración.
++
+En el ejemplo mostrado anteriormente, todos los objetos añadidos al bloque activan una notificación de metadatos.
+
+.. Confirme que se ha agregado un documento JSON que contiene los metadatos y las etiquetas del objeto al índice de búsqueda especificado en el extremo.
+
+
+
+
+.Después de terminar
+Según sea necesario, se puede deshabilitar la integración de búsqueda para un bloque con cualquiera de los siguientes métodos:
+
+* Seleccione *STORAGE (S3)* > *Buckets* y desactive la casilla de verificación *Enable search integration*.
+* Si utiliza la API de S3 directamente, utilice una solicitud de notificación DELETE Bucket. Consulte las instrucciones para implementar aplicaciones cliente de S3.
+
+
+
+
+== [[example-notification-config]]Ejemplo: Configuración de notificación de metadatos que se aplica a todos los objetos
+
+En este ejemplo, los metadatos de objeto de todos los objetos se envían al mismo destino.
+
+[listing]
+----
+<MetadataNotificationConfiguration>
+    <Rule>
+        <ID>Rule-1</ID>
+        <Status>Enabled</Status>
+        <Prefix></Prefix>
+        <Destination>
+           <Urn>urn:myes:es:::sgws-notifications/test1/all</Urn>
+        </Destination>
+    </Rule>
+</MetadataNotificationConfiguration>
+----
+
+
+== Ejemplo: Configuración de notificación de metadatos con dos reglas
+
+En este ejemplo, los metadatos del objeto para los objetos que coinciden con el prefijo `/images` se envían a un destino, mientras que los metadatos del objeto para los objetos que coinciden con el prefijo `/videos` se envían a un segundo destino.
+
+[listing]
+----
+
+<MetadataNotificationConfiguration>
+    <Rule>
+        <ID>Images-rule</ID>
+        <Status>Enabled</Status>
+        <Prefix>/images</Prefix>
+        <Destination>
+           <Urn>arn:aws:es:us-east-1:3333333:domain/es-domain/graphics/imagetype</Urn>
+        </Destination>
+    </Rule>
+    <Rule>
+        <ID>Videos-rule</ID>
+        <Status>Enabled</Status>
+        <Prefix>/videos</Prefix>
+        <Destination>
+           <Urn>arn:aws:es:us-west-1:22222222:domain/es-domain/graphics/videotype</Urn>
+        </Destination>
+    </Rule>
+</MetadataNotificationConfiguration>
+----
+
+
+== Formato de notificación de metadatos
+
+Al habilitar el servicio de integración de búsqueda para un bloque, se genera un documento JSON y se envía al extremo de destino cada vez que se agregan, actualizan o eliminan metadatos o etiquetas del objeto.
+
+Este ejemplo muestra un ejemplo del JSON que podría generarse cuando se crea un objeto con la clave `SGWS/Tagging.txt` en un cubo llamado `test`. El `test` depósito no está versionado, por lo que la `versionId` etiqueta está vacía.
+
+[listing]
+----
+{
+  "bucket": "test",
+  "key": "SGWS/Tagging.txt",
+  "versionId": "",
+  "accountId": "86928401983529626822",
+  "size": 38,
+  "md5": "3d6c7634a85436eee06d43415012855",
+  "region":"us-east-1",
+  "metadata": {
+    "age": "25"
+  },
+  "tags": {
+    "color": "yellow"
+  }
+}
+----
+
+
+=== Campos incluidos en el documento JSON
+
+El nombre del documento incluye el nombre del bloque, el nombre del objeto y el ID de versión, si existe.
+
+Información sobre bloques y objetos::
++
+--
+`bucket`: Nombre del cubo
+
+`key`: Nombre de clave de objeto
+
+`versionID`: Versión de objeto, para objetos en cubos versionados
+
+`region`: Región de cubo, por ejemplo `us-east-1`
+
+--
+Metadatos del sistema::
++
+--
+`size`: Tamaño del objeto (en bytes) como visible para un cliente HTTP
+
+`md5`: HASH de objeto
+
+--
+Metadatos del usuario::
++
+--
+`metadata`: Todos los metadatos de usuario para el objeto, como pares clave-valor
+
+`key:value`
+
+--
+Etiquetas::
++
+--
+`tags`: Todas las etiquetas de objeto definidas para el objeto, como pares clave-valor
+
+`key:value`
+
+--
+
+
+
+
+=== Cómo ver los resultados en Elasticsearch
+
+Para las etiquetas y los metadatos de usuario, StorageGRID pasa las fechas y los números a Elasticsearch como cadenas o como notificaciones de eventos S3. Para configurar Elasticsearch para interpretar estas cadenas como fechas o números, siga las instrucciones de Elasticsearch para la asignación dinámica de campos y para asignar formatos de fecha. Active las asignaciones de campos dinámicos en el índice antes de configurar el servicio de integración de búsqueda. Después de indexar un documento, no puede editar los tipos de campo del documento en el índice.

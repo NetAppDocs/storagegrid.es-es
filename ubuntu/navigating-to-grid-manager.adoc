@@ -1,0 +1,51 @@
+---
+permalink: ubuntu/navigating-to-grid-manager.html 
+sidebar: sidebar 
+keywords: how to navigate to Grid Manager 
+summary: El Gestor de cuadrícula se utiliza para definir toda la información necesaria para configurar el sistema StorageGRID. 
+---
+= Desplácese hasta Grid Manager
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El Gestor de cuadrícula se utiliza para definir toda la información necesaria para configurar el sistema StorageGRID.
+
+.Antes de empezar
+El nodo de administración principal debe estar implementado y haber completado la secuencia de inicio inicial.
+
+.Pasos
+. Abra su navegador web y vaya a:
++
+`https://_primary_admin_node_ip_`
+
++
+También puede acceder a Grid Manager en el puerto 8443:
+
++
+`https://_primary_admin_node_ip_:8443`
+
++
+Puede usar la dirección IP para la IP del nodo de administración principal en la red de grid o en la red de administración, según corresponda a su configuración de red.
+
+. Gestione una contraseña temporal del instalador según sea necesario:
++
+** Si ya se estableció una contraseña mediante uno de estos métodos, introduzca la contraseña para continuar.
++
+*** Un usuario estableció la contraseña mientras accedía al instalador anteriormente
+*** La contraseña se importó automáticamente del archivo de configuración del nodo en `/etc/storagegrid/nodes/_<node_name>_.conf`
+
+
+** Si no se ha establecido una contraseña, establezca opcionalmente una contraseña para proteger el instalador de StorageGRID.
+
+
+. Selecciona *Instalar un sistema StorageGRID*.
++
+Se muestra la página que se utiliza para configurar un sistema StorageGRID.
+
++
+image::../media/gmi_installer_first_screen.gif[Esta imagen se explica por el texto circundante.]
+
+

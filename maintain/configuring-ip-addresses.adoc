@@ -1,0 +1,49 @@
+---
+permalink: maintain/configuring-ip-addresses.html 
+sidebar: sidebar 
+keywords: configure ip address, change IP tool, ethernet, dhcp, ha group 
+summary: Puede realizar la configuración de red configurando direcciones IP para nodos de grid mediante la herramienta Cambiar IP. 
+---
+= Directrices de direcciones IP
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede realizar la configuración de red configurando direcciones IP para nodos de grid mediante la herramienta Cambiar IP.
+
+Debe utilizar la herramienta Change IP para realizar la mayoría de los cambios en la configuración de red que se estableció inicialmente durante la implementación de grid. Los cambios manuales que utilizan comandos y archivos de red estándar de Linux pueden no propagarse a todos los servicios de StorageGRID y podrían no persistir en todas las actualizaciones, reinicios o procedimientos de recuperación de nodos.
+
+
+NOTE: El procedimiento de cambio de IP puede ser un procedimiento disruptivo. Es posible que algunas partes de la cuadrícula no estén disponibles hasta que se aplique la nueva configuración.
+
+
+NOTE: Si sólo va a realizar cambios en la lista de subredes de red de cuadrícula, utilice el administrador de cuadrícula para agregar o cambiar la configuración de red. De lo contrario, utilice la herramienta Cambiar IP si no se puede acceder a Grid Manager debido a un problema de configuración de red o si está realizando un cambio de enrutamiento de red de cuadrícula y otros cambios de red al mismo tiempo.
+
+
+TIP: Si desea cambiar la dirección IP de la red de grid para todos los nodos de la cuadrícula, utilice la link:changing-ip-addresses-and-mtu-values-for-all-nodes-in-grid.html["procedimiento especial para cambios en toda la red"].
+
+
+
+== Interfaces Ethernet
+
+La dirección IP asignada a eth0 siempre es la dirección IP de red de cuadrícula del nodo. La dirección IP asignada a eth1 siempre es la dirección IP de red de administrador del nodo de grid. La dirección IP asignada a eth2 es siempre la dirección IP de red de cliente del nodo grid.
+
+Tenga en cuenta que en algunas plataformas, como dispositivos StorageGRID, eth0, eth1 y eth2 pueden ser interfaces de agregado compuestas de puentes subordinados o enlaces de interfaces físicas o VLAN. En estas plataformas, la pestaña *SSM* > *Resources* puede mostrar la dirección IP de red de Grid, Admin y Client Network asignada a otras interfaces además de eth0, eth1 o eth2.
+
+
+
+== DHCP
+
+DHCP solo puede configurarse durante la fase de implementación. No puede configurar DHCP durante la configuración. Debe usar los procedimientos de cambio de direcciones IP si desea cambiar las direcciones IP, las máscaras de subred y las puertas de enlace predeterminadas para un nodo de grid. Si se usa la herramienta Change IP, las direcciones DHCP se volverán estáticas.
+
+
+
+== Grupos de alta disponibilidad
+
+* Si una interfaz de red de cliente está contenida en un grupo de alta disponibilidad, no puede cambiar la dirección IP de la red de cliente de esa interfaz a una dirección que esté fuera de la subred configurada para el grupo de alta disponibilidad.
+* No puede cambiar la dirección IP de la red del cliente al valor de una dirección IP virtual existente asignada a un grupo HA configurado en la interfaz de red del cliente.
+* Si una interfaz de red de Grid está contenida en un grupo de alta disponibilidad, no puede cambiar la dirección IP de red de Grid de esa interfaz por una dirección que esté fuera de la subred configurada para el grupo de alta disponibilidad.
+* No puede cambiar la dirección IP de red de grid al valor de una dirección IP virtual existente asignada a un grupo HA configurado en la interfaz de red de grid.
+

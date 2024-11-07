@@ -1,0 +1,36 @@
+---
+permalink: maintain/stopping-server-manager-and-all-services.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, stop server manager, stop all services, stop services 
+summary: Server Manager está pensado para ejecutarse en todo momento, pero es posible que necesite detener Server Manager y todos los servicios que se ejecutan en un nodo de cuadrícula. 
+---
+= Detenga Server Manager y todos los servicios
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Server Manager está pensado para ejecutarse en todo momento, pero es posible que necesite detener Server Manager y todos los servicios que se ejecutan en un nodo de cuadrícula.
+
+.Antes de empezar
+Tiene el `Passwords.txt` archivo.
+
+.Pasos
+. Inicie sesión en el nodo de grid:
++
+.. Introduzca el siguiente comando: `ssh admin@_grid_node_IP_`
+.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
+.. Introduzca el siguiente comando para cambiar a raíz: `su -`
+.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
+
+
++
+Al iniciar sesión como root, la petición de datos cambia de `$` a `#`.
+
+. Pare Server Manager y todos los servicios que se ejecutan en el nodo de grid: `service servermanager stop`
++
+Server Manager y todos los servicios que se ejecutan en el nodo de grid se finalizan correctamente. Los servicios pueden tardar hasta 15 minutos en apagarse.
+
+. Cierre la sesión del shell de comandos: `exit`
+

@@ -1,0 +1,56 @@
+---
+permalink: primer/what-gateway-node-is.html 
+sidebar: sidebar 
+keywords: gateway nodes, api gateway 
+summary: Los nodos de puerta de enlace proporcionan una interfaz de equilibrio de carga dedicada que las aplicaciones cliente S3 pueden utilizar para conectarse a StorageGRID. El equilibrio de carga maximiza la velocidad y la capacidad de conexión mediante la distribución de la carga de trabajo entre varios nodos de almacenamiento. Los nodos de puerta de enlace son opcionales. 
+---
+= ¿Qué es un nodo de puerta de enlace?
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los nodos de puerta de enlace proporcionan una interfaz de equilibrio de carga dedicada que las aplicaciones cliente S3 pueden utilizar para conectarse a StorageGRID. El equilibrio de carga maximiza la velocidad y la capacidad de conexión mediante la distribución de la carga de trabajo entre varios nodos de almacenamiento. Los nodos de puerta de enlace son opcionales.
+
+El servicio de equilibrador de carga de StorageGRID se proporciona en todos los nodos de administración y todos los nodos de puerta de enlace. Realiza la terminación de las solicitudes de cliente de Seguridad de capa de transporte (TLS), inspecciona las solicitudes y establece nuevas conexiones seguras a los nodos de almacenamiento. El servicio de equilibrador de carga dirige sin problemas a los clientes a un nodo de almacenamiento óptimo, de modo que el fallo de nodos o incluso un sitio completo sea transparente.
+
+Configure uno o más puntos finales del equilibrador de carga para definir el protocolo de puerto y red (HTTPS o HTTP) que las solicitudes de cliente entrantes y salientes utilizarán para acceder a los servicios del equilibrador de carga en los nodos de gateway y administración. El punto final del equilibrador de carga también define el tipo de cliente (S3), el modo de enlace y, opcionalmente, una lista de inquilinos permitidos o bloqueados. Consulte link:../admin/managing-load-balancing.html["Consideraciones que tener en cuenta al equilibrio de carga"].
+
+Según sea necesario, puede agrupar las interfaces de red de varios nodos de gateway y nodos de administración en un grupo de alta disponibilidad (HA). Si falla la interfaz activa en el grupo HA, una interfaz de backup puede gestionar la carga de trabajo de la aplicación cliente. Consulte link:../admin/managing-high-availability-groups.html["Gestione grupos de alta disponibilidad"].
+
+
+
+== Servicios principales para nodos de puerta de enlace
+
+La siguiente tabla muestra los servicios principales para los nodos de puerta de enlace; sin embargo, esta tabla no enumera todos los servicios de nodo.
+
+[cols="1a,2a"]
+|===
+| Servicio | Función de la tecla 
+
+
+ a| 
+Alta disponibilidad
+ a| 
+Administra direcciones IP virtuales de alta disponibilidad para grupos de nodos de administración y nodos de puerta de enlace.
+
+*Nota:* este servicio también se encuentra en los nodos de administración.
+
+
+
+ a| 
+Equilibrador de carga
+ a| 
+Proporciona equilibrio de carga de la capa 7 de tráfico S3 desde los clientes a los nodos de almacenamiento. Este es el mecanismo de equilibrio de carga recomendado.
+
+*Nota:* este servicio también se encuentra en los nodos de administración.
+
+
+
+ a| 
+Monitor de estado del servidor (SSM)
+ a| 
+Supervisa el sistema operativo y el hardware subyacente.
+
+|===

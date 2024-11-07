@@ -1,0 +1,62 @@
+---
+permalink: maintain/selecting-node-recovery-procedure.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, procedure 
+summary: Debe seleccionar el procedimiento de recuperación correcto para el tipo de nodo que ha fallado. 
+---
+= Seleccione el procedimiento de recuperación nodo
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe seleccionar el procedimiento de recuperación correcto para el tipo de nodo que ha fallado.
+
+[cols="1a,2a"]
+|===
+| Nodo de grid | Procedimiento de recuperación 
+
+
+ a| 
+Más de un nodo de almacenamiento
+ a| 
+Póngase en contacto con el soporte técnico. Si se produjo un error en más de un nodo de almacenamiento, el soporte técnico debe facilitar la recuperación para evitar incoherencias de la base de datos que podrían provocar la pérdida de datos. Es posible que sea necesario un procedimiento de recuperación del sitio.
+
+link:how-site-recovery-is-performed-by-technical-support.html["Cómo el soporte técnico recupera un sitio"]
+
+
+
+ a| 
+Un solo nodo de almacenamiento
+ a| 
+El procedimiento de recuperación del nodo de almacenamiento depende del tipo y de la duración del error.
+
+link:recovering-from-storage-node-failures.html["Recupere el sistema de errores de nodo de almacenamiento"]
+
+
+
+ a| 
+Nodo de administración
+ a| 
+El procedimiento Admin Node depende de si se necesita recuperar el nodo de administrador principal o un nodo de administrador que no sea primario.
+
+link:recovering-from-admin-node-failures.html["Recupere desde fallos de nodo de administrador"]
+
+
+
+ a| 
+Nodo de puerta de enlace
+ a| 
+link:replacing-gateway-node.html["Recuperarse de fallos de nodo de puerta de enlace"]
+
+
+
+ a| 
+Nodo de archivado
+ a| 
+https://docs.netapp.com/us-en/storagegrid-118/maintain/recovering-from-archive-node-failures.html["Recuperación de fallos de nodos de archivado (sitio de documentos de StorageGRID 11,8)"^]
+
+|===
+
+NOTE: Si falla un servidor que aloja más de un nodo de grid, puede recuperar los nodos en cualquier orden. Sin embargo, si el servidor con el fallo aloja el nodo de administración principal, primero debe recuperar dicho nodo. Si se recupera el nodo de administrador principal, primero se impide que las recuperaciones de otros nodos se detenguen a medida que esperan para ponerse en contacto con el nodo de administración principal.

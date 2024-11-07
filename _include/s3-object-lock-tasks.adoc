@@ -1,0 +1,38 @@
+= 
+:allow-uri-read: 
+
+
+Las siguientes listas para administradores de grid y usuarios de tenant contienen las tareas de alto nivel para utilizar la función Bloqueo de objetos S3.
+
+Administrador de grid::
++
+--
+* Active la configuración de bloqueo de objetos S3 global para todo el sistema StorageGRID.
+* Asegúrese de que las políticas de gestión del ciclo de vida de la información (ILM) son _obedientes_; es decir, cumplen con el link:../ilm/managing-objects-with-s3-object-lock.html["Requisitos de los depósitos con bloqueo de objetos S3 activado"].
+* Según sea necesario, permita que un inquilino utilice Compliance como modo de retención. De lo contrario, sólo se permite el modo Gobernanza.
+* Según sea necesario, defina un período de retención máximo para un inquilino.
+
+
+--
+Usuario inquilino::
++
+--
+* Revise las consideraciones sobre bloques y objetos con S3 Object Lock.
+* Según sea necesario, póngase en contacto con el administrador de cuadrícula para habilitar la configuración global de bloqueo de objetos S3 y establecer permisos.
+* Crear cubos con bloqueo de objetos S3 activado.
+* Opcionalmente, configure los valores de retención predeterminados para un bloque:
++
+** Modo de retención predeterminado: Gobernanza o Cumplimiento, si lo permite el administrador de grid.
+** Período de retención predeterminado: Debe ser inferior o igual al período de retención máximo definido por el administrador de grid.
+
+
+* Utilice la aplicación cliente S3 para agregar objetos y, opcionalmente, establecer una retención específica de objetos:
++
+** Modo de retención. Gobernanza o cumplimiento de normativas, si lo permite el administrador de grid.
+** Retener hasta fecha: Debe ser menor o igual que lo permitido por el período de retención máximo definido por el administrador de grid.
+
+
+
+
+--
+

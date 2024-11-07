@@ -1,0 +1,132 @@
+---
+permalink: maintain/decommissioning-connected-grid-nodes.html 
+sidebar: sidebar 
+keywords: storagegrid, decommission, connected nodes, decommission node 
+summary: Puede retirar y eliminar permanentemente los nodos conectados a la cuadrícula. 
+---
+= Retirada de nodos de grid conectados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede retirar y eliminar permanentemente los nodos conectados a la cuadrícula.
+
+.Antes de empezar
+* Usted entiende las consideraciones para el desmantelamiento link:considerations-for-decommissioning-admin-or-gateway-nodes.html["Nodos de administración y puerta de enlace"] y las consideraciones para el desmantelamiento link:considerations-for-decommissioning-storage-nodes.html["Nodos de almacenamiento"].
+* Ha reunido todos los materiales necesarios.
+* Se ha asegurado de que no hay ningún trabajo de reparación de datos activo.
+* Ha confirmado que la recuperación del nodo de almacenamiento no está en curso en ningún lugar de la cuadrícula. Si es así, espere a que se complete cualquier reconstrucción de Cassandra realizada como parte de la recuperación. A continuación, podrá continuar con el desmantelamiento.
+* Se ha asegurado de que no se ejecutarán otros procedimientos de mantenimiento mientras el procedimiento de retirada del nodo se esté ejecutando, a menos que el procedimiento de retirada del nodo se detenga.
+* Tiene la clave de acceso de aprovisionamiento.
+* Los nodos de grid están conectados.
+* La columna *Decomiso posible* para el nodo o nodos que desea retirar incluye una marca de verificación verde.
++
+
+NOTE: La retirada no se iniciará si uno o más volúmenes están sin conexión (sin montar) o si están en línea (montados), pero en estado de error.
+
++
+
+NOTE: Si uno o más volúmenes quedan sin conexión mientras existe una decomisión en curso, el proceso de decomiso se completa una vez que estos volúmenes vuelvan a estar en línea.
+
+* Todos los nodos de la cuadrícula tienen un estado normal (verde)image:../media/icon_alert_green_checkmark.png["icono de marca de verificación verde"]. Si ve uno de estos iconos en la columna *Estado*, debe intentar resolver el problema:
++
+[cols="1a,1a,3a"]
+|===
+| . | Color | Gravedad 
+
+
+ a| 
+image:../media/icon_alarm_yellow_notice.gif["icono cuadrado amarillo"]
+ a| 
+Amarillo
+ a| 
+Aviso
+
+
+
+ a| 
+image:../media/icon_alert_yellow_minor.png["icono de diamante naranja claro"]
+ a| 
+Naranja claro
+ a| 
+Menor
+
+
+
+ a| 
+image:../media/icon_alert_orange_major.png["icono de diamante naranja oscuro"]
+ a| 
+Naranja oscuro
+ a| 
+Importante
+
+
+
+ a| 
+image:../media/icon_alert_red_critical.png["icono rojo x"]
+ a| 
+Rojo
+ a| 
+Crítico
+
+|===
+* Si anteriormente había retirado un nodo de almacenamiento desconectado, todos los trabajos de reparación de datos se completaron correctamente. Consulte link:checking-data-repair-jobs.html["Compruebe los trabajos de reparación de datos"].
+
+
+
+CAUTION: No elimine la máquina virtual de un nodo de grid ni otros recursos hasta que se le indique que lo haga en este procedimiento.
+
+
+CAUTION: Use precaución al decomisionar nodos de almacenamiento en un grid que contenga nodos solo de metadatos basados en software. Si retira todos los nodos configurados para almacenar _both_ objetos y metadatos, la capacidad de almacenar objetos se elimina de la cuadrícula. Consulte link:../primer/what-storage-node-is.html#types-of-storage-nodes["Tipos de nodos de almacenamiento"] para obtener más información sobre nodos de almacenamiento solo de metadatos.
+
+.Acerca de esta tarea
+Cuando un nodo se retira, sus servicios se deshabilitan y el nodo se apaga automáticamente.
+
+.Pasos
+. En la página Decommission Nodes, seleccione la casilla de verificación de cada nodo de cuadrícula que desee decomisionar.
+. Introduzca la clave de acceso de aprovisionamiento.
++
+El botón *Iniciar misión* está activado.
+
+. Selecciona *Iniciar decomiso*.
+. Revise la lista de nodos en el cuadro de diálogo de confirmación y seleccione *OK*.
++
+Se inicia el procedimiento de retirada del nodo y se muestra el progreso de cada nodo.
+
++
+
+CAUTION: No desconecte un nodo de almacenamiento después de iniciar el procedimiento de retirada. El cambio de estado puede provocar que parte del contenido no se copie en otras ubicaciones.
+
+. En cuanto el nuevo paquete de recuperación esté disponible, seleccione el enlace Paquete de recuperación en el banner o seleccione *MANTENIMIENTO* > *Sistema* > *Paquete de recuperación* para acceder a la página Paquete de recuperación. A continuación, descargue el `.zip` archivo.
++
+Consulte link:downloading-recovery-package.html["Descarga del paquete de recuperación"].
+
++
+
+NOTE: Descargue el Lo antes posible. del paquete de recuperación para asegurarse de que puede recuperar la red si hay algún problema durante el procedimiento de retirada de servicio.
+
+. Supervise periódicamente la página nodos de misión de descommisión para garantizar que todos los nodos seleccionados se han retirado correctamente.
++
+
+TIP: La retirada de los nodos de almacenamiento puede llevar días o semanas.
+
++
+Una vez completadas todas las tareas, la lista de selección de nodos se volverá a mostrar con un mensaje de éxito.
+
+
+
+.Después de terminar
+Complete estos pasos después de completar el procedimiento de retirada del nodo:
+
+. Siga los pasos adecuados para su plataforma. Por ejemplo:
++
+** *Linux*: Es posible que desee desconectar los volúmenes y eliminar los archivos de configuración de nodo creados durante la instalación. Consulte link:../rhel/index.html["Instalar StorageGRID en Red Hat Enterprise Linux"] y link:../ubuntu/index.html["Instalar StorageGRID en Ubuntu o Debian"].
+** *VMware*: Es posible que desee utilizar la opción de vCenter “Eliminar del disco” para eliminar la máquina virtual. También puede ser necesario eliminar los discos de datos que sean independientes de la máquina virtual.
+** *Dispositivo StorageGRID*: El nodo del dispositivo vuelve automáticamente a un estado no desplegado en el que puede acceder al instalador del dispositivo StorageGRID. Puede apagar el dispositivo o añadirlo a otro sistema StorageGRID.
+
+
+. Asegúrese de que las unidades del nodo de cuadrícula que se decomisionan se limpian. Utilice una herramienta o servicio de limpieza de datos disponible en el mercado para eliminar los datos de las unidades de forma permanente y segura.
+. Si decomisionó un nodo del dispositivo y los datos del dispositivo estaban protegidos mediante el cifrado de nodos, utilice el instalador del dispositivo StorageGRID para borrar la configuración del servidor de gestión de claves (Clear KMS). Debe borrar la configuración de KMS si desea agregar el dispositivo a otra cuadrícula. Para obtener instrucciones, consulte https://docs.netapp.com/us-en/storagegrid-appliances/commonhardware/monitoring-node-encryption-in-maintenance-mode.html["Supervise el cifrado del nodo en modo de mantenimiento"^].
+

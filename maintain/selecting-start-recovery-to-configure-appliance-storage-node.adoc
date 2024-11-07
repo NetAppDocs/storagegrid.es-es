@@ -1,0 +1,53 @@
+---
+permalink: maintain/selecting-start-recovery-to-configure-appliance-storage-node.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, appliance storage node 
+summary: Debe seleccionar Start Recovery en el Grid Manager para configurar un Storage Node del dispositivo como reemplazo del nodo con errores. 
+---
+= Seleccione Start Recovery para configurar el nodo de almacenamiento del dispositivo
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe seleccionar Start Recovery en el Grid Manager para configurar un Storage Node del dispositivo como reemplazo del nodo con errores.
+
+.Antes de empezar
+* Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Usted tiene el link:../admin/admin-group-permissions.html["Permiso de mantenimiento o acceso raíz"].
+* Tiene la clave de acceso de aprovisionamiento.
+* Instaló un nodo de almacenamiento del dispositivo de recuperación.
+* Tiene la fecha de inicio de cualquier trabajo de reparación para datos codificados de borrado.
+* Ha verificado que el nodo de almacenamiento no se ha reconstruido en los últimos 15 días.
+
+
+.Pasos
+. En Grid Manager, seleccione *MANTENIMIENTO* > *tareas* > *recuperación*.
+. Seleccione el nodo de cuadrícula que desea recuperar en la lista Pending Nodes.
++
+Los nodos aparecen en la lista después de que fallan, pero no puede seleccionar un nodo hasta que se haya reinstalado y esté listo para la recuperación.
+
+. Introduzca la *frase de paso de aprovisionamiento*.
+. Haga clic en *Iniciar recuperación*.
++
+image::../media/4b_select_recovery_node.png[Captura de pantalla que muestra la página Mantenimiento > recuperación]
+
+. Supervise el progreso de la recuperación en la tabla recuperando Grid Node.
++
+Cuando el nodo de la cuadrícula alcance la etapa «Esperando pasos manuales», vaya al tema siguiente y siga los pasos manuales para volver a montar y formatear los volúmenes de almacenamiento del dispositivo.
+
++
+image::../media/recovery_reset_button.gif[captura de pantalla que muestra el escenario en espera de los pasos manuales]
+
++
+
+NOTE: En cualquier momento durante la recuperación, puede hacer clic en *Restablecer* para iniciar una nueva recuperación. Aparece un cuadro de diálogo que indica que el nodo quedará en un estado indeterminado si restablece el procedimiento.
+
++
+image::../media/recovery_reset_warning.gif[captura de pantalla que muestra el cuadro de diálogo de advertencia de restablecimiento de recuperación]
+
++
+Si desea volver a intentar la recuperación después de restablecer el procedimiento, debe restaurar el nodo del dispositivo a un estado preinstalado ejecutando en el nodo. `sgareinstall`
+
+

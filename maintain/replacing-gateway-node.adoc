@@ -1,0 +1,49 @@
+---
+permalink: maintain/replacing-gateway-node.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, replace gateway node, replacing gateway node 
+summary: Puede reemplazar un nodo de puerta de enlace con error por un nodo de puerta de enlace que se ejecute en el mismo hardware físico o virtual, o puede reemplazar un nodo de puerta de enlace que se ejecute en VMware o un host Linux por un nodo de puerta de enlace alojado en un dispositivo de servicios. 
+---
+= Sustituya el nodo de puerta de enlace
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede reemplazar un nodo de puerta de enlace con error por un nodo de puerta de enlace que se ejecute en el mismo hardware físico o virtual, o puede reemplazar un nodo de puerta de enlace que se ejecute en VMware o un host Linux por un nodo de puerta de enlace alojado en un dispositivo de servicios.
+
+El procedimiento de sustitución de nodo que se debe seguir depende de la plataforma que utilice el nodo de reemplazo. Una vez completado el procedimiento de sustitución de nodo (que es adecuado para todos los tipos de nodos), dicho procedimiento le dirigirá al siguiente paso para la recuperación de nodos de puerta de enlace.
+
+[cols="1a,2a"]
+|===
+| Plataforma de sustitución | Procedimiento 
+
+
+ a| 
+VMware
+ a| 
+link:all-node-types-replacing-vmware-node.html["Sustituya un nodo VMware"]
+
+
+
+ a| 
+Linux
+ a| 
+link:all-node-types-replacing-linux-node.html["Sustituya un nodo Linux"]
+
+
+
+ a| 
+Dispositivos de servicios
+ a| 
+link:replacing-failed-node-with-services-appliance.html["Sustituya un dispositivo de servicios"]
+
+
+
+ a| 
+OpenStack
+ a| 
+Las operaciones de recuperación ya no son compatibles con los archivos de disco de máquinas virtuales y los scripts de OpenStack que proporciona NetApp. Si necesita recuperar un nodo que se ejecuta en una implementación de OpenStack, descargue los archivos para el sistema operativo Linux. Luego, siga el procedimiento para link:all-node-types-replacing-linux-node.html["Reemplazar un nodo Linux"].
+
+|===

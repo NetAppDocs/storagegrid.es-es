@@ -1,0 +1,39 @@
+---
+permalink: tenant/editing-group-name.html 
+sidebar: sidebar 
+keywords: how to edit tenant group name 
+summary: Puede editar el nombre para mostrar de un grupo. No se puede editar el nombre único de un grupo. 
+---
+= Editar el nombre del grupo
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede editar el nombre para mostrar de un grupo. No puede editar el nombre único de un grupo.
+
+.Antes de empezar
+* Ha iniciado sesión en el gestor de inquilinos mediante un link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Pertenece a un grupo de usuarios que tiene el permiso de acceso root. Consulte link:tenant-management-permissions.html["Permisos de gestión de inquilinos"].
+
+
+.Pasos
+. Seleccione *ADMINISTRACIÓN de ACCESO* > *grupos*.
+. Seleccione la casilla de verificación para el grupo cuyo nombre mostrado desea editar.
+. Seleccione *acciones* > *Editar nombre de grupo*.
++
+Aparece el cuadro de diálogo Editar nombre del grupo.
+
++
+image::../media/edit_group_name.png[Editar el nombre del grupo]
+
+. Si está editando un grupo local, actualice el nombre para mostrar según sea necesario.
++
+No puede cambiar el nombre único de un grupo. No puede editar el nombre mostrado de un grupo federado.
+
+. Seleccione *Guardar cambios*.
++
+Aparecerá un mensaje de confirmación en la esquina superior derecha de la página.
+
+

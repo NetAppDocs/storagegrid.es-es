@@ -1,0 +1,46 @@
+---
+permalink: maintain/pausing-and-resuming-decommission-process-for-storage-nodes.html 
+sidebar: sidebar 
+keywords: how to pause decommission 
+summary: Si necesita realizar un segundo procedimiento de mantenimiento, puede pausar el procedimiento de retirada de un nodo de almacenamiento durante determinadas fases. Una vez finalizado el otro procedimiento, puede reanudar el decomisionado. 
+---
+= Pausar y reanudar el proceso de retirada de los nodos de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si necesita realizar un segundo procedimiento de mantenimiento, puede pausar el procedimiento de retirada de un nodo de almacenamiento durante determinadas fases. Una vez finalizado el otro procedimiento, puede reanudar el decomisionado.
+
+
+NOTE: El botón *Pausa* sólo se activa cuando se alcanzan las etapas de evaluación de ILM o de retirada de datos con código de borrado; sin embargo, la evaluación de ILM (migración de datos) continuará ejecutándose en segundo plano.
+
+.Antes de empezar
+* Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Usted tiene el link:../admin/admin-group-permissions.html["Permiso de mantenimiento o acceso raíz"].
+
+
+.Pasos
+. Seleccione *MANTENIMIENTO* > *tareas* > *misión*.
++
+Aparece la página de retirada.
+
+. Seleccione *nodos de misión*.
++
+Aparecerá la página nodos de misión. Cuando el procedimiento de retirada de servicio alcanza cualquiera de las siguientes fases, el botón *Pausa* está activado.
+
++
+** Evaluando ILM
+** Desmantelamiento de datos codificados de borrado
+
+
+. Seleccione *Pausa* para suspender el procedimiento.
++
+La etapa actual está en pausa y el botón *Reanudar* está activado.
+
++
+image::../media/decommission_nodes_procedure_paused.png[Procedimiento de retirada de nodos en pausa]
+
+. Una vez finalizado el otro procedimiento de mantenimiento, seleccione *Reanudar* para continuar con la retirada.
+

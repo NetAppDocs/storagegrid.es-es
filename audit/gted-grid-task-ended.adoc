@@ -1,0 +1,49 @@
+---
+permalink: audit/gted-grid-task-ended.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, GTED, Grid Task Ended 
+summary: Este mensaje de auditoría indica que el servicio CMN ha terminado de procesar la tarea de cuadrícula especificada y ha movido la tarea a la tabla histórica. Si el resultado es SUCS, ABRT o ROLF, habrá un mensaje de auditoría iniciado tarea de cuadrícula correspondiente. Los otros resultados indican que el procesamiento de esta tarea de cuadrícula nunca se ha iniciado. 
+---
+= GTED: La tarea de la red terminó
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Este mensaje de auditoría indica que el servicio CMN ha terminado de procesar la tarea de cuadrícula especificada y ha movido la tarea a la tabla histórica. Si el resultado es SUCS, ABRT o ROLF, habrá un mensaje de auditoría iniciado tarea de cuadrícula correspondiente. Los otros resultados indican que el procesamiento de esta tarea de cuadrícula nunca se ha iniciado.
+
+[cols="1a,1a,4a"]
+|===
+| Codificación | Campo | Descripción 
+
+
+ a| 
+TSID
+ a| 
+ID de la tarea
+ a| 
+Este campo identifica de forma única una tarea de cuadrícula generada y permite gestionar la tarea de cuadrícula a lo largo de su ciclo de vida.
+
+*Nota:* el Id. De tarea se asigna en el momento en que se genera una tarea de cuadrícula, no en el momento en que se envía. Es posible que una tarea de cuadrícula determinada se envíe varias veces y, en este caso, el campo Id. De tarea no es suficiente para vincular de forma única los mensajes de auditoría enviados, iniciados y terminados.
+
+
+
+ a| 
+TRANSFORMACIÓN DIGITAL
+ a| 
+Resultado
+ a| 
+El resultado final del estado de la tarea de la cuadrícula:
+
+* SUCS: La tarea de la red se completó correctamente.
+* ABRT: La tarea de cuadrícula ha finalizado sin un error de rollback.
+* ROLF: La tarea de cuadrícula ha finalizado y no ha podido completar el proceso de rollback.
+* CANC: La tarea de cuadrícula fue cancelada por el usuario antes de iniciarse.
+* EXPR: La tarea de la cuadrícula ha caducado antes de iniciarse.
+* IVLD: La tarea de la cuadrícula no era válida.
+* AUTH: La tarea de la cuadrícula no estaba autorizada.
+* DUPL: La tarea de la cuadrícula se rechazó como duplicado.
+
+
+|===

@@ -1,0 +1,178 @@
+---
+permalink: troubleshoot/troubleshooting-admin-node-and-user-interface-issues.html 
+sidebar: sidebar 
+keywords: how to troubleshoot admin node issues, how to troubleshoot user interface issues 
+summary: Es posible ejecutar varias tareas para determinar el origen de los problemas relacionados con los nodos de administrador y la interfaz de usuario de StorageGRID. 
+---
+= Solucione problemas del nodo de administrador y de la interfaz de usuario
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es posible ejecutar varias tareas para determinar el origen de los problemas relacionados con los nodos de administrador y la interfaz de usuario de StorageGRID.
+
+
+
+== Errores de inicio de sesión del nodo de administración
+
+Si se produce un error al iniciar sesión en un nodo de administración de StorageGRID, es posible que el sistema tenga un problema con un link:../troubleshoot/troubleshooting-network-hardware-and-platform-issues.html["redes"] problema OR https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/troubleshooting-hardware-installation-sg100-and-sg1000.html["hardware necesario"^], un problema con link:../primer/what-admin-node-is.html["Servicios del nodo de administración"]o link:../maintain/recovering-failed-storage-volumes-and-rebuilding-cassandra-database.html["Problema con la base de datos Cassandra"]en los nodos de almacenamiento conectados.
+
+.Antes de empezar
+* Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Tiene el `Passwords.txt` archivo.
+* Tienes link:../admin/admin-group-permissions.html["permisos de acceso específicos"].
+
+
+.Acerca de esta tarea
+Use estas directrices de solución de problemas si ve alguno de los siguientes mensajes de error al intentar iniciar sesión en un nodo de administrador:
+
+* `Your credentials for this account were invalid. Please try again.`
+* `Waiting for services to start...`
+* `Internal server error. The server encountered an error and could not complete your request. Please try again. If the problem persists, contact Technical Support.`
+* `Unable to communicate with server. Reloading page...`
+
+
+.Pasos
+. Espere 10 minutos e intente iniciar sesión de nuevo.
++
+Si el error no se resuelve automáticamente, vaya al siguiente paso.
+
+. Si su sistema StorageGRID tiene más de un nodo de administración, intente iniciar sesión en el Administrador de grid desde otro nodo de administración para comprobar el estado de un nodo de administración no disponible.
++
+** Si puede iniciar sesión, puede utilizar las opciones *Panel*, *NODOS*, *Alertas* y *SOPORTE* para ayudar a determinar la causa del error.
+** Si solo tiene un nodo de administración o aún no puede iniciar sesión, vaya al siguiente paso.
+
+
+. Determine si el hardware del nodo está sin conexión.
+. Si el inicio de sesión único (SSO) está activado para el sistema StorageGRID, consulte los pasos para link:../admin/configuring-sso.html["configuración del inicio de sesión único"].
++
+Es posible que deba deshabilitar y volver a habilitar temporalmente el inicio de la sesión único para un nodo de administración a fin de resolver cualquier problema.
+
++
+
+NOTE: Si SSO está activado, no puede iniciar sesión con un puerto restringido. Se debe usar el puerto 443.
+
+. Determine si la cuenta que está utilizando pertenece a un usuario federado.
++
+Si la cuenta de usuario federada no funciona, intente iniciar sesión en Grid Manager como un usuario local, como root.
+
++
+** Si el usuario local puede iniciar sesión:
++
+... Revisar las alertas.
+... Seleccione *CONFIGURACIÓN* > *Control de acceso* > *federación de identidades*.
+... Haga clic en *probar conexión* para validar la configuración de conexión para el servidor LDAP.
+... Si la prueba falla, resuelva cualquier error de configuración.
+
+
+** Si el usuario local no puede iniciar sesión y está seguro de que las credenciales son correctas, vaya al siguiente paso.
+
+
+. Utilice Secure Shell (ssh) para iniciar sesión en el nodo de administración:
++
+.. Introduzca el siguiente comando: `ssh admin@Admin_Node_IP`
+.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
+.. Introduzca el siguiente comando para cambiar a raíz: `su -`
+.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
++
+Al iniciar sesión como root, la petición de datos cambia de `$` a `#`.
+
+
+
+. Vea el estado de todos los servicios que se ejecutan en el nodo de grid: `storagegrid-status`
++
+Asegúrese de que los servicios de nms, mi, nginx y API de gestión están funcionando.
+
++
+La salida se actualiza inmediatamente si el estado de un servicio cambia.
+
++
+....
+$ storagegrid-status
+Host Name                      99-211
+IP Address                     10.96.99.211
+Operating System Kernel        4.19.0         Verified
+Operating System Environment   Debian 10.1    Verified
+StorageGRID Webscale Release   11.4.0         Verified
+Networking                                    Verified
+Storage Subsystem                             Verified
+Database Engine                5.5.9999+default Running
+Network Monitoring             11.4.0         Running
+Time Synchronization           1:4.2.8p10+dfsg Running
+ams                            11.4.0         Running
+cmn                            11.4.0         Running
+nms                            11.4.0         Running
+ssm                            11.4.0         Running
+mi                             11.4.0         Running
+dynip                          11.4.0         Running
+nginx                          1.10.3         Running
+tomcat                         9.0.27         Running
+grafana                        6.4.3          Running
+mgmt api                       11.4.0         Running
+prometheus                     11.4.0         Running
+persistence                    11.4.0         Running
+ade exporter                   11.4.0         Running
+alertmanager                   11.4.0         Running
+attrDownPurge                  11.4.0         Running
+attrDownSamp1                  11.4.0         Running
+attrDownSamp2                  11.4.0         Running
+node exporter                  0.17.0+ds      Running
+sg snmp agent                  11.4.0         Running
+....
+. Confirme que el servicio nginx-gw se está ejecutando `# service nginx-gw status`
+. [[USE_Lumberjack_to_collect_logs]]Utilice Lumberjack para recopilar registros: `# /usr/local/sbin/lumberjack.rb`
++
+Si la autenticación fallida se ha producido en el pasado, puede utilizar las opciones de script --start y --end Lumberjack para especificar el intervalo de tiempo adecuado. Utilice luberjack -h para obtener más información sobre estas opciones.
+
++
+La salida al terminal indica dónde se ha copiado el archivo de registro.
+
+. [[Review_logs, start=10]]Revise los siguientes registros:
++
+** `/var/local/log/bycast.log`
+** `/var/local/log/bycast-err.log`
+** `/var/local/log/nms.log`
+** `**/*commands.txt`
+
+
+. Si no pudo identificar ningún problema con el nodo de administración, ejecute cualquiera de los siguientes comandos para determinar las direcciones IP de los tres nodos de almacenamiento que ejecutan el servicio ADC en el sitio. Normalmente, estos son los primeros tres nodos de almacenamiento que se instalaron en el sitio.
++
+[listing]
+----
+# cat /etc/hosts
+----
++
+[listing]
+----
+# gpt-list-services adc
+----
++
+Los nodos de administración usan el servicio ADC durante el proceso de autenticación.
+
+. Desde el nodo de administración, utilice ssh para iniciar sesión en cada uno de los nodos de almacenamiento de ADC, utilizando las direcciones IP identificadas.
+. Vea el estado de todos los servicios que se ejecutan en el nodo de grid: `storagegrid-status`
++
+Asegúrese de que los servicios idnt, acct, nginx y cassandra están en ejecución.
+
+. Repita los pasos <<use_Lumberjack_to_collect_logs,Utilice Lumberjack para recopilar registros>> y <<review_logs,Revisar los registros>> para revisar los registros en los nodos de almacenamiento.
+. Si no puede resolver el problema, póngase en contacto con el soporte técnico.
++
+Proporcione los registros recopilados al soporte técnico. Consulte también link:../monitor/logs-files-reference.html["Referencia de archivos de registro"].
+
+
+
+
+
+== Problemas de la interfaz de usuario
+
+Es posible que la interfaz de usuario de Grid Manager o del Administrador de inquilinos no responda como se espera una vez actualizado el software StorageGRID.
+
+.Pasos
+. Asegúrese de que está utilizando una link:../admin/web-browser-requirements.html["navegador web compatible"].
+. Borre la caché del navegador web.
++
+Al borrar la caché se eliminan los recursos obsoletos utilizados por la versión anterior del software StorageGRID y se permite que la interfaz de usuario vuelva a funcionar correctamente. Para obtener instrucciones, consulte la documentación de su navegador web.
+
+

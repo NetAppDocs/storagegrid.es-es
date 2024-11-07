@@ -1,0 +1,46 @@
+---
+permalink: audit/ilm-audit-messages.html 
+sidebar: sidebar 
+keywords: audit messages, ILM, IDEL, LKCU, ORLM 
+summary: Los mensajes de auditoría que pertenecen a la categoría de auditoría ILM se utilizan para eventos relacionados con las operaciones de ciclo de vida de la información. 
+---
+= Mensajes de auditoría de ILM
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los mensajes de auditoría que pertenecen a la categoría de auditoría ILM se usan para eventos relacionados con las operaciones de gestión del ciclo de vida de la información (ILM).
+
+[cols="1a,3a,1a"]
+|===
+| Codificación | Título del mensaje y descripción | Consulte 
+
+
+ a| 
+IDEL
+ a| 
+ILM Initiated Delete: Este mensaje de auditoría se genera cuando ILM inicia el proceso de eliminación de un objeto.
+ a| 
+link:idel-ilm-initiated-delete.html["IDEL: Eliminación de ILM iniciada"]
+
+
+
+ a| 
+LKCU
+ a| 
+Borrado de objeto sobrescrito. Este mensaje de auditoría se genera cuando se elimina automáticamente un objeto sobrescrito para liberar espacio de almacenamiento.
+ a| 
+link:lkcu-overwritten-object-cleanup.html["LKCU: Limpieza de objetos sobrescritos"]
+
+
+
+ a| 
+ORLM
+ a| 
+Reglas de objeto cumplidas: Este mensaje de auditoría se genera cuando los datos de objeto se almacenan según lo especificado por las reglas de ILM.
+ a| 
+link:orlm-object-rules-met.html["ORLM: Se cumplen las reglas de objeto"]
+
+|===

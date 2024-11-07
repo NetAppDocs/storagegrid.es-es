@@ -1,0 +1,72 @@
+---
+permalink: fabricpool/creating-s3-bucket-and-access-key.html 
+sidebar: sidebar 
+keywords: fabricPool, S3 bucket, bucket, access key, secret access key 
+summary: Antes de usar StorageGRID con una carga de trabajo de FabricPool, debe crear un bucket de S3 para sus datos de FabricPool. También debe obtener una clave de acceso y una clave de acceso secreta para la cuenta de inquilino que utilizará para FabricPool. 
+---
+= Cree un cubo S3 y obtenga claves de acceso
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de usar StorageGRID con una carga de trabajo de FabricPool, debe crear un bucket de S3 para sus datos de FabricPool. También debe obtener una clave de acceso y una clave de acceso secreta para la cuenta de inquilino que utilizará para FabricPool.
+
+Para obtener detalles sobre esta tarea, consulte link:../tenant/creating-s3-bucket.html["Crear bloque de S3"] y link:../tenant/creating-your-own-s3-access-keys.html["Cree sus propias claves de acceso S3"]. Para utilizar el asistente de configuración de FabricPool para completar esta tarea, vaya a link:use-fabricpool-setup-wizard-steps.html["Acceda al asistente de configuración de FabricPool y complete este"].
+
+.Antes de empezar
+* Creó una cuenta de inquilino para uso de FabricPool.
+* Tiene acceso raíz a la cuenta de inquilino.
+
+
+.Pasos
+. Inicie sesión en el Administrador de inquilinos.
++
+Puede realizar una de las siguientes acciones:
+
++
+** En la página Cuentas de arrendatarios de Grid Manager, seleccione el enlace *Iniciar sesión* para el arrendatario e introduzca sus credenciales.
+** Introduzca la URL para la cuenta de inquilino en un navegador web e introduzca sus credenciales.
+
+
+. Cree un bloque de S3 para datos de FabricPool.
++
+Debe crear un bloque único para cada clúster de ONTAP que vaya a utilizar.
+
++
+.. Seleccione *Ver cubos* en el panel de control o seleccione *ALMACENAMIENTO (S3)* > *Buckets*.
+.. Seleccione *Crear cucharón*.
+.. Introduzca el nombre del bucket de StorageGRID que desee usar con FabricPool. Por ejemplo, `fabricpool-bucket`.
++
+
+TIP: No puede cambiar el nombre del bloque después de crear el bloque.
+
+.. Seleccione la región para este segmento.
++
+Por defecto, todos los cubos se crean en la `us-east-1` región.
+
+.. Seleccione *continuar*.
+.. Seleccione *Crear cucharón*.
++
+
+NOTE: No seleccione *Activar control de versiones de objetos* para el depósito de FabricPool. Del mismo modo, no edite un bucket de FabricPool para usar *available* o una consistencia no predeterminada. La consistencia de cucharón recomendada para los depósitos de FabricPool es *Leer después de-nuevo-escribir*, que es la consistencia predeterminada para un nuevo depósito.
+
+
+
+. Cree una clave de acceso y una clave de acceso secreta.
++
+.. Seleccione *ALMACENAMIENTO (S3)* > *Mis claves de acceso*.
+.. Seleccione *Crear clave*.
+.. Seleccione *Crear clave de acceso*.
+.. Copie el ID de la clave de acceso y la clave de acceso secreta a una ubicación segura, o seleccione *Descargar .csv* para guardar un archivo de hoja de cálculo que contenga el ID de clave de acceso y la clave de acceso secreta.
++
+Estos valores se introducirán en ONTAP cuando configure StorageGRID como un nivel de cloud de FabricPool.
+
++
+
+TIP: Si genera una nueva clave de acceso y una clave de acceso secreta en StorageGRID en el futuro, introduzca las nuevas claves en ONTAP antes de eliminar los valores anteriores de StorageGRID. De lo contrario, ONTAP podría perder temporalmente su acceso a StorageGRID.
+
+
+
+

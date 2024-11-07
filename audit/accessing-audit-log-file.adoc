@@ -1,0 +1,39 @@
+---
+permalink: audit/accessing-audit-log-file.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, log, log file, access, accessing 
+summary: El recurso compartido de auditoría contiene el archivo audit.log activo y todos los archivos de registro de auditoría comprimidos. Puede acceder a los archivos log de auditoría directamente desde la línea de comandos del nodo de administración. 
+---
+= Acceda al archivo de registro de auditoría
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El recurso compartido de auditoría contiene el archivo activo `audit.log` y los archivos de registro de auditoría comprimidos. Puede acceder a los archivos log de auditoría directamente desde la línea de comandos del nodo de administración.
+
+.Antes de empezar
+* Tienes link:../admin/admin-group-permissions.html["permisos de acceso específicos"].
+* Debe tener el `Passwords.txt` archivo.
+* Debe conocer la dirección IP de un nodo de administrador.
+
+
+.Pasos
+. Inicie sesión en un nodo de administrador:
++
+.. Introduzca el siguiente comando: `ssh admin@_primary_Admin_Node_IP_`
+.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
+.. Introduzca el siguiente comando para cambiar a raíz: `su -`
+.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
++
+Al iniciar sesión como root, la petición de datos cambia de `$` a `#`.
+
+
+
+. Vaya al directorio que contiene los archivos del registro de auditoría:
++
+`cd /var/local/log`
+
+. Ver el archivo de registro de auditoría actual o guardado, según sea necesario.
+

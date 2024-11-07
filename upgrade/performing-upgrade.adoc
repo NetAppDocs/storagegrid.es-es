@@ -1,0 +1,256 @@
+---
+permalink: upgrade/performing-upgrade.html 
+sidebar: sidebar 
+keywords: upgrade, how to perform a software upgrade 
+summary: Puede actualizar a StorageGRID 11,9 y aplicar la revisión más reciente para esa versión al mismo tiempo. La página de actualización de StorageGRID proporciona la ruta de actualización recomendada y enlaza directamente a las páginas de descarga correctas. 
+---
+= Realice la actualización
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede actualizar a StorageGRID 11,9 y aplicar la revisión más reciente para esa versión al mismo tiempo. La página de actualización de StorageGRID proporciona la ruta de actualización recomendada y enlaza directamente a las páginas de descarga correctas.
+
+.Antes de empezar
+Ha revisado todas las consideraciones y completado todos los pasos de planificación y preparación.
+
+
+
+== Acceda a la página Actualización de StorageGRID
+
+Como primer paso, acceda a la página Actualización de StorageGRID en Grid Manager.
+
+.Pasos
+. Inicie sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
+. Seleccione *MANTENIMIENTO* > *sistema* > *actualización de software*.
+. En el mosaico de actualización de StorageGRID, seleccione *Actualizar*.
+
+
+
+
+== Seleccione los archivos
+
+La ruta de actualización de la página Actualización de StorageGRID indica las versiones principales (por ejemplo, 11,9.0) y las revisiones (por ejemplo, 11,9.0,1) que debe instalar para obtener la versión más reciente de StorageGRID. Debe instalar las versiones recomendadas y las revisiones en el orden que se muestra.
+
+
+TIP: Si no se muestra ninguna ruta de actualización, es posible que su navegador no pueda acceder al sitio de soporte de NetApp o que la casilla de verificación *Comprobar actualizaciones de software* en la página de AutoSupport (*SUPPORT* > *Herramientas* > *AutoSupport* > *Configuración*) esté desactivada.
+
+.Pasos
+. Para el paso *Seleccionar archivos*, revise la ruta de actualización.
+. En la sección Descargar archivos, seleccione cada enlace de *Descargar* para descargar los archivos requeridos del sitio de soporte de NetApp.
++
+Si no se muestra ninguna ruta de actualización, vaya a https://mysupport.netapp.com/site/products/all/details/storagegrid/downloads-tab["Descargas de NetApp: StorageGRID"^] para determinar si hay una nueva versión o revisión disponible y para descargar los archivos que necesita.
+
++
+
+NOTE: Si necesitaba descargar e instalar un paquete RPM o DEB en todos los hosts Linux, es posible que ya tenga los archivos de actualización y correcciones urgentes de StorageGRID enumerados en la ruta de actualización.
+
+. Seleccione *Examinar* para cargar el archivo de actualización de la versión en StorageGRID: `NetApp_StorageGRID_11.9.0_Software_uniqueID.upgrade`
++
+Cuando se realiza el proceso de carga y validación, aparece una marca de verificación verde junto al nombre del archivo.
+
+. Si descargó un archivo de revisión, seleccione *Examinar* para cargar ese archivo. La revisión se aplicará automáticamente como parte de la actualización de la versión.
+. Seleccione *continuar*.
+
+
+
+
+== Realice comprobaciones previas
+
+Ejecutar comprobaciones previas le permite detectar y resolver cualquier problema de actualización antes de empezar a actualizar su grid.
+
+.Pasos
+. Para el paso *Ejecutar comprobaciones previas*, comience introduciendo la frase de acceso de aprovisionamiento para su cuadrícula.
+. Seleccione *Descargar paquete de recuperación*.
++
+Debe descargar la copia actual del archivo del paquete de recuperación antes de actualizar el nodo de administración principal. El archivo de paquete de recuperación permite restaurar el sistema si se produce un fallo.
+
+. Cuando descargue el archivo, confirme que puede acceder al contenido, incluido el `Passwords.txt` archivo.
+. Copie el archivo descargado (`.zip`) en dos ubicaciones seguras, separadas y protegidas.
++
+
+CAUTION: El archivo del paquete de recuperación debe estar protegido porque contiene claves de cifrado y contraseñas que se pueden usar para obtener datos del sistema StorageGRID.
+
+. Seleccione *Ejecutar comprobaciones previas* y espere a que se completen las comprobaciones previas.
+. Revise los detalles de cada comprobación previa informada y resuelva los errores notificados. Consulte https://kb.netapp.com/hybrid/StorageGRID/Maintenance/StorageGRID_11.9_software_upgrade_resolution_guide["Guía de resolución de actualización de software StorageGRID"^] la para la versión 11,9 de StorageGRID.
++
+Debe resolver todas las comprobaciones previas _ERRORES_ antes de actualizar el sistema. Sin embargo, no es necesario abordar la comprobación previa _WARNINGS_ antes de actualizar.
+
++
+
+CAUTION: Si ha abierto algún puerto de firewall personalizado, se le notificará durante la validación de las comprobaciones previas. Debe comunicarse con el soporte técnico antes de continuar con la actualización.
+
+. Si ha realizado algún cambio en la configuración para resolver los problemas notificados, seleccione *Ejecutar comprobaciones previas* de nuevo para obtener resultados actualizados.
++
+Si se han resuelto todos los errores, se le solicitará que inicie la actualización.
+
+
+
+
+
+== Inicie la actualización y actualice el nodo de administración principal
+
+Cuando inicia la actualización, las comprobaciones previas a la actualización se vuelven a ejecutar y el nodo de administración primario se actualiza automáticamente. Esta parte de la actualización puede tardar hasta 30 minutos.
+
+
+NOTE: No podrá acceder a ninguna otra página de Grid Manager mientras se esté actualizando el nodo de administración principal. Además, los registros de auditoría no estarán disponibles.
+
+.Pasos
+. Seleccione *Iniciar actualización*.
++
+Aparecerá una advertencia para recordarle que perderá temporalmente el acceso a Grid Manager.
+
+. Seleccione *OK* para confirmar la advertencia e iniciar la actualización.
+. Espere a que se realicen las comprobaciones previas de actualización y a que se actualice el nodo de administrador principal.
++
+
+NOTE: Si se notifica algún error de comprobación previa, soluciónelo y seleccione *Iniciar actualización* de nuevo.
+
++
+Si el grid tiene otro nodo de administración que está en línea y listo, puede utilizarlo para supervisar el estado del nodo de administración principal. En cuanto se actualice el nodo de administración principal, puede aprobar los otros nodos de grid.
+
+. Según sea necesario, seleccione *Continuar* para acceder al paso *Actualizar otros nodos*.
+
+
+
+
+== Actualice otros nodos
+
+Es necesario actualizar todos los nodos de grid, pero es posible realizar varias sesiones de actualización y personalizar la secuencia de actualización. Por ejemplo, quizás prefiera actualizar los nodos en el sitio A en una sesión y luego actualizar los nodos del sitio B en una sesión posterior. Si elige realizar la actualización en más de una sesión, tenga en cuenta que no podrá comenzar a usar las nuevas funciones hasta que se hayan actualizado todos los nodos.
+
+Si el orden en el que se actualizan los nodos es importante, apruebe los nodos o grupos de nodos de uno en uno y espere a que la actualización se complete en cada nodo antes de aprobar el siguiente nodo o grupo de nodos.
+
+
+NOTE: Cuando la actualización se inicia en un nodo de grid, los servicios de ese nodo se detienen. Más tarde, el nodo de grid se reinicia. Para evitar interrupciones del servicio para las aplicaciones cliente que se comunican con el nodo, no apruebe la actualización de un nodo a menos que esté seguro de que el nodo está listo para detenerse y reiniciarse. Según sea necesario, programe una ventana de mantenimiento o notifique a los clientes.
+
+.Pasos
+. Para el paso *Actualizar otros nodos*, revise el Resumen, que proporciona la hora de inicio de la actualización en su conjunto y el estado de cada tarea de actualización principal.
++
+** *Start upgrade service* es la primera tarea de actualización. Durante esta tarea, el archivo de software se distribuye a los nodos de grid y el servicio de actualización se inicia en cada nodo.
+** Cuando se complete la tarea *Iniciar servicio de actualización*, se iniciará la tarea *Actualizar otros nodos de grid* y se le pedirá que descargue una nueva copia del Paquete de recuperación.
+
+
+. Cuando se le solicite, introduzca la frase de contraseña de aprovisionamiento y descargue una nueva copia del paquete de recuperación.
++
+
+CAUTION: Debe descargar una nueva copia del archivo del paquete de recuperación después de actualizar el nodo de administración principal. El archivo de paquete de recuperación permite restaurar el sistema si se produce un fallo.
+
+. Revise las tablas de estado para cada tipo de nodo. Hay tablas para nodos de administración no principales, nodos de puerta de enlace y nodos de almacenamiento.
++
+Un nodo de cuadrícula puede estar en una de estas etapas cuando aparecen las tablas por primera vez:
+
++
+** Desembalaje de la actualización
+** Descarga
+** En espera de ser aprobado
+
+
+. [[APPROVAL-STEP]]Cuando esté listo para seleccionar nodos de cuadrícula para la actualización (o si necesita anular la aprobación de los nodos seleccionados), siga estas instrucciones:
++
+[cols="1a,1a"]
+|===
+| Tarea | Instrucción 
+
+
+ a| 
+Busque nodos específicos para aprobar, como todos los nodos de un sitio concreto
+ a| 
+Introduzca la cadena de búsqueda en el campo *Search*
+
+
+
+ a| 
+Seleccione todos los nodos para actualizar
+ a| 
+Seleccione *Aprobar todos los nodos*
+
+
+
+ a| 
+Seleccione todos los nodos del mismo tipo para la actualización (por ejemplo, todos los nodos de almacenamiento)
+ a| 
+Seleccione el botón *Aprobar todo* para el tipo de nodo
+
+Si aprueba más de un nodo del mismo tipo, los nodos se actualizarán de uno en uno.
+
+
+
+ a| 
+Seleccione un nodo individual para actualizar
+ a| 
+Seleccione el botón *Aprobar* para el nodo
+
+
+
+ a| 
+Posponga la actualización en todos los nodos seleccionados
+ a| 
+Seleccione *Unapprove all nodes*
+
+
+
+ a| 
+Posponga la actualización en todos los nodos seleccionados del mismo tipo
+ a| 
+Seleccione el botón *Unapprove All* para el tipo de nodo
+
+
+
+ a| 
+Posponga la actualización en un nodo individual
+ a| 
+Seleccione el botón *Unapprove* para el nodo
+
+|===
+. Espere a que los nodos aprobados continúen por estas etapas de actualización:
++
+** Aprobado y a la espera de actualización
+** Deteniendo servicios
++
+
+NOTE: No se puede eliminar un nodo cuando su etapa alcanza *parando servicios*. El botón *Unapprove* está desactivado.
+
+** Parando contenedor
+** Limpieza de imágenes de Docker
+** Actualizando paquetes de SO base
++
+
+NOTE: Cuando un nodo de dispositivo llega a esta etapa, se actualiza el software del instalador de dispositivos StorageGRID del dispositivo. Este proceso automatizado garantiza que la versión del instalador de dispositivos StorageGRID permanezca sincronizada con la versión del software StorageGRID.
+
+** Reiniciando
++
+
+NOTE: Es posible que algunos modelos de dispositivos se reinicien varias veces para actualizar el firmware y el BIOS.
+
+** Realizando pasos después del reinicio
+** Iniciando servicios
+** Listo
+
+
+. Repita el proceso <<approval-step,paso de aprobación>> tantas veces como sea necesario hasta que se hayan actualizado todos los nodos de grid.
+
+
+
+
+== Se completó la actualización
+
+Cuando todos los nodos de grid han completado las etapas de actualización, la tarea *Actualizar otros nodos de grid* se muestra como completada. Las tareas de actualización restantes se ejecutan automáticamente en segundo plano.
+
+.Pasos
+. Tan pronto como se complete la tarea *Habilitar funciones* (que ocurre rápidamente), puede comenzar a usar link:whats-new.html["otras nuevas"]en la versión actualizada de StorageGRID.
+. Durante la tarea *Upgrade database*, el proceso de actualización comprueba cada nodo para verificar que la base de datos Cassandra no necesita ser actualizada.
++
+
+NOTE: La actualización de StorageGRID 11,8 a 11,9 no requiere una actualización de la base de datos Cassandra; sin embargo, el servicio Cassandra se detendrá y se reiniciará en cada nodo de almacenamiento. En las próximas versiones de la función StorageGRID, el paso de actualización de la base de datos de Cassandra podría tardar varios días en completarse.
+
+. Cuando la tarea *Upgrade database* se haya completado, espere unos minutos hasta que se completen los pasos *Final upgrade*.
+. Cuando se hayan completado los *Pasos de actualización finales*, la actualización se realizará. El primer paso, *Seleccionar archivos*, se vuelve a mostrar con un banner de éxito verde.
+. Compruebe que las operaciones de grid se han vuelto a la normalidad:
++
+.. Compruebe que los servicios funcionan con normalidad y que no hay alertas inesperadas.
+.. Confirmar que las conexiones de los clientes con el sistema StorageGRID funcionan tal como se espera.
+
+
+

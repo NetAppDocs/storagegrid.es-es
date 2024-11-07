@@ -1,0 +1,53 @@
+---
+permalink: vmware/where-to-go-next.html 
+sidebar: sidebar 
+keywords: after installation 
+summary: Después de completar una instalación, realice las tareas de integración y configuración necesarias. Puede realizar las tareas opcionales según sea necesario. 
+---
+= A continuación, ¿dónde ir
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Después de completar una instalación, realice las tareas de integración y configuración necesarias. Puede realizar las tareas opcionales según sea necesario.
+
+
+
+== Tareas requeridas
+
+* Configure VMware vSphere Hypervisor para el reinicio automático.
++
+Debe configurar el hipervisor para reiniciar las máquinas virtuales cuando se reinicia el servidor. Sin el reinicio automático, las máquinas virtuales y los nodos de grid se mantienen apagados tras el reinicio del servidor. Para ver más detalles, consulte la documentación de VMware vSphere Hypervisor.
+
+
+
+* link:../admin/managing-tenants.html["Cree una cuenta de inquilino"] Para el protocolo de cliente S3 que se utilizará para almacenar objetos en el sistema StorageGRID.
+* link:../admin/controlling-storagegrid-access.html["Acceso al sistema de control"] mediante la configuración de grupos y cuentas de usuario. Opcionalmente, puede link:../admin/using-identity-federation.html["configurar un origen de identidad federado"] (como Active Directory u OpenLDAP), para que pueda importar grupos y usuarios de administración. O bien, puedelink:../admin/managing-users.html#create-a-local-user["crear usuarios y grupos locales"].
+* Integre y pruebe las link:../s3/configuring-tenant-accounts-and-connections.html["S3 API"]aplicaciones cliente que utilizará para cargar objetos en su sistema StorageGRID.
+* link:../ilm/index.html["Configure las reglas de gestión de la vida útil de la información (ILM) y la política de ILM"] se desea utilizar para proteger los datos de objetos.
+* Si la instalación incluye nodos de almacenamiento del dispositivo, utilice el sistema operativo SANtricity para realizar las siguientes tareas:
++
+** Conéctese a cada dispositivo StorageGRID.
+** Comprobar recepción de datos AutoSupport.
++
+Consulte https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/configuring-hardware.html["Configure el hardware"^].
+
+
+
+* Revise y siga el link:../harden/index.html["Directrices de fortalecimiento del sistema StorageGRID"] para eliminar los riesgos de seguridad.
+* link:../monitor/email-alert-notifications.html["Configure las notificaciones por correo electrónico para las alertas del sistema"].
+
+
+
+
+== Tareas opcionales
+
+* link:../maintain/changing-ip-addresses-and-mtu-values-for-all-nodes-in-grid.html["Actualice las direcciones IP del nodo de grid"] Si han cambiado desde que planificó el despliegue y generó el paquete de recuperación.
+* link:../admin/changing-network-options-object-encryption.html["Configurar el cifrado del almacenamiento"], si es necesario.
+* link:../admin/configuring-stored-object-compression.html["Configurar la compresión del almacenamiento"] para reducir el tamaño de los objetos almacenados, si es necesario.
+* link:../admin/configure-vlan-interfaces.html["Configure las interfaces VLAN"] para aislar y particionar el tráfico de red, si es necesario.
+* link:../admin/configure-high-availability-group.html["Configuración de grupos de alta disponibilidad"] Para mejorar la disponibilidad de conexión de los clientes Grid Manager, Tenant Manager y S3, si es necesario.
+* link:../admin/configuring-load-balancer-endpoints.html["Configurar puntos finales del equilibrador de carga"] Para la conectividad de cliente S3, si es necesario.
+

@@ -1,0 +1,367 @@
+---
+permalink: tenant/creating-platform-services-endpoint.html 
+sidebar: sidebar 
+keywords: how to create platform services endpoint 
+summary: Debe crear al menos un extremo del tipo correcto para poder habilitar un servicio de plataforma. 
+---
+= Cree un extremo de servicios de plataforma
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe crear al menos un extremo del tipo correcto para poder habilitar un servicio de plataforma.
+
+.Antes de empezar
+* Ha iniciado sesión en el gestor de inquilinos mediante un link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Un administrador de StorageGRID activó los servicios de plataforma para su cuenta de inquilino.
+* Pertenece a un grupo de usuarios que tiene el link:tenant-management-permissions.html["Gestionar puntos finales o permisos de acceso raíz"].
+* Se ha creado el recurso al que hace referencia el punto final de servicios de plataforma:
++
+** Replicación de CloudMirror: Bloque de S3
+** Notificación de eventos: Tema de Amazon Simple Notification Service (Amazon SNS) o Kafka
+** Notificación de búsqueda: Índice de Elasticsearch, si el clúster de destino no está configurado para crear índices automáticamente.
+
+
+* Tiene la información sobre el recurso de destino:
++
+** Host y puerto para el Identificador uniforme de recursos (URI)
++
+
+NOTE: Si piensa utilizar un bloque alojado en un sistema StorageGRID como extremo para la replicación de CloudMirror, póngase en contacto con el administrador de grid para determinar los valores que debe introducir.
+
+** Nombre del recurso único (URN)
++
+link:specifying-urn-for-platform-services-endpoint.html["Especifique URN para el extremo de servicios de la plataforma"]
+
+** Credenciales de autenticación (si es necesario):
++
+[role="tabbed-block"]
+====
+.Buscar puntos finales de integración
+--
+Para los puntos finales de integración de búsqueda, puede utilizar las siguientes credenciales:
+
+*** Clave de acceso: ID de clave de acceso y clave de acceso secreta
+*** Basic HTTP: Nombre de usuario y contraseña
+
+
+--
+.Extremos de replicación de CloudMirror
+--
+En el caso de los extremos de replicación de CloudMirror, se pueden usar las siguientes credenciales:
+
+*** Clave de acceso: ID de clave de acceso y clave de acceso secreta
+*** CAP (C2S Access Portal): URL de credenciales temporales, certificados de servidor y de cliente, claves de cliente y una contraseña de clave privada de cliente opcional.
+
+
+--
+.Extremos de Amazon SNS
+--
+Para los extremos de Amazon SNS, puede usar las siguientes credenciales:
+
+*** Clave de acceso: ID de clave de acceso y clave de acceso secreta
+
+
+--
+.Puntos finales de Kafka
+--
+Para los puntos finales de Kafka, puede utilizar las siguientes credenciales:
+
+*** SASL/PLAIN: Nombre de usuario y contraseña
+*** SASL/SCRAM-SHA-256: Nombre de usuario y contraseña
+*** SASL/SCRAM-SHA-512: Nombre de usuario y contraseña
+
+
+--
+====
+** Certificado de seguridad (si se utiliza un certificado de CA personalizado)
+
+
+* Si las funciones de seguridad de Elasticsearch están activadas, tiene el privilegio de clúster de supervisión para las pruebas de conectividad y el privilegio WRITE INDEX o los privilegios INDEX y DELETE INDEX para las actualizaciones de documentos.
+
+
+.Pasos
+. Seleccione *STORAGE (S3)* > *Platform Services Endpoints*. Aparece la página de extremos de servicios de plataforma.
+. Seleccione *Crear punto final*.
+. Introduzca un nombre para mostrar para describir brevemente el extremo y su propósito.
++
+El tipo de servicio de plataforma que soporta el punto final se muestra junto al nombre del punto final cuando se muestra en la página de puntos finales, por lo que no es necesario incluir esa información en el nombre.
+
+. En el campo *URI*, especifique el Identificador de recursos único (URI) del extremo.
++
+--
+Utilice uno de los siguientes formatos:
+
+[listing]
+----
+https://host:port
+http://host:port
+----
+Si no especifica un puerto, se utilizan los siguientes puertos predeterminados:
+
+** Puerto 443 para URI HTTPS y puerto 80 para URI HTTP (mayoría de extremos)
+** Puerto 9092 para URI HTTPS y HTTP (solo puntos finales Kafka)
+
+
+--
++
+Por ejemplo, el URI para un bloque alojado en StorageGRID podría ser:
+
++
+[listing]
+----
+https://s3.example.com:10443
+----
++
+En este ejemplo, `s3.example.com` representa la entrada DNS para la IP virtual (VIP) del grupo de alta disponibilidad (HA) de StorageGRID y `10443` representa el puerto definido en el extremo del equilibrador de carga.
+
++
+
+NOTE: Siempre que sea posible, debe conectarse a un grupo de alta disponibilidad de nodos de equilibrio de carga para evitar un único punto de error.
+
++
+Del mismo modo, el URI para un bloque alojado en AWS podría ser:
+
++
+[listing]
+----
+https://s3-aws-region.amazonaws.com
+----
++
+
+NOTE: Si el punto final se utiliza para el servicio de replicación de CloudMirror, no incluya el nombre del bloque en el URI. Incluye el nombre de bloque en el campo *URN*.
+
+. Introduzca el nombre de recurso único (URN) para el extremo.
++
+
+NOTE: No puede cambiar el URN de un punto final después de crear el punto final.
+
+. Seleccione *continuar*.
+. Seleccione un valor para *Tipo de autenticación*.
++
+[role="tabbed-block"]
+====
+.Buscar puntos finales de integración
+--
+Introduzca o cargue las credenciales para un punto final de integración de búsqueda.
+
+Las credenciales que proporcione deben tener permisos de escritura para el recurso de destino.
+
+[cols="1a,2a,2a"]
+|===
+| Tipo de autenticación | Descripción | Credenciales 
+
+
+ a| 
+Anónimo
+ a| 
+Proporciona acceso anónimo al destino. Solo funciona para extremos con seguridad deshabilitada.
+ a| 
+Sin autenticación.
+
+
+
+ a| 
+Clave de acceso
+ a| 
+Usa credenciales de estilo AWS para autenticar conexiones con el destino.
+ a| 
+** ID de clave de acceso
+** Clave de acceso secreta
+
+
+
+
+ a| 
+HTTP básico
+ a| 
+Utiliza un nombre de usuario y una contraseña para autenticar las conexiones al destino.
+ a| 
+** Nombre de usuario
+** Contraseña
+
+
+|===
+--
+.Extremos de replicación de CloudMirror
+--
+Introduzca o cargue las credenciales para un extremo de replicación de CloudMirror.
+
+Las credenciales que proporcione deben tener permisos de escritura para el recurso de destino.
+
+[cols="1a,2a,2a"]
+|===
+| Tipo de autenticación | Descripción | Credenciales 
+
+
+ a| 
+Anónimo
+ a| 
+Proporciona acceso anónimo al destino. Solo funciona para extremos con seguridad deshabilitada.
+ a| 
+Sin autenticación.
+
+
+
+ a| 
+Clave de acceso
+ a| 
+Usa credenciales de estilo AWS para autenticar conexiones con el destino.
+ a| 
+** ID de clave de acceso
+** Clave de acceso secreta
+
+
+
+
+ a| 
+CAP (Portal de acceso C2S)
+ a| 
+Usa certificados y claves para autenticar las conexiones al destino.
+ a| 
+** URL de credenciales temporales
+** Certificado de CA de servidor (carga de archivo PEM)
+** Certificado de cliente (carga de archivo PEM)
+** Clave privada de cliente (carga de archivo PEM, formato cifrado OpenSSL o formato de clave privada no cifrado)
+** Contraseña de clave privada de cliente (opcional)
+
+
+|===
+--
+.Extremos de Amazon SNS
+--
+Introduzca o cargue las credenciales para un extremo de Amazon SNS.
+
+Las credenciales que proporcione deben tener permisos de escritura para el recurso de destino.
+
+[cols="1a,2a,2a"]
+|===
+| Tipo de autenticación | Descripción | Credenciales 
+
+
+ a| 
+Anónimo
+ a| 
+Proporciona acceso anónimo al destino. Solo funciona para extremos con seguridad deshabilitada.
+ a| 
+Sin autenticación.
+
+
+
+ a| 
+Clave de acceso
+ a| 
+Usa credenciales de estilo AWS para autenticar conexiones con el destino.
+ a| 
+** ID de clave de acceso
+** Clave de acceso secreta
+
+
+|===
+--
+.Puntos finales de Kafka
+--
+Introduzca o cargue las credenciales para un punto final de Kafka.
+
+Las credenciales que proporcione deben tener permisos de escritura para el recurso de destino.
+
+[cols="1a,2a,2a"]
+|===
+| Tipo de autenticación | Descripción | Credenciales 
+
+
+ a| 
+Anónimo
+ a| 
+Proporciona acceso anónimo al destino. Solo funciona para extremos con seguridad deshabilitada.
+ a| 
+Sin autenticación.
+
+
+
+ a| 
+SASL/PLAIN
+ a| 
+Utiliza un nombre de usuario y una contraseña con texto sin formato para autenticar las conexiones al destino.
+ a| 
+** Nombre de usuario
+** Contraseña
+
+
+
+
+ a| 
+SASL/SCRAM-SHA-256
+ a| 
+Utiliza un nombre de usuario y una contraseña mediante un protocolo de respuesta de desafío y hash SHA-256 para autenticar las conexiones al destino.
+ a| 
+** Nombre de usuario
+** Contraseña
+
+
+
+
+ a| 
+SASL/SCRAM-SHA-512
+ a| 
+Utiliza un nombre de usuario y una contraseña mediante un protocolo de respuesta de desafío y hash SHA-512 para autenticar las conexiones al destino.
+ a| 
+** Nombre de usuario
+** Contraseña
+
+
+|===
+Seleccione *Usar la autenticación de delegación tomada* si el nombre de usuario y la contraseña se derivan de un token de delegación que se obtuvo de un clúster de Kafka.
+
+--
+====
+. Seleccione *continuar*.
+. Seleccione un botón de opción para *verificar servidor* para elegir cómo se verifica la conexión TLS con el extremo.
++
+[cols="1a,2a"]
+|===
+| Tipo de verificación del certificado | Descripción 
+
+
+ a| 
+Utilizar certificado de CA personalizado
+ a| 
+Usar un certificado de seguridad personalizado. Si selecciona esta opción, copie y pegue el certificado de seguridad personalizado en el cuadro de texto *Certificado CA*.
+
+
+
+ a| 
+Utilizar certificado de CA del sistema operativo
+ a| 
+Utilice el certificado de CA de cuadrícula predeterminado instalado en el sistema operativo para asegurar las conexiones.
+
+
+
+ a| 
+No verifique el certificado
+ a| 
+El certificado utilizado para la conexión TLS no se verifica. Esta opción no es segura.
+
+|===
+. Seleccione *probar y crear punto final*.
++
+** Aparece un mensaje de éxito si se puede acceder al extremo con las credenciales especificadas. La conexión con el extremo se valida desde un nodo en cada sitio.
+** Aparece un mensaje de error si se produce un error en la validación del extremo. Si necesita modificar el punto final para corregir el error, seleccione *Volver a los detalles del punto final* y actualice la información. A continuación, seleccione *probar y crear punto final*.
++
+
+NOTE: La creación de punto final falla si los servicios de plataforma no están activados para su cuenta de inquilino. Póngase en contacto con el administrador de StorageGRID.
+
+
+
+
+
+Una vez que haya configurado un extremo, puede utilizar su URN para configurar un servicio de plataforma.
+
+.Información relacionada
+* link:specifying-urn-for-platform-services-endpoint.html["Especifique URN para el extremo de servicios de la plataforma"]
+* link:configuring-cloudmirror-replication.html["Configure la replicación de CloudMirror"]
+* link:configuring-event-notifications.html["Configure las notificaciones de eventos"]
+* link:configuring-search-integration-service.html["Configure el servicio de integración de búsqueda"]
+

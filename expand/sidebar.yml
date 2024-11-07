@@ -1,0 +1,63 @@
+---
+section: expand
+title: Expanda una cuadrícula
+url: "/landing-expand/index.html"
+entries:
+- title: Tipos de expansión
+  pdf-filename: Amplíe su sistema StorageGRID
+  url: "/expand/index.html"
+- title: Planifique la ampliación de StorageGRID
+  entries:
+  - title: Añadir capacidad de almacenamiento
+    entries:
+    - title: 'Directrices: Añadir capacidad de objeto'
+      url: "/expand/guidelines-for-adding-object-capacity.html"
+    - title: Agregar capacidad de almacenamiento para objetos replicados
+      url: "/expand/adding-storage-capacity-for-replicated-objects.html"
+    - title: Añada capacidad de almacenamiento para objetos codificados de borrado
+      url: "/expand/adding-storage-capacity-for-erasure-coded-objects.html"
+    - title: Consideraciones que tener en cuenta al reequilibrar los datos codificados
+        a borrado
+      url: "/expand/considerations-for-rebalancing-erasure-coded-data.html"
+  - title: Añada capacidad de metadatos
+    url: "/expand/adding-metadata-capacity.html"
+  - title: Añadir redundancia o nuevas funcionalidades
+    url: "/expand/adding-grid-nodes-to-add-capabilities.html"
+  - title: Agregar nuevo sitio
+    url: "/expand/adding-new-site.html"
+- title: Reúna los materiales necesarios
+  url: "/expand/gather-required-materials.html"
+- title: Añadir volúmenes de almacenamiento
+  entries:
+  - title: Añada volúmenes de almacenamiento a los nodos de almacenamiento
+    url: "/expand/adding-storage-volumes-to-storage-nodes.html"
+  - title: 'VMware: Añada volúmenes de almacenamiento al nodo de almacenamiento'
+    url: "/expand/vmware-adding-storage-volumes-to-storage-node.html"
+  - title: 'Linux: Añada volúmenes SAN o de conexión directa al nodo de almacenamiento'
+    url: "/expand/linux-adding-direct-attached-or-san-volumes-to-storage-node.html"
+- title: Añada nodos de grid o sitio
+  entries:
+  - title: Añada nodos de grid a un sitio existente o añada otro nuevo
+    url: "/expand/adding-grid-nodes-to-existing-site-or-adding-new-site.html"
+  - title: Actualice las subredes de la red de cuadrícula
+    url: "/expand/updating-subnets-for-grid-network.html"
+  - title: Implemente nuevos nodos de grid
+    url: "/expand/deploying-new-grid-nodes.html"
+  - title: Realizar la expansión
+    url: "/expand/performing-expansion.html"
+- title: Configure el sistema ampliado
+  entries:
+  - title: Pasos de configuración
+    url: "/expand/configuring-expanded-storagegrid-system.html"
+  - title: Compruebe que el nodo de almacenamiento esté activo
+    url: "/expand/verifying-storage-node-is-active.html"
+  - title: Copie la base de datos del nodo de administrador
+    url: "/expand/copying-admin-node-database.html"
+  - title: Copiar métricas de Prometheus
+    url: "/expand/copying-prometheus-metrics.html"
+  - title: Copiar registros de auditoría
+    url: "/expand/copying-audit-logs.html"
+  - title: Reequilibre los datos con código de borrado tras añadir nodos de almacenamiento
+    url: "/expand/rebalancing-erasure-coded-data-after-adding-storage-nodes.html"
+- title: Solucione los problemas de ampliación
+  url: "/expand/contacting-technical-support.html"

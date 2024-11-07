@@ -1,0 +1,30 @@
+---
+permalink: admin/using-multiple-admin-nodes.html 
+sidebar: sidebar 
+keywords: admin nodes, more than one admin node, multiple admin nodes 
+summary: Un sistema StorageGRID puede incluir varios nodos de administrador para permitir supervisar y configurar continuamente el sistema StorageGRID incluso si falla un nodo de administración. 
+---
+= Use varios nodos de administrador
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Un sistema StorageGRID puede incluir varios nodos de administrador para permitir supervisar y configurar continuamente el sistema StorageGRID incluso si falla un nodo de administración.
+
+Si un nodo de administración deja de estar disponible, el procesamiento de atributos continúa, las alertas siguen activándose y las notificaciones por correo electrónico y los paquetes de AutoSupport aún se envían. Sin embargo, tener varios nodos de administración no ofrece protección de conmutación al nodo de respaldo, excepto notificaciones y paquetes de AutoSupport.
+
+image::../media/admin_node_redundancy.png[Diagrama de redundancia del nodo de administración]
+
+Si falla un nodo de administración, existen dos opciones para ver y configurar el sistema StorageGRID:
+
+* Los clientes web pueden volver a conectarse a cualquier otro nodo de administrador disponible.
+* Si un administrador del sistema ha configurado un grupo de nodos de administración de alta disponibilidad, los clientes web pueden seguir accediendo a Grid Manager o al Gestor de inquilinos mediante la dirección IP virtual del grupo de alta disponibilidad. Consulte link:managing-high-availability-groups.html["Gestión de grupos de alta disponibilidad"].
++
+
+NOTE: Al utilizar un grupo de alta disponibilidad, el acceso se interrumpe si el nodo de administración activo falla. Los usuarios deben volver a iniciar sesión después de que la dirección IP virtual del grupo ha conmute a otro nodo de administración del grupo.
+
+
+
+Algunas tareas de mantenimiento solo se pueden realizar con el nodo de administrador principal. Si el nodo de administración principal falla, debe recuperarse antes de que el sistema StorageGRID vuelva a funcionar completamente.

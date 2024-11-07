@@ -1,0 +1,75 @@
+---
+permalink: monitor/deployment-and-maintenance-logs.html 
+sidebar: sidebar 
+keywords: deployment, logs, Maintenance 
+summary: Puede utilizar los registros de implementación y de mantenimiento para solucionar problemas. 
+---
+= Registros de implementación y mantenimiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede utilizar los registros de implementación y de mantenimiento para solucionar problemas.
+
+[cols="1a,3a,1a"]
+|===
+| Nombre de archivo | Notas | Encontrado en 
+
+
+| /var/local/log/install.log  a| 
+Creado durante la instalación del software. Contiene un registro de los eventos de instalación.
+ a| 
+Todos los nodos
+
+
+
+| /var/local/log/expansion-progress.log  a| 
+Creado durante las operaciones de expansión. Contiene un registro de los eventos de expansión.
+ a| 
+Nodos de almacenamiento
+
+
+
+| /var/local/log/pa-move.log  a| 
+Creado al ejecutar el `pa-move.sh` script.
+ a| 
+Nodo de administrador principal
+
+
+
+| /var/local/log/pa-move-new_pa.log  a| 
+Creado al ejecutar el `pa-move.sh` script.
+ a| 
+Nodo de administrador principal
+
+
+
+| /var/local/log/pa-move-old_pa.log  a| 
+Creado al ejecutar el `pa-move.sh` script.
+ a| 
+Nodo de administrador principal
+
+
+
+| /var/local/log/gdu-server.log  a| 
+Creado por el servicio GDU. Contiene eventos relacionados con los procedimientos de aprovisionamiento y mantenimiento gestionados por el nodo de administración principal.
+ a| 
+Nodo de administrador principal
+
+
+
+| /var/local/log/send_admin_hw.log  a| 
+Creado durante la instalación. Contiene información de depuración relacionada con las comunicaciones de un nodo con el nodo de administración principal.
+ a| 
+Todos los nodos
+
+
+
+| /var/local/log/upgrade.log  a| 
+Creado durante la actualización de software. Contiene un registro de los eventos de actualización de software.
+ a| 
+Todos los nodos
+
+|===

@@ -1,0 +1,37 @@
+---
+permalink: tenant/manage-bucket-policy.html 
+sidebar: sidebar 
+keywords: how to create S3 tenant groups, federated group, local group 
+summary: Puede controlar el acceso de los usuarios a un bloque de S3 y los objetos de ese bloque. 
+---
+= Gestione la política de bloques
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede controlar el acceso de los usuarios a un bloque de S3 y los objetos de ese bloque.
+
+.Antes de empezar
+* Ha iniciado sesión en el gestor de inquilinos mediante un link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Pertenece a un grupo de usuarios que tiene el link:tenant-management-permissions.html["Permiso de acceso raíz"]. Los permisos Ver todos los buckets y Gestionar todos los buckets sólo permiten la visualización.
+* Verificó que el número necesario de nodos y sitios de almacenamiento está disponible. Si no hay dos o más nodos de almacenamiento disponibles en ningún sitio, o si no hay un sitio disponible, los cambios realizados en estos ajustes podrían no estar disponibles.
+
+
+.Pasos
+. Seleccione *Buckets*, luego seleccione el bucket que desea administrar.
+. En la página de detalles del cubo, selecciona *Acceso al cubo* > *Política del cubo*.
+. Debe realizar una de las siguientes acciones:
++
+** Introduzca una política de cubo seleccionando la casilla de verificación *Habilitar política*. A continuación, introduzca una cadena con formato JSON válida.
++
+Cada política de bloque tiene un límite de tamaño de 20.480 bytes.
+
+** Modifique una política existente editando la cadena.
+** Desactive una política desseleccionando *Habilitar política*.
+
+
+
+
+Para obtener información detallada sobre las políticas de bloques, incluida la sintaxis de idioma y los ejemplos, consulte link:../s3/example-bucket-policies.html["Ejemplo de políticas de bloque"].

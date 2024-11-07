@@ -1,0 +1,139 @@
+---
+permalink: network/linux-deployments.html 
+sidebar: sidebar 
+keywords: linux network, container engine, red hat enterprise linux rhel network, ubuntu network 
+summary: Para obtener eficiencia, fiabilidad y seguridad, el sistema StorageGRID se ejecuta en Linux como una colección de motores de contenedor. No se requiere una configuración de red relacionada con el motor del contenedor en un sistema StorageGRID. 
+---
+= Implementaciones de Linux
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para obtener eficiencia, fiabilidad y seguridad, el sistema StorageGRID se ejecuta en Linux como una colección de motores de contenedor. No se requiere una configuración de red relacionada con el motor del contenedor en un sistema StorageGRID.
+
+Utilice un dispositivo que no sea de vínculo, como un par VLAN o Ethernet virtual (veth), para la interfaz de red del contenedor. Especifique este dispositivo como la interfaz de red en el archivo de configuración del nodo.
+
+
+CAUTION: No utilice dispositivos de enlace o puente directamente como interfaz de red de contenedor. Hacerlo podría evitar el arranque de nodos debido a un problema de kernel con el uso de macvlan con dispositivos de enlace y puente en el espacio de nombres de contenedores.
+
+Consulte las instrucciones de instalación para link:../rhel/index.html["Red Hat Enterprise Linux"]las implementaciones de o.link:../ubuntu/index.html["Ubuntu o Debian"]
+
+
+
+== Configuración de red host para puestas en marcha del motor de contenedores
+
+Antes de iniciar la implementación de StorageGRID en una plataforma de motor de contenedores, determine qué redes (grid, administrador, cliente) utilizará cada nodo. Debe asegurarse de que la interfaz de red de cada nodo esté configurada en la interfaz de host virtual o física correcta y que cada red tenga el ancho de banda suficiente.
+
+
+
+=== Hosts físicos
+
+Si utiliza hosts físicos para dar soporte a los nodos de grid:
+
+* Asegúrese de que todos los hosts utilicen la misma interfaz de host para cada interfaz de nodo. Esta estrategia simplifica la configuración del host y permite la migración de nodos futura.
+* Obtenga una dirección IP para el propio host físico.
++
+
+NOTE: El host puede usar una interfaz física del host en sí y uno o más nodos que se ejecutan en el host. Todas las direcciones IP asignadas al host o los nodos que utilizan esta interfaz deben ser únicas. El host y el nodo no pueden compartir direcciones IP.
+
+* Abra los puertos requeridos en el host.
+* Si piensa utilizar interfaces VLAN en StorageGRID, el host debe tener una o varias interfaces troncales en las que se pueda acceder a las VLAN deseadas. Estas interfaces se pueden pasar al contenedor de nodos como eth0, eth2 o como interfaces adicionales. Para añadir enlaces troncales o interfaces de acceso, consulte lo siguiente:
++
+** *RHEL (antes de instalar el nodo)*: link:../rhel/creating-node-configuration-files.html["Crear archivos de configuración del nodo"]
+** *Ubuntu o Debian (antes de instalar el nodo)*: link:../ubuntu/creating-node-configuration-files.html["Crear archivos de configuración del nodo"]
+** *RHEL, Ubuntu o Debian (después de instalar el nodo)*: link:../maintain/linux-adding-trunk-or-access-interfaces-to-node.html["Linux: Añada tronco o interfaces de acceso a un nodo"]
+
+
+
+
+
+
+=== Recomendaciones mínimas de ancho de banda
+
+En la siguiente tabla, se presentan las recomendaciones mínimas de ancho de banda LAN para cada tipo de nodo StorageGRID y cada tipo de red. Debe aprovisionar cada host físico o virtual con suficiente ancho de banda de red para satisfacer los requisitos mínimos del agregado de ancho de banda para la cantidad total y el tipo de nodos StorageGRID que planea ejecutar en ese host.
+
+[cols="1a,1a,1a,1a"]
+|===
+| Tipo de nodo 3+| Tipo de red 
+
+
+ a| 
+ a| 
+Cuadrícula
+ a| 
+Admin
+ a| 
+Cliente
+
+
+
+ a| 
+ a| 
+* Ancho de banda LAN mínimo*
+
+
+
+ a| 
+Admin
+ a| 
+10 Gbps
+ a| 
+1 Gbps
+ a| 
+1 Gbps
+
+
+
+ a| 
+Puerta de enlace
+ a| 
+10 Gbps
+ a| 
+1 Gbps
+ a| 
+10 Gbps
+
+
+
+ a| 
+Reducida
+ a| 
+10 Gbps
+ a| 
+1 Gbps
+ a| 
+10 Gbps
+
+
+
+ a| 
+Archivado
+ a| 
+10 Gbps
+ a| 
+1 Gbps
+ a| 
+10 Gbps
+
+|===
+
+NOTE: En esta tabla no se incluye el ancho de banda SAN, el cual es necesario para acceder al almacenamiento compartido. Si utiliza almacenamiento compartido al que se accede a través de Ethernet (iSCSI o FCoE), debe aprovisionar interfaces físicas independientes en cada host para proporcionar un ancho DE banda SAN suficiente. Para evitar presentar un cuello de botella, el ancho DE banda SAN de un host determinado debe igualar prácticamente el ancho de banda de red del nodo de almacenamiento agregado para todos los nodos de almacenamiento que se ejecuten en ese host.
+
+Utilice la tabla para determinar el número mínimo de interfaces de red que se deben aprovisionar en cada host, según el número y el tipo de nodos StorageGRID que piensa ejecutar en ese host.
+
+Por ejemplo, para ejecutar un nodo de administrador, un nodo de puerta de enlace y un nodo de almacenamiento en un solo host:
+
+* Conectar las redes Grid y Admin en el nodo Admin (requiere 10 + 1 = 11 Gbps)
+* Conecte las redes Grid y Client en el nodo Gateway (requiere 10 + 10 = 20 Gbps)
+* Conectar la red de grid en el nodo de almacenamiento (requiere 10 Gbps)
+
+
+En este escenario, debe proporcionar un mínimo de 11 + 20 + 10 = 41 Gbps de ancho de banda de red, Que podrían ser satisfechas por dos interfaces de 40 Gbps o cinco interfaces de 10 Gbps, potencialmente agregadas en enlaces y luego compartidas por las tres o más VLAN que llevan las subredes Grid, Admin y Client locales al centro de datos físico que contiene el host.
+
+Para obtener algunas maneras recomendadas de configurar los recursos físicos y de red en los hosts del clúster de StorageGRID con el fin de prepararse para la implementación de StorageGRID, consulte lo siguiente:
+
+* link:../rhel/configuring-host-network.html["Configurar la red host (Red Hat Enterprise Linux)"]
+* link:../ubuntu/configuring-host-network.html["Configurar la red host (Ubuntu o Debian)"]
+

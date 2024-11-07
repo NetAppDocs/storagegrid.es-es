@@ -1,0 +1,32 @@
+---
+permalink: tenant/deleting-your-own-s3-access-keys.html 
+sidebar: sidebar 
+keywords: how to delete S3 access key 
+summary: Si usa un inquilino de S3 y tiene el permiso correspondiente, puede eliminar sus propias claves de acceso S3. Cuando se elimina una clave de acceso, ya no se puede utilizar para acceder a los objetos y los bloques de la cuenta de inquilino. 
+---
+= Elimine sus propias claves de acceso de S3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si usa un inquilino de S3 y tiene el permiso correspondiente, puede eliminar sus propias claves de acceso S3. Cuando se elimina una clave de acceso, ya no se puede utilizar para acceder a los objetos y los bloques de la cuenta de inquilino.
+
+.Antes de empezar
+* Ha iniciado sesión en el gestor de inquilinos mediante un link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Usted tiene el link:tenant-management-permissions.html["Administre sus propios permisos de credenciales de S3"].
+
+
+
+CAUTION: Puede acceder a los bloques y los objetos de S3 que pertenecen a su cuenta mediante el ID de clave de acceso y la clave de acceso secreta que se muestra para su cuenta en el Administrador de inquilinos. Por este motivo, proteja las claves de acceso como lo haría con una contraseña. Gire las claves de acceso de forma regular, elimine las claves que no utilice de su cuenta y nunca las comparta con otros usuarios.
+
+.Pasos
+. Seleccione *ALMACENAMIENTO (S3)* > *Mis claves de acceso*.
+. En la página Mis claves de acceso, seleccione la casilla de verificación de cada clave de acceso que desee eliminar.
+. Seleccione *tecla Eliminar*.
+. En el cuadro de diálogo de confirmación, seleccione *Tecla Eliminar*.
++
+Aparecerá un mensaje de confirmación en la esquina superior derecha de la página.
+
+

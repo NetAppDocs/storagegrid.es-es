@@ -1,0 +1,27 @@
+---
+permalink: ilm/what-storage-pool-is.html 
+sidebar: sidebar 
+keywords: what is a storage pool 
+summary: Un pool de almacenamiento es una agrupación lógica de nodos de almacenamiento. 
+---
+= ¿Qué es un pool de almacenamiento?
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Un pool de almacenamiento es una agrupación lógica de nodos de almacenamiento.
+
+Al instalar StorageGRID, se crea automáticamente un pool de almacenamiento por sitio. Es posible configurar pools de almacenamiento adicionales según sea necesario para cumplir sus requisitos de almacenamiento.
+
+
+NOTE: Los nodos de almacenamiento se pueden configurar durante la instalación para que contengan datos de objetos y metadatos de objetos, o solo metadatos del objeto. Los nodos de almacenamiento solo de metadatos no se pueden usar en pools de almacenamiento. Para obtener más información, consulte link:../primer/what-storage-node-is.html#types-of-storage-nodes["Tipos de nodos de almacenamiento"].
+
+Los pools de almacenamiento tienen dos atributos:
+
+* *Grado de almacenamiento*: Para nodos de almacenamiento, el rendimiento relativo del almacenamiento de respaldo.
+* *Sitio*: El centro de datos donde se almacenarán los objetos.
+
+
+Los pools de almacenamiento se utilizan en las reglas de ILM para determinar dónde se almacenan los datos de objetos y el tipo de almacenamiento utilizado. Cuando se configuran las reglas de ILM para replicación, se seleccionan uno o varios pools de almacenamiento.

@@ -1,0 +1,161 @@
+---
+permalink: tenant/creating-groups-for-s3-tenant.html 
+sidebar: sidebar 
+keywords: how to create S3 tenant groups, federated group, local group 
+summary: Es posible gestionar permisos para grupos de usuarios S3 importando grupos federados o creando grupos locales. 
+---
+= Cree grupos para un inquilino de S3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es posible gestionar permisos para grupos de usuarios S3 importando grupos federados o creando grupos locales.
+
+.Antes de empezar
+* Ha iniciado sesión en el gestor de inquilinos mediante un link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Pertenece a un grupo de usuarios que tiene el link:tenant-management-permissions.html["Permiso de acceso raíz"].
+* Si tiene pensado importar un grupo federado, tiene link:using-identity-federation.html["federación de identidades configurada"], y el grupo federado ya existe en el origen de identidad configurado.
+* Si su cuenta de inquilino tiene el permiso *Usar conexión de federación de grid*, ha revisado el flujo de trabajo y las consideraciones de link:grid-federation-account-clone.html["clonación de usuarios y grupos de inquilinos"], y ha iniciado sesión en la cuadrícula de origen del inquilino.
+
+
+
+
+== Acceda al asistente Crear grupo
+
+Como primer paso, acceda al asistente de creación de grupos.
+
+.Pasos
+. Seleccione *ADMINISTRACIÓN de ACCESO* > *grupos*.
+. Si su cuenta de inquilino tiene el permiso *Usar conexión de federación de grid*, confirme que aparece un banner azul, indicando que los nuevos grupos creados en esta cuadrícula se clonarán en el mismo inquilino en la otra cuadrícula de la conexión. Si este banner no aparece, puede que haya iniciado sesión en la cuadrícula de destino del inquilino.
++
+image::../media/grid-federation-tenant-group-banner.png[Imagen del banner azul en la página Grupos de la cuadrícula de origen de inquilino]
+
+. Seleccione *Crear grupo*.
+
+
+
+
+== Elija un tipo de grupo
+
+Puede crear un grupo local o importar un grupo federado.
+
+.Pasos
+. Seleccione la ficha *Grupo local* para crear un grupo local o seleccione la ficha *Grupo federado* para importar un grupo desde el origen de identidad configurado previamente.
++
+Si se ha habilitado el inicio de sesión único (SSO) para el sistema StorageGRID, los usuarios que pertenecen a grupos locales no podrán iniciar sesión en el Gestor de inquilinos, aunque puedan utilizar las aplicaciones cliente para gestionar los recursos del inquilino, en función de los permisos de grupo.
+
+. Introduzca el nombre del grupo.
++
+** *Grupo local*: Introduzca tanto un nombre para mostrar como un nombre exclusivo. Puede editar el nombre para mostrar más adelante.
++
+
+NOTE: Si su cuenta de inquilino tiene el permiso *Usar conexión de federación de grid*, se producirá un error de clonación si el mismo *nombre único* ya existe para el inquilino en la cuadrícula de destino.
+
+** *Grupo federado*: Introduzca el nombre único. Para Active Directory, el nombre único es el nombre asociado al `sAMAccountName` atributo. Para OpenLDAP, el nombre único es el nombre asociado al `uid` atributo.
+
+
+. Seleccione *continuar*.
+
+
+
+
+== Administrar permisos de grupo
+
+Los permisos de grupo controlan las tareas que los usuarios pueden realizar en el gestor de inquilinos y en la API de gestión de inquilinos.
+
+.Pasos
+. Para *Modo de acceso*, seleccione una de las siguientes opciones:
++
+** *Read-write* (por defecto): Los usuarios pueden iniciar sesión en Tenant Manager y administrar la configuración del inquilino.
+** *Sólo lectura*: Los usuarios sólo pueden ver los ajustes y las funciones. No pueden hacer ningún cambio ni realizar ninguna operación en el administrador de inquilinos o la API de gestión de inquilinos. Los usuarios locales de solo lectura pueden cambiar sus propias contraseñas.
++
+
+NOTE: Si un usuario pertenece a varios grupos y cualquier grupo está establecido en sólo lectura, el usuario tendrá acceso de sólo lectura a todos los ajustes y características seleccionados.
+
+
+
+. Seleccione uno o más permisos para este grupo.
++
+Consulte link:../tenant/tenant-management-permissions.html["Permisos de gestión de inquilinos"].
+
+. Seleccione *continuar*.
+
+
+
+
+== Establezca la política de grupo S3
+
+La política de grupo determina qué permisos de acceso S3 tendrán los usuarios.
+
+.Pasos
+. Seleccione la política que desea usar para este grupo.
++
+[cols="1a,2a"]
+|===
+| Política de grupo | Descripción 
+
+
+ a| 
+Sin acceso S3
+ a| 
+Predeterminado. Los usuarios de este grupo no tienen acceso a los recursos de S3, a menos que el acceso se conceda con una política de bloque. Si selecciona esta opción, de forma predeterminada, solo el usuario raíz tendrá acceso a recursos de S3.
+
+
+
+ a| 
+Acceso de sólo lectura
+ a| 
+Los usuarios de este grupo tienen acceso de solo lectura a los recursos de S3. Por ejemplo, los usuarios de este grupo pueden enumerar objetos y leer datos de objetos, metadatos y etiquetas. Cuando selecciona esta opción, la cadena JSON para una política de grupo de solo lectura aparece en el cuadro de texto. No puede editar esta cadena.
+
+
+
+ a| 
+Acceso total
+ a| 
+Los usuarios de este grupo tienen acceso completo a recursos de S3, incluidos los bloques. Cuando selecciona esta opción, la cadena JSON para una política de grupo de acceso completo aparece en el cuadro de texto. No puede editar esta cadena.
+
+
+
+ a| 
+Mitigación del ransomware
+ a| 
+Esta política de ejemplo se aplica a todos los depósitos de este inquilino. Los usuarios de este grupo pueden realizar acciones comunes, pero no pueden suprimir de forma permanente objetos de los bloques que tienen activado el control de versiones de objetos.
+
+Los usuarios del administrador de inquilinos que tienen el permiso *Administrar todos los cubos* pueden anular esta política de grupo. Limite el permiso Gestionar todos los buckets a usuarios de confianza y use la autenticación multifactor (MFA) cuando esté disponible.
+
+
+
+ a| 
+Personalizado
+ a| 
+A los usuarios del grupo se les conceden los permisos que especifique en el cuadro de texto.
+
+|===
+. Si ha seleccionado *personalizado*, introduzca la directiva de grupo. Cada política de grupo tiene un límite de tamaño de 5,120 bytes. Debe introducir una cadena con formato JSON válida.
++
+Para obtener información detallada sobre las políticas de grupo, incluida la sintaxis de idioma y los ejemplos, consulte link:../s3/example-group-policies.html["Ejemplo de políticas de grupo"].
+
+. Si está creando un grupo local, seleccione *continuar*. Si está creando un grupo federado, seleccione *Crear grupo* y *Finalizar*.
+
+
+
+
+== Añadir usuarios (sólo grupos locales)
+
+Puede guardar el grupo sin agregar usuarios o, opcionalmente, puede agregar cualquier usuario local que ya exista.
+
+
+NOTE: Si su cuenta de inquilino tiene el permiso *Usar conexión de federación de grid*, los usuarios que seleccione al crear un grupo local en la cuadrícula de origen no se incluyen cuando el grupo se clona en la cuadrícula de destino. Por este motivo, no seleccione usuarios al crear el grupo. En su lugar, seleccione el grupo cuando cree los usuarios.
+
+.Pasos
+. Opcionalmente, seleccione uno o varios usuarios locales para este grupo.
+. Seleccione *Crear grupo* y *Finalizar*.
++
+El grupo creado aparece en la lista de grupos.
+
++
+Si su cuenta de inquilino tiene el permiso *Use grid federation connection* y usted está en la cuadrícula de origen del inquilino, el nuevo grupo se clona en la cuadrícula de destino del inquilino. *Success* aparece como *Cloning status* en la sección Overview de la página de detalles del grupo.
+
+

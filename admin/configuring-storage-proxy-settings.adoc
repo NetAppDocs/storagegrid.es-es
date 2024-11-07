@@ -1,0 +1,46 @@
+---
+permalink: admin/configuring-storage-proxy-settings.html 
+sidebar: sidebar 
+keywords: storage proxy, non-transparent proxy, platform service endpoint 
+summary: Si utiliza servicios de plataforma o pools de almacenamiento en cloud, puede configurar un proxy no transparente entre los nodos de almacenamiento y los extremos de S3 externos. Por ejemplo, es posible que necesite un proxy no transparente para permitir que los mensajes de servicios de plataforma se envíen a extremos externos, como un punto final en Internet. 
+---
+= Configurar proxy de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si utiliza servicios de plataforma o pools de almacenamiento en cloud, puede configurar un proxy no transparente entre los nodos de almacenamiento y los extremos de S3 externos. Por ejemplo, es posible que necesite un proxy no transparente para permitir que los mensajes de servicios de plataforma se envíen a extremos externos, como un punto final en Internet.
+
+
+NOTE: La configuración de proxy de almacenamiento configurada no se aplica a los extremos de servicios de plataforma Kafka.
+
+.Antes de empezar
+* Tienes link:admin-group-permissions.html["permisos de acceso específicos"].
+* Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
+
+
+.Acerca de esta tarea
+Puede configurar los ajustes para un solo proxy de almacenamiento.
+
+.Pasos
+. Seleccione *CONFIGURACIÓN* > *Seguridad* > *Ajustes de proxy*.
+. En la pestaña *Almacenamiento*, selecciona la casilla de verificación *Habilitar proxy de almacenamiento*.
+. Seleccione el protocolo para el proxy de almacenamiento.
+. Introduzca el nombre de host o la dirección IP del servidor proxy.
+. De manera opcional, introduzca el puerto utilizado para conectarse al servidor proxy.
++
+Deje este campo en blanco para utilizar el puerto predeterminado para el protocolo: 80 para HTTP o 1080 para SOCKS5.
+
+. Seleccione *Guardar*.
++
+Después de guardar el proxy de almacenamiento, se pueden configurar y probar nuevos puntos finales para los servicios de plataforma o los pools de Cloud Storage.
+
++
+
+NOTE: Los cambios de proxy pueden tardar hasta 10 minutos en surtir efecto.
+
+. Compruebe la configuración del servidor proxy para asegurarse de que los mensajes de StorageGRID relacionados con el servicio de la plataforma no se bloqueen.
+. Si necesita deshabilitar un proxy de almacenamiento, desactive la casilla de verificación y seleccione *Guardar*.
+

@@ -1,0 +1,211 @@
+---
+permalink: upgrade/removed-or-deprecated-features.html 
+sidebar: sidebar 
+keywords:  
+summary: Algunas funciones y funcionalidades se eliminaron o quedaron obsoletas en esta versión. Revise estos elementos para saber si necesita actualizar las aplicaciones del cliente o modificar la configuración antes de realizar la actualización. 
+---
+= Características y capacidades eliminadas o obsoletas
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Algunas funciones y funcionalidades se eliminaron o quedaron obsoletas en esta versión. Revise estos elementos para saber si necesita actualizar las aplicaciones del cliente o modificar la configuración antes de realizar la actualización.
+
+
+
+== Definiciones
+
+Anticuado:: La característica *no debe ser usada en nuevos ambientes de producción. Los entornos de producción existentes pueden seguir utilizando la función.
+Fin de la vida:: Última versión enviada que admite la función. En algunos casos, la documentación de la característica puede eliminarse en esta etapa.
+Quitada:: Primera versión que *no* soporta la característica.
+
+
+
+
+== Compatibilidad con fin de funciones de StorageGRID
+
+Las funciones obsoletas se eliminarán en las versiones principales N+2. Por ejemplo, si una característica está obsoleta en la versión N (por ejemplo, 6,3), la última versión en la que existirá la característica es N+1 (por ejemplo, 6,4). La versión N+2 (por ejemplo, 6,5) es la primera versión cuando la función no existe en el producto.
+
+Consulte la https://mysupport.netapp.com/site/info/version-support["Soporte de la versión del software"^] para obtener información adicional.
+
+
+NOTE: En ciertas situaciones, NetApp podría terminar el soporte para determinadas funciones antes de lo indicado.
+
+[cols="2a,1a,1a,1a,3a"]
+|===
+| Función | Anticuado | Fin de la vida | Quitada | Enlaces a documentación anterior 
+
+
+ a| 
+Alarmas heredadas (_NOT Alerts_)
+ a| 
+11,7
+ a| 
+11,8
+ a| 
+11,9
+ a| 
+https://docs.netapp.com/us-en/storagegrid-118/monitor/alarms-reference.html["Referencia de alarmas (StorageGRID 11,8)"^]
+
+
+
+ a| 
+Soporte para nodos de archivado
+ a| 
+11,7
+ a| 
+11,8
+ a| 
+11,9
+ a| 
+https://docs.netapp.com/us-en/storagegrid-118/maintain/considerations-for-decommissioning-admin-or-gateway-nodes.html["Consideraciones sobre el desmantelamiento de nodos de archivado (StorageGRID 11,8)"^]
+
+*Nota*: Antes de comenzar tu actualización, debes:
+
+. Retirar todos los nodos de archivado. Consulte https://docs.netapp.com/us-en/storagegrid-118/maintain/grid-node-decommissioning.html["Retirada de nodo de grid (sitio de documentación de StorageGRID 11,8)"^].
+. Elimine todas las referencias de nodos de archivado de los pools de almacenamiento y las políticas de ILM. Consulte https://kb.netapp.com/hybrid/StorageGRID/Maintenance/StorageGRID_11.9_software_upgrade_resolution_guide["Base de conocimientos de NetApp: Guía de resolución de actualización de software de StorageGRID 11,9"^].
+
+
+
+
+ a| 
+Auditar la exportación a través de CIFS/Samba
+ a| 
+11,1
+ a| 
+11,6
+ a| 
+11,7
+ a| 
+
+
+
+ a| 
+Servicio CLB
+ a| 
+11,4
+ a| 
+11,6
+ a| 
+11,7
+ a| 
+
+
+
+ a| 
+Motor de contenedor Docker
+ a| 
+11,8
+ a| 
+11,9
+ a| 
+POR CONFIRMAR
+ a| 
+La compatibilidad con Docker como motor de contenedor para puestas en marcha de solo software queda obsoleta. En una futura versión, Docker se sustituirá por otro motor de contenedor. Consulte la link:../ubuntu/software-requirements.html#docker-versions-tested["Lista de versiones de Docker admitidas actualmente"].
+
+
+
+ a| 
+Exportación de auditoría NFS
+ a| 
+11,8
+ a| 
+11,9
+ a| 
+12,0
+ a| 
+https://docs.netapp.com/us-en/storagegrid-118/admin/configuring-audit-client-access.html["Configure el acceso del cliente de auditoría para NFS (StorageGRID 11,8)."^]
+
+
+
+ a| 
+Soporte para API Swift
+ a| 
+11,7
+ a| 
+11,9
+ a| 
+12,0
+ a| 
+https://docs.netapp.com/us-en/storagegrid-118/swift/index.html["Usar la API REST DE Swift (StorageGRID 11,8)"^]
+
+
+
+ a| 
+RHEL 8,8
+ a| 
+11,9
+ a| 
+11,9
+ a| 
+12,0
+ a| 
+
+
+
+ a| 
+RHEL 9,0
+ a| 
+11,9
+ a| 
+11,9
+ a| 
+12,0
+ a| 
+
+
+
+ a| 
+RHEL 9,2
+ a| 
+11,9
+ a| 
+11,9
+ a| 
+12,0
+ a| 
+
+
+
+ a| 
+Sistema operativo Ubuntu 18,04
+ a| 
+11,9
+ a| 
+11,9
+ a| 
+12,0
+ a| 
+
+
+
+ a| 
+Sistema operativo Ubuntu 20,04
+ a| 
+11,9
+ a| 
+11,9
+ a| 
+12,0
+ a| 
+
+
+
+ a| 
+Debian 11
+ a| 
+11,9
+ a| 
+11,9
+ a| 
+12,0
+ a| 
+
+|===
+Consulte también:
+
+* link:../upgrade/changes-to-grid-management-api.html["Cambios en la API de gestión de grid"]
+* link:../upgrade/changes-to-tenant-management-api.html["Cambios en la API de gestión de inquilinos"]
+

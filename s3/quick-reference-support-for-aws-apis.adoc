@@ -1,0 +1,1006 @@
+---
+permalink: s3/quick-reference-support-for-aws-apis.html 
+sidebar: sidebar 
+keywords: Amazon s3, API, request headers, s3 support, request syntax, supported, aws s3 
+summary: 'En esta página se resume cómo StorageGRID admite las API de Amazon Simple Storage Service (S3).' 
+---
+= Referencia rápida: Solicitudes de API de S3 admitidas
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En esta página se resume cómo StorageGRID admite las API de Amazon Simple Storage Service (S3).
+
+Esta página incluye solo las operaciones S3 compatibles con StorageGRID.
+
+
+NOTE: Para ver la documentación de AWS para cada operación, seleccione el enlace en el encabezado.
+
+
+
+== Parámetros de consulta URI comunes y cabeceras de solicitud
+
+A menos que se indique lo contrario, se soportan los siguientes parámetros de consulta de URI comunes:
+
+* `versionId` (según sea necesario para las operaciones de objeto)
+
+
+A menos que se indique lo contrario, se admiten las siguientes cabeceras de solicitud comunes:
+
+* `Authorization`
+* `Connection`
+* `Content-Length`
+* `Content-MD5`
+* `Content-Type`
+* `Date`
+* `Expect`
+* `Host`
+* `x-amz-date`
+
+
+.Información relacionada
+* link:../s3/s3-rest-api-supported-operations-and-limitations.html["S3 Detalles de implementación de la API de REST"]
+* https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonRequestHeaders.html["Referencia de API de Amazon Simple Storage Service: Encabezados de solicitud comunes"^]
+
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_AbortMultipartUpload.html["AbortMultipartUpload"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID soporta todos <<common-params,parámetros y cabeceras comunes>> para esta solicitud, además de este parámetro de consulta URI adicional:
+
+* `uploadId`
+
+
+.Solicitar el cuerpo
+Ninguno
+
+.Documentación de StorageGRID
+link:operations-for-multipart-uploads.html["Operaciones para cargas de varias partes"]
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_CompleteMultipartUpload.html["CompleteMultipartUpload"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID soporta todos <<common-params,parámetros y cabeceras comunes>> para esta solicitud, además de este parámetro de consulta URI adicional:
+
+* `uploadId`
+* `x-amz-checksum-sha256`
+
+
+.Etiquetas XML de cuerpo de solicitud
+StorageGRID soporta las siguientes etiquetas XML del cuerpo de la solicitud:
+
+* `ChecksumSHA256`
+* `CompleteMultipartUpload`
+* `ETag`
+* `Part`
+* `PartNumber`
+
+
+.Documentación de StorageGRID
+link:complete-multipart-upload.html["CompleteMultipartUpload"]
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html["CopyObject"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID admite todo <<common-params,parámetros y cabeceras comunes>> para esta solicitud, además de estos encabezados adicionales:
+
+* `x-amz-copy-source`
+* `x-amz-copy-source-if-match`
+* `x-amz-copy-source-if-modified-since`
+* `x-amz-copy-source-if-none-match`
+* `x-amz-copy-source-if-unmodified-since`
+* `x-amz-copy-source-server-side-encryption-customer-algorithm`
+* `x-amz-copy-source-server-side-encryption-customer-key`
+* `x-amz-copy-source-server-side-encryption-customer-key-MD5`
+* `x-amz-metadata-directive`
+* `x-amz-object-lock-legal-hold`
+* `x-amz-object-lock-mode`
+* `x-amz-object-lock-retain-until-date`
+* `x-amz-server-side-encryption`
+* `x-amz-server-side-encryption-customer-algorithm`
+* `x-amz-server-side-encryption-customer-key`
+* `x-amz-server-side-encryption-customer-key-MD5`
+* `x-amz-storage-class`
+* `x-amz-tagging`
+* `x-amz-tagging-directive`
+* `x-amz-meta-<metadata-name>`
+
+
+.Solicitar el cuerpo
+Ninguno
+
+.Documentación de StorageGRID
+link:put-object-copy.html["CopyObject"]
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html["CreateBucket"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID admite todo <<common-params,parámetros y cabeceras comunes>> para esta solicitud, además de estos encabezados adicionales:
+
+* `x-amz-bucket-object-lock-enabled`
+
+
+.Solicitar el cuerpo
+StorageGRID admite todos los parámetros de cuerpo de solicitud definidos por la API de REST DE Amazon S3 en el momento de la implementación.
+
+.Documentación de StorageGRID
+link:operations-on-buckets.html["Operaciones en bloques"]
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html["CreateMultipartUpload"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID admite todo <<common-params,parámetros y cabeceras comunes>> para esta solicitud, además de estos encabezados adicionales:
+
+* `Cache-Control`
+* `Content-Disposition`
+* `Content-Encoding`
+* `Content-Language`
+* `Expires`
+* `x-amz-checksum-algorithm`
+* `x-amz-server-side-encryption`
+* `x-amz-storage-class`
+* `x-amz-server-side-encryption-customer-algorithm`
+* `x-amz-server-side-encryption-customer-key`
+* `x-amz-server-side-encryption-customer-key-MD5`
+* `x-amz-tagging`
+* `x-amz-object-lock-mode`
+* `x-amz-object-lock-retain-until-date`
+* `x-amz-object-lock-legal-hold`
+* `x-amz-meta-<metadata-name>`
+
+
+.Solicitar el cuerpo
+Ninguno
+
+.Documentación de StorageGRID
+link:initiate-multipart-upload.html["CreateMultipartUpload"]
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html["DeleteBucket"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID admite todos <<common-params,parámetros y cabeceras comunes>> para esta solicitud.
+
+.Documentación de StorageGRID
+link:operations-on-buckets.html["Operaciones en bloques"]
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketCors.html["DeleteBucketCors"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID admite todos <<common-params,parámetros y cabeceras comunes>> para esta solicitud.
+
+.Solicitar el cuerpo
+Ninguno
+
+.Documentación de StorageGRID
+link:operations-on-buckets.html["Operaciones en bloques"]
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketEncryption.html["DeleteBucketEncryption"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID admite todos <<common-params,parámetros y cabeceras comunes>> para esta solicitud.
+
+.Solicitar el cuerpo
+Ninguno
+
+.Documentación de StorageGRID
+link:operations-on-buckets.html["Operaciones en bloques"]
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketLifecycle.html["DeleteBucketLifecycle"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID admite todos <<common-params,parámetros y cabeceras comunes>> para esta solicitud.
+
+.Solicitar el cuerpo
+Ninguno
+
+.Documentación de StorageGRID
+* link:operations-on-buckets.html["Operaciones en bloques"]
+* link:create-s3-lifecycle-configuration.html["Cree una configuración del ciclo de vida de S3"]
+
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketPolicy.html["DeleteBucketPolicy"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID admite todos <<common-params,parámetros y cabeceras comunes>> para esta solicitud.
+
+.Solicitar el cuerpo
+Ninguno
+
+.Documentación de StorageGRID
+link:operations-on-buckets.html["Operaciones en bloques"]
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketReplication.html["DeleteBucketReplication"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID admite todos <<common-params,parámetros y cabeceras comunes>> para esta solicitud.
+
+.Solicitar el cuerpo
+Ninguno
+
+.Documentación de StorageGRID
+link:operations-on-buckets.html["Operaciones en bloques"]
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketTagging.html["DeleteBucketTagging"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID admite todos <<common-params,parámetros y cabeceras comunes>> para esta solicitud.
+
+.Solicitar el cuerpo
+Ninguno
+
+.Documentación de StorageGRID
+link:operations-on-buckets.html["Operaciones en bloques"]
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html["DeleteObject"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID admite todo <<common-params,parámetros y cabeceras comunes>>para esta solicitud, además de este encabezado de solicitud adicional:
+
+* `x-amz-bypass-governance-retention`
+
+
+.Solicitar el cuerpo
+Ninguno
+
+.Documentación de StorageGRID
+link:operations-on-objects.html["Operaciones en objetos"]
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjects.html["DeleteObjects"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID admite todo <<common-params,parámetros y cabeceras comunes>>para esta solicitud, además de este encabezado de solicitud adicional:
+
+* `x-amz-bypass-governance-retention`
+
+
+.Solicitar el cuerpo
+StorageGRID admite todos los parámetros de cuerpo de solicitud definidos por la API de REST DE Amazon S3 en el momento de la implementación.
+
+.Documentación de StorageGRID
+link:operations-on-objects.html["Operaciones en objetos"]
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjectTagging.html["DeleteObjectTagging"^]
+
+StorageGRID admite todos <<common-params,parámetros y cabeceras comunes>> para esta solicitud.
+
+.Solicitar el cuerpo
+Ninguno
+
+.Documentación de StorageGRID
+link:operations-on-objects.html["Operaciones en objetos"]
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketAcl.html["GetBucketAcl"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID admite todos <<common-params,parámetros y cabeceras comunes>> para esta solicitud.
+
+.Solicitar el cuerpo
+Ninguno
+
+.Documentación de StorageGRID
+link:operations-on-buckets.html["Operaciones en bloques"]
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketCors.html["GetBucketCors"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID admite todos <<common-params,parámetros y cabeceras comunes>> para esta solicitud.
+
+.Solicitar el cuerpo
+Ninguno
+
+.Documentación de StorageGRID
+link:operations-on-buckets.html["Operaciones en bloques"]
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketEncryption.html["GetBucketEncryption"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID admite todos <<common-params,parámetros y cabeceras comunes>> para esta solicitud.
+
+.Solicitar el cuerpo
+Ninguno
+
+.Documentación de StorageGRID
+link:operations-on-buckets.html["Operaciones en bloques"]
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycleConfiguration.html["GetBucketLifecycleConfiguration"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID admite todos <<common-params,parámetros y cabeceras comunes>> para esta solicitud.
+
+.Solicitar el cuerpo
+Ninguno
+
+.Documentación de StorageGRID
+* link:operations-on-buckets.html["Operaciones en bloques"]
+* link:create-s3-lifecycle-configuration.html["Cree una configuración del ciclo de vida de S3"]
+
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLocation.html["GetBucketLocation"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID admite todos <<common-params,parámetros y cabeceras comunes>> para esta solicitud.
+
+.Solicitar el cuerpo
+Ninguno
+
+.Documentación de StorageGRID
+link:operations-on-buckets.html["Operaciones en bloques"]
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketNotificationConfiguration.html["GetBucketNotificationConfiguration"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID admite todos <<common-params,parámetros y cabeceras comunes>> para esta solicitud.
+
+.Solicitar el cuerpo
+Ninguno
+
+.Documentación de StorageGRID
+link:operations-on-buckets.html["Operaciones en bloques"]
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketPolicy.html["GetBucketPolicy"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID admite todos <<common-params,parámetros y cabeceras comunes>> para esta solicitud.
+
+.Solicitar el cuerpo
+Ninguno
+
+.Documentación de StorageGRID
+link:operations-on-buckets.html["Operaciones en bloques"]
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketReplication.html["GetBucketReplication"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID admite todos <<common-params,parámetros y cabeceras comunes>> para esta solicitud.
+
+.Solicitar el cuerpo
+Ninguno
+
+.Documentación de StorageGRID
+link:operations-on-buckets.html["Operaciones en bloques"]
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketTagging.html["Etiquetado de GetBucketTagging"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID admite todos <<common-params,parámetros y cabeceras comunes>> para esta solicitud.
+
+.Solicitar el cuerpo
+Ninguno
+
+.Documentación de StorageGRID
+link:operations-on-buckets.html["Operaciones en bloques"]
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketVersioning.html["GetBucketVersioning"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID admite todos <<common-params,parámetros y cabeceras comunes>> para esta solicitud.
+
+.Solicitar el cuerpo
+Ninguno
+
+.Documentación de StorageGRID
+link:operations-on-buckets.html["Operaciones en bloques"]
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html["GetObject"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID soporta todos <<common-params,parámetros y cabeceras comunes>> para esta solicitud, además de estos parámetros de consulta URI adicionales:
+
+* `x-amz-checksum-mode`
+* `partNumber`
+* `response-cache-control`
+* `response-content-disposition`
+* `response-content-encoding`
+* `response-content-language`
+* `response-content-type`
+* `response-expires`
+
+
+Y estos encabezados de solicitud adicionales:
+
+* `Range`
+* `x-amz-server-side-encryption-customer-algorithm`
+* `x-amz-server-side-encryption-customer-key`
+* `x-amz-server-side-encryption-customer-key-MD5`
+* `If-Match`
+* `If-Modified-Since`
+* `If-None-Match`
+* `If-Unmodified-Since`
+
+
+.Solicitar el cuerpo
+Ninguno
+
+.Documentación de StorageGRID
+link:get-object.html["GetObject"]
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html["GetObjectAcl"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID admite todos <<common-params,parámetros y cabeceras comunes>> para esta solicitud.
+
+.Solicitar el cuerpo
+Ninguno
+
+.Documentación de StorageGRID
+link:operations-on-objects.html["Operaciones en objetos"]
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectLegalHold.html["GetObjectLegalHold"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID admite todos <<common-params,parámetros y cabeceras comunes>> para esta solicitud.
+
+.Solicitar el cuerpo
+Ninguno
+
+.Documentación de StorageGRID
+link:../s3/use-s3-api-for-s3-object-lock.html["Use la API REST DE S3 para configurar el bloqueo de objetos de S3"]
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectLockConfiguration.html["GetObjectLockConfiguration"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID admite todos <<common-params,parámetros y cabeceras comunes>> para esta solicitud.
+
+.Solicitar el cuerpo
+Ninguno
+
+.Documentación de StorageGRID
+link:../s3/use-s3-api-for-s3-object-lock.html["Use la API REST DE S3 para configurar el bloqueo de objetos de S3"]
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectRetention.html["GetObjectRetention"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID admite todos <<common-params,parámetros y cabeceras comunes>> para esta solicitud.
+
+.Solicitar el cuerpo
+Ninguno
+
+.Documentación de StorageGRID
+link:../s3/use-s3-api-for-s3-object-lock.html["Use la API REST DE S3 para configurar el bloqueo de objetos de S3"]
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html["GetObjectEtiquetado"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID admite todos <<common-params,parámetros y cabeceras comunes>> para esta solicitud.
+
+.Solicitar el cuerpo
+Ninguno
+
+.Documentación de StorageGRID
+link:operations-on-objects.html["Operaciones en objetos"]
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_HeadBucket.html["Segmento de cabeza"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID admite todos <<common-params,parámetros y cabeceras comunes>> para esta solicitud.
+
+.Solicitar el cuerpo
+Ninguno
+
+.Documentación de StorageGRID
+link:operations-on-buckets.html["Operaciones en bloques"]
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_HeadObject.html["Objeto principal"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID admite todo <<common-params,parámetros y cabeceras comunes>> para esta solicitud, además de estos encabezados adicionales:
+
+* `x-amz-checksum-mode`
+* `x-amz-server-side-encryption-customer-algorithm`
+* `x-amz-server-side-encryption-customer-key`
+* `x-amz-server-side-encryption-customer-key-MD5`
+* `If-Match`
+* `If-Modified-Since`
+* `If-None-Match`
+* `If-Unmodified-Since`
+* `Range`
+
+
+.Solicitar el cuerpo
+Ninguno
+
+.Documentación de StorageGRID
+link:head-object.html["Objeto principal"]
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBuckets.html["ListCuchers"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID admite todos <<common-params,parámetros y cabeceras comunes>> para esta solicitud.
+
+.Solicitar el cuerpo
+Ninguno
+
+.Documentación de StorageGRID
+link:operations-on-the-service.html["Operaciones en el servicio > ListBuckets"]
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html["ListCargas multipartitas"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID admite todos los <<common-params,parámetros y cabeceras comunes>>casos de esta solicitud, además de estos parámetros adicionales:
+
+* `encoding-type`
+* `key-marker`
+* `max-uploads`
+* `prefix`
+* `upload-id-marker`
+
+
+.Solicitar el cuerpo
+Ninguno
+
+.Documentación de StorageGRID
+link:list-multipart-uploads.html["ListCargas multipartitas"]
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjects.html["ListObjects"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID admite todos los <<common-params,parámetros y cabeceras comunes>>casos de esta solicitud, además de estos parámetros adicionales:
+
+* `delimiter`
+* `encoding-type`
+* `marker`
+* `max-keys`
+* `prefix`
+
+
+.Solicitar el cuerpo
+Ninguno
+
+.Documentación de StorageGRID
+link:operations-on-buckets.html["Operaciones en bloques"]
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectsV2.html["ListObjectsV2"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID admite todos los <<common-params,parámetros y cabeceras comunes>>casos de esta solicitud, además de estos parámetros adicionales:
+
+* `continuation-token`
+* `delimiter`
+* `encoding-type`
+* `fetch-owner`
+* `max-keys`
+* `prefix`
+* `start-after`
+
+
+.Solicitar el cuerpo
+Ninguno
+
+.Documentación de StorageGRID
+link:operations-on-buckets.html["Operaciones en bloques"]
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectVersions.html["ListObjectVersions"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID admite todos los <<common-params,parámetros y cabeceras comunes>>casos de esta solicitud, además de estos parámetros adicionales:
+
+* `delimiter`
+* `encoding-type`
+* `key-marker`
+* `max-keys`
+* `prefix`
+* `version-id-marker`
+
+
+.Solicitar el cuerpo
+Ninguno
+
+.Documentación de StorageGRID
+link:operations-on-buckets.html["Operaciones en bloques"]
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html["ListParts"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID admite todos los <<common-params,parámetros y cabeceras comunes>>casos de esta solicitud, además de estos parámetros adicionales:
+
+* `max-parts`
+* `part-number-marker`
+* `uploadId`
+
+
+.Solicitar el cuerpo
+Ninguno
+
+.Documentación de StorageGRID
+link:list-multipart-uploads.html["ListCargas multipartitas"]
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketCors.html["A cargo de PutBucketCors"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID admite todos <<common-params,parámetros y cabeceras comunes>> para esta solicitud.
+
+.Solicitar el cuerpo
+StorageGRID admite todos los parámetros de cuerpo de solicitud definidos por la API de REST DE Amazon S3 en el momento de la implementación.
+
+.Documentación de StorageGRID
+link:operations-on-buckets.html["Operaciones en bloques"]
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketEncryption.html["PutBucketEncryption"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID admite todos <<common-params,parámetros y cabeceras comunes>> para esta solicitud.
+
+.Etiquetas XML de cuerpo de solicitud
+StorageGRID soporta las siguientes etiquetas XML del cuerpo de la solicitud:
+
+* `ApplyServerSideEncryptionByDefault`
+* `Rule`
+* `ServerSideEncryptionConfiguration`
+* `SSEAlgorithm`
+
+
+.Documentación de StorageGRID
+link:operations-on-buckets.html["Operaciones en bloques"]
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html["PutBucketLifecycleConfiguration"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID admite todos <<common-params,parámetros y cabeceras comunes>> para esta solicitud.
+
+.Etiquetas XML de cuerpo de solicitud
+StorageGRID soporta las siguientes etiquetas XML del cuerpo de la solicitud:
+
+* `And`
+* `Days`
+* `Expiration`
+* `ExpiredObjectDeleteMarker`
+* `Filter`
+* `ID`
+* `Key`
+* `LifecycleConfiguration`
+* `NewerNoncurrentVersions`
+* `NoncurrentDays`
+* `NoncurrentVersionExpiration`
+* `Prefix`
+* `Rule`
+* `Status`
+* `Tag`
+* `Value`
+
+
+.Documentación de StorageGRID
+* link:operations-on-buckets.html["Operaciones en bloques"]
+* link:create-s3-lifecycle-configuration.html["Cree una configuración del ciclo de vida de S3"]
+
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketNotificationConfiguration.html["PutBucketNotificationConfiguration"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID admite todos <<common-params,parámetros y cabeceras comunes>> para esta solicitud.
+
+.Etiquetas XML de cuerpo de solicitud
+StorageGRID soporta las siguientes etiquetas XML del cuerpo de la solicitud:
+
+* `Event`
+* `Filter`
+* `FilterRule`
+* `Id`
+* `Name`
+* `NotificationConfiguration`
+* `Prefix`
+* `S3Key`
+* `Suffix`
+* `Topic`
+* `TopicConfiguration`
+* `Value`
+
+
+.Documentación de StorageGRID
+link:operations-on-buckets.html["Operaciones en bloques"]
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketPolicy.html["Política de PutBucketPolicy"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID admite todos <<common-params,parámetros y cabeceras comunes>> para esta solicitud.
+
+.Solicitar el cuerpo
+Para obtener detalles sobre los campos de cuerpo JSON admitidos, consulte link:bucket-and-group-access-policies.html["Utilice las políticas de acceso de bloques y grupos"].
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html["PutBucketReplication"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID admite todos <<common-params,parámetros y cabeceras comunes>> para esta solicitud.
+
+.Etiquetas XML de cuerpo de solicitud
+* `Bucket`
+* `Destination`
+* `Prefix`
+* `ReplicationConfiguration`
+* `Rule`
+* `Status`
+* `StorageClass`
+
+
+.Documentación de StorageGRID
+link:operations-on-buckets.html["Operaciones en bloques"]
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketTagging.html["PutBucketTagging"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID admite todos <<common-params,parámetros y cabeceras comunes>> para esta solicitud.
+
+.Solicitar el cuerpo
+StorageGRID admite todos los parámetros de cuerpo de solicitud definidos por la API de REST DE Amazon S3 en el momento de la implementación.
+
+.Documentación de StorageGRID
+link:operations-on-buckets.html["Operaciones en bloques"]
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketVersioning.html["PutBucketVersioning"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID admite todos <<common-params,parámetros y cabeceras comunes>> para esta solicitud.
+
+.Parámetros de cuerpo de solicitud
+StorageGRID admite los siguientes parámetros de cuerpo de solicitud:
+
+* `VersioningConfiguration`
+* `Status`
+
+
+.Documentación de StorageGRID
+link:operations-on-buckets.html["Operaciones en bloques"]
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html["Objeto de puta"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID admite todo <<common-params,parámetros y cabeceras comunes>> para esta solicitud, además de estos encabezados adicionales:
+
+* `Cache-Control`
+* `Content-Disposition`
+* `Content-Encoding`
+* `Content-Language`
+* `x-amz-checksum-sha256`
+* `x-amz-server-side-encryption`
+* `x-amz-storage-class`
+* `x-amz-server-side-encryption-customer-algorithm`
+* `x-amz-server-side-encryption-customer-key`
+* `x-amz-server-side-encryption-customer-key-MD5`
+* `x-amz-tagging`
+* `x-amz-object-lock-mode`
+* `x-amz-object-lock-retain-until-date`
+* `x-amz-object-lock-legal-hold`
+* `x-amz-meta-<metadata-name>`
+
+
+.Solicitar el cuerpo
+* Datos binarios del objeto
+
+
+.Documentación de StorageGRID
+link:put-object.html["Objeto de puta"]
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectLegalHold.html["PutObjectLegalHold"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID admite todos <<common-params,parámetros y cabeceras comunes>> para esta solicitud.
+
+.Solicitar el cuerpo
+StorageGRID admite todos los parámetros de cuerpo de solicitud definidos por la API de REST DE Amazon S3 en el momento de la implementación.
+
+.Documentación de StorageGRID
+link:use-s3-api-for-s3-object-lock.html["Use la API REST DE S3 para configurar el bloqueo de objetos de S3"]
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectLockConfiguration.html["PutObjectLockConfiguration"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID admite todos <<common-params,parámetros y cabeceras comunes>> para esta solicitud.
+
+.Solicitar el cuerpo
+StorageGRID admite todos los parámetros de cuerpo de solicitud definidos por la API de REST DE Amazon S3 en el momento de la implementación.
+
+.Documentación de StorageGRID
+link:use-s3-api-for-s3-object-lock.html["Use la API REST DE S3 para configurar el bloqueo de objetos de S3"]
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectRetention.html["PutObjectRetention"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID admite todo <<common-params,parámetros y cabeceras comunes>>para esta solicitud, además de este encabezado adicional:
+
+* `x-amz-bypass-governance-retention`
+
+
+.Solicitar el cuerpo
+StorageGRID admite todos los parámetros de cuerpo de solicitud definidos por la API de REST DE Amazon S3 en el momento de la implementación.
+
+.Documentación de StorageGRID
+link:use-s3-api-for-s3-object-lock.html["Use la API REST DE S3 para configurar el bloqueo de objetos de S3"]
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectTagging.html["PutObjectEtiquetado"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID admite todos <<common-params,parámetros y cabeceras comunes>> para esta solicitud.
+
+.Solicitar el cuerpo
+StorageGRID admite todos los parámetros de cuerpo de solicitud definidos por la API de REST DE Amazon S3 en el momento de la implementación.
+
+.Documentación de StorageGRID
+link:operations-on-objects.html["Operaciones en objetos"]
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html["RestoreObject"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID admite todos <<common-params,parámetros y cabeceras comunes>> para esta solicitud.
+
+.Solicitar el cuerpo
+Para obtener más información sobre los campos de cuerpo admitidos, consulte link:post-object-restore.html["RestoreObject"].
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_SelectObjectContent.html["SelectObjectContent"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID admite todos <<common-params,parámetros y cabeceras comunes>> para esta solicitud.
+
+.Solicitar el cuerpo
+Para obtener más información sobre los campos de cuerpo admitidos, consulte lo siguiente:
+
+* link:use-s3-select.html["Utilice S3 Select"]
+* link:select-object-content.html["SelectObjectContent"]
+
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html["UploadPart"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID soporta todos <<common-params,parámetros y cabeceras comunes>> para esta solicitud, además de estos parámetros de consulta URI adicionales:
+
+* `partNumber`
+* `uploadId`
+
+
+Y estos encabezados de solicitud adicionales:
+
+* `x-amz-checksum-sha256`
+* `x-amz-server-side-encryption-customer-algorithm`
+* `x-amz-server-side-encryption-customer-key`
+* `x-amz-server-side-encryption-customer-key-MD5`
+
+
+.Solicitar el cuerpo
+* Datos binarios de la pieza
+
+
+.Documentación de StorageGRID
+link:upload-part.html["UploadPart"]
+
+
+
+== https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPartCopy.html["UploadPartCopy"^]
+
+.Parámetros de consulta URI y cabeceras de solicitud
+StorageGRID soporta todos <<common-params,parámetros y cabeceras comunes>> para esta solicitud, además de estos parámetros de consulta URI adicionales:
+
+* `partNumber`
+* `uploadId`
+
+
+Y estos encabezados de solicitud adicionales:
+
+* `x-amz-copy-source`
+* `x-amz-copy-source-if-match`
+* `x-amz-copy-source-if-modified-since`
+* `x-amz-copy-source-if-none-match`
+* `x-amz-copy-source-if-unmodified-since`
+* `x-amz-copy-source-range`
+* `x-amz-server-side-encryption-customer-algorithm`
+* `x-amz-server-side-encryption-customer-key`
+* `x-amz-server-side-encryption-customer-key-MD5`
+* `x-amz-copy-source-server-side-encryption-customer-algorithm`
+* `x-amz-copy-source-server-side-encryption-customer-key`
+* `x-amz-copy-source-server-side-encryption-customer-key-MD5`
+
+
+.Solicitar el cuerpo
+Ninguno
+
+.Documentación de StorageGRID
+link:upload-part-copy.html["UploadPartCopy"]

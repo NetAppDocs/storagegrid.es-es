@@ -1,0 +1,47 @@
+---
+permalink: monitor/viewing-santricity-system-manager-tab.html 
+sidebar: sidebar 
+keywords: SANtricity System Manager tab, hardware diagnostics 
+summary: La pestaña SANtricity System Manager le permite acceder a SANtricity System Manager sin necesidad de configurar ni conectar el puerto de gestión del dispositivo de almacenamiento. Puede utilizar esta pestaña para revisar la información de diagnóstico de hardware y entorno, así como los problemas relacionados con las unidades. 
+---
+= Ver la pestaña Administrador del sistema de SANtricity (solo E-Series)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La pestaña SANtricity System Manager le permite acceder a SANtricity System Manager sin necesidad de configurar ni conectar el puerto de gestión del dispositivo de almacenamiento. Puede utilizar esta pestaña para revisar la información de diagnóstico de hardware y entorno, así como los problemas relacionados con las unidades.
+
+
+CAUTION: Acceder a System Manager de SANtricity desde Grid Manager normalmente solo se utiliza para supervisar el hardware del dispositivo y configurar E-Series AutoSupport. Muchas funciones y operaciones de SANtricity System Manager, como la actualización del firmware, no se aplican a la supervisión de su dispositivo StorageGRID. Para evitar problemas, siga siempre las instrucciones de mantenimiento de hardware de su dispositivo. Para actualizar el firmware de SANtricity, consulte https://docs.netapp.com/us-en/storagegrid-appliances/landing-maintain-hdwr/index.html["Procedimientos de configuración de mantenimiento"^] el para el dispositivo de almacenamiento.
+
+
+NOTE: La pestaña SANtricity System Manager solo se muestra para los nodos de dispositivos de almacenamiento donde se utiliza hardware de E-Series.
+
+Con SANtricity System Manager, puede hacer lo siguiente:
+
+* Vea datos de rendimiento como el rendimiento a nivel de cabina de almacenamiento, latencia de I/O, uso de CPU de la controladora de almacenamiento y rendimiento.
+* Comprobar el estado de los componentes de hardware.
+* Lleve a cabo funciones de soporte, como la visualización de datos de diagnóstico y la configuración de E-Series AutoSupport.
++
+
+NOTE: Para utilizar System Manager de SANtricity y configurar un proxy para la AutoSupport de E-Series, consulte link:../admin/sending-eseries-autosupport-messages-through-storagegrid.html["Envíe los paquetes AutoSupport de E-Series a través de StorageGRID"].
+
+
+
+Para acceder a SANtricity System Manager mediante Grid Manager, es necesario contar con la link:../admin/admin-group-permissions.html["Permiso de acceso de administrador o de dispositivo de almacenamiento"].
+
+
+NOTE: Debe tener el firmware 8.70 de SANtricity o superior para acceder a SANtricity System Manager mediante Grid Manager.
+
+La pestaña muestra la página de inicio de SANtricity System Manager.
+
+image::../media/nodes_page_santricity_tab.png[Pestaña Nodes page SANtricity]
+
+
+NOTE: Puede usar el enlace SANtricity System Manager para abrir la instancia de SANtricity System Manager en una nueva ventana del navegador para facilitar la visualización.
+
+Para ver detalles del rendimiento a nivel de la cabina de almacenamiento y el uso de capacidad, coloque el cursor sobre cada gráfico.
+
+Para obtener más detalles sobre la visualización de la información accesible desde la ficha Administrador del sistema de SANtricity, consulte https://docs.netapp.com/us-en/e-series-family/index.html["Documentación de E-Series y SANtricity de NetApp"^].

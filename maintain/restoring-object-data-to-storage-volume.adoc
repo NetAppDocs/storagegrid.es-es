@@ -1,0 +1,293 @@
+---
+permalink: maintain/restoring-object-data-to-storage-volume.html 
+sidebar: sidebar 
+keywords: restore replicated data, restore erasure-coded data, recover storage node, recover storage volume 
+summary: Después de recuperar los volúmenes de almacenamiento para un nodo de almacenamiento que no sea de dispositivo, se pueden restaurar los datos de objetos replicados o con código de borrado que se perdieron cuando se produjo un error en el nodo de almacenamiento. 
+---
+= Restauración de los datos de objetos en un volumen de almacenamiento (fallo de unidad de sistema)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Después de recuperar los volúmenes de almacenamiento para un nodo de almacenamiento que no sea de dispositivo, se pueden restaurar los datos de objetos replicados o con código de borrado que se perdieron cuando se produjo un error en el nodo de almacenamiento.
+
+
+
+== ¿Qué procedimiento debo usar?
+
+Siempre que sea posible, restaure los datos del objeto utilizando la página *Volume restoration* en Grid Manager.
+
+* Si los volúmenes aparecen en *MANTENIMIENTO* > *Restauración de volumen* > *Nodos a restaurar*, restaure los datos del objeto con la link:../maintain/restoring-volume.html["Página de restauración de volúmenes en Grid Manager"].
+* Si los volúmenes no aparecen en *MANTENIMIENTO* > *Restauración de volumen* > *Nodos a restaurar*, siga los pasos que se indican a continuación para usar `repair-data` el script para restaurar los datos del objeto.
++
+Si el nodo de almacenamiento recuperado contiene menos volúmenes que el nodo que sustituye, deberá utilizar `repair-data` el script.
+
+
+
+
+NOTE: El script repair-data está obsoleto y se eliminará en una versión futura. Cuando sea posible, utilice el link:../maintain/restoring-volume.html["Procedimiento de restauración de volúmenes en Grid Manager"].
+
+
+
+== Utilice `repair-data` el script para restaurar datos de objetos
+
+.Antes de empezar
+* Ha confirmado que el nodo de almacenamiento recuperado tiene un estado de conexión de *Connected*  en la pestaña *NODES* image:../media/icon_alert_green_checkmark.png["icono de alerta verde marca de verificación"]> *Overview* en Grid Manager.
+
+
+.Acerca de esta tarea
+Los datos de objetos se pueden restaurar desde otros nodos de almacenamiento o un pool de almacenamiento en cloud, suponiendo que las reglas de ILM del grid se hayan configurado de forma que las copias de objetos estén disponibles.
+
+Tenga en cuenta lo siguiente:
+
+* Si se configuró una regla de ILM para almacenar una sola copia replicada y esa copia estaba en un volumen de almacenamiento que falló, no podrá recuperar el objeto.
+* Si la única copia restante de un objeto se encuentra en un Cloud Storage Pool, StorageGRID debe emitir varias solicitudes al extremo Cloud Storage Pool para restaurar datos de objetos. Antes de realizar este procedimiento, póngase en contacto con el soporte técnico para obtener ayuda a la hora de calcular el plazo de recuperación y los costes asociados.
+
+
+
+
+== Acerca del `repair-data` script
+
+Para restaurar los datos de objetos, se ejecuta `repair-data` el script. Este script inicia el proceso de restauración de datos de objetos y funciona con el análisis de ILM para garantizar que se cumplan las reglas de ILM.
+
+Seleccione *Datos replicados* o *Datos con código de borrado (EC)* a continuación para conocer las diferentes opciones para el `repair-data` script, en función de si está restaurando datos replicados o datos con código de borrado. Si necesita restaurar ambos tipos de datos, debe ejecutar ambos conjuntos de comandos.
+
+
+NOTE: Para obtener más información sobre el `repair-data` script, introduzca `repair-data --help` desde la línea de comandos del nodo de administración principal.
+
+
+NOTE: El script repair-data está obsoleto y se eliminará en una versión futura. Cuando sea posible, utilice el link:../maintain/restoring-volume.html["Procedimiento de restauración de volúmenes en Grid Manager"].
+
+[role="tabbed-block"]
+====
+.Datos replicados
+--
+Hay dos comandos disponibles para restaurar los datos replicados, según si necesita reparar el nodo completo o solo ciertos volúmenes del nodo:
+
+`repair-data start-replicated-node-repair`
+
+`repair-data start-replicated-volume-repair`
+
+Puede realizar un seguimiento de las reparaciones de los datos replicados con este comando:
+
+`repair-data show-replicated-repair-status`
+
+--
+.Datos con código de borrado (EC)
+--
+Hay dos comandos disponibles para restaurar datos codificados de borrado a partir de si necesita reparar el nodo completo o solo ciertos volúmenes en el nodo:
+
+`repair-data start-ec-node-repair`
+
+`repair-data start-ec-volume-repair`
+
+Puede realizar un seguimiento de las reparaciones de datos codificados de borrado con este comando:
+
+`repair-data show-ec-repair-status`
+
+
+NOTE: Las reparaciones de datos codificados para borrado pueden comenzar con algunos nodos de almacenamiento sin conexión. Sin embargo, si no se pueden tener en cuenta todos los datos con código de borrado, no se podrá completar la reparación. La reparación se completará después de que todos los nodos estén disponibles.
+
+
+NOTE: El trabajo de reparación de la CE reserva temporalmente una gran cantidad de almacenamiento. Es posible que se activen las alertas de almacenamiento, pero se resolverán cuando se complete la reparación. Si no hay suficiente almacenamiento para la reserva, el trabajo de reparación de la CE fallará. Las reservas de almacenamiento se liberan cuando se completa el trabajo de reparación de EC, tanto si el trabajo ha fallado como si ha sido correcto.
+
+--
+====
+
+
+== Busque el nombre de host del nodo de almacenamiento
+
+. Inicie sesión en el nodo de administración principal:
++
+.. Introduzca el siguiente comando: `ssh admin@_primary_Admin_Node_IP_`
+.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
+.. Introduzca el siguiente comando para cambiar a raíz: `su -`
+.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
++
+Al iniciar sesión como root, la petición de datos cambia de `$` a `#`.
+
+
+
+. Use el `/etc/hosts` archivo para buscar el nombre de host del nodo de almacenamiento para los volúmenes de almacenamiento restaurados. Para ver una lista de todos los nodos de la cuadrícula, introduzca lo siguiente `cat /etc/hosts`: .
+
+
+
+
+== Repare los datos si todos los volúmenes presentan errores
+
+Si todos los volúmenes de almacenamiento presentan errores, repare todo el nodo. Siga las instrucciones para *datos replicados*, *datos codificados con borrado (EC)*, o ambos, en función de si utiliza datos replicados, datos codificados con borrado (EC), o ambos.
+
+Si solo se produjeron errores en algunos volúmenes, vaya a <<Repare los datos si solo algunos volúmenes han fallado>>.
+
+
+NOTE: No se pueden ejecutar `repair-data` operaciones para más de un nodo a la vez. Para recuperar varios nodos, póngase en contacto con el soporte técnico.
+
+[role="tabbed-block"]
+====
+.Datos replicados
+--
+Si su grid incluye datos replicados, utilice `repair-data start-replicated-node-repair` el comando con `--nodes` la opción, donde `--nodes` es el nombre de host (nombre del sistema), para reparar todo el nodo de almacenamiento.
+
+Este comando repara los datos replicados en un nodo de almacenamiento denominado SG-DC-SN3:
+
+`repair-data start-replicated-node-repair --nodes SG-DC-SN3`
+
+
+NOTE: A medida que se restauran los datos del objeto, la alerta de *Objetos perdidos* se activa si el sistema StorageGRID no puede localizar los datos de objetos replicados. Es posible que se activen alertas en los nodos de almacenamiento de todo el sistema. Debe determinar la causa de la pérdida y si es posible la recuperación. Consulte link:../troubleshoot/investigating-lost-objects.html["Investigar los objetos perdidos"].
+
+--
+.Datos con código de borrado (EC)
+--
+Si su grid contiene datos codificados de borrado, utilice `repair-data start-ec-node-repair` el comando con `--nodes` la opción, donde `--nodes` es el nombre de host (nombre del sistema), para reparar todo el nodo de almacenamiento.
+
+Este comando repara los datos codificados con borrado en un nodo de almacenamiento denominado SG-DC-SN3:
+
+`repair-data start-ec-node-repair --nodes SG-DC-SN3`
+
+La operación devuelve un valor único `repair ID` que identifica esta `repair_data` operación. Utilícelo `repair ID` para realizar un seguimiento del progreso y el resultado de `repair_data` la operación. No se devuelve ningún otro comentario cuando finaliza el proceso de recuperación.
+
+Las reparaciones de datos codificados para borrado pueden comenzar con algunos nodos de almacenamiento sin conexión. La reparación se completará después de que todos los nodos estén disponibles.
+
+--
+====
+
+
+== Repare los datos si solo algunos volúmenes han fallado
+
+Si solo se produjo un error en algunos de los volúmenes, repare los volúmenes afectados. Siga las instrucciones para *datos replicados*, *datos codificados con borrado (EC)*, o ambos, en función de si utiliza datos replicados, datos codificados con borrado (EC), o ambos.
+
+Si se produjo un error en todos los volúmenes, vaya a <<Repare los datos si todos los volúmenes presentan errores>>.
+
+Introduzca los ID de volumen en hexadecimal. Por ejemplo, `0000` es el primer volumen y `000F` es el decimosexto volumen. Puede especificar un volumen, un rango de volúmenes o varios volúmenes que no estén en una secuencia.
+
+Todos los volúmenes deben estar en el mismo nodo de almacenamiento. Si necesita restaurar volúmenes para más de un nodo de almacenamiento, póngase en contacto con el soporte técnico.
+
+[role="tabbed-block"]
+====
+.Datos replicados
+--
+Si el grid contiene datos replicados, utilice `start-replicated-volume-repair` el comando con `--nodes` la opción de identificar el nodo (donde `--nodes` es el nombre de host del nodo). A continuación, agregue la `--volumes` opción o `--volume-range`, como se muestra en los siguientes ejemplos.
+
+*Volumen único*: Este comando restaura los datos replicados al volumen `0002` en un nodo de almacenamiento llamado SG-DC-SN3:
+
+`repair-data start-replicated-volume-repair --nodes SG-DC-SN3 --volumes 0002`
+
+*Rango de volúmenes*: Este comando restaura los datos replicados a todos los volúmenes del rango `0003` a `0009` un nodo de almacenamiento llamado SG-DC-SN3:
+
+`repair-data start-replicated-volume-repair --nodes SG-DC-SN3 --volume-range 0003,0009`
+
+*Varios volúmenes que no están en una secuencia*: Este comando restaura los datos replicados a volúmenes `0001`, `0005` y `0008` en un nodo de almacenamiento llamado SG-DC-SN3:
+
+`repair-data start-replicated-volume-repair --nodes SG-DC-SN3 --volumes 0001,0005,0008`
+
+
+NOTE: A medida que se restauran los datos del objeto, la alerta de *Objetos perdidos* se activa si el sistema StorageGRID no puede localizar los datos de objetos replicados. Es posible que se activen alertas en los nodos de almacenamiento de todo el sistema. Tenga en cuenta la descripción de la alerta y las acciones recomendadas para determinar la causa de la pérdida y si la recuperación es posible.
+
+--
+.Datos con código de borrado (EC)
+--
+Si su grid contiene datos codificados por borrado, utilice `start-ec-volume-repair` el comando con `--nodes` la opción para identificar el nodo (donde `--nodes` es el nombre de host del nodo). A continuación, agregue la `--volumes` opción o `--volume-range`, como se muestra en los siguientes ejemplos.
+
+*Volumen único*: Este comando restaura los datos con código de borrado al volumen `0007` en un nodo de almacenamiento llamado SG-DC-SN3:
+
+`repair-data start-ec-volume-repair --nodes SG-DC-SN3 --volumes 0007`
+
+*Rango de volúmenes*: Este comando restaura los datos con código de borrado a todos los volúmenes en el rango `0004` a `0006` un nodo de almacenamiento llamado SG-DC-SN3:
+
+`repair-data start-ec-volume-repair --nodes SG-DC-SN3 --volume-range 0004,0006`
+
+*Varios volúmenes que no están en una secuencia*: Este comando restaura los datos con código de borrado a volúmenes `000A`, `000C` y `000E` en un nodo de almacenamiento llamado SG-DC-SN3:
+
+`repair-data start-ec-volume-repair --nodes SG-DC-SN3 --volumes 000A,000C,000E`
+
+ `repair-data`La operación devuelve un valor único `repair ID` que identifica esta `repair_data` operación. Utilícelo `repair ID` para realizar un seguimiento del progreso y el resultado de `repair_data` la operación. No se devuelve ningún otro comentario cuando finaliza el proceso de recuperación.
+
+
+NOTE: Las reparaciones de datos codificados para borrado pueden comenzar con algunos nodos de almacenamiento sin conexión. La reparación se completará después de que todos los nodos estén disponibles.
+
+--
+====
+
+
+== Reparaciones del monitor
+
+Supervise el estado de los trabajos de reparación, en función de si utiliza *datos replicados*, *datos codificados por borrado (EC)* o ambos.
+
+También puede supervisar el estado de los trabajos de restauración de volúmenes en curso y ver un historial de trabajos de restauración completados en link:../maintain/restoring-volume.html["Administrador de grid"].
+
+[role="tabbed-block"]
+====
+.Datos replicados
+--
+* Para obtener un porcentaje de finalización estimado para la reparación replicada, agregue `show-replicated-repair-status` la opción al comando repair-data.
++
+`repair-data show-replicated-repair-status`
+
+* Para determinar si las reparaciones están completas:
++
+.. Seleccione *NODES* > *_Storage Node que se está reparando_* > *ILM*.
+.. Revise los atributos en la sección Evaluación. Una vez completadas las reparaciones, el atributo *esperando - todo* indica 0 objetos.
+
+
+* Para supervisar la reparación con más detalle:
++
+.. Seleccione *SUPPORT* > *Tools* > *Topología de cuadrícula*.
+.. Seleccione *_grid_* > *_nodo de almacenamiento que se está reparando_* > *LDR* > *almacén de datos*.
+.. Utilice una combinación de los siguientes atributos para determinar, como sea posible, si las reparaciones replicadas se han completado.
++
+
+NOTE: Puede haber incoherencias en Cassandra y no se realiza un seguimiento de las reparaciones fallidas.
+
++
+*** *Reparaciones intentadas (XRPA)*: Utilice este atributo para realizar un seguimiento del progreso de las reparaciones replicadas. Este atributo aumenta cada vez que un nodo de almacenamiento intenta reparar un objeto de alto riesgo. Cuando este atributo no aumenta durante un período más largo que el período de exploración actual (proporcionado por el atributo *período de exploración -- estimado*), significa que el análisis de ILM no encontró objetos de alto riesgo que necesitan ser reparados en ningún nodo.
++
+
+NOTE: Los objetos de alto riesgo son objetos que corren el riesgo de perderse por completo. Esto no incluye objetos que no cumplen con la configuración de ILM.
+
+*** *Período de exploración -- estimado (XSCM)*: Utilice este atributo para estimar cuándo se aplicará un cambio de directiva a objetos ingeridos previamente. Si el atributo *reparos intentados* no aumenta durante un período más largo que el período de adquisición actual, es probable que se realicen reparaciones replicadas. Tenga en cuenta que el período de adquisición puede cambiar. El atributo *período de exploración -- estimado (XSCM)* se aplica a toda la cuadrícula y es el máximo de todos los periodos de exploración de nodos. Puede consultar el historial de atributos *período de exploración -- Estimated* de la cuadrícula para determinar un intervalo de tiempo adecuado.
+
+
+
+
+
+
+--
+.Datos con código de borrado (EC)
+--
+Para supervisar la reparación de datos codificados mediante borrado y vuelva a intentar cualquier solicitud que pudiera haber fallado:
+
+. Determine el estado de las reparaciones de datos codificadas por borrado:
++
+** Seleccione *SUPPORT* > *Tools* > *Metrics* para ver el tiempo estimado hasta la finalización y el porcentaje de finalización del trabajo actual. A continuación, seleccione *EC Overview* en la sección Grafana. Consulte los paneles *tiempo estimado de trabajo de Grid EC hasta finalización* y *Porcentaje de trabajo de Grid EC completado*.
+** Use este comando para ver el estado de una operación específica `repair-data`:
++
+`repair-data show-ec-repair-status --repair-id repair ID`
+
+** Utilice este comando para enumerar todas las reparaciones:
++
+`repair-data show-ec-repair-status`
+
++
+La salida muestra información, incluida `repair ID`, para todas las reparaciones que se estaban ejecutando anteriormente y actualmente.
+
+
+
+. Si el resultado muestra que la operación de reparación falló, use `--repair-id` la opción para volver a intentar la reparación.
++
+Este comando vuelve a intentar una reparación de nodo con fallos mediante el ID de reparación 6949309319275667690:
+
++
+`repair-data start-ec-node-repair --repair-id 6949309319275667690`
+
++
+Este comando reintenta realizar una reparación de volumen con fallos mediante el ID de reparación 6949309319275667690:
+
++
+`repair-data start-ec-volume-repair --repair-id 6949309319275667690`
+
+
+
+--
+====

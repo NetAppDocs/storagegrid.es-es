@@ -1,0 +1,31 @@
+---
+permalink: primer/ingest-data-flow.html 
+sidebar: sidebar 
+keywords: object data, ingest 
+summary: Una operación de ingesta, o guardado, consta de un flujo de datos definido entre el cliente y el sistema StorageGRID. 
+---
+= Flujo de datos de ingesta
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Una operación de ingesta, o guardado, consta de un flujo de datos definido entre el cliente y el sistema StorageGRID.
+
+
+
+== Flujo de datos
+
+Cuando un cliente procesa un objeto al sistema StorageGRID, el servicio LDR en los nodos de almacenamiento procesa la solicitud y almacena los metadatos y los datos en el disco.
+
+image::../media/ingest_data_flow.png[Procesamiento con ubicación síncrona]
+
+. La aplicación cliente crea el objeto y lo envía al sistema StorageGRID mediante una solicitud PUT HTTP.
+. El objeto se evalúa según la política de ILM del sistema.
+. El servicio LDR guarda los datos de los objetos como una copia replicada o como una copia con código de borrado. (El diagrama muestra una versión simplificada del almacenamiento de una copia replicada en el disco).
+. El servicio LDR envía los metadatos del objeto al almacén de metadatos.
+. El almacén de metadatos guarda los metadatos del objeto en el disco.
+. El almacén de metadatos propaga copias de metadatos de objetos a otros nodos de almacenamiento. Estas copias también se guardan en el disco.
+. El servicio LDR devuelve una respuesta HTTP 200 OK al cliente para reconocer que el objeto se ha ingerido.
+

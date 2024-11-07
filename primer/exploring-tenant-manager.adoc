@@ -1,0 +1,94 @@
+---
+permalink: primer/exploring-tenant-manager.html 
+sidebar: sidebar 
+keywords: what is the tenant manager, tenant manager dashboard 
+summary: El administrador de inquilinos es la interfaz gráfica basada en navegador a la que los usuarios inquilinos acceden para configurar, gestionar y supervisar sus cuentas de almacenamiento. 
+---
+= Explore el responsable de inquilinos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El link:../tenant/index.html["Administrador de inquilinos"] es la interfaz gráfica basada en explorador a la que los usuarios inquilinos acceden para configurar, gestionar y supervisar sus cuentas de almacenamiento.
+
+
+NOTE: El gestor de inquilinos se actualiza con cada versión y es posible que no coincida con las capturas de pantalla de ejemplo de esta página.
+
+Cuando los usuarios de inquilinos inician sesión en el Administrador de inquilinos, se conectan a un nodo de administración.
+
+
+
+== Consola del administrador de inquilinos
+
+Una vez que un administrador de grid crea una cuenta de inquilino mediante Grid Manager o la API de gestión de grid, los usuarios de inquilinos pueden iniciar sesión en el Administrador de inquilinos.
+
+La consola de tenant Manager permite que los usuarios inquilinos supervisen el uso del almacenamiento de un vistazo. El panel Storage Usage contiene una lista de los bloques más grandes (S3) o contenedores (Swift) para el inquilino. El valor espacio utilizado es la cantidad total de datos de objeto del bloque o contenedor. El gráfico de barras representa los tamaños relativos de estos cubos o contenedores.
+
+El valor mostrado encima del gráfico de barras es una suma del espacio utilizado para todos los cubos o contenedores del arrendatario. Si se especificó el número máximo de gigabytes, terabytes o petabytes disponibles para el inquilino cuando se creó la cuenta, también se muestra la cantidad de cuota utilizada y restante.
+
+image::../media/tenant_dashboard_with_buckets.png[Consola del administrador de inquilinos]
+
+
+
+== Menú Almacenamiento (S3)
+
+El menú Storage se proporciona únicamente para cuentas de inquilinos de S3. Este menú permite a los usuarios de S3 administrar claves de acceso; crear, gestionar y suprimir buckets; administrar puntos finales de servicios de plataforma; y ver cualquier conexión de federación de grid que se les permita utilizar.
+
+
+
+=== Mis claves de acceso
+
+Los usuarios de inquilinos S3 pueden gestionar las claves de acceso de la siguiente manera:
+
+* Los usuarios que tienen el permiso Administrar sus propias credenciales de S3 pueden crear o eliminar sus propias claves de acceso de S3.
+* Los usuarios que tienen el permiso de acceso root pueden administrar las claves de acceso para la cuenta root de S3, su propia cuenta y todos los demás usuarios. Las claves de acceso raíz también proporcionan acceso completo a los bloques y objetos del inquilino, a menos que una política de bloque lo deshabilite explícitamente.
++
+
+NOTE: La gestión de las claves de acceso de otros usuarios se realiza desde el menú Access Management.
+
+
+
+
+
+=== Cucharones
+
+Los usuarios inquilinos de S3 con los permisos correspondientes pueden realizar las siguientes tareas para sus bloques:
+
+* Crear cubos
+* Habilite el bloqueo de objetos de S3 para un bloque nuevo (asume que la función de bloqueo de objetos de S3 está habilitada para el sistema StorageGRID)
+* Actualice los valores de coherencia
+* Activar y desactivar las actualizaciones de hora del último acceso
+* Activar o suspender el control de versiones de objetos
+* Actualizar S3 Retención predeterminada de bloqueo de objetos
+* Configurar el uso compartido de recursos de origen cruzado (CORS)
+* Eliminar todos los objetos de un depósito
+* Eliminar cubos vacíos
+* Utilice link:../tenant/use-s3-console.html["S3 Consola"]para gestionar objetos de cubo
+
+
+Si un administrador de grid habilitó el uso de servicios de plataforma para la cuenta de inquilino, un usuario inquilino de S3 con los permisos correspondientes también puede realizar estas tareas:
+
+* Configure las notificaciones de eventos S3, que se pueden enviar a un servicio de destino que admita Amazon Simple Notification Service.
+* Configure la replicación de CloudMirror, que permite que el inquilino replique automáticamente objetos en un bloque de S3 externo.
+* Configurar la integración de búsqueda, que envía metadatos de objetos a un índice de búsqueda de destino siempre que se crea, se elimina o actualiza un objeto o sus metadatos o etiquetas.
+
+
+
+
+=== Extremos de servicios de plataforma
+
+Si un administrador de grid ha habilitado el uso de servicios de plataforma para la cuenta de inquilino, un usuario de inquilino de S3 con el permiso Manage Endpoints puede configurar un punto final de destino para cada servicio de plataforma.
+
+
+
+=== Conexiones de federación de grid
+
+Si un administrador de grid ha habilitado el uso de una conexión de federación de grid para la cuenta de inquilino, un usuario de S3 que tiene permiso de acceso raíz puede ver el nombre de la conexión, acceder a la página de detalles de bloque de cada bloque que tiene habilitada la replicación entre grid, y ver el error más reciente que se produce cuando los datos del depósito se están replicando en la otra cuadrícula de la conexión. Consulte link:../tenant/grid-federation-view-connections-tenant.html["Ver conexiones de federación de grid"].
+
+
+
+== Menú Access Management
+
+El menú Access Management permite a los inquilinos StorageGRID importar grupos de usuarios desde un origen de identidades federado y asignar permisos de gestión. Los inquilinos también pueden gestionar los usuarios y los grupos de inquilinos locales, a menos que el inicio de sesión único (SSO) esté vigente para todo el sistema StorageGRID.

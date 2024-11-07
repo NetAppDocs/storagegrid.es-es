@@ -1,0 +1,65 @@
+---
+permalink: maintain/reviewing-ilm-policy-and-storage-configuration.html 
+sidebar: sidebar 
+keywords: storagegrid, restore, ilm policy, storage configuration 
+summary: Si tiene pensado retirar un nodo de almacenamiento, debe revisar la política de ILM del sistema StorageGRID antes de iniciar el proceso de retirada del servicio. 
+---
+= Revisar la configuración de almacenamiento y la política de ILM
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si tiene pensado decomisionar un nodo de almacenamiento, debe revisar la política de ILM del sistema StorageGRID antes de iniciar el proceso de decomisionado.
+
+Durante el decomisionado, todos los datos de objetos se migran desde el nodo de almacenamiento retirado a otros nodos de almacenamiento.
+
+
+NOTE: La política de ILM que tiene _durante_ el decomiso será la que se utilice _after_ el Decomisión. Debe asegurarse de que esta política cumple con sus requisitos de datos antes de iniciar la retirada y después de que se haya completado la retirada.
+
+Debe revisar las reglas de cada una link:../ilm/creating-ilm-policy.html["Política de ILM activa"] para garantizar que el sistema StorageGRID continúe teniendo la capacidad suficiente del tipo correcto y en las ubicaciones correctas para acomodar el decomisionado de un nodo de almacenamiento.
+
+Considere lo siguiente:
+
+* ¿Será posible que los servicios de evaluación de ILM copien datos de objetos de modo que se cumplan las reglas de ILM?
+* ¿Qué ocurre si un sitio deja de estar disponible temporalmente mientras se decomisiona? ¿Se pueden realizar copias adicionales en una ubicación alternativa?
+* ¿Cómo afectará el proceso de retirada del servicio a la distribución final del contenido? Como se describe en link:consolidating-storage-nodes.html["Consolide los nodos de almacenamiento"], debe link:../expand/index.html["Añada nuevos nodos de almacenamiento"] antes de retirar los antiguos. Si añade un nodo de almacenamiento de repuesto con mayor tamaño después de decomisionar un nodo de almacenamiento más pequeño, los nodos de almacenamiento antiguos pueden estar cerca de la capacidad y el nuevo nodo de almacenamiento podría tener prácticamente ningún contenido. La mayoría de las operaciones de escritura de datos de objetos nuevos se dirigirían entonces al nuevo nodo de almacenamiento, lo que reduciría la eficiencia general de las operaciones del sistema.
+* ¿Incluirá el sistema, en todo momento, suficientes nodos de almacenamiento para satisfacer las políticas de ILM activas?
++
+
+NOTE: Una política de ILM que no puede satisfacerse provocará retrasos y alertas y podría detener el funcionamiento del sistema StorageGRID.
+
+
+
+Compruebe que la topología propuesta que se obtendrá como resultado del proceso de decomisionado cumple con la política de ILM evaluando las áreas enumeradas en la tabla.
+
+[cols="1a,2a"]
+|===
+| Área a evaluar | Consideraciones a tener en cuenta 
+
+
+ a| 
+Capacidad disponible
+ a| 
+¿Habrá suficiente capacidad de almacenamiento para acomodar todos los datos de objeto almacenados en el sistema StorageGRID, incluidas las copias permanentes de los datos de objeto actualmente almacenados en el nodo de almacenamiento que se van a retirar?
+
+¿Habrá capacidad suficiente para manejar el crecimiento previsto de datos de objetos almacenados durante un intervalo de tiempo razonable una vez finalizado el decomisionado?
+
+
+
+ a| 
+Ubicación del almacenamiento
+ a| 
+Si queda suficiente capacidad en el sistema StorageGRID en su conjunto, ¿está la capacidad en las ubicaciones adecuadas para satisfacer las reglas empresariales del sistema StorageGRID?
+
+
+
+ a| 
+Tipo de almacenamiento
+ a| 
+¿Habrá suficiente almacenamiento del tipo apropiado después de haber finalizado el desmantelamiento?
+
+Por ejemplo, las reglas de ILM pueden mover contenido de un tipo de almacenamiento a otro a medida que envejece el contenido. En este caso, debe asegurarse de que haya disponible suficiente almacenamiento del tipo adecuado en la configuración final del sistema StorageGRID.
+
+|===

@@ -1,0 +1,62 @@
+---
+permalink: maintain/grid-node-decommissioning.html 
+sidebar: sidebar 
+keywords: storagegrid, decommission, remove grid node 
+summary: Puede usar el procedimiento de retirada de nodo para quitar uno o varios nodos de cuadrícula en uno o varios sitios. No se puede retirar el nodo de administrador principal. 
+---
+= Retirada del nodo de grid
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede usar el procedimiento de retirada de nodo para quitar uno o varios nodos de cuadrícula en uno o varios sitios. No puede retirar el nodo de administración principal.
+
+
+
+== Cuándo decomisionar un nodo
+
+Usar el procedimiento de retirada del nodo cuando se cumple alguna de las siguientes condiciones:
+
+* Se añadió un nodo de almacenamiento más grande en una ampliación y desea quitar uno o varios nodos de almacenamiento más pequeños, al mismo tiempo que se conservan objetos.
++
+
+TIP: Si desea reemplazar un dispositivo más antiguo por otro más nuevo, considere la posibilidad de https://docs.netapp.com/us-en/storagegrid-appliances/commonhardware/how-appliance-node-cloning-works.html["clonar el nodo del dispositivo"^] agregar un dispositivo nuevo en una expansión y, a continuación, decomisionar el dispositivo antiguo.
+
+* Necesita menos almacenamiento total.
+* Ya no se requiere un nodo de puerta de enlace.
+* Ya no se requiere un nodo administrador que no sea primario.
+* El grid incluye un nodo desconectado que no se puede recuperar ni volver a conectar.
+* El grid incluye un nodo de archivado.
+
+
+
+
+== Cómo decomisionar un nodo
+
+Puede retirar los nodos de grid conectados o los nodos de grid desconectados.
+
+Retirada de nodos conectados:: En general, debe retirar los nodos de la cuadrícula solo cuando estén conectados al sistema StorageGRID y solo cuando todos los nodos estén en estado normal (tenga iconos verdes en las páginas *NODES* y en la página *Decomimission Nodes*).
++
+--
+Para obtener instrucciones, consulte link:decommissioning-connected-grid-nodes.html["Retirada de nodos de grid conectados"].
+
+--
+Retirada de nodos desconectados:: En algunos casos, es posible que necesite retirar un nodo de cuadrícula que no esté conectado actualmente a la cuadrícula (uno cuyo estado sea desconocido o administrativamente inactivo).
++
+--
+Para obtener instrucciones, consulte link:decommissioning-disconnected-grid-nodes.html["Retirada de nodos de red desconectados"].
+
+--
+
+
+
+
+== Qué tener en cuenta antes de retirar un nodo
+
+Antes de realizar cualquiera de los procedimientos, revise las consideraciones para cada tipo de nodo:
+
+* link:considerations-for-decommissioning-admin-or-gateway-nodes.html["Consideraciones que tener en cuenta para la retirada del nodo del administrador o pasarela"]
+* link:considerations-for-decommissioning-storage-nodes.html["Consideraciones para la retirada del nodo de almacenamiento"]
+

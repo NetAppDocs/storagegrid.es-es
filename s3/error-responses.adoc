@@ -1,0 +1,378 @@
+---
+permalink: s3/error-responses.html 
+sidebar: sidebar 
+keywords: error, error responses 
+summary: El sistema StorageGRID es compatible con todas las respuestas de error estándar de la API DE REST de S3 que se aplican. Además, la implementación de StorageGRID añade varias respuestas personalizadas. 
+---
+= Respuestas de error
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El sistema StorageGRID es compatible con todas las respuestas de error estándar de la API DE REST de S3 que se aplican. Además, la implementación de StorageGRID añade varias respuestas personalizadas.
+
+
+
+== códigos de error API de S3 admitidos
+
+[cols="1a,1a"]
+|===
+| Nombre | Estado de HTTP 
+
+
+ a| 
+ACCESSDENIED
+ a| 
+403 Prohibido
+
+
+
+ a| 
+BadDigest
+ a| 
+400 solicitud incorrecta
+
+
+
+ a| 
+BucketAlreadyExists
+ a| 
+409 conflicto
+
+
+
+ a| 
+BucketNotEmpty
+ a| 
+409 conflicto
+
+
+
+ a| 
+IncompleteBody
+ a| 
+400 solicitud incorrecta
+
+
+
+ a| 
+Internalerror
+ a| 
+500 error de servidor interno
+
+
+
+ a| 
+InvalidAccessKeyId
+ a| 
+403 Prohibido
+
+
+
+ a| 
+InvalidArgument
+ a| 
+400 solicitud incorrecta
+
+
+
+ a| 
+InvalidBucketName
+ a| 
+400 solicitud incorrecta
+
+
+
+ a| 
+InvalidBucketState
+ a| 
+409 conflicto
+
+
+
+ a| 
+InvalidDigest
+ a| 
+400 solicitud incorrecta
+
+
+
+ a| 
+InvalidEncryptionAlgorithmError
+ a| 
+400 solicitud incorrecta
+
+
+
+ a| 
+InvalidPart
+ a| 
+400 solicitud incorrecta
+
+
+
+ a| 
+InvalidPartOrder
+ a| 
+400 solicitud incorrecta
+
+
+
+ a| 
+InvalidRange
+ a| 
+416 rango solicitado no utilizable
+
+
+
+ a| 
+InvalidRequest
+ a| 
+400 solicitud incorrecta
+
+
+
+ a| 
+InvalidStorageClass
+ a| 
+400 solicitud incorrecta
+
+
+
+ a| 
+InvalidTag
+ a| 
+400 solicitud incorrecta
+
+
+
+ a| 
+InvalidURI
+ a| 
+400 solicitud incorrecta
+
+
+
+ a| 
+KeyTooLong
+ a| 
+400 solicitud incorrecta
+
+
+
+ a| 
+MalformedXML
+ a| 
+400 solicitud incorrecta
+
+
+
+ a| 
+MetadataTooLarge
+ a| 
+400 solicitud incorrecta
+
+
+
+ a| 
+MethodNotAllowed
+ a| 
+405 método no permitido
+
+
+
+ a| 
+MissingContentLength
+ a| 
+411 longitud requerida
+
+
+
+ a| 
+MissingRequestBodyError
+ a| 
+400 solicitud incorrecta
+
+
+
+ a| 
+MissingSecurityHeader
+ a| 
+400 solicitud incorrecta
+
+
+
+ a| 
+NoSuchBucket
+ a| 
+404 no encontrado
+
+
+
+ a| 
+NoSuchKey
+ a| 
+404 no encontrado
+
+
+
+ a| 
+NoSuchUpload
+ a| 
+404 no encontrado
+
+
+
+ a| 
+NotImplimed
+ a| 
+501 no implementada
+
+
+
+ a| 
+NoSuchBucketPolicy
+ a| 
+404 no encontrado
+
+
+
+ a| 
+ObjectLockConfigurationNotFoundError
+ a| 
+404 no encontrado
+
+
+
+ a| 
+Error de precondiciónError
+ a| 
+Error de condición 412
+
+
+
+ a| 
+RequestTimeTooSowed
+ a| 
+403 Prohibido
+
+
+
+ a| 
+ServiceUnavailable
+ a| 
+503 Servicio no disponible
+
+
+
+ a| 
+SignatureDoesNotMatch
+ a| 
+403 Prohibido
+
+
+
+ a| 
+Cucharones TooMany
+ a| 
+400 solicitud incorrecta
+
+
+
+ a| 
+UserKeyMustBeSpecified
+ a| 
+400 solicitud incorrecta
+
+|===
+
+
+== códigos de error personalizados de StorageGRID
+
+[cols="2a,2a,1a"]
+|===
+| Nombre | Descripción | Estado de HTTP 
+
+
+ a| 
+XBucketLifecycleNotAllowed
+ a| 
+No se permite la configuración del ciclo de vida de los bloques en un bloque compatible heredado
+ a| 
+400 solicitud incorrecta
+
+
+
+ a| 
+XBucketPolicyParseException
+ a| 
+Error al analizar la política JSON de bloques recibidos.
+ a| 
+400 solicitud incorrecta
+
+
+
+ a| 
+XCondit. Cumplimiento
+ a| 
+Operación denegada debido a la configuración de cumplimiento anterior.
+ a| 
+403 Prohibido
+
+
+
+ a| 
+XDSLA ReducedRedundancyForbidden
+ a| 
+No se permite una redundancia reducida en el bloque compatible con la tecnología heredada
+ a| 
+400 solicitud incorrecta
+
+
+
+ a| 
+XMaxBucketPolicyLengthExceeded
+ a| 
+Su política supera la longitud máxima permitida de la política de bloques.
+ a| 
+400 solicitud incorrecta
+
+
+
+ a| 
+XMissingInternalRequestHeader
+ a| 
+Falta un encabezado de una solicitud interna.
+ a| 
+400 solicitud incorrecta
+
+
+
+ a| 
+Cumplimiento de XNoSuchBucketCompliance
+ a| 
+El bloque especificado no tiene la conformidad heredada activada.
+ a| 
+404 no encontrado
+
+
+
+ a| 
+XNotAcceptable
+ a| 
+La solicitud contiene uno o más encabezados de aceptación que no se han podido satisfacer.
+ a| 
+406 no aceptable
+
+
+
+ a| 
+XNotImplemed
+ a| 
+La solicitud que ha proporcionado implica una funcionalidad que no se ha implementado.
+ a| 
+501 no implementada
+
+|===

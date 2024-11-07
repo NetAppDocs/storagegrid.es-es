@@ -1,0 +1,146 @@
+---
+permalink: admin/reviewing-storagegrid-encryption-methods.html 
+sidebar: sidebar 
+keywords: encryption, encrypting data, best practices 
+summary: StorageGRID ofrece varias opciones para el cifrado de datos. Debe revisar los métodos disponibles para determinar qué métodos cumplen sus requisitos de protección de datos. 
+---
+= Consulte los métodos de cifrado de StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID ofrece varias opciones para el cifrado de datos. Debe revisar los métodos disponibles para determinar qué métodos cumplen sus requisitos de protección de datos.
+
+La tabla proporciona un resumen de alto nivel de los métodos de cifrado disponibles en StorageGRID.
+
+[cols="1a,1a,1a"]
+|===
+| Opción de cifrado | Cómo funciona | Se aplica a. 
+
+
+ a| 
+Servidor de gestión de claves (KMS) en Grid Manager
+ a| 
+link:kms-configuring.html["configurar un servidor de gestión de claves"]Para el sitio StorageGRID y https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/optional-enabling-node-encryption.html["habilite el cifrado de nodos para el dispositivo"^]. A continuación, un nodo de dispositivo se conecta al KMS para solicitar una clave de cifrado (KEK). Esta clave cifra y descifra la clave de cifrado de datos (DEK) en cada volumen.
+ a| 
+Nodos de dispositivo con *cifrado de nodos* activado durante la instalación. Todos los datos del dispositivo están protegidos frente a la pérdida física o la eliminación del centro de datos.
+
+*Nota*: La gestión de claves de cifrado con un KMS solo es compatible con los nodos de almacenamiento y los dispositivos de servicios.
+
+
+
+ a| 
+Página de cifrado de unidades de Installer de dispositivos de StorageGRID
+ a| 
+Si el dispositivo contiene unidades que admiten el cifrado de hardware, puede establecer una frase de acceso de la unidad durante la instalación. Cuando se configura una clave de acceso de la unidad, es imposible que nadie recupere datos válidos de las unidades que se han eliminado del sistema, a menos que conozcan la clave de acceso. Antes de iniciar la instalación, vaya a *Configurar hardware* > *Cifrado de unidades* para establecer una frase de contraseña de la unidad que se aplique a todas las unidades de cifrado automático gestionadas por StorageGRID en un nodo.
+ a| 
+Dispositivos que contienen unidades de autocifrado. Todos los datos de las unidades seguras están protegidos frente a la pérdida física o eliminación del centro de datos.
+
+El cifrado de unidades no se aplica a las unidades gestionadas por SANtricity. Si tiene un dispositivo de almacenamiento con unidades de cifrado automático y controladoras SANtricity, puede habilitar la seguridad de unidades en SANtricity.
+
+
+
+ a| 
+Drive Security en SANtricity System Manager
+ a| 
+Si la función Drive Security está habilitada para el dispositivo StorageGRID, se puede usar https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/accessing-and-configuring-santricity-system-manager.html["Administrador del sistema de SANtricity"^] para crear y gestionar la clave de seguridad. Se requiere la clave para acceder a los datos en las unidades seguras.
+ a| 
+Los dispositivos de almacenamiento que tienen unidades de cifrado de disco completo (FDE) o unidades de autocifrado. Todos los datos de las unidades seguras están protegidos frente a la pérdida física o eliminación del centro de datos. No se puede usar con algunos dispositivos de almacenamiento ni con ningún dispositivo de servicios.
+
+
+
+ a| 
+Cifrado de objetos almacenados
+ a| 
+Puede activar link:changing-network-options-object-encryption.html["Cifrado de objetos almacenados"]la opción en Grid Manager. Cuando se habilita, todos los objetos nuevos que no se cifren a nivel de bucket o de objeto se cifran durante la ingesta.
+ a| 
+Datos de objetos S3 recién ingeridos.
+
+Los objetos almacenados existentes no están cifrados. Los metadatos de los objetos y otros datos confidenciales no están cifrados.
+
+
+
+ a| 
+Cifrado de bloques de S3
+ a| 
+Emite una solicitud PutBucketEncryption para habilitar el cifrado para el depósito. Todos los objetos nuevos que no se cifren en el nivel de objeto se cifran durante la ingesta.
+ a| 
+Solo datos de objetos S3 procesados recientemente.
+
+Debe especificarse el cifrado para el bloque. Los objetos de cubo existentes no están cifrados. Los metadatos de los objetos y otros datos confidenciales no están cifrados.
+
+link:../s3/operations-on-buckets.html["Operaciones en bloques"]
+
+
+
+ a| 
+Cifrado del lado del servidor de objetos S3 (SSE)
+ a| 
+Emite una solicitud S3 para almacenar un objeto e incluir `x-amz-server-side-encryption` la cabecera de solicitud.
+ a| 
+Solo datos de objetos S3 procesados recientemente.
+
+Se debe especificar el cifrado para el objeto. Los metadatos de los objetos y otros datos confidenciales no están cifrados.
+
+StorageGRID gestiona las claves.
+
+link:../s3/using-server-side-encryption.html["Usar cifrado del servidor"]
+
+
+
+ a| 
+Cifrado del lado del servidor de objetos S3 con claves proporcionadas por el cliente (SSE-C)
+ a| 
+Se emite una solicitud S3 para almacenar un objeto e incluir tres encabezados de solicitud.
+
+* `x-amz-server-side-encryption-customer-algorithm`
+* `x-amz-server-side-encryption-customer-key`
+* `x-amz-server-side-encryption-customer-key-MD5`
+
+ a| 
+Solo datos de objetos S3 procesados recientemente.
+
+Se debe especificar el cifrado para el objeto. Los metadatos de los objetos y otros datos confidenciales no están cifrados.
+
+Las claves se gestionan fuera de StorageGRID.
+
+link:../s3/using-server-side-encryption.html["Usar cifrado del servidor"]
+
+
+
+ a| 
+Cifrado de volúmenes o almacenes de datos externos
+ a| 
+Si la plataforma de implementación lo admite, puede utilizar un método de cifrado fuera de StorageGRID para cifrar un volumen o almacén de datos completo.
+ a| 
+Todos los datos de objetos, metadatos y datos de configuración del sistema, suponiendo que se cifre cada volumen o almacén de datos.
+
+Un método de cifrado externo proporciona un control más estricto sobre los algoritmos y claves de cifrado. Se puede combinar con los otros métodos enumerados.
+
+
+
+ a| 
+Cifrado de objetos fuera de StorageGRID
+ a| 
+Se utiliza un método de cifrado fuera de StorageGRID para cifrar los metadatos y los datos de objetos antes de que se ingieran en StorageGRID.
+ a| 
+Solo datos de objetos y metadatos (los datos de configuración del sistema no están cifrados).
+
+Un método de cifrado externo proporciona un control más estricto sobre los algoritmos y claves de cifrado. Se puede combinar con los otros métodos enumerados.
+
+https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html["Amazon Simple Storage Service - Guía del usuario: Protección de datos mediante cifrado del lado del cliente"^]
+
+|===
+
+
+== Utilice varios métodos de cifrado
+
+En función de los requisitos, puede utilizar más de un método de cifrado a la vez. Por ejemplo:
+
+* Se puede usar un KMS para proteger los nodos del dispositivo y también para usar la función de seguridad de la unidad en el administrador del sistema de SANtricity para «cifrar dos veces» los datos en las unidades de autocifrado del mismo dispositivo.
+* Puede utilizar un KMS para proteger los datos en los nodos del dispositivo y también utilizar la opción de cifrado de objetos almacenados para cifrar todos los objetos cuando se ingieren.
+
+
+Si solo una pequeña parte de los objetos requiere cifrado, considere la posibilidad de controlar el cifrado en el nivel de bloque o de objeto individual. Habilitar varios niveles de cifrado tiene un coste de rendimiento adicional.

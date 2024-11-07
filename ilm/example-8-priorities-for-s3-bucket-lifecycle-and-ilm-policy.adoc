@@ -1,0 +1,118 @@
+---
+permalink: ilm/example-8-priorities-for-s3-bucket-lifecycle-and-ilm-policy.html 
+sidebar: sidebar 
+keywords: retention priority, example S3 bucket lifecycle, example ILM policy 
+summary: Según la configuración del ciclo de vida, los objetos siguen los ajustes de retención del ciclo de vida de bloques de S3 o una política de ILM. 
+---
+= Ejemplo 8: Prioridades para el ciclo de vida del bloque de S3 y política de ILM
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Según la configuración del ciclo de vida, los objetos siguen los ajustes de retención del ciclo de vida de bloques de S3 o una política de ILM.
+
+
+
+== Ejemplo de ciclo de vida del bloque que tiene prioridad sobre la política de ILM
+
+Política de ILM::
++
+--
+* Regla basada en referencia de tiempo no corriente: En el día 0, mantenga X copias durante 20 días
+* Regla basada en la referencia de tiempo de ingesta (predeterminado): En el día 0, mantenga X copias durante 50 días
+
+
+--
+Ciclo de vida del cucharón:: `"Filter": {"Prefix": "docs/"}, "Expiration": {"Days": 100}, "NoncurrentVersionExpiration": {"NoncurrentDays": 5}`
+Resultado::
++
+--
+* Se ingiere un objeto denominado «docs/text». Coincide con el filtro de ciclo de vida del cucharón del prefijo «docs/».
++
+** Transcurridos 100 días, se crea un marcador de borrado y los documentos/texto dejan de ser actuales.
+** Transcurridos 5 días, se elimina el término «docs/text» durante un total de 105 días desde la ingesta.
+** Después de 95 días, un total de 200 días desde la ingesta y 100 días desde que se creó el marcador de borrado, se elimina el marcador de borrado caducado.
+
+
+* Se ingiere un objeto llamado «vídeo/película». No coincide con el filtro y utiliza la política de retención de ILM.
++
+** Después de 50 días, se crea un marcador de borrado y el mensaje «vídeo o película» deja de ser actual.
+** Transcurridos 20 días, se eliminará el «vídeo/película» durante un total de 70 días desde la ingesta.
+** Después de 30 días, un total de 100 días desde la ingesta y 50 días desde que se creó el marcador de borrado, se elimina el marcador de borrado caducado.
+
+
+
+
+--
+
+
+
+
+== Ejemplo de ciclo de vida del segmento que se mantiene implícitamente para siempre
+
+Política de ILM::
++
+--
+* Regla basada en referencia de tiempo no corriente: En el día 0, mantenga X copias durante 20 días
+* Regla basada en la referencia de tiempo de ingesta (predeterminado): En el día 0, mantenga X copias durante 50 días
+
+
+--
+Ciclo de vida del cucharón:: `"Filter": {"Prefix": "docs/"}, "Expiration": {"ExpiredObjectDeleteMarker": true}`
+Resultado::
++
+--
+* Se ingiere un objeto denominado «docs/text». Coincide con el filtro de ciclo de vida del cucharón del prefijo «docs/».
++
+La `Expiration` acción se aplica solo a los marcadores de borrado caducados, lo que implica mantener todo lo demás para siempre (comenzando con “docs/”).
+
++
+Los marcadores de borrado que comienzan con «docs/» se eliminan cuando caducan.
+
+* Se ingiere un objeto llamado «vídeo/película». No coincide con el filtro y utiliza la política de retención de ILM.
++
+** Después de 50 días, se crea un marcador de borrado y el mensaje «vídeo o película» deja de ser actual.
+** Transcurridos 20 días, se eliminará el «vídeo/película» durante un total de 70 días desde la ingesta.
+** Después de 30 días, un total de 100 días desde la ingesta y 50 días desde que se creó el marcador de borrado, se elimina el marcador de borrado caducado.
+
+
+
+
+--
+
+
+
+
+== Ejemplo de uso del ciclo de vida de bloque para duplicar ILM y borrar los marcadores de eliminación vencidos
+
+Política de ILM::
++
+--
+* Regla basada en referencia de tiempo no corriente: En el día 0, mantenga X copias durante 20 días
+* Regla basada en la referencia de tiempo de ingesta (predeterminado): En el día 0, mantenga X copias para siempre
+
+
+--
+Ciclo de vida del cucharón:: `"Filter": {}, "Expiration": {"ExpiredObjectDeleteMarker": true}, "NoncurrentVersionExpiration": {"NoncurrentDays": 20}`
+Resultado::
++
+--
+* La política de ILM se duplica en el ciclo de vida del bloque.
++
+** La regla permanente de la política de ILM está diseñada para eliminar los objetos manualmente y borrar versiones no corrientes al cabo de 20 días. En consecuencia, la regla de tiempo de ingesta mantendrá los marcadores de borrado caducados para siempre.
+** El ciclo de vida del depósito duplica el comportamiento de la política de ILM al agregar `"ExpiredObjectDeleteMarker": true`, lo que elimina los marcadores de supresión una vez caducados
+
+
+* Se ha ingerido un objeto. Ningún filtro significa que el ciclo de vida del bloque se aplica a todos los objetos y anula la configuración de retención de ILM.
++
+** Cuando un arrendatario emite una solicitud de eliminación de objetos, se crea un marcador de eliminación y el objeto pasa a ser no actual.
+** Transcurridos 20 días, el objeto no actual se elimina y el marcador de borrado caduca.
+** Poco después, se elimina el marcador de borrado caducado.
+
+
+
+
+--
+

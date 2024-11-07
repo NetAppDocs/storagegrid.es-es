@@ -1,0 +1,157 @@
+---
+permalink: admin/grid-federation-create-connection.html 
+sidebar: sidebar 
+keywords: grid federation, create connection, configure connection 
+summary: Puede crear una conexión de federación de grid entre dos sistemas StorageGRID si desea clonar detalles de inquilinos y replicar datos de objetos. 
+---
+= Crear conexiones de federación de grid
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede crear una conexión de federación de grid entre dos sistemas StorageGRID si desea clonar detalles de inquilinos y replicar datos de objetos.
+
+Como se muestra en la figura, la creación de una conexión de federación de cuadrícula incluye pasos en ambas cuadrículas. Agrega la conexión en una cuadrícula y la completa en la otra. Puede empezar desde cualquiera de las dos cuadrículas.
+
+image::../media/grid-federation-create-connection.png[descripción gráfica de los pasos para crear una conexión en dos cuadrículas]
+
+.Antes de empezar
+* Ha revisado el link:grid-federation-overview.html["consideraciones y requisitos"] para configurar las conexiones de federación de grid.
+* Si planea utilizar nombres de dominio completos (FQDN) para cada cuadrícula en lugar de direcciones IP o VIP, sabrá qué nombres utilizar y confirmará que el servidor DNS de cada cuadrícula tiene las entradas adecuadas.
+* Está utilizando una link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Dispone de permiso de acceso raíz y la frase de acceso de aprovisionamiento para ambas cuadrículas.
+
+
+
+
+== Agregar conexión
+
+Realice estos pasos en cualquiera de los dos sistemas StorageGRID.
+
+.Pasos
+. Inicie sesión en Grid Manager desde el nodo de administración principal de cualquiera de las cuadrículas.
+. Selecciona *CONFIGURACIÓN* > *Sistema* > *federación de cuadrícula*.
+. Selecciona *Añadir conexión*.
+. Introduzca los detalles de la conexión.
++
+[cols="1a,2a"]
+|===
+| Campo | Descripción 
+
+
+ a| 
+Nombre de conexión
+ a| 
+Un nombre único para ayudarle a reconocer esta conexión, por ejemplo, “Grid 1-Grid 2”.
+
+
+
+ a| 
+FQDN o IP para este grid
+ a| 
+Uno de los siguientes:
+
+** El FQDN del grid en el que está conectado actualmente
+** Dirección VIP de un grupo de alta disponibilidad en esta cuadrícula
+** La dirección IP de un nodo de administración o un nodo de pasarela en este grid. La IP puede estar en cualquier red a la que pueda acceder la cuadrícula de destino.
+
+
+
+
+ a| 
+Puerto
+ a| 
+Puerto que desea utilizar para esta conexión. Puede introducir cualquier número de puerto no utilizado del 23000 al 23999.
+
+Ambas rejillas de esta conexión utilizarán el mismo puerto. Debe asegurarse de que ningún nodo de ninguno de los grid utilice este puerto para otras conexiones.
+
+
+
+ a| 
+Días válidos de certificado para esta cuadrícula
+ a| 
+El número de días que desea que los certificados de seguridad de esta cuadrícula de la conexión sean válidos. El valor predeterminado es 730 días (2 años), pero puede introducir cualquier valor de 1 a 762 días.
+
+StorageGRID genera automáticamente certificados de cliente y de servidor para cada grid al guardar la conexión.
+
+
+
+ a| 
+Aprovisionamiento de la clave de acceso para este grid
+ a| 
+La clave de acceso de aprovisionamiento para el grid en el que ha iniciado sesión.
+
+
+
+ a| 
+FQDN o IP para el otro grid
+ a| 
+Uno de los siguientes:
+
+** El FQDN del grid al que desea conectarse
+** Una dirección VIP de un grupo de alta disponibilidad en la otra cuadrícula
+** Una dirección IP de un nodo de administración o nodo de pasarela en el otro grid. La IP puede estar en cualquier red a la que pueda acceder la red de origen.
+
+
+|===
+. Selecciona *Guardar y continuar*.
+. Para el paso Descargar archivo de verificación, seleccione *Descargar archivo de verificación*.
++
+Una vez completada la conexión en la otra cuadrícula, ya no podrá descargar el archivo de verificación de ninguna de las dos.
+
+. Busque el archivo descargado (`_connection-name_.grid-federation`) y guárdelo en una ubicación segura.
++
+
+CAUTION: Este archivo contiene secretos (enmascarados como `***`) y otros detalles confidenciales y debe almacenarse y transmitirse de forma segura.
+
+. Selecciona *Cerrar* para volver a la página de Grid federation.
+. Confirme que se muestra la nueva conexión y que su *estado de conexión* está *esperando para conectarse*.
+. Proporcione `_connection-name_.grid-federation` el archivo al administrador de grid para el otro grid.
+
+
+
+
+== Conexión completa
+
+Realice estos pasos en el sistema StorageGRID al que se está conectando (la otra cuadrícula).
+
+.Pasos
+. Inicie sesión en Grid Manager desde el nodo de administración principal.
+. Selecciona *CONFIGURACIÓN* > *Sistema* > *federación de cuadrícula*.
+. Seleccione *Cargar archivo de verificación* para acceder a la página Cargar.
+. Seleccione *Cargar archivo de verificación*. A continuación, busque y seleccione el archivo que se descargó de la primera cuadrícula (`_connection-name_.grid-federation`).
++
+Se muestran los detalles de la conexión.
+
+. Opcionalmente, introduzca un Núm. Diferente de días válidos para los certificados de seguridad de esta cuadrícula. La entrada *Certificate Valid Days* establece por defecto el valor que ingresaste en la primera cuadrícula, pero cada cuadrícula puede usar diferentes fechas de vencimiento.
++
+En general, utilice el mismo número de días para los certificados en ambos lados de la conexión.
+
++
+
+CAUTION: Si los certificados en cualquiera de los extremos de la conexión caducan, la conexión dejará de funcionar y las replicaciones estarán pendientes hasta que se actualicen los certificados.
+
+. Introduzca la clave de acceso de aprovisionamiento para la cuadrícula en la que está conectado actualmente.
+. Seleccione *Guardar y probar*.
++
+Los certificados se generan y se prueba la conexión. Si la conexión es válida, aparece un mensaje de éxito y la nueva conexión se muestra en la página federación de Cuadrícula. El *Estado de conexión* será *Conectado*.
+
++
+Si aparece un mensaje de error, solucione cualquier problema. Consulte link:grid-federation-troubleshoot.html["Solucionar errores de federación de grid"].
+
+. Vaya a la página Grid federation en la primera cuadrícula y actualice el explorador. Confirme que el *Estado de conexión* es ahora *Conectado*.
+. Una vez establecida la conexión, elimine de forma segura todas las copias del archivo de verificación.
++
+Si edita esta conexión, se creará un nuevo archivo de verificación. No se puede volver a utilizar el archivo original.
+
+
+
+.Después de terminar
+* Revise las consideraciones para link:grid-federation-manage-tenants.html["gestión de inquilinos permitidos"].
+* link:creating-tenant-account.html["Cree una o más cuentas de arrendatario nuevas"], Asigne el permiso *Use grid federation connection* y seleccione la nueva conexión.
+* link:grid-federation-manage-connection.html["Gestionar la conexión"] según sea necesario. Puede editar valores de conexión, probar una conexión, rotar certificados de conexión o eliminar una conexión.
+* link:../monitor/grid-federation-monitor-connections.html["Supervise la conexión"] Como parte de sus actividades normales de monitoreo de StorageGRID.
+* link:grid-federation-troubleshoot.html["Solucione los problemas de la conexión"], incluyendo la resolución de alertas y errores relacionados con la clonación de cuentas y la replicación entre redes.
+

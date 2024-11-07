@@ -1,0 +1,101 @@
+---
+permalink: tenant/configuring-cloudmirror-replication.html 
+sidebar: sidebar 
+keywords: how to configure CloudMirror replication, replication xml 
+summary: Para habilitar la replicación de CloudMirror para un bucket, cree XML de configuración de replicación de bucket y utilice el gestor de inquilinos para aplicar el XML al bucket. 
+---
+= Configure la replicación de CloudMirror
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para habilitar la replicación de CloudMirror para un bucket, cree y aplique un XML de configuración de replicación de bucket válido.
+
+.Antes de empezar
+* Un administrador de StorageGRID activó los servicios de plataforma para su cuenta de inquilino.
+* Ya ha creado un bucket que actúa como origen de replicación.
+* El punto final que pretende utilizar como destino para la replicación de CloudMirror ya existe y tiene su URN.
+* Pertenece a un grupo de usuarios que tiene el link:tenant-management-permissions.html["Gestione todos los bloques o permisos de acceso raíz"]. Estos permisos anulan la configuración de permisos de las directivas de grupo o de bloque al configurar el bloque mediante el Administrador de inquilinos.
+
+
+.Acerca de esta tarea
+La replicación de CloudMirror copia los objetos de un bloque de origen en un bloque de destino que se especifique en un extremo.
+
+Para obtener información general sobre la replicación de buckets y cómo configurarla, consulte https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication.html["Documentación de Amazon Simple Storage Service (S3): Replicación de objetos"^]. Para obtener información sobre cómo StorageGRID implementa GetBucketReplication, DeleteBucketReplication y PutBucketReplication, consulte la link:../s3/operations-on-buckets.html["Operaciones en bloques"].
+
+
+NOTE: La replicación de CloudMirror tiene similitudes y diferencias importantes con la función de replicación entre grid. Para obtener más información, consulte link:../admin/grid-federation-compare-cgr-to-cloudmirror.html["Compare la replicación entre grid y la replicación de CloudMirror"].
+
+Tenga en cuenta los siguientes requisitos y características al configurar la replicación de CloudMirror:
+
+* Al crear y aplicar un XML de configuración de replicación de bucket válido, debe utilizar el URN de un punto final de bucket S3 para cada destino.
+* La replicación no es compatible con buckets de origen o destino con el bloqueo de objetos S3 habilitado.
+* Si habilita la replicación de CloudMirror en un bloque que contiene objetos, se replican los nuevos objetos agregados al bloque, pero los objetos existentes del bloque no se replican. Debe actualizar los objetos existentes para activar la replicación.
+* Si se especifica una clase de almacenamiento en el XML de configuración de replicación, StorageGRID utiliza esa clase al realizar operaciones en el extremo de S3 de destino. El extremo de destino también debe admitir la clase de almacenamiento especificada. Asegúrese de seguir las recomendaciones que proporciona el proveedor del sistema de destino.
+
+
+.Pasos
+. Habilite la replicación para su bloque de origen:
++
+** Utilice un editor de texto para crear el XML de configuración de replicación necesario para habilitar la replicación, tal y como se especifica en la API de replicación de S3.
+** Al configurar XML:
++
+*** Tenga en cuenta que StorageGRID solo admite V1 de la configuración de replicación. Esto significa que StorageGRID no admite el uso `Filter` del elemento para reglas y sigue las convenciones de V1 para eliminar versiones de objetos. Consulte la documentación de Amazon sobre la configuración de replicación para obtener más información.
+*** Use el URN de un extremo de bloque de S3 como destino.
+*** Si lo desea, agregue el `<StorageClass>` elemento y especifique una de las siguientes opciones:
++
+****  `STANDARD`: La clase de almacenamiento predeterminada. Si no especifica una clase de almacenamiento al cargar un objeto, se `STANDARD` utilizará la clase de almacenamiento.
+**** `STANDARD_IA`: (Estándar - Acceso poco frecuente.) Utilice esta clase de almacenamiento para los datos a los que se accede con menos frecuencia, pero que siguen requiriendo un acceso rápido cuando es necesario.
+**** `REDUCED_REDUNDANCY`: Utilice esta clase de almacenamiento para datos no críticos y reproducibles que se pueden almacenar con menos redundancia que la `STANDARD` clase de almacenamiento.
+
+
+*** Si especifica un `Role` en el XML de configuración, se ignorará. StorageGRID no utiliza este valor.
++
+[listing]
+----
+<ReplicationConfiguration>
+    <Role></Role>
+    <Rule>
+        <Status>Enabled</Status>
+        <Prefix>2020</Prefix>
+        <Destination>
+           <Bucket>urn:sgws:s3:::2017-records</Bucket>
+           <StorageClass>STANDARD</StorageClass>
+         </Destination>
+     </Rule>
+</ReplicationConfiguration>
+----
+
+
+
+
+. Seleccione *Ver cubos* en el panel de control o seleccione *ALMACENAMIENTO (S3)* > *Buckets*.
+. Seleccione el nombre del bloque de origen.
++
+Aparece la página de detalles bucket.
+
+. Seleccione *Servicios de plataforma* > *replicación*.
+. Seleccione la casilla de verificación *Habilitar replicación*.
+. Pegue el XML de configuración de replicación en el cuadro de texto y seleccione *Guardar cambios*.
++
+
+NOTE: Un administrador de StorageGRID debe habilitar los servicios de plataforma para cada cuenta de inquilino mediante Grid Manager o la API de gestión de grid. Póngase en contacto con el administrador de StorageGRID si se produce un error al guardar el XML de configuración.
+
+. Compruebe que la replicación está configurada correctamente:
++
+.. Añada un objeto al bloque de origen que cumpla con los requisitos de replicación según se especifica en la configuración de replicación.
++
+En el ejemplo mostrado anteriormente, se replican los objetos que coincidan con el prefijo «2020».
+
+.. Confirme que el objeto se ha replicado en el bloque de destino.
++
+En el caso de objetos pequeños, la replicación se realiza con rapidez.
+
+
+
+
+
+.Información relacionada
+link:creating-platform-services-endpoint.html["Cree un extremo de servicios de plataforma"]

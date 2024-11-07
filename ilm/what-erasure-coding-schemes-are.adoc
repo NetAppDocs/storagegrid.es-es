@@ -1,0 +1,349 @@
+---
+permalink: ilm/what-erasure-coding-schemes-are.html 
+sidebar: sidebar 
+keywords: erasure-coding scheme 
+summary: Los esquemas de codificación de borrado controlan cuántos fragmentos de datos se crean y cuántos fragmentos de paridad se crean para cada objeto. 
+---
+= ¿Qué son los esquemas de código de borrado?
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los esquemas de codificación de borrado controlan cuántos fragmentos de datos se crean y cuántos fragmentos de paridad se crean para cada objeto.
+
+Al crear o editar una regla de ILM, se selecciona un esquema de código de borrado disponible. StorageGRID crea automáticamente esquemas de código de borrado en función de cuántos nodos de almacenamiento y sitios componen el pool de almacenamiento que tenga pensado utilizar.
+
+
+
+== Protección de datos
+
+El sistema StorageGRID utiliza el algoritmo de codificación de borrado Reed-Solomon. El algoritmo divide un objeto en `k` fragmentos de datos y calcula `m` fragmentos de paridad.
+
+Los `k + m = n` fragmentos se distribuyen por `n` los nodos de almacenamiento para proporcionar protección de datos de la siguiente manera:
+
+* Para recuperar o reparar un objeto, `k` se necesitan fragmentos.
+* Un objeto puede soportar hasta `m` fragmentos perdidos o dañados. Cuanto mayor sea el valor de `m`, mayor será la tolerancia al fallo.
+
+
+La mejor protección de datos se proporciona por el esquema de código de borrado con el mayor tolerancia a fallos de nodo o volumen dentro de un pool de almacenamiento.
+
+
+
+== Gastos generales de almacenamiento
+
+La sobrecarga de almacenamiento de un esquema de código de borrado se calcula dividiendo el número de fragmentos de paridad (`m`) entre el número de fragmentos de datos (`k`). Puede utilizar la sobrecarga del almacenamiento para calcular cuánto espacio en disco necesita cada objeto con código de borrado:
+
+`_disk space_ = _object size_ + (_object size_ * _storage overhead_)`
+
+Por ejemplo, si almacena un objeto de 10 MB mediante el esquema 4+2 (que tiene un 50% de sobrecarga de almacenamiento), el objeto consume 15 MB de almacenamiento de cuadrícula. Si almacena el mismo objeto de 10 MB con el esquema 6+2 (que tiene un 33% de sobrecarga de almacenamiento), el objeto consume aproximadamente 13.3 MB.
+
+Seleccione el esquema de código de borrado que tenga el valor total más bajo de `k+m` que satisfaga sus necesidades. Los esquemas de codificación de borrado con un número menor de fragmentos son más eficientes en computación porque:
+
+* Se crean y distribuyen (o recuperan) menos fragmentos por cada objeto
+* Muestran un mejor rendimiento porque el tamaño del fragmento es mayor
+* Pueden requerir la adición de menos nodos en un link:../expand/index.html["ampliación cuando se necesite más almacenamiento"]
+
+
+
+
+== Directrices para pools de almacenamiento
+
+Cuando seleccione el pool de almacenamiento que se utilizará en una regla que creará una copia con código de borrado, utilice las siguientes directrices para los pools de almacenamiento:
+
+* El pool de almacenamiento debe incluir tres o más sitios, o exactamente un sitio.
++
+
+NOTE: No se puede usar código de borrado si el pool de almacenamiento incluye dos sitios.
+
++
+** <<Esquemas de codificación de borrado para pools de almacenamiento que contengan tres o más sitios,Esquemas de codificación de borrado para pools de almacenamiento que contengan tres o más sitios>>
+** <<Esquemas de codificación de borrado para pools de almacenamiento in situ,Esquemas de codificación de borrado para pools de almacenamiento in situ>>
+
+
+* No utilice un grupo de almacenamiento que incluya el sitio Todos los sitios.
+* El pool de almacenamiento debe incluir al menos `_k+m_ +1` nodos de almacenamiento que puedan almacenar datos de objeto.
++
+
+NOTE: Los nodos de almacenamiento se pueden configurar durante la instalación de modo que solo contengan metadatos de objetos y no datos de objetos. Para obtener más información, consulte link:../primer/what-storage-node-is.html#types-of-storage-nodes["Tipos de nodos de almacenamiento"].
+
++
+El número mínimo de nodos de almacenamiento necesarios es `k+m`. Sin embargo, tener al menos un nodo de almacenamiento adicional puede ayudar a evitar fallos de ingesta o errores de gestión de la vida útil si un nodo de almacenamiento necesario no está disponible temporalmente.
+
+
+
+
+
+== Esquemas de codificación de borrado para pools de almacenamiento que contengan tres o más sitios
+
+En la siguiente tabla se describen los esquemas de codificación de borrado que admite actualmente StorageGRID para pools de almacenamiento que incluyen tres o más sitios. Todos estos esquemas proporcionan protección contra pérdida de sitio. Se puede perder un sitio y el objeto seguirá siendo accesible.
+
+Para esquemas de código de borrado que ofrecen protección contra pérdida de sitio, la cantidad recomendada de nodos de almacenamiento en el pool de almacenamiento supera `_k+m_ +1` porque cada sitio requiere al menos tres nodos de almacenamiento.
+
+[cols="1a,1a,1a,1a,1a,1a"]
+|===
+| Esquema de codificación de borrado (_k+m_) | Número mínimo de sitios implementados | Número recomendado de nodos de almacenamiento en cada sitio | Número total recomendado de nodos de almacenamiento | ¿Protección contra pérdida de sitio? | Gastos generales de almacenamiento 
+
+
+ a| 
+4+2
+ a| 
+3
+ a| 
+3
+ a| 
+9
+ a| 
+Sí
+ a| 
+50%
+
+
+
+ a| 
+6+2
+ a| 
+4
+ a| 
+3
+ a| 
+12
+ a| 
+Sí
+ a| 
+33%
+
+
+
+ a| 
+8+2
+ a| 
+5
+ a| 
+3
+ a| 
+15
+ a| 
+Sí
+ a| 
+25%
+
+
+
+ a| 
+6+3
+ a| 
+3
+ a| 
+4
+ a| 
+12
+ a| 
+Sí
+ a| 
+50%
+
+
+
+ a| 
+9+3
+ a| 
+4
+ a| 
+4
+ a| 
+16
+ a| 
+Sí
+ a| 
+33%
+
+
+
+ a| 
+2+1
+ a| 
+3
+ a| 
+3
+ a| 
+9
+ a| 
+Sí
+ a| 
+50%
+
+
+
+ a| 
+4+1
+ a| 
+5
+ a| 
+3
+ a| 
+15
+ a| 
+Sí
+ a| 
+25%
+
+
+
+ a| 
+6+1
+ a| 
+7
+ a| 
+3
+ a| 
+21
+ a| 
+Sí
+ a| 
+17%
+
+
+
+ a| 
+7+5
+ a| 
+3
+ a| 
+5
+ a| 
+15
+ a| 
+Sí
+ a| 
+71%
+
+|===
+
+NOTE: StorageGRID requiere un mínimo de tres nodos de almacenamiento por sitio. Para utilizar el esquema 7+5, cada sitio requiere un mínimo de cuatro nodos de almacenamiento. Se recomienda usar cinco nodos de almacenamiento por sitio.
+
+Al seleccionar un esquema de codificación de borrado que proporcione protección al sitio, equilibre la importancia relativa de los siguientes factores:
+
+* *Número de fragmentos*: El rendimiento y la flexibilidad de expansión son generalmente mejores cuando el número total de fragmentos es menor.
+* *Tolerancia a fallos*: La tolerancia a fallos aumenta al tener más segmentos de paridad (es decir, cuando `m` tiene un valor más alto).
+* *Tráfico de red*: Cuando se recupera de fallos, el uso de un esquema con más fragmentos (es decir, un total más alto para `k+m`) crea más tráfico de red.
+* *Gastos generales de almacenamiento*: Los esquemas con mayor sobrecarga requieren más espacio de almacenamiento por objeto.
+
+
+Por ejemplo, al decidir entre un esquema 4+2 y un esquema 6+3 (que ambos tienen un 50% de gastos generales de almacenamiento), seleccione el esquema 6+3 si se requiere tolerancia a fallos adicional. Seleccione el esquema 4+2 si los recursos de red están limitados. Si todos los demás factores son iguales, seleccione 4+2 porque tiene un número total menor de fragmentos.
+
+
+NOTE: Si no está seguro de qué esquema usar, seleccione 4+2 o 6+3, o póngase en contacto con el servicio de asistencia técnica.
+
+
+
+== Esquemas de codificación de borrado para pools de almacenamiento in situ
+
+Un pool de almacenamiento in situ admite todos los esquemas de codificación de borrado definidos para tres o más sitios, siempre y cuando el sitio tenga suficientes nodos de almacenamiento.
+
+El número mínimo necesario de nodos de almacenamiento es `k+m`, pero se recomienda un pool de almacenamiento con `k+m +1` nodos de almacenamiento. Por ejemplo, el esquema de codificación de borrado 2+1 requiere un pool de almacenamiento con un mínimo de tres nodos de almacenamiento, pero se recomiendan cuatro nodos de almacenamiento.
+
+[cols="1a,1a,1a,1a"]
+|===
+| Esquema de codificación de borrado (_k+m_) | Número mínimo de nodos de almacenamiento | Número recomendado de nodos de almacenamiento | Gastos generales de almacenamiento 
+
+
+ a| 
+4+2
+ a| 
+6
+ a| 
+7
+ a| 
+50%
+
+
+
+ a| 
+6+2
+ a| 
+8
+ a| 
+9
+ a| 
+33%
+
+
+
+ a| 
+8+2
+ a| 
+10
+ a| 
+11
+ a| 
+25%
+
+
+
+ a| 
+6+3
+ a| 
+9
+ a| 
+10
+ a| 
+50%
+
+
+
+ a| 
+9+3
+ a| 
+12
+ a| 
+13
+ a| 
+33%
+
+
+
+ a| 
+2+1
+ a| 
+3
+ a| 
+4
+ a| 
+50%
+
+
+
+ a| 
+4+1
+ a| 
+5
+ a| 
+6
+ a| 
+25%
+
+
+
+ a| 
+6+1
+ a| 
+7
+ a| 
+8
+ a| 
+17%
+
+
+
+ a| 
+7+5
+ a| 
+12
+ a| 
+13
+ a| 
+71%
+
+|===

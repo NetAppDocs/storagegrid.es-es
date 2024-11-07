@@ -1,0 +1,92 @@
+---
+permalink: maintain/removing-port-remaps-on-bare-metal-hosts.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, linux, linux host, bare metal host, baremetal host, remove port remap, removing port remap, port remap 
+summary: Si desea configurar un extremo para el servicio Load Balancer y desea utilizar un puerto que ya se ha configurado como el puerto asignado a un remap de puertos, primero debe eliminar el remap de puertos existente o el extremo no será efectivo. 
+---
+= Quite las reasignaciones de puertos en hosts sin sistema operativo
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si desea configurar un extremo para el servicio Load Balancer y desea utilizar un puerto que ya se ha configurado como el puerto asignado a un remap de puertos, primero debe eliminar el remap de puertos existente o el extremo no será efectivo.
+
+.Acerca de esta tarea
+Si está ejecutando StorageGRID en hosts con configuración básica, siga este procedimiento en lugar del procedimiento general para quitar reasignaciones de puertos. Debe editar el archivo de configuración de nodos para cada nodo de administración y nodo de puerta de enlace que tenga puertos reasignados en conflicto para quitar todas las reasignaciones de puertos del nodo y reiniciar el nodo.
+
+
+CAUTION: Este procedimiento quita todas las reasignaciones de puertos. Si necesita conservar parte de los remapas, póngase en contacto con el soporte técnico.
+
+Para obtener información sobre la configuración de puntos finales del equilibrador de carga, consulte las instrucciones para administrar StorageGRID.
+
+
+NOTE: Este procedimiento puede provocar la pérdida temporal del servicio cuando se reinician los nodos.
+
+.Pasos
+. Inicie sesión en el host que admite el nodo. Inicie sesión como raíz o con una cuenta que tenga permiso sudo.
+. Ejecute el siguiente comando para deshabilitar temporalmente el nodo: `sudo storagegrid node stop _node-name_`
+. Mediante un editor de texto como vim o pico, edite el archivo de configuración del nodo.
++
+El archivo de configuración del nodo se puede encontrar en `/etc/storagegrid/nodes/_node-name_.conf`.
+
+. Busque la sección del archivo de configuración del nodo que contiene las reasignaciones de puertos.
++
+Consulte las dos últimas líneas en el siguiente ejemplo.
+
++
+[listing, subs="specialcharacters,quotes"]
+----
+ADMIN_NETWORK_CONFIG = STATIC
+ADMIN_NETWORK_ESL = 10.0.0.0/8, 172.19.0.0/16, 172.21.0.0/16
+ADMIN_NETWORK_GATEWAY = 10.224.0.1
+ADMIN_NETWORK_IP = 10.224.5.140
+ADMIN_NETWORK_MASK = 255.255.248.0
+ADMIN_NETWORK_MTU = 1400
+ADMIN_NETWORK_TARGET = eth1
+ADMIN_NETWORK_TARGET_TYPE = Interface
+BLOCK_DEVICE_VAR_LOCAL = /dev/sda2
+CLIENT_NETWORK_CONFIG = STATIC
+CLIENT_NETWORK_GATEWAY = 47.47.0.1
+CLIENT_NETWORK_IP = 47.47.5.140
+CLIENT_NETWORK_MASK = 255.255.248.0
+CLIENT_NETWORK_MTU = 1400
+CLIENT_NETWORK_TARGET = eth2
+CLIENT_NETWORK_TARGET_TYPE = Interface
+GRID_NETWORK_CONFIG = STATIC
+GRID_NETWORK_GATEWAY = 192.168.0.1
+GRID_NETWORK_IP = 192.168.5.140
+GRID_NETWORK_MASK = 255.255.248.0
+GRID_NETWORK_MTU = 1400
+GRID_NETWORK_TARGET = eth0
+GRID_NETWORK_TARGET_TYPE = Interface
+NODE_TYPE = VM_API_Gateway
+*PORT_REMAP = client/tcp/8082/443*
+*PORT_REMAP_INBOUND = client/tcp/8082/443*
+----
+. Edite las entradas PORT_REMAPP y PORT_REMAPP_INBOUND para eliminar los remapas de puertos.
++
+[listing]
+----
+PORT_REMAP =
+PORT_REMAP_INBOUND =
+----
+. Ejecute el siguiente comando para validar los cambios en el archivo de configuración del nodo para el nodo: ``sudo storagegrid node validate _node-name_``
++
+Solucione todos los errores o advertencias antes de continuar con el siguiente paso.
+
+. Ejecute el siguiente comando para reiniciar el nodo sin reasignaciones de puertos: `sudo storagegrid node start _node-name_`
+. Inicie sesión en el nodo como administrador con la contraseña que aparece en el `Passwords.txt` archivo.
+. Compruebe que los servicios se inician correctamente.
++
+.. Ver una lista de los estados de todos los servicios del servidor:``sudo storagegrid-status``
++
+El estado se actualiza automáticamente.
+
+.. Espere a que todos los servicios tengan el estado en ejecución o verificado.
+.. Salga de la pantalla de estado:``Ctrl+C``
+
+
+. Repita estos pasos en cada nodo de administrador y nodo de puerta de enlace que tenga puertos reasignados en conflicto.
+

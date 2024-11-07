@@ -1,0 +1,28 @@
+---
+permalink: troubleshoot/object-store-storage-volume-failures.html 
+sidebar: sidebar 
+keywords: how to confirm object location, object metadata lookup 
+summary: El almacenamiento subyacente en un nodo de almacenamiento se divide en almacenes de objetos. Los almacenes de objetos también se conocen como volúmenes de almacenamiento. 
+---
+= Errores del almacén de objetos (volumen de almacenamiento)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El almacenamiento subyacente en un nodo de almacenamiento se divide en almacenes de objetos. Los almacenes de objetos también se conocen como volúmenes de almacenamiento.
+
+Es posible ver la información de almacén de objetos de cada nodo de almacenamiento. Los almacenes de objetos se muestran en la parte inferior de la página *NODES* > *_Storage Node_* > *Storage*.
+
+image::../media/nodes_page_storage_nodes_storage_tables.png[Tablas de almacenamiento del nodo de página nodos]
+
+Para ver máslink:../monitor/viewing-grid-topology-tree.html["Detalles de cada nodo de almacenamiento"], siga estos pasos:
+
+. Seleccione *SUPPORT* > *Tools* > *Topología de cuadrícula*.
+. Seleccione *_site_* > *_Storage Node_* > *LDR* > *Storage* > *Overview* > *Main*.
+
+
+image::../media/storage_node_object_stores.png[Almacén de objetos Storage Node]
+
+Dependiendo de la naturaleza del fallo, los fallos con un volumen de almacenamiento pueden reflejarse en link:../monitor/alerts-reference.html["alertas del volumen de almacenamiento"]. Si un volumen de almacenamiento falla, debe reparar el volumen de almacenamiento con errores para restaurar el nodo de almacenamiento a Lo antes posible. con todas las funcionalidades. Si es necesario, puede ir a la pestaña *Configuración* link:../maintain/checking-storage-state-after-recovering-storage-volumes.html["Coloque el nodo de almacenamiento en un estado de solo lectura"]para que el sistema StorageGRID pueda usarlo para la recuperación de datos mientras se prepara para una recuperación completa del servidor.

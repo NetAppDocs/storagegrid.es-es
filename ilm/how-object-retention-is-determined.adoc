@@ -1,0 +1,96 @@
+---
+permalink: ilm/how-object-retention-is-determined.html 
+sidebar: sidebar 
+keywords: how object retention is determined 
+summary: StorageGRID ofrece opciones tanto para los administradores de grid como para los usuarios individuales de inquilino para especificar el tiempo que se tarda en almacenar los objetos. En general, cualquier instrucción de retención proporcionada por un usuario inquilino tiene prioridad sobre las instrucciones de retención proporcionadas por el administrador de grid. 
+---
+= Cómo se determina la retención de objetos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID ofrece opciones tanto para los administradores de grid como para los usuarios individuales de inquilino para especificar el tiempo que se tarda en almacenar los objetos. En general, cualquier instrucción de retención proporcionada por un usuario inquilino tiene prioridad sobre las instrucciones de retención proporcionadas por el administrador de grid.
+
+
+
+== Cómo los usuarios de inquilinos controlan la retención de objetos
+
+Los usuarios inquilinos pueden utilizar estos métodos para controlar durante cuánto tiempo se almacenan sus objetos en StorageGRID:
+
+* Si la configuración global de bloqueo de objetos S3 está habilitada para la cuadrícula, los usuarios de S3 inquilinos pueden crear depósitos con bloqueo de objetos S3 habilitado y luego seleccionar un *período de retención predeterminado* para cada cubo.
+* Si la configuración global de Object Lock está habilitada para el grid, los usuarios inquilinos S3 pueden crear bloques con S3 Object Lock habilitado y, a continuación, utilizar la API REST de S3 para especificar la configuración de retención hasta la fecha y la conservación legal de cada versión de objeto añadida a ese bloque.
++
+** Una versión de objeto que está bajo una conservación legal no se puede eliminar con ningún método.
+** Antes de que se alcance la fecha de retención hasta la versión de un objeto, esa versión no se puede eliminar con ningún método.
+** Los objetos de los bloques con S3 Object Lock habilitado son conservados por ILM «para siempre». Sin embargo, una vez alcanzada la fecha de retención hasta la fecha, una solicitud de cliente puede eliminar una versión de objeto o la expiración del ciclo de vida de la cuchara. Consulte link:managing-objects-with-s3-object-lock.html["Gestione objetos con S3 Object Lock"].
+
+
+* Los usuarios de inquilinos S3 pueden añadir una configuración del ciclo de vida a sus bloques que especifica una acción de caducidad. Si existe un ciclo de vida de un bloque, StorageGRID almacena un objeto hasta que se cumpla la fecha o el número de días especificados en la acción Expiración, a menos que el cliente elimine primero el objeto. Consulte link:../s3/create-s3-lifecycle-configuration.html["Cree una configuración del ciclo de vida de S3"].
+* Un cliente S3 puede emitir una solicitud de eliminación de objetos. StorageGRID siempre prioriza las solicitudes de eliminación de clientes por encima del ciclo de vida de los bloques S3 o ILM al determinar si se debe eliminar o conservar un objeto.
+
+
+
+
+== Cómo los administradores de grid controlan la retención de objetos
+
+Los administradores de grid pueden utilizar estos métodos para controlar la retención de objetos:
+
+* Establezca un período de retención máximo de Object Lock de S3 para cada arrendatario. A continuación, los usuarios inquilinos pueden establecer un período de retención predeterminado para cada uno de sus bloques. El período de retención máximo también se aplica a cualquier objeto recién ingerido para ese depósito (la fecha de retención del objeto hasta la fecha).
+* Cree instrucciones de ubicación de ILM para controlar el tiempo que se almacenan los objetos. Cuando una regla de ILM coincide con los objetos, StorageGRID almacena esos objetos hasta que haya transcurrido el último periodo de tiempo de la regla de ILM. Los objetos se conservan indefinidamente si se especifica «Forever» para las instrucciones de colocación.
+* Independientemente de quién controle el tiempo durante el que se retienen los objetos, los ajustes de ILM controlan qué tipos de copias de objetos (replicadas o con código de borrado) se almacenan y dónde se ubican las copias (nodos de almacenamiento o pools de almacenamiento en cloud).
+
+
+
+
+== Cómo interaccionan el ciclo de vida de bloque y ILM de S3
+
+Cuando se configura el ciclo de vida de un bloque de S3, las acciones de caducidad del ciclo de vida anulan la política de ILM de los objetos que coinciden con el filtro de ciclo de vida. Como resultado, es posible que un objeto se conserve en la cuadrícula aunque hayan caducado las instrucciones de gestión del ciclo de vida de la información relativas a la ubicación del objeto.
+
+
+
+== Ejemplos para la retención de objetos
+
+Para comprender mejor las interacciones entre S3 Object Lock, la configuración del ciclo de vida de bloques, las solicitudes de eliminación de clientes y ILM, tenga en cuenta los siguientes ejemplos.
+
+
+
+=== Ejemplo 1: El ciclo de vida de un bloque de S3 mantiene los objetos durante más tiempo que ILM
+
+ILM:: Almacene dos copias por 1 año (365 días)
+Ciclo de vida del cucharón:: Caducidad de objetos en 2 años (730 días)
+Resultado:: StorageGRID almacena el objeto durante 730 días. StorageGRID utiliza la configuración del ciclo de vida de los bloques para determinar si se debe eliminar o conservar un objeto.
+
+
+
+NOTE: Si el ciclo de vida de un bloque especifica que los objetos se deben conservar durante más tiempo del ciclo de vida de la información especificado por ILM, StorageGRID sigue usando las instrucciones de colocación de ILM al determinar el número y el tipo de copias que se deben almacenar. En este ejemplo, se seguirán almacenando dos copias del objeto en StorageGRID de los días 366 a 730.
+
+
+
+=== Ejemplo 2: El ciclo de vida de bloque de S3 caduca los objetos antes de ILM
+
+ILM:: Almacene dos copias durante 2 años (730 días)
+Ciclo de vida del cucharón:: Caducar objetos en un año (365 días)
+Resultado:: StorageGRID elimina ambas copias del objeto después del día 365.
+
+
+
+
+=== Ejemplo 3: La eliminación de clientes anula el ciclo de vida del bloque y el ILM
+
+ILM:: Almacene dos copias en los nodos de almacenamiento «por siempre»
+Ciclo de vida del cucharón:: Caducidad de objetos en 2 años (730 días)
+Solicitud de eliminación de cliente:: Emitido el día 400
+Resultado:: StorageGRID elimina ambas copias del objeto el día 400 en respuesta a la solicitud de eliminación del cliente.
+
+
+
+
+=== Ejemplo 4: El bloqueo de objetos S3 anula la solicitud de eliminación del cliente
+
+Bloqueo de objetos de S3:: La fecha de retención hasta la versión de un objeto es 2026-03-31. No existe un derecho legal.
+Regla de ILM que cumpla con las normativas:: Almacene dos copias en los nodos de almacenamiento «por siempre»
+Solicitud de eliminación de cliente:: Emitido el 2024-03-31
+Resultado:: StorageGRID no eliminará la versión del objeto porque la fecha de retención hasta todavía está a 2 años.
+

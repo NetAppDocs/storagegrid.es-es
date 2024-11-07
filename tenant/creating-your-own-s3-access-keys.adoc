@@ -1,0 +1,63 @@
+---
+permalink: tenant/creating-your-own-s3-access-keys.html 
+sidebar: sidebar 
+keywords: how to create your own S3 access key 
+summary: Si usa un inquilino de S3 y tiene el permiso correspondiente, puede crear sus propias claves de acceso S3. Debe tener una clave de acceso para acceder a los cubos y objetos. 
+---
+= Cree sus propias claves de acceso S3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si usa un inquilino de S3 y tiene el permiso correspondiente, puede crear sus propias claves de acceso S3. Debe tener una clave de acceso para acceder a los cubos y objetos.
+
+.Antes de empezar
+* Ha iniciado sesión en el gestor de inquilinos mediante un link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Pertenece a un grupo de usuarios que tiene el link:tenant-management-permissions.html["Administre sus propias credenciales de S3 o permiso de acceso raíz"].
+
+
+.Acerca de esta tarea
+Puede crear una o varias claves de acceso S3 que le permiten crear y gestionar bloques para su cuenta de inquilino. Después de crear una nueva clave de acceso, actualice la aplicación con su nuevo ID de clave de acceso y clave de acceso secreta. Por seguridad, no cree más claves de las que necesita, y elimine las claves que no está utilizando. Si sólo tiene una clave y está a punto de caducar, cree una nueva clave antes de que caduque la antigua y, a continuación, elimine la anterior.
+
+Cada clave puede tener un tiempo de caducidad específico o no puede caducar. Siga estas directrices para el tiempo de caducidad:
+
+* Establezca un tiempo de caducidad para sus llaves para limitar su acceso a un período de tiempo determinado. Establecer un tiempo de caducidad corto puede ayudar a reducir el riesgo si el ID de clave de acceso y la clave de acceso secreta están expuestos accidentalmente. Las claves caducadas se eliminan automáticamente.
+* Si el riesgo de seguridad en su entorno es bajo y no necesita crear periódicamente claves nuevas, no tiene que establecer un tiempo de caducidad para las claves. Si decide más tarde crear claves nuevas, elimine manualmente las claves antiguas.
+
+
+
+CAUTION: Puede acceder a los bloques y los objetos de S3 que pertenecen a su cuenta mediante el ID de clave de acceso y la clave de acceso secreta que se muestra para su cuenta en el Administrador de inquilinos. Por este motivo, proteja las claves de acceso como lo haría con una contraseña. Gire las claves de acceso de forma regular, elimine las claves que no utilice de su cuenta y nunca las comparta con otros usuarios.
+
+.Pasos
+. Seleccione *ALMACENAMIENTO (S3)* > *Mis claves de acceso*.
++
+Aparecerá la página Mis claves de acceso y mostrará una lista de las claves de acceso existentes.
+
+. Seleccione *Crear clave*.
+. Debe realizar una de las siguientes acciones:
++
+** Seleccione *no establezca un tiempo de caducidad* para crear una clave que no caducará. (Predeterminado)
+** Seleccione *establecer un tiempo de caducidad* y establezca la fecha y la hora de caducidad.
++
+
+NOTE: La fecha de caducidad puede ser un máximo de cinco años a partir de la fecha actual. El tiempo de caducidad puede ser un mínimo de un minuto desde la hora actual.
+
+
+
+. Seleccione *Crear clave de acceso*.
++
+Aparece el cuadro de diálogo Descargar clave de acceso, en el que se enumeran el ID de clave de acceso y la clave de acceso secreta.
+
+. Copie el ID de la clave de acceso y la clave de acceso secreta a una ubicación segura, o seleccione *Descargar .csv* para guardar un archivo de hoja de cálculo que contenga el ID de clave de acceso y la clave de acceso secreta.
++
+
+CAUTION: No cierre este cuadro de diálogo hasta que haya copiado o descargado esta información. No puede copiar ni descargar claves después de cerrar el cuadro de diálogo.
+
+. Seleccione *Finalizar*.
++
+La nueva clave aparece en la página Mis claves de acceso.
+
+. Si su cuenta de inquilino tiene el permiso *Usar conexión de federación de grid*, utilice opcionalmente la API de administración de inquilinos para clonar manualmente las claves de acceso S3 del inquilino en la cuadrícula de origen al inquilino en la cuadrícula de destino. Consulte link:grid-federation-clone-keys-with-api.html["Clone las claves de acceso S3 mediante la API"].
+

@@ -1,0 +1,95 @@
+---
+permalink: admin/requirements-for-sso.html 
+sidebar: sidebar 
+keywords: sso requirements, single sign on requirements, identity federation requirements for sso, pingfederate, azure ad, ad fs 
+summary: Antes de activar el inicio de sesión único para un sistema StorageGRID, revise los requisitos y consideraciones. 
+---
+= Requisitos y consideraciones para el inicio de sesión único
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de activar el inicio de sesión único (SSO) para un sistema StorageGRID, revise los requisitos y consideraciones.
+
+
+
+== Requisitos del proveedor de identidades
+
+StorageGRID admite los siguientes proveedores de identidad de SSO (IDP):
+
+* Servicio de Federación de Active Directory (AD FS)
+* Azure Active Directory (Azure AD)
+* PingFederate
+
+
+Debe configurar la federación de identidades para el sistema StorageGRID antes de poder configurar un proveedor de identidades SSO. El tipo de servicio LDAP que utiliza para controlar la federación de identidades qué tipo de SSO puede implementar.
+
+[cols="1a,1a"]
+|===
+| Se ha configurado el tipo de servicio LDAP | Opciones para el proveedor de identidades SSO 
+
+
+ a| 
+Active Directory
+ a| 
+* Active Directory
+* Azure
+* PingFederate
+
+
+
+
+ a| 
+Azure
+ a| 
+Azure
+
+|===
+
+
+=== Requisitos DE AD FS
+
+Puede utilizar cualquiera de las siguientes versiones de AD FS:
+
+* Windows Server 2022 AD FS
+* Windows Server 2019 AD FS
+* Windows Server 2016 AD FS
+
+
+
+NOTE: Windows Server 2016 debe utilizar https://support.microsoft.com/en-us/help/3201845/cumulative-update-for-windows-10-version-1607-and-windows-server-2016["Actualización KB3201845"^] , o superior.
+
+
+
+=== Requisitos adicionales
+
+* Seguridad de la capa de transporte (TLS) 1.2 ó 1.3
+* Microsoft .NET Framework, versión 3.5.1 o posterior
+
+
+
+
+=== Consideraciones para Azure
+
+Si usa Azure como tipo SSO y los usuarios tienen nombres principales de usuario que no usan sAMAccountName como prefijo, pueden producirse problemas de inicio de sesión si StorageGRID pierde su conexión con el servidor LDAP. Para permitir que los usuarios inicien sesión, debe restaurar la conexión con el servidor LDAP.
+
+
+
+== Requisitos de certificado de servidor
+
+De forma predeterminada, StorageGRID utiliza un certificado de interfaz de gestión en cada nodo de administración para garantizar el acceso a Grid Manager, al Gestor de inquilinos, a la API de gestión de grid y a la API de gestión de inquilinos. Cuando configura confianzas de partes confiadas (AD FS), aplicaciones empresariales (Azure) o conexiones de proveedores de servicio (PingFederate) para StorageGRID, utilizará el certificado de servidor como certificado de firma para las solicitudes StorageGRID.
+
+Si aún no lo ha hecholink:configuring-custom-server-certificate-for-grid-manager-tenant-manager.html["se configuró un certificado personalizado para la interfaz de gestión"], debería hacerlo ahora. Cuando instala un certificado de servidor personalizado, se utiliza para todos los nodos de administrador y puede usarlo en todas las confianzas de parte que dependen de StorageGRID, aplicaciones de empresa o conexiones del SP.
+
+
+NOTE: No se recomienda utilizar el certificado de servidor predeterminado de un nodo de administración en la confianza de una parte que confía, la aplicación de empresa o la conexión de SP. Si el nodo falla y lo recupera, se genera un nuevo certificado de servidor predeterminado. Antes de iniciar sesión en el nodo recuperado, debe actualizar la confianza de la parte que confía, la aplicación de empresa o la conexión del SP con el nuevo certificado.
+
+Para acceder al certificado de servidor de un nodo de administración, inicie sesión en el shell de comandos del nodo y vaya al `/var/local/mgmt-api` directorio. Se denomina a un certificado de servidor personalizado `custom-server.crt` . El certificado de servidor predeterminado del nodo se denomina `server.crt`.
+
+
+
+== Requisitos de puertos
+
+El inicio de sesión único (SSO) no está disponible en los puertos de administrador de grid restringido o de administrador de inquilinos. Debe utilizar el puerto HTTPS predeterminado (443) si desea que los usuarios se autentiquen con inicio de sesión único. Consulte link:controlling-access-through-firewalls.html["Controle el acceso a un firewall externo"].

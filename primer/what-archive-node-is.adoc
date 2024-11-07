@@ -1,0 +1,16 @@
+---
+permalink: primer/what-archive-node-is.html 
+sidebar: sidebar 
+keywords: archive node 
+summary: Se ha eliminado el soporte para los nodos de archivado. 
+---
+= ¿Qué es un nodo de archivado?
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se ha eliminado el soporte para los nodos de archivado.
+
+Para obtener información sobre los nodos de archivado, consulte https://docs.netapp.com/us-en/storagegrid-118/primer/what-archive-node-is.html["Qué es un nodo de archivado (sitio de documentación de StorageGRID 11,8)"^].

@@ -1,0 +1,24 @@
+---
+permalink: network/admin-network-topology.html 
+sidebar: sidebar 
+keywords: admin network topology, using admin network 
+summary: Tener una red Admin es opcional. Una forma de utilizar una red administrativa y una red de grid es configurar una red Grid enrutable y una red de administración limitada para cada nodo. 
+---
+= Topología de red de administrador
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Tener una red Admin es opcional. Una forma de utilizar una red administrativa y una red de grid es configurar una red Grid enrutable y una red de administración limitada para cada nodo.
+
+Cuando se configura la red de administración, se establece la dirección IP del host, la máscara de subred y la dirección IP de puerta de enlace para la interfaz eth1 de cada nodo de cuadrícula.
+
+La red de administrador puede ser única para cada nodo y puede estar compuesta de varias subredes. Cada nodo se puede configurar con una lista de subredes externas de administración (AESL). ESL enumera las subredes a las que se puede acceder a través de la red de administración para cada nodo. ESL también debe incluir las subredes de cualquier servicio al que la cuadrícula acceda a través de la Red de administración, como NTP, DNS, KMS y LDAP. Las rutas estáticas se aplican para cada subred en el ESL.
+
+En este ejemplo, la red de grid se utiliza para el tráfico relacionado con las solicitudes de cliente S3 y la gestión de objetos, mientras que la red de administración se utiliza para las funciones administrativas.
+
+image::../media/grid_admin_networks.png[Redes de administrador de grid]
+
+image::../media/grid_admin_networks_ips.png[Las IP del administrador de grid Networks]

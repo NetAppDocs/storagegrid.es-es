@@ -1,0 +1,134 @@
+---
+permalink: ilm/ilm-policy-overview.html 
+sidebar: sidebar 
+keywords: ILM policy, information lifecycle policy considerations 
+summary: 'Una política de gestión de ciclo de vida de la información \(ILM\) es un conjunto ordenado de reglas de ILM que determina cómo gestiona el sistema StorageGRID los datos de objetos con el tiempo.' 
+---
+= Use políticas de ILM
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Una política de gestión de ciclo de vida de la información (ILM) es un conjunto ordenado de reglas de ILM que determinan el modo en que el sistema StorageGRID gestiona los datos de objetos a lo largo del tiempo.
+
+
+CAUTION: Una política de ILM que se configuró incorrectamente puede provocar la pérdida de datos irrecuperable. Antes de activar una política de ILM, revise con detenimiento la política de ILM y sus reglas de ILM, y simule la política de ILM. Confirme siempre que la política de gestión del ciclo de vida de la información funcionará como se pretende.
+
+
+
+== Política de ILM predeterminada
+
+Al instalar StorageGRID y agregar sitios, se crea automáticamente una política de ILM predeterminada, de la siguiente manera:
+
+* Si su grid contiene un sitio, la política predeterminada contiene una regla predeterminada que replica dos copias de cada objeto del sitio.
+* Si la cuadrícula contiene más de un sitio, la regla predeterminada replica una copia de cada objeto en cada sitio.
+
+
+Si la política predeterminada no cumple con sus requisitos de almacenamiento, puede crear sus propias reglas y políticas. Consulte link:what-ilm-rule-is.html["Cree una regla de ILM"] y link:creating-ilm-policy.html["Cree una política de ILM"].
+
+
+
+== ¿Una o muchas políticas de ILM activas?
+
+Puede tener una o varias políticas de ILM activas a la vez.
+
+
+
+=== Una política
+
+Si su grid utilizará un esquema de protección de datos simple con pocas reglas específicas para inquilinos y bloques, use una única política de ILM activa. Las reglas de ILM pueden contener filtros para gestionar diferentes bloques o inquilinos.
+
+image::../media/ilm-policies-single.png[Diagrama de políticas de ILM]
+
+Cuando solo tiene una política y cambian los requisitos de un inquilino, debe crear una nueva política de ILM o clonar la política existente para aplicar cambios, simular y, a continuación, activar la nueva política de ILM. Los cambios en la política de ILM pueden provocar movimientos de objetos que podrían tardar muchos días y causar latencia del sistema.
+
+
+
+=== Múltiples políticas
+
+Para proporcionar diferentes opciones de calidad de servicio a clientes, se puede tener más de una política activa a la vez. Cada política puede administrar inquilinos específicos, bloques de S3 y objetos. Al aplicar o cambiar una política para un conjunto específico de inquilinos u objetos, las políticas aplicadas a otros inquilinos y objetos no se ven afectadas.
+
+Etiquetas de políticas de ILM:: Si desea permitir a los inquilinos cambiar fácilmente entre varias políticas de protección de datos por bloque, use varias políticas de ILM con _ILM policy tags_. Debe asignar cada política de ILM a una etiqueta y, a continuación, los inquilinos etiquetan un bloque para aplicar la política a ese bloque. Solo puede establecer etiquetas de políticas de ILM en bloques de S3.
++
+--
+Por ejemplo, puede tener tres etiquetas llamadas Gold, Silver y Bronze. Puede asignar una política de ILM a cada etiqueta, en función del tiempo y la ubicación en la que esa política almacena objetos. Los inquilinos pueden elegir la política que quieren usar etiquetando sus bloques. Un bloque con la etiqueta Gold se gestiona mediante la política Gold y recibe el nivel Gold de protección de datos y rendimiento.
+
+--
+Etiqueta de política de ILM predeterminada:: Una etiqueta de política de ILM predeterminada se crea automáticamente al instalar StorageGRID. Cada cuadrícula debe tener una política activa asignada a la etiqueta predeterminada. La política predeterminada se aplica a cualquier bloque S3 sin etiquetar.
+
+
+image::../media/ilm-policies-tags-conceptual.png[Diagrama de múltiples políticas de ILM]
+
+
+
+== ¿Cómo evalúa objetos una política de ILM?
+
+Una política de ILM activa controla la ubicación, la duración y la protección de datos de los objetos.
+
+Cuando los clientes guardan objetos en StorageGRID, los objetos se evalúan con respecto al conjunto ordenado de reglas de ILM de la política, de la siguiente manera:
+
+. Si los filtros de la primera regla de la política coinciden con un objeto, el objeto se procesa según el comportamiento de procesamiento de esa regla y se almacena según las instrucciones de ubicación de esa regla.
+. Si los filtros de la primera regla no coinciden con el objeto, el objeto se evalúa con cada regla subsiguiente de la política hasta que se realiza una coincidencia.
+. Si ninguna regla coincide con un objeto, se aplican las instrucciones de comportamiento de procesamiento y colocación de la regla predeterminada de la directiva. La regla predeterminada es la última regla de una directiva. La regla predeterminada debe aplicarse a todos los inquilinos, a todos los cubos S3 y a todas las versiones de objetos, y no puede utilizar ningún filtro avanzado.
+
+
+
+
+== Ejemplo de política de ILM
+
+Por ejemplo, una política de ILM podría contener tres reglas de ILM que especifiquen lo siguiente:
+
+* *Regla 1: Copias replicadas para el Inquilino A*
++
+** Haga coincidir todos los objetos que pertenecen al inquilino A..
+** Almacene estos objetos como tres copias replicadas en tres sitios.
+** Los objetos que pertenecen a otros arrendatarios no coinciden con la Regla 1, por lo que se evalúan según la Regla 2.
+
+
+* *Regla 2: Codificación de borrado para objetos mayores de 1 MB*
++
+** Hacer coincidir todos los objetos de otros inquilinos, pero solo si son mayores de 1 MB. Estos objetos de mayor tamaño se almacenan mediante codificación de borrado 6+3 en tres instalaciones.
+** No coincide con los objetos de 1 MB o menos, por lo que estos objetos se evalúan con la Regla 3.
+
+
+* *Regla 3: 2 copias 2 data centers* (predeterminado)
++
+** Es la última regla y la predeterminada de la política. No utiliza filtros.
+** Realice dos copias replicadas de todos los objetos que no coincidan con la Regla 1 o la Regla 2 (objetos que no pertenezcan al arrendatario A que tengan 1 MB o menos).
+
+
+
+
+image::../media/ilm_policy_and_rules.png[Política y reglas de ILM]
+
+
+
+== ¿Qué son las políticas activas e inactivas?
+
+Cada sistema StorageGRID debe tener al menos una política de ILM activa. Si desea tener más de una política de ILM activa, debe crear etiquetas de políticas de ILM y asignar una política a cada etiqueta. A continuación, los inquilinos aplican las etiquetas a bloques de S3. La política predeterminada se aplica a todos los objetos de los cubos que no tengan una etiqueta de política asignada.
+
+Cuando se crea por primera vez una política de ILM, se seleccionan una o varias reglas de ILM y se organizan en un orden específico. Después de simular la política para confirmar su comportamiento, la activa.
+
+Cuando activa una política de ILM, StorageGRID utiliza esa política para gestionar todos los objetos, incluidos los objetos existentes y los objetos que se acaban de procesar. Es posible que los objetos existentes se muevan a nuevas ubicaciones cuando se implementen las reglas de ILM en la nueva política.
+
+Si activa más de una política de ILM a la vez, y los inquilinos aplican etiquetas de políticas a bloques de S3, los objetos de cada bloque se gestionarán según la política asignada a la etiqueta.
+
+Un sistema StorageGRID realiza un seguimiento del historial de políticas que se han activado o desactivado.
+
+
+
+== Consideraciones que tener en cuenta para crear una política de ILM
+
+* Utilice únicamente la política proporcionada por el sistema, la política de copias de línea base 2, en los sistemas de prueba. Para StorageGRID 11,6 y versiones anteriores, la regla Crear 2 copias en esta política utiliza el pool de almacenamiento Todos los nodos de almacenamiento, que contiene todos los sitios. Si su sistema StorageGRID tiene más de un sitio, es posible que se coloquen dos copias de un objeto en el mismo sitio.
++
+
+NOTE: El pool de almacenamiento Todos los nodos de almacenamiento se crea automáticamente durante la instalación de StorageGRID 11,6 y versiones anteriores. Si actualiza a una versión posterior de StorageGRID, el pool de Todos los nodos de almacenamiento seguirá existiendo. Si instala StorageGRID 11,7 o una versión posterior como una instalación nueva, no se crea el pool Todos los nodos de almacenamiento.
+
+* Al diseñar una nueva política, tenga en cuenta todos los diferentes tipos de objetos que se podrían procesar en el grid. Asegúrese de que la política incluye reglas para coincidir y colocar estos objetos según sea necesario.
+* Mantenga la política de ILM de la forma más sencilla posible. Esto evita situaciones potencialmente peligrosas en las que los datos de objetos no se protegen como se deben realizar cambios en el sistema StorageGRID a lo largo del tiempo.
+* Asegúrese de que las reglas de la política están en el orden correcto. Cuando se activa la directiva, las reglas del orden indicado evalúan los objetos nuevos y existentes, empezando por la parte superior. Por ejemplo, si la primera regla de una política coincide con un objeto, ese objeto no será evaluado por ninguna otra regla.
+* La última regla de todas las políticas de ILM es la regla de ILM predeterminada, que no puede usar ningún filtro. Si un objeto no ha sido coincidente con otra regla, la regla predeterminada controla dónde se coloca ese objeto y durante cuánto tiempo se retiene.
+* Antes de activar una nueva política, revise los cambios que realice la política en la ubicación de objetos existentes. El cambio de la ubicación de un objeto existente podría dar lugar a problemas temporales de recursos cuando se evalúan e implementan las nuevas colocaciones.
+

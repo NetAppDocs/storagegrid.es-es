@@ -1,0 +1,38 @@
+---
+permalink: ilm/what-erasure-coding-is.html 
+sidebar: sidebar 
+keywords: what is erasure coding, what is ec 
+summary: El código de borrado es uno de los dos métodos que utiliza StorageGRID para almacenar datos de objetos. Cuando los objetos coinciden con una regla de ILM que utiliza código de borrado, esos objetos se dividen en fragmentos de datos, se calculan fragmentos de paridad adicionales y cada fragmento se almacena en un nodo de almacenamiento diferente. 
+---
+= ¿Qué es el código de borrado?
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El código de borrado es uno de los dos métodos que utiliza StorageGRID para almacenar datos de objetos (la replicación es el otro método). Cuando los objetos coinciden con una regla de ILM que utiliza código de borrado, esos objetos se dividen en fragmentos de datos, se calculan fragmentos de paridad adicionales y cada fragmento se almacena en un nodo de almacenamiento diferente.
+
+Cuando se accede a un objeto, se vuelve a ensamblar utilizando los fragmentos almacenados. Si un dato o un fragmento de paridad se corrompen o se pierden, el algoritmo de código de borrado puede recrear ese fragmento con un subconjunto de los datos restantes y los fragmentos de paridad.
+
+Al crear reglas de ILM, StorageGRID crea perfiles de código de borrado compatibles con esas reglas. Puede ver una lista de perfiles de codificación de borrado, link:manage-erasure-coding-profiles.html#rename-an-erasure-coding-profile["cambie el nombre de un perfil de código de borrado"]o link:manage-erasure-coding-profiles.html#deactivate-an-erasure-coding-profile["Desactive un perfil de código de borrado si actualmente no se utiliza en ninguna regla de ILM"].
+
+En el siguiente ejemplo, se muestra el uso de un algoritmo de codificación de borrado en los datos de un objeto. En este ejemplo, la regla ILM utiliza un esquema de codificación de borrado 4+2. Cada objeto se divide en cuatro fragmentos de datos iguales y dos fragmentos de paridad se calculan a partir de los datos del objeto. Cada uno de los seis fragmentos se almacena en un nodo diferente en tres sitios de centro de datos para proporcionar protección de datos ante fallos de nodos o pérdidas de sitios.
+
+image::../media/ec_three_sites_4_plus_2.png[Código de borrado tres sitios 4 más 2]
+
+El esquema de codificación de borrado 4+2 se puede configurar de varias maneras. Por ejemplo, puede configurar un pool de almacenamiento de un único sitio que contenga seis nodos de almacenamiento. Para link:using-multiple-storage-pools-for-cross-site-replication.html["protección contra pérdida de sitios"], puede utilizar un pool de almacenamiento que contenga tres sitios con tres nodos de almacenamiento en cada sitio. Un objeto se puede recuperar siempre que cuatro de los seis fragmentos (datos o paridad) permanezcan disponibles. Se pueden perder hasta dos fragmentos sin perder los datos del objeto. Si se pierde un sitio entero, el objeto aún puede recuperarse o repararse, siempre que se pueda acceder a todos los demás fragmentos.
+
+image::../media/ec_recoverable_4_plus_2.png[Código de borrado recuperable 4 Plus 2]
+
+Si se pierden más de dos nodos de almacenamiento, el objeto no se puede recuperar.
+
+image::../media/ec_unrecoverable_4_plus_2.png[Código de borrado irrecuperable 4 Plus 2]
+
+.Información relacionada
+* link:what-replication-is.html["Qué es la replicación"]
+* link:what-storage-pool-is.html["Qué es un pool de almacenamiento"]
+* link:what-erasure-coding-schemes-are.html["¿Qué son los esquemas de código de borrado"]
+* link:manage-erasure-coding-profiles.html#rename-an-erasure-coding-profile["Cambie el nombre de un perfil de código de borrado"]
+* link:manage-erasure-coding-profiles.html#deactivate-an-erasure-coding-profile["Desactivar un perfil de código de borrado"]
+

@@ -1,0 +1,306 @@
+---
+permalink: audit/sput-s3-put.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, SPUT, S3 PUT 
+summary: Cuando un cliente S3 emite una transacción PUT, se realiza una solicitud para crear un nuevo objeto o bloque. El servidor emite este mensaje si la transacción se realiza correctamente. 
+---
+= SPUT: S3 PUT
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cuando un cliente S3 emite una transacción PUT, se realiza una solicitud para crear un nuevo objeto o depósito, o para eliminar un subrecurso de cubo/objeto. El servidor emite este mensaje si la transacción se realiza correctamente.
+
+[cols="1a,1a,4a"]
+|===
+| Codificación | Campo | Descripción 
+
+
+ a| 
+CBID
+ a| 
+Identificador de bloque de contenido
+ a| 
+Identificador único del bloque de contenido solicitado. Si el CBID es desconocido, este campo se establece en 0. Las operaciones en los depósitos no incluyen este campo.
+
+
+
+ a| 
+CMPS
+ a| 
+Configuración de cumplimiento de normativas
+ a| 
+La configuración de cumplimiento utilizada al crear el depósito, si está presente en la solicitud (truncada a los primeros 1024 caracteres).
+
+
+
+ a| 
+CNCH
+ a| 
+Encabezado de control de consistencia
+ a| 
+El valor del encabezado de solicitud HTTP de control de coherencia, si está presente en la solicitud.
+
+
+
+ a| 
+CNID
+ a| 
+Identificador de conexión
+ a| 
+Identificador único del sistema para la conexión TCP/IP.
+
+
+
+ a| 
+CSIZ
+ a| 
+Tamaño de contenido
+ a| 
+El tamaño del objeto recuperado en bytes. Las operaciones en los depósitos no incluyen este campo.
+
+
+
+ a| 
+GFID
+ a| 
+ID de conexión de federación de grid
+ a| 
+El ID de conexión de la conexión de federación de grid asociada con una solicitud PUT DE replicación entre grid. Solo se incluyen en los registros de auditoría en el grid de destino.
+
+
+
+ a| 
+GFSA
+ a| 
+ID de cuenta de origen de federación de grid
+ a| 
+El ID de cuenta del inquilino en la cuadrícula de origen para una solicitud de PUT DE replicación entre grid. Solo se incluyen en los registros de auditoría en el grid de destino.
+
+
+
+ a| 
+HTRH
+ a| 
+Encabezado de solicitud HTTP
+ a| 
+Lista de los nombres de encabezado y valores registrados de la solicitud HTTP como seleccionados durante la configuración.
+
+ `X-Forwarded-For` Se incluye automáticamente si está presente en la solicitud y si el `X-Forwarded-For` valor es diferente de la dirección IP del remitente de la solicitud (campo de auditoría SAIP).
+
+`x-amz-bypass-governance-retention` se incluye automáticamente si está presente en la solicitud.
+
+
+
+ a| 
+LKEN
+ a| 
+Bloqueo de objeto activado
+ a| 
+Valor de la cabecera de solicitud `x-amz-bucket-object-lock-enabled` , si está presente en la solicitud.
+
+
+
+ a| 
+LKLH
+ a| 
+Bloqueo de objeto retención legal
+ a| 
+Valor de la cabecera de solicitud `x-amz-object-lock-legal-hold` , si está presente en la solicitud PutObject.
+
+
+
+ a| 
+LKMD
+ a| 
+Modo de retención de bloqueo de objetos
+ a| 
+Valor de la cabecera de solicitud `x-amz-object-lock-mode` , si está presente en la solicitud PutObject.
+
+
+
+ a| 
+LKRU
+ a| 
+Bloqueo de objeto mantener hasta la fecha
+ a| 
+Valor de la cabecera de solicitud `x-amz-object-lock-retain-until-date` , si está presente en la solicitud PutObject. Los valores se limitan a dentro de los 100 años posteriores a la fecha en que se ingirió el objeto.
+
+
+
+ a| 
+MTME
+ a| 
+Hora de la última modificación
+ a| 
+La Marca de hora de Unix, en microsegundos, indica cuándo se modificó por última vez el objeto.
+
+
+
+ a| 
+TRANSFORMACIÓN DIGITAL
+ a| 
+Código de resultado
+ a| 
+Resultado DE LA transacción PUT. El resultado es siempre:
+
+SUCS: Exitoso
+
+
+
+ a| 
+S3AI
+ a| 
+ID de cuenta de inquilino de S3 (remitente de solicitud)
+ a| 
+El ID de cuenta de inquilino del usuario que envió la solicitud. Un valor vacío indica acceso anónimo.
+
+
+
+ a| 
+S3AK
+ a| 
+ID de clave de acceso S3 (remitente de solicitudes)
+ a| 
+El ID de clave de acceso de S3 hash para el usuario que envió la solicitud. Un valor vacío indica acceso anónimo.
+
+
+
+ a| 
+S3BK
+ a| 
+Bloque de S3
+ a| 
+El nombre de bloque de S3.
+
+
+
+ a| 
+S3KY
+ a| 
+Clave de S3
+ a| 
+El nombre de clave S3, sin incluir el nombre del bloque. Las operaciones en los depósitos no incluyen este campo.
+
+
+
+ a| 
+S3SR
+ a| 
+Subrecurso de S3
+ a| 
+El bloque o subrecurso de objeto en el que se opera, si procede.
+
+
+
+ a| 
+SACC
+ a| 
+Nombre de cuenta de inquilino de S3 (remitente de la solicitud)
+ a| 
+El nombre de la cuenta de arrendatario para el usuario que envió la solicitud. Vacío para solicitudes anónimas.
+
+
+
+ a| 
+SAIP
+ a| 
+Dirección IP (remitente de solicitud)
+ a| 
+La dirección IP de la aplicación cliente que realizó la solicitud.
+
+
+
+ a| 
+SBAC
+ a| 
+Nombre de cuenta de inquilino de S3 (propietario del bloque)
+ a| 
+El nombre de cuenta de inquilino para el propietario del bloque. Se utiliza para identificar el acceso de cuenta cruzada o anónimo.
+
+
+
+ a| 
+SBAI
+ a| 
+ID de cuenta de inquilino de S3 (propietario del bloque)
+ a| 
+El ID de cuenta de inquilino del propietario del bloque de destino. Se utiliza para identificar el acceso de cuenta cruzada o anónimo.
+
+
+
+ a| 
+SRCF
+ a| 
+Configuración del subrecurso
+ a| 
+La nueva configuración del subrecurso (truncada a los primeros 1024 caracteres).
+
+
+
+ a| 
+SUSR
+ a| 
+URN de usuario de S3 (remitente de solicitudes)
+ a| 
+El ID de cuenta de arrendatario y el nombre de usuario del usuario que realiza la solicitud. El usuario puede ser un usuario local o un usuario LDAP. Por ejemplo: `urn:sgws:identity::03393893651506583485:root`
+
+Vacío para solicitudes anónimas.
+
+
+
+ a| 
+TIEMPO
+ a| 
+Tiempo
+ a| 
+Tiempo de procesamiento total de la solicitud en microsegundos.
+
+
+
+ a| 
+TLIP
+ a| 
+Dirección IP del equilibrador de carga de confianza
+ a| 
+Si la solicitud se enrutó por un equilibrador de carga de capa 7 de confianza, la dirección IP del equilibrador de carga.
+
+
+
+ a| 
+ID
+ a| 
+ID de carga
+ a| 
+Solo se incluye en los mensajes SPUT para las operaciones CompleteMultipartUpload. Indica que todas las piezas se han cargado y ensamblado.
+
+
+
+ a| 
+UUID
+ a| 
+Identificador único universal
+ a| 
+El identificador del objeto dentro del sistema StorageGRID.
+
+
+
+ a| 
+VSID
+ a| 
+ID de versión
+ a| 
+El código de versión de un nuevo objeto creado en un bloque con versiones. Las operaciones en cubos y objetos en depósitos sin versiones no incluyen este campo.
+
+
+
+ a| 
+VSST
+ a| 
+Estado de control de versiones
+ a| 
+El nuevo estado de creación de versiones de un bloque. Se utilizan dos estados: “Activado” o “Suspendido”. Las operaciones en objetos no incluyen este campo.
+
+|===

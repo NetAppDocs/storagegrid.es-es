@@ -1,0 +1,61 @@
+---
+permalink: s3/recommendations-for-implementing-s3-rest-api.html 
+sidebar: sidebar 
+keywords: implement s3 rest api 
+summary: Debe seguir estas recomendaciones al implementar la API DE REST de S3 para usar con StorageGRID. 
+---
+= Recomendaciones para implementar la API REST de S3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe seguir estas recomendaciones al implementar la API DE REST de S3 para usar con StorageGRID.
+
+
+
+== Recomendaciones para las cabezas a los objetos no existentes
+
+Si la aplicación comprueba de forma rutinaria si existe un objeto en una ruta en la que no se espera que exista el objeto, debe utilizar la opción «Disponible» link:consistency-controls.html["coherencia"]. Por ejemplo, deberías utilizar la consistencia «disponible» si tu aplicación dirige una ubicación antes de colocarla.
+
+De lo contrario, si la OPERACIÓN de CABEZAL no encuentra el objeto, es posible que reciba una cantidad alta de errores de servidor interno 500 si dos o más nodos de almacenamiento del mismo sitio no están disponibles o no se puede acceder a un sitio remoto.
+
+Puede establecer la consistencia «disponible» para cada depósito mediante link:put-bucket-consistency-request.html["PONGA la consistencia del cucharón"]la solicitud o puede especificar la coherencia en el encabezado de solicitud para una operación de API individual.
+
+
+
+== Recomendaciones para las claves de objeto
+
+Siga estas recomendaciones para los nombres de clave del objeto, según cuándo se creó el bloque por primera vez.
+
+.Bloques creados en StorageGRID 11,4 o versiones anteriores
+* No utilice valores aleatorios como los primeros cuatro caracteres de las claves de objeto. Esto contrasta con la anterior recomendación de AWS para prefijos clave. En su lugar, utilice prefijos no aleatorios y no únicos, como `image` .
+* Si sigue la recomendación anterior de AWS para utilizar caracteres aleatorios y únicos en los prefijos de clave, coloque un prefijo en las claves de objeto con un nombre de directorio. Es decir, utilice este formato:
++
+`mybucket/mydir/f8e3-image3132.jpg`
+
++
+En lugar de este formato:
+
++
+`mybucket/f8e3-image3132.jpg`
+
+
+
+.Bloques creados en StorageGRID 11,4 o versiones posteriores
+No es necesario restringir los nombres clave de objetos para cumplir con las prácticas recomendadas de rendimiento. En la mayoría de los casos, puede utilizar valores aleatorios para los primeros cuatro caracteres de nombres de clave de objeto.
+
+
+TIP: Una excepción a esto es una carga de trabajo S3 que elimina continuamente todos los objetos después de un breve periodo de tiempo. Para minimizar el impacto en el rendimiento de este caso de uso, varíe una parte inicial del nombre de la clave cada varios miles de objetos con algo similar a la fecha. Por ejemplo, suponga que un cliente S3 normalmente escribe 2.000 objetos por segundo y la política de ciclo de vida de la gestión de la vida útil de la información o del bloque elimina los objetos al cabo de tres días. Para minimizar el impacto en el rendimiento, puede asignar un nombre a las claves utilizando un patrón como el siguiente: `/mybucket/mydir/_yyyymmddhhmmss_-_random_UUID_.jpg`
+
+
+
+== Recomendaciones para lecturas de rango
+
+Si link:../admin/configuring-stored-object-compression.html["opción global para comprimir objetos almacenados"]está activado, las aplicaciones cliente S3 deben evitar realizar operaciones GetObject que especifiquen un rango de bytes. Estas operaciones de «lectura de rango» son ineficientes, puesto que StorageGRID debe descomprimir los objetos de forma efectiva para acceder a los bytes solicitados. Las operaciones GetObject que solicitan un rango pequeño de bytes de un objeto muy grande son especialmente ineficientes; por ejemplo, no es eficiente leer un rango de 10 MB de un objeto comprimido de 50 GB.
+
+Si se leen rangos de objetos comprimidos, las solicitudes del cliente pueden tener un tiempo de espera.
+
+
+NOTE: Si necesita comprimir objetos y su aplicación cliente debe utilizar lecturas de rango, aumente el tiempo de espera de lectura de la aplicación.

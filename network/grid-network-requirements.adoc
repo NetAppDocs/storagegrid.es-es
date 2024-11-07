@@ -1,0 +1,23 @@
+---
+permalink: network/grid-network-requirements.html 
+sidebar: sidebar 
+keywords: grid network requirements 
+summary: Siga estos requisitos y directrices para la red de cuadrícula. 
+---
+= Requisitos de red de grid
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Siga estos requisitos y directrices para la red de cuadrícula.
+
+* En el momento de la implementación, cada nodo de grid se debe conectar a la red de grid y debe ser capaz de comunicarse con el nodo administrador principal mediante la configuración de red especificada al implementar el nodo.
+* Durante las operaciones normales de grid, cada nodo de grid debe poder comunicarse con los demás nodos de grid a través de la red de cuadrícula.
++
+
+NOTE: Grid Network debe poder enrutar directamente entre cada nodo. No se admite la traducción de direcciones de red (NAT) entre nodos.
+
+* Si la red de cuadrícula consta de varias subredes, agréguelas a la Lista de subredes de red de cuadrícula (GNSL). Las rutas estáticas se crean en todos los nodos de cada subred en el GNSL.
+

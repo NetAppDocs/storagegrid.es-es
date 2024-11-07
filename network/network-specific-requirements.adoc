@@ -1,0 +1,82 @@
+---
+permalink: network/network-specific-requirements.html 
+sidebar: sidebar 
+keywords: network-specific requirements, network specific requirements, network requirements 
+summary: Siga los requisitos para cada tipo de red StorageGRID. 
+---
+= Requisitos específicos de la red
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Siga los requisitos para cada tipo de red StorageGRID.
+
+
+
+== Routers y puertas de enlace de red
+
+* Si se establece, la puerta de enlace para una red determinada debe estar dentro de la subred de la red específica.
+* Si configura una interfaz con direcciones estáticas, debe especificar una dirección de puerta de enlace distinta de 0.0.0.0.
+* Si no tiene una puerta de enlace, lo mejor es establecer la dirección de la puerta de enlace para que sea la dirección IP de la interfaz de red.
+
+
+
+
+== Subredes
+
+
+NOTE: Cada red debe estar conectada a su propia subred que no se superponga con ninguna otra red del nodo.
+
+Grid Manager aplica las siguientes restricciones durante la implementación. Se proporcionan aquí para ayudar en la planificación de la red previa al despliegue.
+
+* La máscara de subred para cualquier dirección IP de red no puede ser 255.255.255.254 o 255.255.255.255 (/31 o /32 en notación CIDR).
+* La subred definida por una dirección IP de interfaz de red y una máscara de subred (CIDR) no puede superponer la subred de ninguna otra interfaz configurada en el mismo nodo.
+* La subred de red de cuadrícula para cada nodo debe estar incluida en el GNSL.
+* La subred de la red de administración no puede superponerse con la subred de la red de red de red, la subred de la red de cliente o cualquier subred de la GNSL.
+* Las subredes de la AESL no pueden superponerse con ninguna subred de la GNSL.
+* La subred de la red cliente no puede superponerse con la subred de la red de red de red, la subred de la red de administración, ninguna subred de la GNSL ni ninguna subred de la AESL.
+
+
+
+
+== Red Grid
+
+* En el momento de la implementación, cada nodo de grid se debe conectar a la red de grid y debe ser capaz de comunicarse con el nodo administrador principal mediante la configuración de red especificada al implementar el nodo.
+* Durante las operaciones normales de grid, cada nodo de grid debe poder comunicarse con los demás nodos de grid a través de la red de cuadrícula.
++
+
+NOTE: Grid Network debe poder enrutar directamente entre cada nodo. No se admite la traducción de direcciones de red (NAT) entre nodos.
+
+* Si la red de cuadrícula consta de varias subredes, agréguelas a la Lista de subredes de red de cuadrícula (GNSL). Las rutas estáticas se crean en todos los nodos de cada subred en el GNSL.
+* Si la interfaz de red de cuadrícula está configurada como una conexión troncal para admitir interfaces VLAN, la VLAN nativa de la conexión debe ser la VLAN utilizada para el tráfico de red de red de red de red de red de red de red. Debe accederse a todos los nodos de grid a través de la VLAN nativa del tronco.
+
+
+
+
+== Red de administración
+
+La red administrativa es opcional. Si planea configurar una red de administración, siga estos requisitos y directrices.
+
+Los usos típicos de la red de administración incluyen conexiones de administración, AutoSupport, KMS y conexiones a servidores críticos como NTP, DNS y LDAP si estas conexiones no se proporcionan a través de la red de grid o la red de cliente.
+
+
+NOTE: La Red de administración y ESL pueden ser exclusivos de cada nodo, siempre que se pueda acceder a los servicios de red y clientes deseados.
+
+
+NOTE: Debe definir al menos una subred en la red de administración para habilitar las conexiones entrantes desde subredes externas. Las rutas estáticas se generan automáticamente en cada nodo para cada subred de la ESL.
+
+
+
+== Red cliente
+
+La red cliente es opcional. Si planea configurar una red de cliente, tenga en cuenta las siguientes consideraciones.
+
+* La red cliente está diseñada para soportar el tráfico de clientes S3. Si se configura, la puerta de enlace de red de cliente se convierte en la puerta de enlace predeterminada del nodo.
+* Si utiliza una red de cliente, puede ayudar a proteger StorageGRID de ataques hostiles aceptando tráfico de cliente entrante sólo en puntos finales de equilibrador de carga configurados explícitamente. Consulte link:../admin/configuring-load-balancer-endpoints.html["Configurar puntos finales del equilibrador de carga"].
+* Si la interfaz de red de cliente está configurada como troncal para admitir interfaces VLAN, considere si es necesario configurar la interfaz de red de cliente (eth2). Si se configura, el tráfico de red de cliente fluirá a través de la VLAN nativa del tronco, como se configuró en el switch.
+
+
+.Información relacionada
+link:../maintain/changing-nodes-network-configuration.html["Cambie la configuración de red de los nodos"]

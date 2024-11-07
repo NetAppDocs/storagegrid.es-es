@@ -1,0 +1,246 @@
+---
+permalink: maintain/step-6-monitor-decommission.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, monitor decommission, decommission 
+summary: 'En el paso 6 \(retirada del monitor\) del asistente de página Sitio de misión de retirada, puede supervisar el progreso a medida que se quita el sitio.' 
+---
+= Paso 6: Supervisión de la misión
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En el paso 6 (Supervisión de misión) del asistente de página Sitio de retirada, puede supervisar el progreso a medida que se quita el sitio.
+
+.Acerca de esta tarea
+Cuando StorageGRID quita un sitio conectado, quita los nodos en el siguiente orden:
+
+. Nodos de puerta de enlace
+. Nodos de administración
+. Nodos de almacenamiento
+
+
+Cuando StorageGRID quita un sitio desconectado, quita los nodos en el siguiente orden:
+
+. Nodos de puerta de enlace
+. Nodos de almacenamiento
+. Nodos de administración
+
+
+Es posible que cada nodo de puerta de enlace o nodo de administrador solo requiera unos minutos o una hora; sin embargo, los nodos de almacenamiento pueden tardar días o semanas.
+
+.Pasos
+. Tan pronto como se haya generado un nuevo paquete de recuperación, descargue el archivo.
++
+image::../media/decommission_site_step_6_recovery_package.png[Paquete de recuperación del paso 6 de la misión de la planta]
+
++
+
+NOTE: Descargue el Lo antes posible. del paquete de recuperación para asegurarse de que puede recuperar la red si hay algún problema durante el procedimiento de retirada de servicio.
+
++
+.. Seleccione el enlace en el mensaje o seleccione *MANTENIMIENTO* > *Sistema* > *Paquete de recuperación*.
+.. Descargue el `.zip` archivo.
++
+Consulte las instrucciones para link:downloading-recovery-package.html["Descarga del paquete de recuperación"].
+
+
+
++
+
+NOTE: El archivo del paquete de recuperación debe estar protegido porque contiene claves de cifrado y contraseñas que se pueden usar para obtener datos del sistema StorageGRID.
+
+. Con el gráfico de movimiento de datos, supervise el movimiento de datos de objetos desde este sitio a otros sitios.
++
+El movimiento de datos se inició cuando se activó la nueva política de ILM en el paso 3 (revisar política de ILM). El movimiento de datos se realizará durante todo el procedimiento de retirada de servicio.
+
++
+image::../media/decommission_site_step_6_data_movement.png[Retirada del movimiento de datos del paso 6 del sitio]
+
+. En la sección progreso de nodos de la página, supervise el progreso del procedimiento de retirada a medida que se quitan los nodos.
++
+Cuando se elimina un nodo de almacenamiento, cada nodo pasa por una serie de etapas. Aunque la mayoría de estas fases se dan de forma rápida o incluso imperceptible, es posible que tenga que esperar días o incluso semanas para que se completen otras fases, en función de la cantidad de datos necesarios que se vayan a mover. Se necesita tiempo adicional para gestionar datos codificados de borrado y volver a evaluar la ILM.
+
++
+image::../media/decommission_site_step_6_storage_node.png[Decomisión del nodo de almacenamiento Paso 6 del sitio]
+
++
+Si va a supervisar el progreso de una retirada de sitios conectados, consulte esta tabla para comprender las etapas de retirada de un nodo de almacenamiento:
+
++
+[cols="1a,2a"]
+|===
+| Etapa | Duración estimada 
+
+
+ a| 
+Pendiente
+ a| 
+Minuto o menos
+
+
+
+ a| 
+Espere a que se bloqueen
+ a| 
+Minutos
+
+
+
+ a| 
+Preparar tarea
+ a| 
+Minuto o menos
+
+
+
+ a| 
+Marcado de LDR retirado
+ a| 
+Minutos
+
+
+
+ a| 
+Retirada de datos replicados y con código de borrado
+ a| 
+Horas, días o semanas en función de la cantidad de datos
+
+*Nota*: Si necesita realizar otras actividades de mantenimiento, puede hacer una pausa en la retirada del sitio durante esta fase.
+
+
+
+ a| 
+Estado del conjunto LDR
+ a| 
+Minutos
+
+
+
+ a| 
+Eliminar colas de auditoría
+ a| 
+De minutos a horas, según el número de mensajes y la latencia de la red.
+
+
+
+ a| 
+Completo
+ a| 
+Minutos
+
+|===
++
+Si va a supervisar el progreso de una retirada de sitios desconectada, consulte esta tabla para comprender las etapas de retirada de un nodo de almacenamiento:
+
++
+[cols="1a,1a"]
+|===
+| Etapa | Duración estimada 
+
+
+ a| 
+Pendiente
+ a| 
+Minuto o menos
+
+
+
+ a| 
+Espere a que se bloqueen
+ a| 
+Minutos
+
+
+
+ a| 
+Preparar tarea
+ a| 
+Minuto o menos
+
+
+
+ a| 
+Desactive Servicios externos
+ a| 
+Minutos
+
+
+
+ a| 
+Revocación de certificados
+ a| 
+Minutos
+
+
+
+ a| 
+Unregister Node
+ a| 
+Minutos
+
+
+
+ a| 
+Registro de grado de almacenamiento
+ a| 
+Minutos
+
+
+
+ a| 
+Extracción del grupo de almacenamiento
+ a| 
+Minutos
+
+
+
+ a| 
+Eliminación de entidades
+ a| 
+Minutos
+
+
+
+ a| 
+Completo
+ a| 
+Minutos
+
+|===
+. Una vez que todos los nodos hayan alcanzado la fase completa, espere a que se completen las operaciones de retirada del sitio restantes.
++
+** Durante el paso *reparar Cassandra*, StorageGRID realiza las reparaciones necesarias a los clústeres Cassandra que permanecen en la cuadrícula. Estas reparaciones pueden tardar varios días o más, según la cantidad de nodos de almacenamiento que haya en el grid.
++
+image::../media/decommission_site_step_6_repair_cassandra.png[Retirar sitio Paso 6 reparar Cassandra]
+
+** Durante el paso *Desactivar perfiles de EC y Eliminar grupos de almacenamiento*, se realizan los siguientes cambios de ILM:
++
+*** Se desactivan los perfiles de código de borrado que hacen referencia al sitio.
+*** Los pools de almacenamiento a los que se hace referencia el sitio se eliminan.
++
+
+NOTE: El pool de almacenamiento Todos los nodos de almacenamiento (StorageGRID 11,6 y anteriores) también se elimina porque utiliza el sitio Todos los sitios.
+
+
+
+** Finalmente, durante el paso *Eliminar configuración*, cualquier referencia restante al sitio y sus nodos se quita del resto de la cuadrícula.
++
+image::../media/decommission_site_step_6_remove_configuration.png[Retirar la configuración del sitio Paso 6 Quitar]
+
+
+
+. Una vez completado el procedimiento de retirada, la página Sitio de retirada muestra un mensaje de éxito y el sitio eliminado ya no se muestra.
++
+image::../media/decommission_site_success_message.png[Mensaje de retirada del sitio correcta]
+
+
+
+.Después de terminar
+Complete estas tareas después de completar el procedimiento de retirada del sitio:
+
+* Asegúrese de que las unidades de todos los nodos de almacenamiento del sitio donde se decomisionó se limpias. Utilice una herramienta o servicio de limpieza de datos disponible en el mercado para eliminar los datos de las unidades de forma permanente y segura.
+* Si el sitio incluye uno o más nodos de administración y el inicio de sesión único (SSO) está habilitado para el sistema StorageGRID, elimine todas las confianzas de partes que dependan del sitio de los Servicios de Federación de Active Directory (AD FS).
+* Una vez que los nodos se han apagado automáticamente como parte del procedimiento de retirada del sitio conectado, quite las máquinas virtuales asociadas.
+

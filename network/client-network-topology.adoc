@@ -1,0 +1,27 @@
+---
+permalink: network/client-network-topology.html 
+sidebar: sidebar 
+keywords: client network topology 
+summary: 'Tener una red cliente es opcional. El uso de una red cliente permite que el tráfico de red del cliente \ (por ejemplo, S3\) se separe del tráfico interno de la cuadrícula, lo que permite que la red de grid sea más segura. El tráfico administrativo puede ser gestionado por el cliente o la red de cuadrícula cuando la red de administración no está configurada.' 
+---
+= Topología de la red de cliente
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Tener una red cliente es opcional. El uso de una red cliente permite que el tráfico de red cliente (por ejemplo, S3) se separe del tráfico interno de grid, lo que permite que la red de grid sea más segura. El tráfico administrativo puede ser gestionado por el cliente o la red de cuadrícula cuando la red de administración no está configurada.
+
+Cuando configura la red de cliente, establece la dirección IP del host, la máscara de subred y la dirección IP de puerta de enlace para la interfaz eth2 del nodo configurado. La red de cliente de cada nodo puede ser independiente de la red de cliente en cualquier otro nodo.
+
+Si configura una red de cliente para un nodo durante la instalación, la puerta de enlace predeterminada del nodo cambia de la puerta de enlace de red de cuadrícula a la puerta de enlace de red de cliente cuando se completa la instalación. Si se añade más tarde una red de cliente, la puerta de enlace predeterminada del nodo se cambia de la misma manera.
+
+En este ejemplo, la red cliente se utiliza para las solicitudes de cliente S3 y para las funciones administrativas, mientras que la red de grid está dedicada a las operaciones de gestión de objetos internos.
+
+image::../media/grid_client_networks.png[Redes de clientes de grid]
+
+image::../media/grid_client_networks_ips.png[IP de redes de cliente de grid]
+
+.Información relacionada
+link:../maintain/changing-nodes-network-configuration.html["Cambie la configuración de red de los nodos"]

@@ -1,0 +1,6 @@
+= 
+:allow-uri-read: 
+
+
+
+NOTE: Cuando un nodo no está conectado a la cuadrícula, como durante la actualización o un estado desconectado, es posible que algunas métricas no estén disponibles o se excluyan de los totales de la ubicación y la cuadrícula. Después de que un nodo se vuelva a conectar a la cuadrícula, espere varios minutos para que los valores se estabilicen.

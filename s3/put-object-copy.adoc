@@ -1,0 +1,185 @@
+---
+permalink: s3/put-object-copy.html 
+sidebar: sidebar 
+keywords: put object copy, CopyObject 
+summary: Puede utilizar la solicitud S3 CopyObject para crear una copia de un objeto que ya está almacenado en S3. Una operación CopyObject es lo mismo que realizar un GET y luego un PUT. 
+---
+= CopyObject
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede utilizar la solicitud S3 CopyObject para crear una copia de un objeto que ya está almacenado en S3. Una operación CopyObject es la misma que realizar GetObject seguido de PutObject.
+
+
+
+== Resolver conflictos
+
+Las solicitudes de clientes en conflicto, como dos clientes que escriben en la misma clave, se resuelven en función de las "últimas victorias". El plazo para la evaluación de "logros más recientes" se basa en cuándo el sistema StorageGRID completa una solicitud determinada, y no en cuándo los clientes de S3 comienzan una operación.
+
+
+
+== Tamaño del objeto
+
+El tamaño máximo de _recommended_ para una sola operación PutObject es de 5 GiB (5.368.709.120 bytes). Si tiene objetos de más de 5 GiB, utilice su link:operations-for-multipart-uploads.html["carga de varias partes"] lugar.
+
+El tamaño máximo de _supported_ para una sola operación PutObject es de 5 TiB (5.497.558.138.880 bytes).
+
+
+NOTE: Si actualizó desde StorageGRID 11,6 o una versión anterior, se activará la alerta S3 PUT Object size too large si intenta cargar un objeto que supere los 5 GiB. Si tiene una instalación nueva de StorageGRID 11,7 o 11,8, la alerta no se activará en este caso. Sin embargo, para alinearse con el estándar AWS S3, las versiones futuras de StorageGRID no admitirán cargas de objetos de más de 5 GiB.
+
+
+
+== Caracteres UTF-8 en los metadatos de usuario
+
+Si una solicitud incluye (no escapadas) valores UTF-8 en el nombre de clave o el valor de los metadatos definidos por el usuario, el comportamiento de StorageGRID no está definido.
+
+StorageGRID no analiza ni interpreta los caracteres UTF-8 escapados incluidos en el nombre de clave o el valor de los metadatos definidos por el usuario. Los caracteres UTF-8 que se han escapado se tratan como caracteres ASCII:
+
+* Las solicitudes se realizan correctamente si los metadatos definidos por el usuario incluyen caracteres UTF-8 que se han escapado.
+* StorageGRID no devuelve `x-amz-missing-meta` el encabezado si el valor interpretado del nombre o valor de la clave incluye caracteres no imprimibles.
+
+
+
+
+== Encabezados de solicitud admitidos
+
+Se admiten los siguientes encabezados de solicitud:
+
+* `Content-Type`
+* `x-amz-copy-source`
+* `x-amz-copy-source-if-match`
+* `x-amz-copy-source-if-none-match`
+* `x-amz-copy-source-if-unmodified-since`
+* `x-amz-copy-source-if-modified-since`
+* `x-amz-meta-`, seguido de un par nombre-valor que contiene metadatos definidos por el usuario
+* `x-amz-metadata-directive`: El valor por defecto es `COPY`, que permite copiar el objeto y los metadatos asociados.
++
+Puede `REPLACE` especificar que sobrescriba los metadatos existentes al copiar el objeto o que actualice los metadatos de los objetos.
+
+* `x-amz-storage-class`
+* `x-amz-tagging-directive`: El valor por defecto es `COPY`, que permite copiar el objeto y todas las etiquetas.
++
+Puede especificar `REPLACE` que sobrescriba las etiquetas existentes al copiar el objeto o que actualice las etiquetas.
+
+* Encabezados de solicitud de bloqueo de objetos S3:
++
+** `x-amz-object-lock-mode`
+** `x-amz-object-lock-retain-until-date`
+** `x-amz-object-lock-legal-hold`
++
+Si se realiza una solicitud sin estas cabeceras, se utiliza la configuración de retención por defecto del depósito para calcular el modo de versión del objeto y retener hasta la fecha. Consulte link:use-s3-api-for-s3-object-lock.html["Use la API REST DE S3 para configurar el bloqueo de objetos de S3"].
+
+
+
+* Encabezados de solicitud SSE:
++
+** `x-amz-copy-source​-server-side​-encryption​-customer-algorithm`
+** `x-amz-copy-source​-server-side-encryption-customer-key`
+** `x-amz-copy-source​-server-side-encryption-customer-key-MD5`
+** `x-amz-server-side-encryption`
+** `x-amz-server-side-encryption-customer-key-MD5`
+** `x-amz-server-side-encryption-customer-key`
+** `x-amz-server-side-encryption-customer-algorithm`
++
+Consulte <<Solicitar encabezados para el cifrado del servidor>>
+
+
+
+
+
+
+
+== Encabezados de solicitud no compatibles
+
+No se admiten las siguientes cabeceras de solicitud:
+
+* `Cache-Control`
+* `Content-Disposition`
+* `Content-Encoding`
+* `Content-Language`
+* `Expires`
+* `x-amz-checksum-algorithm`
++
+Cuando copia un objeto, si el objeto de origen tiene una suma de comprobación, StorageGRID no copia ese valor de suma de comprobación en el nuevo objeto. Este comportamiento se aplica tanto si intenta utilizar en la solicitud de objeto como si no `x-amz-checksum-algorithm`.
+
+* `x-amz-website-redirect-location`
+
+
+
+
+== Opciones para clase de almacenamiento
+
+El `x-amz-storage-class` encabezado de solicitud está soportado y afecta al número de copias de objetos que crea StorageGRID si la regla de ILM coincidente utiliza la confirmación doble o equilibrada link:../ilm/data-protection-options-for-ingest.html["opción de ingesta"].
+
+* `STANDARD`
++
+(Predeterminado) especifica una operación de procesamiento de confirmación doble cuando la regla ILM utiliza la opción Commit doble o cuando la opción equilibrada vuelve a crear copias provisionales.
+
+* `REDUCED_REDUNDANCY`
++
+Especifica una operación de procesamiento de confirmación única cuando la regla de ILM utiliza la opción Commit doble o cuando la opción equilibrada vuelve a crear copias provisionales.
+
++
+
+NOTE: Si está ingiriendo un objeto en un depósito con S3 Object Lock activado, la `REDUCED_REDUNDANCY` opción se ignora. Si está ingiriendo un objeto en un depósito compatible heredado, la `REDUCED_REDUNDANCY` opción devuelve un error. StorageGRID siempre realizará una ingesta con doble confirmación para garantizar que se cumplan los requisitos de cumplimiento.
+
+
+
+
+
+== Uso de x-amz-copy-source en CopyObject
+
+Si el bloque de origen y la clave, especificados en `x-amz-copy-source` el encabezado, son diferentes del bloque y la clave de destino, se escribe una copia de los datos del objeto de origen en el destino.
+
+Si el origen y el destino coinciden y la `x-amz-metadata-directive` cabecera se especifica como `REPLACE`, los metadatos del objeto se actualizan con los valores de metadatos proporcionados en la solicitud. En este caso, StorageGRID no vuelve a procesar el objeto. Esto tiene dos consecuencias importantes:
+
+* No puede utilizar CopyObject para cifrar un objeto existente en su lugar, o para cambiar el cifrado de un objeto existente en su lugar. Si proporciona el `x-amz-server-side-encryption` encabezado o `x-amz-server-side-encryption-customer-algorithm` el encabezado, StorageGRID rechaza la solicitud y devuelve `XNotImplemented`.
+* No se utiliza la opción de comportamiento de procesamiento especificado en la regla de ILM que coincida. Cualquier cambio en la ubicación del objeto que se active por la actualización se realice cuando los procesos de ILM normales se reevalúan el ILM en segundo plano.
++
+Esto significa que si la regla ILM utiliza la opción estricta para el comportamiento de ingesta, no se realiza ninguna acción si no se pueden realizar las ubicaciones de objetos necesarias (por ejemplo, porque una nueva ubicación requerida no está disponible). El objeto actualizado conserva su ubicación actual hasta que sea posible la colocación requerida.
+
+
+
+
+
+== Solicitar encabezados para el cifrado del servidor
+
+Si link:using-server-side-encryption.html["usar cifrado del lado del servidor"], las cabeceras de solicitud que proporcione dependen de si el objeto de origen está cifrado y de si planea cifrar el objeto de destino.
+
+* Si el objeto de origen se cifra mediante una clave proporcionada por el cliente (SSE-C), debe incluir los siguientes tres encabezados en la solicitud CopyObject, para que el objeto se pueda descifrar y copiar:
++
+** `x-amz-copy-source​-server-side​-encryption​-customer-algorithm`: Especificar `AES256`.
+** `x-amz-copy-source​-server-side-encryption-customer-key`: Especifique la clave de cifrado que proporcionó al crear el objeto de origen.
+** `x-amz-copy-source​-server-side-encryption-customer-key-MD5`: Especifique el resumen MD5 que proporcionó cuando creó el objeto de origen.
+
+
+* Si desea cifrar el objeto de destino (la copia) con una clave única que proporciona y administra, incluya los tres encabezados siguientes:
++
+** `x-amz-server-side-encryption-customer-algorithm`: Especificar `AES256`.
+** `x-amz-server-side-encryption-customer-key`: Especifique una nueva clave de cifrado para el objeto de destino.
+** `x-amz-server-side-encryption-customer-key-MD5`: Especifique el resumen MD5 de la nueva clave de cifrado.
+
+
++
+
+CAUTION: Las claves de cifrado que proporcione no se almacenan nunca. Si pierde una clave de cifrado, perderá el objeto correspondiente. Antes de utilizar las claves proporcionadas por el cliente para proteger los datos de objetos, revise las consideraciones para link:using-server-side-encryption.html["utilizando cifrado del lado del servidor"].
+
+* Si desea cifrar el objeto de destino (la copia) con una clave única administrada por StorageGRID (SSE), incluya este encabezado en la solicitud CopyObject:
++
+** `x-amz-server-side-encryption`
++
+
+NOTE:  `server-side-encryption`El valor del objeto no se puede actualizar. En su lugar, realice una copia con un nuevo `server-side-encryption` valor mediante `x-amz-metadata-directive`: `REPLACE`.
+
+
+
+
+
+
+
+== Creación de versiones
+
+Si el depósito de origen está versionado, puede utilizar `x-amz-copy-source` la cabecera para copiar la versión más reciente de un objeto. Para copiar una versión específica de un objeto, debe especificar explícitamente la versión que se va a copiar mediante el `versionId` subrecurso. Si el bloque de destino está versionado, la versión generada se devuelve en `x-amz-version-id` la cabecera de respuesta. Si se suspende el control de versiones para el depósito de destino, `x-amz-version-id` devuelve un valor nulo.

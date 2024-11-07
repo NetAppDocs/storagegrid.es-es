@@ -1,0 +1,58 @@
+---
+permalink: tenant/editing-platform-services-endpoint.html 
+sidebar: sidebar 
+keywords: how to edit platform services endpoint 
+summary: Puede editar la configuración de un extremo de servicios de plataforma para cambiar su nombre, URI u otros detalles. Por ejemplo, es posible que deba actualizar las credenciales caducadas o cambiar el URI para apuntar a un índice de Elasticsearch de backup para la conmutación por error. No se puede cambiar el URN de un extremo de servicios de plataforma. 
+---
+= Editar extremo de servicios de plataforma
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede editar la configuración de un extremo de servicios de plataforma para cambiar su nombre, URI u otros detalles. Por ejemplo, es posible que deba actualizar las credenciales caducadas o cambiar el URI para apuntar a un índice de Elasticsearch de backup para la conmutación por error. No puede cambiar el URN para un punto final de servicios de plataforma.
+
+.Antes de empezar
+* Ha iniciado sesión en el gestor de inquilinos mediante un link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Pertenece a un grupo de usuarios que tiene el link:tenant-management-permissions.html["Gestionar puntos finales o permisos de acceso raíz"].
+
+
+.Pasos
+. Seleccione *STORAGE (S3)* > *Platform Services Endpoints*.
++
+Aparece la página de extremos de servicios de plataforma y muestra la lista de extremos de servicios de plataforma que ya se han configurado.
+
+. Seleccione el extremo que desea editar.
++
+Aparece la página de detalles del extremo.
+
+. Seleccione *Configuración*.
+. Según sea necesario, cambie la configuración del extremo.
++
+
+NOTE: No puede cambiar el URN de un punto final después de crear el punto final.
+
++
+.. Para cambiar el nombre mostrado del punto final, seleccione el icono de edición image:../media/icon_edit_tm.png["Icono Editar"].
+.. Según sea necesario, cambie el URI.
+.. Según sea necesario, cambie el tipo de autenticación.
++
+*** Para la autenticación de la clave de acceso, cambie la clave según sea necesario seleccionando *Editar clave S3* y pegando un nuevo ID de clave de acceso y una clave de acceso secreta. Si necesita cancelar los cambios, seleccione *Revert S3 key EDIT*.
+*** Para la autenticación CAP (C2S Access Portal), cambie la URL de las credenciales temporales o la frase de contraseña de la clave privada del cliente opcional y cargue nuevos archivos de certificado y claves según sea necesario.
++
+
+NOTE: La clave privada del cliente debe estar en formato cifrado OpenSSL o en formato de clave privada no cifrada.
+
+
+
+.. Según sea necesario, cambie el método para verificar el servidor.
+
+
+. Seleccione *probar y guardar los cambios*.
++
+** Aparece un mensaje de éxito si se puede acceder al extremo con las credenciales especificadas. La conexión al extremo se verifica desde un nodo en cada sitio.
+** Aparece un mensaje de error si se produce un error en la validación del extremo. Modifique el extremo para corregir el error y, a continuación, seleccione *probar y guardar los cambios*.
+
+
+

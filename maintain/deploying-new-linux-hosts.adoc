@@ -1,0 +1,44 @@
+---
+permalink: maintain/deploying-new-linux-hosts.html 
+sidebar: sidebar 
+keywords: storagegrid, deploy linux host, new host, new linux host 
+summary: Salvo contadas excepciones, debe preparar los nuevos hosts como hizo durante el proceso de instalación inicial. 
+---
+= Implemente nuevos hosts Linux
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Salvo contadas excepciones, debe preparar los nuevos hosts como hizo durante el proceso de instalación inicial.
+
+Para implementar hosts Linux físicos o virtuales nuevos o reinstalados, siga el procedimiento para preparar los hosts en las instrucciones de instalación de StorageGRID para el sistema operativo Linux:
+
+* link:../rhel/installing-linux.html["Instalación de Linux (Red Hat Enterprise Linux)"]
+* link:../ubuntu/installing-linux.html["Instalar Linux (Ubuntu o Debian)"]
+
+
+Este procedimiento incluye los pasos necesarios para realizar las siguientes tareas:
+
+. Instale Linux.
+. Configure la red del host.
+. Configurar el almacenamiento del host.
+. Instale el motor del contenedor.
+. Instale el servicio de host StorageGRID.
++
+
+CAUTION: Deténgase después de completar la tarea de instalación del servicio host de StorageGRID en las instrucciones de instalación. No inicie la tarea de puesta en marcha de nodos de grid.
+
+
+
+Cuando realice estos pasos, tenga en cuenta las siguientes directrices importantes:
+
+* Asegúrese de usar los mismos nombres de interfaz de host que haya utilizado en el host original.
+* Si utiliza almacenamiento compartido para admitir los nodos StorageGRID, o movió algunas o todas las unidades o SSD del nodo con error a los nodos de reemplazo, debe restablecer las mismas asignaciones de almacenamiento que se encontraban en el host original. Por ejemplo, si utilizó WWID y alias en como se recomienda en `/etc/multipath.conf` las instrucciones de instalación, asegúrese de utilizar los mismos pares alias/WWID en `/etc/multipath.conf` el host de reemplazo.
+* Si el nodo StorageGRID utiliza almacenamiento asignado de un sistema NetApp ONTAP, confirme que el volumen no tiene una política de organización en niveles de FabricPool habilitada. Al deshabilitar el almacenamiento en niveles de FabricPool para los volúmenes que se usan con los nodos StorageGRID, se simplifica la solución de problemas y las operaciones de almacenamiento.
++
+
+CAUTION: No utilice nunca FabricPool para colocar en niveles datos relacionados con StorageGRID en el propio StorageGRID. La organización en niveles de los datos de StorageGRID en StorageGRID aumenta la solución de problemas y la complejidad operativa.
+
+

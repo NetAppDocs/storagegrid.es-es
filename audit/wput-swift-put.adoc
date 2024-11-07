@@ -1,0 +1,140 @@
+---
+permalink: audit/wput-swift-put.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, WPUT, Swift PUT 
+summary: Cuando un cliente Swift emite una transacción PUT, se realiza una solicitud para crear un nuevo objeto o contenedor. El servidor emite este mensaje si la transacción se realiza correctamente. 
+---
+= WPUT: SWIFT PUT
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cuando un cliente Swift emite una transacción PUT, se realiza una solicitud para crear un nuevo objeto o contenedor. El servidor emite este mensaje si la transacción se realiza correctamente.
+
+[cols="1a,1a,4a"]
+|===
+| Codificación | Campo | Descripción 
+
+
+ a| 
+CBID
+ a| 
+Identificador de bloque de contenido
+ a| 
+Identificador único del bloque de contenido solicitado. Si el CBID es desconocido, este campo se establece en 0. Las operaciones en contenedores no incluyen este campo.
+
+
+
+ a| 
+CSIZ
+ a| 
+Tamaño de contenido
+ a| 
+El tamaño del objeto recuperado en bytes. Las operaciones en contenedores no incluyen este campo.
+
+
+
+ a| 
+HTRH
+ a| 
+Encabezado de solicitud HTTP
+ a| 
+Lista de los nombres de encabezado y valores registrados de la solicitud HTTP como seleccionados durante la configuración.
+
+ `X-Forwarded-For` Se incluye automáticamente si está presente en la solicitud y si el `X-Forwarded-For` valor es diferente de la dirección IP del remitente de la solicitud (campo de auditoría SAIP).
+
+
+
+ a| 
+MTME
+ a| 
+Hora de la última modificación
+ a| 
+La Marca de hora de Unix, en microsegundos, indica cuándo se modificó por última vez el objeto.
+
+
+
+ a| 
+TRANSFORMACIÓN DIGITAL
+ a| 
+Código de resultado
+ a| 
+Resultado DE LA transacción PUT. El resultado es siempre:
+
+SUCS: Exitoso
+
+
+
+ a| 
+SAIP
+ a| 
+Dirección IP del cliente solicitante
+ a| 
+La dirección IP de la aplicación cliente que realizó la solicitud.
+
+
+
+ a| 
+TIEMPO
+ a| 
+Tiempo
+ a| 
+Tiempo de procesamiento total de la solicitud en microsegundos.
+
+
+
+ a| 
+TLIP
+ a| 
+Dirección IP del equilibrador de carga de confianza
+ a| 
+Si la solicitud se enrutó por un equilibrador de carga de capa 7 de confianza, la dirección IP del equilibrador de carga.
+
+
+
+ a| 
+UUID
+ a| 
+Identificador único universal
+ a| 
+El identificador del objeto dentro del sistema StorageGRID.
+
+
+
+ a| 
+WACC
+ a| 
+ID de cuenta de Swift
+ a| 
+El ID de cuenta único especificado por el sistema StorageGRID.
+
+
+
+ a| 
+WCON
+ a| 
+Contenedor Swift
+ a| 
+El nombre del contenedor Swift.
+
+
+
+ a| 
+WOBJ
+ a| 
+Objeto Swift
+ a| 
+El identificador del objeto Swift. Las operaciones en contenedores no incluyen este campo.
+
+
+
+ a| 
+WUSR
+ a| 
+Usuario de la cuenta de Swift
+ a| 
+El nombre de usuario de la cuenta de Swift que identifica de manera exclusiva al cliente que realiza la transacción.
+
+|===

@@ -1,0 +1,118 @@
+= Busque el nombre de host del nodo de almacenamiento
+:allow-uri-read: 
+
+
+
+
+== Busque el nombre de host del nodo de almacenamiento
+
+. Inicie sesión en el nodo de administración principal:
++
+.. Introduzca el siguiente comando: `ssh admin@_primary_Admin_Node_IP_`
+.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
+.. Introduzca el siguiente comando para cambiar a raíz: `su -`
+.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
++
+Al iniciar sesión como root, la petición de datos cambia de `$` a `#`.
+
+
+
+. Use el `/etc/hosts` archivo para buscar el nombre de host del nodo de almacenamiento para los volúmenes de almacenamiento restaurados. Para ver una lista de todos los nodos de la cuadrícula, introduzca lo siguiente `cat /etc/hosts`: .
+
+
+
+
+== Repare los datos si todos los volúmenes presentan errores
+
+Si todos los volúmenes de almacenamiento presentan errores, repare todo el nodo. Siga las instrucciones para *datos replicados*, *datos codificados con borrado (EC)*, o ambos, en función de si utiliza datos replicados, datos codificados con borrado (EC), o ambos.
+
+Si solo se produjeron errores en algunos volúmenes, vaya a <<Repare los datos si solo algunos volúmenes han fallado>>.
+
+
+NOTE: No se pueden ejecutar `repair-data` operaciones para más de un nodo a la vez. Para recuperar varios nodos, póngase en contacto con el soporte técnico.
+
+[role="tabbed-block"]
+====
+.Datos replicados
+--
+Si su grid incluye datos replicados, utilice `repair-data start-replicated-node-repair` el comando con `--nodes` la opción, donde `--nodes` es el nombre de host (nombre del sistema), para reparar todo el nodo de almacenamiento.
+
+Este comando repara los datos replicados en un nodo de almacenamiento denominado SG-DC-SN3:
+
+`repair-data start-replicated-node-repair --nodes SG-DC-SN3`
+
+
+NOTE: A medida que se restauran los datos del objeto, la alerta de *Objetos perdidos* se activa si el sistema StorageGRID no puede localizar los datos de objetos replicados. Es posible que se activen alertas en los nodos de almacenamiento de todo el sistema. Debe determinar la causa de la pérdida y si es posible la recuperación. Consulte link:../troubleshoot/investigating-lost-objects.html["Investigar los objetos perdidos"].
+
+--
+.Datos con código de borrado (EC)
+--
+Si su grid contiene datos codificados de borrado, utilice `repair-data start-ec-node-repair` el comando con `--nodes` la opción, donde `--nodes` es el nombre de host (nombre del sistema), para reparar todo el nodo de almacenamiento.
+
+Este comando repara los datos codificados con borrado en un nodo de almacenamiento denominado SG-DC-SN3:
+
+`repair-data start-ec-node-repair --nodes SG-DC-SN3`
+
+La operación devuelve un valor único `repair ID` que identifica esta `repair_data` operación. Utilícelo `repair ID` para realizar un seguimiento del progreso y el resultado de `repair_data` la operación. No se devuelve ningún otro comentario cuando finaliza el proceso de recuperación.
+
+Las reparaciones de datos codificados para borrado pueden comenzar con algunos nodos de almacenamiento sin conexión. La reparación se completará después de que todos los nodos estén disponibles.
+
+--
+====
+
+
+== Repare los datos si solo algunos volúmenes han fallado
+
+Si solo se produjo un error en algunos de los volúmenes, repare los volúmenes afectados. Siga las instrucciones para *datos replicados*, *datos codificados con borrado (EC)*, o ambos, en función de si utiliza datos replicados, datos codificados con borrado (EC), o ambos.
+
+Si se produjo un error en todos los volúmenes, vaya a <<Repare los datos si todos los volúmenes presentan errores>>.
+
+Introduzca los ID de volumen en hexadecimal. Por ejemplo, `0000` es el primer volumen y `000F` es el decimosexto volumen. Puede especificar un volumen, un rango de volúmenes o varios volúmenes que no estén en una secuencia.
+
+Todos los volúmenes deben estar en el mismo nodo de almacenamiento. Si necesita restaurar volúmenes para más de un nodo de almacenamiento, póngase en contacto con el soporte técnico.
+
+[role="tabbed-block"]
+====
+.Datos replicados
+--
+Si el grid contiene datos replicados, utilice `start-replicated-volume-repair` el comando con `--nodes` la opción de identificar el nodo (donde `--nodes` es el nombre de host del nodo). A continuación, agregue la `--volumes` opción o `--volume-range`, como se muestra en los siguientes ejemplos.
+
+*Volumen único*: Este comando restaura los datos replicados al volumen `0002` en un nodo de almacenamiento llamado SG-DC-SN3:
+
+`repair-data start-replicated-volume-repair --nodes SG-DC-SN3 --volumes 0002`
+
+*Rango de volúmenes*: Este comando restaura los datos replicados a todos los volúmenes del rango `0003` a `0009` un nodo de almacenamiento llamado SG-DC-SN3:
+
+`repair-data start-replicated-volume-repair --nodes SG-DC-SN3 --volume-range 0003,0009`
+
+*Varios volúmenes que no están en una secuencia*: Este comando restaura los datos replicados a volúmenes `0001`, `0005` y `0008` en un nodo de almacenamiento llamado SG-DC-SN3:
+
+`repair-data start-replicated-volume-repair --nodes SG-DC-SN3 --volumes 0001,0005,0008`
+
+
+NOTE: A medida que se restauran los datos del objeto, la alerta de *Objetos perdidos* se activa si el sistema StorageGRID no puede localizar los datos de objetos replicados. Es posible que se activen alertas en los nodos de almacenamiento de todo el sistema. Tenga en cuenta la descripción de la alerta y las acciones recomendadas para determinar la causa de la pérdida y si la recuperación es posible.
+
+--
+.Datos con código de borrado (EC)
+--
+Si su grid contiene datos codificados por borrado, utilice `start-ec-volume-repair` el comando con `--nodes` la opción para identificar el nodo (donde `--nodes` es el nombre de host del nodo). A continuación, agregue la `--volumes` opción o `--volume-range`, como se muestra en los siguientes ejemplos.
+
+*Volumen único*: Este comando restaura los datos con código de borrado al volumen `0007` en un nodo de almacenamiento llamado SG-DC-SN3:
+
+`repair-data start-ec-volume-repair --nodes SG-DC-SN3 --volumes 0007`
+
+*Rango de volúmenes*: Este comando restaura los datos con código de borrado a todos los volúmenes en el rango `0004` a `0006` un nodo de almacenamiento llamado SG-DC-SN3:
+
+`repair-data start-ec-volume-repair --nodes SG-DC-SN3 --volume-range 0004,0006`
+
+*Varios volúmenes que no están en una secuencia*: Este comando restaura los datos con código de borrado a volúmenes `000A`, `000C` y `000E` en un nodo de almacenamiento llamado SG-DC-SN3:
+
+`repair-data start-ec-volume-repair --nodes SG-DC-SN3 --volumes 000A,000C,000E`
+
+ `repair-data`La operación devuelve un valor único `repair ID` que identifica esta `repair_data` operación. Utilícelo `repair ID` para realizar un seguimiento del progreso y el resultado de `repair_data` la operación. No se devuelve ningún otro comentario cuando finaliza el proceso de recuperación.
+
+
+NOTE: Las reparaciones de datos codificados para borrado pueden comenzar con algunos nodos de almacenamiento sin conexión. La reparación se completará después de que todos los nodos estén disponibles.
+
+--
+====

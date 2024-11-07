@@ -1,0 +1,46 @@
+---
+permalink: expand/adding-new-site.html 
+sidebar: sidebar 
+keywords: expand, expansion, new site, add site, guidelines 
+summary: Puede ampliar su sistema StorageGRID añadiendo un sitio nuevo. 
+---
+= Agregar un sitio nuevo
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede ampliar su sistema StorageGRID añadiendo un sitio nuevo.
+
+
+
+== Directrices para agregar un sitio
+
+Antes de agregar un sitio, revise los siguientes requisitos y limitaciones:
+
+* Solo puede añadir un sitio por operación de ampliación.
+* No puede agregar nodos de grid a un sitio existente como parte de la misma expansión.
+* Todos los sitios deben incluir al menos tres nodos de almacenamiento.
+* La adición de un sitio nuevo no aumenta automáticamente el número de objetos que se pueden almacenar. La capacidad total de objetos de un grid depende de la cantidad de almacenamiento disponible, la política de ILM y la capacidad de metadatos de cada sitio.
+* Al ajustar el tamaño a un sitio nuevo, debe asegurarse de que incluya suficiente capacidad de metadatos.
++
+StorageGRID mantiene una copia de todos los metadatos de objetos en cada sitio. Al añadir un sitio nuevo, debe asegurarse de que incluya la capacidad de metadatos suficiente para los metadatos del objeto existente y la capacidad de metadatos suficiente para crecer.
+
++
+Para obtener más información, consulte lo siguiente:
+
++
+** link:../admin/managing-object-metadata-storage.html["Gestione el almacenamiento de metadatos de objetos"]
+** link:../monitor/monitoring-storage-capacity.html#monitor-object-metadata-capacity-for-each-storage-node["Supervise la capacidad de metadatos de los objetos para cada nodo de almacenamiento"]
+
+
+* Debe tener en cuenta el ancho de banda de red disponible entre los sitios y el nivel de latencia de red. Las actualizaciones de los metadatos se replican continuamente entre los sitios aunque todos los objetos se almacenan solo en el sitio donde se ingieren.
+* Dado que el sistema StorageGRID permanece operativo durante la ampliación, debe revisar las reglas de ILM antes de iniciar el procedimiento de ampliación. Debe asegurarse de que las copias de objetos no se almacenan en el nuevo sitio hasta que se complete el procedimiento de expansión.
++
+Por ejemplo, antes de iniciar la expansión, determine si existen reglas que utilizan el pool de almacenamiento predeterminado (todos los nodos de almacenamiento). Si lo hacen, debe crear un nuevo pool de almacenamiento que contenga los nodos de almacenamiento existentes y actualizar las reglas de ILM para usar el nuevo pool de almacenamiento. De lo contrario, los objetos se copiarán en el sitio nuevo tan pronto como el primer nodo de ese sitio se active.
+
++
+Para obtener más información sobre cómo cambiar ILM al agregar un nuevo sitio, consulte la link:../ilm/example-6-changing-ilm-policy.html["Ejemplo de cambio de una política de ILM"].
+
+

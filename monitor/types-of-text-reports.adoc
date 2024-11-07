@@ -1,0 +1,112 @@
+---
+permalink: monitor/types-of-text-reports.html 
+sidebar: sidebar 
+keywords: how to use text reports 
+summary: 'Los informes de texto muestran una representación textual de los valores de datos de atributos que ha procesado el servicio NMS. Hay dos tipos de informes generados en función del período de tiempo en el que se informa: Informes de texto en bruto para períodos inferiores a una semana y informes de texto agregados para períodos de tiempo superiores a una semana.' 
+---
+= Usar informes de texto
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los informes de texto muestran una representación textual de los valores de datos de atributos que ha procesado el servicio NMS. Hay dos tipos de informes generados en función del período de tiempo en el que se informa: Informes de texto en bruto para períodos inferiores a una semana y informes de texto agregados para períodos de tiempo superiores a una semana.
+
+
+
+== Informes de texto sin formato
+
+Un informe de texto sin procesar muestra detalles sobre el atributo seleccionado:
+
+* Hora recibida: Fecha y hora local en la que el servicio NMS procesó un valor de muestra de los datos de un atributo.
+* Hora de la muestra: Fecha y hora local en la que se muestreó o cambió un valor de atributo en el origen.
+* Valor: Valor de atributo en el tiempo de la muestra.
+
+
+image::../media/raw_text_report.gif[captura de pantalla que muestra el informe de texto sin formato]
+
+
+
+== Informes de texto agregados
+
+Un informe de texto agregado muestra los datos durante un período de tiempo más largo (normalmente una semana) que un informe de texto en bruto. Cada entrada es el resultado de resumir varios valores de atributo (un agregado de valores de atributo) por el servicio NMS a lo largo del tiempo en una sola entrada con valores promedio, máximo y mínimo que se derivan de la agregación.
+
+Cada entrada muestra la siguiente información:
+
+* Hora agregada: Última fecha y hora local que el servicio NMS ha agregado (recopilado) un conjunto de valores de atributo modificados.
+* Valor medio: Promedio del valor del atributo durante el período de tiempo agregado.
+* Valor mínimo: Valor mínimo durante el período de tiempo agregado.
+* Valor máximo: Valor máximo durante el período de tiempo agregado.
+
+
+image::../media/aggregate_text_report.gif[captura de pantalla que muestra el informe de texto agregado]
+
+
+
+== Generar informes de texto
+
+Los informes de texto muestran una representación textual de los valores de datos de atributos que ha procesado el servicio NMS. Puede generar informes en el sitio de un centro de datos, en el nodo de grid, en el componente o en el servicio.
+
+.Antes de empezar
+* Debe iniciar sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Tienes link:../admin/admin-group-permissions.html["permisos de acceso específicos"].
+
+
+.Acerca de esta tarea
+Para los datos de atributos que se espera que cambien continuamente, el servicio NMS (en el origen) muestra estos datos de atributos a intervalos regulares. Para los datos de atributos que cambian con poca frecuencia (por ejemplo, datos basados en eventos como cambios de estado o de estado), se envía un valor de atributo al servicio NMS cuando cambia el valor.
+
+El tipo de informe que se muestra depende del período de tiempo configurado. De forma predeterminada, se generan informes de texto agregados para períodos de tiempo superiores a una semana.
+
+El texto gris indica que el servicio se ha reducido administrativamente durante el tiempo en que se realizó la muestra. El texto azul indica que el servicio estaba en un estado desconocido.
+
+.Pasos
+. Seleccione *SUPPORT* > *Tools* > *Topología de cuadrícula*.
+. Seleccione *_grid node_* > *_component o Service_* > *Reports* > *Text*.
+. Seleccione el atributo sobre el que desea informar en la lista desplegable *atributo*.
+. Seleccione el número de resultados por página en la lista desplegable *resultados por página*.
+. Para redondear los valores a un máximo de tres posiciones decimales (por ejemplo, para los atributos reportados como porcentajes), desactive la casilla de verificación *Datos sin procesar*.
+. Seleccione el período de tiempo que desea generar el informe en la lista desplegable *Consulta rápida*.
++
+Seleccione la opción Consulta personalizada para seleccionar un intervalo de tiempo específico.
+
++
+El informe aparece después de unos momentos. Deje varios minutos para tabulación de intervalos de tiempo largos.
+
+. Si ha seleccionado Consulta personalizada, debe personalizar el período de tiempo para informar introduciendo *Fecha de inicio* y *Fecha de finalización*.
++
+Utilice el formato `YYYY/MM/DDHH:MM:SS` en la hora local. Se requieren ceros a la izquierda para que coincidan con el formato. Por ejemplo, 2017/4/6 7:30:00 falla en la validación. El formato correcto es: 2017/04/06 07:30:00.
+
+. Haga clic en *Actualizar*.
++
+Después de unos momentos se genera un informe de texto. Deje varios minutos para tabulación de intervalos de tiempo largos. Según el tiempo establecido para la consulta, se muestra un informe de texto sin procesar o un informe de texto agregado.
+
+
+
+
+
+== Exportar informes de texto
+
+Los informes de texto exportados abren una nueva pestaña del navegador, que permite seleccionar y copiar los datos.
+
+.Acerca de esta tarea
+A continuación, los datos copiados se pueden guardar en un documento nuevo (por ejemplo, una hoja de cálculo) y se pueden utilizar para analizar el rendimiento del sistema StorageGRID.
+
+.Pasos
+. Seleccione *SUPPORT* > *Tools* > *Topología de cuadrícula*.
+. Cree un informe de texto.
+. Haga clic en *Exportar*image:../media/icon_export.gif["icono exportar"].
++
+image::../media/export_text_report.gif[captura de pantalla descrita por el texto circundante]
+
++
+Se abre la ventana Exportar informe de texto que muestra el informe.
+
++
+image::../media/export_text_report_data.gif[captura de pantalla que muestra un informe de texto de ejemplo]
+
+. Seleccione y copie el contenido de la ventana Exportar informe de texto.
++
+Estos datos se pueden pegar ahora en un documento de terceros, como una hoja de cálculo.
+
+

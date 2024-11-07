@@ -1,0 +1,581 @@
+---
+permalink: network/external-communications.html 
+sidebar: sidebar 
+keywords: storagegrid, network port, external communications, ports, TCP, UDP, client communications 
+summary: Los clientes necesitan comunicarse con los nodos de grid para procesar y recuperar contenido. Los puertos utilizados dependen de los protocolos de almacenamiento de objetos seleccionados. Estos puertos deben ser accesibles para el cliente. 
+---
+= Comunicaciones externas
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los clientes necesitan comunicarse con los nodos de grid para procesar y recuperar contenido. Los puertos utilizados dependen de los protocolos de almacenamiento de objetos seleccionados. Estos puertos deben ser accesibles para el cliente.
+
+
+
+== Acceso restringido a los puertos
+
+Si las directivas de red de empresa restringen el acceso a cualquiera de los puertos, puede realizar una de las siguientes acciones:
+
+* Se utiliza link:../admin/configuring-load-balancer-endpoints.html["puntos finales del equilibrador de carga"] para permitir el acceso a los puertos definidos por el usuario.
+* Vuelva a asignar puertos al poner en marcha nodos. Sin embargo, no debe reasignar los puntos finales del equilibrador de carga. Consulte la información sobre la reasignación de puertos para el nodo StorageGRID:
++
+** link:../rhel/creating-node-configuration-files.html#port-remap-keys["Claves de reasignación de puertos para StorageGRID en Red Hat Enterprise Linux"]
+** link:../ubuntu/creating-node-configuration-files.html#port-remap-keys["Claves de reasignación de puertos para StorageGRID en Ubuntu o Debian"]
+** link:../vmware/deploying-storagegrid-node-as-virtual-machine.html#vmware-remap-ports["Reasignar puertos para StorageGRID en VMware"]
+** https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/optional-remapping-network-ports-for-appliance.html["Opcional: Reasignar puertos de red para el dispositivo"^]
+
+
+
+
+
+
+== Puertos que se utilizan para comunicaciones externas
+
+En la siguiente tabla se muestran los puertos que se utilizan para el tráfico hacia los nodos.
+
+
+NOTE: Esta lista no incluye puertos que se puedan configurar como link:../admin/configuring-load-balancer-endpoints.html["puntos finales del equilibrador de carga"].
+
+[cols="1a,1a,1a,1a,1a,4a"]
+|===
+| Puerto | TCP o UDP | Protocolo | De | Para | Detalles 
+
+
+ a| 
+22
+ a| 
+TCP
+ a| 
+SSH
+ a| 
+Portátil de servicio
+ a| 
+Todos los nodos
+ a| 
+Se requiere acceso SSH o consola para procedimientos con pasos de la consola. Opcionalmente, puede utilizar el puerto 2022 en lugar de 22.
+
+
+
+ a| 
+25
+ a| 
+TCP
+ a| 
+SMTP
+ a| 
+Nodos de administración
+ a| 
+Servidor de correo electrónico
+ a| 
+Se usa para alertas y AutoSupport basado en correo electrónico. Puede anular el valor predeterminado de puerto 25 mediante la página servidores de correo electrónico.
+
+
+
+ a| 
+53
+ a| 
+TCP/UDP
+ a| 
+DNS
+ a| 
+Todos los nodos
+ a| 
+Servidores DNS
+ a| 
+Se utiliza para DNS.
+
+
+
+ a| 
+67
+ a| 
+UDP
+ a| 
+DHCP
+ a| 
+Todos los nodos
+ a| 
+Servicio DHCP
+ a| 
+Si se utiliza de manera opcional para admitir la configuración de red basada en DHCP. El servicio dhclient no se ejecuta para cuadrículas configuradas estáticamente.
+
+
+
+ a| 
+68
+ a| 
+UDP
+ a| 
+DHCP
+ a| 
+Servicio DHCP
+ a| 
+Todos los nodos
+ a| 
+Si se utiliza de manera opcional para admitir la configuración de red basada en DHCP. El servicio dhclient no se ejecuta para redes que utilizan direcciones IP estáticas.
+
+
+
+ a| 
+80
+ a| 
+TCP
+ a| 
+HTTP
+ a| 
+Navegador
+ a| 
+Nodos de administración
+ a| 
+El puerto 80 redirige al puerto 443 para la interfaz de usuario del nodo de administración.
+
+
+
+ a| 
+80
+ a| 
+TCP
+ a| 
+HTTP
+ a| 
+Navegador
+ a| 
+Dispositivos
+ a| 
+El puerto 80 redirige al puerto 8443 para el instalador del dispositivo StorageGRID.
+
+
+
+ a| 
+80
+ a| 
+TCP
+ a| 
+HTTP
+ a| 
+Nodos de almacenamiento con ADC
+ a| 
+AWS
+ a| 
+Se utiliza para los mensajes de servicios de la plataforma enviados a AWS u otros servicios externos que utilizan HTTP. Los inquilinos pueden sustituir el valor de puerto HTTP predeterminado de 80 al crear un punto final.
+
+
+
+ a| 
+80
+ a| 
+TCP
+ a| 
+HTTP
+ a| 
+Nodos de almacenamiento
+ a| 
+AWS
+ a| 
+Solicitudes de pools de almacenamiento en la nube enviadas a destinos de AWS que usan HTTP. Los administradores de grid pueden anular el valor predeterminado del puerto HTTP de 80 al configurar un pool de almacenamiento en el cloud.
+
+
+
+ a| 
+111
+ a| 
+TCP/UDP
+ a| 
+Rpcind
+ a| 
+Cliente NFS
+ a| 
+Nodos de administración
+ a| 
+Utilizado por la exportación de auditoría basada en NFS (portmap).
+
+*Nota:* Este puerto solo es necesario si la exportación de auditoría basada en NFS está habilitada.
+
+*Nota:* El soporte para NFS ha sido obsoleto y se eliminará en una versión futura.
+
+
+
+ a| 
+123
+ a| 
+UDP
+ a| 
+NTP
+ a| 
+Nodos NTP primarios
+ a| 
+NTP externo
+ a| 
+Servicio de protocolo de hora de red. Los nodos seleccionados como orígenes NTP primarios también sincronizan las horas del reloj con los orígenes de hora NTP externos.
+
+
+
+ a| 
+161
+ a| 
+TCP/UDP
+ a| 
+SNMP
+ a| 
+Cliente SNMP
+ a| 
+Todos los nodos
+ a| 
+Se utiliza para realizar sondeos de SNMP. Todos los nodos proporcionan información básica, mientras que los nodos de administración también proporcionan datos de alerta. El puerto UDP 161 se establece de forma predeterminada cuando está configurado.
+
+*Nota:* este puerto sólo es necesario y sólo se abre en el firewall del nodo si SNMP está configurado. Si planea utilizar SNMP, puede configurar puertos alternativos.
+
+*Nota:* para obtener más información sobre el uso de SNMP con StorageGRID, póngase en contacto con su representante de cuentas de NetApp.
+
+
+
+ a| 
+162
+ a| 
+TCP/UDP
+ a| 
+Notificaciones SNMP
+ a| 
+Todos los nodos
+ a| 
+Destinos de notificaciones
+ a| 
+Las notificaciones y capturas de SNMP salientes se muestran de forma predeterminada en el puerto UDP 162.
+
+*Nota:* este puerto sólo es necesario si SNMP está activado y los destinos de notificación están configurados. Si planea utilizar SNMP, puede configurar puertos alternativos.
+
+*Nota:* para obtener más información sobre el uso de SNMP con StorageGRID, póngase en contacto con su representante de cuentas de NetApp.
+
+
+
+ a| 
+389
+ a| 
+TCP/UDP
+ a| 
+LDAP
+ a| 
+Nodos de almacenamiento con ADC
+ a| 
+Active Directory/LDAP
+ a| 
+Se utiliza para conectarse a un servidor Active Directory o LDAP para la Federación de identidades.
+
+
+
+ a| 
+443
+ a| 
+TCP
+ a| 
+HTTPS
+ a| 
+Navegador
+ a| 
+Nodos de administración
+ a| 
+Lo utilizan los exploradores web y los clientes de API de administración para acceder a Grid Manager y a arrendatario Manager.
+
+*Nota*: Si cierra los puertos 443 o 8443 de Grid Manager, cualquier usuario conectado actualmente a un puerto bloqueado, incluido usted, perderá el acceso a Grid Manager a menos que su dirección IP se haya agregado a la lista de direcciones con privilegios. Consulte link:../admin/configure-firewall-controls.html["Configurar los controles del firewall"] Para configurar direcciones IP con privilegios.
+
+
+
+ a| 
+443
+ a| 
+TCP
+ a| 
+HTTPS
+ a| 
+Nodos de administración
+ a| 
+Active Directory
+ a| 
+Lo utilizan los nodos de administrador que se conectan a Active Directory si el inicio de sesión único (SSO) está habilitado.
+
+
+
+ a| 
+443
+ a| 
+TCP
+ a| 
+HTTPS
+ a| 
+Nodos de almacenamiento con ADC
+ a| 
+AWS
+ a| 
+Se utiliza para los mensajes de servicios de la plataforma enviados a AWS u otros servicios externos que utilizan HTTPS. Los inquilinos pueden sustituir el valor de puerto HTTP predeterminado de 443 al crear un punto final.
+
+
+
+ a| 
+443
+ a| 
+TCP
+ a| 
+HTTPS
+ a| 
+Nodos de almacenamiento
+ a| 
+AWS
+ a| 
+Solicitudes de pools de almacenamiento en la nube enviadas a destinos de AWS que usan HTTPS. Los administradores de grid pueden anular el valor predeterminado del puerto HTTPS de 443 al configurar un pool de almacenamiento en el cloud.
+
+
+
+ a| 
+903
+ a| 
+TCP
+ a| 
+NFS
+ a| 
+Cliente NFS
+ a| 
+Nodos de administración
+ a| 
+Utilizado por la exportación de auditoría basada en NFS (`rpc.mountd`).
+
+*Nota:* Este puerto solo es necesario si la exportación de auditoría basada en NFS está habilitada.
+
+*Nota:* El soporte para NFS ha sido obsoleto y se eliminará en una versión futura.
+
+
+
+ a| 
+2022
+ a| 
+TCP
+ a| 
+SSH
+ a| 
+Portátil de servicio
+ a| 
+Todos los nodos
+ a| 
+Se requiere acceso SSH o consola para procedimientos con pasos de la consola. Opcionalmente, puede utilizar el puerto 22 en lugar de 2022.
+
+
+
+ a| 
+2049
+ a| 
+TCP
+ a| 
+NFS
+ a| 
+Cliente NFS
+ a| 
+Nodos de administración
+ a| 
+Utilizada por la exportación de auditoría basada en NFS (nfs).
+
+*Nota:* Este puerto solo es necesario si la exportación de auditoría basada en NFS está habilitada.
+
+*Nota:* El soporte para NFS ha sido obsoleto y se eliminará en una versión futura.
+
+
+
+ a| 
+5353
+ a| 
+UDP
+ a| 
+MDNS
+ a| 
+Todos los nodos
+ a| 
+Todos los nodos
+ a| 
+Proporciona el servicio DNS de multidifusión (mDNS) que se utiliza para los cambios de IP de red completa y para la detección de nodos de administración principales durante la instalación, la expansión y la recuperación.
+
+
+
+ a| 
+5696
+ a| 
+TCP
+ a| 
+KMIP
+ a| 
+Dispositivo
+ a| 
+KMS
+ a| 
+Protocolo de interoperabilidad de gestión de claves (KMIP) tráfico externo de los dispositivos configurados para el cifrado de nodos en el servidor de gestión de claves (KMS), a menos que se especifique un puerto diferente en la página de configuración de KMS del instalador de dispositivos de StorageGRID.
+
+
+
+ a| 
+8022
+ a| 
+TCP
+ a| 
+SSH
+ a| 
+Portátil de servicio
+ a| 
+Todos los nodos
+ a| 
+SSH en el puerto 8022 otorga acceso al sistema operativo base en las plataformas de dispositivos y nodos virtuales para que admitan y solucionar problemas. Este puerto no se usa para los nodos basados en Linux (configuración básica) y no es necesario acceder a ellos entre los nodos de grid ni durante las operaciones normales.
+
+
+
+ a| 
+8443
+ a| 
+TCP
+ a| 
+HTTPS
+ a| 
+Navegador
+ a| 
+Nodos de administración
+ a| 
+Opcional. Lo utilizan los exploradores web y los clientes API de administración para acceder a Grid Manager. Se puede utilizar para separar las comunicaciones de Grid Manager y de arrendatario Manager.
+
+*Nota*: Si cierra los puertos 443 o 8443 de Grid Manager, cualquier usuario conectado actualmente a un puerto bloqueado, incluido usted, perderá el acceso a Grid Manager a menos que su dirección IP se haya agregado a la lista de direcciones con privilegios. Consulte link:../admin/configure-firewall-controls.html["Configurar los controles del firewall"] Para configurar direcciones IP con privilegios.
+
+
+
+ a| 
+9022
+ a| 
+TCP
+ a| 
+SSH
+ a| 
+Portátil de servicio
+ a| 
+Dispositivos
+ a| 
+Concede acceso a los dispositivos StorageGRID en modo de preconfiguración para soporte y resolución de problemas. No es necesario que este puerto esté accesible entre los nodos de grid ni durante las operaciones normales.
+
+
+
+ a| 
+9091
+ a| 
+TCP
+ a| 
+HTTPS
+ a| 
+Servicio Grafana externo
+ a| 
+Nodos de administración
+ a| 
+Utilizados por servicios de Grafana externos para un acceso seguro al servicio Prometheus de StorageGRID.
+
+*Nota:* este puerto sólo es necesario si está habilitado el acceso a Prometheus basado en certificados.
+
+
+
+ a| 
+9092
+ a| 
+TCP
+ a| 
+Kafka
+ a| 
+Nodos de almacenamiento con ADC
+ a| 
+Clúster de Kafka
+ a| 
+Se utiliza para mensajes de servicios de plataforma enviados a un clúster de Kafka. Los inquilinos pueden anular la configuración de puerto Kafka predeterminada de 9092 al crear un punto final.
+
+
+
+ a| 
+9443
+ a| 
+TCP
+ a| 
+HTTPS
+ a| 
+Navegador
+ a| 
+Nodos de administración
+ a| 
+Opcional. Lo utilizan exploradores web y clientes de API de gestión para acceder al administrador de inquilinos. Se puede utilizar para separar las comunicaciones de Grid Manager y de arrendatario Manager.
+
+
+
+ a| 
+18082
+ a| 
+TCP
+ a| 
+HTTPS
+ a| 
+Clientes S3
+ a| 
+Nodos de almacenamiento
+ a| 
+Tráfico de cliente de S3 directamente a los nodos de almacenamiento (HTTPS).
+
+
+
+ a| 
+18083
+ a| 
+TCP
+ a| 
+HTTPS
+ a| 
+Clientes Swift
+ a| 
+Nodos de almacenamiento
+ a| 
+Tráfico de clientes de Swift directamente a los nodos de almacenamiento (HTTPS).
+
+
+
+ a| 
+18084
+ a| 
+TCP
+ a| 
+HTTP
+ a| 
+Clientes S3
+ a| 
+Nodos de almacenamiento
+ a| 
+Tráfico de cliente de S3 directamente a los nodos de almacenamiento (HTTP).
+
+
+
+ a| 
+18085
+ a| 
+TCP
+ a| 
+HTTP
+ a| 
+Clientes Swift
+ a| 
+Nodos de almacenamiento
+ a| 
+Tráfico de clientes de Swift directamente a los nodos de almacenamiento (HTTP).
+
+
+
+ a| 
+23000-23999
+ a| 
+TCP
+ a| 
+HTTPS
+ a| 
+Todos los nodos en la cuadrícula de origen para la replicación entre grid
+ a| 
+Nodos de administración y nodos de puerta de enlace en el grid de destino para la replicación entre grid
+ a| 
+Este rango de puertos está reservado para conexiones de federación de grid. Ambas cuadrículas de una conexión determinada utilizan el mismo puerto.
+
+|===

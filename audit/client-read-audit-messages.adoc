@@ -1,0 +1,76 @@
+---
+permalink: audit/client-read-audit-messages.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, messages, client read, S3SL, SGET, SHEA, WGET, WHEA, S3, swift 
+summary: Los mensajes de auditoría de lectura del cliente se registran cuando una aplicación cliente S3 realiza una solicitud para recuperar un objeto. 
+---
+= El cliente lee los mensajes de auditoría
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los mensajes de auditoría de lectura del cliente se registran cuando una aplicación cliente S3 realiza una solicitud para recuperar un objeto.
+
+[cols="1a,3a,1a,1a"]
+|===
+| Codificación | Descripción | Utilizado por | Consulte 
+
+
+ a| 
+S3SL
+ a| 
+S3 Seleccionar solicitud: Registra una finalización después de que una solicitud de S3 Select se ha devuelto al cliente. El mensaje S3SL puede incluir detalles de mensaje de error y código de error. Es posible que la solicitud no se haya realizado correctamente.
+ a| 
+Cliente S3
+ a| 
+link:s3-select-request.html["S3SL: S3 Seleccione la solicitud"]
+
+
+
+ a| 
+SGET
+ a| 
+S3 GET: Registra una transacción realizada correctamente para recuperar un objeto o enumerar los objetos de un bloque.
+
+*Nota:* Si la transacción opera en un subrecurso, el mensaje de auditoría incluirá el campo S3SR.
+ a| 
+Cliente S3
+ a| 
+link:sget-s3-get.html["SGET: S3 GET"]
+
+
+
+ a| 
+SHEA
+ a| 
+S3 HEAD: Registra una transacción realizada correctamente para comprobar la existencia de un objeto o bloque.
+ a| 
+Cliente S3
+ a| 
+link:shea-s3-head.html["SHEA: CABEZA S3"]
+
+
+
+ a| 
+CONSIGA
+ a| 
+Swift GET: Registra una transacción realizada correctamente para recuperar un objeto o enumerar los objetos de un contenedor.
+ a| 
+Cliente Swift
+ a| 
+link:wget-swift-get.html["WGET: Swift GET"]
+
+
+
+ a| 
+WHEA
+ a| 
+Swift HEAD: Registra una transacción realizada correctamente para comprobar la existencia de un objeto o contenedor.
+ a| 
+Cliente Swift
+ a| 
+link:whea-swift-head.html["WHEA: CABEZA de Swift"]
+
+|===

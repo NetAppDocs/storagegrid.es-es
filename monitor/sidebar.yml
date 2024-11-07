@@ -1,0 +1,136 @@
+---
+section: monitor
+title: Supervise el sistema StorageGRID
+entries:
+- title: Tareas de supervisión
+  pdf-filename: Supervise el sistema StorageGRID
+  url: "/monitor/index.html"
+- title: Permite ver y gestionar el panel
+  url: "/monitor/viewing-dashboard.html"
+- title: Vea la página Nodes
+  entries:
+  - title: Contenido de la página Nodes
+    pdf-filename: Vea la página Nodes
+    url: "/monitor/viewing-nodes-page.html"
+  - title: Vea la ficha Descripción general
+    url: "/monitor/viewing-overview-tab.html"
+  - title: Vea la pestaña hardware
+    url: "/monitor/viewing-hardware-tab.html"
+  - title: Abra la pestaña Network
+    url: "/monitor/viewing-network-tab.html"
+  - title: Consulte la pestaña almacenamiento
+    url: "/monitor/viewing-storage-tab.html"
+  - title: Abra la pestaña objetos
+    url: "/monitor/viewing-objects-tab.html"
+  - title: Vea la pestaña ILM
+    url: "/monitor/viewing-ilm-tab.html"
+  - title: Utilice la pestaña Tareas
+    url: "/monitor/using-task-tab-to-reboot-grid-node.html"
+  - title: Abra el separador Equilibrador de Carga
+    url: "/monitor/viewing-load-balancer-tab.html"
+  - title: Consulte la ficha Servicios de plataforma
+    url: "/monitor/viewing-platform-services-tab.html"
+  - title: Consulte la pestaña Gestionar unidades
+    url: "/monitor/viewing-manage-drives-tab.html"
+  - title: Ver la pestaña SANtricity (solo E-Series)
+    url: "/monitor/viewing-santricity-system-manager-tab.html"
+- title: Información para monitorear regularmente
+  entries:
+  - title: Qué y cuándo supervisar
+    url: "/monitor/information-you-should-monitor-regularly.html"
+  - title: Supervise el estado del sistema
+    url: "/monitor/monitoring-system-health.html"
+  - title: Supervise la capacidad de almacenamiento
+    url: "/monitor/monitoring-storage-capacity.html"
+  - title: Supervise la gestión del ciclo de vida de la información
+    url: "/monitor/monitoring-information-lifecycle-management.html"
+  - title: Supervise las redes y los recursos del sistema
+    url: "/monitor/monitoring-network-connections-and-performance.html"
+  - title: Supervise la actividad de los inquilinos
+    url: "/monitor/monitoring-tenant-activity.html"
+  - title: Supervise las operaciones del cliente S3
+    url: "/monitor/monitoring-object-ingest-and-retrieval-rates.html"
+  - title: Supervisar las operaciones de equilibrio de carga
+    url: "/monitor/monitoring-load-balancing-operations.html"
+  - title: Supervisar las conexiones de federación de grid
+    url: "/monitor/grid-federation-monitor-connections.html"
+- title: Gestionar alertas
+  entries:
+  - title: Sistema de alertas
+    url: "/monitor/managing-alerts.html"
+  - title: Ver reglas de alerta
+    url: "/monitor/view-alert-rules.html"
+  - title: Crear reglas de alerta personalizadas
+    url: "/monitor/creating-custom-alert-rules.html"
+  - title: Editar reglas de alerta
+    url: "/monitor/editing-alert-rules.html"
+  - title: Deshabilitar reglas de alerta
+    url: "/monitor/disabling-alert-rules.html"
+  - title: Quitar reglas de alerta personalizadas
+    url: "/monitor/removing-custom-alert-rules.html"
+  - title: Permite gestionar notificaciones de alerta
+    entries:
+    - title: Configure las notificaciones SNMP
+      url: "/monitor/snmp-alert-notifications.html"
+    - title: Configure las notificaciones por correo electrónico
+      url: "/monitor/email-alert-notifications.html"
+    - title: Silenciar notificaciones de alerta
+      url: "/monitor/silencing-alert-notifications.html"
+  - title: Referencia de alertas
+    url: "/monitor/alerts-reference.html"
+  - title: Métricas de Prometheus que se usan habitualmente
+    url: "/monitor/commonly-used-prometheus-metrics.html"
+- title: Referencia de archivos de registro
+  entries:
+  - title: Acceder a los archivos log
+    pdf-filename: Referencia de archivos de registro
+    url: "/monitor/logs-files-reference.html"
+  - title: Registros del software StorageGRID
+    url: "/monitor/storagegrid-software-logs.html"
+  - title: Registros de implementación y mantenimiento
+    url: "/monitor/deployment-and-maintenance-logs.html"
+  - title: Acerca de bycast.log
+    url: "/monitor/about-bycast-log.html"
+- title: Configure los destinos de los mensajes de auditoría y los registros
+  entries:
+  - title: Consideraciones sobre el servidor de syslog externo
+    url: "/monitor/considerations-for-external-syslog-server.html"
+  - title: Configure los mensajes de auditoría y el servidor de syslog externo
+    url: "/monitor/configure-audit-messages.html"
+- title: Usar supervisión de SNMP
+  entries:
+  - title: Supervisión de SNMP
+    pdf-filename: Usar supervisión de SNMP
+    url: "/monitor/using-snmp-monitoring.html"
+  - title: Configure el agente SNMP
+    url: "/monitor/configuring-snmp-agent.html"
+  - title: Actualice el agente SNMP
+    url: "/monitor/updating-snmp-agent.html"
+  - title: Acceda a los archivos MIB
+    url: "/monitor/access-snmp-mib.html"
+- title: Recopilación de datos de StorageGRID adicionales
+  entries:
+  - title: Utilice gráficos y gráficos
+    url: "/monitor/using-charts-and-reports.html"
+  - title: Usar informes de texto
+    url: "/monitor/types-of-text-reports.html"
+  - title: SUPERVISE EL RENDIMIENTO DE PUT y GET
+    url: "/monitor/monitoring-put-and-get-performance.html"
+  - title: Supervise las operaciones de verificación de objetos
+    url: "/monitor/monitoring-object-verification-operations.html"
+  - title: Supervisar eventos
+    url: "/monitor/monitoring-events.html"
+  - title: Revisar los mensajes de auditoría
+    url: "/monitor/reviewing-audit-messages.html"
+  - title: Recopilar archivos de registro y datos del sistema
+    url: "/monitor/collecting-log-files-and-system-data.html"
+  - title: Active manualmente un paquete AutoSupport
+    url: "/monitor/manually-triggering-autosupport-message.html"
+  - title: Abra el árbol de topología de cuadrícula
+    url: "/monitor/viewing-grid-topology-tree.html"
+  - title: Revisar las métricas de soporte
+    url: "/monitor/reviewing-support-metrics.html"
+  - title: Ejecutar diagnóstico
+    url: "/monitor/running-diagnostics.html"
+  - title: Crear aplicaciones de supervisión personalizadas
+    url: "/monitor/creating-custom-monitoring-applications.html"

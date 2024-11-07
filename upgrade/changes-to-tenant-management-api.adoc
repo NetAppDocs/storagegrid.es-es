@@ -1,0 +1,25 @@
+---
+permalink: upgrade/changes-to-tenant-management-api.html 
+sidebar: sidebar 
+keywords: tenant management api, api, api version, swagger, rest api 
+summary: StorageGRID 11,9 utiliza la versión 4 de la API de gestión de inquilinos. La versión 4 deja de ser la versión 3; sin embargo, las versiones 1, 2 y 3 siguen siendo compatibles. 
+---
+= Cambios en la API de gestión de inquilinos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID 11,9 utiliza la versión 4 de la API de gestión de inquilinos. La versión 4 deja de ser la versión 3; sin embargo, las versiones 1, 2 y 3 siguen siendo compatibles.
+
+
+NOTE: Puede continuar utilizando versiones obsoletas de la API de administración de inquilinos con StorageGRID 11,9; sin embargo, el soporte para estas versiones de la API se eliminará en una futura versión de StorageGRID. Después de actualizar a StorageGRID 11,9, puede desactivar las API obsoletas utilizando `PUT /grid/config/management` la API.
+
+Para obtener más información, vaya a link:../tenant/understanding-tenant-management-api.html["Conozca la API de gestión de inquilinos"].
+
+
+
+== Nueva API para límite de capacidad de bloques
+
+Se puede usar `/org/containers/{bucketName}/quota-object-bytes` la API con OPERACIONES GET/PUT para obtener y establecer el límite de capacidad de almacenamiento para un bucket.

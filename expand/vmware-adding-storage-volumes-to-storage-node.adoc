@@ -1,0 +1,112 @@
+---
+permalink: expand/vmware-adding-storage-volumes-to-storage-node.html 
+sidebar: sidebar 
+keywords: expand, expansion, storage node, add storage volumes, VMware 
+summary: Si un nodo de almacenamiento incluye menos de 16 volúmenes de almacenamiento, es posible aumentar su capacidad mediante VMware vSphere para añadir volúmenes. 
+---
+= VMware: Añada volúmenes de almacenamiento al nodo de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si un nodo de almacenamiento incluye menos de 16 volúmenes de almacenamiento, es posible aumentar su capacidad mediante VMware vSphere para añadir volúmenes.
+
+.Antes de empezar
+* Tendrá acceso a las instrucciones de instalación de StorageGRID para implementaciones de VMware.
++
+** link:../vmware/index.html["Instale StorageGRID en VMware"]
+
+
+* Tiene el `Passwords.txt` archivo.
+* Tienes link:../admin/admin-group-permissions.html["permisos de acceso específicos"].
+
+
+
+CAUTION: No intente añadir volúmenes de almacenamiento a un nodo de almacenamiento mientras haya activo una actualización de software, un procedimiento de recuperación o otro procedimiento de ampliación.
+
+.Acerca de esta tarea
+El nodo de almacenamiento no está disponible durante un breve periodo de tiempo cuando se añaden volúmenes de almacenamiento. Debe realizar este procedimiento en un nodo de almacenamiento a la vez para evitar que se vean afectados los servicios de grid orientados al cliente.
+
+.Pasos
+. Si es necesario, instale nuevo hardware de almacenamiento y cree nuevos almacenes de datos VMware.
+. Agregue uno o más discos duros a la máquina virtual para usarlos como almacenamiento (almacenes de objetos).
++
+.. Abra VMware vSphere Client.
+.. Edite la configuración de la máquina virtual para agregar uno o más discos duros adicionales.
+
+
++
+Los discos duros suelen configurarse como discos de máquina virtual (VMDK). Los VMDK se utilizan más habitualmente y son más fáciles de gestionar, mientras que los RDM pueden ofrecer un mejor rendimiento a cargas de trabajo que utilizan tamaños de objeto mayores (por ejemplo, mayores de 100 MB). Para obtener más información sobre cómo añadir discos duros a máquinas virtuales, consulte la documentación de VMware vSphere.
+
+. Reinicie la máquina virtual mediante la opción *Restart Guest OS* en VMware vSphere Client o introduciendo el siguiente comando en una sesión ssh en la máquina virtual:``sudo reboot``
++
+
+NOTE: No utilice *Apagar* o *Restablecer* para reiniciar la máquina virtual.
+
+. Configure el nuevo almacenamiento para que lo utilice el nodo de almacenamiento:
++
+.. Inicie sesión en el nodo de grid:
++
+... Introduzca el siguiente comando: `ssh admin@_grid_node_IP_`
+... Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
+... Introduzca el siguiente comando para cambiar a raíz: `su -`
+... Introduzca la contraseña que aparece en el `Passwords.txt` archivo. Al iniciar sesión como root, la petición de datos cambia de `$` a `#`.
+
+
+.. Configure los nuevos volúmenes de almacenamiento:
++
+`sudo add_rangedbs.rb`
+
++
+Este script encuentra todos los volúmenes de almacenamiento nuevos y solicita que se los formatee.
+
+.. Introduzca *y* para aceptar el formato.
+.. Si alguno de los volúmenes se ha formateado anteriormente, decida si desea reformatearlos.
++
+*** Introduzca *y* para cambiar el formato.
+*** Introduzca *n* para omitir el formateo.
+
+
+
+
++
+El `setup_rangedbs.sh` script se ejecuta automáticamente.
+
+. Compruebe que los servicios se inician correctamente:
++
+.. Ver una lista del estado de todos los servicios del servidor:
++
+`sudo storagegrid-status`
+
++
+El estado se actualiza automáticamente.
+
+.. Espere a que todos los servicios se ejecuten o se verifiquen.
+.. Salir de la pantalla de estado:
++
+`Ctrl+C`
+
+
+
+. Compruebe que el nodo de almacenamiento esté en línea:
++
+.. Inicie sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
+.. Seleccione *SUPPORT* > *Tools* > *Topología de cuadrícula*.
+.. Seleccione *_site_* > *_Storage Node_* > *LDR* > *Storage*.
+.. Seleccione la ficha *Configuración* y, a continuación, la ficha *Principal*.
+.. Si la lista desplegable *Estado de almacenamiento - deseado* está establecida en sólo lectura o sin conexión, seleccione *en línea*.
+.. Seleccione *aplicar cambios*.
+
+
+. Para ver los nuevos almacenes de objetos:
++
+.. Seleccione *NODES* > *_site_* > *_Storage Node_* > *Storage*.
+.. Consulte los detalles en la tabla *almacenes de objetos*.
+
+
+
+
+.Resultado
+Es posible usar la capacidad ampliada de los nodos de almacenamiento para guardar los datos de objetos.

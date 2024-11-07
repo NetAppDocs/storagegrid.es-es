@@ -1,0 +1,67 @@
+---
+indexpage:
+  title: Instala, actualiza y corrige StorageGRID
+  summary: Un sistema StorageGRID consta de nodos individuales basados en hardware
+    y software. Primero se instala el hardware para cada nodo del dispositivo y se
+    configura cada host Linux o VMware. A continuación, debe instalar el software
+    StorageGRID en cada dispositivo o host de software y conectar los nodos a un grid.
+  keywords: install, upgrade, hotfix
+  lead: Un sistema StorageGRID consta de nodos individuales basados en hardware y
+    software. Primero se instala el hardware para cada nodo del dispositivo y se configura
+    cada host Linux o VMware. A continuación, debe instalar el software StorageGRID
+    en cada dispositivo o host de software y conectar los nodos a un grid.
+  tiles:
+  - title: Inicio rápido
+    links:
+    - title: Hardware de los dispositivos
+      url: https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/index.html
+    - title: Red Hat Enterprise Linux
+      url: "../rhel/index.html"
+    - title: Ubuntu o Debian
+      url: "../ubuntu/index.html"
+    - title: VMware
+      url: "../vmware/index.html"
+  - title: Prepare los materiales
+    links:
+    - title: Red Hat Enterprise Linux
+      url: "../rhel/required-materials.html"
+    - title: Ubuntu o Debian
+      url: "../ubuntu/required-materials.html"
+    - title: VMware
+      url: "../vmware/required-materials.html"
+  - title: Automatice la instalación
+    links:
+    - title: Red Hat Enterprise Linux
+      url: "../rhel/automating-installation.html"
+    - title: Ubuntu o Debian
+      url: "../ubuntu/automating-installation.html"
+    - title: VMware
+      url: "../vmware/automating-grid-node-deployment-in-vmware-vsphere.html"
+  - title: Ponga en marcha nodos
+    links:
+    - title: Red Hat Enterprise Linux
+      url: "../rhel/creating-node-configuration-files.html"
+    - title: Ubuntu o Debian
+      url: "../ubuntu/creating-node-configuration-files.html"
+    - title: VMware
+      url: "../vmware/collecting-information-about-your-deployment-environment.html"
+  - title: Complete la instalación del nodo
+    links:
+    - title: Red Hat Enterprise Linux
+      url: "../rhel/navigating-to-grid-manager.html"
+    - title: Ubuntu o Debian
+      url: "../ubuntu/navigating-to-grid-manager.html"
+    - title: VMware
+      url: "../vmware/navigating-to-grid-manager.html"
+  - title: Actualice o corrija
+    links:
+    - title: Novedades
+      url: "../upgrade/whats-new.html"
+    - title: Tiempo estimado para completar
+      url: "../upgrade/estimating-time-to-complete-upgrade.html"
+    - title: Cómo se ve afectado el sistema durante la actualización
+      url: "../upgrade/how-your-system-is-affected-during-upgrade.html"
+    - title: Inicio rápido de la actualización
+      url: "../upgrade/upgrade-workflow.html"
+    - title: Aplicar revisión
+      url: "../maintain/storagegrid-hotfix-procedure.html"

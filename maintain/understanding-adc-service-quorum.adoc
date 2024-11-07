@@ -1,0 +1,29 @@
+---
+permalink: maintain/understanding-adc-service-quorum.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, adc, adc quorum 
+summary: 'Es posible que no pueda retirar determinados nodos de almacenamiento en un sitio si quedan muy pocos servicios de controlador de dominio administrativo \(ADC\) tras el desmantelamiento.' 
+---
+= ¿Qué es el quórum ADC?
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Es posible que no pueda retirar determinados nodos de almacenamiento en un sitio si quedan muy pocos servicios de controlador de dominio administrativo (ADC) tras el desmantelamiento.
+
+El servicio ADC, que se encuentra en algunos nodos de almacenamiento, mantiene la información de topología de cuadrícula y proporciona servicios de configuración a la cuadrícula. El sistema StorageGRID requiere que se disponga de quórum de servicios de ADC en todas las instalaciones y en todo momento.
+
+No puede retirar un nodo de almacenamiento si al quitar el nodo se haría que el quórum ADC ya no se cumpliera. Para cumplir con el quórum ADC durante un desmantelamiento, un mínimo de tres nodos de almacenamiento en cada sitio debe tener el servicio ADC. Si un sitio tiene más de tres nodos de almacenamiento con el servicio ADC, la sencilla mayoría de ellos deberá seguir estando disponible tras el desmantelamiento: `((0.5 * _Storage Nodes with ADC_) + 1)`
+
+
+CAUTION: Use precaución al decomisionar nodos de almacenamiento en un grid que contenga nodos solo de metadatos basados en software. Si retira todos los nodos configurados para almacenar _both_ objetos y metadatos, la capacidad de almacenar objetos se elimina de la cuadrícula. Consulte link:../primer/what-storage-node-is.html#types-of-storage-nodes["Tipos de nodos de almacenamiento"] para obtener más información sobre nodos de almacenamiento solo de metadatos.
+
+Por ejemplo, supongamos que un sitio incluye actualmente seis nodos de almacenamiento con servicios ADC y que desea retirar tres nodos de almacenamiento. Debido al requisito de quórum de ADC, debe completar dos procedimientos de retirada, de la siguiente manera:
+
+* En el primer procedimiento de retirada, debe asegurarse de que siguen estando disponibles cuatro nodos de almacenamiento con servicios ADC: `((0.5 * 6) + 1)`. Esto significa que solo puede decomisionar dos nodos de almacenamiento inicialmente.
+* En el segundo procedimiento de retirada, puede eliminar el tercer nodo de almacenamiento porque el quórum ADC ahora solo necesita tres servicios ADC para permanecer disponibles: `((0.5 * 4) + 1)`.
+
+
+Si necesita retirar un nodo de almacenamiento pero no puede hacerlo debido al requisito de quórum ADC, agregue un nuevo nodo de almacenamiento en un link:../expand/index.html["expansión"] y especifique que debe tener un servicio ADC. A continuación, retire el nodo de almacenamiento existente.

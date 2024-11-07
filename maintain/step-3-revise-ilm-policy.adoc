@@ -1,0 +1,100 @@
+---
+permalink: maintain/step-3-revise-ilm-policy.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, revise ilm policies 
+summary: 'En el paso 3 \(Revisar políticas de ILM\) del asistente del sitio de retirada, puede determinar si alguna política de ILM hace referencia al sitio.' 
+---
+= Paso 3: Revisar las políticas de ILM
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+En el Paso 3 (Revisar políticas de ILM) del asistente del sitio de retirada, puede determinar si alguna política de ILM hace referencia al sitio.
+
+.Antes de empezar
+Usted tiene una buena comprensión de cómo hacerlolink:../ilm/index.html["Gestione objetos con ILM"]. Está familiarizado con la creación de pools de almacenamiento y reglas de ILM, así como con la simulación y activación de una política de ILM.
+
+.Acerca de esta tarea
+StorageGRID no puede retirar un sitio si alguna regla de gestión de la vida útil de la información de alguna política (activa o inactiva) hace referencia a ese sitio.
+
+Si alguna política de ILM hace referencia al sitio que desea retirar, debe eliminar esas políticas o editarlas para que cumplan con estos requisitos:
+
+* Proteja completamente todos los datos de objetos.
+* No consulte el sitio en el que está decomisionado.
+* No utilice pools de almacenamiento que hagan referencia al sitio ni utilice la opción Todos los sitios.
+* No utilice perfiles de código de borrado que hagan referencia al sitio.
+* No utilice la regla Hacer 2 copias de StorageGRID 11,6 o instalaciones anteriores.
+
+
+
+CAUTION: No cree nunca una regla de ILM de una sola copia para acomodar la eliminación de un sitio. Una regla de ILM que crea solo una copia replicada en cualquier periodo de tiempo pone los datos en riesgo de pérdida permanente. Si sólo existe una copia replicada de un objeto, éste se pierde si falla un nodo de almacenamiento o tiene un error importante. También perderá temporalmente el acceso al objeto durante procedimientos de mantenimiento, como las actualizaciones.
+
+
+TIP: Si está realizando una retirada de sitio _Connected site_, debe tener en cuenta cómo StorageGRID debe gestionar los datos de objeto actualmente en el sitio que desea eliminar. En función de sus requisitos de protección de datos, las nuevas reglas pueden mover los datos de objetos existentes a diferentes sitios o pueden eliminar cualquier copia de objetos adicionales que ya no sean necesarias.
+
+Póngase en contacto con el soporte técnico si necesita ayuda para diseñar una nueva política.
+
+.Pasos
+. En el Paso 3 (revisar políticas de ILM), determine si alguna política de ILM hace referencia al sitio que ha seleccionado para decomisionar.
+. Si no aparece ninguna política, seleccione *Siguiente* para ir a link:step-4-remove-ilm-references.html["Paso 4: Eliminar referencias de ILM"].
+. Si aparece una o más políticas _active_ ILM, clone cada política existente o cree nuevas políticas que no hagan referencia al sitio al que se va a retirar:
++
+.. Seleccione el enlace de la política en la columna Nombre de Política.
++
+La página de detalles de política de ILM de la política se muestra en una nueva pestaña del navegador. La página Sitio de retirada permanecerá abierta en la pestaña otros.
+
+.. Siga estas directrices e instrucciones según sea necesario:
++
+*** Trabajar con reglas de ILM:
++
+**** link:../ilm/creating-storage-pool.html["Cree uno o varios pools de almacenamiento"] que no hacen referencia al sitio.
+**** link:../ilm/working-with-ilm-rules-and-ilm-policies.html["Edite o reemplace las reglas"] que hacen referencia al sitio.
++
+
+NOTE: No seleccione la regla *Hacer 2 copias* porque esa regla usa el grupo de almacenamiento *Todos los nodos de almacenamiento*, que no está permitido.
+
+
+
+*** Funciona con políticas de ILM:
++
+**** link:../ilm/working-with-ilm-rules-and-ilm-policies.html#clone-ilm-policy["Clonar una política de ILM existente"] o link:../ilm/creating-ilm-policy.html["Cree una nueva política de ILM"].
+**** Asegúrese de que la regla predeterminada y otras reglas no hacen referencia al sitio.
++
+
+CAUTION: Debe confirmar que las reglas de ILM se encuentran en el orden correcto. Cuando se activa la directiva, las reglas del orden indicado evalúan los objetos nuevos y existentes, empezando por la parte superior.
+
+
+
+
+
+.. Ingerir objetos de prueba y simular la política para asegurarse de que se aplican las reglas correctas.
++
+
+CAUTION: Los errores de un política de ILM pueden provocar la pérdida de datos irrecuperable. Revise y simule cuidadosamente la directiva antes de activarla para confirmar que funcionará según lo previsto.
+
++
+
+CAUTION: Cuando se activa una nueva política de ILM, StorageGRID la utiliza para gestionar todos los objetos, incluidos los existentes y los objetos recién procesados. Antes de activar una nueva política de ILM, revise los cambios que se produzcan en la ubicación de los objetos replicados y los códigos de borrado existentes. El cambio de la ubicación de un objeto existente podría dar lugar a problemas temporales de recursos cuando se evalúan e implementan las nuevas colocaciones.
+
+.. Active las nuevas políticas y asegúrese de que las políticas antiguas están ahora inactivas.
++
+Si desea activar varias políticas, link:../ilm/creating-ilm-policy.html#activate-ilm-policy["Siga los pasos para crear etiquetas de políticas de ILM"].
+
++
+Si va a realizar una retirada de sitios conectados, StorageGRID empieza a eliminar datos de objetos del sitio seleccionado en cuanto activa la nueva política de gestión del ciclo de vida de la información. Mover o eliminar todas las copias de objetos puede llevar semanas. Aunque puede iniciar con seguridad un decomiso de sitio mientras los datos del objeto siguen estando en el sitio, el procedimiento de retirada se completará más rápidamente y con menos interrupciones e impactos en el rendimiento si permite que los datos se muevan desde el sitio antes de iniciar el procedimiento de retirada real (Seleccionando *Iniciar misión* en el paso 5 del asistente).
+
+
+
+. Para cada política _inactive_, edítela o elimínela seleccionando primero el enlace para cada política como se describe en los pasos anteriores.
++
+** link:../ilm/working-with-ilm-rules-and-ilm-policies.html#edit-ilm-policy["Edite la política"] por lo tanto, no se refiere al sitio que se va a retirar.
+** link:../ilm/working-with-ilm-rules-and-ilm-policies.html#remove-ilm-policy["Eliminar una política"].
+
+
+. Cuando termine de realizar cambios en las reglas y políticas de ILM, no debe haber más políticas en el paso 3 (revisar políticas de ILM). Seleccione *Siguiente*.
++
+Aparece el paso 4 (Eliminar referencias de ILM).
+
+

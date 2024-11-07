@@ -1,0 +1,208 @@
+---
+permalink: ilm/create-ilm-rule-enter-details.html 
+sidebar: sidebar 
+keywords: ILM rule step 1, define basics 
+summary: 'Paso 1 \(Introducir detalles\) del asistente Crear una regla de ILM le permite introducir un nombre y una descripción para la regla y definir filtros para la regla.' 
+---
+= Paso 1 de 3: Introduzca los detalles
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El paso *Introducir detalles* del asistente Crear una regla de ILM le permite introducir un nombre y una descripción para la regla y definir filtros para la regla.
+
+La introducción de una descripción y la definición de filtros para la regla son opcionales.
+
+.Acerca de esta tarea
+Al evaluar un objeto con un link:what-ilm-rule-is.html["Regla de ILM"], StorageGRID compara los metadatos del objeto con los filtros de la regla. Si los metadatos del objeto coinciden con todos los filtros, StorageGRID utiliza la regla para colocar el objeto. Puede diseñar una regla para aplicarla a todos los objetos, o puede especificar filtros básicos, como uno o más nombres de cuentas de arrendatario o de bloques, o filtros avanzados, como el tamaño del objeto o los metadatos de usuario.
+
+.Pasos
+. Introduzca un nombre único para la regla en el campo *Nombre*.
+. Si lo desea, introduzca una breve descripción de la regla en el campo *Descripción*.
++
+Debe describir el propósito o la función de la regla para poder reconocerla más adelante.
+
+. Opcionalmente, seleccione una o más cuentas de arrendatario de S3 a las que se aplica esta regla. Si esta regla se aplica a todos los inquilinos, deje este campo en blanco.
++
+Si no tiene el permiso de acceso raíz o las cuentas de inquilino, no puede seleccionar arrendatarios de la lista. En su lugar, introduzca el ID de inquilino o introduzca varios ID como una cadena delimitada por comas.
+
+. Opcionalmente, especifique los S3 cubos a los que se aplica esta regla.
++
+Si se selecciona *Aplica a todos los cubos* (predeterminado), la regla se aplica a todos los cubos S3.
+
+. Para los inquilinos S3, opcionalmente seleccione *Sí* para aplicar la regla solo a versiones de objetos más antiguas en cubos S3 que tienen el control de versiones activado.
++
+Si selecciona *Sí*, “Hora no corriente” se seleccionará automáticamente para el Tiempo de referencia en link:create-ilm-rule-define-placements.html["Paso 2 del asistente Crear una regla de ILM"].
+
++
+
+NOTE: La hora no actual se aplica solo a objetos S3 en bloques con control de versiones activado. Consulte link:../s3/operations-on-buckets.html["Operaciones en cucharones, PutBucketVersioning"] y link:managing-objects-with-s3-object-lock.html["Gestione objetos con S3 Object Lock"].
+
++
+Puede utilizar esta opción para reducir el impacto del almacenamiento de objetos con versiones mediante el filtrado de versiones de objetos no actuales. Consulte link:example-4-ilm-rules-and-policy-for-s3-versioned-objects.html["Ejemplo 4: Reglas de ILM y políticas para objetos con versiones de S3"].
+
+. Opcionalmente, seleccione *Agregar un filtro avanzado* para especificar filtros adicionales.
++
+Si no configura el filtrado avanzado, la regla se aplica a todos los objetos que coincidan con los filtros básicos. Para obtener más información sobre el filtrado avanzado, consulte <<Usar filtros avanzados en las reglas de ILM>> y <<Especifique varios tipos y valores de metadatos>>.
+
+. Seleccione *continuar*. link:create-ilm-rule-define-placements.html["Paso 2 (Definir ubicaciones)"] Se mostrará el asistente Crear una regla de ILM.
+
+
+
+
+== Usar filtros avanzados en las reglas de ILM
+
+El filtrado avanzado permite crear reglas de ILM que se aplican solo a objetos específicos en función de sus metadatos. Al configurar el filtrado avanzado para una regla, debe seleccionar el tipo de metadatos que desea que coincidan, seleccionar un operador y especificar un valor de metadatos. Cuando se evalúan objetos, la regla de ILM se aplica solo a los objetos que tienen metadatos que coincidan con el filtro avanzado.
+
+En la tabla se muestran los tipos de metadatos que se pueden especificar en los filtros avanzados, los operadores que se pueden utilizar para cada tipo de metadatos y los valores de metadatos esperados.
+
+[cols="1a,1a,2a"]
+|===
+| Tipo de metadatos | Operadores compatibles | Valor de los metadatos 
+
+
+ a| 
+Tiempo de ingesta
+ a| 
+* es
+* no lo es
+* es antes
+* es el o antes
+* es posterior
+* es el o después
+
+ a| 
+Hora y fecha en la que se ingirió el objeto.
+
+*Nota:* Para evitar problemas de recursos al activar una nueva política de ILM, puede usar el filtro avanzado de tiempo de ingesta en cualquier regla que pueda cambiar la ubicación de un gran número de objetos existentes. Establezca el tiempo de procesamiento en mayor o igual que el tiempo aproximado en el que la nueva política entrará en vigor para garantizar que los objetos existentes no se muevan innecesariamente.
+
+
+
+ a| 
+Clave
+ a| 
+* es igual a
+* no es igual
+* contiene
+* no contiene
+* comienza con
+* no empieza por
+* termina con
+* no termina con
+
+ a| 
+Todo o parte de una clave de objeto S3 única.
+
+Por ejemplo, puede que desee hacer coincidir los objetos que terminan con `.txt` o empiezan por `test-object/`.
+
+
+
+ a| 
+Hora del último acceso
+ a| 
+* es
+* no lo es
+* es antes
+* es el o antes
+* es posterior
+* es el o después
+
+ a| 
+Hora y fecha en la que se recuperó por última vez el objeto (leído o visualizado).
+
+*Nota:* Si planeas hacerlo link:using-last-access-time-in-ilm-rules.html["utilizar la hora del último acceso"] como un filtro avanzado, las actualizaciones de última hora de acceso deben estar habilitadas para el cubo S3.
+
+
+
+ a| 
+Restricción de ubicación (sólo S3)
+ a| 
+* es igual a
+* no es igual
+
+ a| 
+Región en la que se creó un bloque de S3. Utilice *ILM* > *Regiones* para definir las regiones que se muestran.
+
+*Nota:* un valor de US-East-1 coincidirán con objetos en cubos creados en la región US-East-1 así como con objetos en cubos que no tienen una región especificada. Consulte link:configuring-regions-optional-and-s3-only.html["Configurar regiones (opcional solo S3)"].
+
+
+
+ a| 
+Tamaño del objeto
+ a| 
+* es igual a
+* no es igual
+* menor que
+* menor o igual que
+* mayor que
+* mayor o igual que
+
+ a| 
+Tamaño del objeto.
+
+El código de borrado se adapta mejor a los objetos de más de 1 MB. No use el código de borrado para objetos de menos de 200 KB para evitar la sobrecarga de gestionar fragmentos de código de borrado muy pequeños.
+
+
+
+ a| 
+Metadatos del usuario
+ a| 
+* contiene
+* termina con
+* es igual a
+* existe
+* comienza con
+* no contiene
+* no termina con
+* no es igual
+* no existe
+* no empieza por
+
+ a| 
+Par clave-valor, donde *Nombre de metadatos de usuario* es la clave y *Valor de metadatos* es el valor.
+
+Por ejemplo, para filtrar los objetos que tienen metadatos de usuario de `color=blue`, especifique `color` para *Nombre de metadatos de usuario*, `equals` para el operador y `blue` para *Valor de metadatos*.
+
+*Nota:* Los nombres de metadatos de usuario no son sensibles a mayúsculas/minúsculas; los valores de metadatos de usuario son sensibles a mayúsculas/minúsculas.
+
+
+
+ a| 
+Etiqueta de objeto (solo S3)
+ a| 
+* contiene
+* termina con
+* es igual a
+* existe
+* comienza con
+* no contiene
+* no termina con
+* no es igual
+* no existe
+* no empieza por
+
+ a| 
+Par clave-valor, donde *Object tag name* es la clave y *Object tag value* es el valor.
+
+Por ejemplo, para filtrar los objetos que tienen una etiqueta de objeto de `Image=True` , especifique `Image` para *Nombre de etiqueta de objeto*, `equals` para el operador y `True` para *Valor de etiqueta de objeto*.
+
+*Nota:* los nombres de las etiquetas de objeto y los valores de las etiquetas de objeto distinguen entre mayúsculas y minúsculas. Debe introducir estos elementos exactamente como se definieron para el objeto.
+
+|===
+
+
+== Especifique varios tipos y valores de metadatos
+
+Al definir un filtrado avanzado, es posible especificar varios tipos de metadatos y varios valores de metadatos. Por ejemplo, si desea que una regla coincida con objetos de entre 10 MB y 100 MB de tamaño, debe seleccionar el tipo de metadatos *Tamaño de objeto* y especificar dos valores de metadatos.
+
+* El primer valor de metadatos especifica objetos mayores o iguales a 10 MB.
+* El segundo valor de metadatos especifica objetos inferiores o iguales a 100 MB.
+
+
+image::../media/advanced_filtering_size_between.png[Ejemplo de filtrado avanzado para el tamaño del objeto]
+
+El uso de múltiples entradas permite tener un control preciso sobre qué objetos coinciden. En el siguiente ejemplo, la regla se aplica a los objetos que tienen Marca A o Marca B como valor de los metadatos de usuario camera_type. Sin embargo, la regla sólo se aplica a los objetos de Marca B que son menores de 10 MB.
+
+image::../media/advanced_filtering_multiple_rows.png[Ejemplo de filtrado avanzado para metadatos de usuario]

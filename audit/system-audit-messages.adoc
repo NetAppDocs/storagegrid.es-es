@@ -1,0 +1,172 @@
+---
+permalink: audit/system-audit-messages.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, messages, system, ECOC, ETAF, GNRG, GNUR, GTED, GTST, GTSU, LLST, OLST, SADD, SADE, SVRF, SVRU, SYSD, SYST, SYSU, VLST 
+summary: 'Los mensajes de auditoría que pertenecen a la categoría de auditoría del sistema se utilizan para eventos relacionados con el propio sistema de auditoría, estados de nodo de cuadrícula, actividad de tarea de todo el sistema \(tareas de grid\) y operaciones de copia de seguridad de servicio.' 
+---
+= Mensajes de auditoría del sistema
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Los mensajes de auditoría que pertenecen a la categoría de auditoría del sistema se utilizan para eventos relacionados con el propio sistema de auditoría, los estados de los nodos de la cuadrícula, la actividad de tareas en todo el sistema (tareas de grid) y las operaciones de copia de seguridad de servicio.
+
+[cols="1a,2a,1a"]
+|===
+| Codificación | Título del mensaje y descripción | Consulte 
+
+
+ a| 
+ECMC
+ a| 
+Falta fragmento de datos con código de borrado: Indica que se ha detectado un fragmento de datos con código de borrado que falta.
+ a| 
+link:ecmc-missing-erasure-coded-data-fragment.html["ECMC: Falta el fragmento de datos con código de borrado"]
+
+
+
+ a| 
+ECOC
+ a| 
+Fragmento de datos con código de borrado corrupto: Indica que se ha detectado un fragmento de datos con código de borrado dañado.
+ a| 
+link:ecoc-corrupt-erasure-coded-data-fragment.html["ECOC: Fragmento de datos con código de borrado corrupto"]
+
+
+
+ a| 
+ETAF
+ a| 
+Error en la autenticación de seguridad: Error en un intento de conexión mediante la seguridad de la capa de transporte (TLS).
+ a| 
+link:etaf-security-authentication-failed.html["ETAF: Error de autenticación de seguridad"]
+
+
+
+ a| 
+GNRG
+ a| 
+Registro de GNDS: Un servicio actualizado o información registrada sobre sí mismo en el sistema StorageGRID.
+ a| 
+link:gnrg-gnds-registration.html["GNRG: Registro GNDS"]
+
+
+
+ a| 
+RNUR
+ a| 
+Registro de GNDS: Un servicio se ha registrado de forma no registrada del sistema StorageGRID.
+ a| 
+link:gnur-gnds-unregistration.html["GNUR: Registro de GNDS"]
+
+
+
+ a| 
+GTED
+ a| 
+Tarea de cuadrícula finalizada: El servicio CMN ha terminado de procesar la tarea de cuadrícula.
+ a| 
+link:gted-grid-task-ended.html["GTED: La tarea de la red terminó"]
+
+
+
+ a| 
+GTST
+ a| 
+Tarea de cuadrícula iniciada: El servicio CMN comenzó a procesar la tarea de cuadrícula.
+ a| 
+link:gtst-grid-task-started.html["GTST: Se ha iniciado la tarea de cuadrícula"]
+
+
+
+ a| 
+GTSU
+ a| 
+Tarea de cuadrícula enviada: Se ha enviado una tarea de cuadrícula al servicio CMN.
+ a| 
+link:gtsu-grid-task-submitted.html["GTSU: Se ha enviado la tarea de la cuadrícula"]
+
+
+
+ a| 
+LLST
+ a| 
+Ubicación perdida: Este mensaje de auditoría se genera cuando se pierde una ubicación.
+ a| 
+link:llst-location-lost.html["LLST: Ubicación perdida"]
+
+
+
+ a| 
+OLST
+ a| 
+Objeto perdido: Un objeto solicitado no se puede ubicar dentro del sistema StorageGRID.
+ a| 
+link:olst-system-detected-lost-object.html["OLST: El sistema detectó un objeto perdido"]
+
+
+
+ a| 
+AGREGAR
+ a| 
+Deshabilitación de auditoría de seguridad: Se ha desactivado el registro de mensajes de auditoría.
+ a| 
+link:sadd-security-audit-disable.html["SADD: Desactivación de auditoría de seguridad"]
+
+
+
+ a| 
+SADE
+ a| 
+Habilitación de auditoría de seguridad: Se ha restaurado el registro de mensajes de auditoría.
+ a| 
+link:sade-security-audit-enable.html["SADE: Activación de auditoría de seguridad"]
+
+
+
+ a| 
+SRF
+ a| 
+Error de verificación del almacén de objetos: Un bloque de contenido ha fallado las comprobaciones de verificación.
+ a| 
+link:svrf-object-store-verify-fail.html["SVRF: Fallo de verificación del almacén de objetos"]
+
+
+
+ a| 
+SVRU
+ a| 
+Verificación de almacén de objetos desconocida: Se han detectado datos de objeto inesperados en el almacén de objetos.
+ a| 
+link:svru-object-store-verify-unknown.html["SVRU: Verificación del almacén de objetos desconocida"]
+
+
+
+ a| 
+SYSD
+ a| 
+Node Stop: Se ha solicitado un apagado.
+ a| 
+link:sysd-node-stop.html["SYSD: Parada del nodo"]
+
+
+
+ a| 
+SYST
+ a| 
+Nodo de detención: Un servicio ha iniciado una detención elegante.
+ a| 
+link:syst-node-stopping.html["SYST: Nodo detenido"]
+
+
+
+ a| 
+SYSU
+ a| 
+Node Start: Se ha iniciado un servicio; la naturaleza del apagado anterior se indica en el mensaje.
+ a| 
+link:sysu-node-start.html["SYSU: Inicio del nodo"]
+
+|===

@@ -1,0 +1,61 @@
+---
+permalink: maintain/obtaining-required-materials-for-hotfix.html 
+sidebar: sidebar 
+keywords: storagegrid, hotfix 
+summary: Antes de aplicar una revisión, debe obtener todos los materiales requeridos. 
+---
+= Obtener los materiales necesarios para la revisión
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de aplicar una revisión, debe obtener todos los materiales requeridos.
+
+[cols="1a,2a"]
+|===
+| Elemento | Notas 
+
+
+ a| 
+Archivo de revisión de StorageGRID
+ a| 
+Debe descargar el archivo de revisión de StorageGRID.
+
+
+
+ a| 
+* Puerto de red
+* link:../admin/web-browser-requirements.html["Navegador web compatible"]
+* Cliente SSH (por ejemplo, PuTTY)
+
+ a| 
+
+
+
+ a| 
+(`.zip`Archivo Recovery Package )
+ a| 
+Antes de aplicar una revisión, link:downloading-recovery-package.html["Descargue el archivo más reciente del paquete de recuperación"] en caso de que ocurra algún problema durante la revisión. Luego, después de aplicar la revisión, descargue una nueva copia del archivo del paquete de recuperación y guárdelo en una ubicación segura. El archivo de paquete de recuperación actualizado le permite restaurar el sistema si se produce un fallo.
+
+
+
+| Archivo Passwords.txt  a| 
+Opcional y utilizado sólo si aplica una revisión manualmente mediante el cliente SSH. El `Passwords.txt` archivo forma parte del archivo Recovery Package `.zip`.
+
+
+
+ a| 
+Clave de acceso de aprovisionamiento
+ a| 
+La frase de contraseña se crea y documenta cuando se instala el sistema StorageGRID por primera vez. La clave de acceso de aprovisionamiento no aparece en `Passwords.txt` el archivo.
+
+
+
+ a| 
+Documentación relacionada
+ a| 
+`readme.txt` archivo para la revisión. Este archivo se incluye en la página de descarga de la revisión. Asegúrese de revisar el `readme` archivo cuidadosamente antes de aplicar la revisión.
+
+|===

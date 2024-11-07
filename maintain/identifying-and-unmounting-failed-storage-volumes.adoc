@@ -1,0 +1,109 @@
+---
+permalink: maintain/identifying-and-unmounting-failed-storage-volumes.html 
+sidebar: sidebar 
+keywords: storagegrid, storage volume, failed storage volume, unmount failed volume 
+summary: Al recuperar un nodo de almacenamiento con volúmenes de almacenamiento con fallos, se deben identificar y desmontar los volúmenes con errores. Debe verificar que solo los volúmenes de almacenamiento con errores se hayan reformateado como parte del procedimiento de recuperación. 
+---
+= Identifique y desmonte los volúmenes de almacenamiento que han fallado
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Al recuperar un nodo de almacenamiento con volúmenes de almacenamiento con fallos, se deben identificar y desmontar los volúmenes con errores. Debe verificar que solo los volúmenes de almacenamiento con errores se hayan reformateado como parte del procedimiento de recuperación.
+
+.Antes de empezar
+Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
+
+.Acerca de esta tarea
+Debe recuperar Lo antes posible. de volúmenes de almacenamiento con errores.
+
+El primer paso del proceso de recuperación es detectar volúmenes que se han desvinculado, se deben desmontar o se producen errores de I/O. Si los volúmenes con fallos siguen conectados pero tienen un sistema de archivos dañado de forma aleatoria, es posible que el sistema no detecte ningún daño en partes del disco que no estén en uso o no estén asignados.
+
+
+NOTE: Debe finalizar este procedimiento antes de realizar los pasos manuales para recuperar los volúmenes, como añadir o volver a conectar los discos, detener el nodo, iniciar el nodo o reiniciar. De lo contrario, al ejecutar `reformat_storage_block_devices.rb` el script, es posible que se produzca un error del sistema de archivos que provoque que el script se bloquee o falle.
+
+
+NOTE: Repare el hardware y conecte correctamente los discos antes de ejecutar `reboot` el comando.
+
+
+CAUTION: Identifique cuidadosamente los volúmenes de almacenamiento fallidos. Utilizará esta información para verificar qué volúmenes se deben reformatear. Una vez reformateado un volumen, no se pueden recuperar los datos del volumen.
+
+Para recuperar correctamente los volúmenes de almacenamiento con fallos, es necesario conocer los nombres de los dispositivos de los volúmenes de almacenamiento con errores y sus ID de volumen.
+
+En la instalación, a cada dispositivo de almacenamiento se le asigna un identificador único universal (UUID) del sistema de archivos y se monta en un directorio de configuración en el nodo de almacenamiento utilizando ese UUID del sistema de archivos asignado. El UUID del sistema de archivos y el directorio rangedb se enumeran en el `/etc/fstab` archivo. El nombre del dispositivo, el directorio rangedb y el tamaño del volumen montado se muestran en el Administrador de grid.
+
+En el siguiente ejemplo, el dispositivo `/dev/sdc` tiene un tamaño de volumen de 4 TB, se monta en `/var/local/rangedb/0`, utilizando el nombre del dispositivo `/dev/disk/by-uuid/822b0547-3b2b-472e-ad5e-e1cf1809faba` en el /`etc/fstab` archivo:
+
+image::../media/mounting_storage_devices.gif[Ejemplo de tamaño de volumen]
+
+.Pasos
+. Complete los siguientes pasos para registrar los volúmenes de almacenamiento que han fallado y sus nombres de dispositivo:
++
+.. Seleccione *SUPPORT* > *Tools* > *Topología de cuadrícula*.
+.. Selecciona *SITE* > *Nodo de almacenamiento fallido* > *LDR* > *Almacenamiento* > *Descripción general* > *Principal* y busca almacenes de objetos con alarmas.
++
+image::../media/ldr_storage_object_stores.gif[Sección de almacenes de objetos]
+
+.. Seleccione *SITE* > *Nodo de almacenamiento fallido* > *SSM* > *Recursos* > *Descripción general* > *Principal*. Determine el punto de montaje y el tamaño del volumen de cada volumen de almacenamiento con error identificado en el paso anterior.
++
+Los almacenes de objetos están numerados en notación hexadecimal. Por ejemplo, 0000 es el primer volumen y 000F es el decimosexto volumen. En el ejemplo, el almacén de objetos con un ID de 0000 se corresponde con `/var/local/rangedb/0` el nombre de dispositivo sdc y un tamaño de 107 GB.
+
++
+image::../media/ssm_storage_volumes.gif[ejemplo que muestra almacenes de objetos y puntos de montaje]
+
+
+
+. Inicie sesión en el nodo de almacenamiento con errores:
++
+.. Introduzca el siguiente comando: `ssh admin@_grid_node_IP_`
+.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
+.. Introduzca el siguiente comando para cambiar a raíz: `su -`
+.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
+
+
++
+Al iniciar sesión como root, la petición de datos cambia de `$` a `#`.
+
+. Ejecute el siguiente script para desmontar un volumen de almacenamiento con errores:
++
+`sn-unmount-volume object_store_ID`
+
++
+El `object_store_ID` es el ID del volumen de almacenamiento con errores. Por ejemplo, especifique `0` en el comando de un almacén de objetos con ID 0000.
+
+. Si se le solicita, pulse *y* para detener el servicio Cassandra en función del volumen de almacenamiento 0.
++
+
+NOTE: Si el servicio Cassandra ya está detenido, no se le preguntará. El servicio Cassandra se ha detenido solo para el volumen 0.
+
++
+[listing]
+----
+root@Storage-180:~/var/local/tmp/storage~ # sn-unmount-volume 0
+Services depending on storage volume 0 (cassandra) aren't down.
+Services depending on storage volume 0 must be stopped before running this script.
+Stop services that require storage volume 0 [y/N]? y
+Shutting down services that require storage volume 0.
+Services requiring storage volume 0 stopped.
+Unmounting /var/local/rangedb/0
+/var/local/rangedb/0 is unmounted.
+----
++
+En unos segundos, el volumen se desmonta. Aparecen mensajes que indican cada paso del proceso. El mensaje final indica que el volumen no está asociado.
+
+. Si el desmontaje falla porque el volumen está ocupado, puede forzar un desmontaje con la `--use-umountof` opción:
++
+
+NOTE: Al forzar un desmontaje mediante la `--use-umountof` opción, los procesos o los servicios que utilizan el volumen se comportan de forma inesperada o se bloquean.
+
++
+[listing]
+----
+root@Storage-180:~ # sn-unmount-volume --use-umountof /var/local/rangedb/2
+Unmounting /var/local/rangedb/2 using umountof
+/var/local/rangedb/2 is unmounted.
+Informing LDR service of changes to storage volumes
+----
+

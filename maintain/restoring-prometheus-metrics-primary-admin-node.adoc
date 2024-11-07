@@ -1,0 +1,66 @@
+---
+permalink: maintain/restoring-prometheus-metrics-primary-admin-node.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, restore metrics, restore prometheus, primary admin node 
+summary: De manera opcional, puede conservar las métricas históricas que mantiene Prometheus en un nodo de administración principal que ha fallado. La métrica Prometheus solo se puede restaurar si su sistema StorageGRID incluye otro nodo de administración. 
+---
+= Restaurar las métricas de Prometheus al recuperar el nodo de administración principal
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+De manera opcional, puede conservar las métricas históricas que mantiene Prometheus en un nodo de administración principal que ha fallado. La métrica Prometheus solo se puede restaurar si su sistema StorageGRID incluye otro nodo de administración.
+
+.Antes de empezar
+* El nodo de administración recuperado está instalado y en ejecución.
+* El sistema StorageGRID incluye al menos dos nodos de administración.
+* Tiene el `Passwords.txt` archivo.
+* Tiene la clave de acceso de aprovisionamiento.
+
+
+.Acerca de esta tarea
+Si falla un nodo de administración, se pierden las métricas que se mantienen en la base de datos Prometheus del nodo de administración. Cuando recupera el nodo de administración, el proceso de instalación del software crea una nueva base de datos Prometheus. Una vez iniciado el nodo de administración recuperado, este registra las métricas como si hubiera realizado una nueva instalación del sistema StorageGRID.
+
+Si restauró un nodo de administración principal y el sistema StorageGRID tiene otro nodo de administración, puede restaurar las métricas históricas copiando la base de datos Prometheus desde un nodo de administración no primario (el _source Admin Node_) en el nodo de administración principal recuperado. Si el sistema solo tiene un nodo de administración principal, no puede restaurar la base de datos Prometheus.
+
+
+NOTE: La copia de la base de datos Prometheus puede tardar una hora o más. Algunas funciones de Grid Manager no estarán disponibles mientras los servicios se detengan en el nodo de administración de origen.
+
+.Pasos
+. Inicie sesión en el nodo de administrador de origen:
++
+.. Introduzca el siguiente comando: `ssh admin@_grid_node_IP_`
+.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
+.. Introduzca el siguiente comando para cambiar a raíz: `su -`
+.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
+
+
+. Desde el nodo de administración de origen, pare el servicio Prometheus: `service prometheus stop`
+. Complete los siguientes pasos en el nodo de administración recuperado:
++
+.. Inicie sesión en el nodo de administración recuperado:
++
+... Introduzca el siguiente comando: `ssh admin@_grid_node_IP_`
+... Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
+... Introduzca el siguiente comando para cambiar a raíz: `su -`
+... Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
+
+
+.. Detenga el servicio de Prometheus: `service prometheus stop`
+.. Añada la clave privada SSH al agente SSH. Introduzca:``ssh-add``
+.. Introduzca la contraseña de acceso SSH que aparece en `Passwords.txt` el archivo.
+.. Copie la base de datos Prometheus del nodo de administración de origen al nodo de administración recuperado: `/usr/local/prometheus/bin/prometheus-clone-db.sh Source_Admin_Node_IP`
+.. Cuando se le solicite, pulse *Intro* para confirmar que desea destruir la nueva base de datos Prometheus del nodo de administración recuperado.
++
+La base de datos Prometheus original y sus datos históricos se copian al nodo de administración recuperado. Una vez realizada la operación de copia, el script inicia el nodo de administración recuperado. Aparece el siguiente estado:
+
++
+Base de datos clonada, servicios de inicio
+
+.. Cuando ya no necesite un acceso sin contraseñas a otros servidores, quite la clave privada del agente SSH. Introduzca:``ssh-add -D``
+
+
+. Reinicie el servicio Prometheus en el nodo de administración de origen.`service prometheus start`
+

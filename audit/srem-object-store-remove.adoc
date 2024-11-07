@@ -1,0 +1,40 @@
+---
+permalink: audit/srem-object-store-remove.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, SREM, Object Store Remove 
+summary: Este mensaje se genera cuando se elimina el contenido del almacenamiento persistente y ya no se puede acceder a él mediante API habituales. 
+---
+= SREM: Almacén de objetos Quitar
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Este mensaje se genera cuando se elimina el contenido del almacenamiento persistente y ya no se puede acceder a él mediante API habituales.
+
+[cols="1a,1a,4a"]
+|===
+| Codificación | Campo | Descripción 
+
+
+ a| 
+CBID
+ a| 
+Identificador de bloque de contenido
+ a| 
+Identificador único del bloque de contenido eliminado del almacenamiento permanente.
+
+
+
+ a| 
+TRANSFORMACIÓN DIGITAL
+ a| 
+Código de resultado
+ a| 
+Indica el resultado de las operaciones de eliminación de contenido. El único valor definido es:
+
+ÉXITO: Contenido eliminado del almacenamiento persistente
+
+|===
+Este mensaje de auditoría significa que se ha eliminado un bloque de contenido dado de un nodo y ya no se puede solicitar directamente. El mensaje se puede utilizar para realizar un seguimiento del flujo de contenido eliminado dentro del sistema.

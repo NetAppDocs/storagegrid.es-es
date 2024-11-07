@@ -1,0 +1,109 @@
+---
+permalink: troubleshoot/investigating-lost-objects.html 
+sidebar: sidebar 
+keywords: lost objects, investigating, objects 
+summary: Cuando se activa la alerta *objetos perdidos*, debe investigar inmediatamente. Recopile información sobre los objetos afectados y póngase en contacto con el soporte técnico. 
+---
+= Investigar los objetos perdidos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cuando se activa la alerta *objetos perdidos*, debe investigar inmediatamente. Recopile información sobre los objetos afectados y póngase en contacto con el soporte técnico.
+
+.Antes de empezar
+* Debe iniciar sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Tienes link:../admin/admin-group-permissions.html["permisos de acceso específicos"].
+* Debe tener el `Passwords.txt` archivo.
+
+
+.Acerca de esta tarea
+La alerta * objetos perdidos* indica que StorageGRID cree que no hay copias de un objeto en la cuadrícula. Es posible que los datos se hayan perdido de forma permanente.
+
+Investigar las alertas de objetos perdidos de inmediato. Es posible que deba tomar medidas para evitar la pérdida de datos adicional. En algunos casos, es posible que pueda restaurar un objeto perdido si realiza una acción rápida.
+
+.Pasos
+. Selecciona *NODOS*.
+. Seleccione *_Storage Node_* > *Objects*.
+. Revise el número de objetos perdidos que se muestra en la tabla recuentos de objetos.
++
+Este número indica el número total de objetos que este nodo de cuadrícula detecta como no recibidos de todo el sistema StorageGRID. El valor es la suma de los contadores de objetos perdidos del componente almacén de datos dentro de los servicios LDR y DDS.
+
++
+image::../media/nodes_storage_nodes_objects_page_lost_object.png[Nodos de almacenamiento objeto Página de objeto perdido]
+
+. Desde un nodo de administración, link:../audit/accessing-audit-log-file.html["acceda al registro de auditoría"] para determinar el identificador único (UUID) del objeto que activó la alerta *Objetos perdidos*:
++
+.. Inicie sesión en el nodo de grid:
++
+... Introduzca el siguiente comando: `ssh admin@grid_node_IP`
+... Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
+... Introduzca el siguiente comando para cambiar a raíz: `su -`
+... Introduzca la contraseña que aparece en el `Passwords.txt` archivo. Al iniciar sesión como root, la petición de datos cambia de `$` a `#`.
+
+
+.. Cambie al directorio donde se encuentran los registros de auditoría. Introduzca: `cd /var/local/log/`
++
+[NOTE]
+====
+link:../monitor/configure-audit-messages.html#select-audit-information-destinations["Obtenga información sobre los destinos para la información de auditoría"].
+
+====
+.. Utilice grep para extraer los mensajes de auditoría de objetos perdidos (OLST). Introduzca: `grep OLST audit_file_name`
+.. Observe el valor de UUID incluido en el mensaje.
++
+[listing]
+----
+>Admin: # grep OLST audit.log
+2020-02-12T19:18:54.780426 [AUDT:[CBID(UI64):0x38186FE53E3C49A5][UUID(CSTR):926026C4-00A4-449B-AC72-BCCA72DD1311]
+[PATH(CSTR):"source/cats"][NOID(UI32):12288733][VOLI(UI64):3222345986][RSLT(FC32):NONE][AVER(UI32):10]
+[ATIM(UI64):1581535134780426][ATYP(FC32):OLST][ANID(UI32):12448208][AMID(FC32):ILMX][ATID(UI64):7729403978647354233]]
+----
+
+
+. Busque los metadatos del objeto perdido mediante el UUID:
++
+.. Seleccione *ILM* > *Búsqueda de metadatos de objetos*.
+.. Ingresa el UUID y selecciona *Look Up*.
+.. Revise las ubicaciones de los metadatos y realice la acción correspondiente:
++
+[cols="2a,4a"]
+|===
+| Metadatos | Conclusión 
+
+
+ a| 
+<object_identifier> del objeto no encontrada
+ a| 
+Si no se encuentra el objeto, se devuelve el mensaje "ERROR":".
+
+Si no se encuentra el objeto, puede restablecer el recuento de *objetos perdidos* para borrar la alerta. La falta de un objeto indica que el objeto se ha eliminado intencionalmente.
+
+
+
+ a| 
+Ubicaciones > 0
+ a| 
+Si hay ubicaciones enumeradas en la salida, la alerta *objetos perdidos* podría ser un falso positivo.
+
+Confirme que los objetos existen. Utilice el Id. De nodo y la ruta de archivo que aparecen en la salida para confirmar que el archivo de objeto está en la ubicación de la lista.
+
+(El procedimiento para link:searching-for-and-restoring-potentially-lost-objects.html["buscando objetos potencialmente perdidos"] explica cómo usar el ID de nodo para encontrar el nodo de almacenamiento correcto).
+
+Si los objetos existen, puede restablecer el recuento de *objetos perdidos* para borrar la alerta.
+
+
+
+ a| 
+Ubicaciones = 0
+ a| 
+Si no hay ninguna ubicación en la salida, el objeto puede faltar. Puede intentarlo link:searching-for-and-restoring-potentially-lost-objects.html["busque y restaure el objeto"]usted mismo o comunicarse con el soporte técnico.
+
+Es posible que el soporte técnico le solicite determinar si hay un procedimiento de recuperación del almacenamiento en curso. Consulte la información link:../maintain/restoring-volume.html["Restaurando datos de objetos con Grid Manager"]sobre y.link:../maintain/restoring-object-data-to-storage-volume.html["restaurar datos de objeto en un volumen de almacenamiento"]
+
+|===
+
+
+

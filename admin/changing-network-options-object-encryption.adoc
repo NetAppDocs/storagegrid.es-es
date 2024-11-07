@@ -1,0 +1,74 @@
+---
+permalink: admin/changing-network-options-object-encryption.html 
+sidebar: sidebar 
+keywords: enable http, storage node connections 
+summary: Puede configurar la seguridad de red y de objetos para cifrar objetos almacenados, para evitar determinadas solicitudes S3 o para permitir que las conexiones de cliente a los nodos de almacenamiento utilicen HTTP en lugar de HTTPS. 
+---
+= Configure la seguridad de la red y de los objetos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede configurar la seguridad de red y de objetos para cifrar objetos almacenados, para evitar determinadas solicitudes S3 o para permitir que las conexiones de cliente a los nodos de almacenamiento utilicen HTTP en lugar de HTTPS.
+
+
+
+== Cifrado de objetos almacenados
+
+El cifrado de objetos almacenados permite el cifrado de todos los datos de objetos tal como se ingieren a través de S3. De forma predeterminada, los objetos almacenados no se cifran, pero puede optar por cifrar objetos mediante el algoritmo de cifrado AES-128 o AES-256. Cuando se activa la configuración, todos los objetos recién ingeridos se cifran pero no se realiza ningún cambio en los objetos almacenados existentes. Si deshabilita el cifrado, los objetos cifrados actualmente permanecen cifrados, pero los objetos recién procesados no se cifran.
+
+La configuración de cifrado de objetos almacenados se aplica solo a objetos S3 que no han sido cifrados por el cifrado a nivel de cubo o de objeto.
+
+Para obtener más información sobre los métodos de cifrado StorageGRID, consulte link:../admin/reviewing-storagegrid-encryption-methods.html["Consulte los métodos de cifrado de StorageGRID"].
+
+
+
+== Impida la modificación del cliente
+
+Impedir la modificación del cliente es una configuración en todo el sistema. Cuando se selecciona la opción *Evitar modificación de cliente*, se rechazan las siguientes solicitudes.
+
+
+
+=== API REST DE S3
+
+* Eliminar solicitudes de bloque
+* Cualquier solicitud para modificar los datos de un objeto existente, los metadatos definidos por el usuario o el etiquetado de objetos S3
+
+
+
+
+== Active HTTP para las conexiones del nodo de almacenamiento
+
+De forma predeterminada, las aplicaciones cliente utilizan el protocolo de red HTTPS para cualquier conexión directa a los nodos de almacenamiento. Puede habilitar HTTP opcionalmente para estas conexiones, por ejemplo, al probar una cuadrícula que no sea de producción.
+
+Utilice HTTP para las conexiones de nodo de almacenamiento solo si los clientes S3 necesitan realizar conexiones HTTP directamente a los nodos de almacenamiento. No es necesario utilizar esta opción para clientes que solo utilizan conexiones HTTPS o para clientes que se conectan al servicio de equilibrio de carga (porque puede link:../admin/configuring-load-balancer-endpoints.html["configure cada punto final del equilibrador de carga"]usar HTTP o HTTPS).
+
+Consulte link:summary-ip-addresses-and-ports-for-client-connections.html["Resumen: Direcciones IP y puertos para conexiones cliente"]para saber qué usan los clientes de S3 de los puertos al conectarse a nodos de almacenamiento mediante HTTP o HTTPS.
+
+
+
+== Seleccione las opciones
+
+.Antes de empezar
+* Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Tiene permiso de acceso raíz.
+
+
+.Pasos
+. Selecciona *CONFIGURACIÓN* > *SEGURIDAD* > *CONFIGURACIÓN DE SEGURIDAD*.
+. Seleccione la pestaña *Red y objetos*.
+. Para el cifrado de objetos almacenados, utilice la configuración *Ninguno* (predeterminada) si no desea que los objetos almacenados se cifren, o seleccione *AES-128* o *AES-256* para cifrar los objetos almacenados.
+. Opcionalmente, seleccione *Evitar modificación de cliente* si desea evitar que los clientes de S3 realicen solicitudes específicas.
++
+
+NOTE: Si cambia este ajuste, el nuevo ajuste tardará aproximadamente un minuto en aplicarse. El valor configurado se almacena en caché para el rendimiento y el escalado.
+
+. Opcionalmente, seleccione *Activar HTTP para conexiones de nodos de almacenamiento* si los clientes se conectan directamente a nodos de almacenamiento y desea utilizar conexiones HTTP.
++
+
+NOTE: Tenga cuidado al habilitar HTTP para una cuadrícula de producción porque las solicitudes se enviarán sin cifrar.
+
+. Seleccione *Guardar*.
+

@@ -1,0 +1,191 @@
+---
+permalink: admin/grid-federation-what-is-cross-grid-replication.html 
+sidebar: sidebar 
+keywords: cross-grid replication, cgr, disaster recovery, grid federation 
+summary: La replicación entre grid es la replicación automática de objetos entre bloques de S3 seleccionados de dos sistemas StorageGRID conectados en una conexión de federación de grid. Se requiere la clonación de la cuenta para la replicación entre grid. 
+---
+= ¿Qué es la replicación entre grid?
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La replicación entre grid es la replicación automática de objetos entre buckets S3 seleccionados en dos sistemas StorageGRID que están conectados en un link:grid-federation-overview.html["conexión de federación de grid"]. link:grid-federation-what-is-account-clone.html["Clon de cuenta"] es necesario para la replicación entre grid.
+
+
+
+== Flujo de trabajo de replicación entre grid
+
+El diagrama de flujo de trabajo resume los pasos para configurar la replicación entre bloques en dos cuadrículas.
+
+image::../media/grid-federation-cgr-workflow.png[Flujo de trabajo de replicación entre grid]
+
+
+
+== Requisitos de la replicación entre grid
+
+Si una cuenta de inquilino tiene el permiso *Usar conexión de federación de grid* para usar uno o más link:grid-federation-overview.html["conexiones de federación de grid"], un usuario inquilino con permiso de acceso root puede crear depósitos idénticos en las cuentas de inquilino correspondientes en cada cuadrícula. Estos bloques:
+
+* Debe tener el mismo nombre pero puede tener regiones diferentes
+* Debe tener el control de versiones activado
+* Debe tener S3 Object Lock desactivado
+* Debe estar vacío
+
+
+Una vez creados ambos bloques, la replicación entre grid se puede configurar para uno o ambos bloques.
+
+.Leer más
+link:../tenant/grid-federation-manage-cross-grid-replication.html["Gestionar la replicación entre grid"]
+
+
+
+== Funcionamiento de la replicación entre grid
+
+La replicación entre grid puede configurarse para que ocurra en una dirección o en ambas direcciones.
+
+
+
+=== Replicación en una dirección
+
+Si habilita la replicación entre grid para un bucket en solo una grid, los objetos agregados a ese bucket (el bucket de origen) se replican en el bucket correspondiente en la otra grid (el bucket de destino). Sin embargo, los objetos añadidos al depósito de destino no se vuelven a replicar en el origen. En la figura, la replicación entre redes está activada para `my-bucket` de Grid 1 a Grid 2, pero no está activada en la otra dirección.
+
+image::../media/grid-federation-cross-grid-replication-one-direction.png[imagen que muestra una conexión de federación de cuadrícula en una dirección]
+
+
+
+=== Replicación en ambas direcciones
+
+Si habilita la replicación entre grid para el mismo bucket en ambos grids, los objetos agregados a cada bucket se replican en el otro grid. En la figura, la replicación entre grid está activada en `my-bucket` ambas direcciones.
+
+image::../media/grid-federation-cross-grid-replication.png[imagen que muestra la replicación en una dirección en comparación con la replicación en ambas direcciones]
+
+
+
+=== ¿Qué sucede cuando se ingieren objetos?
+
+Cuando un cliente S3 agrega un objeto a un bloque que tiene habilitada la replicación entre grid, sucede lo siguiente:
+
+. StorageGRID replica automáticamente el objeto del bloque de origen al de destino. El tiempo para realizar esta operación de replicación en segundo plano depende de varios factores, incluidos la cantidad de otras operaciones de replicación pendientes.
++
+El cliente S3 puede verificar el estado de replicación de un objeto emitiendo una solicitud GetObject o HeadObject. La respuesta incluye una cabecera de respuesta específica de StorageGRID `x-ntap-sg-cgr-replication-status`, que tendrá uno de los siguientes valores: El cliente S3 puede verificar el estado de replicación de un objeto emitiendo una solicitud GetObject o HeadObject. La respuesta incluye un encabezado de respuesta específico de StorageGRID `x-ntap-sg-cgr-replication-status`, que tendrá uno de los siguientes valores:
+
++
+[cols="1a,2a"]
+|===
+| Cuadrícula | Estado de replicación 
+
+
+ a| 
+Origen
+ a| 
+** *COMPLETADO*: La replicación fue exitosa para todas las conexiones de red.
+** *PENDIENTE*: El objeto no ha sido replicado en al menos una conexión de red.
+** *FALLO*: La replicación no está pendiente para ninguna conexión a la red y al menos una falló con un fallo permanente. Un usuario debe resolver el error.
+
+
+
+
+ a| 
+Destino
+ a| 
+*REPLICA*: El objeto fue replicado desde la cuadrícula de origen.
+
+|===
++
+
+NOTE: StorageGRID no admite `x-amz-replication-status` el encabezado.
+
+. StorageGRID utiliza las políticas de ILM activas de cada grid para gestionar los objetos, al igual que lo haría con cualquier otro objeto. Por ejemplo, el objeto A en Grid 1 se puede almacenar como dos copias replicadas y conservarse permanentemente, mientras que la copia del objeto A replicado en Grid 2 se puede almacenar con el código de borrado 2+1 y eliminarse después de tres años.
+
+
+
+
+=== ¿Qué sucede cuando se eliminan los objetos?
+
+Como se describe en link:../primer/delete-data-flow.html["Eliminar flujo de datos"], StorageGRID puede suprimir un objeto por cualquiera de los siguientes motivos:
+
+* El cliente S3 emite una solicitud de eliminación.
+* Un usuario del gestor de inquilinos selecciona link:../tenant/deleting-s3-bucket-objects.html["Suprimir objetos del depósito"]la opción para eliminar todos los objetos de un depósito.
+* El bloque tiene una configuración del ciclo de vida que caduca.
+* El último periodo de tiempo de la regla de ILM para el objeto finaliza, y no se han especificado más ubicaciones.
+
+
+Cuando StorageGRID elimina un objeto debido a una operación Eliminar objetos en el bloque, la caducidad del ciclo de vida del bloque o la caducidad de la ubicación de ILM, el objeto replicado nunca se elimina del otro grid en una conexión de la federación de grid. Sin embargo, los marcadores de borrado que se han añadido al bloque de origen mediante eliminaciones de clientes de S3 se pueden replicar opcionalmente en el bloque de destino.
+
+Para comprender qué sucede cuando un cliente S3 elimina objetos de un bloque que tiene habilitada la replicación entre grid, revise cómo los clientes S3 eliminan objetos de los bloques que tienen el control de versiones activado, de la siguiente manera:
+
+* Si un cliente S3 emite una solicitud de eliminación que incluye un ID de versión, esa versión del objeto se elimina de forma permanente. No se ha añadido ningún marcador de borrado al depósito.
+* Si un cliente S3 emite una solicitud de eliminación que no incluye un ID de versión, StorageGRID no elimina ninguna versión de objeto. En su lugar, agrega un marcador de borrado al cubo. El marcador de borrado hace que StorageGRID actúe como si el objeto se hubiera eliminado:
++
+** Una solicitud GetObject sin un identificador de versión fallará con `404 No Object Found`
+** Una solicitud GetObject con un identificador de versión válido se realizará correctamente y devolverá la versión del objeto solicitado.
+
+
+
+
+Cuando un cliente S3 elimina un objeto de un bloque que tiene habilitada la replicación entre grid, StorageGRID determina si desea replicar la solicitud de eliminación en el destino, de la siguiente manera:
+
+* Si la solicitud de eliminación incluye un ID de versión, esa versión de objeto se elimina permanentemente de la cuadrícula de origen. Sin embargo, StorageGRID no replica las solicitudes de eliminación que incluyan un ID de versión, por lo que la misma versión del objeto no se elimina del destino.
+* Si la solicitud de eliminación no incluye un ID de versión, StorageGRID puede replicar opcionalmente el marcador de eliminación, en función de cómo se configure la replicación entre grid para el bloque:
++
+** Si decide replicar marcadores de eliminación (valor predeterminado), se agrega un marcador de eliminación al bloque de origen y se replica en el bloque de destino. De hecho, el objeto parece eliminarse en ambas cuadrículas.
+** Si decide no replicar marcadores de eliminación, se agrega un marcador de eliminación al depósito de origen, pero no se replica en el depósito de destino. De hecho, los objetos que se eliminan en la cuadrícula de origen no se eliminan en la cuadrícula de destino.
+
+
+
+
+En la figura, *REPLICATE DELETE MARKERS* se estableció en *Yes* cuando link:../tenant/grid-federation-manage-cross-grid-replication.html["se ha activado la replicación entre grid"]. Las solicitudes de supresión para el bloque de origen que incluyan un identificador de versión no suprimirán los objetos del bloque de destino. Las solicitudes de supresión del depósito de origen que no incluyan un ID de versión aparecerán para suprimir objetos del depósito de destino.
+
+image::../media/grid-federation-cross-grid-replication-delete.png[imagen que muestra la supresión del cliente de réplica en ambas cuadrículas]
+
+
+NOTE: Si desea mantener las eliminaciones de objetos sincronizadas entre las cuadrículas, cree las correspondientes link:../s3/create-s3-lifecycle-configuration.html["Configuraciones de ciclo de vida de S3"] para los depósitos en ambas cuadrículas.
+
+
+
+=== Cómo se replican los objetos cifrados
+
+Cuando se utiliza la replicación entre grid para replicar objetos entre grids, se pueden cifrar objetos individuales, utilizar el cifrado de bucket predeterminado o configurar el cifrado de toda la grid. Puede agregar, modificar o eliminar la configuración de cifrado predeterminada de bloque o de grid antes o después de habilitar la replicación entre grid para un bloque.
+
+Para cifrar objetos individuales, puede utilizar SSE (cifrado del lado del servidor con claves gestionadas por StorageGRID) al agregar los objetos al depósito de origen. Utilice `x-amz-server-side-encryption` la cabecera de solicitud y especifique `AES256`. Consulte link:../s3/using-server-side-encryption.html["Usar cifrado del servidor"].
+
+
+NOTE: El uso de SSE-C (cifrado en el lado del servidor con claves proporcionadas por el cliente) no es compatible para la replicación entre grid. La operación de ingesta fallará.
+
+Para utilizar el cifrado predeterminado para un depósito, utilice una solicitud PutBucketEncryption y defina el `SSEAlgorithm` parámetro en `AES256`. El cifrado de nivel de bloque se aplica a cualquier objeto ingerido sin `x-amz-server-side-encryption` la cabecera de solicitud. Consulte link:../s3/operations-on-buckets.html["Operaciones en bloques"].
+
+Para utilizar el cifrado a nivel de cuadrícula, establezca la opción *cifrado de objetos almacenados* en *AES-256*. El cifrado a nivel de grid se aplica a cualquier objeto que no esté cifrado en el nivel de bucket o que se ingiera sin la `x-amz-server-side-encryption` cabecera de solicitud. Consulte link:../admin/changing-network-options-object-encryption.html["Configure las opciones de red y objeto"].
+
+
+NOTE: SSE no admite AES-128. Si la opción *cifrado de objetos almacenados* está habilitada para la cuadrícula de origen mediante la opción *AES-128*, el uso del algoritmo AES-128 no se propagará al objeto replicado. En su lugar, el objeto replicado utilizará la configuración de cifrado de nivel de grid o bloque predeterminada del destino, si está disponible.
+
+Al determinar cómo cifrar los objetos de origen, StorageGRID aplica estas reglas:
+
+. Utilice `x-amz-server-side-encryption` el encabezado de ingesta, si existe.
+. Si no hay una cabecera de ingesta, utilice la configuración de cifrado predeterminado de depósito, si está configurada.
+. Si no se ha configurado una configuración de depósito, utilice la configuración de cifrado de toda la cuadrícula, si está configurada.
+. Si no hay una configuración para toda la cuadrícula, no cifre el objeto de origen.
+
+
+Al determinar cómo cifrar los objetos replicados, StorageGRID aplica estas reglas en este orden:
+
+. Use el mismo cifrado que el objeto de origen, a menos que ese objeto utilice cifrado AES-128.
+. Si el objeto de origen no está cifrado o utiliza AES-128, utilice la configuración de cifrado predeterminada del depósito de destino, si está configurada.
+. Si el depósito de destino no tiene una configuración de cifrado, utilice la configuración de cifrado de toda la cuadrícula del destino, si está configurada.
+. Si no hay una configuración de toda la cuadrícula, no cifre el objeto de destino.
+
+
+
+
+=== PutObjectTagging y DeleteObjectTagging no son compatibles
+
+Las solicitudes PutObjectTagging y DeleteObjectTagging no están soportadas para los objetos de los depósitos que tienen activada la replicación entre grid.
+
+Si un cliente S3 emite una solicitud PutObjectTagging o DeleteObjectTagging, `501 Not Implemented` se devuelve. El mensaje es `Put(Delete) ObjectTagging is not available for buckets that have cross-grid replication configured`.
+
+
+
+=== Cómo se replican los objetos segmentados
+
+El tamaño máximo del segmento de la cuadrícula de origen se aplica a los objetos replicados a la cuadrícula de destino. Cuando los objetos se replican en otra cuadrícula, el ajuste *Tamaño de segmento máximo* (*CONFIGURACIÓN* > *Sistema* > *Opciones de almacenamiento*) de la cuadrícula de origen se utilizará en ambas cuadrículas. Por ejemplo, supongamos que el tamaño máximo del segmento para la cuadrícula de origen es de 1 GB, mientras que el tamaño máximo del segmento de la cuadrícula de destino es de 50 MB. Si ingiere un objeto de 2 GB en la cuadrícula de origen, ese objeto se guarda como dos segmentos de 1 GB. También se replicará en la cuadrícula de destino como dos segmentos de 1 GB, aunque el tamaño máximo del segmento de esa cuadrícula sea de 50 MB.

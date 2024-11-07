@@ -1,0 +1,186 @@
+---
+permalink: expand/linux-adding-direct-attached-or-san-volumes-to-storage-node.html 
+sidebar: sidebar 
+keywords: expansion, Linux, add storage volumes 
+summary: Si un nodo de almacenamiento incluye menos de 16 volúmenes de almacenamiento, puede aumentar su capacidad mediante la adición de nuevos dispositivos de almacenamiento en bloques, haciéndolos visibles para los hosts Linux y la adición de las nuevas asignaciones de dispositivos de bloque al archivo de configuración de StorageGRID que se utiliza para el nodo de almacenamiento. 
+---
+= Linux: Añada volúmenes SAN o de conexión directa al nodo de almacenamiento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si un nodo de almacenamiento incluye menos de 16 volúmenes de almacenamiento, puede aumentar su capacidad mediante la adición de nuevos dispositivos de almacenamiento en bloques, haciéndolos visibles para los hosts Linux y la adición de las nuevas asignaciones de dispositivos de bloque al archivo de configuración de StorageGRID que se utiliza para el nodo de almacenamiento.
+
+.Antes de empezar
+* Tiene acceso a las instrucciones de instalación de StorageGRID para su plataforma Linux.
++
+** link:../rhel/index.html["Instalar StorageGRID en Red Hat Enterprise Linux"]
+** link:../ubuntu/index.html["Instalar StorageGRID en Ubuntu o Debian"]
+
+
+* Tiene el `Passwords.txt` archivo.
+* Tienes link:../admin/admin-group-permissions.html["permisos de acceso específicos"].
+
+
+
+CAUTION: No intente añadir volúmenes de almacenamiento a un nodo de almacenamiento mientras haya activo una actualización de software, un procedimiento de recuperación o otro procedimiento de ampliación.
+
+.Acerca de esta tarea
+El nodo de almacenamiento no está disponible durante un breve periodo de tiempo cuando se añaden volúmenes de almacenamiento. Debe realizar este procedimiento en un nodo de almacenamiento a la vez para evitar que se vean afectados los servicios de grid orientados al cliente.
+
+.Pasos
+. Instale el nuevo hardware de almacenamiento.
++
+Para obtener más información, consulte la documentación proporcionada por su proveedor de hardware.
+
+. Cree nuevos volúmenes de almacenamiento en bloques de los tamaños deseados.
++
+** Conecte las nuevas unidades y actualice la configuración de la controladora RAID según sea necesario, o asigne los nuevos LUN de SAN a las cabinas de almacenamiento compartido y permita que el host Linux acceda a ellas.
+** Utilice el mismo esquema de nomenclatura persistente que utilizó para los volúmenes de almacenamiento en el nodo de almacenamiento existente.
+** Si utiliza la función de migración de nodos StorageGRID, haga que los nuevos volúmenes sean visibles para otros hosts Linux que son destinos de migración para este nodo de almacenamiento. Para obtener más información, consulte las instrucciones de instalación de StorageGRID para su plataforma Linux.
+
+
+. Inicie sesión en el host Linux que admite el nodo de almacenamiento como raíz o con una cuenta que tenga permiso sudo.
+. Confirmar que los volúmenes de almacenamiento nuevos estén visibles en el host Linux.
++
+Es posible que tenga que volver a analizar los dispositivos.
+
+. Ejecute el siguiente comando para deshabilitar temporalmente el nodo de almacenamiento:
++
+`sudo storagegrid node stop <node-name>`
+
+. Con un editor de texto como vim o pico, edite el archivo de configuración del nodo para el nodo de almacenamiento, que se puede encontrar en `/etc/storagegrid/nodes/<node-name>.conf`.
+. Busque la sección del archivo de configuración del nodo que contiene las asignaciones de dispositivos del bloque de almacenamiento de objetos existentes.
++
+En el ejemplo, `BLOCK_DEVICE_RANGEDB_00` `BLOCK_DEVICE_RANGEDB_03` para son las asignaciones de dispositivos de bloques de almacenamiento de objetos existentes.
+
++
+[listing, subs="specialcharacters,quotes"]
+----
+NODE_TYPE = VM_Storage_Node
+ADMIN_IP = 10.1.0.2
+BLOCK_DEVICE_VAR_LOCAL = /dev/mapper/sgws-sn1-var-local
+*BLOCK_DEVICE_RANGEDB_00 = /dev/mapper/sgws-sn1-rangedb-0*
+*BLOCK_DEVICE_RANGEDB_01 = /dev/mapper/sgws-sn1-rangedb-1*
+*BLOCK_DEVICE_RANGEDB_02 = /dev/mapper/sgws-sn1-rangedb-2*
+*BLOCK_DEVICE_RANGEDB_03 = /dev/mapper/sgws-sn1-rangedb-3*
+GRID_NETWORK_TARGET = bond0.1001
+ADMIN_NETWORK_TARGET = bond0.1002
+CLIENT_NETWORK_TARGET = bond0.1003
+GRID_NETWORK_IP = 10.1.0.3
+GRID_NETWORK_MASK = 255.255.255.0
+GRID_NETWORK_GATEWAY = 10.1.0.1
+----
+. Añada nuevas asignaciones de dispositivo de bloque de almacenamiento de objetos que correspondan a los volúmenes de almacenamiento en bloque que añadió para este nodo de almacenamiento.
++
+Asegúrese de comenzar en el siguiente `BLOCK_DEVICE_RANGEDB_nn`. No deje un hueco.
+
++
+** Basado en el ejemplo anterior, comience en `BLOCK_DEVICE_RANGEDB_04`.
+** En el siguiente ejemplo, se han añadido cuatro nuevos volúmenes de almacenamiento basado en bloques al nodo: `BLOCK_DEVICE_RANGEDB_04` En `BLOCK_DEVICE_RANGEDB_07`.
+
+
++
+[listing, subs="specialcharacters,quotes"]
+----
+NODE_TYPE = VM_Storage_Node
+ADMIN_IP = 10.1.0.2
+BLOCK_DEVICE_VAR_LOCAL = /dev/mapper/sgws-sn1-var-local
+BLOCK_DEVICE_RANGEDB_00 = /dev/mapper/sgws-sn1-rangedb-0
+BLOCK_DEVICE_RANGEDB_01 = /dev/mapper/sgws-sn1-rangedb-1
+BLOCK_DEVICE_RANGEDB_02 = /dev/mapper/sgws-sn1-rangedb-2
+BLOCK_DEVICE_RANGEDB_03 = /dev/mapper/sgws-sn1-rangedb-3
+*BLOCK_DEVICE_RANGEDB_04 = /dev/mapper/sgws-sn1-rangedb-4*
+*BLOCK_DEVICE_RANGEDB_05 = /dev/mapper/sgws-sn1-rangedb-5*
+*BLOCK_DEVICE_RANGEDB_06 = /dev/mapper/sgws-sn1-rangedb-6*
+*BLOCK_DEVICE_RANGEDB_07 = /dev/mapper/sgws-sn1-rangedb-7*
+GRID_NETWORK_TARGET = bond0.1001
+ADMIN_NETWORK_TARGET = bond0.1002
+CLIENT_NETWORK_TARGET = bond0.1003
+GRID_NETWORK_IP = 10.1.0.3
+GRID_NETWORK_MASK = 255.255.255.0
+GRID_NETWORK_GATEWAY = 10.1.0.1
+----
+. Ejecute el siguiente comando para validar los cambios en el archivo de configuración del nodo para el nodo de almacenamiento:
++
+`sudo storagegrid node validate <node-name>`
+
++
+Solucione todos los errores o advertencias antes de continuar con el siguiente paso.
+
++
+[NOTE]
+====
+Si observa un error similar al siguiente, significa que el archivo de configuración de nodo está intentando asignar el dispositivo de bloque utilizado por `<node-name>` para `<PURPOSE>` al especificado `<path-name>` en el sistema de archivos Linux, pero no hay un archivo especial de dispositivo de bloque válido (o softlink a un archivo especial de dispositivo de bloque) en esa ubicación.
+
+[listing]
+----
+Checking configuration file for node <node-name>…
+ERROR: BLOCK_DEVICE_<PURPOSE> = <path-name>
+<path-name> is not a valid block device
+----
+Compruebe que ha introducido el correcto `<path-name>`.
+
+====
+. Ejecute el siguiente comando para reiniciar el nodo con las nuevas asignaciones de dispositivo de bloque en su lugar:
++
+`sudo storagegrid node start <node-name>`
+
+. Inicie sesión en el nodo de almacenamiento como administrador con la contraseña que aparece en el `Passwords.txt` archivo.
+. Compruebe que los servicios se inician correctamente:
++
+.. Ver una lista del estado de todos los servicios en el servidor: +
+`sudo storagegrid-status`
++
+El estado se actualiza automáticamente.
+
+.. Espere a que todos los servicios se ejecuten o se verifiquen.
+.. Salir de la pantalla de estado:
++
+`Ctrl+C`
+
+
+
+. Configure el nuevo almacenamiento para que lo utilice el nodo de almacenamiento:
++
+.. Configure los nuevos volúmenes de almacenamiento:
++
+`sudo add_rangedbs.rb`
+
++
+Este script encuentra todos los volúmenes de almacenamiento nuevos y solicita que se los formatee.
+
+.. Introduzca *y* para formatear los volúmenes de almacenamiento.
+.. Si alguno de los volúmenes se ha formateado anteriormente, decida si desea reformatearlos.
++
+*** Introduzca *y* para cambiar el formato.
+*** Introduzca *n* para omitir el formateo.
+
+
+
+
++
+El `setup_rangedbs.sh` script se ejecuta automáticamente.
+
+. Compruebe que el estado de almacenamiento del nodo de almacenamiento sea en línea:
++
+.. Inicie sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
+.. Seleccione *SUPPORT* > *Tools* > *Topología de cuadrícula*.
+.. Seleccione *_site_* > *_Storage Node_* > *LDR* > *Storage*.
+.. Seleccione la ficha *Configuración* y, a continuación, la ficha *Principal*.
+.. Si la lista desplegable *Estado de almacenamiento - deseado* está establecida en sólo lectura o sin conexión, seleccione *en línea*.
+.. Haga clic en *aplicar cambios*.
+
+
+. Para ver los nuevos almacenes de objetos:
++
+.. Seleccione *NODES* > *_site_* > *_Storage Node_* > *Storage*.
+.. Consulte los detalles en la tabla *almacenes de objetos*.
+
+
+
+
+.Resultado
+Ahora se puede usar la capacidad ampliada de los nodos de almacenamiento para guardar datos de objetos.

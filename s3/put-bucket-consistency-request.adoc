@@ -1,0 +1,80 @@
+---
+permalink: s3/put-bucket-consistency-request.html 
+sidebar: sidebar 
+keywords: S3 REST API, S3 operations, PUT bucket consistency request 
+summary: La solicitud COLOCAR coherencia de bloques permite especificar la coherencia que se debe aplicar a las operaciones realizadas en un bloque. 
+---
+= PONGA la consistencia del cucharón
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La solicitud COLOCAR coherencia de bloques permite especificar la coherencia que se debe aplicar a las operaciones realizadas en un bloque.
+
+La consistencia predeterminada se establece en garantía de lectura tras escritura para los objetos recién creados.
+
+.Antes de empezar
+Debe tener el permiso s3:PutBucketConsistency, o bien ser la raíz de la cuenta, para completar esta operación.
+
+
+
+== Solicitud
+
+El `x-ntap-sg-consistency` parámetro debe contener uno de los valores siguientes:
+
+[cols="1a,2a"]
+|===
+| Coherencia | Descripción 
+
+
+ a| 
+todo
+ a| 
+Todos los nodos reciben los datos inmediatamente o se produce un error en la solicitud.
+
+
+
+ a| 
+fuerte en todo el mundo
+ a| 
+Garantiza la coherencia de lectura tras escritura para todas las solicitudes del cliente en todos los sitios.
+
+
+
+ a| 
+sitio seguro
+ a| 
+Garantiza la coherencia de lectura tras escritura para todas las solicitudes del cliente dentro de un sitio.
+
+
+
+ a| 
+lectura-después-nueva-escritura
+ a| 
+(Predeterminado) proporciona coherencia de lectura tras escritura para los nuevos objetos y coherencia final para las actualizaciones de objetos. Ofrece garantías de alta disponibilidad y protección de datos. Recomendado para la mayoría de los casos.
+
+
+
+ a| 
+disponible
+ a| 
+Proporciona consistencia eventual tanto para nuevos objetos como para actualizaciones de objetos. Para los cubos S3, utilice solo según sea necesario (por ejemplo, para un depósito que contiene valores de registro que rara vez se leen, o para operaciones HEAD u GET en claves que no existen). No se admite para bloques de FabricPool S3.
+
+|===
+*Nota:* En general, debes usar la consistencia de “Leer después de la nueva escritura”. Si las solicitudes no funcionan correctamente, cambie el comportamiento del cliente de aplicación si es posible. O bien, configure el cliente para especificar la consistencia de cada solicitud API. Defina la consistencia en el nivel del cucharón sólo como último recurso.
+
+
+
+== Ejemplo de solicitud
+
+[listing, subs="specialcharacters,quotes"]
+----
+PUT /bucket?x-ntap-sg-consistency=strong-global HTTP/1.1
+Date: _date_
+Authorization: _authorization string_
+Host: _host_
+----
+.Información relacionada
+link:consistency-controls.html["Valores de coherencia"]

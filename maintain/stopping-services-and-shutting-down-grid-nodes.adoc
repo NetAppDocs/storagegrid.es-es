@@ -1,0 +1,127 @@
+---
+permalink: maintain/stopping-services-and-shutting-down-grid-nodes.html 
+sidebar: sidebar 
+keywords: recover, stop services, shut down nodes, node shutdown 
+summary: Antes de poder apagar un sistema StorageGRID, debe detener todos los servicios que se ejecutan en cada nodo de grid y, a continuación, apagar todas las máquinas virtuales de VMware, los motores de contenedor y los dispositivos StorageGRID. 
+---
+= Detenga los servicios y apague los nodos de grid
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de poder apagar un sistema StorageGRID, debe detener todos los servicios que se ejecutan en cada nodo de grid y, a continuación, apagar todas las máquinas virtuales de VMware, los motores de contenedor y los dispositivos StorageGRID.
+
+.Acerca de esta tarea
+Detenga primero los servicios en los nodos de administración y la puerta de enlace y, a continuación, detenga los servicios en los nodos de almacenamiento.
+
+Este enfoque permite usar el nodo de administración principal para supervisar el estado de los demás nodos de grid durante el mayor tiempo posible.
+
+
+NOTE: Si un solo host incluye más de un nodo de cuadrícula, no apague el host hasta que haya detenido todos los nodos de ese host. Si el host incluye el nodo de administrador principal, apague ese host en último lugar.
+
+
+NOTE: Si es necesario, puede link:linux-migrating-grid-node-to-new-host.html["Migre los nodos de un host Linux a otro"]realizar el mantenimiento del host sin afectar la funcionalidad o la disponibilidad de su grid.
+
+.Pasos
+. Detenga que todas las aplicaciones cliente no accedan a la cuadrícula.
+. [[log_in_to_gn]]Iniciar sesión en cada nodo de puerta de enlace:
++
+.. Introduzca el siguiente comando: `ssh admin@_grid_node_IP_`
+.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
+.. Introduzca el siguiente comando para cambiar a raíz: `su -`
+.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
++
+Al iniciar sesión como root, la petición de datos cambia de `$` a `#`.
+
+
+
+. [[STOP_ALL_SERVICES]]Parar todos los servicios que se ejecutan en el nodo: `service servermanager stop`
++
+Los servicios pueden tardar hasta 15 minutos en apagarse, y es posible que desee iniciar sesión en el sistema de forma remota para supervisar el proceso de apagado.
+
+
+
+. Repita los dos pasos anteriores para detener los servicios en todos los nodos de almacenamiento y los nodos de administración no principales.
++
+Puede detener los servicios en estos nodos en cualquier orden.
+
++
+
+NOTE: Si emite `service servermanager stop` el comando para detener los servicios en un nodo de almacenamiento del dispositivo, debe apagar y encender el dispositivo para reiniciar el nodo.
+
+. Para el nodo de administración principal, repita los pasos para <<log_in_to_gn,inicie sesión en el nodo>> y <<stop_all_services,detener todos los servicios del nodo>>.
+. Para los nodos que se ejecutan en hosts Linux:
++
+.. Inicie sesión en el sistema operativo del host.
+.. Detenga el nodo: `storagegrid node stop`
+.. Apague el sistema operativo host.
+
+
+. Para los nodos que se ejecutan en máquinas virtuales de VMware y en los nodos de almacenamiento del dispositivo, emita el comando shutdown: `shutdown -h now`
++
+Realice este paso independientemente del resultado `service servermanager stop` del comando.
+
++
+Para el dispositivo, este comando apaga la controladora de computación, pero el dispositivo sigue encendido. Debe completar el siguiente paso.
+
+. Si tiene nodos de dispositivo:
++
+** Para dispositivos de servicios o dispositivos SGF6112
++
+... Apague el aparato.
+... Espere a que se apague el LED de alimentación azul.
+
+
+** Para el dispositivo SG6160
++
+... Apague la alimentación de la controladora de almacenamiento SG6100-CN.
+... Espere a que se apague el LED de alimentación azul de la controladora de almacenamiento SG6100-CN.
+
+
+** Para el dispositivo SG6000
++
+... Espere a que se apague el LED verde de caché activa en la parte posterior de las controladoras de almacenamiento.
++
+Este LED está encendido cuando es necesario escribir en las unidades los datos en caché. Debe esperar a que este LED se apague antes de apagarse.
+
+... Apague el aparato y espere a que se apague el LED de alimentación azul.
+
+
+** Para el dispositivo SG5800
++
+... Espere a que se apague el LED verde de caché activa en la parte posterior de la controladora de almacenamiento.
++
+Este LED está encendido cuando es necesario escribir en las unidades los datos en caché. Debe esperar a que este LED se apague antes de apagarse.
+
+... En la página de inicio del Administrador del sistema de SANtricity, seleccione *Ver operaciones en curso*.
+... Confirme que todas las operaciones se han completado antes de continuar con el siguiente paso.
+... Apague los dos switches de alimentación de la bandeja de controladoras y espere a que se apagen todos los LED de la bandeja de controladoras.
+
+
+** Para el dispositivo SG5700
++
+... Espere a que se apague el LED verde de caché activa en la parte posterior de la controladora de almacenamiento.
++
+Este LED está encendido cuando es necesario escribir en las unidades los datos en caché. Debe esperar a que este LED se apague antes de apagarse.
+
+... Apague el aparato y espere a que todos los LED y la actividad de visualización de siete segmentos se detengan.
+
+
+
+
+. Si es necesario, cierre la sesión del shell de comandos: `exit`
++
+El grid de StorageGRID se ha apagado.
+
+
+
+.Información relacionada
+* link:https://docs.netapp.com/us-en/storagegrid-appliances/sg6100/index.html["Dispositivos de almacenamiento SGF6112 y SG6160"^]
+* link:https://docs.netapp.com/us-en/storagegrid-appliances/sg6000/index.html["Dispositivos de almacenamiento SG6000"^]
+* link:https://docs.netapp.com/us-en/storagegrid-appliances/sg5800/index.html["Dispositivos de almacenamiento SG5800"^]
+* link:https://docs.netapp.com/us-en/storagegrid-appliances/sg5700/index.html["Dispositivos de almacenamiento SG5700"^]
+* link:https://docs.netapp.com/us-en/storagegrid-appliances/sg110-1100/index.html["Dispositivos de servicios SG110 y SG1100"^]
+* link:https://docs.netapp.com/us-en/storagegrid-appliances/sg100-1000/index.html["Dispositivos de servicios SG100 y SG1000"^]
+

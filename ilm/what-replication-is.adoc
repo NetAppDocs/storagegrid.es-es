@@ -1,0 +1,31 @@
+---
+permalink: ilm/what-replication-is.html 
+sidebar: sidebar 
+keywords: replication, object copies 
+summary: La replicación es uno de los dos métodos que utiliza StorageGRID para almacenar datos de objetos. Cuando los objetos coinciden con una regla de ILM que utiliza replicación, el sistema crea copias exactas de los datos de objetos y almacena las copias en los nodos de almacenamiento. 
+---
+= ¿Qué es la replicación?
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La replicación es uno de los dos métodos usados por StorageGRID para almacenar datos de objetos (el código de borrado es el otro método). Cuando los objetos coinciden con una regla de ILM que utiliza replicación, el sistema crea copias exactas de los datos de objetos y almacena las copias en los nodos de almacenamiento.
+
+Cuando configura una regla de ILM para crear copias replicadas, especifica cuántas copias se deben crear, dónde deben ubicarse y cuánto tiempo deben almacenarse las copias en cada ubicación.
+
+En el ejemplo siguiente, la regla de ILM especifica que dos copias replicadas de cada objeto se coloquen en un pool de almacenamiento que contenga tres nodos de almacenamiento.
+
+image::../media/ilm_replication_make_2_copies.png[Crear regla de 2 copias]
+
+Cuando StorageGRID coincide con los objetos de esta regla, crea dos copias del objeto, colocando cada copia en un nodo de almacenamiento diferente en el pool de almacenamiento. Las dos copias pueden colocarse en dos de los tres nodos de almacenamiento disponibles. En este caso, la regla colocó copias de objetos en los nodos de almacenamiento 2 y 3. Debido a que hay dos copias, el objeto se puede recuperar si alguno de los nodos del pool de almacenamiento falla.
+
+
+NOTE: StorageGRID solo puede almacenar una copia replicada de un objeto en un nodo de almacenamiento dado. Si el grid incluye tres nodos de almacenamiento y se crea una regla de gestión del ciclo de vida de la información de 4 copias, solo se crearán tres copias: Una por cada nodo de almacenamiento. Se activa la alerta *colocación de ILM inalcanzable* para indicar que la regla ILM no se pudo aplicar completamente.
+
+.Información relacionada
+* link:what-erasure-coding-is.html["Qué es la codificación de borrado"]
+* link:what-storage-pool-is.html["Qué es un pool de almacenamiento"]
+* link:using-multiple-storage-pools-for-cross-site-replication.html["Habilite la protección contra pérdida de sitios mediante replicación y código de borrado"]
+

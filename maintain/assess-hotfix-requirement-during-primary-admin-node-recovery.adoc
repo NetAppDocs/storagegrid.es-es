@@ -1,0 +1,31 @@
+---
+permalink: maintain/assess-hotfix-requirement-during-primary-admin-node-recovery.html 
+sidebar: sidebar 
+keywords: storagegrid, primary admin node, hotfix 
+summary: Después de recuperar un nodo de administración principal, determine si necesita aplicar una revisión. 
+---
+= Determine el requisito de revisión para el nodo de administración principal
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Después de recuperar un nodo de administración principal, determine si necesita aplicar una revisión.
+
+.Antes de empezar
+Se ha completado la recuperación del nodo de administración principal.
+
+.Pasos
+. Inicie sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
+. Selecciona *NODOS*.
+. En la lista de la izquierda, seleccione el nodo de administración principal.
+. En la ficha Descripción general, observe la versión que aparece en el campo *Versión de software*.
+. Seleccione cualquier otro nodo de grid.
+. En la ficha Descripción general, observe la versión que aparece en el campo *Versión de software*.
++
+** Si las versiones que se muestran en los campos *Versión de software* son las mismas, no es necesario aplicar una revisión.
+** Si las versiones que se muestran en los campos *Versión de software* son diferentes, debe link:storagegrid-hotfix-procedure.html["aplique una revisión"]actualizar el nodo de administración principal recuperado a la misma versión.
+
+
+

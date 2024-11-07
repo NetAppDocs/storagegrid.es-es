@@ -1,0 +1,27 @@
+---
+permalink: network/subnet-requirements.html 
+sidebar: sidebar 
+keywords: network subnets 
+summary: Siga estos requisitos y directrices para las subredes de red. 
+---
+= Requisitos de subred
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Siga estos requisitos y directrices para las subredes de red.
+
+
+NOTE: Cada red debe estar conectada a su propia subred que no se superponga con ninguna otra red del nodo.
+
+Grid Manager aplica las siguientes restricciones durante la implementación. Se proporcionan aquí para ayudar en la planificación de la red previa al despliegue.
+
+* La máscara de subred para cualquier dirección IP de red no puede ser 255.255.255.254 o 255.255.255.255 (/31 o /32 en notación CIDR).
+* La subred definida por una dirección IP de interfaz de red y una máscara de subred (CIDR) no puede superponer la subred de ninguna otra interfaz configurada en el mismo nodo.
+* La subred de red de cuadrícula para cada nodo debe estar incluida en el GNSL.
+* La subred de la red de administración no puede superponerse con la subred de la red de red de red, la subred de la red de cliente o cualquier subred de la GNSL.
+* Las subredes de la AESL no pueden superponerse con ninguna subred de la GNSL.
+* La subred de la red cliente no puede superponerse con la subred de la red de red de red, la subred de la red de administración, ninguna subred de la GNSL ni ninguna subred de la AESL.
+

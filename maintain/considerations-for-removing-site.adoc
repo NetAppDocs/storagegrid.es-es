@@ -1,0 +1,171 @@
+---
+permalink: maintain/considerations-for-removing-site.html 
+sidebar: sidebar 
+keywords: how to remove site 
+summary: Antes de utilizar el procedimiento de retirada del sitio para quitar un sitio, debe revisar las consideraciones. 
+---
+= Consideraciones para quitar un sitio
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de utilizar el procedimiento de retirada del sitio para quitar un sitio, debe revisar las consideraciones.
+
+
+
+== Qué sucede al retirar un sitio
+
+Al retirar un sitio, StorageGRID quita de forma permanente todos los nodos del sitio y el sitio propio del sistema StorageGRID.
+
+Una vez completado el procedimiento de retirada de instalaciones:
+
+* Ya no puede utilizar StorageGRID para ver ni acceder al sitio ni a ninguno de los nodos del sitio.
+* Ya no puede utilizar pools de almacenamiento ni perfiles de código de borrado que hagan referencia al sitio. Cuando StorageGRID decomisiona un sitio, elimina automáticamente estos pools de almacenamiento y desactiva estos perfiles de código de borrado.
+
+
+
+
+== Diferencias entre el sitio conectado y los procedimientos de retirada de sitios desconectados
+
+Puede usar el procedimiento de retirada del sitio para quitar un sitio en el que todos los nodos están conectados a StorageGRID (conocido como decomiso de un sitio conectado) o para quitar un sitio en el que todos los nodos estén desconectados de StorageGRID (conocido como decomiso de sitio desconectado). Antes de comenzar, debe comprender las diferencias entre estos procedimientos.
+
+
+NOTE: Si un sitio contiene una mezcla de nodos conectados (image:../media/icon_alert_green_checkmark.png["Icono Alerta verde marca de verificación"]) y desconectados (image:../media/icon_alarm_gray_administratively_down.png["Icono alarma gris administrativamente abajo"] o image:../media/icon_alarm_blue_unknown.png["Icono alarma azul desconocida"]), debe volver a conectar todos los nodos sin conexión.
+
+* Una retirada de sitio conectado permite quitar un sitio operativo del sistema StorageGRID. Por ejemplo, puede realizar una retirada de sitio conectado para eliminar un sitio que sea funcional pero que ya no sea necesario.
+* Cuando StorageGRID quita un sitio conectado, utiliza ILM para gestionar los datos de los objetos del sitio. Antes de iniciar una retirada de sitios conectados, debe eliminar el sitio de todas las reglas de ILM y activar una nueva política de ILM. ILM procesos para migrar datos de objetos y los procesos internos para quitar un sitio pueden producirse a la vez, pero la práctica recomendada es permitir que se completen los pasos de ILM antes de iniciar el procedimiento de retirada real.
+* Una retirada de sitio desconectada permite quitar un sitio con errores del sistema StorageGRID. Por ejemplo, puede realizar un retiro de sitio desconectado para quitar un sitio que ha sido destruido por un incendio o inundación.
++
+Cuando StorageGRID quita un sitio desconectado, este considera que todos los nodos son irrecuperables y no intenta conservar los datos. Sin embargo, antes de iniciar una retirada de sitios desconectada, debe eliminar el sitio de todas las reglas de ILM y activar una nueva política de ILM.
+
++
+
+CAUTION: Antes de realizar un procedimiento de retirada de sitio desconectado, debe ponerse en contacto con el representante de su cuenta de NetApp. NetApp revisará sus requisitos antes de habilitar todos los pasos en el asistente del sitio de retirada. No debería intentar retirar un sitio desconectado si cree que podría recuperar el sitio o recuperar datos de objeto del sitio.
+
+
+
+
+
+== Requisitos generales para quitar un sitio conectado o desconectado
+
+Antes de quitar un sitio conectado o desconectado, debe tener en cuenta los siguientes requisitos:
+
+* No puede retirar un sitio que incluya el nodo de administración principal.
+* No puede decomisionar un sitio si alguno de los nodos tiene una interfaz que pertenezca a un grupo de alta disponibilidad. Debe editar el grupo de alta disponibilidad para quitar la interfaz del nodo o quitar todo el grupo de alta disponibilidad.
+* No puede retirar un sitio si contiene una mezcla deimage:../media/icon_alarm_gray_administratively_down.png["Icono alarma gris administrativamente abajo"] nodos conectados (image:../media/icon_alert_green_checkmark.png["Icono Alerta verde marca de verificación"]) y desconectados (image:../media/icon_alarm_blue_unknown.png["Icono alarma azul desconocida"] o ).
+* No puede retirar un sitio si algún nodo de otro sitio está desconectado (image:../media/icon_alarm_blue_unknown.png["Icono alarma azul desconocida"] o image:../media/icon_alarm_gray_administratively_down.png["Icono alarma gris administrativamente abajo"]).
+* No puede iniciar el procedimiento de retirada del sitio si hay una operación de reparación ec-nodo-en curso. Consulte link:checking-data-repair-jobs.html["Compruebe los trabajos de reparación de datos"] para realizar un seguimiento de las reparaciones de datos con código de borrado.
+* Mientras se está ejecutando el procedimiento de retirada de instalaciones:
++
+** No se pueden crear reglas de ILM que hagan referencia al sitio que se va a retirar. Tampoco puede editar una regla de ILM existente para hacer referencia al sitio.
+** No se pueden llevar a cabo otros procedimientos de mantenimiento, como la ampliación o la actualización.
++
+
+NOTE: Si necesita realizar otro procedimiento de mantenimiento durante una retirada del sitio conectado, puede link:pausing-and-resuming-decommission-process-for-storage-nodes.html["Detenga el procedimiento mientras se quitan los nodos de almacenamiento"]. El botón *Pausa* sólo se activa cuando se alcanzan las etapas de evaluación de ILM o de retirada de datos con código de borrado; sin embargo, la evaluación de ILM (migración de datos) continuará ejecutándose en segundo plano. Una vez completado el segundo procedimiento de mantenimiento, puede reanudar el decomisionado.
+
+** Si necesita recuperar algún nodo después de iniciar el procedimiento de retirada del sitio, debe ponerse en contacto con el servicio de soporte de.
+
+
+* No puede retirar más de un sitio a la vez.
+* Si el sitio incluye uno o más nodos de administración y el inicio de sesión único (SSO) está habilitado para el sistema StorageGRID, debe quitar todas las confianzas de partes que dependan del sitio de los Servicios de Federación de Active Directory (AD FS).
+
+
+
+
+== Requisitos para la gestión del ciclo de vida de la información (ILM)
+
+Como parte de la eliminación de un sitio, debe actualizar la configuración de ILM. El asistente para el sitio de retirada le guía a través de una serie de pasos previos para garantizar lo siguiente:
+
+* El sitio no está referido por ninguna política de ILM. Si es, debe editar las políticas o crear y activar políticas con nuevas reglas de ILM.
+* Las reglas de ILM no hacen referencia al sitio, incluso si no se utilizan en ninguna política. Debe eliminar o editar todas las reglas que hacen referencia al sitio.
+
+
+Cuando StorageGRID decomisiona el sitio, desactivará automáticamente todos los perfiles de código de borrado no utilizados que hagan referencia al sitio y eliminará automáticamente los grupos de almacenamiento no utilizados que hagan referencia al sitio. Si existe un pool de almacenamiento Todos los nodos de almacenamiento (StorageGRID 11,6 y anteriores), se elimina porque utiliza todos los sitios.
+
+
+CAUTION: Antes de quitar un sitio, puede que sea necesario crear nuevas reglas de ILM y activar una nueva política de ILM. En estas instrucciones, se asume que comprende bien cómo funciona ILM y que está familiarizado con la creación de pools de almacenamiento, perfiles de codificación de borrado, reglas de ILM, y la simulación y activación de una política de ILM. Consulte link:../ilm/index.html["Gestión de objetos con ILM"].
+
+
+
+== Consideraciones sobre los datos del objeto en un sitio conectado
+
+Si va a realizar una retirada de sitios conectados, debe decidir qué hacer con los datos de objetos existentes en el sitio al crear nuevas reglas de ILM y una nueva política de ILM. Puede realizar una de las siguientes acciones o ambas:
+
+* Mueva los datos del objeto del sitio seleccionado a uno o más sitios de la cuadrícula.
++
+*Ejemplo para el traslado de datos*: Suponga que desea retirar un sitio en Raleigh porque agregó un nuevo sitio en Sunnyvale. En este ejemplo, desea mover todos los datos del objeto del sitio antiguo al sitio nuevo. Antes de actualizar las reglas de ILM y las políticas de ILM, debe revisar la capacidad en ambos sitios. Debe asegurarse de que el site de Sunnyvale tenga suficiente capacidad para acomodar los datos de objetos desde el site de Raleigh y que permanecerá en Sunnyvale la capacidad adecuada para su crecimiento futuro.
+
++
+
+NOTE: Para garantizar que la capacidad disponible sea adecuada, es posible que deba link:../expand/index.html["expanda una cuadrícula"]añadir volúmenes de almacenamiento o nodos de almacenamiento a un sitio existente o añadir un sitio nuevo antes de realizar este procedimiento.
+
+* Eliminar copias de objeto del sitio seleccionado.
++
+*Ejemplo para eliminar datos*: Suponga que actualmente utiliza una regla ILM de 3 copias para replicar datos de objetos en tres sitios. Antes de retirar un sitio, puede crear una regla de ILM equivalente con 2 copias para almacenar datos en solo dos sitios. Cuando activa una nueva política de ILM que usa la regla de dos copias, StorageGRID elimina las copias del tercer sitio porque ya no satisfacen los requisitos de ILM. Sin embargo, los datos del objeto se seguirán protegiendo y la capacidad de los dos sitios restantes será la misma.
+
++
+
+CAUTION: No cree nunca una regla de ILM de una sola copia para acomodar la eliminación de un sitio. Una regla de ILM que crea solo una copia replicada en cualquier periodo de tiempo pone los datos en riesgo de pérdida permanente. Si sólo existe una copia replicada de un objeto, éste se pierde si falla un nodo de almacenamiento o tiene un error importante. También perderá temporalmente el acceso al objeto durante procedimientos de mantenimiento, como las actualizaciones.
+
+
+
+
+
+== Requisitos adicionales para una retirada de sitios conectados
+
+Antes de que StorageGRID pueda eliminar un sitio conectado, debe asegurarse de lo siguiente:
+
+* Todos los nodos del sistema StorageGRID deben tener un estado de conexión *Conectado* (image:../media/icon_alert_green_checkmark.png["Icono Alerta verde marca de verificación"]); sin embargo, los nodos pueden tener alertas activas.
++
+
+NOTE: Puede completar los pasos 1-4 del Asistente para sitio de retirada si uno o más nodos están desconectados. Sin embargo, no puede completar el paso 5 del asistente, que inicia el proceso de retirada, a menos que todos los nodos estén conectados.
+
+* Si el sitio que va a eliminar contiene un nodo de gateway o un nodo de administración que se utiliza para el equilibrio de carga, es posible que deba link:../expand/index.html["expanda una cuadrícula"]agregar un nuevo nodo equivalente en otro sitio. Asegúrese de que los clientes pueden conectarse al nodo de repuesto antes de iniciar el procedimiento de retirada del sitio.
+* Si el sitio que va a eliminar contiene cualquier nodo de puerta de enlace o nodo de administración que se encuentre en un grupo de alta disponibilidad (ha), puede completar los pasos 1-4 del asistente para sitio de retirada. Sin embargo, no puede completar el Paso 5 del asistente, que inicia el proceso de decomiso hasta que elimine estos nodos de todos los grupos HA. Si los clientes existentes se conectan a un grupo de alta disponibilidad que incluye nodos del sitio, debe asegurarse de que pueden continuar conectando a StorageGRID después de eliminar el sitio.
+* Si los clientes se conectan directamente a nodos de almacenamiento del sitio que va a quitar, debe asegurarse de que pueden conectarse a nodos de almacenamiento en otros sitios antes de iniciar el procedimiento de retirada del sitio.
+* Debe proporcionar espacio suficiente en los sitios restantes para acomodar cualquier dato de objetos que se moverá debido a los cambios en cualquier política de ILM activa. En algunos casos, es posible que sea necesario link:../expand/index.html["expanda una cuadrícula"]añadir nodos de almacenamiento, volúmenes de almacenamiento o nuevos sitios antes de completar una retirada del sitio conectado.
+* Debe dejar tiempo suficiente para completar el procedimiento de retirada. Los procesos de ILM de StorageGRID pueden tardar días, semanas o incluso meses en mover o eliminar datos de objetos del sitio antes de dejar de lado el sitio.
++
+
+NOTE: La transferencia o eliminación de datos de objetos de un sitio puede llevar días, semanas o incluso meses, en función de la cantidad de datos almacenados en el sitio, la carga en el sistema, las latencias de red y la naturaleza de los cambios de ILM necesarios.
+
+* Siempre que sea posible, debe completar los pasos 1-4 del Asistente para sitio de retirada tan pronto como pueda. El procedimiento de retirada de servicio se completará más rápidamente y con menos interrupciones e impactos en el rendimiento si permite que los datos se muevan desde el sitio antes de iniciar el procedimiento de retirada real (seleccionando *Iniciar misión* en el paso 5 del asistente).
+
+
+
+
+== Requisitos adicionales para una retirada de sitios desconectada
+
+Antes de que StorageGRID pueda quitar un sitio desconectado, debe asegurarse de lo siguiente:
+
+* Se ha puesto en contacto con el representante de cuentas de NetApp. NetApp revisará sus requisitos antes de habilitar todos los pasos en el asistente del sitio de retirada.
++
+
+CAUTION: No debería intentar retirar un sitio desconectado si cree que podría recuperar el sitio o recuperar cualquier dato de objeto del sitio. Consulte link:how-site-recovery-is-performed-by-technical-support.html["Cómo el soporte técnico recupera un sitio"].
+
+* Todos los nodos del sitio deben tener el estado de conexión de uno de los siguientes:
++
+** *Desconocido* (image:../media/icon_alarm_blue_unknown.png["Icono alarma azul desconocida"]): Por una razón desconocida, un nodo está desconectado o los servicios en el nodo están inesperadamente apagados. Por ejemplo, un servicio del nodo podría estar detenido o podría haber perdido la conexión de red debido a un fallo de alimentación o a un corte inesperado.
+** *Administrativamente abajo* (image:../media/icon_alarm_gray_administratively_down.png["Icono alarma gris administrativamente abajo"]): El nodo no está conectado a la red por una razón esperada. Por ejemplo, el nodo o los servicios del nodo se han apagado correctamente.
+
+
+* Todos los nodos de todos los demás sitios deben tener el estado de conexión *Connected* (image:../media/icon_alert_green_checkmark.png["Icono Alerta verde marca de verificación"]); sin embargo, estos otros nodos pueden tener alertas activas.
+* Debe entender que ya no podrá utilizar StorageGRID para ver o recuperar los datos de objeto almacenados en el sitio. Cuando StorageGRID realiza este procedimiento, no intenta conservar ningún dato del sitio desconectado.
++
+
+NOTE: Si sus reglas y políticas de ILM se diseñaron para proteger contra la pérdida de un solo sitio, seguirán existiendo copias de los objetos en los sitios restantes.
+
+* Debe entender que si el sitio contenía la única copia de un objeto, el objeto se pierde y no se puede recuperar.
+
+
+
+
+== Consideraciones de coherencia al eliminar un sitio
+
+La consistencia de un bloque de S3 determina si StorageGRID replica completamente los metadatos de objetos en todos los nodos y sitios antes de indicar a un cliente que la ingesta del objeto se ha realizado correctamente. La consistencia proporciona un equilibrio entre la disponibilidad de los objetos y la coherencia de dichos objetos en distintos nodos de almacenamiento y sitios.
+
+Cuando StorageGRID quita un sitio, éste debe asegurarse de que no se escribe ningún dato en el sitio que se va a quitar. Como resultado, anula temporalmente la coherencia de cada cubo o contenedor. Tras iniciar el proceso de retirada del sitio, StorageGRID utiliza temporalmente consistencia de sitio seguro para evitar que los metadatos del objeto se escriban en el sitio que se está quitando.
+
+Como resultado de esta sustitución temporal, tenga en cuenta que cualquier operación de escritura, actualización y eliminación de cliente que se produzca durante un decomiso de sitio puede fallar si varios nodos dejan de estar disponibles en los sitios restantes.

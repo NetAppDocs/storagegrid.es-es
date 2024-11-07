@@ -1,0 +1,63 @@
+---
+permalink: maintain/configuring-dns-servers.html 
+sidebar: sidebar 
+keywords: storagegrid, dns, configuring dns, configure dns, domain name system 
+summary: 'Puede agregar, eliminar y actualizar servidores DNS, de modo que pueda utilizar nombres de host de nombre de dominio completo \(FQDN\) en lugar de direcciones IP.' 
+---
+= Configurar servidores DNS
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede agregar, actualizar y eliminar servidores DNS, de manera que pueda utilizar nombres de host de nombre de dominio completo (FQDN) en lugar de direcciones IP.
+
+Para utilizar nombres de dominio completos (FQDN) en lugar de direcciones IP al especificar nombres de host para destinos externos, especifique la dirección IP de cada servidor DNS que utilizará. Estas entradas se utilizan para AutoSupport, correos electrónicos de alerta, notificaciones SNMP, extremos de servicios de plataforma, pools de almacenamiento en la nube, y mucho más.
+
+.Antes de empezar
+* Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Usted tiene el link:../admin/admin-group-permissions.html["Permiso de mantenimiento o acceso raíz"].
+* Tiene las direcciones IP de los servidores DNS que se van a configurar.
+
+
+.Acerca de esta tarea
+Para garantizar que el funcionamiento sea correcto, especifique dos o tres servidores DNS. Si especifica más de tres, es posible que solo se utilicen tres debido a las limitaciones conocidas del sistema operativo en algunas plataformas. Si tiene restricciones de enrutamiento en su entorno, puede link:../maintain/modifying-dns-configuration-for-single-grid-node.html["Personalice la lista de servidores DNS"] que los nodos individuales (normalmente todos los nodos en un sitio) usen un conjunto diferente de hasta tres servidores DNS.
+
+Si es posible, utilice servidores DNS a los que cada sitio puede acceder localmente para asegurarse de que un sitio islandn pueda resolver los FQDN para destinos externos.
+
+
+
+== Añada un servidor DNS
+
+Siga estos pasos para agregar un servidor DNS.
+
+.Pasos
+. Seleccione *MANTENIMIENTO* > *Red* > *Servidores DNS*.
+. Seleccione *Agregar otro servidor* para agregar un servidor DNS.
+. Seleccione *Guardar*.
+
+
+
+
+== Modificar un servidor DNS
+
+Siga estos pasos para modificar un servidor DNS.
+
+.Pasos
+. Seleccione *MANTENIMIENTO* > *Red* > *Servidores DNS*.
+. Seleccione la dirección IP del nombre del servidor que desea editar y realice los cambios necesarios.
+. Seleccione *Guardar*.
+
+
+
+
+== Eliminar un servidor DNS
+
+Siga estos pasos para eliminar una dirección IP de un servidor DNS.
+
+.Pasos
+. Seleccione *MANTENIMIENTO* > *Red* > *Servidores DNS*.
+. Seleccione el icono de eliminación image:../media/icon-x-to-remove.png["icono de eliminar"]junto a la dirección IP.
+. Seleccione *Guardar*.
+

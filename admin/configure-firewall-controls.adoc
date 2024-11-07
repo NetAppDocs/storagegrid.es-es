@@ -1,0 +1,150 @@
+---
+permalink: admin/configure-firewall-controls.html 
+sidebar: sidebar 
+keywords: firewall, privileged IP address, untrusted client network, configure firewall controls, monitor 
+summary: Es posible configurar el acceso de red para puertos StorageGRID internos específicos. 
+---
+= Configure el firewall interno
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede configurar el firewall de StorageGRID para controlar el acceso a la red a puertos específicos de los nodos de StorageGRID.
+
+.Antes de empezar
+* Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Tienes link:../admin/admin-group-permissions.html["permisos de acceso específicos"].
+* Ha revisado la información en link:../admin/manage-firewall-controls.html["Gestionar los controles del firewall"] y link:../network/index.html["Directrices sobre redes"].
+* Si desea que un nodo de administración o un nodo de puerta de enlace acepte tráfico entrante sólo en puntos finales configurados explícitamente, ha definido los puntos finales del equilibrador de carga.
++
+
+NOTE: Al cambiar la configuración de la red cliente, las conexiones de cliente existentes pueden fallar si no se han configurado los puntos finales del equilibrador de carga.
+
+
+
+.Acerca de esta tarea
+StorageGRID incluye un firewall interno en cada nodo que le permite abrir o cerrar algunos de los puertos en los nodos del grid. Puede utilizar las pestañas de control del firewall para abrir o cerrar los puertos que están abiertos de forma predeterminada en la red de grid, la red de administración y la red de cliente. También puede crear una lista de direcciones IP con privilegios que pueden acceder a los puertos de cuadrícula que están cerrados. Si utiliza una red cliente, puede especificar si un nodo confía en el tráfico entrante de la red cliente y puede configurar el acceso de puertos específicos en la red cliente.
+
+Limitar el número de puertos abiertos a direcciones IP fuera de su red a solo aquellos que son absolutamente necesarios mejora la seguridad de su red. Utilice la configuración en cada una de las tres pestañas de control de Firewall para asegurarse de que solo los puertos necesarios estén abiertos.
+
+Para obtener más información sobre el uso de controles de firewall, incluidos ejemplos, consulte link:../admin/manage-firewall-controls.html["Gestionar los controles del firewall"].
+
+Para obtener más información sobre los firewalls externos y la seguridad de la red, consulte link:../admin/controlling-access-through-firewalls.html["Controle el acceso a un firewall externo"].
+
+
+
+== Acceda a los controles del cortafuegos
+
+.Pasos
+. Selecciona *CONFIGURACIÓN* > *Seguridad* > *Control de firewall*.
++
+Las tres pestañas de esta página se describen en link:../admin/manage-firewall-controls.html["Gestionar los controles del firewall"].
+
+. Seleccione cualquier pestaña para configurar los controles del firewall.
++
+Puede utilizar estas pestañas en cualquier orden. Las configuraciones establecidas en una pestaña no limitan lo que puede hacer en las otras pestañas; sin embargo, los cambios de configuración que realice en una pestaña pueden cambiar el comportamiento de los puertos configurados en otras pestañas.
+
+
+
+
+
+== Lista de direcciones con privilegios
+
+Utilice el separador Lista de Direcciones con Privilegios para otorgar a los hosts acceso a los puertos que están cerrados por defecto o cerrados por valores en el separador Gestionar Acceso Externo.
+
+Las direcciones IP y subredes con privilegios no tienen acceso interno a la cuadrícula por defecto. Además, los puntos finales del equilibrador de carga y los puertos adicionales abiertos en la pestaña de lista de direcciones con privilegios son accesibles incluso si están bloqueados en la pestaña Gestionar acceso externo.
+
+
+NOTE: La configuración de la pestaña Lista de direcciones con privilegios no puede sustituir la configuración de la pestaña Red de clientes sin confianza.
+
+.Pasos
+. En la pestaña Lista de direcciones con privilegios, introduzca la dirección o subred IP que desea otorgar acceso a los puertos cerrados.
+. Opcionalmente, seleccione *Agregar otra dirección IP o subred en notación CIDR* para agregar clientes con privilegios adicionales.
++
+
+TIP: Agregue el menor número posible de direcciones a la lista de privilegios.
+
+. Opcionalmente, seleccione *Permitir direcciones IP privilegiadas para acceder a los puertos internos de StorageGRID*. Consulte link:../network/internal-grid-node-communications.html["Puertos internos StorageGRID"].
++
+
+TIP: Esta opción elimina algunas protecciones para los servicios internos. Déjelo desactivado si es posible.
+
+. Seleccione *Guardar*.
+
+
+
+
+== Gestione el acceso externo
+
+Cuando se cierra un puerto en la pestaña Administrar acceso externo, ninguna dirección IP que no sea de grid puede acceder al puerto a menos que agregue la dirección IP a la lista de direcciones con privilegios. Solo puede cerrar los puertos que están abiertos de forma predeterminada y sólo puede abrir los puertos que haya cerrado.
+
+
+NOTE: La configuración de la pestaña Administrar acceso externo no puede sustituir la configuración de la pestaña Red de cliente no confiable. Por ejemplo, si un nodo no es de confianza, el puerto SSH/22 se bloquea en la red cliente incluso si está abierto en la pestaña Gestionar acceso externo. La configuración de la pestaña Red de cliente no confiable anula los puertos cerrados (como 443, 8443, 9443) en la red cliente.
+
+.Pasos
+. Selecciona *Administrar acceso externo*. El separador muestra una tabla con todos los puertos externos (puertos a los que pueden acceder los nodos que no son de cuadrícula por defecto) para los nodos de la cuadrícula.
+. Configure los puertos que desea abrir y cerrar mediante las siguientes opciones:
++
+** Utilice la palanca situada junto a cada puerto para abrir o cerrar el puerto seleccionado.
+** Seleccione *Abrir todos los puertos mostrados* para abrir todos los puertos enumerados en la tabla.
+** Seleccione *Cerrar todos los puertos mostrados* para cerrar todos los puertos enumerados en la tabla.
++
+
+CAUTION: Si cierra los puertos 443 o 8443 de Grid Manager, cualquier usuario conectado actualmente a un puerto bloqueado, incluido usted, perderá el acceso a Grid Manager a menos que su dirección IP se haya agregado a la lista de direcciones con privilegios.
+
++
+
+NOTE: Utilice la barra de desplazamiento situada a la derecha de la tabla para asegurarse de que ha visto todos los puertos disponibles. Utilice el campo de búsqueda para buscar la configuración de cualquier puerto externo introduciendo un número de puerto. Puede introducir un número de puerto parcial. Por ejemplo, si introduce un *2*, se mostrarán todos los puertos que tengan la cadena “2” como parte de su nombre.
+
+
+
+. Seleccione *Guardar*
+
+
+
+
+== Red cliente no confiable
+
+Si la red cliente de un nodo no es de confianza, el nodo solo acepta el tráfico entrante en los puertos configurados como puntos finales de equilibrio de carga y, opcionalmente, los puertos adicionales que seleccione en esta pestaña. También puede usar esta pestaña para especificar la configuración predeterminada para los nuevos nodos agregados en una expansión.
+
+
+CAUTION: Las conexiones de cliente existentes podrían fallar si no se han configurado extremos de equilibrador de carga.
+
+Los cambios de configuración que realice en la pestaña *Red de clientes sin confianza* anulan la configuración de la pestaña *Administrar acceso externo*.
+
+.Pasos
+. Seleccione *Red cliente no confiable*.
+. En la sección Definir Nuevo Nodo por Defecto, especifique cuál debe ser el valor por defecto cuando se agregan nuevos nodos a la cuadrícula en un procedimiento de expansión.
++
+** *De confianza* (por defecto): Cuando se agrega un nodo en una expansión, su red cliente es de confianza.
+** *No fiable*: Cuando se agrega un nodo en una expansión, su red cliente no es de confianza.
++
+Según sea necesario, puede volver a esta pestaña para cambiar la configuración de un nuevo nodo específico.
+
++
+
+NOTE: Esta configuración no afecta a los nodos existentes del sistema StorageGRID.
+
+
+
+. Utilice las siguientes opciones para seleccionar los nodos que deben permitir conexiones de cliente solo en puntos finales del equilibrador de carga configurados explícitamente o puertos seleccionados adicionales:
++
+** Seleccione *Untrust on Visualized Nodes* para agregar todos los nodos mostrados en la tabla a la lista Untrusted Client Network.
+** Seleccione *Confiar en los nodos mostrados* para eliminar todos los nodos mostrados en la tabla de la lista Red de clientes sin confianza.
+** Utilice el conmutador situado junto a cada nodo para establecer la red cliente como de confianza o no de confianza para el nodo seleccionado.
++
+Por ejemplo, puede seleccionar *Untrust on displayed nodes* para agregar todos los nodos a la lista Untrusted Client Network y, a continuación, usar el conmutador junto a un nodo individual para agregar ese nodo a la lista Trusted Client Network.
+
++
+
+NOTE: Use la barra de desplazamiento en la parte derecha de la tabla para asegurarse de que ha visto todos los nodos disponibles. Utilice el campo de búsqueda para encontrar la configuración de cualquier nodo introduciendo el nombre del nodo. Puede introducir un nombre parcial. Por ejemplo, si introduce un *GW*, se mostrarán todos los nodos que tengan la cadena “GW” como parte de su nombre.
+
+
+
+. Seleccione *Guardar*.
++
+La nueva configuración del firewall se aplica y aplica inmediatamente. Las conexiones de cliente existentes podrían fallar si no se han configurado extremos de equilibrador de carga.
+
+

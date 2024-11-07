@@ -1,0 +1,98 @@
+---
+permalink: expand/copying-audit-logs.html 
+sidebar: sidebar 
+keywords: copy audit log, Admin Node expansion, 
+summary: Cuando agrega un nuevo nodo de administración a través de un procedimiento de expansión, su servicio AMS solo registra eventos y acciones que se producen después de que se une al sistema. Según sea necesario, se pueden copiar registros de auditoría de un nodo de administrador instalado previamente en el nuevo nodo de administrador de ampliación de modo que este se encuentre sincronizado con el resto del sistema de StorageGRID. 
+---
+= Copiar registros de auditoría
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cuando agrega un nuevo nodo de administración a través de un procedimiento de expansión, su servicio AMS solo registra eventos y acciones que se producen después de que se une al sistema. Según sea necesario, se pueden copiar registros de auditoría de un nodo de administrador instalado previamente en el nuevo nodo de administrador de ampliación de modo que este se encuentre sincronizado con el resto del sistema de StorageGRID.
+
+.Antes de empezar
+* Completó los pasos de ampliación necesarios para añadir un nodo de administrador.
+* Tiene el `Passwords.txt` archivo.
+
+
+.Acerca de esta tarea
+Para que los mensajes de auditoría históricos estén disponibles en un nodo de administración nuevo, debe copiar los archivos de registro de auditoría manualmente desde un nodo de administración existente al nodo de administración de expansión.
+
+[NOTE]
+====
+De manera predeterminada, se envía la información de auditoría al registro de auditoría en los nodos admin. Puede omitir estos pasos si se aplica alguna de las siguientes situaciones:
+
+* Se configuraron un servidor de syslog externo y registros de auditoría ahora se envían al servidor de syslog en lugar de a los nodos de administrador.
+* Ha especificado explícitamente que los mensajes de auditoría se deben guardar sólo en los nodos locales que los han generado.
+
+
+Consulte link:../monitor/configure-audit-messages.html["Configurar los mensajes de auditoría y los destinos de registro"] para obtener más información.
+
+====
+.Pasos
+. Inicie sesión en el nodo de administración principal:
++
+.. Introduzca el siguiente comando: `ssh _admin@_primary_Admin_Node_IP_`
+.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
+.. Introduzca el siguiente comando para cambiar a raíz: `su -`
+.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
++
+Al iniciar sesión como root, la petición de datos cambia de `$` a `#`.
+
+
+
+. Detenga el servicio AMS para evitar que cree un nuevo archivo: `service ams stop`
+. Navegue al directorio de exportación de auditoría:
++
+`cd /var/local/log`
+
+. Cambie el nombre del archivo de origen `audit.log` para asegurarse de que no sobrescriba el archivo en el nodo de administración de expansión en el que lo está copiando:
++
+[listing]
+----
+ls -l
+mv audit.log _new_name_.txt
+----
+. Copie todos los archivos de registro de auditoría en la ubicación de destino en el nodo de administración de expansión:
++
+`scp -p * _IP_address_:/var/local/log`
+
+. Si se le solicita la contraseña para `/root/.ssh/id_rsa`, introduzca la contraseña de acceso SSH para el nodo de administración principal que aparece en el `Passwords.txt` archivo.
+. Restaure el archivo original `audit.log`:
++
+`mv _new_name_.txt audit.log`
+
+. Inicie el servicio AMS:
++
+`service ams start`
+
+. Cierre la sesión en el servidor:
++
+`exit`
+
+. Inicie sesión en el nodo de administrador de ampliación:
++
+.. Introduzca el siguiente comando: `ssh admin@_expansion_Admin_Node_IP_`
+.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
+.. Introduzca el siguiente comando para cambiar a raíz: `su -`
+.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
++
+Al iniciar sesión como root, la petición de datos cambia de `$` a `#`.
+
+
+
+. Actualice la configuración del usuario y del grupo para los archivos de registro de auditoría:
++
+`cd /var/local/log`
+
++
+`chown ams-user:bycast *`
+
+. Cierre la sesión en el servidor:
++
+`exit`
+
+

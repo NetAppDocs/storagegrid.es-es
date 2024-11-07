@@ -1,0 +1,6 @@
+= 
+:allow-uri-read: 
+
+
+
+NOTE: Las capturas de pantalla mostradas son ejemplos. Los resultados pueden variar en función de la versión de StorageGRID.

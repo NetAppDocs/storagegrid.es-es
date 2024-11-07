@@ -1,0 +1,169 @@
+---
+permalink: fabricpool/creating-load-balancer-endpoint-for-fabricpool.html 
+sidebar: sidebar 
+keywords: fabricPool, load balancer, endpoint, load balancing, create, creating, certificate 
+summary: StorageGRID utiliza un balanceador de carga para gestionar la carga de trabajo desde aplicaciones cliente, como FabricPool. El equilibrio de carga maximiza la velocidad y la capacidad de conexión en varios nodos de almacenamiento. 
+---
+= Cree un extremo de equilibrador de carga para FabricPool
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID utiliza un balanceador de carga para gestionar la carga de trabajo desde aplicaciones cliente, como FabricPool. El equilibrio de carga maximiza la velocidad y la capacidad de conexión en varios nodos de almacenamiento.
+
+Al configurar StorageGRID para su uso con FabricPool, debe configurar un extremo de equilibrador de carga y cargar o generar un certificado de extremo de equilibrador de carga, que se utiliza para proteger la conexión entre ONTAP y StorageGRID.
+
+Para utilizar el asistente de configuración de FabricPool para completar esta tarea, vaya a link:use-fabricpool-setup-wizard-steps.html["Acceda al asistente de configuración de FabricPool y complete este"].
+
+.Antes de empezar
+* Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Usted tiene el link:../admin/admin-group-permissions.html["Permiso de acceso raíz"].
+* Usted ha revisado el generallink:../admin/managing-load-balancing.html["consideraciones que tener en cuenta al equilibrio de carga"], así como el link:best-practices-for-load-balancing.html["Prácticas recomendadas para el equilibrio de carga para FabricPool"].
+
+
+.Pasos
+. Seleccione *CONFIGURACIÓN* > *Red* > *terminales de equilibrador de carga*.
+. Seleccione *Crear*.
+. Para el paso *Introducir detalles de punto final*, complete los siguientes campos.
++
+[cols="1a,2a"]
+|===
+| Campo | Descripción 
+
+
+ a| 
+Nombre
+ a| 
+Nombre descriptivo para el punto final.
+
+
+
+ a| 
+Puerto
+ a| 
+El puerto StorageGRID que desea usar para el equilibrio de carga. Este campo se establece por defecto en 10433 para el primer punto final que cree, pero puede introducir cualquier puerto externo no utilizado. Si introduce 80 o 443, el punto final se configura sólo en los nodos de Gateway. Estos puertos están reservados en los nodos de administrador.
+
+*Nota:* Los puertos utilizados por otros servicios de red no están permitidos. Consulte la link:../network/internal-grid-node-communications.html["Referencia de puerto de red"].
+
+Proporcionará este número a ONTAP cuando adjunte StorageGRID como nivel de cloud de FabricPool.
+
+
+
+ a| 
+Tipo de cliente
+ a| 
+Selecciona *S3*.
+
+
+
+ a| 
+Protocolo de red
+ a| 
+Seleccione *HTTPS*.
+
+*Nota*: La comunicación con StorageGRID sin cifrado TLS es compatible, pero no se recomienda.
+
+|===
+. Para el paso *Select Binding mode*, especifique el modo de encuadernación. El modo de enlace controla cómo se accede al punto final mediante cualquier dirección IP o mediante direcciones IP e interfaces de red específicas.
++
+[cols="1a,3a"]
+|===
+| Modo | Descripción 
+
+
+ a| 
+Global (predeterminado)
+ a| 
+Los clientes pueden acceder al punto final mediante la dirección IP de cualquier nodo de gateway o nodo de administración, la dirección IP virtual (VIP) de cualquier grupo de alta disponibilidad en cualquier red o un FQDN correspondiente.
+
+Utilice el ajuste *Global* (predeterminado) a menos que necesite restringir la accesibilidad de este extremo.
+
+
+
+ a| 
+IP virtuales de grupos de alta disponibilidad
+ a| 
+Los clientes deben usar una dirección IP virtual (o el FQDN correspondiente) de un grupo de alta disponibilidad para acceder a este extremo.
+
+Los puntos finales con este modo de enlace pueden utilizar el mismo número de puerto, siempre y cuando los grupos de alta disponibilidad que seleccione para los puntos finales no se superpongan.
+
+
+
+ a| 
+Interfaces de nodos
+ a| 
+Los clientes deben usar las direcciones IP (o FQDN correspondientes) de las interfaces de nodo seleccionadas para acceder a este punto final.
+
+
+
+ a| 
+Tipo de nodo
+ a| 
+En función del tipo de nodo que seleccione, los clientes deben usar la dirección IP (o el FQDN correspondiente) de cualquier nodo de administración o la dirección IP (o el FQDN correspondiente) de cualquier nodo de puerta de enlace para acceder a este extremo.
+
+|===
+. Para el paso *Acceso de inquilino*, seleccione una de las siguientes opciones:
++
+[cols="1a,2a"]
+|===
+| Campo | Descripción 
+
+
+ a| 
+Permitir todos los inquilinos (predeterminado)
+ a| 
+Todas las cuentas de inquilino pueden usar este extremo para acceder a sus bloques.
+
+*Permitir a todos los inquilinos* es casi siempre la opción apropiada para el punto final del equilibrador de carga utilizado para FabricPool.
+
+Debe seleccionar esta opción si aún no ha creado ninguna cuenta de arrendatario.
+
+
+
+ a| 
+Permitir arrendatarios seleccionados
+ a| 
+Solo las cuentas de inquilino seleccionadas pueden usar este extremo para acceder a sus bloques.
+
+
+
+ a| 
+Bloquear inquilinos seleccionados
+ a| 
+Las cuentas de inquilino seleccionadas no pueden utilizar este punto final para acceder a sus bloques. Todos los demás inquilinos pueden usar este extremo.
+
+|===
+. Para el paso *Adjuntar certificado*, seleccione una de las siguientes opciones:
++
+[cols="1a,2a"]
+|===
+| Campo | Descripción 
+
+
+ a| 
+Cargar certificado (recomendado)
+ a| 
+Use esta opción para cargar un certificado de servidor firmado por CA, una clave privada de certificado y un paquete de CA opcional.
+
+
+
+ a| 
+Generar certificado
+ a| 
+Use esta opción para generar un certificado autofirmado. Consulte link:../admin/configuring-load-balancer-endpoints.html["Configurar puntos finales del equilibrador de carga"] para obtener más información sobre los elementos que se deben introducir.
+
+
+
+ a| 
+Utilice el certificado StorageGRID S3
+ a| 
+Esta opción solo está disponible si ya ha cargado o generado una versión personalizada del certificado global de StorageGRID. Consulte link:../admin/configuring-custom-server-certificate-for-storage-node.html["Configure los certificados de API S3"] para obtener más información.
+
+|===
+. Seleccione *Crear*.
+
+
+
+NOTE: Los cambios en el certificado de extremo pueden tardar hasta 15 minutos en aplicarse a todos los nodos.

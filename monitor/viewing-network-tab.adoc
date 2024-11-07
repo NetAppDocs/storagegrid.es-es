@@ -1,0 +1,25 @@
+---
+permalink: monitor/viewing-network-tab.html 
+sidebar: sidebar 
+keywords: network tab 
+summary: La pestaña Red muestra un gráfico que muestra el tráfico de red recibido y enviado a través de todas las interfaces de red del nodo, sitio o cuadrícula. 
+---
+= Abra la pestaña Network
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La pestaña Red muestra un gráfico que muestra el tráfico de red recibido y enviado a través de todas las interfaces de red del nodo, sitio o cuadrícula.
+
+La pestaña Red se muestra para todos los nodos, sitios y toda la cuadrícula.
+
+Para mostrar un intervalo de tiempo diferente, seleccione uno de los controles situados encima del gráfico o gráfico. Puede visualizar la información disponible para intervalos de 1 hora, 1 día, 1 semana o 1 mes. También puede establecer un intervalo personalizado, que le permite especificar intervalos de fecha y hora.
+
+Para los nodos, la tabla de interfaces de red proporciona información acerca de los puertos de red física de cada nodo. La tabla de comunicaciones de red proporciona detalles acerca de las operaciones de recepción y transmisión de cada nodo y de cualquier contador de fallos informado por el controlador.
+
+image::../media/nodes_page_network_tab.png[Página Nodes pestaña Network]
+
+.Información relacionada
+link:monitoring-network-connections-and-performance.html["Supervisar las conexiones de red y el rendimiento"]

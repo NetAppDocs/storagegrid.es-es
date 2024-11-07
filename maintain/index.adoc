@@ -1,0 +1,33 @@
+---
+permalink: maintain/index.html 
+sidebar: sidebar 
+keywords: maintain overview, maintenance overview, about maintain, about maintenance 
+summary: Las tareas de mantenimiento de grid incluyen la retirada de un nodo o un sitio, el cambio de nombre a un grid, nodo o sitio, y el mantenimiento de la red. También puede realizar procedimientos de host y middleware y procedimientos de nodo de grid. 
+---
+= Mantenimiento de la red
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Las tareas de mantenimiento de grid incluyen la retirada de un nodo o un sitio, el cambio de nombre a un grid, nodo o sitio, y el mantenimiento de redes. También puede realizar procedimientos de host y middleware y procedimientos de nodo de grid.
+
+
+NOTE: En estas instrucciones, “Linux” se refiere a una implementación de Red Hat® Enterprise Linux®, Ubuntu® o Debian®. Para obtener una lista de las versiones compatibles, consulte la https://imt.netapp.com/matrix/#welcome["Herramienta de matriz de interoperabilidad de NetApp"^].
+
+
+
+== Antes de empezar
+
+* Debe conocer en gran medida el sistema StorageGRID.
+* Ha revisado la topología del sistema StorageGRID y comprende la configuración de grid.
+* Usted entiende que usted debe seguir todas las instrucciones exactamente y tener en cuenta todas las advertencias.
+* Usted entiende que los procedimientos de mantenimiento no descritos no son compatibles o requieren un acuerdo de servicios.
+
+
+
+
+== Procedimientos de mantenimiento para aparatos
+
+Para conocer los procedimientos de hardware, consulte la https://docs.netapp.com/us-en/storagegrid-appliances/commonhardware/index.html["Instrucciones de mantenimiento para su dispositivo StorageGRID"^].

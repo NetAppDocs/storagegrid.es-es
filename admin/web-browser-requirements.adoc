@@ -1,0 +1,60 @@
+---
+permalink: admin/web-browser-requirements.html 
+sidebar: sidebar 
+keywords: web browser requirements, supported browser, chrome, edge, firefox 
+summary: Debe utilizar un navegador web compatible. 
+---
+= Requisitos del navegador web
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe utilizar un navegador web compatible.
+
+[cols="2a,2a"]
+|===
+| Navegador Web | Versión mínima admitida 
+
+
+ a| 
+Google Chrome
+ a| 
+119
+
+
+
+ a| 
+Microsoft Edge
+ a| 
+119
+
+
+
+ a| 
+Mozilla Firefox
+ a| 
+119
+
+|===
+Debe establecer la ventana del navegador en un ancho recomendado.
+
+[cols="3a,1a"]
+|===
+| Ancho del navegador | Píxeles 
+
+
+ a| 
+Mínimo
+ a| 
+1024
+
+
+
+ a| 
+Óptimo
+ a| 
+1280
+
+|===

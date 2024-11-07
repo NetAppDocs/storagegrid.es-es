@@ -1,0 +1,108 @@
+---
+permalink: tenant/viewing-s3-bucket-details.html 
+sidebar: sidebar 
+keywords: how to view bucket details 
+summary: Puede ver los depósitos en su cuenta de inquilino. 
+---
+= Ver detalles del período
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede ver los depósitos en su cuenta de inquilino.
+
+.Antes de empezar
+* Ha iniciado sesión en el gestor de inquilinos mediante un link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Pertenece a un grupo de usuarios que tiene el link:tenant-management-permissions.html["Acceso raíz, Gestionar todos los bloques o Ver todos los bloques"]. Estos permisos anulan la configuración de permisos en las políticas de grupo o bloque.
+
+
+.Pasos
+. Seleccione *Ver cubos* en el panel de control o seleccione *ALMACENAMIENTO (S3)* > *Buckets*.
++
+Aparecerá la página Buckets.
+
+. Revise la tabla de resumen de cada segmento.
++
+Según sea necesario, puede ordenar la información por cualquier columna o puede avanzar y retroceder por la lista.
+
++
+
+NOTE: Los valores de Recuento de objetos, Espacio utilizado y Uso que se muestran son estimaciones. Estas estimaciones se ven afectadas por el tiempo de los ingests, la conectividad de red y el estado del nodo. Si los bloques tienen habilitado el control de versiones, las versiones de objetos eliminados se incluyen en el recuento de objetos.
+
++
+Nombre:: El nombre único del depósito, que no se puede cambiar.
+Funciones activadas:: Lista de funciones activadas para el depósito.
+Bloqueo de objetos de S3:: Si el bloqueo de objetos S3 está activado para el depósito.
++
+--
+Esta columna sólo aparece si Bloqueo de objetos S3 está activado para la cuadrícula. Esta columna también muestra información para todos los segmentos compatibles anteriores.
+
+--
+Región:: La región del cubo, que no se puede cambiar. Esta columna está oculta por defecto.
+Recuento de objetos:: Núm. De objetos en este depósito. Si los cubos tienen el control de versiones activado, se incluyen versiones de objetos no actuales en este valor.
++
+--
+Cuando se agregan o se eliminan objetos, es posible que este valor no se actualice de inmediato.
+
+--
+Espacio utilizado:: El tamaño lógico de todos los objetos del bloque. El tamaño lógico no incluye el espacio real necesario para las copias replicadas o con código de borrado o para los metadatos de objetos.
++
+--
+Este valor puede tardar hasta 10 minutos en actualizarse.
+
+--
+Uso:: El porcentaje utilizado del límite de capacidad del bloque, si se estableció uno.
++
+--
+El valor de uso se basa en estimaciones internas y puede superarse en algunos casos. Por ejemplo, StorageGRID comprueba el límite de capacidad (si está configurado) cuando un inquilino comienza a cargar objetos y rechaza entradas nuevas en este bloque si el inquilino ha superado el límite de capacidad. Sin embargo, StorageGRID no tiene en cuenta el tamaño de la carga actual al determinar si se ha superado el límite de capacidad. Si se eliminan objetos, es posible que un inquilino no cargue temporalmente objetos nuevos en este depósito hasta que se vuelva a calcular el uso de límite de capacidad. Los cálculos pueden tardar 10 minutos o más.
+
+Este valor indica el tamaño lógico, no el tamaño físico necesario para almacenar los objetos y sus metadatos.
+
+--
+Capacidad:: Si está configurado, el límite de capacidad para el cucharón.
+Fecha de creación:: La fecha y la hora en la que se creó el bloque. Esta columna está oculta por defecto.
+
+
+. Para ver los detalles de un cubo específico, seleccione el nombre del cubo en la tabla.
++
+.. Consulte la información de resumen en la parte superior de la página web para confirmar los detalles del depósito, como Región y Recuento de objetos.
+.. Vea la barra de uso del límite de capacidad. Si el uso es del 100% o cerca del 100%, considere aumentar el límite o eliminar algunos objetos.
+.. Según sea necesario, seleccione *Eliminar objetos en el cubo* y *Eliminar cubo*.
++
+[CAUTION]
+====
+Preste mucha atención a las precauciones que aparecen al seleccionar cada una de estas opciones. Para obtener más información, consulte:
+
+*** link:deleting-s3-bucket-objects.html["Eliminar todos los objetos de un depósito"]
+*** link:deleting-s3-bucket.html["Eliminar un cubo"] (el cucharón debe estar vacío)
+
+
+====
+.. Vea o cambie la configuración del depósito en cada una de las pestañas según sea necesario.
++
+*** *Consola S3*: Ver los objetos del cubo. Para obtener más información, consulte link:use-s3-console.html["Utilice la consola S3"].
+*** *Opciones de cubo*: Ver o cambiar la configuración de las opciones. Algunas configuraciones, como Bloqueo de objetos S3, no se pueden cambiar después de crear el depósito.
++
+**** link:manage-bucket-consistency.html["Gestione la coherencia de los bloques"]
+**** link:enabling-or-disabling-last-access-time-updates.html["Últimas actualizaciones de hora de acceso"]
+**** link:../tenant/creating-s3-bucket.html#capacity-limit["Límite de capacidad"]
+**** link:changing-bucket-versioning.html["Control de versiones de objetos"]
+**** link:using-s3-object-lock.html["Bloqueo de objetos de S3"]
+**** link:update-default-retention-settings.html["Retención de cucharón por defecto"]
+**** link:grid-federation-manage-cross-grid-replication.html["Gestionar la replicación entre grid"] (si está permitido para el inquilino)
+
+
+*** *Servicios de la plataforma*: link:considerations-for-platform-services.html["Gestione los servicios de la plataforma"] (Si está permitido para el inquilino)
+*** *Acceso a cubos*: Ver o cambiar la configuración de opciones. Debe tener permisos de acceso específicos.
++
+**** Configure link:configuring-cross-origin-resource-sharing-cors.html["Uso compartido de recursos de origen cruzado (CORS)"] para que las aplicaciones web de otros dominios puedan acceder al depósito y los objetos del depósito.
+**** link:../tenant/manage-bucket-policy.html["Controle el acceso de usuarios"] Para un cubo S3 y objetos en ese cubo.
+
+
+
+
+
+
+

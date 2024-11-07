@@ -1,0 +1,483 @@
+---
+permalink: network/internal-grid-node-communications.html 
+sidebar: sidebar 
+keywords: storagegrid, network port, internal communications, ports, TCP, UDP, grid communications, port 
+summary: 'El firewall interno de StorageGRID sólo permite conexiones entrantes a puertos específicos de la red de cuadrícula, con la excepción de los puertos 22, 80, 123 y 443 \(consulte la información acerca de las comunicaciones externas\). Las conexiones también se aceptan en los puertos definidos por puntos finales del equilibrador de carga.' 
+---
+= Comunicaciones internas de los nodos de grid
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+El firewall interno de StorageGRID permite conexiones entrantes a puertos específicos de la red de grid. Las conexiones también se aceptan en los puertos definidos por puntos finales del equilibrador de carga.
+
+
+NOTE: NetApp recomienda habilitar el tráfico del protocolo de mensajes de control de Internet (ICMP) entre los nodos de grid. Habilitar el tráfico ICMP puede mejorar el rendimiento de conmutación al respaldo cuando no se puede alcanzar un nodo de grid.
+
+Además de ICMP y los puertos enumerados en la tabla, StorageGRID utiliza el Protocolo de redundancia del enrutador virtual (VRRP). VRRP es un protocolo de Internet que utiliza el número de protocolo IP 112. StorageGRID utiliza VRRP sólo en modo unidifusión. VRRP sólo es necesario si link:../admin/managing-high-availability-groups.html["grupos de alta disponibilidad"] están configurados.
+
+
+
+== Directrices para nodos basados en Linux
+
+Si las políticas de redes empresariales restringen el acceso a cualquiera de estos puertos, puede reasignar puertos en el momento de la implementación mediante un parámetro de configuración de implementación. Para obtener más información acerca de la reasignación de puertos y los parámetros de configuración de implementación, consulte:
+
+* link:../rhel/index.html["Instalar StorageGRID en Red Hat Enterprise Linux"]
+* link:../ubuntu/index.html["Instalar StorageGRID en Ubuntu o Debian"]
+
+
+
+
+== Directrices para nodos basados en VMware
+
+Configure los siguientes puertos únicamente si necesita definir restricciones de firewall externas a la red de VMware.
+
+Si las políticas de redes empresariales restringen el acceso a cualquiera de estos puertos, puede reasignar los puertos al implementar nodos mediante VMware vSphere Web Client o mediante un valor de archivo de configuración al automatizar la puesta en marcha de nodos de grid. Para obtener más información sobre la reasignación de puertos y los parámetros de configuración de despliegue, consulte link:../vmware/index.html["Instale StorageGRID en VMware"].
+
+
+
+== Directrices para nodos de dispositivos
+
+Si las directivas de redes empresariales restringen el acceso a cualquiera de estos puertos, puede reasignar puertos mediante el instalador de dispositivos de StorageGRID. Consulte https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/optional-remapping-network-ports-for-appliance.html["Opcional: Reasignar puertos de red para el dispositivo"^].
+
+
+
+== Puertos internos StorageGRID
+
+[cols="1a,1a,1a,1a,4a"]
+|===
+| Puerto | TCP o UDP | De | Para | Detalles 
+
+
+ a| 
+22
+ a| 
+TCP
+ a| 
+Nodo de administrador principal
+ a| 
+Todos los nodos
+ a| 
+Para realizar procedimientos de mantenimiento, el nodo administrador principal debe poder comunicarse con los demás nodos mediante SSH en el puerto 22. Permitir el tráfico SSH desde otros nodos es opcional.
+
+
+
+ a| 
+80
+ a| 
+TCP
+ a| 
+Dispositivos
+ a| 
+Nodo de administrador principal
+ a| 
+Lo usan los dispositivos StorageGRID para comunicarse con el nodo administrador principal para iniciar la instalación.
+
+
+
+ a| 
+123
+ a| 
+UDP
+ a| 
+Todos los nodos
+ a| 
+Todos los nodos
+ a| 
+Servicio de protocolo de hora de red. Cada nodo sincroniza su hora con todos los demás nodos mediante NTP.
+
+
+
+ a| 
+443
+ a| 
+TCP
+ a| 
+Todos los nodos
+ a| 
+Nodo de administrador principal
+ a| 
+Se utiliza para comunicar el estado al nodo de administración principal durante la instalación y otros procedimientos de mantenimiento.
+
+
+
+ a| 
+1055
+ a| 
+TCP
+ a| 
+Todos los nodos
+ a| 
+Nodo de administrador principal
+ a| 
+Tráfico interno para instalación, expansión, recuperación y otros procedimientos de mantenimiento.
+
+
+
+ a| 
+1139
+ a| 
+TCP
+ a| 
+Nodos de almacenamiento
+ a| 
+Nodos de almacenamiento
+ a| 
+Tráfico interno entre los nodos de almacenamiento.
+
+
+
+ a| 
+1501
+ a| 
+TCP
+ a| 
+Todos los nodos
+ a| 
+Nodos de almacenamiento con ADC
+ a| 
+Generación de informes, auditoría y tráfico interno de configuración.
+
+
+
+ a| 
+1502
+ a| 
+TCP
+ a| 
+Todos los nodos
+ a| 
+Nodos de almacenamiento
+ a| 
+Tráfico interno relacionado con S3 y Swift.
+
+
+
+ a| 
+1504
+ a| 
+TCP
+ a| 
+Todos los nodos
+ a| 
+Nodos de administración
+ a| 
+Informes del servicio NMS y tráfico interno de configuración.
+
+
+
+ a| 
+1505
+ a| 
+TCP
+ a| 
+Todos los nodos
+ a| 
+Nodos de administración
+ a| 
+Tráfico interno de servicio AMS.
+
+
+
+ a| 
+1506
+ a| 
+TCP
+ a| 
+Todos los nodos
+ a| 
+Todos los nodos
+ a| 
+Tráfico interno de estado del servidor.
+
+
+
+ a| 
+1507
+ a| 
+TCP
+ a| 
+Todos los nodos
+ a| 
+Nodos de puerta de enlace
+ a| 
+Tráfico interno del equilibrador de carga.
+
+
+
+ a| 
+1508
+ a| 
+TCP
+ a| 
+Todos los nodos
+ a| 
+Nodo de administrador principal
+ a| 
+Tráfico interno de gestión de la configuración.
+
+
+
+ a| 
+1511
+ a| 
+TCP
+ a| 
+Todos los nodos
+ a| 
+Nodos de almacenamiento
+ a| 
+Tráfico interno de metadatos.
+
+
+
+ a| 
+7001
+ a| 
+TCP
+ a| 
+Nodos de almacenamiento
+ a| 
+Nodos de almacenamiento
+ a| 
+Comunicación del clúster entre nodos TLS de Cassandra.
+
+
+
+ a| 
+7443
+ a| 
+TCP
+ a| 
+Todos los nodos
+ a| 
+Nodo de administrador principal
+ a| 
+Tráfico interno para instalación, expansión, recuperación, otros procedimientos de mantenimiento e informes de errores.
+
+
+
+ a| 
+8011
+ a| 
+TCP
+ a| 
+Todos los nodos
+ a| 
+Nodo de administrador principal
+ a| 
+Tráfico interno para instalación, expansión, recuperación y otros procedimientos de mantenimiento.
+
+
+
+ a| 
+8443
+ a| 
+TCP
+ a| 
+Nodo de administrador principal
+ a| 
+Nodos del dispositivo
+ a| 
+Tráfico interno relacionado con el procedimiento de modo de mantenimiento.
+
+
+
+ a| 
+9042
+ a| 
+TCP
+ a| 
+Nodos de almacenamiento
+ a| 
+Nodos de almacenamiento
+ a| 
+Puerto de cliente Cassandra.
+
+
+
+ a| 
+9999
+ a| 
+TCP
+ a| 
+Todos los nodos
+ a| 
+Todos los nodos
+ a| 
+Tráfico interno para múltiples servicios. Incluye procedimientos de mantenimiento, mediciones y actualizaciones de redes.
+
+
+
+ a| 
+10226
+ a| 
+TCP
+ a| 
+Nodos de almacenamiento
+ a| 
+Nodo de administrador principal
+ a| 
+Los dispositivos StorageGRID lo utilizan para reenviar paquetes AutoSupport desde E-Series SANtricity System Manager al nodo de administración principal.
+
+
+
+ a| 
+10342
+ a| 
+TCP
+ a| 
+Todos los nodos
+ a| 
+Nodo de administrador principal
+ a| 
+Tráfico interno para instalación, expansión, recuperación y otros procedimientos de mantenimiento.
+
+
+
+ a| 
+18000
+ a| 
+TCP
+ a| 
+Nodos de almacenamiento/administrador
+ a| 
+Nodos de almacenamiento con ADC
+ a| 
+Tráfico interno del servicio de cuentas.
+
+
+
+ a| 
+18001
+ a| 
+TCP
+ a| 
+Nodos de almacenamiento/administrador
+ a| 
+Nodos de almacenamiento con ADC
+ a| 
+Tráfico interno de Federación de identidades.
+
+
+
+ a| 
+18002
+ a| 
+TCP
+ a| 
+Nodos de almacenamiento/administrador
+ a| 
+Nodos de almacenamiento
+ a| 
+Tráfico de API interno relacionado con los protocolos de objetos.
+
+
+
+ a| 
+18003
+ a| 
+TCP
+ a| 
+Nodos de almacenamiento/administrador
+ a| 
+Nodos de almacenamiento con ADC
+ a| 
+Servicios de plataforma tráfico interno.
+
+
+
+ a| 
+18017
+ a| 
+TCP
+ a| 
+Nodos de almacenamiento/administrador
+ a| 
+Nodos de almacenamiento
+ a| 
+Tráfico interno del servicio Data mover para Cloud Storage Pools.
+
+
+
+ a| 
+18019
+ a| 
+TCP
+ a| 
+Nodos de almacenamiento
+ a| 
+Nodos de almacenamiento
+ a| 
+Tráfico interno del servicio de fragmentos para la codificación de borrado.
+
+
+
+ a| 
+18082
+ a| 
+TCP
+ a| 
+Nodos de almacenamiento/administrador
+ a| 
+Nodos de almacenamiento
+ a| 
+Tráfico interno relacionado con S3.
+
+
+
+ a| 
+18083
+ a| 
+TCP
+ a| 
+Todos los nodos
+ a| 
+Nodos de almacenamiento
+ a| 
+Tráfico interno relacionado con Swift.
+
+
+
+ a| 
+18086
+ a| 
+TCP
+ a| 
+Todos los nodos de cuadrícula
+ a| 
+Todos los nodos de almacenamiento
+ a| 
+Tráfico interno relacionado con el servicio LDR.
+
+
+
+ a| 
+18200
+ a| 
+TCP
+ a| 
+Nodos de almacenamiento/administrador
+ a| 
+Nodos de almacenamiento
+ a| 
+Estadísticas adicionales acerca de las solicitudes de cliente.
+
+
+
+ a| 
+19000
+ a| 
+TCP
+ a| 
+Nodos de almacenamiento/administrador
+ a| 
+Nodos de almacenamiento con ADC
+ a| 
+Tráfico interno del servicio Keystone.
+
+|===
+.Información relacionada
+link:external-communications.html["Comunicaciones externas"]

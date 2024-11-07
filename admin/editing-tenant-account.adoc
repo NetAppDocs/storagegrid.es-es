@@ -1,0 +1,89 @@
+---
+permalink: admin/editing-tenant-account.html 
+sidebar: sidebar 
+keywords: edit tenant account, change tenant name, allow platform services, tenant quota 
+summary: Una cuenta de inquilino se puede editar para cambiar el nombre para mostrar, la cuota de almacenamiento o los permisos de inquilino. 
+---
+= Edite la cuenta de inquilino
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Una cuenta de inquilino se puede editar para cambiar el nombre para mostrar, la cuota de almacenamiento o los permisos de inquilino.
+
+
+TIP: Si un inquilino tiene el permiso *Usar conexión de federación de grid*, puede editar los detalles del inquilino desde cualquier cuadrícula en la conexión. Sin embargo, los cambios que realice en una cuadrícula de la conexión no se copiarán en la otra cuadrícula. Si desea mantener los detalles del arrendatario exactamente sincronizados entre las cuadrículas, realice las mismas modificaciones en ambas cuadrículas. Consulte link:grid-federation-manage-tenants.html["Gestione los inquilinos permitidos para la conexión de federación de grid"].
+
+.Antes de empezar
+* Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Usted tiene el link:admin-group-permissions.html["Acceso raíz o cuentas de inquilino"].
+
+
+
+NOTE: La aplicación de la configuración de inquilino a través del grid puede tardar 15 minutos o más en función de la conectividad de red, el estado del nodo y las operaciones de Cassandra.
+
+.Pasos
+. Seleccione *ARRENDATARIOS*.
++
+image::../media/tenant_accounts_page.png[Página Cuentas de inquilino]
+
+. Localice la cuenta de inquilino que desea editar.
++
+Utilice el cuadro de búsqueda para buscar un inquilino por nombre o ID de inquilino.
+
+. Seleccione el inquilino. Puede realizar una de las siguientes acciones:
++
+** Selecciona la casilla de verificación para el inquilino y selecciona *Acciones* > *Editar*.
+** Seleccione el nombre del inquilino para mostrar la página de detalles y seleccione *Editar*.
+
+
+. Si lo desea, cambie los valores de estos campos:
++
+** *Nombre*
+** *Descripción*
+** *Cuota de almacenamiento*
+
+
+. Seleccione *continuar*.
+. Seleccione o borre los permisos para la cuenta de inquilino.
++
+** Si deshabilita *Servicios de plataforma* para un arrendatario que ya los está utilizando, los servicios que han configurado para sus cubos S3 dejarán de funcionar. No se envía ningún mensaje de error al inquilino. Por ejemplo, si el inquilino ha configurado la replicación de CloudMirror para un bloque de S3, podrán seguir almacenando objetos en el bloque, pero las copias de esos objetos ya no se realizarán en el bloque S3 externo que se hayan configurado como extremo. Consulte link:manage-platform-services-for-tenants.html["Gestione servicios de plataformas para cuentas de inquilinos de S3"].
+** Cambie la configuración de *Use own identity source* para determinar si la cuenta de inquilino utilizará su propia fuente de identidad o la fuente de identidad que se configuró para Grid Manager.
++
+Si *Usar la propia fuente de identidad* es:
+
++
+*** Desactivado y seleccionado, el arrendatario ya ha activado su propio origen de identidad. Un arrendatario debe desactivar su origen de identidad antes de poder utilizar el origen de identidad configurado para el Gestor de cuadrícula.
+*** Desactivado y no seleccionado, SSO está activado para el sistema StorageGRID. El inquilino debe utilizar el origen de identidad configurado para el administrador de grid.
+
+
+** Seleccione o desactive el permiso *Permitir S3 Select* según sea necesario. Consulte link:manage-s3-select-for-tenant-accounts.html["Gestione S3 Select para cuentas de inquilinos"].
+** Para eliminar el permiso *Use grid federation connection*:
++
+... Seleccione la pestaña *Grid federation*.
+... Selecciona *Eliminar permiso*.
+
+
+** Para agregar el permiso *Use grid federation connection*:
++
+... Seleccione la pestaña *Grid federation*.
+... Seleccione la casilla de verificación *Usar conexión de federación de cuadrícula*.
+... Opcionalmente, seleccione *Clonar usuarios y grupos locales existentes* para clonarlos a la cuadrícula remota. Si desea, puede detener la clonado en curso o volver a intentar la clonado si no se pudieron clonar algunos usuarios o grupos locales después de completar la última operación de clonado.
+
+
+** Para establecer un período de retención máximo o permitir el modo de cumplimiento:
++
+
+NOTE: S3 El bloqueo de objetos debe estar activado en la cuadrícula antes de poder utilizar estos ajustes.
+
++
+... Seleccione la pestaña *S3 Object Lock*.
+... Para *Establecer período de retención máximo*, ingrese un valor y seleccione el período de tiempo en el menú desplegable.
+... Para *Permitir el modo de cumplimiento*, selecciona la casilla de verificación.
+
+
+
+
+

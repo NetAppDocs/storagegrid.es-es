@@ -1,0 +1,94 @@
+---
+permalink: maintain/using-donotstart-file.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, donotstart, do not start, donotstart file, do not start file 
+summary: Si está realizando varios procedimientos de mantenimiento o configuración bajo la dirección del soporte técnico, es posible que se le solicite que utilice un archivo DoNotStart para evitar que los servicios se inicien cuando se inicie o reinicie Server Manager. 
+---
+= Utilice un archivo DoNotStart
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si está realizando varios procedimientos de mantenimiento o configuración bajo la dirección del soporte técnico, es posible que se le solicite que utilice un archivo DoNotStart para evitar que los servicios se inicien cuando se inicie o reinicie Server Manager.
+
+
+CAUTION: Debe agregar o quitar un archivo DoNotStart sólo si el soporte técnico le ha indicado que lo haga.
+
+Para evitar que se inicie un servicio, coloque un archivo DoNotStart en el directorio del servicio que desea impedir que se inicie. Al iniciar, el Administrador del servidor busca el archivo DoNotStart. Si el archivo está presente, se impide que se inicie el servicio (y cualquier servicio que dependa de él). Cuando se quita el archivo DoNotStart, el servicio detenido anteriormente se iniciará en el siguiente inicio o reinicio de Server Manager. Los servicios no se inician automáticamente cuando se elimina el archivo DoNotStart.
+
+La forma más eficaz de evitar que todos los servicios se reinicien es impedir que se inicie el servicio NTP. Todos los servicios dependen del servicio NTP y no se pueden ejecutar si el servicio NTP no se está ejecutando.
+
+
+
+== Agregue el archivo DoNotStart para el servicio técnico
+
+Puede impedir que un servicio individual comience agregando un archivo DoNotStart al directorio de ese servicio en un nodo de cuadrícula.
+
+.Antes de empezar
+Tiene el `Passwords.txt` archivo.
+
+.Pasos
+. Inicie sesión en el nodo de grid:
++
+.. Introduzca el siguiente comando: `ssh admin@_grid_node_IP_`
+.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
+.. Introduzca el siguiente comando para cambiar a raíz: `su -`
+.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
+
+
++
+Al iniciar sesión como root, la petición de datos cambia de `$` a `#`.
+
+. Agregar un archivo DoNotStart: `touch /etc/sv/_service_/DoNotStart`
++
+donde `service` es el nombre del servicio que se va a impedir que se inicie. Por ejemplo:
+
++
+[listing]
+----
+touch /etc/sv/ldr/DoNotStart
+----
++
+Se crea un archivo DoNotStart. No se necesita contenido del archivo.
+
++
+Cuando se reinicia el Administrador del servidor o el nodo de cuadrícula, el Administrador del servidor se reinicia, pero el servicio no.
+
+. Cierre la sesión del shell de comandos: `exit`
+
+
+
+
+== Quitar el archivo DoNotStart para el servicio técnico
+
+Al quitar un archivo DoNotStart que impide que se inicie un servicio, debe iniciar dicho servicio.
+
+.Antes de empezar
+Tiene el `Passwords.txt` archivo.
+
+.Pasos
+. Inicie sesión en el nodo de grid:
++
+.. Introduzca el siguiente comando: `ssh admin@_grid_node_IP_`
+.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
+.. Introduzca el siguiente comando para cambiar a raíz: `su -`
+.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
+
+
++
+Al iniciar sesión como root, la petición de datos cambia de `$` a `#`.
+
+. Elimine el archivo DoNotStart del directorio de servicios: `rm /etc/sv/_service_/DoNotStart`
++
+ `service`donde es el nombre del servicio. Por ejemplo:
+
++
+[listing]
+----
+rm /etc/sv/ldr/DoNotStart
+----
+. Inicie el servicio: `service _servicename_ start`
+. Cierre la sesión del shell de comandos: `exit`
+

@@ -1,0 +1,51 @@
+---
+indexpage:
+  title: Expanda una cuadrícula
+  summary: Puede expandir la capacidad o las funcionalidades de su sistema StorageGRID
+    sin interrumpir las operaciones del sistema.
+  keywords: expand grid, add volume, add node, add site
+  lead: Puede expandir la capacidad o las funcionalidades de su sistema StorageGRID
+    sin interrumpir las operaciones del sistema.
+  tiles:
+  - title: Manos a la obra
+    links:
+    - title: Tipos de expansión
+      url: "../expand/index.html"
+    - title: 'Directrices: Añadir capacidad de objeto'
+      url: "../expand/guidelines-for-adding-object-capacity.html"
+    - title: 'Directrices: Añadir capacidad de metadatos'
+      url: "../expand/adding-metadata-capacity.html"
+    - title: 'Directrices: Añada redundancia o nuevas capacidades'
+      url: "../expand/adding-grid-nodes-to-add-capabilities.html"
+    - title: 'Directrices: Agregar un sitio'
+      url: "../expand/adding-new-site.html"
+    - title: Reúna los materiales necesarios
+      url: "../expand/gather-required-materials.html"
+  - title: Añadir volúmenes de almacenamiento
+    links:
+    - title: Añada volúmenes de almacenamiento a los nodos de almacenamiento
+      url: "../expand/adding-storage-volumes-to-storage-nodes.html"
+    - title: 'VMware: Añada volúmenes de almacenamiento al nodo de almacenamiento'
+      url: "../expand/vmware-adding-storage-volumes-to-storage-node.html"
+    - title: 'Linux: Añada volúmenes SAN o de conexión directa al nodo de almacenamiento'
+      url: "../expand/linux-adding-direct-attached-or-san-volumes-to-storage-node.html"
+  - title: Añada nodos de grid o sitio
+    links:
+    - title: Agregue nodos de cuadrícula a la ubicación existente
+      url: "../expand/adding-grid-nodes-to-existing-site-or-adding-new-site.html"
+    - title: Agregar nuevo sitio
+      url: "../expand/adding-grid-nodes-to-existing-site-or-adding-new-site.html"
+    - title: Actualice las subredes de la red de cuadrícula
+      url: "../expand/updating-subnets-for-grid-network.html"
+    - title: Implemente nuevos nodos de grid
+      url: "../expand/deploying-new-grid-nodes.html"
+    - title: Realizar la expansión
+      url: "../expand/performing-expansion.html"
+  - title: Configure y solucione problemas
+    links:
+    - title: Pasos de configuración
+      url: "../expand/configuring-expanded-storagegrid-system.html"
+    - title: Reequilibre los datos con código de borrado tras añadir nodos de almacenamiento
+      url: "../expand/rebalancing-erasure-coded-data-after-adding-storage-nodes.html"
+    - title: 'Solución de problemas: Recopilar archivos de registro'
+      url: "../expand/contacting-technical-support.html"
