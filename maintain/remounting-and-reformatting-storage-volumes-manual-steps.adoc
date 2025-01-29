@@ -218,11 +218,11 @@ Tenga en cuenta lo siguiente:
 ** No pulse *Ctrl+C* mientras la sesión SSH esté activa.
 ** El script se ejecutará en segundo plano si se produce una interrupción de red y finaliza la sesión SSH, pero puede ver el progreso desde la página Recovery.
 ** Si Storage Node utiliza el servicio RSM, puede parecer que el script se atasca durante 5 minutos mientras se reinician los servicios de nodos. Este retraso de 5 minutos se espera siempre que el servicio RSM arranque por primera vez.
-
-
 +
 
 NOTE: El servicio RSM está presente en los nodos de almacenamiento que incluyen el servicio ADC.
+
+
 
 +
 
