@@ -132,6 +132,21 @@ NOTE: Si se utiliza solo un volumen de almacenamiento para un nodo de almacenami
 
 NOTE: Si se asigna menos de 500 GB al volumen 0 (solo para uso no en producción), el 10 % de la capacidad del volumen de almacenamiento se reserva para metadatos.
 
+* Los recursos de nodos basados solo en metadatos de software deben coincidir con los recursos de nodos de almacenamiento existentes. Por ejemplo:
++
+** Si el sitio de StorageGRID existente utiliza dispositivos SG6000 o SG6100, los nodos de solo metadatos basados en software deben cumplir con los siguientes requisitos mínimos:
++
+*** 128 GB DE MEMORIA RAM
+*** CPU de 8 núcleos
+*** SSD de 8 TB o almacenamiento equivalente para la base de datos Cassandra (rangedb/0)
+
+
+** Si el sitio StorageGRID existente utiliza nodos de almacenamiento virtual con 24 GB de RAM, 8 CPU de núcleo y 3 TB o 4TB TB de almacenamiento de metadatos, los nodos de solo metadatos basados en software deben usar recursos similares (24 GB de RAM, CPU de 8 núcleos y 4TB GB de almacenamiento de metadatos (rangedb/0).
++
+Cuando se añade un sitio StorageGRID nuevo, la capacidad de metadatos total del sitio nuevo debe coincidir, como mínimo, con los sitios de StorageGRID existentes y los nuevos recursos del sitio deben coincidir con los nodos de almacenamiento en los sitios de StorageGRID existentes.
+
+
+
 * Si va a instalar un nuevo sistema (StorageGRID 11,6 o superior) y cada nodo de almacenamiento tiene 128 GB o más de RAM, asigne 8 TB o más al volumen 0. Al usar un valor mayor para el volumen 0, se puede aumentar el espacio permitido para los metadatos en cada nodo de almacenamiento.
 * Al configurar nodos de almacenamiento diferentes para un sitio, utilice el mismo ajuste para el volumen 0 si es posible. Si un sitio contiene nodos de almacenamiento de distintos tamaños, el nodo de almacenamiento con el volumen más pequeño 0 determinará la capacidad de metadatos de ese sitio.
 

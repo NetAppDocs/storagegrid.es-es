@@ -39,6 +39,24 @@ Nodo de almacenamiento de datos y metadatos (combinado):: De forma predeterminad
 Nodo de almacenamiento solo de metadatos:: El uso exclusivo de un nodo de almacenamiento para metadatos puede tener sentido si el grid almacena una gran cantidad de objetos pequeños. La instalación de capacidad de metadatos dedicada proporciona un mejor equilibrio entre el espacio necesario para una gran cantidad de objetos pequeños y el espacio necesario para los metadatos de esos objetos. Además, los nodos de almacenamiento solo de metadatos alojados en dispositivos de alto rendimiento pueden aumentar el rendimiento.
 
 
+Los nodos de almacenamiento solo de metadatos tienen requisitos de hardware específicos:
+
+* Cuando se usan dispositivos StorageGRID, los nodos solo de metadatos se pueden configurar en dispositivos SGF6112 con doce unidades de 1,9 TB o doce de 3,8 TB.
+* Cuando se usan nodos basados en software, los recursos de nodos de solo metadatos deben coincidir con los recursos de nodos de almacenamiento existentes. Por ejemplo:
++
+** Si el sitio de StorageGRID existente utiliza dispositivos SG6000 o SG6100, los nodos de solo metadatos basados en software deben cumplir con los siguientes requisitos mínimos:
++
+*** 128 GB DE MEMORIA RAM
+*** CPU de 8 núcleos
+*** SSD de 8 TB o almacenamiento equivalente para la base de datos Cassandra (rangedb/0)
+
+
+** Si el sitio StorageGRID existente utiliza nodos de almacenamiento virtual con 24 GB de RAM, 8 CPU de núcleo y 3 TB o 4TB TB de almacenamiento de metadatos, los nodos de solo metadatos basados en software deben usar recursos similares (24 GB de RAM, CPU de 8 núcleos y 4TB GB de almacenamiento de metadatos (rangedb/0).
+
+
+* Cuando se añade un sitio StorageGRID nuevo, la capacidad de metadatos total del sitio nuevo debe coincidir, como mínimo, con los sitios de StorageGRID existentes y los nuevos recursos del sitio deben coincidir con los nodos de almacenamiento en los sitios de StorageGRID existentes.
+
+
 Al instalar nodos de solo metadatos, el grid también debe contener un número mínimo de nodos para el almacenamiento de datos:
 
 * Para un grid de sitio único, configure al menos dos nodos de almacenamiento combinados o solo de datos.
