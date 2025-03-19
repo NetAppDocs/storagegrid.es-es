@@ -2,4 +2,35 @@
 :allow-uri-read: 
 
 
-link:../monitor/configure-audit-messages.html#select-audit-information-destinations["Obtenga información sobre los destinos para la información de auditoría"].
+El directorio de registro de auditoría y los nodos aplicables dependen de la configuración del destino de auditoría.
+
+[cols="1a,2a"]
+|===
+| Opción | Destino 
+
+
+ a| 
+Nodos locales (predeterminado)
+ a| 
+`/var/local/log/localaudit.log`
+
+
+
+ a| 
+Nodos de administración/nodos locales
+ a| 
+* Nodos de administración (primarios y no primarios): `/var/local/audit/export/audit.log`
+* Todos los nodos: El `/var/local/log/localaudit.log` archivo normalmente está vacío o falta en este modo.
+
+
+
+
+ a| 
+Servidor de syslog externo
+ a| 
+`/var/local/log/localaudit.log`
+
+|===
+En función de la configuración de destino de auditoría, introduzca: `cd /var/local/log` O. `/var/local/audit/export/`
+
+Para obtener más información, consulte link:../monitor/configure-audit-messages.html#select-audit-information-destinations["Seleccione destinos de información de auditoría"].

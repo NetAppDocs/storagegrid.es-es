@@ -44,20 +44,50 @@ image::../media/nodes_storage_nodes_objects_page_lost_object.png[Nodos de almace
 ... Introduzca la contraseña que aparece en el `Passwords.txt` archivo. Al iniciar sesión como root, la petición de datos cambia de `$` a `#`.
 
 
-.. Cambie al directorio donde se encuentran los registros de auditoría. Introduzca: `cd /var/local/log/`
+.. Cambie al directorio donde se encuentran los registros de auditoría.
 +
-[NOTE]
-====
-link:../monitor/configure-audit-messages.html#select-audit-information-destinations["Obtenga información sobre los destinos para la información de auditoría"].
+--
+El directorio de registro de auditoría y los nodos aplicables dependen de la configuración del destino de auditoría.
 
-====
+[cols="1a,2a"]
+|===
+| Opción | Destino 
+
+
+ a| 
+Nodos locales (predeterminado)
+ a| 
+`/var/local/log/localaudit.log`
+
+
+
+ a| 
+Nodos de administración/nodos locales
+ a| 
+*** Nodos de administración (primarios y no primarios): `/var/local/audit/export/audit.log`
+*** Todos los nodos: El `/var/local/log/localaudit.log` archivo normalmente está vacío o falta en este modo.
+
+
+
+
+ a| 
+Servidor de syslog externo
+ a| 
+`/var/local/log/localaudit.log`
+
+|===
+En función de la configuración de destino de auditoría, introduzca: `cd /var/local/log` O. `/var/local/audit/export/`
+
+Para obtener más información, consulte link:../monitor/configure-audit-messages.html#select-audit-information-destinations["Seleccione destinos de información de auditoría"].
+
+--
 .. Utilice grep para extraer los mensajes de auditoría de objetos perdidos (OLST). Introduzca: `grep OLST audit_file_name`
 .. Observe el valor de UUID incluido en el mensaje.
 +
 [listing]
 ----
->Admin: # grep OLST audit.log
-2020-02-12T19:18:54.780426 [AUDT:[CBID(UI64):0x38186FE53E3C49A5][UUID(CSTR):926026C4-00A4-449B-AC72-BCCA72DD1311]
+Admin: # grep OLST audit.log
+2020-02-12T19:18:54.780426 [AUDT:[CBID(UI64):0x38186FE53E3C49A5][UUID(CSTR):"926026C4-00A4-449B-AC72-BCCA72DD1311"]
 [PATH(CSTR):"source/cats"][NOID(UI32):12288733][VOLI(UI64):3222345986][RSLT(FC32):NONE][AVER(UI32):10]
 [ATIM(UI64):1581535134780426][ATYP(FC32):OLST][ANID(UI32):12448208][AMID(FC32):ILMX][ATID(UI64):7729403978647354233]]
 ----

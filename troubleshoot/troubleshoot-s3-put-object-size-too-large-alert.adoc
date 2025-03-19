@@ -31,13 +31,43 @@ Determine qué inquilinos utilizan objetos mayores de 5 GiB, para que pueda noti
 +
 Al iniciar sesión como root, la petición de datos cambia de `$` a `#`.
 
-.. Introduzca `cd /var/local/log`
+.. Cambie al directorio donde se encuentran los registros de auditoría.
 +
-[NOTE]
-====
-link:../monitor/configure-audit-messages.html#select-audit-information-destinations["Obtenga información sobre los destinos para la información de auditoría"].
+--
+El directorio de registro de auditoría y los nodos aplicables dependen de la configuración del destino de auditoría.
 
-====
+[cols="1a,2a"]
+|===
+| Opción | Destino 
+
+
+ a| 
+Nodos locales (predeterminado)
+ a| 
+`/var/local/log/localaudit.log`
+
+
+
+ a| 
+Nodos de administración/nodos locales
+ a| 
+*** Nodos de administración (primarios y no primarios): `/var/local/audit/export/audit.log`
+*** Todos los nodos: El `/var/local/log/localaudit.log` archivo normalmente está vacío o falta en este modo.
+
+
+
+
+ a| 
+Servidor de syslog externo
+ a| 
+`/var/local/log/localaudit.log`
+
+|===
+En función de la configuración de destino de auditoría, introduzca: `cd /var/local/log` O. `/var/local/audit/export/`
+
+Para obtener más información, consulte link:../monitor/configure-audit-messages.html#select-audit-information-destinations["Seleccione destinos de información de auditoría"].
+
+--
 .. Identifique qué inquilinos están usando objetos mayores de 5 GiB.
 +
 ... Introduzca `zgrep SPUT * | egrep "CSIZ\(UI64\):([5-9]|[1-9][0-9]+)[0-9]{9}"`
