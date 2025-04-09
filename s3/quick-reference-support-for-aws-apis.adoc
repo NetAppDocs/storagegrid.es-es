@@ -847,6 +847,7 @@ StorageGRID admite todo <<common-params,parámetros y cabeceras comunes>> para e
 * `Content-Disposition`
 * `Content-Encoding`
 * `Content-Language`
+* `Expires`
 * `x-amz-checksum-sha256`
 * `x-amz-server-side-encryption`
 * `x-amz-storage-class`
