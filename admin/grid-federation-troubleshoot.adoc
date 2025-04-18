@@ -125,7 +125,7 @@ Cuando link:../monitor/grid-federation-monitor-connections.html["visualización 
 image::../media/grid-federation-last-error.png[Captura de pantalla que muestra un mensaje en la última columna de error de una conexión de federación de cuadrícula]
 
 .Detalles
-Para cada conexión de federación de grid, la columna *last error* muestra el error más reciente que se producirá, si lo hubiera, cuando los datos de un inquilino se estaban replicando en la otra cuadrícula. Esta columna solo muestra el último error de replicación entre cuadrículas que se produce; no se mostrarán los errores anteriores que podrían haberse producido. Un error en esta columna puede ocurrir por uno de estos motivos:
+Para cada conexión de federación de grid, la columna *last error* muestra el error más reciente que se producirá, si lo hubiera, cuando los datos de un inquilino se estaban replicando en la otra cuadrícula. Esta columna muestra solo el último error de replicación entre cuadrículas que se produce; no se muestran los errores anteriores que podrían haberse producido. Un error en esta columna puede ocurrir por uno de estos motivos:
 
 * No se ha encontrado la versión del objeto de origen.
 * No se ha encontrado el depósito de origen.
@@ -133,6 +133,8 @@ Para cada conexión de federación de grid, la columna *last error* muestra el e
 * Una cuenta diferente ha vuelto a crear el bloque de destino.
 * Se ha suspendido el control de versiones del bloque de destino.
 * La misma cuenta ha vuelto a crear el depósito de destino, pero ahora no tiene versiones.
+* El objeto de origen tiene S3 configuraciones de bloqueo de objetos que no cumplen con la configuración de retención de nivel de inquilino de la cuadrícula de destino.
+* El objeto de origen tiene S3 configuraciones de bloqueo de objetos y S3 bloqueo de objetos está desactivado en el depósito de destino.
 
 
 .Acciones recomendadas
@@ -181,7 +183,6 @@ Esta alerta indica que los objetos de arrendatario no se pueden replicar entre l
 +
 ** Hay un depósito correspondiente para el mismo inquilino en la otra cuadrícula (debe usar el nombre exacto).
 ** Ambos cubos tienen activado el control de versiones de objetos (el control de versiones no se puede suspender en ninguna cuadrícula).
-** Ambos cubos tienen S3 Object Lock desactivado.
 ** Ninguno de los depósitos está en el estado *Deleting objects: Read-only*.
 
 

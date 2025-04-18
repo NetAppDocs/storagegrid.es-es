@@ -41,7 +41,7 @@ SSO activado
  a| 
 Inició sesión en todos los nodos de administrador a los que accedían. Aparece la página de inicio de sesión de StorageGRID. *Grid Manager* aparece como el valor predeterminado en la lista desplegable *Cuentas recientes*, y el campo *ID de cuenta* muestra 0.
 
-*Nota:* Si SSO está habilitado y usted también ha iniciado sesión en el Gestor de Inquilinos, también debe link:../tenant/signing-out-of-tenant-manager.html["cierre la sesión de la cuenta de inquilino"]hacerlolink:configuring-sso.html["Cierre la sesión de SSO"].
+*Nota:* Si SSO está habilitado y usted también ha iniciado sesión en el Gestor de Inquilinos, también debe link:../tenant/signing-out-of-tenant-manager.html["cierre la sesión de la cuenta de inquilino"]hacerlolink:how-sso-works.html["Cierre la sesión de SSO"].
 
 |===
 

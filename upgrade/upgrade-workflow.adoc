@@ -21,7 +21,7 @@ Si alguno de los nodos de StorageGRID se implementa en hosts Linux, link:linux-i
 [role="quick-margin-para"]
 Desde el nodo de administración principal, acceda a la página Actualización de StorageGRID y cargue el archivo de actualización y el archivo de revisión, si es necesario.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tres"] Descargar el paquete de recuperación
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tres"] Descargue el paquete de recuperación
 [role="quick-margin-para"]
 Descargue el paquete de recuperación actual antes de iniciar la actualización.
 
@@ -33,7 +33,7 @@ Las comprobaciones previas de actualización ayudan a detectar problemas para qu
 [role="quick-margin-para"]
 Cuando inicia la actualización, las comprobaciones previas se ejecutan de nuevo y el nodo de administración principal se actualiza automáticamente. No puede acceder a Grid Manager mientras se está actualizando el nodo de administración principal. Además, los registros de auditoría no estarán disponibles. Esta actualización puede llevar hasta 30 minutos.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Seis"] Descargar el paquete de recuperación
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Seis"] Descargue el paquete de recuperación
 [role="quick-margin-para"]
 Después de actualizar el nodo de administración principal, descargue un nuevo paquete de recuperación.
 

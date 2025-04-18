@@ -13,7 +13,7 @@ summary: Debe crear al menos una cuenta de inquilino para controlar el acceso al
 [role="lead"]
 Debe crear al menos una cuenta de inquilino para controlar el acceso al almacenamiento en su sistema de StorageGRID.
 
-Los pasos para crear una cuenta de inquilino varían en función de si link:using-identity-federation.html["federación de identidades"]están configurados y link:configuring-sso.html["inicio de sesión único"]si la cuenta de Grid Manager que se utiliza para crear la cuenta de inquilino pertenece a un grupo de administradores con el permiso de acceso raíz.
+Los pasos para crear una cuenta de inquilino varían en función de si link:using-identity-federation.html["federación de identidades"]están configurados y link:how-sso-works.html["inicio de sesión único"]si la cuenta de Grid Manager que se utiliza para crear la cuenta de inquilino pertenece a un grupo de administradores con el permiso de acceso raíz.
 
 .Antes de empezar
 * Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
@@ -118,7 +118,7 @@ El inquilino puede usar servicios de plataforma S3 como CloudMirror. Consulte li
  a| 
 Usar origen de identidad propio
  a| 
-El inquilino puede configurar y gestionar su propio origen de identidad para usuarios y grupos federados. Esta opción estará deshabilitada si link:../admin/configuring-sso.html["SSO configurado"]tiene para el sistema StorageGRID.
+El inquilino puede configurar y gestionar su propio origen de identidad para usuarios y grupos federados. Esta opción estará deshabilitada si link:../admin/how-sso-works.html["SSO configurado"]tiene para el sistema StorageGRID.
 
 
 

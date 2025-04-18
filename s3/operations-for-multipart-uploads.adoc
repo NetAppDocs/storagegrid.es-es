@@ -30,9 +30,10 @@ Las siguientes condiciones y notas se aplican a todas las operaciones de carga d
 ** Al evaluar ILM para una pieza, StorageGRID filtra el tamaño de la pieza, no el tamaño del objeto. Esto significa que las partes de un objeto se pueden almacenar en ubicaciones que no cumplan con los requisitos de ILM para el objeto como un todo. Por ejemplo, si una regla especifica que todos los objetos de 10 GB o más se almacenan a DC1 mientras que todos los objetos más pequeños se almacenan a DC2, cada parte de 1 GB de una carga de varias partes de 10 partes se almacena a DC2 en el momento de la ingesta. Sin embargo, cuando se evalúa ILM para el objeto como un todo, todas las partes del objeto se mueven a DC1.
 
 
-* Todas las operaciones de carga de varias partes soportan StorageGRID link:consistency-controls.html["valores de coherencia"].
+* Todas las operaciones de carga de varias partes soportan StorageGRID link:consistency.html["valores de coherencia"].
 * Cuando se ingiere un objeto mediante la carga de varias partes, no se aplica ellink:../admin/what-object-segmentation-is.html["Umbral de segmentación de objetos (1 GiB)"].
 * Según sea necesario, puede utilizar link:using-server-side-encryption.html["cifrado del lado del servidor"] con cargas de varias partes. Para utilizar SSE (cifrado del lado del servidor con claves administradas por StorageGRID), debe incluir `x-amz-server-side-encryption` el encabezado de solicitud solo en la solicitud CreateMultipartUpload. Para utilizar SSE-C (cifrado del lado del servidor con claves proporcionadas por el cliente), debe especificar los mismos tres encabezados de solicitud de clave de cifrado en la solicitud CreateMultipartUpload y en cada solicitud subsiguiente UploadPart.
+* Un objeto cargado de varias partes se incluye en un link:../tenant/manage-branch-buckets.html["cucharón de bifurcación"] si la ingesta se inició antes de la marca de tiempo anterior al del depósito base, independientemente de cuándo se complete la carga.
 
 
 [cols="2a,3a"]

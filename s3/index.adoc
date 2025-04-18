@@ -55,6 +55,13 @@ https://datatracker.ietf.org/doc/html/rfc2616["RFC de IETF 2616: Protocolo de tr
 
 
  a| 
+12,0
+ a| 
+Se ha añadido compatibilidad para el uso compartido de recursos entre orígenes (CORS) para una interfaz de gestión, lo que permite que otro dominio acceda a los datos en StorageGRID mediante las API de gestión. link:../tenant/enable-cross-origin-resource-sharing-for-management-interface.html["Leer más"].
+
+
+
+ a| 
 11,9
  a| 
 * Se ha agregado soporte para valores de suma de comprobación SHA-256 calculados previamente para las siguientes solicitudes y cabeceras soportadas. Puede utilizar esta función para verificar la integridad de los objetos cargados:

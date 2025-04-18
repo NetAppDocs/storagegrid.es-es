@@ -17,7 +17,7 @@ Puede utilizar este procedimiento para agregar o actualizar los nombres mostrado
 * Desde el *nodo de administración principal*, ha iniciado sesión en Grid Manager mediante un link:../admin/web-browser-requirements.html["navegador web compatible"].
 +
 
-NOTE: Puede agregar o actualizar nombres mostrados de un nodo de administración no principal, pero debe iniciar sesión en el nodo de administración principal para descargar un paquete de recuperación.
+NOTE: Puede agregar o actualizar nombres mostrados desde un nodo de administración no principal, pero debe iniciar sesión en el nodo de administración principal para descargar un paquete de recuperación.
 
 * Usted tiene el link:../admin/admin-group-permissions.html["Permiso de mantenimiento o acceso raíz"].
 * Tiene la clave de acceso de aprovisionamiento.
@@ -179,7 +179,7 @@ La descarga comienza inmediatamente.
 . Copie `sgws-recovery-package-_id-revision_.zip` el archivo en dos ubicaciones seguras, separadas y protegidas.
 +
 
-CAUTION: El archivo del paquete de recuperación debe estar protegido porque contiene claves de cifrado y contraseñas que se pueden usar para obtener datos del sistema StorageGRID.
+CAUTION: El archivo del paquete de recuperación debe estar protegido porque contiene claves de cifrado y contraseñas que se pueden utilizar para obtener datos del sistema StorageGRID.
 
 . Selecciona *Finalizar* para volver al primer paso.
 

@@ -30,6 +30,7 @@ Puede usar cualquier combinación de las siguientes opciones para enviar paquete
 * *Activado por eventos*: Envía automáticamente paquetes AutoSupport cada hora o cuando ocurran eventos significativos del sistema. Valor predeterminado: Activado.
 * *On Demand*: Permite al soporte técnico solicitar que tu sistema StorageGRID envíe paquetes AutoSupport automáticamente, lo cual es útil cuando están trabajando activamente en un problema (requiere protocolo de transmisión HTTPS AutoSupport). Ajuste predeterminado: Desactivado.
 * *Activado por el usuario*: Envía manualmente paquetes AutoSupport en cualquier momento.
+* *Recopilación de registros*: link:../monitor/collecting-log-files-and-system-data.html["Recopile manualmente archivos de registro y datos del sistema, y envíe un paquete AutoSupport"].
 
 
 

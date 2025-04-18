@@ -42,14 +42,14 @@ El portátil de servicio debe tener lo siguiente:
  a| 
 Archivo de paquete de recuperación `.zip`
  a| 
-Obtenga una copia del archivo de Recovery Package más reciente `.zip`:
+Obtenga una copia del archivo de paquete de recuperación más reciente `.zip`:
 `sgws-recovery-package-_id-revision_.zip`
 
-El contenido del `.zip` archivo se actualiza cada vez que se modifica el sistema. Se le indica que guarde la versión más reciente del paquete de recuperación en una ubicación segura después de realizar dichos cambios. Utilice la copia más reciente para recuperarse de fallos de la cuadrícula.
+El contenido del `.zip` archivo se actualiza cada vez que se modifica el sistema. Se le indicará que almacene la versión más reciente del paquete de recuperación en una ubicación segura después de realizar dichos cambios. Utilice la copia más reciente para recuperarse de fallos de la cuadrícula.
 
-Si el nodo de administración principal funciona normalmente, puede descargar el paquete de recuperación desde el Administrador de grid. Seleccione *MANTENIMIENTO* > *sistema* > *paquete de recuperación*.
+Si el nodo de administración principal funciona con normalidad, puede descargar el paquete de recuperación desde Grid Manager. Seleccione *MANTENIMIENTO* > *sistema* > *paquete de recuperación*.
 
-Si no puede acceder a Grid Manager, puede encontrar copias cifradas del paquete de recuperación en algunos nodos de almacenamiento que contienen el servicio ADC. En cada nodo de almacenamiento, examine esta ubicación para el paquete de recuperación `/var/local/install/sgws-recovery-package-_grid-id_-_revision_.zip.gpg`: Utilice el paquete de recuperación con el número de revisión más alto.
+Si no puede acceder a Grid Manager, puede encontrar copias cifradas del paquete de recuperación en algunos nodos de almacenamiento que contienen el servicio ADC. En cada nodo de almacenamiento, examine esta ubicación para el paquete de recuperación: `/var/local/install/sgws-recovery-package-_grid-id_-_revision_.zip.gpg` Utilice el paquete de recuperación con el número de revisión más alto.
 
 
 

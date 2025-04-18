@@ -107,7 +107,7 @@ El comportamiento de la ingesta controla si las copias de objetos se colocan inm
 .Información relacionada
 * link:data-protection-options-for-ingest.html["Opciones de procesamiento"]
 * link:advantages-disadvantages-of-ingest-options.html["Ventajas, desventajas y limitaciones de las opciones de ingesta"]
-* link:../s3/consistency-controls.html#how-consistency-controls-and-ILM-rules-interact["Cómo interactúan las reglas de coherencia e ILM para afectar a la protección de datos"]
+* link:../s3/consistency.html#how-consistency-and-ILM-rules-interact["Cómo interactúan las reglas de coherencia e ILM para afectar a la protección de datos"]
 
 
 

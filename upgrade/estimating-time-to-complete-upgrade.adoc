@@ -51,7 +51,7 @@ Se distribuye el archivo de software y se inicia el servicio de actualización.
  a| 
 Actualice otros nodos de grid
  a| 
-Se actualiza el software de los demás nodos de grid, en el orden en el que se aprueban los nodos. Se desactivará cada nodo del sistema de uno en uno.
+El software del resto de nodos de cuadrícula se actualiza en el orden en que se aprueban los nodos. Se actualiza un nodo de administrador o pasarela al mismo tiempo que un nodo de almacenamiento.
  a| 
 de 15 minutos a 1 hora por nodo, con nodos de los dispositivos que requieren más tiempo
 

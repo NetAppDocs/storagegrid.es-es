@@ -40,7 +40,7 @@ Por ejemplo, introduzca `10.96.104.0/22`.
 .. Introduzca la *frase de paso de aprovisionamiento*.
 +
 
-CAUTION: El archivo del paquete de recuperación debe estar protegido porque contiene claves de cifrado y contraseñas que se pueden usar para obtener datos del sistema StorageGRID. También se utiliza para recuperar el nodo de administración principal.
+CAUTION: El archivo del paquete de recuperación debe estar protegido porque contiene claves de cifrado y contraseñas que se pueden utilizar para obtener datos del sistema StorageGRID. También se utiliza para recuperar el nodo de administración principal.
 
 
 

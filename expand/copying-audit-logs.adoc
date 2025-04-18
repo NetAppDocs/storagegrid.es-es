@@ -29,7 +29,7 @@ De manera predeterminada, se envía la información de auditoría al registro de
 * Ha especificado explícitamente que los mensajes de auditoría se deben guardar sólo en los nodos locales que los han generado.
 
 
-Consulte link:../monitor/configure-audit-messages.html["Configurar los mensajes de auditoría y los destinos de registro"] para obtener más información.
+Consulte link:../monitor/configure-audit-messages.html["Configure los mensajes de auditoría y el servidor de syslog externo"] para obtener más información.
 
 ====
 .Pasos

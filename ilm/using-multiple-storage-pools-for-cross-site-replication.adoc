@@ -20,7 +20,7 @@ La replicación y el código de borrado necesitan diferentes configuraciones de 
 
 
 
-CAUTION: Al configurar la implementación de StorageGRID para la protección contra pérdida de sitio, también debe tener en cuenta los efectos link:data-protection-options-for-ingest.html["opciones de procesamiento"]de y.link:../s3/consistency-controls.html["coherencia"]
+CAUTION: Al configurar la implementación de StorageGRID para la protección contra pérdida de sitio, también debe tener en cuenta los efectos link:data-protection-options-for-ingest.html["opciones de procesamiento"]de y.link:../s3/consistency.html["coherencia"]
 
 
 

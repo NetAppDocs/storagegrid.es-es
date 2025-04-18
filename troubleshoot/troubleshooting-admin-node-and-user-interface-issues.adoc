@@ -46,7 +46,7 @@ Si el error no se resuelve automáticamente, vaya al siguiente paso.
 
 
 . Determine si el hardware del nodo está sin conexión.
-. Si el inicio de sesión único (SSO) está activado para el sistema StorageGRID, consulte los pasos para link:../admin/configuring-sso.html["configuración del inicio de sesión único"].
+. Si el inicio de sesión único (SSO) está activado para el sistema StorageGRID, consulte los pasos para link:../admin/configure-sso.html["configuración del inicio de sesión único"].
 +
 Es posible que deba deshabilitar y volver a habilitar temporalmente el inicio de la sesión único para un nodo de administración a fin de resolver cualquier problema.
 

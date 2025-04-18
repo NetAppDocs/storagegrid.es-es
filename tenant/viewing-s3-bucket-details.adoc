@@ -68,7 +68,7 @@ Fecha de creación:: La fecha y la hora en la que se creó el bloque. Esta colum
 . Para ver los detalles de un cubo específico, seleccione el nombre del cubo en la tabla.
 +
 .. Consulte la información de resumen en la parte superior de la página web para confirmar los detalles del depósito, como Región y Recuento de objetos.
-.. Vea la barra de uso del límite de capacidad. Si el uso es del 100% o cerca del 100%, considere aumentar el límite o eliminar algunos objetos.
+.. Consulte las barras de uso del límite de capacidad y del límite de recuento de objetos. Si el uso es del 100% o cerca del 100%, considere aumentar el límite o eliminar algunos objetos.
 .. Según sea necesario, seleccione *Eliminar objetos en el cubo* y *Eliminar cubo*.
 +
 [CAUTION]
@@ -88,6 +88,7 @@ Preste mucha atención a las precauciones que aparecen al seleccionar cada una d
 **** link:manage-bucket-consistency.html["Gestione la coherencia de los bloques"]
 **** link:enabling-or-disabling-last-access-time-updates.html["Últimas actualizaciones de hora de acceso"]
 **** link:../tenant/creating-s3-bucket.html#capacity-limit["Límite de capacidad"]
+**** link:../tenant/creating-s3-bucket.html#object-count-limit["Límite de recuento de objetos"]
 **** link:changing-bucket-versioning.html["Control de versiones de objetos"]
 **** link:using-s3-object-lock.html["Bloqueo de objetos de S3"]
 **** link:update-default-retention-settings.html["Retención de cucharón por defecto"]
@@ -97,10 +98,11 @@ Preste mucha atención a las precauciones que aparecen al seleccionar cada una d
 *** *Servicios de la plataforma*: link:considerations-for-platform-services.html["Gestione los servicios de la plataforma"] (Si está permitido para el inquilino)
 *** *Acceso a cubos*: Ver o cambiar la configuración de opciones. Debe tener permisos de acceso específicos.
 +
-**** Configure link:configuring-cross-origin-resource-sharing-cors.html["Uso compartido de recursos de origen cruzado (CORS)"] para que las aplicaciones web de otros dominios puedan acceder al depósito y los objetos del depósito.
+**** Configure link:configuring-cross-origin-resource-sharing-for-buckets-and-objects.html["CORS para cubos y objetos"] para que las aplicaciones web de otros dominios puedan acceder al depósito y los objetos del depósito.
 **** link:../tenant/manage-bucket-policy.html["Controle el acceso de usuarios"] Para un cubo S3 y objetos en ese cubo.
 
 
+*** *RIBAS*: Ver la lista de cubos de ramas para el cubo. link:../tenant/manage-branch-buckets.html["Cree un nuevo depósito de bifurcación o gestione los depósitos de bifurcación"].
 
 
 

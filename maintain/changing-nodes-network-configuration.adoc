@@ -42,7 +42,7 @@ Los nodos no se pueden eliminar de la red de grid.
 NOTE: Los intercambios de direcciones IP no están permitidos. Si debe intercambiar direcciones IP entre nodos de cuadrícula, debe utilizar una dirección IP intermedia temporal.
 
 
-NOTE: Si está habilitado el inicio de sesión único (SSO) para el sistema StorageGRID y va a cambiar la dirección IP de un nodo de administración, tenga en cuenta que cualquier confianza de la parte que dependa configurada mediante la dirección IP del nodo de administración (en lugar de su nombre de dominio completo, como se recomienda) pasará a ser no válida. Ya no podrá iniciar sesión en el nodo. Inmediatamente después de cambiar la dirección IP, debe actualizar o volver a configurar la confianza del interlocutor que confía en el nodo en los Servicios de Federación de Active Directory (AD FS) con la nueva dirección IP. Consulte las instrucciones para link:../admin/configuring-sso.html["Configuración de SSO"].
+NOTE: Si está habilitado el inicio de sesión único (SSO) para el sistema StorageGRID y va a cambiar la dirección IP de un nodo de administración, tenga en cuenta que cualquier confianza de la parte que dependa configurada mediante la dirección IP del nodo de administración (en lugar de su nombre de dominio completo, como se recomienda) pasará a ser no válida. Ya no podrá iniciar sesión en el nodo. Inmediatamente después de cambiar la dirección IP, debe actualizar o volver a configurar la confianza del interlocutor que confía en el nodo en los Servicios de Federación de Active Directory (AD FS) con la nueva dirección IP. Consulte las instrucciones para link:../admin/configure-sso.html["Configuración de SSO"].
 
 
 NOTE: Todos los cambios realizados en la red mediante la herramienta Cambiar IP se propagan al firmware del instalador para los dispositivos StorageGRID. De este modo, si se vuelve a instalar el software StorageGRID en un dispositivo o si se pone un dispositivo en modo de mantenimiento, la configuración de red será correcta.
@@ -208,3 +208,44 @@ Después de aplicar o almacenar en zona intermedia los cambios, se genera un nue
 
 
 
+
+
+
+== Cambiar temporalmente la tasa de PDU de LACP
+
+Para realizar operaciones de mantenimiento en los componentes de red instalados en el dispositivo, como actualizar el firmware NIC, puede comprobar la configuración de velocidad PDU de LACP actual. También puede alternar sin persistencia la tasa de PDU de LACP entre rápida y lenta, si fuera necesario.
+
+
+NOTE: Para realizar cambios permanentes en la tasa de PDU de LACP, consulte https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/configuring-network-links.html["Configure los enlaces de red"^].
+
+.Antes de empezar
+* El nodo de administración está instalado y ejecutándose.
+* Tiene el `Passwords.txt` archivo.
+
+
+.Pasos
+. Inicie sesión en el nodo de administración principal:
++
+.. Introduzca el siguiente comando: `ssh admin@primary_Admin_Node_IP`
+.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
+.. Introduzca el siguiente comando para cambiar a raíz: `su -`
+.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
++
+Al iniciar sesión como root, la petición de datos cambia de `$` a `#`.
+
+
+
+. Para comprobar la configuración actual de la tasa de PDU de LACP, escriba el siguiente comando:
++
+`run-each-node --parallel --port 8022 '/usr/sbin/set-lacp-rate.sh --lacprate'`
+
+. Para cambiar temporalmente la tasa de PDU de LACP, introduzca el siguiente comando:
++
+`run-each-node --parallel --port 8022 '/usr/sbin/set-lacp-rate.sh --lacprate _<speed>_'`
+
++
+donde `_<version-number>_` está `fast` o `slow`.
+
+
+
+La tasa de PDU de LACP revertirá a su configuración anterior en el siguiente reinicio del dispositivo.

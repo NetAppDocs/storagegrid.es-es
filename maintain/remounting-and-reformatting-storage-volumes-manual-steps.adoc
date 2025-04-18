@@ -23,7 +23,7 @@ Ejecutar `sn-remount-volumes` el script puede ayudar a identificar los volúmene
 * Tienes link:reviewing-warnings-for-system-drive-recovery.html["Se revisaron las advertencias de recuperación de la unidad del sistema en el nodo de almacenamiento"].
 +
 
-CAUTION: Póngase en contacto con el soporte técnico si hay más de un nodo de almacenamiento sin conexión o si se ha reconstruido un nodo de almacenamiento en este grid en los últimos 15 días. No ejecute `sn-recovery-postinstall.sh` el script. Si se reconstruye Cassandra en dos o más nodos de almacenamiento en un plazo de 15 días entre sí, se puede producir una pérdida de datos.
+CAUTION: Póngase en contacto con el soporte técnico si más de un nodo de almacenamiento está sin conexión. No ejecute `sn-recovery-postinstall.sh` el script.
 
 
 

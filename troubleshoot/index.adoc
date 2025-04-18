@@ -477,9 +477,7 @@ Recopile archivos de registro y datos del sistema para su sistema. Seleccione *S
 
 Es posible recopilar registros de toda la cuadrícula o de los nodos seleccionados.
 
-Si va a recopilar registros solo para los nodos seleccionados, asegúrese de incluir al menos un nodo de almacenamiento que tenga el servicio ADC. (Los tres primeros nodos de almacenamiento de un sitio incluyen el servicio ADC).
-
-link:../monitor/collecting-log-files-and-system-data.html["Recopilar archivos de registro y datos del sistema"]
+Si va a recopilar registros solo para los nodos seleccionados, asegúrese de incluir al menos un nodo de almacenamiento que tenga el servicio ADC. Los tres primeros nodos de almacenamiento instalados en un sitio incluyen el servicio ADC.
 
 
 

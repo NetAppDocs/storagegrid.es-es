@@ -15,7 +15,7 @@ En esta sección se describe cómo el sistema StorageGRID implementa operaciones
 
 Las siguientes condiciones se aplican a todas las operaciones de objeto:
 
-* Todas las operaciones en objetos admiten los StorageGRIDlink:consistency-controls.html["valores de coherencia"], con la excepción de las siguientes:
+* Todas las operaciones en objetos admiten los StorageGRIDlink:consistency.html["valores de coherencia"], con la excepción de las siguientes:
 +
 ** GetObjectAcl
 ** `OPTIONS /`

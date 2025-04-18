@@ -14,7 +14,7 @@ summary: Los registros de StorageGRID se pueden usar para solucionar problemas.
 Los registros de StorageGRID se pueden usar para solucionar problemas.
 
 
-NOTE: Si desea enviar los logs a un servidor syslog externo o cambiar el destino de la información de auditoría, como `bycast.log` y `nms.log`, consulte link:../monitor/configure-audit-messages.html#["Configurar los mensajes de auditoría y los destinos de registro"].
+NOTE: Si desea enviar los logs a un servidor syslog externo o cambiar el destino de la información de auditoría, como `bycast.log` y `nms.log`, consulte link:../monitor/configure-audit-messages.html#["Configure los mensajes de auditoría y el servidor de syslog externo"].
 
 
 

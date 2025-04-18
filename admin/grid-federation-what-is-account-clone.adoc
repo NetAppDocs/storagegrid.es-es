@@ -37,7 +37,7 @@ Si alguno de los sistemas StorageGRID de la conexión de federación de grid uti
 
 .Pasos
 . Configure el mismo origen de identidad para ambas cuadrículas. Consulte link:using-identity-federation.html["Usar la federación de identidades"].
-. Configure el mismo proveedor de identidad de SSO (IdP) para ambas cuadrículas. Consulte link:configuring-sso.html["Configurar el inicio de sesión único"].
+. Configure el mismo proveedor de identidad de SSO (IdP) para ambas cuadrículas. Consulte link:how-sso-works.html["Configurar el inicio de sesión único"].
 . link:managing-admin-groups.html["Cree el mismo grupo de administración"] en ambas cuadrículas importando el mismo grupo federado.
 +
 Al crear el inquilino, seleccionará este grupo para que tenga el permiso inicial de acceso raíz para las cuentas de inquilino de origen y de destino.

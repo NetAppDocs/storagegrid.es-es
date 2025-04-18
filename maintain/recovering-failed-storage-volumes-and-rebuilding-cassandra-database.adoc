@@ -51,7 +51,7 @@ NOTE: No es suficiente comentar un volumen con errores en `/etc/fstab` el archiv
 ** Se le pedirá que reconstruya la base de datos de Cassandra si es necesario.
 +
 *** Revise las advertencias. Si no se aplica ninguno de ellos, vuelva a generar la base de datos Cassandra. Introduzca: *Y*
-*** Si hay más de un nodo de almacenamiento desconectado o si se ha reconstruido otro nodo de almacenamiento en los últimos 15 días. Introduzca: *N*
+*** Si más de un nodo de almacenamiento está desconectado. Introduzca: *N*
 +
 La secuencia de comandos se cerrará sin reconstruir Cassandra. Póngase en contacto con el soporte técnico.
 

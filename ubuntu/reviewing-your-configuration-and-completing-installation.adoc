@@ -26,12 +26,12 @@ NOTE: Si un nodo está configurado para utilizar la red de cliente, la puerta de
 
 . Haga clic en *Descargar paquete de recuperación*.
 +
-Cuando la instalación avanza hasta el punto en el que se define la topología de cuadrícula, se le solicita que descargue el archivo Recovery Package (`.zip`) y confirme que puede acceder correctamente al contenido de este archivo. Debe descargar el archivo de paquete de recuperación para que pueda recuperar el sistema StorageGRID si falla uno o más nodos de grid. La instalación continúa en segundo plano, pero no es posible completar la instalación y acceder al sistema StorageGRID hasta que se descargue y verifique este archivo.
+Cuando la instalación avance hasta el punto en el que se define la topología de cuadrícula, se le pedirá que descargue el archivo del paquete de recuperación (`.zip`) y que confirme que puede acceder correctamente al contenido de este archivo. Debe descargar el archivo del paquete de recuperación para poder recuperar el sistema StorageGRID en caso de que se produzca un error en uno o más nodos de grid. La instalación continúa en segundo plano, pero no es posible completar la instalación y acceder al sistema StorageGRID hasta que se descargue y verifique este archivo.
 
 . Compruebe que puede extraer el contenido del `.zip` archivo y, a continuación, guardarlo en dos ubicaciones seguras, seguras e independientes.
 +
 
-CAUTION: El archivo del paquete de recuperación debe estar protegido porque contiene claves de cifrado y contraseñas que se pueden usar para obtener datos del sistema StorageGRID.
+CAUTION: El archivo del paquete de recuperación debe estar protegido porque contiene claves de cifrado y contraseñas que se pueden utilizar para obtener datos del sistema StorageGRID.
 
 . Seleccione la casilla de verificación *He descargado y verificado correctamente el archivo del paquete de recuperación* y haga clic en *Siguiente*.
 +

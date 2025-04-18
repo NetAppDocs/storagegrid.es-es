@@ -44,7 +44,7 @@ Consulte https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/conf
 
 == Tareas opcionales
 
-* link:../maintain/changing-ip-addresses-and-mtu-values-for-all-nodes-in-grid.html["Actualice las direcciones IP del nodo de grid"] Si han cambiado desde que planificó el despliegue y generó el paquete de recuperación.
+* link:../maintain/changing-ip-addresses-and-mtu-values-for-all-nodes-in-grid.html["Actualice las direcciones IP del nodo de grid"] si han cambiado desde que planificó el despliegue y generó el paquete de recuperación.
 * link:../admin/changing-network-options-object-encryption.html["Configurar el cifrado del almacenamiento"], si es necesario.
 * link:../admin/configuring-stored-object-compression.html["Configurar la compresión del almacenamiento"] para reducir el tamaño de los objetos almacenados, si es necesario.
 * link:../admin/configure-vlan-interfaces.html["Configure las interfaces VLAN"] para aislar y particionar el tráfico de red, si es necesario.

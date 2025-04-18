@@ -76,7 +76,7 @@ NOTE: El valor de coherencia para el control de versiones de bloque, el bloqueo 
 Los siguientes ajustes de cucharón no utilizan una gran consistencia y tienen una mayor disponibilidad para los cambios. Los cambios en estos ajustes pueden tardar algún tiempo antes de tener un efecto.
 
 * link:considerations-for-platform-services.html["Configuración de servicios de plataforma: Notificación, replicación o integración de búsqueda"]
-* link:configuring-cross-origin-resource-sharing-cors.html["Configuración de CORS"]
+* link:configuring-cross-origin-resource-sharing-for-buckets-and-objects.html["Configurar StorageGRID CORS para cubos y objetos"]
 * <<change-bucket-consistency,Cambie la consistencia del cucharón>>
 
 

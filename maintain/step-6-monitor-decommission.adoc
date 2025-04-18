@@ -33,23 +33,23 @@ Es posible que cada nodo de puerta de enlace o nodo de administrador solo requie
 .Pasos
 . Tan pronto como se haya generado un nuevo paquete de recuperación, descargue el archivo.
 +
-image::../media/decommission_site_step_6_recovery_package.png[Paquete de recuperación del paso 6 de la misión de la planta]
+image::../media/decommission_site_step_6_recovery_package.png[Paquete de recuperación de Paso 6 de retirada del sitio]
 
 +
 
-NOTE: Descargue el Lo antes posible. del paquete de recuperación para asegurarse de que puede recuperar la red si hay algún problema durante el procedimiento de retirada de servicio.
+NOTE: Descargue el paquete de recuperación lo antes posible para asegurarse de que puede recuperar su red si algo sale mal durante el procedimiento de retirada.
 
 +
 .. Seleccione el enlace en el mensaje o seleccione *MANTENIMIENTO* > *Sistema* > *Paquete de recuperación*.
 .. Descargue el `.zip` archivo.
 +
-Consulte las instrucciones para link:downloading-recovery-package.html["Descarga del paquete de recuperación"].
+Consulte las instrucciones para link:downloading-recovery-package.html["descargando el paquete de recuperación"].
 
 
 
 +
 
-NOTE: El archivo del paquete de recuperación debe estar protegido porque contiene claves de cifrado y contraseñas que se pueden usar para obtener datos del sistema StorageGRID.
+NOTE: El archivo del paquete de recuperación debe estar protegido porque contiene claves de cifrado y contraseñas que se pueden utilizar para obtener datos del sistema StorageGRID.
 
 . Con el gráfico de movimiento de datos, supervise el movimiento de datos de objetos desde este sitio a otros sitios.
 +

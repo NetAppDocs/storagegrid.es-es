@@ -24,7 +24,7 @@ Cuando instala StorageGRID por primera vez, el grado de almacenamiento *default*
 El uso de grados de almacenamiento personalizados permite crear pools de almacenamiento ILM que contienen solo un tipo específico de nodo de almacenamiento. Por ejemplo, quizás desee almacenar determinados objetos en los nodos de almacenamiento más rápidos, como los dispositivos de almacenamiento all-flash StorageGRID.
 
 
-NOTE: Los nodos de almacenamiento se pueden configurar durante la instalación de modo que solo contengan metadatos de objetos y no datos de objetos. Los nodos de almacenamiento solo de metadatos no se pueden asignar a un grado de almacenamiento. Para obtener más información, consulte link:../primer/what-storage-node-is.html#types-of-storage-nodes["Tipos de nodos de almacenamiento"].
+NOTE: Los nodos de almacenamiento se pueden configurar durante la instalación para contener datos de objeto y metadatos («nodo de almacenamiento combinado»), solo metadatos de objetos o solo datos de objetos. Los nodos de almacenamiento solo de metadatos no se pueden asignar a un grado de almacenamiento. Para obtener más información, consulte link:../primer/what-storage-node-is.html#types-of-storage-nodes["Tipos de nodos de almacenamiento"].
 
 Si el grado de almacenamiento no es una preocupación (por ejemplo, todos los nodos de almacenamiento son idénticos), puede omitir este procedimiento y usar la selección *Incluye todos los grados de almacenamiento* para el grado de almacenamiento cuando usted link:creating-storage-pool.html["cree pools de almacenamiento"]. El uso de esta selección garantiza que el pool de almacenamiento incluirá todos los nodos de almacenamiento en el sitio, independientemente de su grado de almacenamiento.
 

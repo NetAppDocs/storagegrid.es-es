@@ -36,7 +36,7 @@ NOTE: Si no se podrá acceder a los servidores DNS existentes a la cuadrícula e
 
 +
 
-NOTE: Si SSO está habilitado para el sistema StorageGRID y todas las confianzas de partes que dependan se configuraron utilizando direcciones IP de nodos de administración (en lugar de nombres de dominio completos, según se recomienda), esté preparado para actualizar o reconfigurar estas confianzas de partes que se basan en los Servicios de Federación de Active Directory (AD FS). Inmediatamente después de cambiar las direcciones IP. Consulte link:../admin/configuring-sso.html["Configurar el inicio de sesión único"].
+NOTE: Si SSO está habilitado para el sistema StorageGRID y todas las confianzas de partes que dependan se configuraron utilizando direcciones IP de nodos de administración (en lugar de nombres de dominio completos, según se recomienda), esté preparado para actualizar o reconfigurar estas confianzas de partes que se basan en los Servicios de Federación de Active Directory (AD FS). Inmediatamente después de cambiar las direcciones IP. Consulte link:../admin/configure-sso.html["Configurar el inicio de sesión único"].
 
 +
 

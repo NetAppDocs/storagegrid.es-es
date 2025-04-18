@@ -14,7 +14,7 @@ summary: Los archivos de registros de auditoría se guardan en el directorio /va
 Los archivos de registros de auditoría se guardan en el directorio de un nodo de administración `/var/local/log`. Los archivos de registro de auditoría activos se denominan `audit.log`.
 
 
-NOTE: De manera opcional, se puede cambiar el destino de los registros de auditoría y enviar información de auditoría a un servidor de syslog externo. Se siguen generando y almacenando registros locales de registros de auditoría cuando se configura un servidor de syslog externo. Consulte link:../monitor/configure-audit-messages.html["Configurar los mensajes de auditoría y los destinos de registro"].
+NOTE: De manera opcional, se puede cambiar el destino de los registros de auditoría y enviar información de auditoría a un servidor de syslog externo. Se siguen generando y almacenando registros locales de registros de auditoría cuando se configura un servidor de syslog externo. Consulte link:../monitor/configure-audit-messages.html["Configure los mensajes de auditoría y el servidor de syslog externo"].
 
 Una vez al día, el archivo activo `audit.log` se guarda y se inicia un nuevo `audit.log` archivo. El nombre del archivo guardado indica cuándo se guardó, en el formato `_yyyy-mm-dd.txt_`. Si se crea más de un registro de auditoría en un solo día, los nombres de los archivos usan la fecha en que se guardó el archivo, anexado por un número, en el formato `_yyyy-mm-dd.txt.n_`. Por ejemplo, `2018-04-15.txt` y `2018-04-15.txt.1` son los primeros y segundos archivos de registro creados y guardados el 15 de abril de 2018.
 

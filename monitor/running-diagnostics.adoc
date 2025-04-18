@@ -38,7 +38,7 @@ Los Estados de diagnóstico son independientes de las alertas actuales y podría
 Aparece la página Diagnósticos y enumera los resultados de cada comprobación de diagnóstico. Los resultados se ordenan por gravedad (Precaución, atención y luego normal). Dentro de cada gravedad, los resultados se ordenan alfabéticamente.
 
 +
-En este ejemplo, todos los diagnósticos tienen un estado normal.
+En este ejemplo, un diagnóstico tiene un estado Atención y tres diagnósticos tienen un estado Normal.
 
 +
 image::../media/support_diagnostics_page.png[Página de diagnóstico de soporte]
@@ -55,18 +55,18 @@ Aparecen detalles sobre el diagnóstico y sus resultados actuales. Se enumeran l
 
 NOTE: No puedes cambiar estos umbrales.
 
-** *Valores de estado*: Tabla que muestra el estado y el valor del diagnóstico en todo el sistema StorageGRID. En este ejemplo, se muestra el uso actual de la CPU para cada nodo de un sistema StorageGRID. Todos los valores de nodo están por debajo de los umbrales de atención y precaución, por lo que el estado general del diagnóstico es normal.
-
-
+** *Valores de estado*: Un gráfico y una tabla (tabla no mostrada en la captura de pantalla) que muestran el estado y el valor del diagnóstico en todo el sistema StorageGRID. En este ejemplo, se muestra el uso actual de la CPU para cada nodo de un sistema StorageGRID. Todos los valores de nodo están por debajo de los umbrales de atención y precaución, por lo que el estado general del diagnóstico es normal.
 +
-image::../media/support_diagnostics_cpu_utilization.png[Respalde el diagnóstico de utilización de CPU]
+image::../media/support_diagnostics_cpu_utilization.png[Ejemplo de valores de estado de diagnóstico]
 
-. *Opcional*: Para ver los gráficos Grafana relacionados con este diagnóstico, haga clic en el enlace *Grafana Dashboard*.
+
+
+. *Opcional*: Para ver los gráficos Grafana relacionados con este diagnóstico, selecciona *Tablero Grafana*.
 +
 Este enlace no se muestra para todos los diagnósticos.
 
 +
-Aparece el panel Grafana relacionado. En este ejemplo, aparece el panel nodo que muestra la utilización de la CPU a lo largo del tiempo de este nodo, así como otros gráficos Grafana del nodo.
+Aparece el panel Grafana relacionado. En este ejemplo, aparece el panel de control Node que muestra el uso de CPU a lo largo del tiempo para este nodo, así como otros gráficos Grafana para el nodo.
 
 +
 

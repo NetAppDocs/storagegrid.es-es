@@ -16,7 +16,7 @@ Un pool de almacenamiento es una agrupación lógica de nodos de almacenamiento.
 Al instalar StorageGRID, se crea automáticamente un pool de almacenamiento por sitio. Es posible configurar pools de almacenamiento adicionales según sea necesario para cumplir sus requisitos de almacenamiento.
 
 
-NOTE: Los nodos de almacenamiento se pueden configurar durante la instalación para que contengan datos de objetos y metadatos de objetos, o solo metadatos del objeto. Los nodos de almacenamiento solo de metadatos no se pueden usar en pools de almacenamiento. Para obtener más información, consulte link:../primer/what-storage-node-is.html#types-of-storage-nodes["Tipos de nodos de almacenamiento"].
+NOTE: Los nodos de almacenamiento se pueden configurar durante la instalación para contener datos de objeto y metadatos («nodo de almacenamiento combinado»), solo metadatos de objetos o solo datos de objetos. Los nodos de almacenamiento solo de metadatos no se pueden usar en pools de almacenamiento. Para obtener más información, consulte link:../primer/what-storage-node-is.html#types-of-storage-nodes["Tipos de nodos de almacenamiento"].
 
 Los pools de almacenamiento tienen dos atributos:
 

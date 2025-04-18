@@ -19,9 +19,14 @@ Antes de decidir si se debe utilizar la replicación o el código de borrado par
 
 En comparación con la replicación, la codificación de borrado ofrece una mayor fiabilidad, disponibilidad y eficiencia del almacenamiento.
 
-* *Confiabilidad*: La fiabilidad se mide en términos de tolerancia a fallos, es decir, el número de fallos simultáneos que se pueden sostener sin pérdida de datos. Con la replicación, se almacenan varias copias idénticas en diferentes nodos y entre sitios. Con el código de borrado, un objeto se codifica en fragmentos de datos y de paridad, y se distribuye entre muchos nodos y sitios. Esta dispersión proporciona protección frente a fallos del sitio y del nodo. En comparación con la replicación, la codificación de borrado proporciona una mayor fiabilidad con costes de almacenamiento comparables.
-* *Disponibilidad*: La disponibilidad se puede definir como la capacidad de recuperar objetos si los nodos de almacenamiento fallan o se vuelven inaccesibles. En comparación con la replicación, la codificación de borrado proporciona una mayor disponibilidad con costes de almacenamiento comparables.
-* *Eficiencia del almacenamiento*: Para niveles similares de disponibilidad y fiabilidad, los objetos protegidos mediante codificación de borrado consumen menos espacio en disco que los mismos objetos si están protegidos mediante replicación. Por ejemplo, un objeto de 10 MB que se replica en dos sitios consume 20 MB de espacio en disco (dos copias), mientras que el objeto con código de borrado en tres sitios con un esquema de código de borrado 6+3 solo consume 15 MB de espacio en disco.
+* *Fiabilidad*: Medida por el número de fallos simultáneos que pueden ser sostenidos sin pérdida de datos.
++
+** Replicación: Se almacenan varias copias de objetos idénticas en diferentes nodos y en diferentes sitios.
+** Código de borrado: Un objeto está codificado en datos y fragmentos de paridad, y se distribuye en muchos nodos y sitios. Esta dispersión proporciona protección frente a fallos del sitio y del nodo.
+
+
+* *Disponibilidad*: La capacidad de obtener objetos si los nodos de almacenamiento fallan o se vuelven inaccesibles. En comparación con la replicación, la codificación de borrado proporciona una mayor disponibilidad con costes de almacenamiento comparables.
+* *Eficiencia de almacenamiento*: Para una disponibilidad y fiabilidad similares, los objetos codificados con borrado utilizan menos espacio en disco que los objetos replicados. Por ejemplo, un objeto de 10 MB que se replica en dos sitios consume 20 MB de espacio en disco (dos copias), mientras que el objeto con código de borrado en tres sitios con un esquema de código de borrado 6+3 solo consume 15 MB de espacio en disco.
 +
 
 NOTE: El espacio en disco para los objetos codificados de borrado se calcula como el tamaño del objeto más la sobrecarga del almacenamiento. El porcentaje de sobrecarga del almacenamiento es el número de fragmentos de paridad dividido por el número de fragmentos de datos.
@@ -38,7 +43,7 @@ En comparación con la replicación, los códigos de borrado tienen las siguient
 * Aumento del coste y de la complejidad de las ampliaciones del almacenamiento. Para expandir una implementación que utiliza replicación, debe agregar capacidad de almacenamiento en cada ubicación donde se realicen copias de objetos. Para ampliar una puesta en marcha que utilice código de borrado, debe tener en cuenta el esquema de codificación de borrado y el grado de llenado de los nodos de almacenamiento existentes. Por ejemplo, si espera a que los nodos existentes estén llenos al 100 %, debe añadir al menos `k+m` nodos de almacenamiento, pero si amplía cuando los nodos existentes estén llenos al 70 %, puede añadir dos nodos por sitio y seguir maximizando la capacidad de almacenamiento útil. Para obtener más información, consulte link:../expand/adding-storage-capacity-for-erasure-coded-objects.html["Añada capacidad de almacenamiento para objetos codificados de borrado"].
 * Al utilizar códigos de borrado en ubicaciones distribuidas geográficamente, aumenta la latencia de recuperación. Los fragmentos de objetos para un objeto que se codifica para el borrado y se distribuye por sitios remotos tardan más en recuperarse a través de conexiones WAN que un objeto que se replica y está disponible localmente (el mismo sitio al que se conecta el cliente).
 * Al utilizar la codificación de borrado en ubicaciones distribuidas geográficamente, se está utilizando más el tráfico de red WAN para restauraciones y reparaciones, especialmente en objetos que se recuperan con frecuencia o para reparaciones de objetos a través de conexiones de red WAN.
-* Cuando se utiliza la codificación de borrado en varios sitios, el rendimiento máximo del objeto se reduce drásticamente a medida que aumenta la latencia de red entre sitios. Esta disminución se debe a la correspondiente disminución del rendimiento de la red TCP, que afecta a la rapidez con la que el sistema StorageGRID puede almacenar y recuperar fragmentos de objeto.
+* Cuando se utiliza la codificación de borrado en varios sitios, el rendimiento máximo del objeto se reduce drásticamente a medida que aumenta la latencia de red entre sitios. Esta disminución es el resultado de una disminución del rendimiento de la red TCP, lo que afecta a la rapidez con la que el sistema StorageGRID puede almacenar y recuperar fragmentos de objetos.
 * Mayor uso de recursos de computación.
 
 
@@ -46,7 +51,7 @@ En comparación con la replicación, los códigos de borrado tienen las siguient
 
 == Cuándo se debe utilizar la codificación de borrado
 
-El código de borrado se ajusta mejor a los siguientes requisitos:
+Use el código de borrado para los siguientes requisitos:
 
 * Los objetos tienen un tamaño superior a 1 MB.
 +

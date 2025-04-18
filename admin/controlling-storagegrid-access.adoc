@@ -32,16 +32,16 @@ De manera opcional, puede configurar un grupo para que sea de sólo lectura. Los
 
 == Active el inicio de sesión único
 
-El sistema StorageGRID admite el inicio de sesión único (SSO) con el estándar de lenguaje de marcado de aserción de seguridad 2.0 (SAML 2.0). Después de que usted link:configuring-sso.html["Configure y habilite SSO"], todos los usuarios deben ser autenticados por un proveedor de identidad externo antes de que puedan acceder a Grid Manager, el Gestor de inquilinos, la API de gestión de grid o la API de gestión de inquilinos. Los usuarios locales no pueden iniciar sesión en StorageGRID.
+El sistema StorageGRID admite el inicio de sesión único (SSO) con el estándar de lenguaje de marcado de aserción de seguridad 2.0 (SAML 2.0). Después de que usted link:how-sso-works.html["Configure y habilite SSO"], todos los usuarios deben ser autenticados por un proveedor de identidad externo antes de que puedan acceder a Grid Manager, el Gestor de inquilinos, la API de gestión de grid o la API de gestión de inquilinos. Los usuarios locales no pueden iniciar sesión en StorageGRID.
 
 
 
 == Cambie la clave de acceso de aprovisionamiento
 
-La clave de acceso de aprovisionamiento es necesaria para muchos procedimientos de instalación y mantenimiento, así como para descargar el paquete de recuperación de StorageGRID. También se necesita la contraseña para descargar los backups de la información de topología de la cuadrícula y las claves de cifrado del sistema StorageGRID. Usted puede link:changing-provisioning-passphrase.html["cambie la contraseña"] según sea necesario.
+La clave de acceso de aprovisionamiento es necesaria para muchos procedimientos de instalación y mantenimiento, y para descargar el paquete de recuperación de StorageGRID. También se necesita la contraseña para descargar los backups de la información de topología de la cuadrícula y las claves de cifrado del sistema StorageGRID. Usted puede link:changing-provisioning-passphrase.html["cambie la contraseña"] según sea necesario.
 
 
 
 == Cambie las contraseñas de la consola de los nodos
 
-Cada nodo de su grid tiene una contraseña única de la consola de nodos, la cual necesita iniciar sesión en el nodo como «administrador» mediante SSH, o al usuario raíz en una conexión de consola física o de máquina virtual. Según sea necesario, puede link:change-node-console-password.html["cambie la contraseña de la consola del nodo"] para cada nodo.
+Cada nodo de su grid tiene una contraseña de consola de nodo, la cual necesita iniciar sesión en el nodo como «administrador» mediante SSH, o al usuario raíz en una conexión de consola física o máquina virtual. Según sea necesario, puede link:change-node-console-password.html["cambie la contraseña de la consola del nodo"] para cada nodo.

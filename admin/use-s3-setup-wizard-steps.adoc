@@ -347,7 +347,7 @@ Para obtener detalles sobre esta tarea, consulte link:creating-tenant-account.ht
 +
 Los nombres de inquilinos no necesitan ser únicos. Cuando se crea la cuenta de arrendatario, recibe un ID de cuenta numérico único.
 
-. Defina el acceso raíz para la cuenta de arrendatario, en función de si el sistema StorageGRID utiliza link:using-identity-federation.html["federación de identidades"], link:configuring-sso.html["Inicio de sesión único (SSO)"]o ambos.
+. Defina el acceso raíz para la cuenta de arrendatario, en función de si el sistema StorageGRID utiliza link:using-identity-federation.html["federación de identidades"], link:how-sso-works.html["Inicio de sesión único (SSO)"]o ambos.
 +
 [cols="1a,2a"]
 |===

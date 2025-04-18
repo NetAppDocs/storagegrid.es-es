@@ -73,12 +73,6 @@ Una vez completada la actualización, puede revisar cualquier alerta relacionada
 
 
 
-== Se generan muchas notificaciones SNMP
-
-Tenga en cuenta que es posible que se genere un gran número de notificaciones SNMP cuando se detengan los nodos de grid y se reinician durante la actualización. Para evitar el exceso de notificaciones, desactive la casilla de verificación *Activar notificaciones de agente SNMP* (*CONFIGURACIÓN* > *Monitoreo* > *Agente SNMP*) para desactivar las notificaciones SNMP antes de iniciar la actualización. A continuación, vuelva a habilitar las notificaciones cuando finalice la actualización.
-
-
-
 == Los cambios de configuración están restringidos
 
 
@@ -102,23 +96,4 @@ Hasta que finalice la tarea *pasos de actualización final*:
 
 * No realice un procedimiento de expansión.
 * No realice un procedimiento de decomiso.
-
-
-
-
-== No puede ver los detalles del depósito ni gestionar los depósitos desde el gestor de inquilinos
-
-Durante la actualización a StorageGRID 11,9 (es decir, mientras el sistema funciona como un entorno de versión mixta), no se pueden ver los detalles de los bloques ni gestionar bloques mediante el Administrador de inquilinos. Aparece uno de los siguientes errores en la página Cuches del Administrador de inquilinos:
-
-* No puedes usar esta API mientras actualizas a 11,9.
-* No puede ver los detalles de las versiones de los bloques en el administrador de inquilinos mientras actualiza a 11,9.
-
-
-Este error se resolverá después de que se complete la actualización a 11,9.
-
-.Solución alternativa
-Mientras la actualización a 11,9 está en curso, utilice las siguientes herramientas para ver los detalles de los bloques o gestionar bloques, en lugar de utilizar el Gestor de inquilinos:
-
-* Para realizar operaciones S3 estándar en un cucharón, utilice link:../s3/operations-on-buckets.html["API REST DE S3"]o el link:../tenant/understanding-tenant-management-api.html["API de gestión de inquilinos"].
-* Para realizar operaciones personalizadas de StorageGRID en un bloque (por ejemplo, ver y modificar la coherencia del bloque, habilitar o deshabilitar las actualizaciones de la hora del último acceso o configurar la integración de búsqueda), use la API de gestión de inquilinos.
 

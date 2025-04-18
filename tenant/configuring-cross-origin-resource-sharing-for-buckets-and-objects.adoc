@@ -1,10 +1,10 @@
 ---
-permalink: tenant/configuring-cross-origin-resource-sharing-cors.html 
+permalink: tenant/configuring-cross-origin-resource-sharing-for-buckets-and-objects.html 
 sidebar: sidebar 
 keywords: how to configure cross-origin resource sharing, cors 
 summary: 'Puede configurar el uso compartido de recursos de origen cruzado \(CORS\) para un depósito de S3 si desea que las aplicaciones web de otros dominios puedan acceder a ese depósito y a los objetos de ese depósito.' 
 ---
-= Configurar el uso compartido de recursos de origen cruzado (CORS)
+= Configurar StorageGRID CORS para cubos y objetos
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -85,3 +85,6 @@ Aparece la página de detalles bucket.
 . Desactive la casilla de verificación *Activar CORS*.
 . Seleccione *Guardar cambios*.
 
+
+.Información relacionada
+link:enable-cross-origin-resource-sharing-for-management-interface.html["Active StorageGRID CORS para una interfaz de gestión"]

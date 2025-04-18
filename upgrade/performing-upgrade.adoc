@@ -65,13 +65,13 @@ Ejecutar comprobaciones previas le permite detectar y resolver cualquier problem
 . Para el paso *Ejecutar comprobaciones previas*, comience introduciendo la frase de acceso de aprovisionamiento para su cuadrícula.
 . Seleccione *Descargar paquete de recuperación*.
 +
-Debe descargar la copia actual del archivo del paquete de recuperación antes de actualizar el nodo de administración principal. El archivo de paquete de recuperación permite restaurar el sistema si se produce un fallo.
+Debe descargar la copia actual del archivo del paquete de recuperación antes de actualizar el nodo de administración principal. El archivo de paquete de recuperación le permite restaurar el sistema en caso de que se produzca un fallo.
 
 . Cuando descargue el archivo, confirme que puede acceder al contenido, incluido el `Passwords.txt` archivo.
 . Copie el archivo descargado (`.zip`) en dos ubicaciones seguras, separadas y protegidas.
 +
 
-CAUTION: El archivo del paquete de recuperación debe estar protegido porque contiene claves de cifrado y contraseñas que se pueden usar para obtener datos del sistema StorageGRID.
+CAUTION: El archivo del paquete de recuperación debe estar protegido porque contiene claves de cifrado y contraseñas que se pueden utilizar para obtener datos del sistema StorageGRID.
 
 . Seleccione *Ejecutar comprobaciones previas* y espere a que se completen las comprobaciones previas.
 . Revise los detalles de cada comprobación previa informada y resuelva los errores notificados. Consulte https://kb.netapp.com/hybrid/StorageGRID/Maintenance/StorageGRID_11.9_software_upgrade_resolution_guide["Guía de resolución de actualización de software StorageGRID"^] la para la versión 11,9 de StorageGRID.
@@ -129,13 +129,13 @@ NOTE: Cuando la actualización se inicia en un nodo de grid, los servicios de es
 . Para el paso *Actualizar otros nodos*, revise el Resumen, que proporciona la hora de inicio de la actualización en su conjunto y el estado de cada tarea de actualización principal.
 +
 ** *Start upgrade service* es la primera tarea de actualización. Durante esta tarea, el archivo de software se distribuye a los nodos de grid y el servicio de actualización se inicia en cada nodo.
-** Cuando se complete la tarea *Iniciar servicio de actualización*, se iniciará la tarea *Actualizar otros nodos de grid* y se le pedirá que descargue una nueva copia del Paquete de recuperación.
+** Cuando se complete la tarea *Start upgrade service*, se iniciará la tarea *Upgrade other grid nodes* y se le pedirá que descargue una nueva copia del paquete de recuperación.
 
 
-. Cuando se le solicite, introduzca la frase de contraseña de aprovisionamiento y descargue una nueva copia del paquete de recuperación.
+. Cuando se le solicite, introduzca la frase de acceso de aprovisionamiento y descargue una nueva copia del paquete de recuperación.
 +
 
-CAUTION: Debe descargar una nueva copia del archivo del paquete de recuperación después de actualizar el nodo de administración principal. El archivo de paquete de recuperación permite restaurar el sistema si se produce un fallo.
+CAUTION: Debe descargar una nueva copia del archivo del paquete de recuperación después de actualizar el nodo de administración primario. El archivo de paquete de recuperación le permite restaurar el sistema en caso de que se produzca un fallo.
 
 . Revise las tablas de estado para cada tipo de nodo. Hay tablas para nodos de administración no principales, nodos de puerta de enlace y nodos de almacenamiento.
 +

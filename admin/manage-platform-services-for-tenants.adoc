@@ -15,6 +15,8 @@ Los servicios de plataforma incluyen la replicación de CloudMirror, las notific
 
 Si habilita los servicios de plataforma para cuentas de inquilino de S3, debe configurar su grid para que los inquilinos puedan acceder a los recursos externos necesarios para usar estos servicios.
 
+Los servicios de plataforma no son compatibles con link:../tenant/manage-branch-buckets.html["cucharones para bifurcaciones"].
+
 
 
 == Replicación de CloudMirror
@@ -23,17 +25,16 @@ El servicio de replicación de CloudMirror de StorageGRID se usa para reflejar o
 
 Por ejemplo, podría usar la replicación de CloudMirror para reflejar registros de clientes específicos en Amazon S3 y, a continuación, aprovechar los servicios de AWS para realizar análisis de los datos.
 
+La replicación de CloudMirror tiene algunas similitudes y diferencias importantes con la función de replicación entre redes. Para obtener más información, consulte link:../admin/grid-federation-compare-cgr-to-cloudmirror.html["Compare la replicación entre grid y la replicación de CloudMirror"].
 
-NOTE: La replicación de CloudMirror tiene algunas similitudes y diferencias importantes con la función de replicación entre redes. Para obtener más información, consulte link:../admin/grid-federation-compare-cgr-to-cloudmirror.html["Compare la replicación entre grid y la replicación de CloudMirror"].
 
-
-NOTE: La replicación de CloudMirror no es compatible si el bloque de origen tiene la función S3 Object Lock habilitada.
+NOTE: La replicación de CloudMirror no es compatible si el bloque de origen tiene S3 Object Lock habilitado.
 
 
 
 == Notificaciones
 
-Las notificaciones de eventos por bloque se utilizan para enviar notificaciones sobre acciones específicas realizadas en objetos a un clúster Kafka externo especificado o a Amazon Simple Notification Service.
+Las notificaciones de eventos por bloque se utilizan para enviar notificaciones sobre acciones específicas realizadas en objetos a un clúster Kafka externo especificado, un punto final webhook o Amazon Simple Notification Service.
 
 Por ejemplo, podría configurar que se envíen alertas a administradores acerca de cada objeto agregado a un bloque, donde los objetos representan los archivos de registro asociados a un evento crítico del sistema.
 

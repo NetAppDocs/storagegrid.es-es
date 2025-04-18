@@ -18,22 +18,22 @@
 
 * Para supervisar la reparación con más detalle:
 +
-.. Seleccione *SUPPORT* > *Tools* > *Topología de cuadrícula*.
-.. Seleccione *_grid_* > *_nodo de almacenamiento que se está reparando_* > *LDR* > *almacén de datos*.
-.. Utilice una combinación de los siguientes atributos para determinar, como sea posible, si las reparaciones replicadas se han completado.
+.. Selecciona *NODOS*.
+.. Seleccione *_grid name_* > *ILM*.
+.. Coloque el cursor sobre el gráfico de cola ILM para ver el valor del atributo *Tasa de exploración (objetos/seg)*, que es la velocidad a la que los objetos de la cuadrícula se escanean y se ponen en cola para ILM.
+.. En la sección ILM Queue, observe los siguientes atributos:
 +
-
-NOTE: Puede haber incoherencias en Cassandra y no se realiza un seguimiento de las reparaciones fallidas.
-
+*** *Período de escaneo - Estimado*: El tiempo estimado para completar una exploración completa de ILM de todos los objetos.
 +
-*** *Reparaciones intentadas (XRPA)*: Utilice este atributo para realizar un seguimiento del progreso de las reparaciones replicadas. Este atributo aumenta cada vez que un nodo de almacenamiento intenta reparar un objeto de alto riesgo. Cuando este atributo no aumenta durante un período más largo que el período de exploración actual (proporcionado por el atributo *período de exploración -- estimado*), significa que el análisis de ILM no encontró objetos de alto riesgo que necesitan ser reparados en ningún nodo.
+Un análisis completo no garantiza que ILM se haya aplicado a todos los objetos.
+
+*** *Reparaciones intentadas*: El número total de operaciones de reparación de objetos para los datos replicados que se han intentado. Este número aumenta cada vez que un nodo de almacenamiento intenta reparar un objeto de riesgo alto. Si el Grid está ocupado, se da prioridad a las reparaciones de ILM de alto riesgo.
 +
-
-NOTE: Los objetos de alto riesgo son objetos que corren el riesgo de perderse por completo. Esto no incluye objetos que no cumplen con la configuración de ILM.
-
-*** *Período de exploración -- estimado (XSCM)*: Utilice este atributo para estimar cuándo se aplicará un cambio de directiva a objetos ingeridos previamente. Si el atributo *reparos intentados* no aumenta durante un período más largo que el período de adquisición actual, es probable que se realicen reparaciones replicadas. Tenga en cuenta que el período de adquisición puede cambiar. El atributo *período de exploración -- estimado (XSCM)* se aplica a toda la cuadrícula y es el máximo de todos los periodos de exploración de nodos. Puede consultar el historial de atributos *período de exploración -- Estimated* de la cuadrícula para determinar un intervalo de tiempo adecuado.
+La misma reparación de objeto puede volver a incrementarse si la replicación ha fallado después de la reparación. + Estos atributos pueden ser útiles cuando está supervisando el progreso de la recuperación del volumen del nodo de almacenamiento. Si el número de reparaciones que se intentaron ha dejado de aumentar y se ha completado una exploración completa, es probable que la reparación haya finalizado.
 
 
+
+.. Alternativamente, envíe una consulta de Prometheus para `storagegrid_ilm_scan_period_estimated_minutes` y. `storagegrid_ilm_repairs_attempted`
 
 
 

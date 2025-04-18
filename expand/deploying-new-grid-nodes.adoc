@@ -145,9 +145,6 @@ Si el botón *Iniciar instalación* no está activado, es posible que deba cambi
 
 . En la página de inicio del instalador de dispositivos StorageGRID, seleccione *Iniciar instalación*.
 +
-image::../media/appliance_installer_home_start_installation_enabled.gif[Esta imagen se describe con el texto circundante.]
-
-+
 El estado actual cambia a «Instalación en curso» y se muestra la página de instalación del monitor.
 
 . Si su ampliación incluye varios nodos de dispositivos, repita los pasos anteriores para cada dispositivo.
@@ -158,9 +155,6 @@ NOTE: Si necesita implementar varios nodos de almacenamiento de dispositivos a l
 . Si necesita acceder manualmente a la página instalación del monitor, seleccione *instalación del monitor* en la barra de menús.
 +
 La página Monitor Installation (instalación del monitor) muestra el progreso de la instalación.
-
-+
-image::../media/monitor_installation_configure_storage.gif[Esta imagen se explica por el texto circundante.]
 
 +
 La barra de estado azul indica qué tarea está en curso actualmente. Las barras de estado verdes indican tareas que se han completado correctamente.
@@ -191,8 +185,5 @@ Durante esta fase, el instalador copia la imagen del sistema operativo base para
 +
 
 NOTE: Espere a que todos los nodos agregados en esta expansión estén listos para su aprobación antes de ir a Grid Manager para aprobar los nodos.
-
-+
-image::../media/monitor_installation_install_sgws.gif[Esta imagen se explica por el texto circundante.]
 
 

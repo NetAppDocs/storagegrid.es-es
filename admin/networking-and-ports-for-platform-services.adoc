@@ -20,6 +20,10 @@ Por ejemplo, los inquilinos pueden configurar los siguientes tipos de extremos d
 * Un clúster de Elasticsearch alojado localmente
 * Una aplicación local que admite la recepción de mensajes de Amazon Simple Notification Service
 * Un clúster Kafka alojado localmente
+* Un punto final webhook externo o alojado localmente que admite solicitudes de notificación HTTP POST.
++
+Este punto final se puede alojar en varios servidores web, frameworks o herramientas de Data Processing como Fluentd.
+
 * Un bloque de S3 alojado localmente en la misma instancia de StorageGRID u otra
 * Un extremo externo, como un extremo en Amazon Web Services.
 

@@ -39,88 +39,11 @@ La verificación en segundo plano se ejecuta a una velocidad continua diseñada 
 
 
 
-=== Alertas relacionadas con la verificación en segundo plano
+== Alertas relacionadas con la verificación en segundo plano
 
 Si el sistema detecta un objeto corrupto que no puede corregir automáticamente (porque la corrupción impide que el objeto sea identificado), se activa la alerta *Objeto corrupto no identificado detectado*.
 
 Si la verificación de fondo no puede reemplazar un objeto dañado porque no puede localizar otra copia, se activa la alerta *Objetos perdidos*.
-
-
-
-=== Cambie la tasa de verificación en segundo plano
-
-Puede cambiar la velocidad a la que la verificación en segundo plano comprueba los datos de objetos replicados en un nodo de almacenamiento si tiene dudas acerca de la integridad de los datos.
-
-.Antes de empezar
-* Debe iniciar sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
-* Tienes link:../admin/admin-group-permissions.html["permisos de acceso específicos"].
-
-
-.Acerca de esta tarea
-Es posible cambiar la tasa de verificación para la verificación en segundo plano en un nodo de almacenamiento:
-
-* Adaptive: Ajuste predeterminado. La tarea está diseñada para verificar un máximo de 4 MB/s o 10 objetos/s (lo que se supere primero).
-* Alto: La verificación del almacenamiento procede rápidamente, a un ritmo que puede ralentizar las actividades normales del sistema.
-
-
-Utilice la alta tasa de verificación sólo cuando sospeche que un error de hardware o software puede tener datos de objeto dañados. Una vez finalizada la verificación en segundo plano de prioridad alta, la velocidad de verificación se restablece automáticamente a adaptable.
-
-.Pasos
-. Seleccione *SUPPORT* > *Tools* > *Topología de cuadrícula*.
-. Seleccione *_Storage Node_* > *LDR* > *Verification*.
-. Seleccione *Configuración* > *Principal*.
-. Vaya a *LDR* > *verificación* > *Configuración* > *Principal*.
-. En verificación de fondo, seleccione *velocidad de verificación* > *Alta* o *velocidad de verificación* > *adaptable*.
-+
-image::../media/background_verification_rate.png[Configuración de la tasa de verificación]
-
-. Haga clic en *aplicar cambios*.
-. Supervise los resultados de la verificación en segundo plano de los objetos replicados.
-+
-.. Vaya a *NODES* > *_Storage Node_* > *Objects*.
-.. En la sección verificación, supervise los valores de *objetos corruptos* y *objetos corruptos no identificados*.
-+
-Si la verificación en segundo plano encuentra datos de objeto replicados dañados, se incrementa la métrica *objetos corruptos* y StorageGRID intenta extraer el identificador de objeto de los datos, de la siguiente manera:
-
-+
-*** Si se puede extraer el identificador del objeto, StorageGRID crea automáticamente una nueva copia de los datos del objeto. La nueva copia se puede realizar en cualquier parte del sistema de StorageGRID que cumpla las políticas de gestión de la vida útil de la información activas.
-*** Si el identificador de objeto no se puede extraer (porque se ha dañado), la métrica *Objetos corruptos no identificados* aumenta y se activa la alerta *Objeto corrupto no identificado detectado*.
-
-
-.. Si se encuentran datos de objeto replicado dañados, póngase en contacto con el soporte técnico para determinar la causa raíz de los daños.
-
-
-. Supervise los resultados de la verificación en segundo plano para objetos codificados mediante borrado.
-+
-Si la verificación en segundo plano encuentra fragmentos dañados de datos de objeto codificados con borrado, se incrementa el atributo fragmentos dañados detectados. StorageGRID se recupera al reconstruir el fragmento dañado in situ en el mismo nodo de almacenamiento.
-
-+
-.. Seleccione *SUPPORT* > *Tools* > *Topología de cuadrícula*.
-.. Seleccione *_Storage Node_* > *LDR* > *código de borrado*.
-.. En la tabla resultados de verificación, supervise el atributo fragmentos dañados detectados (ECCD).
-
-
-. Una vez que el sistema StorageGRID restaura automáticamente los objetos dañados, restablece el número de objetos dañados.
-+
-.. Seleccione *SUPPORT* > *Tools* > *Topología de cuadrícula*.
-.. Seleccione *_Storage Node_* > *LDR* > *Verification* > *Configuration*.
-.. Seleccione *Restablecer recuento de objetos dañados*.
-.. Haga clic en *aplicar cambios*.
-
-
-. Si está seguro de que los objetos en cuarentena no son necesarios, puede eliminarlos.
-+
-
-NOTE: Si se activó la alerta *Objetos perdidos*, es posible que el soporte técnico desee acceder a objetos en cuarentena para ayudar a depurar el problema subyacente o intentar recuperar los datos.
-
-+
-.. Seleccione *SUPPORT* > *Tools* > *Topología de cuadrícula*.
-.. Seleccione *_Storage Node_* > *LDR* > *Verification* > *Configuration*.
-.. Seleccione *Eliminar objetos en cuarentena*.
-.. Seleccione *aplicar cambios*.
-
-
-
 
 
 
@@ -138,7 +61,7 @@ La comprobación de la existencia de objetos lee los metadatos de cada objeto al
 
 
 
-=== Ejecute la comprobación de existencia de objetos
+== Ejecute la comprobación de existencia de objetos
 
 Cree y ejecute un trabajo de comprobación de existencia de objetos a la vez. Cuando crea un trabajo, debe seleccionar los nodos de almacenamiento y los volúmenes que desea verificar. También selecciona la consistencia para el trabajo.
 
@@ -214,10 +137,7 @@ NOTE: Según sea necesario, puede salir de la página de comprobación existenci
 Este valor representa el número total de copias que faltan de los objetos replicados y los objetos codificados de borrado con uno o más fragmentos que faltan.
 
 +
-Si el número de copias de objeto que faltan detectadas es mayor que 100, puede que haya un problema con el almacenamiento del nodo de almacenamiento.
-
-+
-image::../media/oec_active.png[Trabajo activo de OEC]
+Si el número de copias de objetos ausentes detectadas es superior a 100, es posible que haya un problema con el almacenamiento del nodo de almacenamiento.
 
 . Una vez completado el trabajo, realice las acciones necesarias adicionales:
 +
@@ -243,9 +163,6 @@ Cuando StorageGRID tiene tiempo para lograr la consistencia de metadatos en los 
 
 
 .. Seleccione la casilla de verificación para cada trabajo que desee volver a ejecutar y, a continuación, seleccione *Volver a ejecutar*.
-+
-image::../media/oec_rerun.png[Repetición de OEC]
-
 .. En el asistente Rerun Jobs, revise los nodos y los volúmenes seleccionados y la coherencia.
 .. Cuando esté listo para volver a ejecutar los trabajos, seleccione *Rerun*.
 
@@ -253,6 +170,3 @@ image::../media/oec_rerun.png[Repetición de OEC]
 
 
 Aparece la ficha Trabajo activo. Todos los trabajos que ha seleccionado se vuelven a ejecutar como un trabajo a una consistencia de sitio fuerte. En el campo *trabajos relacionados* de la sección Detalles se muestran los identificadores de trabajo de los trabajos originales.
-
-.Después de terminar
-Si aún tiene dudas sobre la integridad de los datos, vaya a *SUPPORT* > *Tools* > *Grid topolog* > *_site_* > *_Storage Node_* > *LDR* > *Verification* > *Configuration* > *Main* y aumente la velocidad de verificación de fondo. La verificación en segundo plano comprueba la corrección de todos los datos de objeto almacenados y repara cualquier problema que encuentre. Encontrar y reparar posibles problemas lo más rápidamente posible reduce el riesgo de pérdida de datos.

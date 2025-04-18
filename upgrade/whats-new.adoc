@@ -1,10 +1,10 @@
 ---
 permalink: upgrade/whats-new.html 
 sidebar: sidebar 
-keywords: what is new in StorageGRID 11.9 
-summary: Esta versión de StorageGRID presenta las siguientes funciones. 
+keywords: what is new in StorageGRID 12.0 
+summary: Esta versión de StorageGRID introduce las siguientes funciones y cambios funcionales. 
 ---
-= Novedades en StorageGRID 11,9
+= Novedades en StorageGRID 12,0
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -15,131 +15,11 @@ Esta versión de StorageGRID introduce las siguientes funciones y cambios funcio
 
 
 
-== Escalabilidad
+== Replicación entre grid con S3 Object Lock
 
+Puede configurar la replicación entre grid entre buckets con S3 Object Lock habilitado. Consulte link:../admin/grid-federation-what-is-cross-grid-replication.html#cgr-with-ol["Replicación entre grid con S3 Object Lock"].
 
-
-=== Nodos de almacenamiento solo de datos
-
-Para permitir un escalado más granular, ahora puede instalar link:../primer/what-storage-node-is.html#types-of-storage-nodes["Nodos de almacenamiento solo de datos"]. Cuando el procesamiento de metadatos no sea crítico, puede optimizar su infraestructura de forma rentable. Esta flexibilidad ayuda a adaptarse a las distintas cargas de trabajo y patrones de crecimiento.
-
-
-
-== Mejoras de Cloud Storage Pool
-
-
-
-=== Funciones de IAM en cualquier lugar
-
-StorageGRID ahora soporta credenciales a corto plazo usando link:../ilm/creating-cloud-storage-pool.html["IAM Roles en cualquier lugar de Amazon S3 para Cloud Storage Pools"].
-
-El uso de credenciales a largo plazo para acceder a los depósitos de S3 plantea riesgos de seguridad si estas credenciales se ven comprometidas. Las credenciales a corto plazo tienen una vida útil limitada, lo que reduce el riesgo de acceso no autorizado.
-
-
-
-=== S3 Bloqueo de objetos
-
-Ahora puede link:../ilm/creating-cloud-storage-pool.html["Configurar un pool de almacenamiento en la nube mediante un punto final de Amazon S3"]. S3 Object Lock ayuda a evitar la eliminación accidental o malintencionada de objetos. Si organiza los datos en niveles de StorageGRID a Amazon S3, tener habilitado el bloqueo de objetos en ambos sistemas mejora la protección de datos durante todo el ciclo de vida de los datos.
-
-
-
-== Soporte para múltiples usuarios
-
-
-
-=== Límites del cucharón
-
-Por link:../tenant/creating-s3-bucket.html["Establecimiento de límites en S3 cubos"], puede evitar que los inquilinos monopolicen la capacidad. Además, un crecimiento incontrolado puede generar costes inesperados. Al disponer de unos límites definidos, puede calcular mejor los gastos en almacenamiento de los clientes.
-
-
-
-=== 5.000 buckets por inquilino
-
-Con el fin de mejorar la escalabilidad, StorageGRID admite ahora hasta link:../s3/operations-on-buckets.html["5.000 S3 buckets por inquilino"]un Cada rejilla puede tener un máximo de 100.000 cubos.
-
-Para admitir 5.000 buckets, cada nodo de almacenamiento del grid debe tener un mínimo de 64 GB de RAM.
-
-
-
-== S3 Mejoras de bloqueo de objetos
-
-Las funcionalidades de configuración por inquilino ofrecen el equilibrio adecuado de flexibilidad y seguridad de datos. Ahora puede configurar los ajustes de retención por inquilino para:
-
-* Permitir o no permitir el modo de conformidad
-* Establezca un período de retención máximo
-
-
-Consulte:
-
-* link:../ilm/managing-objects-with-s3-object-lock.html["Gestione objetos con S3 Object Lock"]
-* link:../ilm/how-object-retention-is-determined.html#how-grid-administrators-control-object-retention["Cómo los administradores de grid controlan la retención de objetos"]
-* link:../admin/creating-tenant-account.html["Cree una cuenta de inquilino"]
-
-
-
-
-== Compatibilidad con S3
-
-
-
-=== suma de comprobación x-amz-champion-sha256
-
-* La API de REST DE S3 ahora proporciona compatibilidad con LINK:../S3/operations-on-objects.html[`x-amz-checksum-sha256` checksum].
-* StorageGRID ahora proporciona compatibilidad con la suma de comprobación de SHA-256 para operaciones CON PUT, GET y HEAD. Estas sumas de comprobación mejoran la integridad de los datos.
-
-
-
-
-=== Cambios en la compatibilidad con el protocolo S3
-
-* Se ha añadido soporte para mountpoint para Amazon S3, que permite a las aplicaciones conectarse directamente a buckets S3 como si fueran sistemas de archivos locales. Ahora puede utilizar StorageGRID con más aplicaciones y más casos de uso.
-* Como parte de la adición de soporte para punto de montaje, StorageGRID 11,9 contiene link:../s3/index.html#updates-to-rest-api-support["Cambios adicionales en la compatibilidad con el protocolo S3"].
-
-
-
-
-== Mantenimiento y compatibilidad
-
-
-
-=== AutoSupport
-
-link:../admin/what-is-autosupport.html["AutoSupport"] ahora crea automáticamente casos de errores de hardware para dispositivos heredados.
-
-
-
-=== Operaciones de clonado de nodos ampliadas
-
-La facilidad de uso de clones de nodo se ha ampliado para admitir nodos de almacenamiento más grandes.
-
-
-
-=== Gestión de ILM mejorada de marcadores de eliminación vencidos
-
-Las reglas de tiempo de procesamiento de ILM con un periodo de tiempo de días ahora quitan los marcadores de eliminación de objetos vencidos. Los marcadores de eliminación solo se eliminan cuando ha transcurrido un período de tiempo de días y el creador de eliminación actual ha caducado (no hay versiones no actuales).
-
-Consulte link:../ilm/how-objects-are-deleted.html#delete-s3-versioned-objects["Cómo se eliminan los objetos con versiones de S3"]y.link:../ilm/example-8-priorities-for-s3-bucket-lifecycle-and-ilm-policy.html#example-of-bucket-lifecycle-taking-priority-over-ilm-policy["Ejemplo de ciclo de vida del bloque que tiene prioridad sobre la política de ILM"]
-
-
-
-=== Mejora del decomisionado de nodos
-
-Se ha mejorado para proporcionar una transición sin problemas y eficiente al hardware de última generación de StorageGRIDlink:../maintain/grid-node-decommissioning.html["decomisionado de nodos"].
-
-
-
-=== Syslog para extremos del equilibrador de carga
-
-Los logs de acceso de punto final del equilibrador de carga contienen información de solución de problemas, como códigos de estado HTTP. StorageGRID ahora admite link:../monitor/configure-audit-messages.html["exportar estos registros a un servidor de syslog externo"]. Esta mejora permite una gestión e integración de los registros más eficientes con los sistemas de supervisión y alerta existentes.
-
-
-
-=== Mejoras adicionales para el mantenimiento y la compatibilidad
-
-* Actualización de IU de métricas
-* Nuevas cualificaciones del sistema operativo
-* Compatibilidad con nuevos componentes de terceros
-
+NetApp recomienda utilizar esta función solo entre los bloques de origen y de destino de StorageGRID 12,0. Sin embargo, esta función se admite entre los buckets de origen de StorageGRID 11,9 con bloqueo de objeto S3 desactivado y los cubos de destino de StorageGRID 12,0 con bloqueo de objeto S3 habilitado.
 
 
 
@@ -147,15 +27,29 @@ Los logs de acceso de punto final del equilibrador de carga contienen informaci�
 
 
 
-=== Rotación de claves de acceso SSH
+=== Mejora de la seguridad para las contraseñas cifradas en el disco
 
-Los administradores de grid ahora pueden link:../admin/change-ssh-access-passwords.html["Actualice y gire las claves SSH"]. La capacidad de rotar claves SSH es una práctica recomendada de seguridad y un mecanismo de defensa proactivo.
+Seguridad de contraseñas mejorada, incluido un recuento de redondas hash altamente aumentado para hashes de contraseñas SHA512.
 
 
 
-=== Alertas para inicios de sesión raíz
+== S3 cubos
 
-Cuando una entidad desconocida inicia sesión en Grid Manager como root, link:../monitor/alerts-reference.html["se activa una alerta"]. La supervisión de los inicios de sesión raíz SSH es un paso proactivo para proteger su infraestructura.
+
+
+=== Cucharones para bifurcaciones
+
+Ahora puede link:../tenant/manage-branch-bucket-html["crear cubos de bifurcación"]obtener un cubo de S3. Un depósito de bifurcación proporciona acceso a objetos de depósito S3 tal como existían en un momento determinado. Un bloque de sucursales no es lo mismo que un backup.
+
+
+
+== Interfaz de usuario
+
+
+
+=== Tema oscuro
+
+La configuración del tema oscuro y del tema del sistema está disponible en el menú Usuario de Grid Manager y el Gestor de inquilinos.
 
 
 
@@ -163,12 +57,6 @@ Cuando una entidad desconocida inicia sesión en Grid Manager como root, link:..
 
 
 
-=== Se ha movido la página de perfiles de codificación de borrado
+=== Configurar la mejora de regiones
 
-La página de perfiles de codificación de borrado se encuentra ahora en *CONFIGURACIÓN* > *Sistema* > *código de borrado*. Solía estar en el menú de ILM.
-
-
-
-=== Mejoras de búsqueda
-
-link:../primer/exploring-grid-manager.html#search-field["Campo de búsqueda en Grid Manager"]Ahora incluye una lógica de mejor coincidencia, lo que le permite buscar páginas mediante la búsqueda de abreviaturas comunes y por los nombres de ciertos ajustes dentro de una página. También puede buscar más tipos de elementos, como nodos, usuarios y cuentas de arrendatario.
+La página Regiones en Grid Manager ahora incluye una pestaña *región predeterminada*. Puede utilizar esta pestaña para cambiar la región por defecto definida para S3 cubos. link:../ilm/configuring-regions-optional-and-s3-only.html["Leer más"].

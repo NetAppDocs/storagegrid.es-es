@@ -1,10 +1,10 @@
 ---
-permalink: s3/consistency-controls.html 
+permalink: s3/consistency.html 
 sidebar: sidebar 
 keywords: consistency, consistency control, consistency values 
 summary: La consistencia proporciona un equilibrio entre la disponibilidad de los objetos y la coherencia de dichos objetos en distintos nodos de almacenamiento y sitios. Puede cambiar la consistencia según lo requiera la aplicación. 
 ---
-= Valores de coherencia
+= Coherencia
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,15 +13,15 @@ summary: La consistencia proporciona un equilibrio entre la disponibilidad de lo
 [role="lead"]
 La consistencia proporciona un equilibrio entre la disponibilidad de los objetos y la coherencia de dichos objetos en distintos nodos de almacenamiento y sitios. Puede cambiar la consistencia según lo requiera la aplicación.
 
-De forma predeterminada, StorageGRID garantiza la coherencia de lectura tras escritura de los objetos recién creados. Cualquier OBTENER después de un PUESTO completado correctamente podrá leer los datos recién escritos. Las sobrescrituras de objetos existentes, actualizaciones de metadatos y eliminaciones son coherentes en la actualidad. Por lo general, las sobrescrituras tardan segundos o minutos en propagarse, pero pueden tardar hasta 15 días.
+De forma predeterminada, StorageGRID garantiza la coherencia de lectura tras escritura de los objetos recién creados. Cualquier OBTENER después de un PUESTO completado correctamente podrá leer los datos recién escritos. Las sobrescrituras de objetos existentes, actualizaciones de metadatos y eliminaciones son coherentes en la actualidad.
 
 Si desea realizar operaciones de objeto en otra coherencia, puede:
 
-* Especifique una consistencia para <<bucket-consistency-control,cada cucharón>>.
+* Especifique una consistencia para <<bucket-consistency,cada cucharón>>.
 * Especifique una consistencia para <<api-operation-consistency-control,Cada operación de API>>.
 * Cambie la consistencia predeterminada en toda la cuadrícula realizando una de las siguientes tareas:
 +
-** En Grid Manager, vaya a *CONFIGURACIÓN* > *Sistema* > *Ajustes de almacenamiento* > *Consistencia predeterminada*.
+** En Grid Manager, vaya a *CONFIGURACIÓN* > *Sistema* > *Ajustes de almacenamiento* > *Consistencia de depósitos predeterminada*.
 ** .
 +
 
@@ -79,7 +79,7 @@ NOTE: Debe utilizar la misma consistencia para las operaciones PutObject y GetOb
 
 
 
-== [[bucket-consistency-control]]Especificar consistencia para el bloque
+== [[bucket-consistency]]Especificar consistencia para el bloque
 
 Para configurar la coherencia del bloque, puede usar la solicitud StorageGRIDlink:put-bucket-consistency-request.html["PONGA la consistencia del cucharón"]. O puede link:../tenant/manage-bucket-consistency.html#change-bucket-consistency["cambiar la consistencia de un cucharón"] hacerlo desde el Administrador de inquilinos.
 
@@ -92,7 +92,7 @@ Al establecer la coherencia de un cucharón, tenga en cuenta lo siguiente:
 
 
 
-== [[How-consistency-controls-and-ILM-rules-interact]]Cómo interactúan las reglas de coherencia e ILM para afectar a la protección de datos
+== [[how-consistency-and-ILM-rules-interact]]Cómo interactúan las reglas de coherencia e ILM para afectar a la protección de datos
 
 Tanto la elección de coherencia como la regla de ILM afectan al modo de protección de los objetos. Estos ajustes pueden interactuar.
 

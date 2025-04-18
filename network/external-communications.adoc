@@ -180,25 +180,6 @@ Solicitudes de pools de almacenamiento en la nube enviadas a destinos de AWS que
 
 
  a| 
-111
- a| 
-TCP/UDP
- a| 
-Rpcind
- a| 
-Cliente NFS
- a| 
-Nodos de administración
- a| 
-Utilizado por la exportación de auditoría basada en NFS (portmap).
-
-*Nota:* Este puerto solo es necesario si la exportación de auditoría basada en NFS está habilitada.
-
-*Nota:* El soporte para NFS ha sido obsoleto y se eliminará en una versión futura.
-
-
-
- a| 
 123
  a| 
 UDP
@@ -329,25 +310,6 @@ Solicitudes de pools de almacenamiento en la nube enviadas a destinos de AWS que
 
 
  a| 
-903
- a| 
-TCP
- a| 
-NFS
- a| 
-Cliente NFS
- a| 
-Nodos de administración
- a| 
-Utilizado por la exportación de auditoría basada en NFS (`rpc.mountd`).
-
-*Nota:* Este puerto solo es necesario si la exportación de auditoría basada en NFS está habilitada.
-
-*Nota:* El soporte para NFS ha sido obsoleto y se eliminará en una versión futura.
-
-
-
- a| 
 2022
  a| 
 TCP
@@ -359,25 +321,6 @@ Portátil de servicio
 Todos los nodos
  a| 
 Se requiere acceso SSH o consola para procedimientos con pasos de la consola. Opcionalmente, puede utilizar el puerto 22 en lugar de 2022.
-
-
-
- a| 
-2049
- a| 
-TCP
- a| 
-NFS
- a| 
-Cliente NFS
- a| 
-Nodos de administración
- a| 
-Utilizada por la exportación de auditoría basada en NFS (nfs).
-
-*Nota:* Este puerto solo es necesario si la exportación de auditoría basada en NFS está habilitada.
-
-*Nota:* El soporte para NFS ha sido obsoleto y se eliminará en una versión futura.
 
 
 

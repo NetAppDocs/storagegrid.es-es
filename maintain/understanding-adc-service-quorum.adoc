@@ -26,4 +26,4 @@ Por ejemplo, supongamos que un sitio incluye actualmente seis nodos de almacenam
 * En el segundo procedimiento de retirada, puede eliminar el tercer nodo de almacenamiento porque el quórum ADC ahora solo necesita tres servicios ADC para permanecer disponibles: `((0.5 * 4) + 1)`.
 
 
-Si necesita retirar un nodo de almacenamiento pero no puede hacerlo debido al requisito de quórum ADC, agregue un nuevo nodo de almacenamiento en un link:../expand/index.html["expansión"] y especifique que debe tener un servicio ADC. A continuación, retire el nodo de almacenamiento existente.
+Si necesita retirar un nodo de almacenamiento, puede continuar cumpliendo con el requisito de quórum ADC link:../upgrade/changes-to-grid-management-api.html#new-private-endpoints-for-move-adc["Mover el servicio ADC a otro nodo de almacenamiento del mismo sitio"]o agregando un nuevo nodo de almacenamiento en un link:../expand/index.html["expansión"] y especificando que debe tener un servicio ADC. A continuación, puede retirar el nodo de almacenamiento existente sin afectar al quórum.

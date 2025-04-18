@@ -2,7 +2,7 @@
 permalink: audit/whea-swift-head.html 
 sidebar: sidebar 
 keywords: storagegrid, audit, message, WHEA, Swift HEAD 
-summary: Cuando un cliente de Swift emite una transacción HEAD, se realiza una solicitud para comprobar la existencia de una cuenta, un contenedor o un objeto, y recuperar los metadatos relevantes. El servidor emite este mensaje si la transacción se realiza correctamente. 
+summary: Cuando un cliente de Swift emite una operación HEAD, se solicita que compruebe si existe una cuenta, un contenedor o un objeto, y recupere los metadatos relevantes. Este mensaje lo emite el servidor si la operación se realiza correctamente. 
 ---
 = WHEA: CABEZA de Swift
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Cuando un cliente de Swift emite una transacción HEAD, se realiza una 
 
 
 [role="lead"]
-Cuando un cliente de Swift emite una transacción HEAD, se realiza una solicitud para comprobar la existencia de una cuenta, un contenedor o un objeto, y recuperar los metadatos relevantes. El servidor emite este mensaje si la transacción se realiza correctamente.
+Cuando un cliente de Swift emite una operación HEAD, se solicita que compruebe si existe una cuenta, un contenedor o un objeto, y recupere los metadatos relevantes. Este mensaje lo emite el servidor si la operación se realiza correctamente.
 
 [cols="1a,1a,4a"]
 |===
@@ -52,7 +52,7 @@ TRANSFORMACIÓN DIGITAL
  a| 
 Código de resultado
  a| 
-Resultado de la transacción PRINCIPAL. El resultado es siempre:
+Resultado de la operación DEL CABEZAL. El resultado es siempre:
 
 SUCS: Exitoso
 

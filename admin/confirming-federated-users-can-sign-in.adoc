@@ -46,12 +46,12 @@ TIP: Al habilitar SSO, el origen de identidad configurado en el Administrador de
 .. Seleccione la cuenta de arrendatario y seleccione *acciones* > *Editar*.
 .. En la ficha introducir detalles, seleccione *continuar*.
 .. Si la casilla de verificación *Usar fuente de identidad propia* está seleccionada, desmarque la casilla y seleccione *Guardar*.
-+
-image::../media/sso_uses_own_identity_source_for_tenant.png[No se ha seleccionado la casilla de verificación Editar cuenta de inquilino > Utilizar origen de identidad propio]
+
 
 +
 Aparece la página inquilino.
 
++
 .. Seleccione la cuenta de arrendatario, seleccione *Iniciar sesión* e inicie sesión en la cuenta de arrendatario como usuario raíz local.
 .. En el Administrador de inquilinos, seleccione *ADMINISTRACIÓN de ACCESO* > *grupos*.
 .. Asegúrese de que al menos un grupo federado de Grid Manager ha sido asignado el permiso de acceso raíz para este arrendatario.

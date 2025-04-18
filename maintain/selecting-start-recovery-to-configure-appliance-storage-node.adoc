@@ -19,7 +19,6 @@ Debe seleccionar Start Recovery en el Grid Manager para configurar un Storage No
 * Tiene la clave de acceso de aprovisionamiento.
 * Instaló un nodo de almacenamiento del dispositivo de recuperación.
 * Tiene la fecha de inicio de cualquier trabajo de reparación para datos codificados de borrado.
-* Ha verificado que el nodo de almacenamiento no se ha reconstruido en los últimos 15 días.
 
 
 .Pasos

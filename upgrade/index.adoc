@@ -19,9 +19,9 @@ Cuando realiza la actualización, se actualizan todos los nodos del sistema Stor
 
 == Antes de empezar
 
-Revise estos temas para saber más sobre las nuevas funciones y mejoras que se han aplicado en StorageGRID 11,9, determine si alguna función se ha obsoleto o se ha eliminado y obtenga información sobre los cambios en las API de StorageGRID.
+Revise estos temas para saber más sobre las nuevas funciones y mejoras que se han aplicado en StorageGRID 12,0, determine si alguna función se ha obsoleto o se ha eliminado y obtenga información sobre los cambios en las API de StorageGRID.
 
-* link:whats-new.html["Novedades de StorageGRID 11,9"]
+* link:whats-new.html["Novedades de StorageGRID 12,0"]
 * link:removed-or-deprecated-features.html["Operaciones eliminadas o obsoletas"]
 * link:changes-to-grid-management-api.html["Cambios en la API de gestión de grid"]
 * link:changes-to-tenant-management-api.html["Cambios en la API de gestión de inquilinos"]
