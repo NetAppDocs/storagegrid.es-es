@@ -14,8 +14,8 @@ summary: Para ayudar al soporte técnico en la solución de problemas con el sis
 Para ayudar al soporte técnico en la solución de problemas con el sistema StorageGRID, puede activar manualmente el envío de un paquete AutoSupport.
 
 .Antes de empezar
-* Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
-* Tiene el permiso acceso raíz u otra configuración de cuadrícula.
+* Debe iniciar sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Debe tener el acceso root u otro permiso de configuración de grid.
 
 
 .Pasos
@@ -24,8 +24,8 @@ Para ayudar al soporte técnico en la solución de problemas con el sistema Stor
 +
 StorageGRID intenta enviar un paquete de AutoSupport al sitio de soporte de NetApp. Si el intento se realiza correctamente, se actualizan los valores *resultado más reciente* y *tiempo más reciente* de la ficha *resultados*. Si hay un problema, el valor *Resultado más reciente* se actualiza a “Error” y StorageGRID no intenta enviar el paquete AutoSupport de nuevo.
 
-. Tras 1 minuto, actualice la página AutoSupport en el explorador para acceder a los resultados más recientes.
++
+
+TIP: Después de enviar un paquete AutoSupport activado por el usuario, actualice la página AutoSupport en el explorador al cabo de 1 minuto para acceder a los resultados más recientes.
 
 
-
-TIP: Además, podrá link:../monitor/collecting-log-files-and-system-data.html["recopile archivos de registro y datos del sistema más completos"]enviarlas al sitio de soporte de NetApp.

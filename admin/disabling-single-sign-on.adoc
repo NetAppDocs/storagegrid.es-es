@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: disable sso, disable single sign on 
 summary: 'Puede deshabilitar el inicio de sesión único \(SSO\) si ya no desea utilizar esta funcionalidad. Debe deshabilitar el inicio de sesión único antes de poder deshabilitar la federación de identidades.' 
 ---
-= Desactive SSO
+= Desactive el inicio de sesión único
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

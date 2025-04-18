@@ -30,7 +30,7 @@ indexpage:
     - title: Permisos de grupo de administradores
       url: "../admin/admin-group-permissions.html"
     - title: Configurar el inicio de sesión único
-      url: "../admin/how-sso-works.html"
+      url: "../admin/configuring-sso.html"
   - title: Usar federación de grid
     links:
     - title: "¿Qué es GRID federation?"

@@ -66,7 +66,7 @@ NOTE: No se puede usar código de borrado si el pool de almacenamiento incluye d
 * El pool de almacenamiento debe incluir al menos `_k+m_ +1` nodos de almacenamiento que puedan almacenar datos de objeto.
 +
 
-NOTE: Los nodos de almacenamiento se pueden configurar durante la instalación para contener datos de objeto y metadatos («nodo de almacenamiento combinado»), solo metadatos de objetos o solo datos de objetos. Para obtener más información, consulte link:../primer/what-storage-node-is.html#types-of-storage-nodes["Tipos de nodos de almacenamiento"].
+NOTE: Los nodos de almacenamiento se pueden configurar durante la instalación de modo que solo contengan metadatos de objetos y no datos de objetos. Para obtener más información, consulte link:../primer/what-storage-node-is.html#types-of-storage-nodes["Tipos de nodos de almacenamiento"].
 
 +
 El número mínimo de nodos de almacenamiento necesarios es `k+m`. Sin embargo, tener al menos un nodo de almacenamiento adicional puede ayudar a evitar fallos de ingesta o errores de gestión de la vida útil si un nodo de almacenamiento necesario no está disponible temporalmente.

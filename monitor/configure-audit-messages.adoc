@@ -122,7 +122,7 @@ No se registran mensajes de auditoría de la categoría.
  a| 
 Error
  a| 
-Solo se registran los mensajes de error: Mensajes de auditoría para los que el código de resultado no es correcto (SUCS).
+Sólo se registran los mensajes de error: Los mensajes de auditoría para los que el código de resultado no fue "correcto" (SUCS).
 
 
 
@@ -169,7 +169,7 @@ Cuando se encuentran encabezados HTTP en una solicitud, se incluyen en el mensaj
 
 +
 
-NOTE: Los encabezados de solicitud de protocolo de auditoría se registran solo si el nivel de auditoría para *Client reads* o *Client Writes* no está *Off*.
+NOTE: Los encabezados de la solicitud del protocolo de auditoría sólo se registran si el nivel de auditoría para *Lecturas de cliente* o *Escrituras de cliente* no es *Desactivada*.
 
 . Seleccione *Guardar*
 +
@@ -566,7 +566,7 @@ Consulte link:../troubleshoot/troubleshooting-syslog-server.html["Solucione prob
 . Compruebe el servidor de syslog para determinar si se reciben y procesan los mensajes de prueba según lo esperado.
 +
 
-NOTE: Si está utilizando UDP, compruebe toda su infraestructura de recopilación de registros. El protocolo UDP no permite una detección de errores tan rigurosa como los otros protocolos.
+NOTE: Si está utilizando UDP, compruebe toda su infraestructura de recopilación de registros. El protocolo UDP no permite una detección de errores tan rigurosa como los demás protocolos.
 
 . Seleccione *Detener y finalizar*.
 +

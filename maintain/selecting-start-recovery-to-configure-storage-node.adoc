@@ -19,6 +19,7 @@ Después de reemplazar un nodo de almacenamiento, debe seleccionar Iniciar recup
 * Tiene la clave de acceso de aprovisionamiento.
 * Implementó y configuró el nodo de reemplazo.
 * Tiene la fecha de inicio de cualquier trabajo de reparación para datos codificados de borrado.
+* Ha verificado que el nodo de almacenamiento no se ha reconstruido en los últimos 15 días.
 
 
 .Acerca de esta tarea

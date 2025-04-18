@@ -37,9 +37,9 @@ StorageGRID admite extremos de replicación que representan bloques de S3. Estos
 
 == Extremos para notificaciones
 
-StorageGRID es compatible con los extremos Amazon SNS, Kafka y Webhook. No se admiten los extremos Simple Queue Service (SQS) y AWS Lambda.
+StorageGRID es compatible con los extremos Amazon SNS y Kafka. No se admiten el servicio de cola simple (SQS) ni los extremos de AWS Lambda.
 
-Para los puntos finales Kafka, TLS mutuo no es compatible. Como resultado, si se ha `ssl.client.auth` establecido en en `required` la configuración de su broker Kafka, puede causar problemas de configuración de punto final Kafka.
+Para puntos finales Kafka, TLS mutuo no es compatible. Como resultado, si se ha `ssl.client.auth` establecido en en `required` la configuración de su broker Kafka, puede causar problemas de configuración de punto final Kafka.
 
 
 

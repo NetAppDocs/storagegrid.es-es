@@ -72,4 +72,4 @@ Content-Type: application/xml
 Cada versión de objeto almacenada contribuirá a los `ObjectCount` valores y `DataBytes` en la respuesta. Los marcadores de borrado no se agregan al `ObjectCount` total.
 
 .Información relacionada
-link:consistency.html["Coherencia"]
+link:consistency-controls.html["Valores de coherencia"]

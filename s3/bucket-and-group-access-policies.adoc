@@ -996,13 +996,6 @@ Nulo
  a| 
 Comprueba si hay una clave de condición en el contexto actual de la solicitud.
 
-
-
- a| 
-IfExists
- a| 
-Agregado a cualquier operador de condición, excepto la condición Nulo, para comprobar la ausencia de esa clave de condición. Devuelve TRUE si la clave de condición no está presente.
-
 |===
 
 
@@ -1089,24 +1082,6 @@ Se compara con el parámetro max-keys especificado en una solicitud ListObjects 
 
 
  a| 
-s3:object-lock-mode
- a| 
-s3:PutObject
- a| 
-Se compara con el `object-lock-mode` expandido desde la cabecera de solicitud en la solicitud PutObject, CopyObject y CreateMultipartUpload.
-
-
-
- a| 
-s3:object-lock-mode
- a| 
-s3:PutObjectRetention
- a| 
-Se compara con el `object-lock-mode` expandido desde el cuerpo XML en la solicitud PutObjectRetention.
-
-
-
- a| 
 s3:retención-días restante del bloqueo de objetos
  a| 
 s3:PutObject
@@ -1150,15 +1125,6 @@ s3:PutObjectEtiquetado
 s3:PutObjectVersionEtiquetado
  a| 
 Requerirá una clave y un valor de etiqueta específicos cuando la solicitud del objeto incluya el etiquetado.
-
-
-
- a| 
-s3:x-amz-server-side-encryption-customer-algorithm
- a| 
-s3:PutObject
- a| 
-Se compara con `sse-customer-algorithm` o con `copy-source-sse-customer-algorithm` el expandido desde el encabezado de solicitud en las solicitudes PutObject, CopyObject, CreateMultipartUpload, UploadPart, UploadPartCopy y CompleteMultipartUpload.
 
 |===
 

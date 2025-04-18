@@ -45,7 +45,7 @@ NOTE: Algunos mensajes de error en la columna *último error* pueden incluir un 
 
 == Problemas relacionados con los servidores proxy
 
-Si ha configurado link:configuring-storage-proxy-settings.html["proxy de almacenamiento"]un entre los nodos de almacenamiento y los extremos de servicio de plataforma, se podrían producir errores si el servicio de proxy no permite mensajes de StorageGRID. Para resolver estos problemas, compruebe la configuración de su servidor proxy para asegurarse de que los mensajes relacionados con el servicio de la plataforma no estén bloqueados.
+Si se configuró link:configuring-storage-proxy-settings.html["proxy de almacenamiento"]un entre los nodos de almacenamiento y los extremos de servicio de plataforma, se podrían producir errores si el servicio de proxy no permite mensajes de StorageGRID. Para resolver estos problemas, compruebe la configuración de su servidor proxy para asegurarse de que los mensajes relacionados con el servicio de la plataforma no estén bloqueados.
 
 
 
@@ -72,17 +72,13 @@ Para comprobar el estado de los servicios:
 Una vez creados los extremos, los errores de solicitud de servicio de la plataforma pueden producirse por varios motivos. Algunos errores se pueden recuperar con la intervención del usuario. Por ejemplo, pueden producirse errores recuperables por los siguientes motivos:
 
 * Las credenciales del usuario se han eliminado o han caducado.
-* El depósito de destino no existe.
+* El bloque de destino no existe.
 * No se puede entregar la notificación.
 
 
 Si StorageGRID encuentra un error recuperable, la solicitud de servicio de la plataforma se reintentará hasta que se complete correctamente.
 
-Otros errores son irrecuperables. Por ejemplo, pueden producirse errores irrecuperables por los siguientes motivos:
-
-* Se ha suprimido el punto final.
-* Un destino de punto final de webhook responde a una solicitud de notificación con `400 Bad Request` un error.
-
+Otros errores son irrecuperables. Por ejemplo, se produce un error irrecuperable si se elimina el extremo.
 
 Si StorageGRID encuentra un error de punto final irrecuperable:
 
@@ -95,7 +91,7 @@ Si StorageGRID encuentra un error de punto final irrecuperable:
 
 == Los mensajes de servicios de plataforma no se pueden entregar
 
-Si el destino encuentra un problema que le impide aceptar mensajes de servicios de plataforma, la operación del cliente en el depósito se realiza correctamente, pero el mensaje de servicios de plataforma no se entrega. Por ejemplo, este error puede ocurrir si se actualizan las credenciales en el destino de modo que StorageGRID ya no pueda autenticarse en el servicio de destino.
+Si el destino encuentra un problema que le impide aceptar mensajes de servicios de plataforma, la operación de cliente en el bloque se realiza correctamente, pero el mensaje de servicios de plataforma no se entrega. Por ejemplo, este error puede ocurrir si se actualizan las credenciales en el destino de modo que StorageGRID ya no pueda autenticarse en el servicio de destino.
 
 Compruebe si hay alertas relacionadas.
 

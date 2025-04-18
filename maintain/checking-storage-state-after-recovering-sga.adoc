@@ -19,7 +19,17 @@ Después de recuperar un nodo de almacenamiento de dispositivo, debe comprobar q
 
 
 .Pasos
-. Seleccione *NODOS* > *_Nodo de almacenamiento_* > *Tareas*.
-. Si la lista desplegable *Estado de almacenamiento* está establecida en Solo lectura o Sin conexión, seleccione *En línea*.
-. Seleccione *Guardar*.
+. Seleccione *SUPPORT* > *Tools* > *Topología de cuadrícula*.
+. Compruebe los valores de *Nodo de almacenamiento recuperado* > *LDR* > *Almacenamiento* > *Estado de almacenamiento -- deseado* y *Estado de almacenamiento -- actual*.
++
+El valor de ambos atributos debe ser en línea.
+
+. Si el estado de almacenamiento -- deseado está establecido en sólo lectura, realice los siguientes pasos:
++
+.. Haga clic en la ficha *Configuración*.
+.. En la lista desplegable *Estado de almacenamiento -- deseado*, seleccione *Online*.
+.. Haga clic en *aplicar cambios*.
+.. Haga clic en la ficha *Descripción general* y confirme que los valores de *Estado de almacenamiento -- deseado* y *Estado de almacenamiento -- actual* se actualizan a Online.
+
+
 

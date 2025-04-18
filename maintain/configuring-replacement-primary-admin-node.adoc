@@ -16,7 +16,7 @@ El nodo de reemplazo debe configurarse como nodo de administrador principal para
 .Antes de empezar
 * En el caso de los nodos de administración primarios alojados en máquinas virtuales, la máquina virtual se ha implementado, encendido e inicializado.
 * En el caso de los nodos de administrador principales alojados en un dispositivo de servicios, ha sustituido el dispositivo y ha instalado software. Consulte la https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/index.html["instrucciones de instalación del aparato"^].
-* Tiene la última copia de seguridad del archivo del paquete de recuperación (`sgws-recovery-package-_id-revision_.zip`).
+* Tiene la última copia de seguridad del archivo Recovery Package (`sgws-recovery-package-_id-revision_.zip`).
 * Tiene la clave de acceso de aprovisionamiento.
 
 
@@ -41,7 +41,7 @@ image::../media/install_or_recover_primary_admin_node.png[Instale o recupere el 
 . Cargue la copia de seguridad más reciente del paquete de recuperación:
 +
 .. Haga clic en *examinar*.
-.. Localice el archivo de paquete de recuperación más reciente para su sistema StorageGRID y haga clic en *Abrir*.
+.. Busque el archivo más reciente del paquete de recuperación para su sistema StorageGRID y haga clic en *Abrir*.
 
 
 . Introduzca la clave de acceso de aprovisionamiento.
@@ -52,7 +52,7 @@ Se inicia el proceso de recuperación. Es posible que Grid Manager no esté disp
 . Si el inicio de sesión único (SSO) está habilitado para el sistema StorageGRID y la confianza de la parte que confía para el nodo de administración que ha recuperado se configuró para utilizar el certificado de interfaz de gestión predeterminado, actualice (o elimine y vuelva a crear) la confianza de la parte que confía en el nodo en los Servicios de Federación de Active Directory (AD FS). Utilice el nuevo certificado de servidor predeterminado que se generó durante el proceso de recuperación del nodo de administración.
 +
 
-NOTE: Para configurar una confianza de parte de confianza, consulte link:../admin/configure-sso.html["Configurar el inicio de sesión único"]. Para acceder al certificado de servidor predeterminado, inicie sesión en el shell de comandos del nodo de administración. Vaya al `/var/local/mgmt-api` directorio y seleccione el `server.crt` archivo.
+NOTE: Para configurar una confianza de parte de confianza, consulte link:../admin/configuring-sso.html["Configurar el inicio de sesión único"]. Para acceder al certificado de servidor predeterminado, inicie sesión en el shell de comandos del nodo de administración. Vaya al `/var/local/mgmt-api` directorio y seleccione el `server.crt` archivo.
 
 
 

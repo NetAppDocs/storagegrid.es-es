@@ -83,6 +83,9 @@ Si el botón *Iniciar instalación* no está activado, es posible que deba cambi
 
 . En la página de inicio del instalador de dispositivos StorageGRID, haga clic en *Iniciar instalación*.
 +
+image::../media/appliance_installer_home_start_installation_enabled.gif[Esta figura se describe por el texto circundante.]
+
++
 El estado actual cambia a «Instalación en curso» y se muestra la página de instalación del monitor.
 
 +

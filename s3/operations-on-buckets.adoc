@@ -25,7 +25,7 @@ En la siguiente sección, se ofrece más información:
 * link:../admin/configuring-s3-api-endpoint-domain-names.html["Configure los nombres de dominio de punto final S3"]
 
 
-Las operaciones ListObjects (GET Bucket) y ListObjectVersions (GET Bucket object versions) admiten StorageGRID link:consistency.html["valores de coherencia"].
+Las operaciones ListObjects (GET Bucket) y ListObjectVersions (GET Bucket object versions) admiten StorageGRID link:consistency-controls.html["valores de coherencia"].
 
 Puede comprobar si las actualizaciones a la hora del último acceso están habilitadas o deshabilitadas para grupos individuales. Consulte link:get-bucket-last-access-time-request.html["GET Bucket última hora de acceso"].
 
@@ -290,7 +290,7 @@ PutBucketNotificationConfiguration
  a| 
 Configura las notificaciones para el depósito mediante el XML de configuración de notificación incluido en el cuerpo de la solicitud. Debe tener en cuenta los siguientes detalles de implementación:
 
-* StorageGRID admite temas de Amazon Simple Notification Service (Amazon SNS), temas de Kafka o puntos finales de webhook como destinos. No se admiten el servicio de cola simple (SQS) ni los extremos de AWS Lambda.
+* StorageGRID admite los temas Kafka o Amazon Simple Notification Service (Amazon SNS) como destinos. No se admiten los puntos finales de Simple Queue Service (SQS) o Amazon Lambda.
 * El destino de las notificaciones debe especificarse como URN de un extremo de StorageGRID. Se pueden crear extremos con el administrador de inquilinos o la API de gestión de inquilinos.
 +
 El extremo debe existir para que la configuración de la notificación se realice correctamente. Si el punto final no existe, se devuelve un `400 Bad Request` error con el código `InvalidArgument`.

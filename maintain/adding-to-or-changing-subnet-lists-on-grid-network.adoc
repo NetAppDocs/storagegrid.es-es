@@ -150,6 +150,6 @@ La operación fallida se puede volver a intentar más tarde seleccionando la opc
 
 +
 
-CAUTION: El archivo del paquete de recuperación debe estar protegido porque contiene claves de cifrado y contraseñas que se pueden utilizar para obtener datos del sistema StorageGRID.
+CAUTION: El archivo del paquete de recuperación debe estar protegido porque contiene claves de cifrado y contraseñas que se pueden usar para obtener datos del sistema StorageGRID.
 
 

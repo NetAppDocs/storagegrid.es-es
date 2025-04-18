@@ -174,33 +174,6 @@ No puede cambiar el nombre de usuario.
 
 
 
-== Importar usuarios federados
-
-Puede importar uno o más usuarios federados, hasta un máximo de 100 usuarios, directamente en la página Usuarios.
-
-.Pasos
-. Seleccione *ADMINISTRACIÓN de ACCESO* > *usuarios*.
-. Seleccione *Importar usuarios federados*.
-. Introduzca el UUID o el nombre de usuario de uno o más usuarios federados.
-+
-Para varias entradas, agregue cada UUID o nombre de usuario en una nueva línea.
-
-. Seleccione *Importar*.
-+
-Si la importación en el campo Usuarios falla para uno o más usuarios, realice los siguientes pasos:
-
-+
-.. Seleccione *Copiar usuarios*.
-.. Vuelva a intentar la importación seleccionando *Anterior* y pegando los usuarios copiados en el cuadro de diálogo *Importar usuarios federados*.
-
-
-+
-Después de cerrar el cuadro de diálogo *Importar usuarios federados*, la información del usuario federado se muestra en la página Usuarios para los usuarios importados correctamente.
-
-
-
-
-
 == Usuario local duplicado
 
 Puede duplicar un usuario local para crear un usuario nuevo más rápidamente.

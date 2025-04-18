@@ -167,13 +167,19 @@ El `setup_rangedbs.sh` script se ejecuta automáticamente.
 . Compruebe que el estado de almacenamiento del nodo de almacenamiento sea en línea:
 +
 .. Inicie sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
-.. Seleccione *NODOS* > *_Nodo de almacenamiento_* > *Tareas*.
-.. Si la lista desplegable *Estado de almacenamiento* está establecida en Solo lectura o Sin conexión, seleccione *En línea*.
-.. Seleccione *Guardar*.
+.. Seleccione *SUPPORT* > *Tools* > *Topología de cuadrícula*.
+.. Seleccione *_site_* > *_Storage Node_* > *LDR* > *Storage*.
+.. Seleccione la ficha *Configuración* y, a continuación, la ficha *Principal*.
+.. Si la lista desplegable *Estado de almacenamiento - deseado* está establecida en sólo lectura o sin conexión, seleccione *en línea*.
+.. Haga clic en *aplicar cambios*.
 
 
-. Para ver los nuevos almacenes de objetos, selecciona *Almacenamiento*.
-. Vea los detalles en la tabla *volúmenes*.
+. Para ver los nuevos almacenes de objetos:
++
+.. Seleccione *NODES* > *_site_* > *_Storage Node_* > *Storage*.
+.. Consulte los detalles en la tabla *almacenes de objetos*.
+
+
 
 
 .Resultado

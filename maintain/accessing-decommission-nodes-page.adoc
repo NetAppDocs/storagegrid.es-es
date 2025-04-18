@@ -62,7 +62,7 @@ Ninguno.
  a| 
 No, al menos un nodo de grid está desconectado.
 
-*Nota*: Este mensaje se muestra solo para los nodos de la cuadrícula conectados.
+*Nota:* este mensaje sólo se muestra para los nodos de red conectados.
  a| 
 No puede decomisionar un nodo de grid conectado si hay algún nodo de grid desconectado.
 
@@ -81,7 +81,7 @@ Debe volver a conectar todos los nodos desconectados o link:decommissioning-disc
  a| 
 No, uno o más nodos necesarios están desconectados actualmente y deben recuperarse.
 
-*Nota*: Este mensaje se muestra solo para nodos de cuadrícula desconectados.
+*Nota:* este mensaje sólo se muestra para los nodos de red desconectados.
  a| 
 No puede retirar un nodo de grid desconectado si también se desconecta uno o más nodos necesarios (por ejemplo, un nodo de almacenamiento necesario para el quórum ADC).
  a| 
@@ -97,7 +97,7 @@ No puede retirar un nodo de grid desconectado si también se desconecta uno o m�
 
 
  a| 
-No, miembro del grupo HA: _Group name_. Antes de poder retirar este nodo, debe quitarlo de todos los grupos de alta disponibilidad.
+No, miembro de los grupos de HA: _Nombre del grupo_. Antes de poder retirar este nodo, debe quitarlo de todos los grupos de alta disponibilidad.
  a| 
 No puede retirar un nodo de administración o un nodo de puerta de enlace si una interfaz de nodo pertenece a un grupo de alta disponibilidad (HA).
  a| 
@@ -108,16 +108,16 @@ Edite el grupo de alta disponibilidad para quitar la interfaz del nodo o elimina
  a| 
 No, el sitio _x_ requiere un mínimo de _n_ nodos de almacenamiento con servicios ADC.
  a| 
-*Solo nodos de almacenamiento* (nodos de almacenamiento combinados o solo metadatos). No puede decomisionar un nodo de almacenamiento si los nodos restantes permanecieran en el sitio para satisfacer los requisitos del quórum de ADC. Sin embargo, puede mover el servicio ADC a otro nodo de almacenamiento.
+*Solo nodos de almacenamiento.* No puede decomisionar un nodo de almacenamiento si los nodos restantes permanecieran en el sitio para satisfacer los requisitos del quórum de ADC.
  a| 
-link:../maintain/move-adc-service.html["Mueva el servicio ADC a otro nodo de almacenamiento del mismo sitio"], O realizar una expansión agregando un nuevo nodo de almacenamiento al sitio y especificando que debe tener un servicio ADC. Consulte link:understanding-adc-service-quorum.html["Quórum ADC"].
+Realice una expansión. Agregue un nodo de almacenamiento nuevo al sitio y especifique que debe tener un servicio ADC. Consulte la información sobre el link:understanding-adc-service-quorum.html["Quórum ADC"].
 
 
 
  a| 
 No, uno o varios perfiles de código de borrado necesitan al menos _n_ nodos de almacenamiento. Si el perfil no se utiliza en una regla de ILM, puede desactivarlo.
  a| 
-* Solo nodos de almacenamiento*. No puede decomisionar un nodo de almacenamiento a menos que queden suficientes nodos para los perfiles de código de borrado existentes.
+*Solo nodos de almacenamiento.* No puede decomisionar un nodo de almacenamiento a menos que queden suficientes nodos para los perfiles de código de borrado existentes.
 
 Por ejemplo, si existe un perfil de código de borrado para el código de borrado 4+2, deberá quedar al menos 6 nodos de almacenamiento.
  a| 

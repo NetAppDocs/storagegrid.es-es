@@ -48,6 +48,9 @@ Para instalar el software StorageGRID en un dispositivo de servicios:
 +
 Aparece la página de inicio del instalador de dispositivos de StorageGRID.
 
++
+image::../media/services_appliance_installer_gateway_node.png[Página de inicio del instalador del dispositivo]
+
 . Para instalar un nodo de administración principal:
 +
 .. En la sección este nodo, para *Tipo de nodo*, seleccione *Administración primaria*.
@@ -58,7 +61,10 @@ Si la versión de software que está lista para instalar es correcta, vaya a la 
 
 .. Si necesita cargar una versión de software diferente, en el menú *Avanzado*, seleccione *cargar software StorageGRID*.
 +
-Aparecerá la página Cargar software de StorageGRID.
+Aparecerá la página Upload StorageGRID Software (cargar software de).
+
++
+image::../media/upload_sw_for_pa_on_sga1000.png[Captura de pantalla descrita por el texto circundante]
 
 .. Haga clic en *examinar* para cargar el software *paquete de software* y *Archivo de suma de comprobación* para StorageGRID.
 +
@@ -67,7 +73,7 @@ Los archivos se cargan de forma automática después de seleccionarlos.
 .. Haga clic en *Inicio* para volver a la página de inicio del instalador de dispositivos StorageGRID.
 
 
-. Para instalar un nodo de gateway o un nodo de administración no principal:
+. Para instalar un nodo de puerta de enlace o un nodo de administración que no sea principal:
 +
 .. En la sección este nodo, para *Tipo de nodo*, seleccione *Puerta de enlace* o *Administración no primaria*, según el tipo de nodo que esté restaurando.
 .. En el campo *Nombre de nodo*, introduzca el mismo nombre que se utilizó para el nodo que está recuperando y haga clic en *Guardar*.
@@ -75,7 +81,7 @@ Los archivos se cargan de forma automática después de seleccionarlos.
 +
 El instalador de dispositivos de StorageGRID puede detectar esta dirección IP automáticamente, suponiendo que el nodo de administración principal o, al menos, otro nodo de grid con ADMIN_IP configurado, esté presente en la misma subred.
 
-.. Si no se muestra esta dirección IP o necesita cambiarla, especifique la dirección:
+.. Si no se muestra esta dirección IP o es necesario modificarla, especifique la dirección:
 
 
 +
@@ -107,7 +113,7 @@ Detección automática de todos los nodos principales de administración conecta
 |===
 . [[installation_section_step]]en la sección instalación, confirme que el estado actual está preparado para iniciar la instalación del nombre del nodo y que el botón *Start Installation* está activado.
 +
-Si el botón *Iniciar instalación* no está habilitado, es posible que deba cambiar la configuración de red o la configuración del puerto. Consulte las instrucciones de mantenimiento del aparato.
+Si el botón *Iniciar instalación* no está activado, es posible que deba cambiar la configuración de red o la configuración del puerto. Para obtener instrucciones, consulte las instrucciones de mantenimiento de su aparato.
 
 . En la página de inicio del instalador de dispositivos StorageGRID, haga clic en *Iniciar instalación*.
 +

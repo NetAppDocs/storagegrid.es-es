@@ -65,7 +65,7 @@ Para ayudarle a supervisar el tamaño de las colas de mensajes de auditoría a l
 
 Si se activa la alerta *cola de auditoría grande* o la alarma AMQS heredada, comience comprobando la carga en el sistema--si ha habido un número significativo de transacciones recientes, la alerta y la alarma deben resolverse con el tiempo y pueden ignorarse.
 
-Si la alerta o alarma persiste y aumenta su gravedad, vea un gráfico del tamaño de la cola. Si el número aumenta constantemente durante horas o días, es probable que la carga de auditoría haya superado la capacidad de auditoría del sistema. Reduzca la tasa de operaciones del cliente o disminuya el número de mensajes de auditoría registrados cambiando el nivel de auditoría de las escrituras del cliente y las lecturas del cliente a error o Desactivado. Consulte link:../monitor/configure-audit-messages.html["Configure los mensajes de auditoría y el servidor de syslog externo"].
+Si la alerta o alarma persiste y aumenta su gravedad, vea un gráfico del tamaño de la cola. Si el número aumenta constantemente durante horas o días, es probable que la carga de auditoría haya superado la capacidad de auditoría del sistema. Reduzca la tasa de operaciones del cliente o disminuya el número de mensajes de auditoría registrados cambiando el nivel de auditoría de las escrituras del cliente y las lecturas del cliente a error o Desactivado. Consulte link:../monitor/configure-audit-messages.html["Configurar los mensajes de auditoría y los destinos de registro"].
 
 
 

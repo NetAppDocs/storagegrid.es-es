@@ -33,16 +33,11 @@ Puede seleccionar el tipo de nodo de almacenamiento en estas situaciones:
 
 
 
+NOTE: No se puede cambiar el tipo una vez completada la instalación del nodo de almacenamiento.
 
-=== Nodo de almacenamiento de datos y metadatos (combinado)
+Nodo de almacenamiento de datos y metadatos (combinado):: De forma predeterminada, todos los nodos de almacenamiento nuevos almacenarán tanto datos como metadatos de objetos. Este tipo de nodo de almacenamiento se denomina nodo de almacenamiento _Combinado_.
+Nodo de almacenamiento solo de metadatos:: El uso exclusivo de un nodo de almacenamiento para metadatos puede tener sentido si el grid almacena una gran cantidad de objetos pequeños. La instalación de capacidad de metadatos dedicada proporciona un mejor equilibrio entre el espacio necesario para una gran cantidad de objetos pequeños y el espacio necesario para los metadatos de esos objetos. Además, los nodos de almacenamiento solo de metadatos alojados en dispositivos de alto rendimiento pueden aumentar el rendimiento.
 
-De forma predeterminada, todos los nodos de almacenamiento nuevos almacenarán tanto datos como metadatos de objetos. Este tipo de nodo de almacenamiento se denomina nodo de almacenamiento _Combinado_.
-
-
-
-=== Nodo de almacenamiento solo de metadatos
-
-El uso exclusivo de un nodo de almacenamiento para metadatos puede tener sentido si el grid almacena una gran cantidad de objetos pequeños. La instalación de capacidad de metadatos dedicada proporciona un mejor equilibrio entre el espacio necesario para una gran cantidad de objetos pequeños y el espacio necesario para los metadatos de esos objetos. Además, los nodos de almacenamiento solo de metadatos alojados en dispositivos de alto rendimiento pueden aumentar el rendimiento.
 
 Los nodos de almacenamiento solo de metadatos tienen requisitos de hardware específicos:
 
@@ -71,22 +66,15 @@ Al instalar nodos de solo metadatos, el grid también debe contener un número m
 
 NOTE: Aunque los nodos de almacenamiento solo de metadatos contienen <<ldr-service,Servicio LDR>>y pueden procesar solicitudes de clientes de S3, es posible que el rendimiento de la StorageGRID no aumente.
 
+Nodo de almacenamiento de solo datos:: El uso exclusivo de un nodo de almacenamiento para los datos puede ser lógico si los nodos de almacenamiento tienen diferentes características de rendimiento. Por ejemplo, para aumentar potencialmente el rendimiento, podría tener nodos de almacenamiento en disco giratorio de alta capacidad y solo de datos acompañados por nodos de almacenamiento de alto rendimiento solo de metadatos.
 
-
-=== Nodo de almacenamiento de solo datos
-
-El uso exclusivo de un nodo de almacenamiento para los datos puede ser lógico si los nodos de almacenamiento tienen diferentes características de rendimiento. Por ejemplo, para aumentar potencialmente el rendimiento, podría tener nodos de almacenamiento en disco giratorio de alta capacidad y solo de datos acompañados por nodos de almacenamiento de alto rendimiento solo de metadatos.
-
-Además, es posible obtener más capacidad de metadatos eliminando los nodos bajos de RAM de Cassandra, lo que aumenta el límite de capacidad de metadatos por nodo. Consulte link:../admin/managing-object-metadata-storage.html["Gestione el almacenamiento de metadatos de objetos"].
 
 Al instalar nodos de solo datos, la cuadrícula debe contener lo siguiente:
 
-* Un mínimo de dos nodos de almacenamiento combinados o solo de datos por grid
-* Al menos un nodo de almacenamiento combinado o solo de datos por sitio
-* Un mínimo de tres nodos de almacenamiento combinados o solo de metadatos por sitio
+* Un mínimo de dos nodos de almacenamiento combinados o solo de datos _por grid_
+* Al menos un nodo de almacenamiento combinado o de solo datos _por sitio_
+* Un mínimo de tres nodos de almacenamiento combinados o solo de metadatos _por sitio_
 
-
-Puede convertir un nodo de almacenamiento que no contenga <<adc-service,Servicio ADC>>a un nodo de almacenamiento solo de datos. Consulte link:../maintain/convert-to-data-only-node.html["Convertir un nodo de almacenamiento en un nodo solo de datos"].
 
 
 
@@ -110,7 +98,7 @@ Administra cuentas de arrendatario.
 
 
  a| 
-[[adc-service]]Controlador de dominio administrativo (ADC)
+Controlador de dominio administrativo (ADC)
  a| 
 Mantiene la topología y la configuración en todo el grid.
 

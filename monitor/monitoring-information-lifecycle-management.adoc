@@ -52,11 +52,11 @@ NOTE: Los gráficos de la página *NODES* se reemplazarán con las tarjetas corr
 ** *Tasa de evaluación (objetos/s)*: La velocidad actual a la que se evalúan los objetos en comparación con la política ILM de la cuadrícula.
 
 
+. En la sección ILM Queue, observe los siguientes atributos.
 +
 
 NOTE: La sección de la cola de ILM se incluye solo para el grid. Esta información no se muestra en la pestaña ILM para un sitio o nodo de almacenamiento.
 
-. En la sección ILM Queue, observe los siguientes atributos.
 +
 ** *Período de escaneo - Estimado*: El tiempo estimado para completar una exploración completa de ILM de todos los objetos.
 +
@@ -65,9 +65,12 @@ NOTE: Un análisis completo no garantiza que se haya aplicado ILM a todos los ob
 
 ** *Reparaciones intentadas*: El número total de operaciones de reparación de objetos para los datos replicados que se han intentado. Este número aumenta cada vez que un nodo de almacenamiento intenta reparar un objeto de riesgo alto. Si el Grid está ocupado, se da prioridad a las reparaciones de ILM de alto riesgo.
 +
-La misma reparación de objeto puede volver a incrementarse si la replicación ha fallado después de la reparación. + Estos atributos pueden ser útiles cuando está supervisando el progreso de la recuperación del volumen del nodo de almacenamiento. Si el número de reparaciones que se intentaron ha dejado de aumentar y se ha completado una exploración completa, es probable que la reparación haya finalizado.
+
+NOTE: La misma reparación de objeto puede volver a incrementarse si la replicación ha fallado después de la reparación.
 
 
 
-. Alternativamente, envíe una consulta de Prometheus para `storagegrid_ilm_scan_period_estimated_minutes` y. `storagegrid_ilm_repairs_attempted`
++
+Estos atributos pueden ser útiles cuando se supervisa el progreso de la recuperación de volumen del nodo de almacenamiento. Si el número de reparaciones que se intentaron ha dejado de aumentar y se ha completado una exploración completa, es probable que la reparación haya finalizado.
+
 

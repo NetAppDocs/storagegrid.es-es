@@ -116,7 +116,7 @@ audit.log:2023-01-05T18:47:05.525999 [AUDT:[RSLT(FC32):SUCS][CNID(UI64):16729436
 
 . Si las escrituras del cliente no son normales, use el ID de inquilino de la alerta para identificar el inquilino:
 +
-.. Vaya a *SUPPORT* > *Tools* > *Logs*. Recopile registros de la aplicación para el nodo de almacenamiento en la alerta. Especifique 15 minutos antes y después de la alerta. Consulte link:../monitor/collecting-log-files-and-system-data.html["Recopilar archivos de registro y datos del sistema"].
+.. Vaya a *SUPPORT* > *Tools* > *Logs*. Recopile registros de la aplicación para el nodo de almacenamiento en la alerta. Especifique 15 minutos antes y después de la alerta.
 .. Extraiga el archivo y vaya a `bycast.log`:
 +
 `/GID<grid_id>_<time_stamp>/<site_node>/<time_stamp>/grid/bycast.log`

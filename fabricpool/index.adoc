@@ -50,7 +50,7 @@ Obtenga la link:information-needed-to-attach-storagegrid-as-cloud-tier.html["Inf
 
 
 [role="quick-margin-para"]
-Opcionalmente, configure link:../admin/using-identity-federation.html["federación de identidades"] y link:../admin/how-sso-works.html["inicio de sesión único"].
+Opcionalmente, configure link:../admin/using-identity-federation.html["federación de identidades"] y link:../admin/configuring-sso.html["inicio de sesión único"].
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tres"] Configure los ajustes de StorageGRID
 [role="quick-margin-para"]

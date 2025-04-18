@@ -47,7 +47,7 @@ La exportación de registros al servidor de syslog proporciona estas capacidades
 * Mejor visibilidad de las solicitudes que fueron bloqueadas por los clasificadores de tráfico en el equilibrador de carga.
 
 
-Para exportar los registros, consulte link:../monitor/configure-audit-messages.html["Configure los mensajes de auditoría y el servidor de syslog externo"].
+Para exportar los registros, consulte link:../monitor/configure-audit-messages.html["Configurar los mensajes de auditoría y los destinos de registro"].
 
 
 
@@ -227,6 +227,6 @@ Resultado de los comandos de contenedor de StorageGRID. Contiene información de
 
 
 | paquete de recuperación sincronizada  a| 
-Relacionado con el mantenimiento de la coherencia del paquete de recuperación más reciente en todos los nodos de administración y de almacenamiento que alojan el servicio ADC.
+Relacionado con el mantenimiento de la coherencia del último paquete de recuperación en todos los nodos de administración y de almacenamiento que alojan el servicio ADC.
 
 |===

@@ -53,7 +53,7 @@ AutoSupport admite HTTPS, HTTP y SMTP para los protocolos de transporte. Debido 
 
 Puede configurar el uso compartido de recursos de origen cruzado (CORS) para un depósito de S3 si desea que las aplicaciones web de otros dominios puedan acceder a ese depósito y a los objetos de ese depósito. En general, no active CORS a menos que sea necesario. Si se requiere CORS, restringirlo a orígenes de confianza.
 
-Consulte los pasos para link:../tenant/configuring-cross-origin-resource-sharing-for-buckets-and-objects.html["Configuración de CORS para cubos y objetos"].
+Consulte los pasos para link:../tenant/configuring-cross-origin-resource-sharing-cors.html["Configuración del uso compartido de recursos de origen cruzado (CORS)"].
 
 
 

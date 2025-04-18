@@ -11,7 +11,7 @@ summary: 'Si ha configurado y activado el inicio de sesión único (SSO) y utili
 
 
 [role="lead"]
-Si tiene link:../admin/how-sso-works.html["Inicio de sesión único configurado y habilitado (SSO)"] y utiliza Azure como proveedor SSO, puede utilizar dos scripts de ejemplo para obtener un token de autenticación válido para la API de gestión de grid o la API de gestión de inquilinos.
+Si tiene link:../admin/configuring-sso.html["Inicio de sesión único configurado y habilitado (SSO)"] y utiliza Azure como proveedor SSO, puede utilizar dos scripts de ejemplo para obtener un token de autenticación válido para la API de gestión de grid o la API de gestión de inquilinos.
 
 
 

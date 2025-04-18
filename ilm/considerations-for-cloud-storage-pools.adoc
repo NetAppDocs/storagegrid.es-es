@@ -24,7 +24,7 @@ Si planea utilizar un pool de almacenamiento en cloud para mover objetos desde e
 * Las siguientes combinaciones de plataforma, autenticación y protocolo con bloqueo de objetos S3 no son compatibles con los pools de Cloud Storage:
 +
 ** *Plataformas*: Google Cloud Platform y Azure
-** *Tipos de autenticación*: Acceso anónimo
+** *Tipos de autenticación*: IAM Roles en cualquier lugar y acceso anónimo
 ** *Protocolo*: HTTP
 
 

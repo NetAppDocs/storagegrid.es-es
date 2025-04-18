@@ -21,7 +21,7 @@ Para habilitar las notificaciones de un depósito, cree XML de configuración de
 
 
 .Acerca de esta tarea
-Las notificaciones de eventos se configuran asociando el XML de configuración de notificaciones a un bloque de origen. El XML de configuración de notificaciones sigue las convenciones de S3 para configurar notificaciones de buckets, con el tema de destino Amazon SNS, el tema Kafka o el punto final webhook especificado como URN de un punto final.
+Las notificaciones de eventos se configuran asociando el XML de configuración de notificaciones a un bloque de origen. El XML de configuración de notificaciones sigue las convenciones de S3 para configurar notificaciones de buckets, con el tema Kafka o Amazon SNS de destino especificado como URN de un punto final.
 
 Para obtener información general sobre las notificaciones de eventos y cómo configurarlas, consulte la https://docs.aws.amazon.com/s3/["Documentación de Amazon"^]. Para obtener información sobre cómo StorageGRID implementa la API de configuración de notificación de buckets S3, consulte la link:../s3/index.html["Instrucciones para implementar aplicaciones cliente de S3"].
 
@@ -29,7 +29,7 @@ Tenga en cuenta los siguientes requisitos y características al configurar las n
 
 * Al crear y aplicar un XML de configuración de notificación válido, debe utilizar el URN de un punto final de notificaciones de eventos para cada destino.
 * Aunque la notificación de eventos se puede configurar en un depósito con bloqueo de objetos S3 activado, los metadatos de bloqueo de objetos S3 (incluidos el estado de retención legal y la fecha de retención hasta) de los objetos no se incluirán en los mensajes de notificación.
-* Después de configurar las notificaciones de eventos, cada vez que se produce un evento específico para un objeto en el depósito de origen, se genera una notificación y se envía al tema de Amazon SNS, al tema de Kafka o al punto final de webhook utilizado como destino.
+* Después de configurar las notificaciones de eventos, cada vez que se produce un evento específico para un objeto en el depósito de origen, se genera una notificación y se envía al tema de Amazon SNS o Kafka utilizado como punto final de destino.
 * Si habilita las notificaciones de eventos para un bloque que contiene objetos, las notificaciones se envían solo para las acciones que se realizan una vez guardada la configuración de notificación.
 
 
@@ -77,7 +77,7 @@ NOTE: Un administrador de StorageGRID debe habilitar los servicios de plataforma
 +
 En el ejemplo, una notificación de evento se envía cada vez que se crea un objeto con `images/` el prefijo.
 
-.. Confirme que se ha entregado una notificación al tema de destino de Amazon SNS, al tema de Kafka o al punto final de webhook.
+.. Confirme que se ha entregado una notificación al tema de destino de Amazon SNS o Kafka.
 +
 Por ejemplo, si el tema de destino está alojado en Amazon SNS, puede configurar el servicio para que le envíe un correo electrónico cuando se entregue la notificación.
 
@@ -129,7 +129,8 @@ Si se recibe la notificación en el tema de destino, ha configurado correctament
 
 
 .Información relacionada
-* link:understanding-notifications-for-buckets.html["Comprender las notificaciones para bloques"]
-* link:../s3/index.html["USE LA API DE REST DE S3"]
-* link:creating-platform-services-endpoint.html["Cree un extremo de servicios de plataforma"]
+link:understanding-notifications-for-buckets.html["Comprender las notificaciones para bloques"]
 
+link:../s3/index.html["USE LA API DE REST DE S3"]
+
+link:creating-platform-services-endpoint.html["Cree un extremo de servicios de plataforma"]

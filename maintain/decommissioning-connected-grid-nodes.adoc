@@ -99,13 +99,13 @@ Se inicia el procedimiento de retirada del nodo y se muestra el progreso de cada
 
 CAUTION: No desconecte un nodo de almacenamiento después de iniciar el procedimiento de retirada. El cambio de estado puede provocar que parte del contenido no se copie en otras ubicaciones.
 
-. En cuanto el nuevo paquete de recuperación esté disponible, seleccione el enlace del paquete de recuperación en el banner o seleccione *MANTENIMIENTO* > *Sistema* > *Paquete de recuperación* para acceder a la página del paquete de recuperación. A continuación, descargue el `.zip` archivo.
+. En cuanto el nuevo paquete de recuperación esté disponible, seleccione el enlace Paquete de recuperación en el banner o seleccione *MANTENIMIENTO* > *Sistema* > *Paquete de recuperación* para acceder a la página Paquete de recuperación. A continuación, descargue el `.zip` archivo.
 +
-Consulte link:downloading-recovery-package.html["descargando el paquete de recuperación"].
+Consulte link:downloading-recovery-package.html["Descarga del paquete de recuperación"].
 
 +
 
-NOTE: Descargue el paquete de recuperación lo antes posible para asegurarse de que puede recuperar su red si algo sale mal durante el procedimiento de retirada.
+NOTE: Descargue el Lo antes posible. del paquete de recuperación para asegurarse de que puede recuperar la red si hay algún problema durante el procedimiento de retirada de servicio.
 
 . Supervise periódicamente la página nodos de misión de descommisión para garantizar que todos los nodos seleccionados se han retirado correctamente.
 +

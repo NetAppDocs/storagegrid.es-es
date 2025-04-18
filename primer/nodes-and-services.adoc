@@ -113,42 +113,6 @@ Nodos de administración
 
 
  a| 
-Apache Tomcat
- a| 
-Servidor web para aplicaciones basadas en Java.
- a| 
-Nodos de administración
-
-
-
- a| 
-Daemon Avahi
- a| 
-Maneja mDNS, que se utiliza para la resolución de nombres y la detección de servicios dentro de la red local.
- a| 
-Todos los nodos
-
-
-
- a| 
-Servicio de caché
- a| 
-Se ejecuta en nodos de equilibrio de carga (Gateway) y gestiona una caché local de contenido de objeto.
- a| 
-Nodos de puerta de enlace
-
-
-
- a| 
-Cassandra
- a| 
-Gestiona la base de datos distribuida para los metadatos de objetos.
- a| 
-Nodos de almacenamiento (excepto solo datos)
-
-
-
- a| 
 Cassandra Reaper
  a| 
 Realiza reparaciones automáticas de metadatos de objetos.
@@ -223,7 +187,7 @@ Nodos de administración y puerta de enlace
  a| 
 Identidad (no)
  a| 
-Gestiona usuarios y grupos locales, autenticación y federa identidades de usuarios desde LDAP y Active Directory.
+Federe las identidades de usuario de LDAP y Active Directory.
  a| 
 Nodos de almacenamiento que usan el servicio ADC
 
@@ -275,9 +239,9 @@ Todos los nodos
 
 
  a| 
-Equilibrador de carga nginx-gw
+nginx-gw
  a| 
-Proporciona un equilibrio de carga del tráfico S3 desde los clientes a los nodos de almacenamiento. El servicio Load Balancer se puede configurar a través de la página de configuración Load Balancer Endpoints. Este servicio también se conoce como servicio nginx-gw.
+Activa el servicio Load Balancer.
  a| 
 Nodos de administración y puerta de enlace
 
@@ -289,24 +253,6 @@ NMS (Sistema de gestión de redes)
 Activa las opciones de supervisión, generación de informes y configuración que se muestran a través de Grid Manager.
  a| 
 Nodos de administración
-
-
-
- a| 
-Exportador de nodos (recopilación de datos de Prometheus)
- a| 
-Publica estadísticas de nivel de sistema para la recopilación de métricas de series temporales de Prometheus.
- a| 
-Todos los nodos
-
-
-
- a| 
-ntp
- a| 
-Servicio del protocolo de hora de red (NTP).
- a| 
-Todos los nodos
 
 
 
@@ -347,70 +293,7 @@ Hay una instancia presente en cada nodo de cuadrícula
 
 
  a| 
-Administrador de servidores
- a| 
-Gestiona los servicios de StorageGRID.
- a| 
-Todos los nodos
-
-
-
- a| 
-Agente SNMP
- a| 
-Responde a las solicitudes SNMP.
- a| 
-Nodos de administración
-
-
-
- a| 
-Servicio de gestión de puertos SNMP
- a| 
-Maneja la administración dinámica de puertos SNMP.
- a| 
-Todos los nodos
-
-
-
- a| 
-SSH (shell seguro)
- a| 
-Maneja el acceso seguro y la administración remota del sistema.
- a| 
-Todos los nodos
-
-
-
- a| 
-SSM (Monitor de estado del sistema)
- a| 
-Supervisa las condiciones del hardware e informa al servicio NMS.
- a| 
-Todos los nodos
-
-
-
- a| 
-Urgente
- a| 
-Registra métricas adicionales relacionadas con bloques de S3.
- a| 
-Nodos de almacenamiento
-
-
-
- a| 
-Agente de rastreo (agente jaeger)
- a| 
-Recibe y procesa la información de rastreo enviada por el recolector de trazas (jaeger-collector).
- a| 
-Todos los nodos
-
-
-
- a| 
-Recolector de trazas (colector jaeger)
+Recolector de rastreo
  a| 
 Realiza la recogida de seguimiento para recopilar información que el soporte técnico utiliza. El servicio de recopilación de rastreo utiliza el software Jaeger de código abierto.
  a| 

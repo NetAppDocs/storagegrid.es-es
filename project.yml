@@ -23,7 +23,7 @@ settings:
   langs: es-es,us-en,de-de,fr-fr,it-it,pt-br,ja-jp,ko-kr,zh-cn,zh-tw
 sidebar:
   entries:
-  - title: Documentos de StorageGRID 12,0
+  - title: Documentos de StorageGRID 11,9
     url: "/index.html"
   - title: Dispositivos StorageGRID
     url: "/storagegrid-hardware.html"
@@ -102,10 +102,6 @@ sidebar:
             url: "/maintain/considerations-for-decommissioning-storage-nodes.html"
           - title: Quórum ADC
             url: "/maintain/understanding-adc-service-quorum.html"
-          - title: Mueva el servicio ADC
-            url: "/maintain/move-adc-service.html"
-          - title: Convertir a nodo únicamente de datos
-            url: "/maintain/convert-to-data-only-node.html"
           - title: Revisar la configuración de almacenamiento y la política de ILM
             url: "/maintain/reviewing-ilm-policy-and-storage-configuration.html"
           - title: Consolide los nodos de almacenamiento

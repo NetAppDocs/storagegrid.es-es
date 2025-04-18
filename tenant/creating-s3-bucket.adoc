@@ -24,7 +24,7 @@ NOTE: Los permisos para establecer o modificar las propiedades de Bloqueo de obj
 * Si cada inquilino tendrá 5.000 buckets, cada nodo de almacenamiento del grid tiene un mínimo de 64 GB de RAM.
 +
 
-NOTE: Cada rejilla puede tener un máximo de 100.000 cubos, incluyendo link:../tenant/manage-branch-buckets.html["cucharones para bifurcaciones"].
+NOTE: Cada rejilla puede tener un máximo de 100.000 cubos.
 
 
 
@@ -87,15 +87,7 @@ El administrador de StorageGRID gestiona las regiones disponibles. La región de
 .Pasos
 . Opcionalmente, habilite el control de versiones del objeto para el bloque.
 +
-Habilite el control de versiones de objetos si desea almacenar cada versión de cada objeto en este bloque. A continuación, puede recuperar versiones anteriores de un objeto según sea necesario.
-
-+
-Debe activar el control de versiones de objetos si:
-
-+
-** El bloque se utilizará para la replicación entre grid.
-** Desea crear un link:../tenant/manage-branch-buckets.html["cucharón de bifurcación"] a partir de este depósito.
-
+Habilite el control de versiones de objetos si desea almacenar cada versión de cada objeto en este bloque. A continuación, puede recuperar versiones anteriores de un objeto según sea necesario. Debe habilitar el control de versiones de objetos si el bloque se va a utilizar para la replicación entre grid.
 
 . Si la opción Bloqueo de objetos S3 global está habilitada, habilite opcionalmente Bloqueo de objetos S3 para que el depósito almacene objetos utilizando un modelo WORM.
 +
@@ -154,16 +146,12 @@ Un período de retención _maximum_, que puede ser un valor de 1 día a 100 año
 
 
 
-. [[capacity-limit]]Opcionalmente, seleccione *Enable capacity limit*, introduzca un valor y seleccione la unidad de capacidad.
+. [[capacity-limit]]Opcionalmente, seleccione *Enable capacity limit*.
 +
 El límite de capacidad es la capacidad máxima disponible para los objetos de este bloque. Este valor representa una cantidad lógica (tamaño de objeto), no una cantidad física (tamaño en disco).
 
 +
 Si no se establece ningún límite, la capacidad de este depósito es ilimitada. Consulte link:../tenant/understanding-tenant-manager-dashboard.html#bucket-capacity-usage["Límite de uso de capacidad"] si desea obtener más información.
-
-. [[object-count-limit]]Opcionalmente, seleccione *Enable object count limit* e introduzca un entero de al menos 1 y no más de 1.000.000.000.000.000.000.
-+
-El límite de recuento de objetos es el número máximo de objetos que puede contener este cubo. Este valor representa una cantidad lógica (recuento de objetos). Si no se establece ningún límite, el recuento de objetos es ilimitado.
 
 . Seleccione *Crear cucharón*.
 +
@@ -171,5 +159,3 @@ El cucharón se crea y se agrega a la tabla de la página Cuches.
 
 . Opcionalmente, seleccione *Ir a la página de detalles del depósito* para link:viewing-s3-bucket-details.html["ver detalles del período"]realizar una configuración adicional.
 
-
-Usted también puede link:../tenant/manage-branch-buckets.html["crear cubos de bifurcación"]según sea necesario.

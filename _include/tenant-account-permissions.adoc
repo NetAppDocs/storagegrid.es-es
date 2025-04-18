@@ -17,7 +17,7 @@ El inquilino puede usar servicios de plataforma S3 como CloudMirror. Consulte li
  a| 
 Usar origen de identidad propio
  a| 
-El inquilino puede configurar y gestionar su propio origen de identidad para usuarios y grupos federados. Esta opción estará deshabilitada si link:../admin/how-sso-works.html["SSO configurado"]tiene para el sistema StorageGRID.
+El inquilino puede configurar y gestionar su propio origen de identidad para usuarios y grupos federados. Esta opción estará deshabilitada si link:../admin/configuring-sso.html["SSO configurado"]tiene para el sistema StorageGRID.
 
 
 

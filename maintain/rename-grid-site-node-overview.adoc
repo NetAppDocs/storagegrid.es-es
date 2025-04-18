@@ -99,7 +99,7 @@ Se muestra como nombre principal cuando se cambia el nombre del elemento:
 
 
  a| 
-`Passwords.txt` archivo del paquete de recuperación
+`Passwords.txt` En el paquete de recuperación
  a| 
 Se muestra como `Server Name`
  a| 

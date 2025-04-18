@@ -81,9 +81,6 @@ Archivo de configuración en blanco para utilizar con el script
 * Ha creado un `configure-storagegrid.json` archivo de configuración. Para crear este archivo, puede modificar el archivo de configuración de ejemplo (`configure-storagegrid.sample.json`) o el archivo de configuración en blanco (`configure-storagegrid.blank.json`).
 
 
-
-CAUTION: Almacene la contraseña de administración y la frase de acceso de aprovisionamiento de la sección Contraseñas del archivo de configuración modificado `configure-storagegrid.json` en una ubicación segura. Estas contraseñas son necesarias para los procedimientos de instalación, expansión y mantenimiento. También debe realizar una copia de seguridad del archivo de configuración modificado `configure-storagegrid.json` y almacenarlo en una ubicación segura.
-
 .Acerca de esta tarea
 Puede utilizar `configure-storagegrid.py` el script de Python y `configure-storagegrid.json` el archivo de configuración para automatizar la configuración de su sistema StorageGRID.
 
@@ -116,10 +113,10 @@ Por ejemplo:
 
 
 .Resultado
-Durante el proceso de configuración, se genera un archivo de paquete de recuperación `.zip` y se descarga en el directorio en el que está ejecutando el proceso de instalación y configuración. Debe realizar una copia de seguridad del archivo del paquete de recuperación para poder recuperar el sistema StorageGRID en caso de que falle uno o más nodos de grid. Por ejemplo, cópielo en una ubicación de red segura y en una ubicación de almacenamiento en nube segura.
+Durante el proceso de configuración se genera un archivo de paquete de recuperación `.zip` y se descarga en el directorio en el que se ejecuta el proceso de instalación y configuración. Debe realizar una copia de seguridad del archivo de paquete de recuperación para poder recuperar el sistema StorageGRID si falla uno o más nodos de grid. Por ejemplo, cópielo en una ubicación de red segura y en una ubicación de almacenamiento en nube segura.
 
 
-CAUTION: El archivo del paquete de recuperación debe estar protegido porque contiene claves de cifrado y contraseñas que se pueden utilizar para obtener datos del sistema StorageGRID.
+CAUTION: El archivo del paquete de recuperación debe estar protegido porque contiene claves de cifrado y contraseñas que se pueden usar para obtener datos del sistema StorageGRID.
 
 Si especificó que se deben generar contraseñas aleatorias, abra `Passwords.txt` el archivo y busque las contraseñas necesarias para acceder al sistema StorageGRID.
 

@@ -28,7 +28,7 @@ La expansión incluye las siguientes tareas principales de usuario:
 
 . Configure la expansión.
 . Inicie la expansión.
-. Descargue un nuevo archivo de paquete de recuperación.
+. Descargue un nuevo archivo de Recovery Package.
 . Supervise los pasos y etapas de expansión hasta que todos los nodos nuevos estén instalados y configurados y todos los servicios se hayan iniciado.
 +
 
@@ -119,10 +119,9 @@ El rol de protocolo de tiempo de red (NTP) del nodo de grid:
  a| 
 Servicio ADC (nodos de almacenamiento combinados o solo metadatos)
  a| 
-Si este nodo de almacenamiento ejecutará el servicio de controlador de dominio administrativo (ADC). El servicio ADC realiza un seguimiento de la ubicación y disponibilidad de los servicios de red. Al menos tres nodos de almacenamiento en cada sitio deben incluir el servicio ADC.
+Si este nodo de almacenamiento ejecutará el servicio de controlador de dominio administrativo (ADC). El servicio ADC realiza un seguimiento de la ubicación y disponibilidad de los servicios de red. Al menos tres nodos de almacenamiento en cada sitio deben incluir el servicio ADC. No puede agregar el servicio ADC a un nodo después de que se haya desplegado.
 
-*** Seleccione *Sí* si el nodo de almacenamiento que va a reemplazar incluye el servicio ADC. Debido a que no puede retirar un nodo de almacenamiento si quedan muy pocos servicios ADC, esta configuración garantiza que un nuevo servicio ADC esté disponible antes de eliminar el servicio antiguo.
-*** Puede link:../maintain/move-adc-service.html["Mueva el servicio ADC a otro nodo de almacenamiento del mismo sitio"]asegurarse de que se cumple el quórum de servicio ADC.
+*** Seleccione *Sí* si el nodo de almacenamiento que va a reemplazar incluye el servicio ADC. Debido a que no puede retirar un nodo de almacenamiento si quedan muy pocos servicios ADC, esto garantiza que un nuevo servicio ADC esté disponible antes de eliminar el servicio antiguo.
 *** Seleccione *Automático* para que el sistema determine si este nodo requiere el servicio ADC.
 
 
@@ -175,21 +174,24 @@ Después de unos minutos, esta página se actualiza para mostrar el estado del p
 NOTE: Durante el paso de instalación de nodos de grid para un dispositivo nuevo, el instalador de dispositivos StorageGRID muestra la instalación pasando de la fase 3 a la fase 4, Finalizar la instalación. Cuando finaliza la fase 4, se reinicia la controladora.
 
 +
+image::../media/grid_expansion_progress.png[Esta imagen se explica por el texto circundante.]
+
++
 
 NOTE: Una expansión de sitio incluye una tarea adicional para configurar Cassandra para el nuevo sitio.
 
-. Tan pronto como aparezca el enlace *Descargar paquete de recuperación*, descargue el archivo del paquete de recuperación.
+. Tan pronto como aparezca el enlace *Download Recovery Package*, descargue el archivo del paquete de recuperación.
 +
-Debe descargar una copia actualizada del archivo del paquete de recuperación lo antes posible después de realizar cambios de topología de grid en el sistema StorageGRID. El archivo de paquete de recuperación le permite restaurar el sistema en caso de que se produzca un fallo.
+Es necesario descargar una copia actualizada de la Lo antes posible. del archivo de paquete de recuperación después de realizar cambios en la topología de la cuadrícula en el sistema StorageGRID. El archivo de paquete de recuperación permite restaurar el sistema si se produce un fallo.
 
 +
 .. Seleccione el enlace de descarga.
 .. Introduzca la frase de acceso de aprovisionamiento y seleccione *Iniciar descarga*.
 .. Cuando finalice la descarga, abra el `.zip` archivo y confirme que puede acceder al contenido, incluido el `Passwords.txt` archivo.
-.. Copie el archivo de paquete de recuperación descargado (`.zip`) en dos ubicaciones seguras, separadas y con total seguridad.
+.. Copie el archivo de Recovery Package descargado (`.zip`) en dos ubicaciones seguras y separadas.
 +
 
-CAUTION: El archivo del paquete de recuperación debe estar protegido porque contiene claves de cifrado y contraseñas que se pueden utilizar para obtener datos del sistema StorageGRID.
+CAUTION: El archivo del paquete de recuperación debe estar protegido porque contiene claves de cifrado y contraseñas que se pueden usar para obtener datos del sistema StorageGRID.
 
 
 
@@ -204,6 +206,8 @@ CAUTION: No reinicie ningún nodo de almacenamiento durante las etapas de «Expa
 .Añadir nodos de almacenamiento
 --
 Si va a añadir nodos de almacenamiento a un sitio existente, revise el porcentaje que se muestra en el mensaje de estado Iniciar Cassandra y transmisión de datos.
+
+image::../media/grid_expansion_starting_cassandra.png[Grid Expansion > iniciando Cassandra y transmitiendo datos]
 
 Este porcentaje calcula lo completo que es la operación de retransmisión de Cassandra, que se basa en la cantidad total de datos de Cassandra disponibles y en la cantidad que ya se ha escrito en el nodo nuevo.
 

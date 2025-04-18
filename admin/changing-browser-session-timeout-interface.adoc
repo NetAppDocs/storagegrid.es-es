@@ -29,7 +29,7 @@ El tiempo de espera de inactividad del navegador también se controla mediante l
 * Temporizador StorageGRID independiente no configurable, que se incluye para la seguridad del sistema. El token de autenticación de cada usuario caduca 16 horas después de que el usuario inicia sesión. Cuando caduca la autenticación de un usuario, ese usuario se cierra automáticamente, incluso si el tiempo de espera de inactividad del navegador está desactivado o no se ha alcanzado el valor del tiempo de espera del explorador. Para renovar el token, el usuario debe volver a iniciar sesión.
 * Configuración de tiempo de espera para el proveedor de identidad, asumiendo que el inicio de sesión único (SSO) está activado para StorageGRID.
 +
-Si se activa SSO y se agota el tiempo de espera del explorador de un usuario, el usuario debe volver a introducir sus credenciales SSO para volver a acceder a StorageGRID. Consulte link:how-sso-works.html["Cómo funciona SSO"].
+Si se activa SSO y se agota el tiempo de espera del explorador de un usuario, el usuario debe volver a introducir sus credenciales SSO para volver a acceder a StorageGRID. Consulte link:configuring-sso.html["Configurar el inicio de sesión único"].
 
 
 

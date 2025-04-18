@@ -44,7 +44,7 @@ El ejemplo muestra una transacción correcta para actualizar los metadatos de un
 
 === SUPD: Actualización de metadatos S3
 
-El cliente S3 realiza una solicitud (SUPD) para actualizar los metadatos especificados (`x-amz-meta-\*`) para el objeto S3 (S3KY). En este ejemplo, los encabezados de las solicitudes se incluyen en el campo HTRH porque se ha configurado como encabezado de protocolo de auditoría (**CONFIGURACIÓN** > **Supervisión** > **servidor de auditoría y syslog**). Consulte link:../monitor/configure-audit-messages.html["Configure los mensajes de auditoría y el servidor de syslog externo"].
+El cliente S3 realiza una solicitud (SUPD) para actualizar los metadatos especificados (`x-amz-meta-\*`) para el objeto S3 (S3KY). En este ejemplo, los encabezados de las solicitudes se incluyen en el campo HTRH porque se ha configurado como encabezado de protocolo de auditoría (**CONFIGURACIÓN** > **Supervisión** > **servidor de auditoría y syslog**). Consulte link:../monitor/configure-audit-messages.html["Configurar los mensajes de auditoría y los destinos de registro"].
 
 [listing]
 ----

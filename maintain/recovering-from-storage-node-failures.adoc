@@ -22,11 +22,15 @@ Utilice esta tabla para seleccionar el procedimiento de recuperación de un nodo
 
  a| 
 * Se produjo un error en más de un nodo de almacenamiento.
+* Un segundo nodo de almacenamiento ha fallado menos de 15 días después de un fallo o una recuperación en un nodo de almacenamiento.
++
+Esto incluye el caso en el que un nodo de almacenamiento falla mientras se recupera otro nodo de almacenamiento aún está en curso.
+
 
  a| 
 Póngase en contacto con el soporte técnico.
  a| 
-Recuperar más de un nodo de almacenamiento puede afectar la integridad de la base de datos de Cassandra, lo que puede causar la pérdida de datos.
+Recuperar más de un nodo de almacenamiento (o varios de un nodo de almacenamiento en un plazo de 15 días) puede afectar a la integridad de la base de datos Cassandra, lo que puede provocar la pérdida de datos.
 
 El soporte técnico puede determinar cuándo es seguro iniciar la recuperación de un segundo nodo de almacenamiento.
 

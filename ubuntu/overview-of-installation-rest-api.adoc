@@ -35,7 +35,7 @@ La API de instalación de StorageGRID incluye las siguientes secciones:
 * *Nodes* -- Operaciones de configuración a nivel de nodo. Puede recuperar una lista de nodos de cuadrícula, eliminar un nodo de cuadrícula, configurar un nodo de cuadrícula, ver un nodo de cuadrícula y restablecer la configuración de un nodo de cuadrícula.
 * *Aprovisionamiento* -- Operaciones de aprovisionamiento. Puede iniciar la operación de aprovisionamiento y ver el estado de la operación de aprovisionamiento.
 * *Recuperación* -- Operaciones de recuperación del nodo de administración principal. Puede restablecer la información, cargar el paquete de recuperación, iniciar la recuperación y ver el estado de la operación de recuperación.
-* *Recovery-package* -- Operaciones para descargar el paquete de recuperación.
+* *Paquete de recuperación* -- Operaciones para descargar el paquete de recuperación.
 * *Sites* -- Operaciones de configuración a nivel de sitio. Puede crear, ver, eliminar y modificar un sitio.
 * *Temporary-password* -- Operaciones en la contraseña temporal para asegurar la mgmt-api durante la instalación.
 

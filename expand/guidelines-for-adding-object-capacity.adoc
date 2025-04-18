@@ -56,10 +56,10 @@ Antes de añadir nodos de almacenamiento a sitios existentes, revise las siguien
 
 Al configurar la expansión, debe elegir si desea incluir el servicio controlador de dominio administrativo (ADC) en cada nodo de almacenamiento nuevo. El servicio ADC realiza un seguimiento de la ubicación y disponibilidad de los servicios de red.
 
-* Puede link:../maintain/move-adc-service.html["Mueva el servicio ADC de un nodo de almacenamiento a otro del mismo sitio"].
 * El sistema StorageGRID requiere que link:../maintain/understanding-adc-service-quorum.html["Quórum de servicios de ADC"]esté disponible en cada sitio y en todo momento.
 * Al menos tres nodos de almacenamiento en cada sitio deben incluir el servicio ADC.
 * No se recomienda agregar el servicio ADC a cada nodo de almacenamiento. La inclusión de demasiados servicios de ADC puede provocar ralentizaciones debido al aumento de la comunicación entre los nodos.
 * Un único grid no debe tener más de 48 nodos de almacenamiento con el servicio ADC. Esto equivale a 16 sitios con tres servicios ADC en cada sitio.
-* En general, al seleccionar el ajuste *Servicio ADC* para un nodo nuevo, debe seleccionar *automático*. Seleccione *Sí* sólo si el nuevo nodo reemplazará a otro nodo de almacenamiento que incluya el servicio ADC. Debido a que no puede retirar un nodo de almacenamiento si quedan muy pocos servicios ADC, al seleccionar *Sí* se garantiza que un nuevo servicio ADC esté disponible antes de que se elimine el servicio antiguo.
+* En general, al seleccionar el ajuste *Servicio ADC* para un nodo nuevo, debe seleccionar *automático*. Seleccione *Sí* sólo si el nuevo nodo reemplazará a otro nodo de almacenamiento que incluya el servicio ADC. Debido a que no puede retirar un nodo de almacenamiento si quedan muy pocos servicios ADC, esto garantiza que un nuevo servicio ADC esté disponible antes de eliminar el servicio antiguo.
+* No puede agregar el servicio ADC a un nodo después de que se haya desplegado.
 

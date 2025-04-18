@@ -19,6 +19,9 @@ El instalador del dispositivo StorageGRID proporciona el estado hasta que se com
 La página Monitor Installation (instalación del monitor) muestra el progreso de la instalación.
 
 +
+image::../media/monitor_installation_services_appl.png[Instalación del monitor - aplicación Servicios]
+
++
 La barra de estado azul indica qué tarea está en curso actualmente. Las barras de estado verdes indican tareas que se han completado correctamente.
 
 +
@@ -40,7 +43,13 @@ Durante esta fase, el instalador copia la imagen del sistema operativo base para
 . Continúe supervisando el progreso de la instalación hasta que se produzca una de las siguientes situaciones:
 +
 ** Para los nodos de puerta de enlace del dispositivo o los nodos de administración de dispositivos no primarios, la etapa *instalar StorageGRID* se detiene y aparece un mensaje en la consola integrada, solicitándole que apruebe este nodo en el nodo de administración mediante el Administrador de grid.
++
+image::../media/monitor_installation_install_sgws.gif[La imagen se describe por medio del texto circundante]
+
 ** En el caso de los nodos de administración principales del dispositivo, aparece una quinta fase (Load StorageGRID Installer). Si la quinta fase está en curso durante más de 10 minutos, actualice la página manualmente.
++
+image::../media/monitor_reinstallation_primary_admin.png[Captura de pantalla de la 5ª fase para la reinstalación del nodo de administración principal]
+
 
 
 . Vaya al siguiente paso del proceso de recuperación para el tipo de nodo de grid del dispositivo que está recuperando.

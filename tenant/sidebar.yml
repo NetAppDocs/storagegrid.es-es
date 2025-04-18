@@ -70,8 +70,6 @@ entries:
     url: "/tenant/creating-s3-bucket.html"
   - title: Ver detalles del período
     url: "/tenant/viewing-s3-bucket-details.html"
-  - title: Gestionar depósitos de bifurcación
-    url: "/tenant/manage-branch-buckets.html"
   - title: Aplique la etiqueta de política de ILM al bloque
     url: "/tenant/ilm-policy-tags.html"
   - title: Gestione la política de bloques
@@ -86,10 +84,8 @@ entries:
     url: "/tenant/using-s3-object-lock.html"
   - title: Actualizar S3 Retención predeterminada de bloqueo de objetos
     url: "/tenant/update-default-retention-settings.html"
-  - title: Configurar CORS para cubos y objetos
-    url: "/tenant/configuring-cross-origin-resource-sharing-for-buckets-and-objects.html"
-  - title: Activar CORS para una interfaz de gestión
-    url: "/tenant/enable-cross-origin-resource-sharing-for-management-interface.html"
+  - title: Configurar el uso compartido de recursos de origen cruzado (CORS)
+    url: "/tenant/configuring-cross-origin-resource-sharing-cors.html"
   - title: Suprimir objetos del depósito
     url: "/tenant/deleting-s3-bucket-objects.html"
   - title: Eliminar depósito

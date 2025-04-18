@@ -17,7 +17,7 @@ Debe seguir estas recomendaciones al implementar la API DE REST de S3 para usar 
 
 == Recomendaciones para las cabezas a los objetos no existentes
 
-Si la aplicación comprueba de forma rutinaria si existe un objeto en una ruta en la que no se espera que exista el objeto, debe utilizar la opción «Disponible» link:consistency.html["coherencia"]. Por ejemplo, deberías utilizar la consistencia «disponible» si tu aplicación dirige una ubicación antes de colocarla.
+Si la aplicación comprueba de forma rutinaria si existe un objeto en una ruta en la que no se espera que exista el objeto, debe utilizar la opción «Disponible» link:consistency-controls.html["coherencia"]. Por ejemplo, deberías utilizar la consistencia «disponible» si tu aplicación dirige una ubicación antes de colocarla.
 
 De lo contrario, si la OPERACIÓN de CABEZAL no encuentra el objeto, es posible que reciba una cantidad alta de errores de servidor interno 500 si dos o más nodos de almacenamiento del mismo sitio no están disponibles o no se puede acceder a un sitio remoto.
 

@@ -21,14 +21,14 @@ Antes de realizar un desmantelamiento de un nodo de cuadrícula, debe obtener la
  a| 
 Archivo de paquete de recuperación `.zip`
  a| 
-link:downloading-recovery-package.html["descargue el paquete de recuperación más reciente"] `.zip`Debe archivar (`sgws-recovery-package-_id-revision_.zip`). Puede utilizar el archivo del paquete de recuperación para restaurar el sistema en caso de que se produzca un fallo.
+link:downloading-recovery-package.html["Descargue el paquete de recuperación más reciente"] `.zip`Debe archivar (`sgws-recovery-package-_id-revision_.zip`). Puede utilizar el archivo de paquete de recuperación para restaurar el sistema si se produce un fallo.
 
 
 
  a| 
 `Passwords.txt` archivo
  a| 
-Este archivo contiene las contraseñas necesarias para acceder a los nodos de grid en la línea de comandos y se incluye en el paquete de recuperación.
+Este archivo contiene las contraseñas que se necesitan para acceder a los nodos de grid en la línea de comandos y se incluye en el paquete de recuperación.
 
 
 
