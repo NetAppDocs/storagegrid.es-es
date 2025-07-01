@@ -2,7 +2,7 @@
 permalink: expand/linux-adding-direct-attached-or-san-volumes-to-storage-node.html 
 sidebar: sidebar 
 keywords: expansion, Linux, add storage volumes 
-summary: Si un nodo de almacenamiento incluye menos de 16 volúmenes de almacenamiento, puede aumentar su capacidad mediante la adición de nuevos dispositivos de almacenamiento en bloques, haciéndolos visibles para los hosts Linux y la adición de las nuevas asignaciones de dispositivos de bloque al archivo de configuración de StorageGRID que se utiliza para el nodo de almacenamiento. 
+summary: Si un nodo de almacenamiento incluye menos de 48 volúmenes de almacenamiento, puede aumentar su capacidad mediante la adición de nuevos dispositivos de almacenamiento en bloques, haciéndolos visibles para los hosts Linux y la adición de las nuevas asignaciones de dispositivos de bloque al archivo de configuración de StorageGRID que se utiliza para el nodo de almacenamiento. 
 ---
 = Linux: Añada volúmenes SAN o de conexión directa al nodo de almacenamiento
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Si un nodo de almacenamiento incluye menos de 16 volúmenes de almacena
 
 
 [role="lead"]
-Si un nodo de almacenamiento incluye menos de 16 volúmenes de almacenamiento, puede aumentar su capacidad mediante la adición de nuevos dispositivos de almacenamiento en bloques, haciéndolos visibles para los hosts Linux y la adición de las nuevas asignaciones de dispositivos de bloque al archivo de configuración de StorageGRID que se utiliza para el nodo de almacenamiento.
+Si un nodo de almacenamiento incluye menos de 48 volúmenes de almacenamiento, puede aumentar su capacidad mediante la adición de nuevos dispositivos de almacenamiento en bloques, haciéndolos visibles para los hosts Linux y la adición de las nuevas asignaciones de dispositivos de bloque al archivo de configuración de StorageGRID que se utiliza para el nodo de almacenamiento.
 
 .Antes de empezar
 * Tiene acceso a las instrucciones de instalación de StorageGRID para su plataforma Linux.

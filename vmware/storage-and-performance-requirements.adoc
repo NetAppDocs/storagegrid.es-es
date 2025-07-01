@@ -68,7 +68,7 @@ LUN DE 100 GB PARA SO
 
 3 LUN para cada nodo de almacenamiento en este host
 
-*Nota*: Un nodo de almacenamiento puede tener de 1 a 16 LUN de almacenamiento; se recomiendan al menos 3 LUN de almacenamiento.
+*Nota*: Un nodo de almacenamiento puede tener de 1 a 48 LUN de almacenamiento; se recomiendan al menos 3 LUN de almacenamiento.
 
 Tamaño mínimo por LUN: 4 TB
 
@@ -104,10 +104,10 @@ NOTE: En función del nivel de auditoría configurado, el tamaño de las entrada
 
 == Requisitos de almacenamiento para nodos de almacenamiento
 
-Un nodo de almacenamiento basado en software puede tener de 1 a 16 volúmenes de almacenamiento: Se recomiendan -3 o más volúmenes de almacenamiento. Cada volumen de almacenamiento debe ser 4 TB o mayor.
+Un nodo de almacenamiento basado en software puede tener de 1 a 48 volúmenes de almacenamiento; se recomiendan 3 o más volúmenes de almacenamiento. Cada volumen de almacenamiento debe ser 4 TB o mayor.
 
 
-NOTE: Un nodo de almacenamiento de dispositivo puede tener hasta 48 volúmenes de almacenamiento.
+NOTE: Un nodo de almacenamiento de dispositivo también puede tener hasta 48 volúmenes de almacenamiento.
 
 Como se muestra en la figura, StorageGRID reserva espacio para los metadatos del objeto en el volumen de almacenamiento 0 de cada nodo de almacenamiento. Cualquier espacio restante en el volumen de almacenamiento 0 y cualquier otro volumen de almacenamiento en el nodo de almacenamiento se utilizan exclusivamente para los datos de objetos.
 

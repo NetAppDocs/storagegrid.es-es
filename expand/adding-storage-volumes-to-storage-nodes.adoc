@@ -2,7 +2,7 @@
 permalink: expand/adding-storage-volumes-to-storage-nodes.html 
 sidebar: sidebar 
 keywords: storage volumes, expand, expansion, add, storage nodes, adding storage capacity 
-summary: Puede ampliar la capacidad de almacenamiento de los nodos de almacenamiento que tengan 16 o menos volúmenes de almacenamiento agregando volúmenes de almacenamiento adicionales. Es posible que deba añadir volúmenes de almacenamiento a más de un nodo de almacenamiento para satisfacer los requisitos de ILM para las copias replicadas o codificadas de borrado. 
+summary: Puede ampliar la capacidad de almacenamiento de los nodos de almacenamiento que tengan 48 o menos volúmenes de almacenamiento agregando volúmenes de almacenamiento adicionales. Es posible que deba añadir volúmenes de almacenamiento a más de un nodo de almacenamiento para satisfacer los requisitos de ILM para las copias replicadas o codificadas de borrado. 
 ---
 = Añada volúmenes de almacenamiento a los nodos de almacenamiento
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Puede ampliar la capacidad de almacenamiento de los nodos de almacenami
 
 
 [role="lead"]
-Puede ampliar la capacidad de almacenamiento de los nodos de almacenamiento que tengan 16 o menos volúmenes de almacenamiento agregando volúmenes de almacenamiento adicionales. Es posible que deba añadir volúmenes de almacenamiento a más de un nodo de almacenamiento para satisfacer los requisitos de ILM para las copias replicadas o codificadas de borrado.
+Puede ampliar la capacidad de almacenamiento de los nodos de almacenamiento que tengan 48 o menos volúmenes de almacenamiento agregando volúmenes de almacenamiento adicionales. Es posible que deba añadir volúmenes de almacenamiento a más de un nodo de almacenamiento para satisfacer los requisitos de ILM para las copias replicadas o codificadas de borrado.
 
 .Antes de empezar
 Antes de añadir volúmenes de almacenamiento, revise el link:guidelines-for-adding-object-capacity.html["directrices para añadir capacidad de objeto"] para garantizar dónde añadir volúmenes para cumplir los requisitos de la política de ILM.
@@ -20,7 +20,7 @@ Antes de añadir volúmenes de almacenamiento, revise el link:guidelines-for-add
 NOTE: Estas instrucciones se aplican solamente a los nodos de almacenamiento basados en software. Consulte https://docs.netapp.com/us-en/storagegrid-appliances/sg6000/adding-expansion-shelf-to-deployed-sg6060.html["Añada una bandeja de expansión a SG6060 puesto en marcha"^] o https://docs.netapp.com/us-en/storagegrid-appliances/sg6100/adding-expansion-shelf-to-deployed-sg6160.html["Añada una bandeja de expansión a SG6160 puesto en marcha"^] obtenga información sobre cómo añadir volúmenes de almacenamiento a SG6060 o SG6160 mediante la instalación de bandejas de expansión. No se pueden expandir otros nodos de almacenamiento del dispositivo.
 
 .Acerca de esta tarea
-El almacenamiento subyacente de un nodo de almacenamiento se divide en volúmenes de almacenamiento. Los volúmenes de almacenamiento son dispositivos de almacenamiento basados en bloques con formato del sistema StorageGRID y montados para almacenar objetos. Cada nodo de almacenamiento puede admitir hasta 16 volúmenes de almacenamiento, que se denominan _object store_ en Grid Manager.
+El almacenamiento subyacente de un nodo de almacenamiento se divide en volúmenes de almacenamiento. Los volúmenes de almacenamiento son dispositivos de almacenamiento basados en bloques con formato del sistema StorageGRID y montados para almacenar objetos. Cada nodo de almacenamiento puede admitir hasta 48 volúmenes de almacenamiento, que se denominan _object store_ en Grid Manager.
 
 
 NOTE: Los metadatos de objetos siempre se almacenan en el almacén de objetos 0.

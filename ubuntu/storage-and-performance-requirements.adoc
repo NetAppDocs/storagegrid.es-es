@@ -95,7 +95,7 @@ Datos de objetos
  a| 
 3 para cada nodo de almacenamiento de este host
 
-*Nota:* un nodo de almacenamiento basado en software puede tener de 1 a 16 volúmenes de almacenamiento; se recomiendan al menos 3 volúmenes de almacenamiento.
+*Nota:* un nodo de almacenamiento basado en software puede tener de 1 a 48 volúmenes de almacenamiento; se recomiendan al menos 3 volúmenes de almacenamiento.
  a| 
 12 TB (4 TB/LUN) Consulte <<storage_req_SN,Requisitos de almacenamiento para nodos de almacenamiento>> para obtener más información.
 
@@ -289,10 +289,10 @@ Nodo de puerta de enlace
 
 == Requisitos de almacenamiento para nodos de almacenamiento
 
-Un nodo de almacenamiento basado en software puede tener de 1 a 16 volúmenes de almacenamiento: Se recomiendan -3 o más volúmenes de almacenamiento. Cada volumen de almacenamiento debe ser 4 TB o mayor.
+Un nodo de almacenamiento basado en software puede tener de 1 a 48 volúmenes de almacenamiento; se recomiendan 3 o más volúmenes de almacenamiento. Cada volumen de almacenamiento debe ser 4 TB o mayor.
 
 
-NOTE: Un nodo de almacenamiento de dispositivo puede tener hasta 48 volúmenes de almacenamiento.
+NOTE: Un nodo de almacenamiento de dispositivo también puede tener hasta 48 volúmenes de almacenamiento.
 
 Como se muestra en la figura, StorageGRID reserva espacio para los metadatos del objeto en el volumen de almacenamiento 0 de cada nodo de almacenamiento. Cualquier espacio restante en el volumen de almacenamiento 0 y cualquier otro volumen de almacenamiento en el nodo de almacenamiento se utilizan exclusivamente para los datos de objetos.
 
