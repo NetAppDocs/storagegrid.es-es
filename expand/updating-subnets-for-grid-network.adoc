@@ -25,6 +25,26 @@ StorageGRID mantiene una lista de las subredes de red que se utilizan para comun
 .Acerca de esta tarea
 Si alguno de los nodos nuevos tiene una dirección IP de red de cuadrícula en una subred no utilizada anteriormente, debe agregar la nueva subred a la lista de subredes de red de cuadrícula antes de iniciar la expansión. De lo contrario, tendrá que cancelar la expansión, agregar la nueva subred e iniciar el procedimiento de nuevo.
 
+[NOTE]
+====
+No utilice subredes que contengan las siguientes direcciones IPv4 para la red de cuadrícula, la red de administración o la red de cliente de ningún nodo:
+
+* 192.168.130.101
+* 192.168.131.101
+* 192.168.130.102
+* 192.168.131.102
+* 198.51.100.2
+* 198.51.100.4
+
+
+Por ejemplo, no utilice los siguientes rangos de subred para la red de cuadrícula, la red de administración o la red de cliente de ningún nodo:
+
+* 192.168.130.0/24 porque este rango de subred contiene las direcciones IP 192.168.130.101 y 192.168.130.102
+* 192.168.131.0/24 porque este rango de subred contiene las direcciones IP 192.168.131.101 y 192.168.131.102
+* 198.51.100.0/24 porque este rango de subred contiene las direcciones IP 198.51.100.2 y 198.51.100.4
+
+
+====
 .Pasos
 . Seleccione *MANTENIMIENTO* > *Red* > *Red de red*.
 . Seleccione *Agregar otra subred* para agregar una nueva subred en la notación CIDR.

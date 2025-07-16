@@ -22,6 +22,26 @@ Puede agregar, eliminar o cambiar subredes en la Lista de subredes de red de cua
 
 NOTE: Si sólo va a realizar cambios en la lista de subredes de red de cuadrícula, utilice el administrador de cuadrícula para agregar o cambiar la configuración de red. De lo contrario, utilice la herramienta Cambiar IP si no se puede acceder a Grid Manager debido a un problema de configuración de red o si está realizando un cambio de enrutamiento de red de cuadrícula y otros cambios de red al mismo tiempo.
 
+[NOTE]
+====
+No utilice subredes que contengan las siguientes direcciones IPv4 para la red de cuadrícula, la red de administración o la red de cliente de ningún nodo:
+
+* 192.168.130.101
+* 192.168.131.101
+* 192.168.130.102
+* 192.168.131.102
+* 198.51.100.2
+* 198.51.100.4
+
+
+Por ejemplo, no utilice los siguientes rangos de subred para la red de cuadrícula, la red de administración o la red de cliente de ningún nodo:
+
+* 192.168.130.0/24 porque este rango de subred contiene las direcciones IP 192.168.130.101 y 192.168.130.102
+* 192.168.131.0/24 porque este rango de subred contiene las direcciones IP 192.168.131.101 y 192.168.131.102
+* 198.51.100.0/24 porque este rango de subred contiene las direcciones IP 198.51.100.2 y 198.51.100.4
+
+
+====
 .Pasos
 . Inicie sesión en el nodo de administración principal:
 +
