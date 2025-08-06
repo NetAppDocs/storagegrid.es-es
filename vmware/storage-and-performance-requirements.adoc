@@ -68,7 +68,7 @@ LUN DE 100 GB PARA SO
 
 3 LUN para cada nodo de almacenamiento en este host
 
-*Nota*: Un nodo de almacenamiento puede tener de 1 a 48 LUN de almacenamiento; se recomiendan al menos 3 LUN de almacenamiento.
+*Nota*: Un nodo de almacenamiento puede tener de 1 a 16 LUN de almacenamiento; se recomiendan al menos 3 LUN de almacenamiento.
 
 Tamaño mínimo por LUN: 4 TB
 
@@ -85,7 +85,7 @@ LUN DE 100 GB PARA SO
 
 Tamaño mínimo por LUN: 4 TB
 
-*Nota*: No hay un tamaño máximo para la única LUN. Se guardará el exceso de capacidad para usarlo más adelante.
+Tamaño máximo de LUN probado: 39 TB.
 
 *Nota*: Solo se requiere un rangedb para los nodos de almacenamiento solo de metadatos.
 
@@ -104,7 +104,7 @@ NOTE: En función del nivel de auditoría configurado, el tamaño de las entrada
 
 == Requisitos de almacenamiento para nodos de almacenamiento
 
-Un nodo de almacenamiento basado en software puede tener de 1 a 48 volúmenes de almacenamiento; se recomiendan 3 o más volúmenes de almacenamiento. Cada volumen de almacenamiento debe ser 4 TB o mayor.
+Un nodo de almacenamiento basado en software puede tener de 1 a 16 volúmenes de almacenamiento; se recomiendan 3 o más volúmenes de almacenamiento.  Cada volumen de almacenamiento debe ser de 4 TB o más.
 
 
 NOTE: Un nodo de almacenamiento de dispositivo también puede tener hasta 48 volúmenes de almacenamiento.
