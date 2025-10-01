@@ -25,7 +25,7 @@ Las cuentas de arrendatario se pueden utilizar para segregar objetos almacenados
 * *Caso de uso empresarial:* Si administra un sistema StorageGRID en una aplicación empresarial, es posible que desee segregar el almacenamiento de objetos de la red por los diferentes departamentos de la organización. En este caso, podría crear cuentas de inquilino para el departamento de marketing, el departamento de soporte al cliente, el departamento de recursos humanos, etc.
 +
 
-NOTE: Si utiliza el protocolo de cliente S3, puede utilizar bloques S3 y políticas de bloques para segregar objetos entre los departamentos de una empresa. No es necesario utilizar cuentas de inquilino. Consulte las instrucciones de implantación para link:../s3/bucket-and-group-access-policies.html["Bloques de S3 y políticas de bloques"]obtener más información.
+NOTE: Si utiliza el protocolo de cliente S3, puede usar depósitos S3 y políticas de depósitos para segregar objetos entre los departamentos de una empresa.  No es necesario utilizar cuentas de inquilino.  Consulte las instrucciones para la implementaciónlink:../s3/use-access-policies.html["Bloques de S3 y políticas de bloques"] Para más información.
 
 * *Caso de uso del proveedor de servicios:* Si administra un sistema StorageGRID como proveedor de servicios, puede segregar el almacenamiento de objetos de la red por las diferentes entidades que alquile el almacenamiento en la red. En este caso, creará cuentas de inquilino para la empresa A, la empresa B, la empresa C, etc.
 

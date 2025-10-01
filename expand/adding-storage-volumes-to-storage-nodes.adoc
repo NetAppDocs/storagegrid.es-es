@@ -30,7 +30,7 @@ Cada almacén de objetos se monta en un volumen que corresponde a su ID. Por eje
 Antes de agregar nuevos volúmenes de almacenamiento, utilice Grid Manager para ver los almacenes de objetos actuales de cada nodo de almacenamiento, así como los puntos de montaje correspondientes. Esta información se puede usar al añadir volúmenes de almacenamiento.
 
 .Pasos
-. Seleccione *NODES* > *_site_* > *_Storage Node_* > *Storage*.
+. Seleccione *Nodos* > *_sitio_* > *_Nodo de almacenamiento_* > *Almacenamiento*.
 . Desplácese hacia abajo para ver la cantidad de almacenamiento disponible para cada volumen y almacén de objetos.
 +
 Para los nodos de almacenamiento del dispositivo, el nombre mundial de cada disco coincide con el identificador a nivel mundial (WWID) del volumen que aparece cuando se ven las propiedades de volumen estándar en el sistema operativo SANtricity (el software de gestión conectado a la controladora de almacenamiento del dispositivo).

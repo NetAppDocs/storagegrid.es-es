@@ -14,13 +14,12 @@ summary: Es posible supervisar las tasas de procesamiento y recuperación de obj
 Es posible supervisar las tasas de procesamiento y recuperación de objetos, así como las métricas para el número de objetos, consultas y verificación. Puede ver el número de intentos fallidos y correctos por las aplicaciones cliente para leer, escribir y modificar objetos en el sistema StorageGRID.
 
 .Antes de empezar
-* Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
-
+Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
 
 .Pasos
 . En el panel de control, seleccione la pestaña *Rendimiento*.
 . Consulte los gráficos S3, que resumen la cantidad de operaciones de cliente que realizan los nodos de almacenamiento y la cantidad de solicitudes API que reciben los nodos de almacenamiento durante el lapso seleccionado.
-. Selecciona *NODOS* para acceder a la página Nodos.
+. Seleccione *Nodos* para acceder a la página Nodos.
 . En la página de inicio de los nodos (nivel de cuadrícula), seleccione la pestaña *Objetos*.
 +
 El gráfico muestra las tasas de procesamiento y recuperación de S3 de todo su sistema StorageGRID en bytes por segundo y la cantidad de datos ingeridos o recuperados. Puede seleccionar un intervalo de tiempo o aplicar un intervalo personalizado.

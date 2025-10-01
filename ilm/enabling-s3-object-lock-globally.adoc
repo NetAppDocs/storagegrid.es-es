@@ -29,7 +29,7 @@ Revise la configuración de cumplimiento de los arrendatarios existentes despué
 NOTE: La configuración de cumplimiento global está anticuada. Si ha habilitado esta configuración con una versión anterior de StorageGRID, la configuración Bloqueo de objetos S3 se activa automáticamente. Puede seguir usando StorageGRID para gestionar la configuración de los buckets compatibles existentes; sin embargo, no puede crear nuevos buckets compatibles. Para obtener más información, consulte https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/How_to_manage_legacy_Compliant_buckets_in_StorageGRID_11.5["Base de conocimientos de NetApp: Cómo gestionar bloques heredados que cumplen con la normativa StorageGRID 11.5"^].
 
 .Pasos
-. Seleccione *CONFIGURACIÓN* > *sistema* > *S3 Object Lock*.
+. Seleccione *Configuración* > *Sistema* > *Bloqueo de objetos S3*.
 +
 Se muestra la página S3 Object Lock Settings.
 

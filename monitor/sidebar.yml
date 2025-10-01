@@ -91,12 +91,12 @@ entries:
     url: "/monitor/deployment-and-maintenance-logs.html"
   - title: Acerca de bycast.log
     url: "/monitor/about-bycast-log.html"
-- title: Configure los destinos de los mensajes de auditoría y los registros
+- title: Configurar la gestión de registros y el servidor syslog externo
   entries:
   - title: Consideraciones sobre el servidor de syslog externo
     url: "/monitor/considerations-for-external-syslog-server.html"
-  - title: Configure los mensajes de auditoría y el servidor de syslog externo
-    url: "/monitor/configure-audit-messages.html"
+  - title: Configurar la gestión de registros
+    url: "/monitor/configure-log-management.html"
 - title: Usar supervisión de SNMP
   entries:
   - title: Supervisión de SNMP
@@ -110,26 +110,20 @@ entries:
     url: "/monitor/access-snmp-mib.html"
 - title: Recopilación de datos de StorageGRID adicionales
   entries:
-  - title: Utilice gráficos y gráficos
-    url: "/monitor/using-charts-and-reports.html"
-  - title: Usar informes de texto
-    url: "/monitor/types-of-text-reports.html"
   - title: SUPERVISE EL RENDIMIENTO DE PUT y GET
     url: "/monitor/monitoring-put-and-get-performance.html"
   - title: Supervise las operaciones de verificación de objetos
     url: "/monitor/monitoring-object-verification-operations.html"
-  - title: Supervisar eventos
-    url: "/monitor/monitoring-events.html"
   - title: Revisar los mensajes de auditoría
     url: "/monitor/reviewing-audit-messages.html"
   - title: Recopilar archivos de registro y datos del sistema
     url: "/monitor/collecting-log-files-and-system-data.html"
   - title: Active manualmente un paquete AutoSupport
     url: "/monitor/manually-triggering-autosupport-message.html"
-  - title: Abra el árbol de topología de cuadrícula
-    url: "/monitor/viewing-grid-topology-tree.html"
   - title: Revisar las métricas de soporte
     url: "/monitor/reviewing-support-metrics.html"
+  - title: Cambiar la priorización de E/S
+    url: "/monitor/manage-io-prioritization.html"
   - title: Ejecutar diagnóstico
     url: "/monitor/running-diagnostics.html"
   - title: Crear aplicaciones de supervisión personalizadas

@@ -13,7 +13,7 @@ summary: Puede identificar las transacciones de ingesta de clientes en el regist
 [role="lead"]
 Puede identificar las transacciones de ingesta de clientes en el registro de auditoría mediante la ubicación de S3 mensajes de auditoría específicos de la API.
 
-No todos los mensajes de auditoría generados durante una transacción de procesamiento se muestran en las tablas siguientes. Sólo se incluyen los mensajes necesarios para rastrear la transacción de procesamiento.
+No todos los mensajes de auditoría generados durante una transacción de ingesta aparecen en la siguiente tabla.  Solo se incluyen los mensajes necesarios para rastrear la transacción de ingesta.
 
 
 
@@ -34,40 +34,6 @@ Una transacción de procesamiento PUT DE S3 se ha completado correctamente.
 CBID, S3BK, S3KY
  a| 
 link:sput-s3-put.html["SPUT: S3 PUT"]
-
-
-
- a| 
-ORLM
- a| 
-Se cumplen las reglas del objeto
- a| 
-La política de ILM se ha satisfecho para este objeto.
- a| 
-CBID
- a| 
-link:orlm-object-rules-met.html["ORLM: Se cumplen las reglas de objeto"]
-
-|===
-
-
-== Mensajes de auditoría de procesamiento rápido
-
-[cols="1a,1a,2a,1a,2a"]
-|===
-| Codificación | Nombre | Descripción | Traza | Consulte 
-
-
- a| 
-WPUT
- a| 
-Transacción DE SWIFT PUT
- a| 
-Se ha completado correctamente una transacción de procesamiento DE PUT de Swift.
- a| 
-CBID, WCON, WOBJ
- a| 
-link:wput-swift-put.html["WPUT: SWIFT PUT"]
 
 
 
@@ -124,7 +90,7 @@ En el caso de los objetos con código de borrado, el campo LOCS incluye el ident
 ----
 2019-02-23T01:52:54.647537 [AUDT:[CBID(UI64):0xFA8ABE5B5001F7E2][RULE(CSTR):"EC_2_plus_1"][STAT(FC32):DONE][CSIZ(UI64):10000][UUID(CSTR):"E291E456-D11A-4701-8F51-D2F7CC9AFECA"][LOCS(CSTR):"CLEC 1 A471E45D-A400-47C7-86AC-12E77F229831"][RSLT(FC32):SUCS][AVER(UI32):10][ATIM(UI64):1550929974537]\[ATYP\(FC32\):ORLM\][ANID(UI32):12355278][AMID(FC32):ILMX][ATID(UI64):4168559046473725560]]
 ----
-El campo PATH incluye información sobre el bloque de S3 y claves o información sobre el contenedor y el objeto de Swift, según qué API se haya utilizado.
+El campo PATH incluye información clave y del bucket S3.
 
 [listing]
 ----

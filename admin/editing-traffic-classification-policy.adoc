@@ -19,7 +19,7 @@ Puede editar una directiva de clasificación de tráfico para cambiar su nombre 
 
 
 .Pasos
-. Seleccione *CONFIGURACIÓN* > *Red* > *Clasificación de tráfico*.
+. Seleccione *Configuración* > *Red* > *Clasificación de tráfico*.
 +
 Aparece la página Políticas de clasificación de tráfico y las políticas existentes se muestran en una tabla.
 

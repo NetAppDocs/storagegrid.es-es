@@ -14,12 +14,7 @@ summary: Puede añadir tronco o interfaces de acceso adicionales a un nodo Linux
 Puede añadir tronco o interfaces de acceso adicionales a un nodo Linux después de instalarlo. Las interfaces que agregue se muestran en la página interfaces de VLAN y la página ha groups.
 
 .Antes de empezar
-* Tiene acceso a las instrucciones para instalar StorageGRID en su plataforma Linux.
-+
-** link:../rhel/index.html["Instalar StorageGRID en Red Hat Enterprise Linux"]
-** link:../ubuntu/index.html["Instalar StorageGRID en Ubuntu o Debian"]
-
-
+* Tienes acceso a lalink:../swnodes/index.html["Instrucciones para instalar StorageGRID"] en su plataforma Linux.
 * Tiene el `Passwords.txt` archivo.
 * Tienes link:../admin/admin-group-permissions.html["permisos de acceso específicos"].
 

@@ -19,7 +19,7 @@ La compatibilidad con la API REST DE S3 permite conectar las aplicaciones orient
 
 == Versiones compatibles
 
-StorageGRID admite las siguientes versiones específicas de S3 y HTTP.
+StorageGRID admite las siguientes versiones específicas de STS, S3 y HTTP:
 
 [cols="1a,1a"]
 |===
@@ -27,9 +27,18 @@ StorageGRID admite las siguientes versiones específicas de S3 y HTTP.
 
 
  a| 
+Especificación de la API de STS AssumeRole
+ a| 
+https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html["Documentación de Amazon Web Services (AWS): Referencia de la API de Amazon Assumerole"^]
+
+Para obtener más información sobre AssumeRole, consultelink:../tenant/manage-groups.html#set-up-assumerole["Configurar AssumeRole"] .
+
+
+
+ a| 
 Especificación de la API S3
  a| 
-http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html["Documentación de Amazon Web Services (AWS): Referencia de API de Amazon simple Storage Service"^]
+http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html["Documentación de AWS: Referencia de la API de Amazon Simple Storage Service"^]
 
 
 
@@ -52,6 +61,15 @@ https://datatracker.ietf.org/doc/html/rfc2616["RFC de IETF 2616: Protocolo de tr
 [cols="1a,4a"]
 |===
 | Liberar | Comentarios 
+
+
+ a| 
+12,0
+ a| 
+* Se agregó soporte para compartir recursos de origen cruzado (CORS) para una interfaz de administración, lo que permite que otro dominio acceda a datos en StorageGRID mediante API de administración. link:../admin/enable-cross-origin-resource-sharing-for-management-interface.html["Leer más"] .
+* Se agregó soporte para STS AssumeRole y la política de sesión. Ver link:example-session-policies.html["un ejemplo de una política de sesión"] .  Puede configurar AssumeRole en grupos de inquilinos.
+
+
 
 
  a| 
@@ -201,6 +219,6 @@ Se añadió compatibilidad con la carga de varias partes, las solicitudes de est
  a| 
 10,0
  a| 
-Soporte inicial de la API DE REST de S3 por parte del sistema StorageGRID.la versión actualmente admitida de _simple Storage Service API Reference_ es 2006-03-01.
+Soporte inicial de la API REST S3 por parte del sistema StorageGRID .  La versión actualmente compatible de la _Referencia de API del servicio de almacenamiento simple_ es 2006-03-01.
 
 |===

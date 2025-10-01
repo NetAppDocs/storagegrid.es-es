@@ -13,19 +13,24 @@ summary: 'Puede configurar grupos de alta disponibilidad \(ha\) para proporciona
 [role="lead"]
 Puede configurar grupos de alta disponibilidad para proporcionar acceso de alta disponibilidad a los servicios en nodos de administración o de puerta de enlace.
 
+
+NOTE: Un sistema StorageGRID puede tener un máximo de 255 grupos HA.
+
 .Antes de empezar
 * Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
 * Usted tiene el link:admin-group-permissions.html["Permiso de acceso raíz"].
 * Si piensa utilizar una interfaz VLAN en un grupo de alta disponibilidad, ha creado la interfaz VLAN. Consulte link:../admin/configure-vlan-interfaces.html["Configure las interfaces VLAN"].
 * Si planea utilizar una interfaz de acceso para un nodo en un grupo de alta disponibilidad, ha creado la interfaz:
 +
-** *Red Hat Enterprise Linux (antes de instalar el nodo)*: link:../rhel/creating-node-configuration-files.html["Crear archivos de configuración del nodo"]
-** *Ubuntu o Debian (antes de instalar el nodo)*: link:../ubuntu/creating-node-configuration-files.html["Crear archivos de configuración del nodo"]
-** *Linux (después de instalar el nodo)*: link:../maintain/linux-adding-trunk-or-access-interfaces-to-node.html["Linux: Añada tronco o interfaces de acceso a un nodo"]
-** *VMware (después de instalar el nodo)*: link:../maintain/vmware-adding-trunk-or-access-interfaces-to-node.html["VMware: Añada tronco o interfaces de acceso a un nodo"]
+** *Linux (antes de instalar el nodo)*:link:../swnodes/creating-node-configuration-files.html["Crear archivos de configuración del nodo"]
+** *Linux (después de instalar el nodo)*:link:../maintain/linux-adding-trunk-or-access-interfaces-to-node.html["Agregar interfaces troncales o de acceso a un nodo"]
+** *VMware (después de instalar el nodo)*:link:../maintain/vmware-adding-trunk-or-access-interfaces-to-node.html["Agregar interfaces troncales o de acceso a un nodo"]
 
 
 
+
+
+NOTE: "Linux" se refiere a una implementación de RHEL, Ubuntu o Debian.  Para obtener una lista de las versiones compatibles, consulte la https://imt.netapp.com/matrix/#welcome["Herramienta de matriz de interoperabilidad de NetApp (IMT)"^] .
 
 
 
@@ -40,7 +45,7 @@ Una interfaz debe ser para que un nodo de puerta de enlace o un nodo de administ
 === Acceda al asistente
 
 .Pasos
-. Seleccione *CONFIGURACIÓN* > *Red* > *grupos de alta disponibilidad*.
+. Seleccione *Configuración* > *Red* > *Grupos de alta disponibilidad*.
 . Seleccione *Crear*.
 
 
@@ -154,7 +159,7 @@ Puede editar un grupo de alta disponibilidad para cambiar su nombre y descripci�
 Por ejemplo, es posible que deba editar un grupo de alta disponibilidad si desea quitar el nodo asociado a una interfaz seleccionada en un procedimiento de retirada del sitio o nodo.
 
 .Pasos
-. Seleccione *CONFIGURACIÓN* > *Red* > *grupos de alta disponibilidad*.
+. Seleccione *Configuración* > *Red* > *Grupos de alta disponibilidad*.
 +
 La página grupos de alta disponibilidad muestra todos los grupos de alta disponibilidad existentes.
 
@@ -199,10 +204,10 @@ TIP: No puede eliminar un grupo de alta disponibilidad si está vinculado a un e
 Para evitar interrupciones en el cliente, actualice las aplicaciones cliente S3 afectadas antes de eliminar un grupo de alta disponibilidad. Actualice cada cliente para que se conecte mediante otra dirección IP, por ejemplo, la dirección IP virtual de un grupo ha diferente o la dirección IP configurada para una interfaz durante la instalación.
 
 .Pasos
-. Seleccione *CONFIGURACIÓN* > *Red* > *grupos de alta disponibilidad*.
+. Seleccione *Configuración* > *Red* > *Grupos de alta disponibilidad*.
 . Revise la columna *Load Balancer Endpoints* para cada grupo HA que desee eliminar. Si se muestra algún punto final del equilibrador de carga:
 +
-.. Vaya a *CONFIGURATION* > *Network* > *Load Balancer Endpoints*.
+.. Vaya a *Configuración* > *Red* > *Puntos finales del balanceador de carga*.
 .. Seleccione la casilla de verificación para el punto final.
 .. Seleccione *acciones* > *Editar modo de enlace de punto final*.
 .. Actualice el modo de enlace para eliminar el grupo HA.

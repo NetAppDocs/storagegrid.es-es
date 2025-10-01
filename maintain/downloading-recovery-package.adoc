@@ -2,35 +2,35 @@
 permalink: maintain/downloading-recovery-package.html 
 sidebar: sidebar 
 keywords: storagegrid, recovery package 
-summary: El archivo de paquete de recuperación permite restaurar el sistema StorageGRID en caso de producirse un fallo. 
+summary: El archivo del paquete de recuperación le permite restaurar el sistema StorageGRID si ocurre una falla. 
 ---
-= Descargue el paquete de recuperación
+= Descargar paquete de recuperación
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-El archivo de paquete de recuperación permite restaurar el sistema StorageGRID en caso de producirse un fallo.
+El archivo del paquete de recuperación le permite restaurar el sistema StorageGRID si ocurre una falla.
 
 .Antes de empezar
-* Desde el nodo de administración principal, ha iniciado sesión en Grid Manager mediante un link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Desde cualquier nodo de administración, debe iniciar sesión en el administrador de cuadrícula mediante unlink:../admin/web-browser-requirements.html["navegador web compatible"] .
 * Tiene la clave de acceso de aprovisionamiento.
 * Tienes link:../admin/admin-group-permissions.html["permisos de acceso específicos"].
 
 
-Descargue el archivo de paquete de recuperación actual antes de realizar cambios en la topología de la cuadrícula en el sistema StorageGRID o antes de actualizar el software. A continuación, descargue una nueva copia del paquete de recuperación después de realizar cambios en la topología de la cuadrícula o después de actualizar el software.
+Descargue el archivo del paquete de recuperación actual antes de realizar cambios en la topología de la red en el sistema StorageGRID o antes de actualizar el software.  Luego, descargue una nueva copia del paquete de recuperación después de realizar cambios en la topología de la red o después de actualizar el software.
 
 .Pasos
-. Seleccione *MANTENIMIENTO* > *sistema* > *paquete de recuperación*.
+. Seleccione *Mantenimiento* > *Sistema* > *Paquete de recuperación*.
 . Ingrese la frase de contraseña de aprovisionamiento y seleccione *Iniciar descarga*.
 +
 La descarga comienza inmediatamente.
 
 . Cuando finalice la descarga, abra el `.zip` archivo y confirme que puede acceder al contenido, incluido el `Passwords.txt` archivo.
-. Copie el archivo de Recovery Package descargado (`.zip`) en dos ubicaciones seguras y separadas.
+. Copie el archivo del paquete de recuperación descargado(`.zip` ) a dos lugares seguros, protegidos y separados.
 +
 
-CAUTION: El archivo del paquete de recuperación debe estar protegido porque contiene claves de cifrado y contraseñas que se pueden usar para obtener datos del sistema StorageGRID.
+CAUTION: El archivo del paquete de recuperación debe estar protegido porque contiene claves de cifrado y contraseñas que se pueden utilizar para obtener datos del sistema StorageGRID .
 
 

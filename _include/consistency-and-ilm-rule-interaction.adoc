@@ -2,16 +2,16 @@
 :allow-uri-read: 
 
 
-Suponga que tiene un grid de dos sitios con la siguiente regla de ILM y la siguiente consistencia:
+Supongamos que tiene una cuadrícula de tres sitios con la siguiente regla ILM y la siguiente consistencia:
 
-* *Norma ILM*: Cree dos copias de objetos, una en el sitio local y otra en un sitio remoto. Use un comportamiento de ingesta estricto.
-* *Consistencia*: Fuerte-global (los metadatos de objetos se distribuyen inmediatamente a todos los sitios).
+* *Regla ILM*: Crear tres copias de objetos, una en el sitio local y una en cada sitio remoto.  Utilice el comportamiento de ingesta estricto.
+* *Consistencia*: Fuerte-global (los metadatos del objeto se distribuyen inmediatamente a múltiples sitios).
 
 
-Cuando un cliente almacena un objeto en el grid, StorageGRID realiza copias de objetos y distribuye los metadatos en ambos sitios antes de devolver el éxito al cliente.
+Cuando un cliente almacena un objeto en la red, StorageGRID realiza tres copias del objeto y distribuye metadatos a varios sitios antes de devolver el éxito al cliente.
 
-El objeto está completamente protegido contra la pérdida en el momento del mensaje de procesamiento correcto. Por ejemplo, si el sitio local se pierde poco después del procesamiento, seguirán existiendo copias de los datos del objeto y los metadatos del objeto en el sitio remoto. El objeto se puede recuperar completamente.
+El objeto está completamente protegido contra pérdida en el momento del mensaje de ingesta exitosa.  Por ejemplo, si el sitio local se pierde poco después de la ingesta, aún existen copias de los datos y metadatos del objeto en los sitios remotos.  El objeto es totalmente recuperable desde los otros sitios.
 
-Si, en cambio, utiliza la misma regla de ILM y la coherencia del sitio fuerte, es posible que el cliente reciba un mensaje de éxito después de replicar los datos de objetos en el sitio remoto, pero antes de que los metadatos de los objetos se distribuyan allí. En este caso, el nivel de protección de los metadatos de objetos no coincide con el nivel de protección de los datos de objetos. Si el sitio local se pierde poco después del procesamiento, se pierden los metadatos del objeto. No se puede recuperar el objeto.
+Si, en cambio, utilizara la misma regla ILM y la consistencia del sitio fuerte, el cliente podría recibir un mensaje de éxito después de que los datos del objeto se repliquen en los sitios remotos pero antes de que los metadatos del objeto se distribuyan allí.  En este caso, el nivel de protección de los metadatos del objeto no coincide con el nivel de protección de los datos del objeto.  Si el sitio local se pierde poco después de la ingesta, se pierden los metadatos del objeto.  No se puede recuperar el objeto.
 
 La interrelación entre las reglas de coherencia y de ILM puede ser compleja. Póngase en contacto con NetApp si necesita ayuda.

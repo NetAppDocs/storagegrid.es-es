@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, remove port remap, removing port remap, port remap 
 summary: Si desea configurar un extremo para el servicio Load Balancer y desea utilizar un puerto que ya se ha configurado como el puerto asignado a un remap de puertos, primero debe eliminar el remap de puertos existente o el extremo no será efectivo. Debe ejecutar una secuencia de comandos en cada nodo de administración y nodo de puerta de enlace que tenga puertos reasignados en conflicto para eliminar todas las reasignaciones de puertos del nodo. 
 ---
-= Eliminar reasignaciones de puertos
+= Eliminar reasignaciones de puertos en dispositivos StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -25,6 +25,7 @@ NOTE: Si la reasignación de puertos proporciona acceso de cliente, vuelva a con
 NOTE: Este procedimiento no funciona en un sistema StorageGRID implementado como contenedor en hosts con configuración básica. Consulte las instrucciones para link:removing-port-remaps-on-bare-metal-hosts.html["quitar mapas de puertos en hosts sin sistema operativo"].
 
 .Pasos
+. El acceso SSH externo está bloqueado de forma predeterminada.  Si es necesario,link:../admin/manage-external-ssh-access.html["permitir el acceso temporalmente"] .
 . Inicie sesión en el nodo.
 +
 .. Introduzca el siguiente comando: `ssh -p 8022 admin@node_IP`
@@ -43,4 +44,5 @@ Al iniciar sesión como root, la petición de datos cambia de `$` a `#`.
 . Reinicie el nodo: `reboot`
 . Cierre la sesión del shell de comandos: `exit`
 . Repita estos pasos en cada nodo de administrador y nodo de puerta de enlace que tenga puertos reasignados en conflicto.
+. Si ha permitido el acceso SSH externo,link:../admin/manage-external-ssh-access.html["bloquear el acceso"] cuando haya terminado de eliminar las reasignaciones de puertos.
 

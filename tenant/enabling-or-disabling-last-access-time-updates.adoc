@@ -53,6 +53,19 @@ La tabla resume el comportamiento aplicado a todos los objetos del bloque cuando
 
 
  a| 
+Solicitud para recuperar los metadatos de un objeto cuando se emite una operación HEAD
+ a| 
+No
+ a| 
+No
+ a| 
+No
+ a| 
+No
+
+
+
+ a| 
 Solicitud para recuperar un objeto, su lista de control de acceso o sus metadatos
  a| 
 No

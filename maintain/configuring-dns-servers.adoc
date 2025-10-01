@@ -33,7 +33,7 @@ Si es posible, utilice servidores DNS a los que cada sitio puede acceder localme
 Siga estos pasos para agregar un servidor DNS.
 
 .Pasos
-. Seleccione *MANTENIMIENTO* > *Red* > *Servidores DNS*.
+. Seleccione *Mantenimiento* > *Red* > *Servidores DNS*.
 . Seleccione *Agregar otro servidor* para agregar un servidor DNS.
 . Seleccione *Guardar*.
 
@@ -45,7 +45,7 @@ Siga estos pasos para agregar un servidor DNS.
 Siga estos pasos para modificar un servidor DNS.
 
 .Pasos
-. Seleccione *MANTENIMIENTO* > *Red* > *Servidores DNS*.
+. Seleccione *Mantenimiento* > *Red* > *Servidores DNS*.
 . Seleccione la dirección IP del nombre del servidor que desea editar y realice los cambios necesarios.
 . Seleccione *Guardar*.
 
@@ -57,7 +57,7 @@ Siga estos pasos para modificar un servidor DNS.
 Siga estos pasos para eliminar una dirección IP de un servidor DNS.
 
 .Pasos
-. Seleccione *MANTENIMIENTO* > *Red* > *Servidores DNS*.
+. Seleccione *Mantenimiento* > *Red* > *Servidores DNS*.
 . Seleccione el icono de eliminación image:../media/icon-x-to-remove.png["icono de eliminar"]junto a la dirección IP.
 . Seleccione *Guardar*.
 

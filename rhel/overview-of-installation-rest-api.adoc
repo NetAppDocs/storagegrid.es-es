@@ -1,41 +1,8 @@
 ---
 permalink: rhel/overview-of-installation-rest-api.html 
-sidebar: sidebar 
-keywords: installation overview red hat linux 
-summary: StorageGRID proporciona la API de instalación de StorageGRID para realizar tareas de instalación. 
+redirect: storagegrid/swnodes/overview-of-installation-rest-api.html 
 ---
-= Instalación de la API de REST
+= 
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
-
-[role="lead"]
-StorageGRID proporciona la API de instalación de StorageGRID para realizar tareas de instalación.
-
-La API utiliza la plataforma API de código abierto de Swagger para proporcionar la documentación de API. Swagger permite que tanto desarrolladores como no desarrolladores interactúen con la API en una interfaz de usuario que ilustra cómo responde la API a los parámetros y las opciones. En esta documentación se asume que está familiarizado con las tecnologías web estándar y el formato de datos JSON.
-
-
-CAUTION: Cualquier operación de API que realice mediante la página web de Documentación de API es operaciones en directo. Tenga cuidado de no crear, actualizar o eliminar datos de configuración u otros datos por error.
-
-Cada comando de API REST incluye la URL de la API, una acción HTTP, los parámetros de URL necesarios o opcionales y una respuesta de API esperada.
-
-
-
-== API de instalación de StorageGRID
-
-La API de instalación de StorageGRID solo está disponible cuando está configurando inicialmente el sistema StorageGRID y si necesita realizar una recuperación de nodo de administración principal. Se puede acceder a la API de instalación a través de HTTPS desde Grid Manager.
-
-Para acceder a la documentación de la API, vaya a la página web de instalación en el nodo de administración principal y seleccione *Ayuda* > *Documentación de la API* en la barra de menús.
-
-La API de instalación de StorageGRID incluye las siguientes secciones:
-
-* *Config* -- Operaciones relacionadas con la versión del producto y las versiones de la API. Puede mostrar la versión de la versión del producto y las versiones principales de la API que admite esa versión.
-* *Grid* -- Operaciones de configuración a nivel de cuadrícula. Puede obtener y actualizar la configuración de la cuadrícula, incluidos los detalles de la cuadrícula, las subredes de la red de cuadrícula, las contraseñas de la cuadrícula y las direcciones IP del servidor NTP y DNS.
-* *Nodes* -- Operaciones de configuración a nivel de nodo. Puede recuperar una lista de nodos de cuadrícula, eliminar un nodo de cuadrícula, configurar un nodo de cuadrícula, ver un nodo de cuadrícula y restablecer la configuración de un nodo de cuadrícula.
-* *Aprovisionamiento* -- Operaciones de aprovisionamiento. Puede iniciar la operación de aprovisionamiento y ver el estado de la operación de aprovisionamiento.
-* *Recuperación* -- Operaciones de recuperación del nodo de administración principal. Puede restablecer la información, cargar el paquete de recuperación, iniciar la recuperación y ver el estado de la operación de recuperación.
-* *Paquete de recuperación* -- Operaciones para descargar el paquete de recuperación.
-* *Sites* -- Operaciones de configuración a nivel de sitio. Puede crear, ver, eliminar y modificar un sitio.
-* *Temporary-password* -- Operaciones en la contraseña temporal para asegurar la mgmt-api durante la instalación.
 

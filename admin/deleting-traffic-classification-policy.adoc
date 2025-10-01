@@ -19,7 +19,7 @@ Puede eliminar una política de clasificación de tráfico si ya no la necesita.
 
 
 .Pasos
-. Seleccione *CONFIGURACIÓN* > *Red* > *Clasificación de tráfico*.
+. Seleccione *Configuración* > *Red* > *Clasificación de tráfico*.
 +
 Aparece la página Políticas de clasificación de tráfico con las políticas existentes enumeradas en una tabla.
 

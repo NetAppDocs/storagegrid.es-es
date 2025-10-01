@@ -16,12 +16,12 @@ Si encuentra errores durante el proceso de expansión de cuadrícula que no pued
 Antes de comunicarse con el soporte técnico, recoja los archivos de registro requeridos para ayudar a la solución de problemas.
 
 .Pasos
+. El acceso SSH externo está bloqueado de forma predeterminada.  Si es necesario,link:../admin/manage-external-ssh-access.html["permitir el acceso temporalmente"] .
 . Conéctese al nodo de ampliación que ha experimentado errores:
 +
 .. Introduzca el siguiente comando:``ssh -p 8022 admin@_grid_node_IP_``
 +
-
-NOTE: El puerto 8022 es el puerto SSH del sistema operativo base, mientras que el puerto 22 es el puerto SSH del motor del contenedor que ejecuta StorageGRID.
+El puerto 8022 es el puerto SSH del sistema operativo base, mientras que el puerto 22 es el puerto SSH del motor del contenedor que ejecuta StorageGRID.
 
 .. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
 .. Introduzca el siguiente comando para cambiar a raíz: `su -`
@@ -57,4 +57,5 @@ Linux
 
 
 |===
+. Si ha permitido el acceso SSH externo,link:../admin/manage-external-ssh-access.html["bloquear el acceso"] Cuando hayas terminado la tarea.
 

@@ -1,0 +1,22 @@
+---
+permalink: monitor/using-task-tab.html 
+sidebar: sidebar 
+keywords: Tasks tab, rename node, reboot node, storage state, maintenance mode 
+summary: La pestaña Tareas se muestra para todos los nodos.  Puede utilizar esta pestaña para cambiar el nombre o reiniciar un nodo o para poner un nodo del dispositivo en modo de mantenimiento.  Para los nodos de almacenamiento, puede configurar el estado de almacenamiento. 
+---
+= Utilice la pestaña Tareas
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La pestaña Tareas se muestra para todos los nodos.  Puede utilizar esta pestaña para cambiar el nombre o reiniciar un nodo o para poner un nodo del dispositivo en modo de mantenimiento.  Para los nodos de almacenamiento, puede configurar el estado de almacenamiento.
+
+Para conocer los requisitos e instrucciones completos para cada opción de esta pestaña, consulte lo siguiente:
+
+* link:../maintain/rename-grid-site-node-overview.html["Cambie el nombre de cuadrícula, sitios y nodos"]
+* link:../maintain/rebooting-grid-node-from-grid-manager.html["Reinicie el nodo de cuadrícula"]
+* https://docs.netapp.com/us-en/storagegrid-appliances/commonhardware/placing-appliance-into-maintenance-mode.html["Coloque el dispositivo en modo de mantenimiento"^]
+* Debe verificar o configurar el estado de almacenamiento de un nodo de almacenamiento después de agregar volúmenes SAN o conectados directamente al nodo de almacenamiento, o después de recuperar un nodo de almacenamiento.  Estas instrucciones están disponibles en los temas que describen estas tareas.
+

@@ -21,7 +21,7 @@ Puede crear políticas de clasificación del tráfico si desea supervisar y, de 
 
 
 .Pasos
-. Seleccione *CONFIGURACIÓN* > *Red* > *Clasificación de tráfico*.
+. Seleccione *Configuración* > *Red* > *Clasificación de tráfico*.
 . Seleccione *Crear*.
 . Introduzca un nombre y una descripción (opcional) para la política y seleccione *Continuar*.
 +
@@ -122,7 +122,7 @@ La unidad que describe el valor introducido.
 
 |===
 +
-Por ejemplo, si desea crear un límite de ancho de banda de 40 GB/s para un nivel de SLA, cree dos límites de ancho de banda agregados: GET/HEAD at 40 GB/s y PUT/POST/DELETE at 40 GB/s.
+Por ejemplo, si desea crear un límite de ancho de banda de 4 GB/s para un nivel de SLA, cree dos límites de ancho de banda agregados: GET/HEAD a 4 GB/s y PUT/POST/DELETE a 4 GB/s.
 
 . Seleccione *continuar*.
 . Lea y revise la política de clasificación de tráfico. Utilice el botón *Anterior* para volver atrás y realizar los cambios necesarios. Cuando esté satisfecho con la política, seleccione *Guardar y continuar*.

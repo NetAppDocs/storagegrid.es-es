@@ -20,7 +20,7 @@ Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requi
 Para obtener información sobre cómo cambiar direcciones IP, consulte link:../maintain/configuring-ip-addresses.html["Configurar las direcciones IP"].
 
 .Pasos
-. Seleccione *NODES* > *_grid node_* > *Descripción general*.
+. Seleccione *Nodos* > *_nodo de cuadrícula_* > *Descripción general*.
 . Seleccione *Mostrar más* a la derecha del título direcciones IP.
 +
 Las direcciones IP de ese nodo de grid se enumeran en una tabla.

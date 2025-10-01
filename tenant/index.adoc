@@ -2,7 +2,7 @@
 permalink: tenant/index.html 
 sidebar: sidebar 
 keywords: use tenant account 
-summary: 'Una cuenta de inquilino permite usar la API DE REST de simple Storage Service (S3) o la API DE REST de Swift para almacenar y recuperar objetos en un sistema StorageGRID.' 
+summary: 'Una cuenta de inquilino le permite utilizar la API REST de Simple Storage Service (S3) para almacenar y recuperar objetos en un sistema StorageGRID .' 
 ---
 = Usar una cuenta de inquilino
 :allow-uri-read: 
@@ -11,20 +11,20 @@ summary: 'Una cuenta de inquilino permite usar la API DE REST de simple Storage 
 
 
 [role="lead"]
-Una cuenta de inquilino permite usar la API DE REST de simple Storage Service (S3) o la API DE REST de Swift para almacenar y recuperar objetos en un sistema StorageGRID.
+Una cuenta de inquilino permite usar la API DE REST DE Simple Storage Service (S3) para almacenar y recuperar objetos en un sistema StorageGRID.
 
 
 
 == ¿Qué es una cuenta de inquilino?
 
-Cada cuenta de inquilino tiene sus propios grupos locales o federados, usuarios, bloques S3 o contenedores Swift, y objetos.
+Cada cuenta de inquilino tiene sus propios grupos locales o federados, usuarios, bloques de S3 y objetos.
 
 Las cuentas de arrendatario se pueden utilizar para segregar objetos almacenados por diferentes entidades. Por ejemplo, pueden utilizarse varias cuentas de inquilino en cualquiera de estos casos de uso:
 
 * *Caso de uso empresarial:* Si el sistema StorageGRID se está utilizando dentro de una empresa, el almacenamiento de objetos de la cuadrícula puede estar segregado por los diferentes departamentos de la organización. Por ejemplo, puede haber cuentas de inquilino para el departamento de marketing, el departamento de soporte al cliente, el departamento de recursos humanos, etc.
 +
 
-NOTE: Si utiliza el protocolo cliente S3, también puede utilizar bloques S3 y políticas de bucket para separar objetos entre los departamentos de una empresa. No es necesario crear cuentas de arrendatario independientes. Consulte las instrucciones de implantación para link:../s3/bucket-and-group-access-policies.html["Bloques de S3 y políticas de bloques"]obtener más información.
+NOTE: Si utiliza el protocolo de cliente S3, también puede usar depósitos S3 y políticas de depósitos para segregar objetos entre los departamentos de una empresa.  No es necesario crear cuentas de inquilino separadas.  Consulte las instrucciones para la implementaciónlink:../s3/use-access-policies.html["Bloques de S3 y políticas de bloques"] Para más información.
 
 * *Caso de uso del proveedor de servicios:* Si un proveedor de servicios utiliza el sistema StorageGRID, el almacenamiento de objetos de la cuadrícula puede estar segregado por las diferentes entidades que arriendan el almacenamiento. Por ejemplo, puede que haya cuentas de inquilino para la empresa A, la empresa B, la empresa C, etc.
 

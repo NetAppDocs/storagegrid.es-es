@@ -18,12 +18,12 @@ Se deben ejecutar manualmente dos scripts para volver a montar los volúmenes de
 +
 Ejecutar `sn-remount-volumes` el script puede ayudar a identificar los volúmenes de almacenamiento adicionales con fallos.
 
-* Comprobó que un decomisionado del nodo de almacenamiento no está en curso o que ha pausado el procedimiento para decomisionar el nodo. (En Grid Manager, seleccione *MANTENIMIENTO* > *tareas* > *misión*.)
-* Ha comprobado que una expansión no está en curso. (En Grid Manager, seleccione *MANTENIMIENTO* > *tareas* > *expansión*.)
+* Ha verificado que no se está realizando un desmantelamiento de un nodo de almacenamiento o ha pausado el procedimiento de desmantelamiento del nodo.  (En el Administrador de red, seleccione *Mantenimiento* > *Tareas* > *Desmantelamiento*.)
+* Has comprobado que no hay ninguna expansión en curso.  (En el Administrador de cuadrícula, seleccione *Mantenimiento* > *Tareas* > *Expansión*.)
 
 
 
-CAUTION: Póngase en contacto con el soporte técnico si hay más de un nodo de almacenamiento sin conexión o si se ha reconstruido un nodo de almacenamiento en este grid en los últimos 15 días. No ejecute `sn-recovery-postinstall.sh` el script. Si se reconstruye Cassandra en dos o más nodos de almacenamiento en un plazo de 15 días entre sí, se puede producir una pérdida de datos.
+CAUTION: Comuníquese con el soporte técnico si más de un nodo de almacenamiento está fuera de línea.  No corras el `sn-recovery-postinstall.sh` guion.
 
 .Acerca de esta tarea
 Para completar este procedimiento, realice estas tareas de alto nivel:

@@ -21,7 +21,7 @@ Puede eliminar una cuenta de inquilino si desea eliminar de forma permanente el 
 
 
 .Pasos
-. Seleccione *ARRENDATARIOS*.
+. Seleccione *Inquilinos*.
 . Localice la cuenta de inquilino o las cuentas que desea eliminar.
 +
 Utilice el cuadro de búsqueda para buscar un inquilino por nombre o ID de inquilino.

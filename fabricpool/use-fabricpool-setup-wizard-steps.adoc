@@ -365,7 +365,7 @@ Cree un nuevo arrendatario y un bloque o seleccione un arrendatario existente.
 .Inquilino y bloque nuevos
 --
 . Para crear un nuevo inquilino y depósito, introduzca un *Nombre del inquilino*. Por ejemplo, `FabricPool tenant`.
-. Defina el acceso raíz para la cuenta de arrendatario, en función de si el sistema StorageGRID utiliza link:../admin/using-identity-federation.html["federación de identidades"], link:../admin/configuring-sso.html["Inicio de sesión único (SSO)"]o ambos.
+. Defina el acceso raíz para la cuenta de inquilino, en función de si su sistema StorageGRID utilizalink:../admin/using-identity-federation.html["federación de identidades"] ,link:../admin/how-sso-works.html["Inicio de sesión único (SSO)"] , o ambos.
 +
 [cols="1a,3a"]
 |===

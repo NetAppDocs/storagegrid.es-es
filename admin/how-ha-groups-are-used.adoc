@@ -49,7 +49,7 @@ Acceso solo al administrador de inquilinos
 
 
  a| 
-Acceso de cliente S3 -- Servicio de equilibrador de carga
+Acceso de cliente S3 - Servicio Load Balancer
  a| 
 * Nodos de administración
 * Nodos de puerta de enlace

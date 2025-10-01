@@ -22,11 +22,10 @@ Además de ICMP y los puertos enumerados en la tabla, StorageGRID utiliza el Pro
 
 == Directrices para nodos basados en Linux
 
-Si las políticas de redes empresariales restringen el acceso a cualquiera de estos puertos, puede reasignar puertos en el momento de la implementación mediante un parámetro de configuración de implementación. Para obtener más información acerca de la reasignación de puertos y los parámetros de configuración de implementación, consulte:
+Si las políticas de red empresarial restringen el acceso a cualquiera de estos puertos, puede reasignar los puertos en el momento de la implementación utilizando un parámetro de configuración de implementación.  Para obtener más información sobre la reasignación de puertos y los parámetros de configuración de implementación, consultelink:../swnodes/index.html["Instalar StorageGRID en nodos basados ​​en software"] .
 
-* link:../rhel/index.html["Instalar StorageGRID en Red Hat Enterprise Linux"]
-* link:../ubuntu/index.html["Instalar StorageGRID en Ubuntu o Debian"]
 
+NOTE: La compatibilidad con la reasignación de puertos está obsoleta y se eliminará en una versión futura. Para eliminar los puertos reasignados, consultelink:../maintain/removing-port-remaps-on-bare-metal-hosts.html["Quite las reasignaciones de puertos en hosts sin sistema operativo"] .
 
 
 
@@ -34,13 +33,19 @@ Si las políticas de redes empresariales restringen el acceso a cualquiera de es
 
 Configure los siguientes puertos únicamente si necesita definir restricciones de firewall externas a la red de VMware.
 
-Si las políticas de redes empresariales restringen el acceso a cualquiera de estos puertos, puede reasignar los puertos al implementar nodos mediante VMware vSphere Web Client o mediante un valor de archivo de configuración al automatizar la puesta en marcha de nodos de grid. Para obtener más información sobre la reasignación de puertos y los parámetros de configuración de despliegue, consulte link:../vmware/index.html["Instale StorageGRID en VMware"].
+Si las políticas de red empresarial restringen el acceso a cualquiera de estos puertos, puede reasignar los puertos cuando implemente nodos mediante VMware vSphere Web Client o mediante una configuración de archivo al automatizar la implementación de nodos de la red.  Para obtener más información sobre la reasignación de puertos y los parámetros de configuración de implementación, consulte las instrucciones paralink:../swnodes/index.html["Instalación de StorageGRID en VMware"] .
+
+
+NOTE: La compatibilidad con la reasignación de puertos está obsoleta y se eliminará en una versión futura. Para eliminar los puertos reasignados, consultelink:../maintain/removing-port-remaps-on-bare-metal-hosts.html["Quite las reasignaciones de puertos en hosts sin sistema operativo"] .
 
 
 
 == Directrices para nodos de dispositivos
 
 Si las directivas de redes empresariales restringen el acceso a cualquiera de estos puertos, puede reasignar puertos mediante el instalador de dispositivos de StorageGRID. Consulte https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/optional-remapping-network-ports-for-appliance.html["Opcional: Reasignar puertos de red para el dispositivo"^].
+
+
+NOTE: La compatibilidad con la reasignación de puertos está obsoleta y se eliminará en una versión futura. Para eliminar los puertos reasignados, consultelink:../maintain/removing-port-remaps.html["Eliminar reasignaciones de puertos en dispositivos StorageGRID"] .
 
 
 
@@ -151,7 +156,7 @@ Todos los nodos
  a| 
 Nodos de almacenamiento
  a| 
-Tráfico interno relacionado con S3 y Swift.
+Tráfico interno relacionado con S3.
 
 
 
@@ -425,19 +430,6 @@ Nodos de almacenamiento/administrador
 Nodos de almacenamiento
  a| 
 Tráfico interno relacionado con S3.
-
-
-
- a| 
-18083
- a| 
-TCP
- a| 
-Todos los nodos
- a| 
-Nodos de almacenamiento
- a| 
-Tráfico interno relacionado con Swift.
 
 
 

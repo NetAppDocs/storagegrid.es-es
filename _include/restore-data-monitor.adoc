@@ -12,28 +12,28 @@
 
 * Para determinar si las reparaciones están completas:
 +
-.. Seleccione *NODES* > *_Storage Node que se está reparando_* > *ILM*.
+.. Seleccione *Nodos* > *_Nodo de almacenamiento en reparación_* > *ILM*.
 .. Revise los atributos en la sección Evaluación. Una vez completadas las reparaciones, el atributo *esperando - todo* indica 0 objetos.
 
 
 * Para supervisar la reparación con más detalle:
 +
-.. Seleccione *SUPPORT* > *Tools* > *Topología de cuadrícula*.
-.. Seleccione *_grid_* > *_nodo de almacenamiento que se está reparando_* > *LDR* > *almacén de datos*.
-.. Utilice una combinación de los siguientes atributos para determinar, como sea posible, si las reparaciones replicadas se han completado.
+.. Seleccionar *Nodos*.
+.. Seleccione *_grid name_* > *ILM*.
+.. Coloque el cursor sobre el gráfico de la cola ILM para ver el valor del atributo *Velocidad de escaneo (objetos/seg)*, que es la velocidad a la que se escanean los objetos en la cuadrícula y se ponen en cola para ILM.
+.. En la sección Cola ILM, observe los siguientes atributos:
 +
-
-NOTE: Puede haber incoherencias en Cassandra y no se realiza un seguimiento de las reparaciones fallidas.
-
+*** *Período de escaneo - Estimado*: El tiempo estimado para completar una exploración completa de ILM de todos los objetos.
 +
-*** *Reparaciones intentadas (XRPA)*: Utilice este atributo para realizar un seguimiento del progreso de las reparaciones replicadas. Este atributo aumenta cada vez que un nodo de almacenamiento intenta reparar un objeto de alto riesgo. Cuando este atributo no aumenta durante un período más largo que el período de exploración actual (proporcionado por el atributo *período de exploración -- estimado*), significa que el análisis de ILM no encontró objetos de alto riesgo que necesitan ser reparados en ningún nodo.
+Un escaneo completo no garantiza que ILM se haya aplicado a todos los objetos.
+
+*** *Reparaciones intentadas*: la cantidad total de operaciones de reparación de objetos intentadas para datos replicados que se consideran de alto riesgo.  Los objetos de alto riesgo son todos aquellos que conservan una copia, ya sea por especificación de la política de ILM o como resultado de copias perdidas.  Este recuento aumenta cada vez que un nodo de almacenamiento intenta reparar un objeto de alto riesgo.  Las reparaciones de ILM de alto riesgo se priorizan si la red se sobrecarga.
 +
-
-NOTE: Los objetos de alto riesgo son objetos que corren el riesgo de perderse por completo. Esto no incluye objetos que no cumplen con la configuración de ILM.
-
-*** *Período de exploración -- estimado (XSCM)*: Utilice este atributo para estimar cuándo se aplicará un cambio de directiva a objetos ingeridos previamente. Si el atributo *reparos intentados* no aumenta durante un período más largo que el período de adquisición actual, es probable que se realicen reparaciones replicadas. Tenga en cuenta que el período de adquisición puede cambiar. El atributo *período de exploración -- estimado (XSCM)* se aplica a toda la cuadrícula y es el máximo de todos los periodos de exploración de nodos. Puede consultar el historial de atributos *período de exploración -- Estimated* de la cuadrícula para determinar un intervalo de tiempo adecuado.
+La misma reparación del objeto podría incrementarse nuevamente si la replicación falla después de la reparación.  + Estos atributos pueden ser útiles cuando supervisa el progreso de la recuperación del volumen del nodo de almacenamiento.  Si el número de reparaciones intentadas ha dejado de aumentar y se ha completado un análisis completo, es probable que la reparación se haya completado.
 
 
+
+.. Alternativamente, envíe una consulta de Prometheus para `storagegrid_ilm_scan_period_estimated_minutes` y `storagegrid_ilm_repairs_attempted` .
 
 
 
@@ -45,7 +45,7 @@ Para supervisar la reparación de datos codificados mediante borrado y vuelva a 
 
 . Determine el estado de las reparaciones de datos codificadas por borrado:
 +
-** Seleccione *SUPPORT* > *Tools* > *Metrics* para ver el tiempo estimado hasta la finalización y el porcentaje de finalización del trabajo actual. A continuación, seleccione *EC Overview* en la sección Grafana. Consulte los paneles *tiempo estimado de trabajo de Grid EC hasta finalización* y *Porcentaje de trabajo de Grid EC completado*.
+** Seleccione *Soporte* > *Herramientas* > *Métricas* para ver el tiempo estimado de finalización y el porcentaje de finalización del trabajo actual.  Luego, seleccione *Descripción general de EC* en la sección Grafana.  Consulte los paneles *Tiempo estimado de finalización del trabajo de Grid EC* y *Porcentaje de trabajo de Grid EC completado*.
 ** Use este comando para ver el estado de una operación específica `repair-data`:
 +
 `repair-data show-ec-repair-status --repair-id repair ID`

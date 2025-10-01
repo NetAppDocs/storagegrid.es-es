@@ -22,7 +22,7 @@ Si usa un inquilino de S3 y tiene los permisos adecuados, puede eliminar las cla
 CAUTION: Es posible acceder a los bloques y los objetos de S3 que pertenecen a un usuario mediante el ID de clave de acceso y la clave de acceso secreta mostrada para ese usuario en el Administrador de inquilinos. Por este motivo, proteja las claves de acceso como lo haría con una contraseña. Gire las claves de acceso de forma regular, elimine las claves que no utilice de la cuenta y nunca las comparta con otros usuarios.
 
 .Pasos
-. Seleccione *ADMINISTRACIÓN de ACCESO* > *usuarios*.
+. Seleccione *Administración de acceso* > *Usuarios*.
 . En la página Usuarios, seleccione el usuario cuyas S3 claves de acceso desea administrar.
 . En la página Detalles del usuario, selecciona *Teclas de acceso* y luego selecciona la casilla de verificación para cada clave de acceso que quieras eliminar.
 . Seleccione *acciones* > *Borrar clave seleccionada*.

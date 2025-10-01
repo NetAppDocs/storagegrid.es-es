@@ -23,7 +23,7 @@ CAUTION: Use precaución al decomisionar nodos de almacenamiento en un grid que 
 Por ejemplo, supongamos que un sitio incluye actualmente seis nodos de almacenamiento con servicios ADC y que desea retirar tres nodos de almacenamiento. Debido al requisito de quórum de ADC, debe completar dos procedimientos de retirada, de la siguiente manera:
 
 * En el primer procedimiento de retirada, debe asegurarse de que siguen estando disponibles cuatro nodos de almacenamiento con servicios ADC: `((0.5 * 6) + 1)`. Esto significa que solo puede decomisionar dos nodos de almacenamiento inicialmente.
-* En el segundo procedimiento de retirada, puede eliminar el tercer nodo de almacenamiento porque el quórum ADC ahora solo necesita tres servicios ADC para permanecer disponibles: `((0.5 * 4) + 1)`.
+* En el segundo procedimiento de desmantelamiento, puede eliminar el tercer nodo de almacenamiento porque el quórum de ADC ahora requiere que solo tres servicios de ADC permanezcan disponibles: `((0.5 * 4) + 1)` .
 
 
-Si necesita retirar un nodo de almacenamiento pero no puede hacerlo debido al requisito de quórum ADC, agregue un nuevo nodo de almacenamiento en un link:../expand/index.html["expansión"] y especifique que debe tener un servicio ADC. A continuación, retire el nodo de almacenamiento existente.
+Si necesita desmantelar un nodo de almacenamiento, puede continuar cumpliendo con el requisito de quórum de ADClink:../upgrade/changes-to-grid-management-api.html#new-private-endpoints-for-move-adc["Mover el servicio ADC a otro nodo de almacenamiento en el mismo sitio"] o agregar un nuevo nodo de almacenamiento en unlink:../expand/index.html["expansión"] y especificando que debe tener un servicio ADC.  Luego, puedes desmantelar el nodo de almacenamiento existente sin afectar el quórum.

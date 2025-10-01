@@ -28,13 +28,6 @@ S3BK (cuchara), S3KY (llave) o ambos
 
 
  a| 
-Vinculación de operaciones de Swift
- a| 
-WCON (contenedor), WOBJ (objeto) o ambos
-
-
-
- a| 
 Vinculación de las operaciones internas
  a| 
 CBID (identificador interno del objeto)

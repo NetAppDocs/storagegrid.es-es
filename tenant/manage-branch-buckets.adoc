@@ -1,0 +1,195 @@
+---
+permalink: tenant/manage-branch-buckets.html 
+sidebar: sidebar 
+keywords: how to create branch bucket 
+summary: Utilice el Administrador de inquilinos para crear y ver detalles de las sucursales. 
+---
+= Administrar grupos de sucursales
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Utilice el Administrador de inquilinos para crear y ver detalles de las sucursales.
+
+.Antes de empezar
+* Has iniciado sesión en el Administrador de inquilinos mediante unlink:../admin/web-browser-requirements.html["navegador web compatible"] .
+* Pertenece a un grupo de usuarios que tiene acceso root olink:tenant-management-permissions.html["Permite gestionar todos los depósitos"] .  Estos permisos anulan la configuración de permisos en las políticas de grupo o de depósito.
+* El depósito base desde el cual desea crear una rama tienelink:../tenant/changing-bucket-versioning.html["control de versiones habilitado"] .
+* Eres el propietario del cubo base.
+
+
+.Acerca de esta tarea
+Tenga en cuenta la siguiente información para los grupos de ramas:
+
+* Los permisos para establecer las propiedades de bloqueo de objetos S3 de depósitos u objetos se pueden otorgar mediantelink:../s3/use-access-policies.html["política de bloques o política de grupo"] .
+* Si suspende el control de versiones en el bucket base, el contenido del bucket base ya no será visible en sus buckets de rama.
+
+
+
+CAUTION: Después de configurar y crear un bucket de rama, no podrá cambiar la configuración.
+
+
+
+== Crear un depósito de ramas
+
+.Pasos
+. Seleccione *Ver cubos* en el panel de control o seleccione *ALMACENAMIENTO (S3)* > *Buckets*.
+. Seleccione el depósito desde el cual desea crear una rama (el "depósito base").
+. En la página de detalles del depósito, seleccione *Ramas* > *Crear depósito de ramas*.
++
+El botón *Crear rama de depósito* está deshabilitado si el depósito base no tiene habilitada la versión.
+
+
+
+
+
+== Introduzca los detalles
+
+.Pasos
+. Introduzca detalles para la sucursal.
++
+[cols="1a,3a"]
+|===
+| Campo | Descripción 
+
+
+ a| 
+Nombre del depósito de la rama
+ a| 
+Un nombre para la rama que cumple con estas reglas:
+
+** Debe ser único en cada sistema StorageGRID (no solo dentro de la cuenta de inquilino).
+** Debe ser compatible con DNS.
+** Debe contener al menos 3 y no más de 63 caracteres.
+** Cada etiqueta debe comenzar y terminar con una letra minúscula o un número y solo puede utilizar letras minúsculas, números y guiones.
+** No debe contener periodos en las solicitudes de estilo alojadas virtuales. Los períodos provocarán problemas en la verificación del certificado comodín del servidor.
+
+
+Para obtener más información, consulte la https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html["Documentación de Amazon Web Services (AWS) sobre reglas de nomenclatura de bloques"^].
+
+*Nota*: No puedes cambiar el nombre después de crear la rama.
+
+
+
+ a| 
+Región (no se puede modificar para los depósitos de sucursales)
+ a| 
+Región del depósito de la rama.
+
+La región del depósito de la rama debe coincidir con la región del depósito base, por lo que este campo está deshabilitado para los depósitos de la rama.
+
+
+
+ a| 
+Antes de tiempo
+ a| 
+El tiempo límite para que las versiones de objetos creadas en el depósito base sean accesibles desde el depósito de la rama.  El contenedor de ramas proporciona acceso a versiones de objetos creadas antes del tiempo anterior.
+
+Antes del tiempo debe haber una fecha y hora que haya pasado.  No puede ser una fecha futura.
+
+
+
+ a| 
+Tipo de cubo de rama
+ a| 
+** *Lectura y escritura*: puede agregar o eliminar objetos o versiones de objetos en el depósito de ramas.
+** *Solo lectura*: no puedes modificar objetos en el bucket de la rama.
+
+
+*Nota*: Puede configurar el tipo de depósito de la rama como de solo lectura únicamente si el depósito de la rama está vacío.  Si el tipo de un depósito de rama existente está configurado como lectura y escritura y no ha escrito en él, puede cambiar el tipo a solo lectura.
+
+|===
+. Seleccione *continuar*.
+
+
+
+
+== Administrar la configuración de objetos (opcional)
+
+Las configuraciones de objetos para un bucket de rama no afectan las versiones de objetos en el bucket base.
+
+.Pasos
+. Si la configuración global de Bloqueo de objetos S3 está habilitada, habilite opcionalmente el Bloqueo de objetos S3 para el depósito de ramas.  Para habilitar el bloqueo de objetos S3, el depósito de la rama debe ser un depósito de lectura y escritura.
++
+Habilite el bloqueo de objetos S3 para un bucket de rama solo si necesita conservar objetos durante un período de tiempo fijo, por ejemplo, para cumplir con ciertos requisitos reglamentarios.  El bloqueo de objetos S3 es una configuración permanente que le ayuda a evitar que los objetos se eliminen o sobrescriban durante un período de tiempo fijo o de manera indefinida.
+
++
+
+CAUTION: Una vez habilitada la configuración de bloqueo de objetos S3 para un depósito, no se puede deshabilitar.  Cualquier persona con los permisos correctos puede agregar objetos al depósito de la rama que no se pueden modificar.  Es posible que no puedas eliminar estos objetos ni la rama en sí.
+
+. Si seleccionó *Habilitar bloqueo de objetos S3*, habilite opcionalmente la *Retención predeterminada* para el depósito de la rama.
++
+
+NOTE: El administrador de grid debe darle permiso a link:../tenant/using-s3-object-lock.html["Utilice características específicas de S3 Object Lock"].
+
++
+Cuando la *Retención predeterminada* está habilitada, los objetos nuevos agregados al depósito de la rama estarán automáticamente protegidos contra eliminación o sobrescritura.  La configuración *Retención predeterminada* no se aplica a los objetos que tienen sus propios períodos de retención.
+
++
+.. Si la *Retención predeterminada* está habilitada, especifique un *Modo de retención predeterminado* para el depósito de la rama.
++
+[cols="1a,2a"]
+|===
+| Modo de retención predeterminado | Descripción 
+
+
+ a| 
+Gobernanza
+ a| 
+*** Los usuarios con `s3:BypassGovernanceRetention` permiso pueden utilizar `x-amz-bypass-governance-retention: true` la cabecera de solicitud para omitir la configuración de retención.
+*** Estos usuarios pueden suprimir una versión de objeto antes de alcanzar su fecha de retención hasta la fecha.
+*** Estos usuarios pueden aumentar, disminuir o eliminar la fecha de retención de un objeto.
+
+
+
+
+ a| 
+Cumplimiento de normativas
+ a| 
+*** El objeto no se puede eliminar hasta que se alcance su fecha de retención hasta.
+*** La fecha de retención del objeto se puede aumentar, pero no se puede reducir.
+*** No se puede eliminar la fecha de retención del objeto hasta que se alcance esa fecha.
+
+
+*Nota*: Su administrador de grid debe permitirle usar el modo de cumplimiento.
+
+|===
+.. Si la *Retención predeterminada* está habilitada, especifique el *Período de retención predeterminado* para el depósito de la rama.
++
+El *Período de retención predeterminado* indica durante cuánto tiempo se deben conservar los objetos nuevos agregados al depósito de la rama, a partir del momento en que se ingieren.  Especifique un valor que sea menor o igual al período de retención máximo para el inquilino, según lo establecido por el administrador de la red.
+
++
+Un período de retención _maximum_, que puede ser un valor de 1 día a 100 años, se establece cuando el administrador de grid crea el inquilino. Cuando establece un período de retención _default_, no puede exceder el valor establecido para el período de retención máximo. Si es necesario, pida al administrador de grid que aumente o reduzca el período de retención máximo.
+
+
+
+. Opcionalmente, seleccione *Habilitar límite de capacidad*.
++
+El límite de capacidad es la capacidad máxima disponible para el depósito de la sucursal.  Este valor representa una cantidad lógica (tamaño del objeto), no una cantidad física (tamaño en disco).
+
++
+Si no se establece ningún límite, la capacidad del depósito de sucursales es ilimitada. Consulte link:../tenant/understanding-tenant-manager-dashboard.html#bucket-capacity-usage["Límite de uso de capacidad"] Para más información.
+
++
+
+NOTE: Esta configuración se aplica solo a los objetos ingeridos directamente en el bucket de la rama, y no a los objetos que son visibles desde el bucket base a través del bucket de la rama.
+
+. Opcionalmente, seleccione *Habilitar límite de conteo de objetos*.
++
+El límite de recuento de objetos es la cantidad máxima de objetos que el depósito de la rama puede contener.  Este valor representa una cantidad lógica (cantidad de objetos).  Si no se establece ningún límite, el número de objetos es ilimitado.
+
++
+
+NOTE: Esta configuración se aplica solo a los objetos ingeridos directamente en el bucket de la rama, y no a los objetos que son visibles desde el bucket base a través del bucket de la rama.
+
+. Seleccione *Crear cucharón*.
++
+El depósito de ramas se crea y se agrega a la tabla en la página Depósitos.
+
+. Opcionalmente, seleccione *Ir a la página de detalles del depósito* paralink:viewing-s3-bucket-details.html["Ver detalles del depósito de la rama"] y realizar una configuración adicional.
++
+En la página de detalles del depósito, algunas opciones de configuración relacionadas con la modificación de objetos están deshabilitadas para los depósitos de solo lectura.
+
+

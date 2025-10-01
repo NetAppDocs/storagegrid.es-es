@@ -33,14 +33,7 @@ Utilice estas instrucciones para:
 
 Para obtener más información, consulte estos vídeos:
 
-* https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9872d38f-80b3-4ad4-9f79-b1ff008760c7["Vídeo: Descripción general de las reglas de ILM"^].
-+
-[link=https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9872d38f-80b3-4ad4-9f79-b1ff008760c7]
-image::../media/video-screenshot-ilm-rules-118.png[Vídeo: Descripción general de las reglas de ILM]
-
-* https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e768d4da-da88-413c-bbaa-b1ff00874d10["Vídeo: Información general sobre las políticas de ILM"^]
-+
-[link=https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e768d4da-da88-413c-bbaa-b1ff00874d10]
-image::../media/video-screenshot-ilm-policies-118.png[Vídeo: Información general sobre las políticas de ILM]
-
-
+.Descripción general de las reglas de ILM
+video::9872d38f-80b3-4ad4-9f79-b1ff008760c7[panopto]
+.Descripción general de las políticas de ILM
+video::e768d4da-da88-413c-bbaa-b1ff00874d10[panopto]

@@ -144,3 +144,6 @@ En función de los requisitos, puede utilizar más de un método de cifrado a la
 
 
 Si solo una pequeña parte de los objetos requiere cifrado, considere la posibilidad de controlar el cifrado en el nivel de bloque o de objeto individual. Habilitar varios niveles de cifrado tiene un coste de rendimiento adicional.
+
+.Información relacionada
+link:manage-tls-ssh-policy.html#select-a-security-policy["Conozca las opciones de cifrado con certificación FIPS"]

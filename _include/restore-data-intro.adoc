@@ -8,8 +8,8 @@
 
 Siempre que sea posible, restaure los datos del objeto utilizando la página *Volume restoration* en Grid Manager.
 
-* Si los volúmenes aparecen en *MANTENIMIENTO* > *Restauración de volumen* > *Nodos a restaurar*, restaure los datos del objeto con la link:../maintain/restoring-volume.html["Página de restauración de volúmenes en Grid Manager"].
-* Si los volúmenes no aparecen en *MANTENIMIENTO* > *Restauración de volumen* > *Nodos a restaurar*, siga los pasos que se indican a continuación para usar `repair-data` el script para restaurar los datos del objeto.
+* Si los volúmenes se enumeran en *Mantenimiento* > *Restauración de volumen* > *Nodos para restaurar*, restaure los datos del objeto utilizando ellink:../maintain/restoring-volume.html["Página de restauración de volúmenes en Grid Manager"] .
+* Si los volúmenes no aparecen en *Mantenimiento* > *Restauración de volúmenes* > *Nodos a restaurar*, siga los pasos a continuación para usar el `repair-data` script para restaurar datos de objetos.
 +
 Si el nodo de almacenamiento recuperado contiene menos volúmenes que el nodo que sustituye, deberá utilizar `repair-data` el script.
 
@@ -23,7 +23,7 @@ NOTE: El script repair-data está obsoleto y se eliminará en una versión futur
 == Utilice `repair-data` el script para restaurar datos de objetos
 
 .Antes de empezar
-* Ha confirmado que el nodo de almacenamiento recuperado tiene un estado de conexión de *Connected*  en la pestaña *NODES* image:../media/icon_alert_green_checkmark.png["icono de alerta verde marca de verificación"]> *Overview* en Grid Manager.
+* Ha confirmado que el nodo de almacenamiento recuperado tiene un estado de conexión de *Conectado*image:../media/icon_alert_green_checkmark.png["icono de alerta verde marca de verificación"] en la pestaña *Nodos* > *Descripción general* en el Administrador de cuadrícula.
 
 
 .Acerca de esta tarea

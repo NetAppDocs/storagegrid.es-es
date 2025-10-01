@@ -24,7 +24,7 @@ Para utilizar el asistente de configuración de FabricPool para completar esta t
 
 
 .Pasos
-. Seleccione *CONFIGURACIÓN* > *Red* > *terminales de equilibrador de carga*.
+. Seleccione *Configuración* > *Red* > *Puntos finales del balanceador de carga*.
 . Seleccione *Crear*.
 . Para el paso *Introducir detalles de punto final*, complete los siguientes campos.
 +

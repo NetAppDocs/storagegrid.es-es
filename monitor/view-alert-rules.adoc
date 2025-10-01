@@ -18,15 +18,14 @@ Puede ver la lista de todas las reglas de alerta predeterminadas y personalizada
 .Antes de empezar
 * Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
 * Usted tiene el link:../admin/admin-group-permissions.html["Gestionar alertas o permisos de acceso raíz"].
-* Opcionalmente, ha visto el vídeo: https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2eea81c5-8323-417f-b0a0-b1ff008506c1["Vídeo: Descripción general de alertas"^]
+* Opcionalmente has visto el vídeo:
 +
-[link=https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2eea81c5-8323-417f-b0a0-b1ff008506c1]
-image::../media/video-screenshot-alert-overview-118.png[Vídeo: Descripción general de alertas]
-
+.Descripción general de alertas
+video::2eea81c5-8323-417f-b0a0-b1ff008506c1[panopto]
 
 
 .Pasos
-. Selecciona *ALERTS* > *Reglas*.
+. Seleccione *Alertas* > *Reglas*.
 +
 Aparecerá la página Reglas de alerta.
 

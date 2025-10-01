@@ -55,7 +55,7 @@ NOTE: Si no agrega nombres de dominio de punto final S3 y la lista está vacía,
 == Agregue un nombre de dominio de punto final S3
 
 .Pasos
-. Seleccione *CONFIGURACIÓN* > *Red* > *S3 nombres de dominio de punto final*.
+. Seleccione *Configuración* > *Red* > *Nombres de dominio de punto final S3*.
 . Introduzca el nombre de dominio en el campo *Nombre de dominio 1*. Seleccione *Agregar otro nombre de dominio* para agregar más nombres de dominio.
 . Seleccione *Guardar*.
 . Asegúrese de que los certificados de servidor que utilizan los clientes coinciden con los nombres de dominio de punto final S3 necesarios.
@@ -77,7 +77,7 @@ Ahora, cuando los clientes utilizan el punto final `_bucket.s3.company.com_`, el
 Si cambia un nombre utilizado por las aplicaciones S3, las solicitudes de estilo hospedado virtual fallarán.
 
 .Pasos
-. Seleccione *CONFIGURACIÓN* > *Red* > *S3 nombres de dominio de punto final*.
+. Seleccione *Configuración* > *Red* > *Nombres de dominio de punto final S3*.
 . Seleccione el campo de nombre de dominio que desea editar y realice los cambios necesarios.
 . Seleccione *Guardar*.
 . Selecciona *Sí* para confirmar tu cambio.
@@ -90,7 +90,7 @@ Si cambia un nombre utilizado por las aplicaciones S3, las solicitudes de estilo
 Si elimina un nombre utilizado por las aplicaciones S3, las solicitudes de estilo hospedado virtual fallarán.
 
 .Pasos
-. Seleccione *CONFIGURACIÓN* > *Red* > *S3 nombres de dominio de punto final*.
+. Seleccione *Configuración* > *Red* > *Nombres de dominio de punto final S3*.
 . Seleccione el icono de eliminación image:../media/icon-x-to-remove.png["icono de eliminar"]junto al nombre de dominio.
 . Seleccione *Sí* para confirmar la eliminación.
 

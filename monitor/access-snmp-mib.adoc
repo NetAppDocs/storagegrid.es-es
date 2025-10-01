@@ -22,19 +22,16 @@ Consulte link:using-snmp-monitoring.html["Usar supervisión de SNMP"] para obten
 Siga estos pasos para acceder a los archivos MIB.
 
 .Pasos
-. Seleccione *CONFIGURACIÓN* > *Supervisión* > *Agente SNMP*.
+. Seleccione *Configuración* > *Monitoreo* > *Agente SNMP*.
 . En la página del agente SNMP, seleccione el archivo que desee descargar:
 +
 ** *NETAPP-STORAGEGRID-MIB.txt*: Define la tabla de alertas y las notificaciones (traps) a las que se puede acceder en todos los nodos de administración.
 ** *ES-NETAPP-06-MIB.mib*: Define objetos y notificaciones para dispositivos basados en E-Series.
 ** *MIB_1_10.zip*: Define objetos y notificaciones para dispositivos con interfaz BMC.
 +
-[]
-====
 
 TIP: También puede acceder a los archivos MIB en la siguiente ubicación en cualquier nodo StorageGRID: `/usr/share/snmp/mibs`
 
-====
 
 
 . Para extraer los OID de StorageGRID del archivo MIB:
@@ -50,12 +47,13 @@ Resultado: `.1.3.6.1.4.1.789.28669` (`28669` Es siempre el OID de StorageGRID)
 +
 `root@user-adm1:~ # snmptranslate -Tso | paste -d " " - - | grep 28669`
 
-
-
-
-
++
 
 TIP: El `snmptranslate` comando tiene muchas opciones que son útiles para explorar la MIB. Este comando está disponible en cualquier nodo StorageGRID.
+
+
+
+
 
 
 
@@ -76,74 +74,95 @@ Módulo MIB para entidades de NetApp StorageGRID.
 
 == Objetos MIB
 
-[cols="1a,1a,2a"]
+[cols="1a,1a,1a,1a,1a,2a"]
 |===
-| Nombre del objeto | ID Objeto (OID) | Descripción 
+| Nombre del objeto | ID Objeto (OID) | Tipo | Acceso | Módulo MIB | Descripción 
 
 
 | Active AlertCount | .1,3.6,1.4,1. + 789.28669.1.3  a| 
+Integer32
+ a| 
+Sólo lectura
+ a| 
+NETAPP-STORAGEGRID-MIB
+ a| 
 El número de alertas activas en activeAlertTable.
 
 
 
 | Active AlertTable | .1,3.6,1.4,1. + 789.28669.1.4  a| 
+Secuencia de ActiveAlertEntry
+ a| 
+No accesible
+ a| 
+NETAPP-STORAGEGRID-MIB
+ a| 
 Una tabla de alertas activas en StorageGRID.
 
 
 
+| Entrada de alerta activa | .1.3.6.1.4.1.  + 789.28669.1.4.1  a| 
+Secuencia
+ a| 
+No accesible
+ a| 
+NETAPP-STORAGEGRID-MIB
+ a| 
+Una única alerta de StorageGRID , indexada por ID de alerta.
+
+
+
 | Active AlertId | .1,3.6,1.4,1. + 789.28669.1.4.1.1  a| 
+Cadena de octetos
+ a| 
+Sólo lectura
+ a| 
+NETAPP-STORAGEGRID-MIB
+ a| 
 El ID de la alerta. Solo es único en el conjunto actual de alertas activas.
 
 
 
 | Active AlertName | .1,3.6,1.4,1. + 789.28669.1.4.1.2  a| 
+Cadena de octetos
+ a| 
+Sólo lectura
+ a| 
+NETAPP-STORAGEGRID-MIB
+ a| 
 El nombre de la alerta.
 
 
 
 | Active AlertInstance | .1,3.6,1.4,1. + 789.28669.1.4.1.3  a| 
+Cadena de octetos
+ a| 
+Sólo lectura
+ a| 
+NETAPP-STORAGEGRID-MIB
+ a| 
 El nombre de la entidad que generó la alerta, generalmente el nombre del nodo.
 
 
 
 | Active AlertSeverity | .1,3.6,1.4,1. + 789.28669.1.4.1.4  a| 
+Cadena de octetos
+ a| 
+Sólo lectura
+ a| 
+NETAPP-STORAGEGRID-MIB
+ a| 
 La gravedad de la alerta.
 
 
 
 | Active AlertStartTime | .1,3.6,1.4,1. + 789.28669.1.4.1.5  a| 
-La fecha y la hora en la que se activó la alerta.
-
-|===
-
-
-== Tipos de notificación (retos)
-
-Todas las notificaciones incluyen las siguientes variables como varbinds:
-
-* Active AlertId
-* Active AlertName
-* Active AlertInstance
-* Active AlertSeverity
-* Active AlertStartTime
-
-
-[cols="1a,1a,2a"]
-|===
-| Tipo de notificación | ID Objeto (OID) | Descripción 
-
-
-| ActiveMinorAlert | .1,3.6,1.4,1. + 789.28669.0.6  a| 
-Una alerta de gravedad menor
-
-
-
-| Active MajorAlert | .1,3.6,1.4,1. + 789.28669.0.7  a| 
-Una alerta de gravedad importante
-
-
-
-| ActiveCriticalAlert | .1,3.6,1.4,1. + 789.28669.0.8  a| 
-Una alerta con gravedad crítica
+Fecha y hora
+ a| 
+Sólo lectura
+ a| 
+NETAPP-STORAGEGRID-MIB
+ a| 
+La hora en que se activó la alerta.
 
 |===

@@ -15,12 +15,12 @@ Puede utilizar PingFederate para crear una conexión de proveedor de servicios (
 
 .Antes de empezar
 * Ha configurado el inicio de sesión único para StorageGRID y ha seleccionado *Ping federate* como tipo de SSO.
-* *Modo Sandbox* está seleccionado en la página Single Sign-On de Grid Manager. Consulte link:../admin/using-sandbox-mode.html["Utilizar el modo de recinto de seguridad"].
-* Tiene el *ID de conexión SP* para cada nodo de administración de su sistema. Puede encontrar estos valores en la tabla de detalles Admin Nodes en la página StorageGRID Single Sign-On.
+* Tieneslink:../admin/configure-sso.html#enter-sandbox-mode["entró en modo sandbox"] en el Administrador de cuadrícula.
+* Tienes el *ID de conexión SP * para cada nodo de administración en tu sistema.  Puede encontrar estos valores en la tabla de detalles de Nodos de administración en la página Configurar SSO.
 * Ha descargado los *metadatos SAML* de cada nodo de administración del sistema.
 * Tiene experiencia en la creación de conexiones SP en PingFederate Server.
 * Tiene el https://docs.pingidentity.com/pingfederate/latest/administrators_reference_guide/pf_administrators_reference_guide.html["Guía de referencia del administrador"^]servidor FOR PingFederate. La documentación de PingFederate proporciona instrucciones detalladas paso a paso y explicaciones.
-* Tiene el link:admin-group-permissions.html["Permiso de administrador"]servidor FOR PingFederate.
+* Tú tienes ellink:../admin/admin-group-permissions.html["Permiso de administrador"] para el servidor PingFederate.
 
 
 .Acerca de esta tarea
@@ -67,7 +67,7 @@ Si todavía no lo ha hecho, cree una instancia de adaptador de IDP.
 . Seleccione *Crear nueva instancia*.
 . En la ficha Tipo, seleccione *adaptador IDP de formulario HTML*.
 . En la ficha adaptador IDP, seleccione *Agregar una nueva fila a 'Validadores de credenciales'*.
-. Seleccione el <<password-validator,validador de credenciales de contraseña>> que ha creado.
+. Seleccione el<<password-validator,validador de credenciales de contraseña>> tu creaste
 . En la ficha atributos del adaptador, seleccione el atributo *nombre de usuario* para *seudónimo*.
 . Seleccione *Guardar*.
 
@@ -109,7 +109,7 @@ TIP: Debe crear una conexión de SP para cada nodo de administrador en su sistem
 
 .Pasos
 . En la ficha Importar metadatos, seleccione *Archivo*.
-. Seleccione el archivo de metadatos de SAML que descargó de la página de inicio de sesión único de StorageGRID para el nodo de administrador.
+. Elija el archivo de metadatos SAML que descargó de la página Configurar SSO para el nodo de administración.
 . Revise el resumen de metadatos y la información proporcionada en la pestaña Información general.
 +
 El ID de entidad del partner y el nombre de conexión se establecen en el ID de conexión de StorageGRID SP. (Por ejemplo, 10.96.105.200-DC1-ADM1-105-200). La URL base es la IP del nodo de administrador de StorageGRID.
@@ -183,7 +183,7 @@ El ID de entidad del partner y el nombre de conexión se establecen en el ID de 
 .Pasos
 . En la ficha Conexión SP, seleccione *credenciales*.
 . En la ficha credenciales, seleccione *Configurar credenciales*.
-. Seleccione el <<signing-certificate,certificado de firma>> que ha creado o importado.
+. Seleccione el<<signing-certificate,certificado de firma>> usted creó o importó.
 . Seleccione *Siguiente* para ir a *gestionar ajustes de verificación de firma*.
 +
 .. En la ficha Modelo de confianza, seleccione *sin anclar*.

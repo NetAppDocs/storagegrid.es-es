@@ -34,7 +34,7 @@ Al iniciar sesión como root, la petición de datos cambia de `$` a `#`.
 . Detenga el servicio AMS para evitar que cree un nuevo archivo de registro:``service ams stop``
 . Navegue al directorio de exportación de auditoría:
 +
-`cd /var/local/log`
+`cd /var/local/audit/export/`
 
 . Cambie el nombre del archivo audit.log de origen a un nombre de archivo numerado único. Por ejemplo, cambie el nombre del archivo audit.log a `2023-10-25.txt.1`.
 +

@@ -22,7 +22,7 @@ Al expandir una cuadrícula, los nodos que añada no tienen que coincidir con lo
 Debe implementar una máquina virtual en VMware vSphere para cada nodo de VMware que desee añadir a la ampliación.
 
 .Pasos
-. link:../vmware/deploying-storagegrid-node-as-virtual-machine.html["Ponga en marcha el nuevo nodo como máquina virtual"] Y conéctelo a una o más redes StorageGRID.
+. link:../swnodes/deploying-storagegrid-node-as-virtual-machine.html["Ponga en marcha el nuevo nodo como máquina virtual"]y conectarlo a una o más redes StorageGRID .
 +
 Al poner en marcha el nodo, tiene la opción de reasignar puertos de nodo o aumentar las opciones de CPU o memoria.
 
@@ -36,12 +36,7 @@ Al poner en marcha el nodo, tiene la opción de reasignar puertos de nodo o aume
 Puede implementar nodos de grid en hosts Linux nuevos o en hosts Linux existentes. Si necesita hosts Linux adicionales para admitir los requisitos de CPU, RAM y almacenamiento de los nodos StorageGRID que desea añadir a la cuadrícula, debe prepararlos de la misma manera que preparó los hosts cuando los instaló por primera vez. A continuación, se deben implementar los nodos de expansión del mismo modo que se pusieron en marcha los nodos de grid durante la instalación.
 
 .Antes de empezar
-* Tiene las instrucciones de instalación de StorageGRID para su versión de Linux y ha revisado los requisitos de hardware y almacenamiento.
-+
-** link:../rhel/index.html["Instalar StorageGRID en Red Hat Enterprise Linux"]
-** link:../ubuntu/index.html["Instalar StorageGRID en Ubuntu o Debian"]
-
-
+* Tiene las instrucciones para instalar StorageGRID para su versión de Linux y ha revisado ellink:../swnodes/index.html["requisitos de hardware y almacenamiento"] .
 * Si tiene pensado implementar nuevos nodos de grid en hosts existentes, debe confirmar que los hosts existentes tienen suficiente capacidad de CPU, RAM y almacenamiento para los nodos adicionales.
 * Tiene pensado minimizar los dominios de fallos. Por ejemplo, no debe implementar todos los nodos de puerta de enlace en un solo host físico.
 +
@@ -145,9 +140,6 @@ Si el botón *Iniciar instalación* no está activado, es posible que deba cambi
 
 . En la página de inicio del instalador de dispositivos StorageGRID, seleccione *Iniciar instalación*.
 +
-image::../media/appliance_installer_home_start_installation_enabled.gif[Esta imagen se describe con el texto circundante.]
-
-+
 El estado actual cambia a «Instalación en curso» y se muestra la página de instalación del monitor.
 
 . Si su ampliación incluye varios nodos de dispositivos, repita los pasos anteriores para cada dispositivo.
@@ -158,9 +150,6 @@ NOTE: Si necesita implementar varios nodos de almacenamiento de dispositivos a l
 . Si necesita acceder manualmente a la página instalación del monitor, seleccione *instalación del monitor* en la barra de menús.
 +
 La página Monitor Installation (instalación del monitor) muestra el progreso de la instalación.
-
-+
-image::../media/monitor_installation_configure_storage.gif[Esta imagen se explica por el texto circundante.]
 
 +
 La barra de estado azul indica qué tarea está en curso actualmente. Las barras de estado verdes indican tareas que se han completado correctamente.
@@ -191,8 +180,5 @@ Durante esta fase, el instalador copia la imagen del sistema operativo base para
 +
 
 NOTE: Espere a que todos los nodos agregados en esta expansión estén listos para su aprobación antes de ir a Grid Manager para aprobar los nodos.
-
-+
-image::../media/monitor_installation_install_sgws.gif[Esta imagen se explica por el texto circundante.]
 
 

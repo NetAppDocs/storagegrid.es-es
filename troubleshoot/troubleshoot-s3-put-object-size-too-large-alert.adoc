@@ -21,7 +21,7 @@ La alerta S3 PUT Object size too large se activa si un arrendatario intenta una 
 Determine qué inquilinos utilizan objetos mayores de 5 GiB, para que pueda notificarlos.
 
 .Pasos
-. Vaya a *CONFIGURACIÓN* > *Monitoreo* > *Servidor de auditoría y syslog*.
+. Vaya a *Configuración* > *Monitoreo* > *Servidor de auditoría y syslog*.
 . Si las escrituras de cliente son Normal, acceda al registro de auditoría:
 +
 .. Introduzca `ssh admin@_primary_Admin_Node_IP_`
@@ -51,7 +51,7 @@ Nodos locales (predeterminado)
  a| 
 Nodos de administración/nodos locales
  a| 
-*** Nodos de administración (primarios y no primarios): `/var/local/audit/export/audit.log`
+*** Nodos de administración (principales y no principales): `/var/local/audit/export/audit.log`
 *** Todos los nodos: El `/var/local/log/localaudit.log` archivo normalmente está vacío o falta en este modo.
 
 
@@ -65,7 +65,7 @@ Servidor de syslog externo
 |===
 En función de la configuración de destino de auditoría, introduzca: `cd /var/local/log` O. `/var/local/audit/export/`
 
-Para obtener más información, consulte link:../monitor/configure-audit-messages.html#select-audit-information-destinations["Seleccione destinos de información de auditoría"].
+Para obtener más información, consultelink:../monitor/configure-log-management.html#select-log-location["Seleccionar la ubicación del registro"] .
 
 --
 .. Identifique qué inquilinos están usando objetos mayores de 5 GiB.
@@ -116,7 +116,7 @@ audit.log:2023-01-05T18:47:05.525999 [AUDT:[RSLT(FC32):SUCS][CNID(UI64):16729436
 
 . Si las escrituras del cliente no son normales, use el ID de inquilino de la alerta para identificar el inquilino:
 +
-.. Vaya a *SUPPORT* > *Tools* > *Logs*. Recopile registros de la aplicación para el nodo de almacenamiento en la alerta. Especifique 15 minutos antes y después de la alerta.
+.. Vaya a *Soporte* > *Herramientas* > *Recopilación de registros*.  Recopilar registros de aplicaciones para el nodo de almacenamiento en la alerta.  Especifique 15 minutos antes y después de la alerta. Consulte link:../monitor/collecting-log-files-and-system-data.html["Recopilar archivos de registro y datos del sistema"] .
 .. Extraiga el archivo y vaya a `bycast.log`:
 +
 `/GID<grid_id>_<time_stamp>/<site_node>/<time_stamp>/grid/bycast.log`

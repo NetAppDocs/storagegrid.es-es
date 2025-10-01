@@ -46,7 +46,7 @@ NOTE: La clave privada del cliente debe estar en formato cifrado OpenSSL o en fo
 
 
 
-.. Según sea necesario, cambie el método para verificar el servidor.
+.. Según sea necesario, cambie el método para verificar los certificados.
 
 
 . Seleccione *probar y guardar los cambios*.

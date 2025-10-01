@@ -31,7 +31,7 @@ NOTE: No se puede usar Cloud Storage Pools con FabricPool debido a la latencia a
 Los servicios de plataforma S3 le dan la posibilidad de usar servicios remotos como extremos para la replicación de objetos, notificaciones de eventos o la integración de búsquedas. Los servicios de plataforma operan con independencia de las reglas de ILM del grid, y se habilitan para bloques individuales de S3. Se admiten los siguientes servicios:
 
 * El servicio de replicación de CloudMirror hace automáticamente mirroring de los objetos especificados en un bloque de S3 de destino, que puede estar en un segundo sistema Amazon S3 o en un segundo sistema StorageGRID.
-* El servicio de notificación de eventos envía mensajes sobre las acciones especificadas a un punto final externo que admite la recepción de eventos de Simple Notification Service (Amazon SNS).
+* El servicio de notificación de eventos envía mensajes sobre acciones específicas a un punto final externo que admite la recepción de eventos del Servicio de notificación simple (Amazon SNS).
 * El servicio de integración de búsqueda envía metadatos de objetos a un servicio de Elasticsearch externo, lo que permite buscar, visualizar y analizar los metadatos con herramientas de terceros.
 
 
@@ -43,10 +43,10 @@ Por ejemplo, podría usar la replicación de CloudMirror para reflejar registros
 
 Puede reducir el coste del almacenamiento de ONTAP organizando en niveles los datos en StorageGRID utilizando FabricPool. FabricPool permite organizar los datos en niveles de forma automática en niveles de almacenamiento de objetos de bajo coste, tanto dentro como fuera de las instalaciones.
 
-A diferencia de las soluciones de organización por niveles manual, FabricPool reduce el coste total de propiedad mediante la automatización de la organización en niveles de los datos para reducir el coste del almacenamiento. Ofrece las ventajas de la rentabilidad del cloud organizando en niveles en clouds públicos y privados incluyendo StorageGRID.
+A diferencia de las soluciones de niveles manuales, FabricPool reduce el costo total de propiedad al automatizar la clasificación de datos para reducir el costo de almacenamiento.  Ofrece los beneficios de la economía de la nube mediante la clasificación en nubes públicas y privadas, incluido StorageGRID.
 
 .Información relacionada
-* link:../ilm/what-cloud-storage-pool-is.html["¿Qué es Cloud Storage Pool?"]
+* link:../ilm/what-cloud-storage-pool-is.html["¿Qué es un pool de almacenamiento en cloud?"]
 * link:../tenant/what-platform-services-are.html["Gestione los servicios de la plataforma"]
 * link:../fabricpool/index.html["Configure StorageGRID para FabricPool"]
 

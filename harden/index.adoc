@@ -15,7 +15,7 @@ El endurecimiento del sistema es el proceso de eliminar tantos riesgos de seguri
 
 Al instalar y configurar StorageGRID, utilice estas directrices para ayudarle a cumplir los objetivos de seguridad prescritos en cuanto a confidencialidad, integridad y disponibilidad.
 
-Ya tiene que estar utilizando las prácticas recomendadas estándares del sector para reforzar los sistemas. Por ejemplo, utiliza contraseñas seguras para StorageGRID, utiliza HTTPS en lugar de HTTP y habilita la autenticación basada en certificados cuando esté disponible.
+Ya debería estar utilizando las mejores prácticas estándar de la industria para el fortalecimiento del sistema.  Por ejemplo, utiliza contraseñas seguras para StorageGRID, usa HTTPS en lugar de HTTP y habilita la autenticación basada en certificados cuando esté disponible.  Estas mejores prácticas deben incluir seguridad física y ambiental que limite el acceso físico y proteja el centro de datos físico y la infraestructura de soporte.  También debe consultar las normas y recomendaciones regulatorias aplicables para su negocio y geografía.
 
 StorageGRID sigue la https://security.netapp.com/policy/["Política de gestión de vulnerabilidades de NetApp"^]. Las vulnerabilidades notificadas se verifican y se tratan de acuerdo con el proceso de respuesta a incidentes de seguridad del producto.
 

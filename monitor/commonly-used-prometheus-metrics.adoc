@@ -39,7 +39,7 @@ image::../media/nodes_page_network_traffic_graph.png[Gráfico Prometheus]
 
 NOTE: Las métricas que incluyen _private_ en sus nombres están destinadas únicamente a uso interno y están sujetas a cambios entre versiones de StorageGRID sin previo aviso.
 
-* La página *SUPPORT* > *Tools* > *Diagnostics* y la página *SUPPORT* > *Tools* > *Metrics*: Estas páginas, que están destinadas principalmente al soporte técnico, proporcionan varias herramientas y gráficos que utilizan los valores de las métricas de Prometheus.
+* La página *Soporte* > *Herramientas* > *Diagnóstico* y la página *Soporte* > *Herramientas* > *Métricas*: estas páginas, que están destinadas principalmente para ser utilizadas por el soporte técnico, proporcionan varias herramientas y gráficos que utilizan los valores de las métricas de Prometheus.
 +
 
 NOTE: Algunas funciones y elementos de menú de la página Métricas no son intencionalmente funcionales y están sujetos a cambios.
@@ -65,8 +65,8 @@ storagegrid_administrativamente_down:: El nodo no está conectado a la cuadrícu
 storagegrid_appliance_computación_controladora_hardware_status:: El estado del hardware de la controladora de computación en un dispositivo.
 storagegrid_appliance_failed_discos:: Para la controladora de almacenamiento de un dispositivo, la cantidad de unidades que no son óptimas.
 storagegrid_dispositivo_almacenamiento_controladora_hardware_status:: El estado general del hardware de la controladora de almacenamiento en un dispositivo.
-storagegrid_content_buckets_y_contenedores:: El número total de bloques S3 y contenedores Swift que se conocen en este nodo de almacenamiento.
-storagegrid_content_objects:: La cantidad total de objetos de datos S3 y Swift que se conocen en este nodo de almacenamiento. Count es válido solo para los objetos de datos creados por las aplicaciones cliente que interactúan con el sistema a través de S3.
+storagegrid_content_buckets_y_contenedores:: La cantidad total de depósitos S3 conocidos por este nodo de almacenamiento.
+storagegrid_content_objects:: La cantidad total de objetos de datos S3 conocidos por este nodo de almacenamiento.  El recuento solo es válido para objetos de datos creados por aplicaciones cliente que interactúan con el sistema a través de S3.
 storagegrid_content_objects_perdidos:: La cantidad total de objetos que este servicio detecta como faltantes en el sistema StorageGRID. Se deben tomar medidas para determinar la causa de la pérdida y si es posible la recuperación.
 +
 --
@@ -135,11 +135,6 @@ storagegrid_storage_utilization_metadata_allowed_bytes:: El espacio total en el 
 storagegrid_almacenamiento_utilización_metadatos_bytes:: La cantidad de metadatos de objetos en el volumen de almacenamiento 0, en bytes.
 storagegrid_storage_utilization_total_space_bytes:: La cantidad total de espacio de almacenamiento asignado a todos los almacenes de objetos.
 storagegrid_almacenamiento_utilización_espacio_bytes utilizables:: La cantidad total de espacio de almacenamiento de objetos restante. Calculado mediante la adición conjunta de la cantidad de espacio disponible para todos los almacenes de objetos en el nodo de almacenamiento.
-storagegrid_swift_data_transfers_bytes_ingeridos:: La cantidad total de datos procesados de los clientes de Swift en este nodo de almacenamiento desde que se restableció el atributo por última vez.
-storagegrid_swift_data_transfers_bytes_recuperados:: La cantidad total de datos recuperados por los clientes de Swift de este nodo de almacenamiento desde que se restableció el atributo por última vez.
-storagegrid_swift_operaciones_failed:: El número total de operaciones Swift con errores (códigos de estado HTTP 4xx y 5xx), excepto las causadas por un error de autorización de Swift.
-storagegrid_swift_operaciones_correctamente:: La cantidad total de operaciones de Swift correctas (código de estado HTTP 2xx).
-storagegrid_swift_operaciones_no autorizado:: Número total de operaciones Swift fallidas que son el resultado de un error de autorización (códigos de estado HTTP 401, 403, 405).
 storagegrid_inquilino_uso_datos_bytes:: El tamaño lógico de todos los objetos para el arrendatario.
 storagegrid_tenant_usage_object_count:: El número de objetos para el arrendatario.
 storagegrid_tenant_usage_quota_bytes:: La cantidad máxima de espacio lógico disponible para los objetos del inquilino. Si no se proporciona una métrica de cuota, hay disponible una cantidad ilimitada de espacio.
@@ -151,6 +146,7 @@ storagegrid_tenant_usage_quota_bytes:: La cantidad máxima de espacio lógico di
 
 [[obtain-all-metrics]]Para obtener la lista completa de métricas, utilice la API de gestión de grid.
 
+.Pasos
 . En la parte superior de Grid Manager, selecciona el icono de ayuda y selecciona *Documentación de API*.
 . Localice las operaciones *Metricmétricas*.
 . Ejecute `GET /grid/metric-names` la operación.

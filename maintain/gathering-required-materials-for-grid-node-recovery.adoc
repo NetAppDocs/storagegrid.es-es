@@ -40,23 +40,23 @@ El portátil de servicio debe tener lo siguiente:
 
 
  a| 
-Archivo de paquete de recuperación `.zip`
+Paquete de recuperación `.zip` archivo
  a| 
-Obtenga una copia del archivo de Recovery Package más reciente `.zip`:
+Obtenga una copia del paquete de recuperación más reciente `.zip` archivo:
 `sgws-recovery-package-_id-revision_.zip`
 
-El contenido del `.zip` archivo se actualiza cada vez que se modifica el sistema. Se le indica que guarde la versión más reciente del paquete de recuperación en una ubicación segura después de realizar dichos cambios. Utilice la copia más reciente para recuperarse de fallos de la cuadrícula.
+El contenido de la `.zip` Los archivos se actualizan cada vez que se modifica el sistema.  Se le indica que guarde la versión más reciente del paquete de recuperación en una ubicación segura después de realizar dichos cambios.  Utilice la copia más reciente para recuperarse de fallas de la red.
 
-Si el nodo de administración principal funciona normalmente, puede descargar el paquete de recuperación desde el Administrador de grid. Seleccione *MANTENIMIENTO* > *sistema* > *paquete de recuperación*.
+Cuando inicie sesión en cualquier nodo de administración, utilice el Administrador de cuadrícula para descargar un paquete de recuperación.  Seleccione *Mantenimiento* > *Sistema* > *Paquete de recuperación*.
 
-Si no puede acceder a Grid Manager, puede encontrar copias cifradas del paquete de recuperación en algunos nodos de almacenamiento que contienen el servicio ADC. En cada nodo de almacenamiento, examine esta ubicación para el paquete de recuperación `/var/local/install/sgws-recovery-package-_grid-id_-_revision_.zip.gpg`: Utilice el paquete de recuperación con el número de revisión más alto.
+Si no puede acceder al Administrador de Grid, puede encontrar copias cifradas del paquete de recuperación en algunos nodos de almacenamiento que contienen el servicio ADC.  En cada nodo de almacenamiento, examine esta ubicación para el paquete de recuperación: `/var/local/install/sgws-recovery-package-_grid-id_-_revision_.zip.gpg` Utilice el paquete de recuperación con el número de revisión más alto.
 
 
 
  a| 
 `Passwords.txt` archivo
  a| 
-Contiene las contraseñas que se necesitan para acceder a los nodos de grid en la línea de comandos. Incluido en el paquete de recuperación.
+Contiene las contraseñas necesarias para acceder a los nodos de la red en la línea de comando.  Incluido en el paquete de recuperación.
 
 
 
@@ -107,7 +107,7 @@ Utilice el `.zip` archivo si ejecuta Windows.
 
 
  a| 
-Red Hat Enterprise Linux
+RHEL
 | `StorageGRID-Webscale-_version_-RPM-_uniqueID_.zip` 
 `StorageGRID-Webscale-_version_-RPM-_uniqueID_.tgz` 
 
@@ -124,13 +124,16 @@ VMware
 `StorageGRID-Webscale-_version_-VMware-_uniqueID_.tgz` 
 |===
 . Descargue y extraiga el archivo de archivo.
-. Siga el paso adecuado para que su plataforma pueda elegir los archivos que necesite, en función de su plataforma y los nodos de grid que necesita recuperar.
+. Vaya a la sección adecuada para su plataforma para elegir los archivos que necesita, según su plataforma y los nodos de la red que necesita recuperar.
 +
 Las rutas enumeradas en el paso de cada plataforma son relativas al directorio de nivel superior instalado por el archivo de archivado.
 
-. Si va a recuperar un link:../rhel/index.html["Sistema Red Hat Enterprise Linux"], seleccione los archivos adecuados.
-
-
+. Si se está recuperando de unalink:../swnodes/index.html["nodo basado en software"] , seleccione los archivos apropiados:
++
+[role="tabbed-block"]
+====
+.RHEL
+--
 [cols="1a,1a"]
 |===
 | Ruta y nombre de archivo | Descripción 
@@ -205,9 +208,9 @@ Esquemas de API para StorageGRID.
 *Nota*: Antes de realizar una actualización, puede usar estos esquemas para confirmar que cualquier código que haya escrito para usar las API de administración de StorageGRID será compatible con la nueva versión de StorageGRID si no tiene un entorno StorageGRID que no sea de producción para probar la compatibilidad de la actualización.
 
 |===
-. Si va a recuperar un link:../ubuntu/index.html["Sistema Ubuntu o Debian"], seleccione los archivos adecuados.
-
-
+--
+.Ubuntu o Debian
+--
 [cols="1a,1a"]
 |===
 | Ruta y nombre de archivo | Descripción 
@@ -287,9 +290,9 @@ Esquemas de API para StorageGRID.
 *Nota*: Antes de realizar una actualización, puede usar estos esquemas para confirmar que cualquier código que haya escrito para usar las API de administración de StorageGRID será compatible con la nueva versión de StorageGRID si no tiene un entorno StorageGRID que no sea de producción para probar la compatibilidad de la actualización.
 
 |===
-. Si va a recuperar un link:../vmware/index.html["Sistema VMware"], seleccione los archivos adecuados.
-
-
+--
+.VMware
+--
 [cols="1a,1a"]
 |===
 | Ruta y nombre de archivo | Descripción 
@@ -384,8 +387,15 @@ Esquemas de API para StorageGRID.
 *Nota*: Antes de realizar una actualización, puede usar estos esquemas para confirmar que cualquier código que haya escrito para usar las API de administración de StorageGRID será compatible con la nueva versión de StorageGRID si no tiene un entorno StorageGRID que no sea de producción para probar la compatibilidad de la actualización.
 
 |===
+--
+====
+
+
 . Si va a recuperar un sistema basado en dispositivos de StorageGRID, seleccione los archivos adecuados.
 
+
+
+NOTE: Para la instalación del dispositivo, estos archivos solo son necesarios si necesita evitar el tráfico de red.  El dispositivo puede descargar los archivos necesarios desde el nodo de administración donde se realiza el procedimiento de recuperación.
 
 [cols="1a,1a"]
 |===
@@ -402,5 +412,3 @@ MD5 suma de comprobación para el archivo `/debs/storagegridwebscale-
 images-version-SHA.deb`.
 
 |===
-
-NOTE: Para la instalación del dispositivo, estos archivos sólo son necesarios si necesita evitar el tráfico de red. El dispositivo puede descargar los archivos necesarios del nodo de administración principal.

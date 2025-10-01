@@ -37,12 +37,12 @@ Si el uso de S3 Console provoca operaciones que tardan demasiado (por ejemplo, m
 .Antes de empezar
 * Ha iniciado sesión en el gestor de inquilinos mediante un link:../admin/web-browser-requirements.html["navegador web compatible"].
 * Si desea gestionar objetos, pertenece a un grupo de usuarios que tiene el permiso de acceso root. Como alternativa, pertenece a un grupo de usuarios que tiene el permiso Usar la pestaña Consola de S3 y el permiso Ver todos los cubos o Gestionar todos los cubos. Consulte link:tenant-management-permissions.html["Permisos de gestión de inquilinos"].
-* Se ha configurado una política de grupo o bloque S3 para el usuario. Consulte link:../s3/bucket-and-group-access-policies.html["Utilice las políticas de acceso de bloques y grupos"].
+* Se ha configurado una política de grupo o bucket S3 para el usuario. Ver link:../s3/use-access-policies.html["Utilice las políticas de acceso de bloques y grupos"] .
 * Conoce el ID de clave de acceso del usuario y la clave de acceso secreta. Opcionalmente, tiene un `.csv` archivo que contiene esta información. Consulte la link:creating-your-own-s3-access-keys.html["instrucciones para crear claves de acceso"].
 
 
 .Pasos
-. Seleccione *STORAGE* > *Buckets* > *_bucket name_*.
+. Seleccione *Almacenamiento* > *Cubos* > *_nombre del cubo_*.
 . Seleccione la ficha Consola de S3.
 . Pegue el ID de clave de acceso y la clave de acceso secreta en los campos. De lo contrario, selecciona *Cargar claves de acceso* y selecciona tu `.csv` archivo.
 . Seleccione *Iniciar sesión*.

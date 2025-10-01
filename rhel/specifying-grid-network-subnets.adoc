@@ -1,33 +1,8 @@
 ---
 permalink: rhel/specifying-grid-network-subnets.html 
-sidebar: sidebar 
-keywords: how to specify Grid Network subnets 
-summary: Debe especificar las subredes que se utilizan en la red de cuadrícula. 
+redirect: storagegrid/swnodes/specifying-grid-network-subnets.html 
 ---
-= Especifique las subredes de red de red
+= 
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
-
-[role="lead"]
-Debe especificar las subredes que se utilizan en la red de cuadrícula.
-
-.Acerca de esta tarea
-Las entradas de subred incluyen las subredes de la red de grid para cada sitio del sistema de StorageGRID, junto con las subredes a las que sea necesario acceder a través de la red de grid.
-
-Si tiene varias subredes de cuadrícula, se requiere la puerta de enlace de red de cuadrícula. Todas las subredes de la cuadrícula especificadas deben ser accesibles a través de esta puerta de enlace.
-
-.Pasos
-. Especifique la dirección de red CIDR para al menos una red de cuadrícula en el cuadro de texto *Subnet 1*.
-. Haga clic en el signo más situado junto a la última entrada para añadir una entrada de red adicional. Debe especificar todas las subredes para todos los sitios de la red de grid.
-+
-** Si ya ha implementado al menos un nodo, haga clic en *detectar subredes* de redes de cuadrícula para rellenar automáticamente la Lista de subredes de red de cuadrícula con las subredes notificadas por los nodos de cuadrícula que se han registrado en el Gestor de cuadrícula.
-** Debe añadir manualmente todas las subredes para NTP, DNS, LDAP u otros servidores externos a los que se accede a través de la puerta de enlace de la red de grid.
-+
-image::../media/4_gmi_installer_grid_network_page.gif[Especifique las subredes]
-
-
-
-. Haga clic en *Siguiente*.
 

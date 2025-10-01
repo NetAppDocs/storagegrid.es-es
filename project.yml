@@ -10,8 +10,10 @@ settings:
     harmony_enabled: false
     hide_language_selector: false
   versions:
-  - version-number: '11.9'
+  - version-number: '12.0'
     url: "/storagegrid"
+  - version-number: '11.9'
+    url: "/storagegrid-119"
   - version-number: '11.8'
     url: "/storagegrid-118"
   - version-number: '11.7'
@@ -23,7 +25,7 @@ settings:
   langs: es-es,us-en,de-de,fr-fr,it-it,pt-br,ja-jp,ko-kr,zh-cn,zh-tw
 sidebar:
   entries:
-  - title: Documentación de StorageGRID 11,9
+  - title: Software StorageGRID 12.0
     url: "/index.html"
   - title: Dispositivos StorageGRID
     url: "/storagegrid-hardware.html"
@@ -39,11 +41,9 @@ sidebar:
   - title: Instala, actualiza y corrige
     url: "/landing-install-upgrade/index.html"
     entries:
-    - title: Instalar dispositivos
+    - title: Instalar nodos basados en dispositivos
       url: "/storagegrid-hardware.html"
-    - section: rhel
-    - section: ubuntu
-    - section: vmware
+    - section: swnodes
     - section: upgrade
     - title: Aplique la revisión de StorageGRID
       entries:
@@ -84,7 +84,7 @@ sidebar:
     entries:
     - title: Mantenimiento de la red
       url: "/maintain/index.html"
-    - title: Descargue el paquete de recuperación
+    - title: Descargar paquete de recuperación
       url: "/maintain/downloading-recovery-package.html"
     - title: Retirada de nodos o sitio
       entries:
@@ -149,6 +149,30 @@ sidebar:
       - title: Procedimientos de mantenimiento de nodos
         pdf-filename: Procedimientos de nodo
         url: "/maintain/grid-node-procedures.html"
+      - title: Mover el servicio ADC
+        url: "/maintain/move-adc-service.html"
+      - title: Convertir a nodo de solo datos
+        url: "/maintain/convert-to-data-only-node.html"
+      - title: Procedimientos de reinicio, apagado y encendido
+        entries:
+        - title: Realice un reinicio gradual
+          url: "/maintain/rolling-reboot-procedure.html"
+        - title: Reinicie el nodo en la pestaña Tareas
+          url: "/maintain/rebooting-grid-node-from-grid-manager.html"
+        - title: Reinicie el nodo desde el shell de comandos
+          url: "/maintain/rebooting-grid-node-from-command-shell.html"
+        - title: Apague el nodo
+          url: "/maintain/shutting-down-grid-node.html"
+        - title: Apague el host
+          url: "/maintain/powering-down-host.html"
+        - title: Apague y encienda todos los nodos
+          url: "/maintain/powering-off-and-on-all-nodes-in-grid.html"
+      - title: Procedimientos de reasignación de puertos
+        entries:
+        - title: Eliminar reasignaciones de puertos en dispositivos StorageGRID
+          url: "/maintain/removing-port-remaps.html"
+        - title: Quite las reasignaciones de puertos en hosts sin sistema operativo
+          url: "/maintain/removing-port-remaps-on-bare-metal-hosts.html"
       - title: Procedimientos del Administrador de servidores
         entries:
         - title: Ver el estado y la versión de Server Manager
@@ -173,26 +197,6 @@ sidebar:
           url: "/maintain/using-donotstart-file.html"
         - title: Solucionar problemas de Server Manager
           url: "/maintain/accessing-server-manager-log-file.html"
-      - title: Procedimientos de reinicio, apagado y encendido
-        entries:
-        - title: Realice un reinicio gradual
-          url: "/maintain/rolling-reboot-procedure.html"
-        - title: Reinicie el nodo en la pestaña Tareas
-          url: "/maintain/rebooting-grid-node-from-grid-manager.html"
-        - title: Reinicie el nodo desde el shell de comandos
-          url: "/maintain/rebooting-grid-node-from-command-shell.html"
-        - title: Apague el nodo
-          url: "/maintain/shutting-down-grid-node.html"
-        - title: Apague el host
-          url: "/maintain/powering-down-host.html"
-        - title: Apague y encienda todos los nodos
-          url: "/maintain/powering-off-and-on-all-nodes-in-grid.html"
-      - title: Procedimientos de reasignación de puertos
-        entries:
-        - title: Eliminar reasignaciones de puertos
-          url: "/maintain/removing-port-remaps.html"
-        - title: Quite las reasignaciones de puertos en hosts sin sistema operativo
-          url: "/maintain/removing-port-remaps-on-bare-metal-hosts.html"
     - title: Procedimientos de red
       entries:
       - title: Actualice las subredes de la red de cuadrícula
@@ -402,7 +406,7 @@ sidebar:
         url: "/maintain/monitoring-services-appliance-installation.html"
     - title: Cómo el soporte técnico recupera un sitio
       url: "/maintain/how-site-recovery-is-performed-by-technical-support.html"
-  - title: Habilite StorageGRID
+  - title: Soluciones y recursos de StorageGRID
     url: "/storagegrid-enable.html"
   - title: StorageGRID y BlueXP
     url: "/storagegrid-bluexp.html"

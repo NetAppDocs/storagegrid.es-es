@@ -14,12 +14,7 @@ summary: Si un nodo de almacenamiento incluye menos de 48 volúmenes de almacena
 Si un nodo de almacenamiento incluye menos de 48 volúmenes de almacenamiento, puede aumentar su capacidad mediante la adición de nuevos dispositivos de almacenamiento en bloques, haciéndolos visibles para los hosts Linux y la adición de las nuevas asignaciones de dispositivos de bloque al archivo de configuración de StorageGRID que se utiliza para el nodo de almacenamiento.
 
 .Antes de empezar
-* Tiene acceso a las instrucciones de instalación de StorageGRID para su plataforma Linux.
-+
-** link:../rhel/index.html["Instalar StorageGRID en Red Hat Enterprise Linux"]
-** link:../ubuntu/index.html["Instalar StorageGRID en Ubuntu o Debian"]
-
-
+* Tienes acceso a lalink:../swnodes/index.html["Instrucciones para instalar StorageGRID"] para su plataforma Linux.
 * Tiene el `Passwords.txt` archivo.
 * Tienes link:../admin/admin-group-permissions.html["permisos de acceso específicos"].
 
@@ -167,19 +162,13 @@ El `setup_rangedbs.sh` script se ejecuta automáticamente.
 . Compruebe que el estado de almacenamiento del nodo de almacenamiento sea en línea:
 +
 .. Inicie sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
-.. Seleccione *SUPPORT* > *Tools* > *Topología de cuadrícula*.
-.. Seleccione *_site_* > *_Storage Node_* > *LDR* > *Storage*.
-.. Seleccione la ficha *Configuración* y, a continuación, la ficha *Principal*.
-.. Si la lista desplegable *Estado de almacenamiento - deseado* está establecida en sólo lectura o sin conexión, seleccione *en línea*.
-.. Haga clic en *aplicar cambios*.
+.. Seleccione *Nodos* > *_Nodo de almacenamiento_* > *Tareas*.
+.. Si la lista desplegable *Estado de almacenamiento* está configurada en Solo lectura o Sin conexión, seleccione *En línea*.
+.. Seleccione *Guardar*.
 
 
-. Para ver los nuevos almacenes de objetos:
-+
-.. Seleccione *NODES* > *_site_* > *_Storage Node_* > *Storage*.
-.. Consulte los detalles en la tabla *almacenes de objetos*.
-
-
+. Para ver los nuevos almacenes de objetos, seleccione *Almacenamiento*.
+. Vea los detalles en la tabla *Volúmenes*.
 
 
 .Resultado

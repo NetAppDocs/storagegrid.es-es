@@ -141,6 +141,8 @@ Consulte <<Solicitar encabezados para el cifrado del servidor>>
 
 No se admiten las siguientes cabeceras de solicitud:
 
+* `If-Match`
+* `If-None-Match`
 * `x-amz-acl`
 * `x-amz-sdk-checksum-algorithm`
 * `x-amz-trailer`

@@ -59,6 +59,8 @@ NOTE: El `ETag` valor devuelto no es una suma de MD5 de los datos, sino que sigu
 
 No se admiten las siguientes cabeceras de solicitud:
 
+* `If-Match`
+* `If-None-Match`
 * `x-amz-sdk-checksum-algorithm`
 * `x-amz-trailer`
 

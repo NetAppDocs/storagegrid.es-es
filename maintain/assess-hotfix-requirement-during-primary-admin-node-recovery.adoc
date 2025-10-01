@@ -18,7 +18,7 @@ Se ha completado la recuperación del nodo de administración principal.
 
 .Pasos
 . Inicie sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
-. Selecciona *NODOS*.
+. Seleccionar *Nodos*.
 . En la lista de la izquierda, seleccione el nodo de administración principal.
 . En la ficha Descripción general, observe la versión que aparece en el campo *Versión de software*.
 . Seleccione cualquier otro nodo de grid.

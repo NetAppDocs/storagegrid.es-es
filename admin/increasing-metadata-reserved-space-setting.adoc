@@ -15,11 +15,8 @@ Es posible que pueda aumentar la configuración del sistema de espacio reservado
 
 .Lo que necesitará
 * Ha iniciado sesión en Grid Manager mediante una link:web-browser-requirements.html["navegador web compatible"].
-* Usted tiene el link:admin-group-permissions.html["Permiso de acceso raíz o configuración de página de topología de cuadrícula y otros permisos de configuración de cuadrícula"].
+* Tú tienes ellink:admin-group-permissions.html["Permiso de acceso root o permiso de configuración de otra red"] .
 
-
-
-NOTE: La página de topología de cuadrícula ha quedado obsoleta y se eliminará en una versión futura.
 
 .Acerca de esta tarea
 Es posible que pueda aumentar manualmente la configuración del espacio reservado de metadatos en todo el sistema hasta 8 TB.
@@ -40,13 +37,13 @@ Para obtener una explicación detallada de cómo el valor de Espacio Reservado d
 .Pasos
 . Determine la configuración actual del espacio reservado de metadatos.
 +
-.. Seleccione *CONFIGURACIÓN* > *sistema* > *Opciones de almacenamiento*.
-.. En la sección Marcas de agua de almacenamiento, observe el valor de *Espacio reservado de metadatos*.
+.. Seleccione *Configuración* > *Sistema* > *Configuración de almacenamiento*.
+.. Tenga en cuenta el valor de *Espacio reservado para metadatos*.
 
 
 . Asegúrese de tener suficiente espacio disponible en el volumen de almacenamiento 0 de cada nodo de almacenamiento para aumentar este valor.
 +
-.. Selecciona *NODOS*.
+.. Seleccionar *Nodos*.
 .. Seleccione el primer nodo de almacenamiento de la cuadrícula.
 .. Seleccione la pestaña almacenamiento.
 .. En la sección de volúmenes, localice la entrada */var/local/rangedb/0*.
@@ -64,7 +61,7 @@ Por ejemplo, si la configuración de espacio reservado de metadatos es actualmen
 
 . Asegúrese de tener al menos 128 GB de RAM en cada nodo de almacenamiento.
 +
-.. Selecciona *NODOS*.
+.. Seleccionar *Nodos*.
 .. Seleccione el primer nodo de almacenamiento de la cuadrícula.
 .. Seleccione la ficha *hardware*.
 .. Pase el cursor sobre el gráfico uso de memoria. Asegúrese de que *memoria total* es de al menos 128 GB.
@@ -78,17 +75,13 @@ Por ejemplo, si la configuración de espacio reservado de metadatos es actualmen
 
 . Actualice la configuración espacio reservado de metadatos.
 +
-.. Seleccione *CONFIGURACIÓN* > *sistema* > *Opciones de almacenamiento*.
-.. Seleccione la ficha Configuración.
-.. En la sección Marcas de agua de almacenamiento, seleccione *Espacio reservado de metadatos*.
+.. Seleccione *Configuración* > *Sistema* > *Configuración de almacenamiento*.
+.. Seleccione *Espacio reservado para metadatos*.
 .. Introduzca el nuevo valor.
 +
 Por ejemplo, para introducir 8 TB, que es el valor máximo admitido, introduzca *8000000000000* (8, seguido de 12 ceros)
 
-+
-image::../media/metadata_reserved_space.png[Espacio reservado de metadatos]
-
-.. Seleccione *aplicar cambios*.
+.. Seleccione *Guardar*.
 
 
 

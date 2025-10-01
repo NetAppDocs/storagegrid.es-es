@@ -68,7 +68,7 @@ El _Metadata reserved space_ es un valor para todo el sistema que representa la 
 
 
  a| 
-11,5 a 11,9
+11,5 a 12,0
  a| 
 128 GB o más en cada nodo de almacenamiento del grid
  a| 
@@ -116,7 +116,7 @@ Cualquier cantidad
 Siga estos pasos para ver la configuración de espacio reservado de metadatos para el sistema StorageGRID.
 
 .Pasos
-. Selecciona *CONFIGURACIÓN* > *Sistema* > *Ajustes de almacenamiento*.
+. Seleccione *Configuración* > *Sistema* > *Configuración de almacenamiento*.
 . En la página Configuración de almacenamiento, expanda la sección *Espacio reservado de metadatos*.
 
 
@@ -161,7 +161,7 @@ El menor de estos valores:
 Siga estos pasos para ver el espacio reservado real para metadatos en un nodo de almacenamiento en particular.
 
 .Pasos
-. En Grid Manager, seleccione *NODES* > *_Storage Node_*.
+. Desde el Administrador de cuadrícula, seleccione *Nodos* > *_Nodo de almacenamiento_*.
 . Seleccione la ficha *almacenamiento*.
 . Coloque el cursor sobre el gráfico Almacenamiento usado - Metadatos de objetos y localice el valor *Real reserved*.
 +
@@ -173,7 +173,7 @@ En la captura de pantalla, el valor *Real reservado* es 8 TB. Esta captura de pa
 
 
 
-== Ejemplo de espacio de metadatos reservado real
+=== Ejemplo de espacio de metadatos reservado real
 
 Suponga que instala un nuevo sistema StorageGRID mediante la versión 11,7 o posterior. Para este ejemplo, supongamos que cada nodo de almacenamiento tiene más de 128 GB de RAM y que el volumen 0 del nodo de almacenamiento 1 (SN1) es de 6 TB. Según estos valores:
 
@@ -237,7 +237,7 @@ En la tabla siguiente se muestra cómo StorageGRID calcula el *espacio de metada
 Siga estos pasos para ver el espacio de metadatos permitido para un nodo de almacenamiento.
 
 .Pasos
-. En Grid Manager, seleccione *NODES*.
+. Desde el Administrador de cuadrícula, seleccione *Nodos*.
 . Seleccione el nodo de almacenamiento.
 . Seleccione la ficha *almacenamiento*.
 . Coloque el cursor sobre el gráfico de metadatos de objetos Storage Used y localice el valor *Allowed*.

@@ -25,7 +25,7 @@ Para obtener más información, consulte link:../admin/configuring-client-connec
 .Pasos
 . Si los clientes S3 se conectan mediante el servicio de equilibrio de carga, compruebe que los nodos de administración o de puerta de enlace estén distribuyendo el tráfico de forma activa según lo previsto:
 +
-.. Selecciona *NODOS*.
+.. Seleccionar *Nodos*.
 .. Seleccione un nodo de puerta de enlace o un nodo de administrador.
 .. En la pestaña *Overview*, compruebe si una interfaz de nodo está en un grupo HA y si la interfaz de nodo tiene el rol Primary.
 +

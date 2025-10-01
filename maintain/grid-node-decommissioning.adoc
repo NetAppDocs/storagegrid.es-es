@@ -37,7 +37,7 @@ TIP: Si desea reemplazar un dispositivo más antiguo por otro más nuevo, consid
 
 Puede retirar los nodos de grid conectados o los nodos de grid desconectados.
 
-Retirada de nodos conectados:: En general, debe retirar los nodos de la cuadrícula solo cuando estén conectados al sistema StorageGRID y solo cuando todos los nodos estén en estado normal (tenga iconos verdes en las páginas *NODES* y en la página *Decomimission Nodes*).
+Retirada de nodos conectados:: En general, debe desmantelar los nodos de la red solo cuando estén conectados al sistema StorageGRID y solo cuando todos los nodos tengan un estado normal (tengan íconos verdes en las páginas *Nodos* y en la página *Desmantelar nodos*).
 +
 --
 Para obtener instrucciones, consulte link:decommissioning-connected-grid-nodes.html["Retirada de nodos de grid conectados"].

@@ -1,45 +1,8 @@
 ---
 permalink: vmware/software-requirements.html 
-sidebar: sidebar 
-keywords: software requirements 
-summary: Es posible usar una máquina virtual para alojar cualquier tipo de nodo StorageGRID. Se necesita una máquina virtual para cada nodo de grid. 
+redirect: storagegrid/swnodes/software-requirements.html 
 ---
-= Requisitos de software para VMware
+= 
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
 
-[role="lead"]
-Es posible usar una máquina virtual para alojar cualquier tipo de nodo StorageGRID. Se necesita una máquina virtual para cada nodo de grid.
-
-
-
-== Hipervisor de VMware vSphere
-
-Debe instalar VMware vSphere Hypervisor en un servidor físico preparado. El hardware debe estar configurado correctamente (incluidas las versiones del firmware y la configuración del BIOS) antes de instalar el software VMware.
-
-* Configure las redes en el hipervisor según sea necesario para admitir la conexión a redes del sistema StorageGRID que está instalando.
-+
-link:../network/index.html["Directrices sobre redes"]
-
-* Asegúrese de que el almacén de datos sea lo suficientemente grande para las máquinas virtuales y los discos virtuales necesarios para alojar los nodos de grid.
-* Si crea más de un almacén de datos, asigne un nombre a cada almacén de datos para poder identificar fácilmente qué almacén de datos se debe usar para cada nodo de grid al crear máquinas virtuales.
-
-
-
-
-== Requisitos de configuración del host ESX
-
-
-CAUTION: Debe configurar correctamente el protocolo de hora de red (NTP) en cada host ESX. Si el tiempo del host es incorrecto, podrían producirse efectos negativos, incluso la pérdida de datos.
-
-
-
-== Requisitos de configuración de VMware
-
-Debe instalar y configurar VMware vSphere y vCenter antes de implementar los nodos de StorageGRID.
-
-Para obtener información sobre las versiones compatibles del hipervisor de VMware vSphere y el software VMware vCenter Server, consulte https://imt.netapp.com/matrix/#welcome["Herramienta de matriz de interoperabilidad de NetApp"^] el .
-
-Para conocer los pasos necesarios para instalar estos productos de VMware, consulte la documentación de VMware.

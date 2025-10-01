@@ -64,7 +64,7 @@ Después de guardar la configuración, todos los puertos externos en el nodo de 
 
 === Ejemplo 2: Bloquear puertos sensibles
 
-Suponga que desea bloquear los puertos confidenciales y el servicio en ese puerto (por ejemplo, SSH en el puerto 22). Puede utilizar los siguientes pasos generales:
+Supongamos que desea bloquear puertos sensibles y el servicio en ese puerto.  Podrías utilizar los siguientes pasos generales:
 
 . Utilice el separador Lista de Direcciones con Privilegios para otorgar acceso sólo a los hosts que necesitan acceso al servicio.
 . Utilice la pestaña Gestionar acceso externo para bloquear todos los puertos.
@@ -73,7 +73,7 @@ Suponga que desea bloquear los puertos confidenciales y el servicio en ese puert
 
 CAUTION: Agregue la dirección IP con privilegios antes de bloquear el acceso a los puertos asignados para acceder a Grid Manager y al gestor de inquilinos (los puertos predefinidos son 443 y 8443). Cualquier usuario conectado actualmente a un puerto bloqueado, incluido usted, perderá el acceso a Grid Manager a menos que su dirección IP se haya agregado a la lista de direcciones con privilegios.
 
-Después de guardar la configuración, el puerto 22 y el servicio SSH estarán disponibles para los hosts de la lista de direcciones con privilegios. Se denegará el acceso al servicio a todos los demás hosts sin importar de qué interfaz proviene la solicitud.
+Después de guardar su configuración, el puerto sensible y el servicio en ese puerto estarán disponibles para los hosts en la lista de direcciones privilegiadas.  A todos los demás hosts se les niega el acceso al servicio sin importar de qué interfaz provenga la solicitud.
 
 
 

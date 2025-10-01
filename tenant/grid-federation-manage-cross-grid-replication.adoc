@@ -17,7 +17,7 @@ Si a su cuenta de inquilino se le asignó el permiso *Usar conexión de federaci
 
 == Flujo de trabajo de replicación entre grid
 
-El diagrama de flujo de trabajo resume los pasos que realizará para configurar la replicación entre bloques en dos cuadrículas. Estos pasos se describen con más detalle a continuación.
+El diagrama de flujo de trabajo resume los pasos que se realizan para configurar la replicación entre cuadrículas entre depósitos en dos cuadrículas.  Estos pasos se describen con más detalle a continuación del diagrama.
 
 image::../media/grid-federation-cgr-workflow.png[Flujo de trabajo de replicación entre grid]
 
@@ -25,38 +25,41 @@ image::../media/grid-federation-cgr-workflow.png[Flujo de trabajo de replicació
 
 == Configurar la replicación entre grid
 
-Para poder utilizar la replicación entre grid, debe iniciar sesión en las cuentas de tenant correspondientes en cada grid y crear buckets idénticos. A continuación, puede activar la replicación entre grid en cualquiera de los dos bloques o en ambos.
+Antes de poder utilizar la replicación entre redes, debe iniciar sesión en las cuentas de inquilino correspondientes en cada red y crear dos grupos.  Luego, puedes habilitar la replicación entre redes en uno o ambos depósitos.
 
 .Antes de empezar
-* Ha revisado los requisitos para la replicación entre grid. Consulte link:../admin/grid-federation-what-is-cross-grid-replication.html["Qué es la replicación entre grid"].
-* Está utilizando una link:../admin/web-browser-requirements.html["navegador web compatible"].
-* La cuenta de inquilino tiene el permiso *Use grid federation connection* y existen cuentas de inquilino idénticas en ambas cuadrículas. Consulte link:../admin/grid-federation-manage-tenants.html["Gestione los inquilinos permitidos para la conexión de federación de grid"].
-* El usuario de inquilino al que se conectará como ya existe en ambas cuadrículas y pertenece a un grupo de usuarios que tiene el link:tenant-management-permissions.html["Permiso de acceso raíz"].
-* Si va a iniciar sesión en la cuadrícula de destino del inquilino como un usuario local, el usuario raíz de la cuenta de inquilino ha establecido una contraseña para su cuenta de usuario en ese grid.
+* Has revisado los requisitos para la replicación entre redes. Consulte link:../admin/grid-federation-what-is-cross-grid-replication.html["Qué es la replicación entre grid"] .
+* Estás usando unlink:../admin/web-browser-requirements.html["navegador web compatible"] .
+* La cuenta de inquilino tiene el permiso *Usar conexión de federación de red* y existen cuentas de inquilino idénticas en ambas redes. Consulte link:../admin/grid-federation-manage-tenants.html["Gestione los inquilinos permitidos para la conexión de federación de grid"] .
+* El usuario inquilino con el que está iniciando sesión ya existe en ambas redes y pertenece a un grupo de usuarios que tiene lalink:tenant-management-permissions.html["Permiso de acceso raíz"] .
+* Si inicia sesión en la red de destino del inquilino como usuario local, el usuario raíz de la cuenta del inquilino ha establecido una contraseña para su cuenta de usuario en esa red.
 
 
 
 
-=== Cree dos cubos idénticos
+=== Crea dos cubos
 
-Como primer paso, inicie sesión en las cuentas de arrendatario correspondientes en cada cuadrícula y cree cubos idénticos.
+Como primer paso, inicie sesión en las cuentas de inquilino correspondientes en cada red y cree un depósito en cada red.
 
 .Pasos
 . A partir de cualquier cuadrícula de la conexión de federación de grid, cree un nuevo bucket:
 +
 .. Inicie sesión en la cuenta de inquilino con las credenciales de un usuario de inquilino que existe en ambas cuadrículas.
 +
-
-NOTE: Si no puede iniciar sesión en la cuadrícula de destino del inquilino como usuario local, confirme que el usuario raíz de la cuenta de inquilino ha establecido una contraseña para su cuenta de usuario.
+Si no puede iniciar sesión en la red de destino del inquilino como usuario local, confirme que el usuario raíz de la cuenta del inquilino haya establecido una contraseña para su cuenta de usuario.
 
 .. Siga las instrucciones para link:creating-s3-bucket.html["Cree un bucket de S3"].
++
+
+TIP: Los nombres de los depósitos y las regiones pueden ser diferentes en cada cuadrícula.
+
 .. En la pestaña *Administrar configuración de objetos*, selecciona *Activar control de versiones de objetos*.
-.. Si el bloqueo de objetos S3 está activado para el sistema StorageGRID, no habilite el bloqueo de objetos S3 para el depósito.
+.. Si el bloqueo de objetos S3 está habilitado para su sistema StorageGRID , consultelink:../admin/grid-federation-what-is-cross-grid-replication.html#cgr-with-ol["Replicación entre cuadrículas con S3 Object Lock"] .
 .. Seleccione *Crear cucharón*.
 .. Seleccione *Finalizar*.
 
 
-. Repita estos pasos para crear un depósito idéntico para la misma cuenta de inquilino en el otro grid de la conexión de federación de grid.
+. Repita estos pasos para crear un depósito para la misma cuenta de inquilino en la otra red en la conexión de federación de red.
 +
 
 TIP: Según sea necesario, cada cubo puede utilizar una región diferente.
@@ -81,16 +84,16 @@ Debe realizar estos pasos antes de agregar cualquier objeto a cada bloque.
 .. Opcionalmente, cambie la configuración de *replicar marcadores de eliminación* para determinar qué sucede en la cuadrícula de destino si un cliente S3 emite una solicitud de eliminación a la cuadrícula de origen que no incluye un ID de versión:
 +
 *** *Sí* (por defecto): Se agrega un marcador de borrado al depósito de origen y se replica en el cubo de destino.
-*** *No*: Se agrega un marcador de borrado al cubo de origen pero no se replica en el cubo de destino.
+*** *No*: Se agrega un marcador de eliminación al depósito de origen, pero no se replica en el depósito de destino.
 +
 image::../media/grid-federation-cross-grid-replication-client-deletes.png[imagen que muestra la supresión del cliente de réplica en ambas cuadrículas]
 
 +
 
-NOTE: Si la solicitud de eliminación incluye un ID de versión, esa versión de objeto se elimina permanentemente del depósito de origen. StorageGRID no replica las solicitudes de eliminación que incluyen un identificador de versión, por lo que la misma versión de objeto no se elimina del destino.
+NOTE: Si la solicitud de eliminación incluye un ID de versión, esa versión del objeto se elimina de forma permanente del depósito de origen.  StorageGRID no replica las solicitudes de eliminación que incluyen un ID de versión, por lo que la misma versión del objeto no se elimina del destino.
 
 +
-Consulte link:../admin/grid-federation-what-is-cross-grid-replication.html["Qué es la replicación entre grid"] para obtener más información.
+Referirse alink:../admin/grid-federation-what-is-cross-grid-replication.html["Qué es la replicación entre grid"] Para más detalles.
 
 
 
@@ -103,7 +106,7 @@ Consulte link:../admin/grid-federation-what-is-cross-grid-replication.html["Qué
 .. Revise las selecciones. No puede cambiar esta configuración a menos que ambos cubos estén vacíos.
 .. Seleccione *Habilitar y probar*.
 +
-Después de unos momentos, aparece un mensaje de éxito. Los objetos agregados a este depósito ahora se replicarán automáticamente en la otra cuadrícula. *La replicación de cuadrícula cruzada* se muestra como una característica habilitada en la página de detalles del cubo.
+Después de unos momentos, aparece un mensaje de éxito.  Los objetos agregados a este depósito ahora se replican automáticamente en la otra cuadrícula.  La *replicación entre redes* se muestra como una función habilitada en la página de detalles del depósito.
 
 
 
@@ -117,7 +120,7 @@ Después de unos momentos, aparece un mensaje de éxito. Los objetos agregados a
 Si se habilita la replicación entre grid para un bloque, es posible que deba comprobar que la conexión y la replicación entre grid funcionan correctamente y que los buckets de origen y de destino siguen cumpliendo todos los requisitos (por ejemplo, las versiones siguen activadas).
 
 .Antes de empezar
-* Está utilizando una link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Estás usando unlink:../admin/web-browser-requirements.html["navegador web compatible"] .
 * Pertenece a un grupo de usuarios que tiene el link:tenant-management-permissions.html["Permiso de acceso raíz"].
 
 
@@ -128,7 +131,7 @@ Si se habilita la replicación entre grid para un bloque, es posible que deba co
 . Seleccione la pestaña *Replicación de cuadrícula*.
 . Seleccione *probar conexión*.
 +
-Si la conexión es correcta, aparece el banner Correcta. De lo contrario, se muestra un mensaje de error que usted y el administrador de grid pueden utilizar para resolver el problema. Para obtener más información, consulte link:../admin/grid-federation-troubleshoot.html["Solucionar errores de federación de grid"].
+Si la conexión es saludable, aparece un banner de éxito.  De lo contrario, aparecerá un mensaje de error que usted y el administrador de la red pueden utilizar para resolver el problema. Para más detalles, consultelink:../admin/grid-federation-troubleshoot.html["Solucionar errores de federación de grid"] .
 
 . Si la replicación entre redes está configurada para que ocurra en ambas direcciones, vaya al depósito correspondiente en la otra cuadrícula y seleccione *Probar conexión* para verificar que la replicación entre redes funcione en la otra dirección.
 
@@ -141,10 +144,10 @@ Puede detener de forma permanente la replicación entre grid si ya no desea copi
 
 Antes de deshabilitar la replicación entre grid, tenga en cuenta lo siguiente:
 
-* Al desactivar la replicación entre grid no se elimina ningún objeto que ya se haya copiado entre grid. Por ejemplo, los objetos en `my-bucket` Grid 1 que se han copiado en `my-bucket` Grid 2 no se eliminan si deshabilita la replicación entre grid para ese depósito. Si desea eliminar estos objetos, debe eliminarlos manualmente.
+* Deshabilitar la replicación entre cuadrículas no elimina ningún objeto que ya se haya copiado entre cuadrículas.  Por ejemplo, los objetos en `my-bucket` en la cuadrícula 1 que se han copiado a `my-bucket` en Grid 2 no se eliminan si deshabilita la replicación entre redes para ese depósito.  Si desea eliminar estos objetos, deberá eliminarlos manualmente.
 * Si se activó la replicación entre grid para cada uno de los buckets (es decir, si la replicación se produce en ambas direcciones), puede deshabilitar la replicación entre grid para uno o ambos buckets. Por ejemplo, puede que desee desactivar la replicación de objetos de `my-bucket` Grid 1 a `my-bucket` Grid 2, mientras continúa replicando objetos de `my-bucket` Grid 2 a Grid `my-bucket` 1.
-* Debe deshabilitar la replicación entre grid para poder quitar el permiso de un inquilino para utilizar la conexión de federación de grid. Consulte link:../admin/grid-federation-manage-tenants.html["Gestionar inquilinos permitidos"].
-* Si deshabilita la replicación entre grid para un bucket que contiene objetos, no podrá volver a habilitar la replicación entre grid a menos que elimine todos los objetos de los buckets de origen y de destino.
+* Debe deshabilitar la replicación entre redes antes de poder quitar el permiso de un inquilino para usar la conexión de federación de red. Consulte link:../admin/grid-federation-manage-tenants.html["Gestionar inquilinos permitidos"] .
+* Si deshabilita la replicación entre cuadrículas para un depósito que contiene objetos, no podrá volver a habilitarla a menos que elimine todos los objetos de los depósitos de origen y destino.
 +
 
 CAUTION: No puede volver a activar la replicación a menos que ambos buckets estén vacíos.
@@ -152,7 +155,7 @@ CAUTION: No puede volver a activar la replicación a menos que ambos buckets est
 
 
 .Antes de empezar
-* Está utilizando una link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Estás usando unlink:../admin/web-browser-requirements.html["navegador web compatible"] .
 * Pertenece a un grupo de usuarios que tiene el link:tenant-management-permissions.html["Permiso de acceso raíz"].
 
 
@@ -164,7 +167,7 @@ CAUTION: No puede volver a activar la replicación a menos que ambos buckets est
 .. Seleccione el nombre del cubo de la tabla para acceder a la página de detalles del cubo.
 .. Seleccione la pestaña *Replicación de cuadrícula*.
 .. Seleccione *Desactivar replicación*.
-.. Si está seguro de que desea deshabilitar la replicación entre redes para este depósito, escriba *Sí* en el cuadro de texto y seleccione *Desactivar*.
+.. Si está seguro de que desea deshabilitar la replicación entre redes para este bucket, escriba *Sí* en el cuadro de texto y seleccione *Deshabilitar*.
 +
 Después de unos momentos, aparece un mensaje de éxito. Los nuevos objetos agregados a este depósito ya no se pueden replicar automáticamente en el otro grid. *La replicación entre redes* ya no se muestra como una característica habilitada en la página Buckets.
 

@@ -38,19 +38,19 @@ CAUTION: Asegúrese de que al menos dos nodos de cada sitio puedan acceder a al 
 
 . Si agregó un nodo de puerta de enlace:
 +
-** Si se utilizan grupos de alta disponibilidad para las conexiones de cliente, lo opcional es agregar el nodo de puerta de enlace a un grupo de alta disponibilidad. Seleccione *CONFIGURACIÓN* > *Red* > *grupos de alta disponibilidad* para revisar la lista de grupos ha existentes y agregar el nuevo nodo. Consulte link:../admin/configure-high-availability-group.html["Configuración de grupos de alta disponibilidad"].
+** Si se utilizan grupos de alta disponibilidad (HA) para conexiones de clientes, agregue opcionalmente el nodo de puerta de enlace a un grupo de HA.  Seleccione *Configuración* > *Red* > *Grupos de alta disponibilidad* para revisar la lista de grupos de alta disponibilidad existentes y agregar el nuevo nodo. Ver link:../admin/configure-high-availability-group.html["Configuración de grupos de alta disponibilidad"] .
 
 
 . Si agregó un nodo de administración:
 +
-.. Si está habilitado el inicio de sesión único (SSO) para el sistema StorageGRID, cree una confianza de parte que confíe en el nuevo nodo de administración. No puede iniciar sesión en el nodo hasta que cree esta confianza de parte de confianza. Consulte link:../admin/configuring-sso.html["Configurar el inicio de sesión único"].
-.. Si tiene previsto utilizar el servicio Load Balancer en los nodos de administración, puede agregar el nuevo nodo de administración a un grupo de alta disponibilidad. Seleccione *CONFIGURACIÓN* > *Red* > *grupos de alta disponibilidad* para revisar la lista de grupos ha existentes y agregar el nuevo nodo. Consulte link:../admin/configure-high-availability-group.html["Configuración de grupos de alta disponibilidad"].
+.. Si el inicio de sesión único (SSO) está habilitado para su sistema StorageGRID , cree una relación de confianza de usuario autenticado para el nuevo nodo de administración.  No puedes iniciar sesión en el nodo hasta que crees esta confianza de parte autenticada. Ver link:../admin/configure-sso.html["Configurar el inicio de sesión único"] .
+.. Si planea utilizar el servicio Load Balancer en nodos de administración, opcionalmente agregue el nuevo nodo de administración a un grupo de alta disponibilidad.  Seleccione *Configuración* > *Red* > *Grupos de alta disponibilidad* para revisar la lista de grupos de alta disponibilidad existentes y agregar el nuevo nodo. Ver link:../admin/configure-high-availability-group.html["Configuración de grupos de alta disponibilidad"] .
 .. De manera opcional, copie la base de datos del nodo de administración desde el nodo de administración principal al nodo de administración de expansión si desea mantener la información de auditoría y atributo consistente en cada nodo de administración. Consulte link:copying-admin-node-database.html["Copie la base de datos del nodo de administración"].
 .. Opcionalmente, copie la base de datos Prometheus del nodo de administración principal al nodo de administración de ampliación si desea mantener la coherencia de las métricas históricas en cada nodo de administración. Consulte link:copying-prometheus-metrics.html["Copiar métricas de Prometheus"].
 .. De manera opcional, copie los registros de auditoría existentes del nodo de administración principal al nodo de administración de ampliación si desea mantener la información del registro histórico consistente en cada nodo de administración. Consulte link:copying-audit-logs.html["Copiar registros de auditoría"].
 
 
-. Para comprobar si los nodos de expansión se han agregado con una red cliente que no es de confianza o si la red cliente de un nodo no es de confianza, vaya a *CONFIGURACIÓN* > *SEGURIDAD* > *CONTROL DE Firewall*.
+. Para verificar si se agregaron nodos de expansión con una red de cliente no confiable o para cambiar si la red de cliente de un nodo es confiable o no confiable, vaya a *Configuración* > *Seguridad* > *Control de firewall*.
 +
 Si la red de cliente del nodo de expansión no es de confianza, las conexiones al nodo de la red de cliente se deben realizar mediante un extremo de equilibrador de carga. Consulte link:../admin/configuring-load-balancer-endpoints.html["Configurar puntos finales del equilibrador de carga"] y link:../admin/manage-firewall-controls.html["Gestionar los controles del firewall"].
 

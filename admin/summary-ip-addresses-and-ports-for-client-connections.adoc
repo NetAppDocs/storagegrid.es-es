@@ -88,7 +88,7 @@ Por ejemplo, si la dirección IP virtual del grupo HA es 192.0.2.5 y el número 
 . Inicie sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
 . Para encontrar la dirección IP de un nodo de grid:
 +
-.. Selecciona *NODOS*.
+.. Seleccionar *Nodos*.
 .. Seleccione el nodo de administrador, Gateway Node o Storage Node al que desea conectarse.
 .. Seleccione la ficha *Descripción general*.
 .. En la sección Node Information, tenga en cuenta las direcciones IP del nodo.
@@ -110,13 +110,13 @@ NOTE: Si va a ver un nodo de administrador o un nodo de puerta de enlace y es el
 
 . Para buscar la dirección IP virtual de un grupo de alta disponibilidad:
 +
-.. Seleccione *CONFIGURACIÓN* > *Red* > *grupos de alta disponibilidad*.
+.. Seleccione *Configuración* > *Red* > *Grupos de alta disponibilidad*.
 .. En la tabla, tenga en cuenta la dirección IP virtual del grupo ha.
 
 
 . Para buscar el número de puerto de un extremo Load Balancer:
 +
-.. Seleccione *CONFIGURACIÓN* > *Red* > *terminales de equilibrador de carga*.
+.. Seleccione *Configuración* > *Red* > *Puntos finales del balanceador de carga*.
 .. Tenga en cuenta el número de puerto del punto final que desea utilizar.
 +
 

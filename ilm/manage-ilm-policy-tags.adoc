@@ -63,3 +63,6 @@ También puede seleccionar el nombre de la etiqueta. Aparece la página de detal
 
 . Seleccione *Sí* para eliminar la etiqueta.
 
+
+.Información relacionada
+link:creating-ilm-policy.html#activate-ilm-policy["Obtenga información sobre cómo crear etiquetas de políticas de ILM"]

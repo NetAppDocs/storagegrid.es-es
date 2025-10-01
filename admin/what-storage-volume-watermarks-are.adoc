@@ -69,7 +69,7 @@ Puede ver los ajustes de Marca de agua actuales y los valores optimizados para e
 Puede ver la configuración actual de la Marca de agua de almacenamiento en el Administrador de grid.
 
 .Pasos
-. Selecciona *SUPPORT* > *Other* > *Marcas de agua de almacenamiento*.
+. Seleccione *Soporte* > *Otros* > *Marcas de agua de almacenamiento*.
 . En la página Marcas de agua de almacenamiento, consulte la casilla de verificación Utilizar valores optimizados.
 +
 ** Si se selecciona la casilla de comprobación, las tres marcas de agua se optimizan para cada volumen de almacenamiento en cada nodo de almacenamiento, según el tamaño del nodo de almacenamiento y la capacidad relativa del volumen.
@@ -90,7 +90,7 @@ Al especificar la configuración de marca de agua personalizada, debe introducir
 
 StorageGRID usa dos métricas de Prometheus para mostrar los valores optimizados que ha calculado para la marca de agua variable de solo lectura del volumen de almacenamiento. Puede ver los valores mínimos y máximos optimizados para cada nodo de almacenamiento en la cuadrícula.
 
-. Seleccione *SUPPORT* > *Tools* > *Metrics*.
+. Seleccione *Soporte* > *Herramientas* > *Métricas*.
 . En la sección Prometheus, seleccione el enlace para acceder a la interfaz de usuario de Prometheus.
 . Para ver la Marca de agua blanda de sólo lectura recomendada, introduzca la siguiente métrica Prometheus y seleccione *Ejecutar*:
 +

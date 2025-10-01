@@ -38,27 +38,6 @@ link:sdel-s3-delete.html["SDEL: ELIMINACIÓN DE S3"]
 |===
 
 
-== Elimine mensajes de auditoría de Swift
-
-[cols="1a,1a,2a,1a,2a"]
-|===
-| Codificación | Nombre | Descripción | Traza | Consulte 
-
-
- a| 
-¡WDEL
- a| 
-Eliminación de Swift
- a| 
-Solicitud realizada para eliminar el objeto de un contenedor o del contenedor.
- a| 
-CBID, WOBJ
- a| 
-link:wdel-swift-delete.html["WDEL: ELIMINACIÓN de Swift"]
-
-|===
-
-
 == Ejemplo: Eliminación de objetos de S3
 
 Cuando un cliente S3 elimina un objeto de un nodo de almacenamiento (servicio LDR), se genera un mensaje de auditoría y se guarda en el registro de auditoría.

@@ -11,7 +11,7 @@ indexpage:
     links:
     - title: Mantenimiento de la red
       url: "../maintain/index.html"
-    - title: Descargue el paquete de recuperación
+    - title: Descargar paquete de recuperación
       url: "../maintain/downloading-recovery-package.html"
   - title: Retirada de nodos o sitios
     links:

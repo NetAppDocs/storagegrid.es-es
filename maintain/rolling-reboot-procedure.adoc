@@ -58,7 +58,7 @@ Debe seleccionar los nodos que desea reiniciar, revisar las selecciones, iniciar
 Como primer paso, acceda a la página Rolling reboot y seleccione los nodos que desea reiniciar.
 
 .Pasos
-. Selecciona *MANTENIMIENTO* > *Tareas* > *Reiniciar rodando*.
+. Seleccione *Mantenimiento* > *Tareas* > *Reinicio progresivo*.
 . Revise el estado de conexión y los iconos de alerta en la columna *Nombre del nodo*.
 +
 
@@ -129,6 +129,6 @@ Las tablas proporcionan una barra de progreso de la operación en cada nodo y mu
 Puede detener el procedimiento de reinicio gradual desde el nodo de administración principal. Cuando detenga el procedimiento, cualquier nodo que tenga el estado de detención de servicios, reinicio del sistema o inicio de servicios completará la operación de reinicio. Sin embargo, ya no se realizará el seguimiento de estos nodos como parte del procedimiento.
 
 .Pasos
-. Selecciona *MANTENIMIENTO* > *Tareas* > *Reiniciar rodando*.
+. Seleccione *Mantenimiento* > *Tareas* > *Reinicio progresivo*.
 . En el paso *Monitor reboot*, selecciona *Stop reboot procedure*.
 

@@ -44,13 +44,6 @@ Compatibilidad con la versión 4 de la firma de AWS, con las siguientes excepcio
 * Al proporcionar el valor de suma de comprobación de carga útil real en `x-amz-content-sha256`, el valor se acepta sin validación, como si se hubiera proporcionado el valor `UNSIGNED-PAYLOAD` para la cabecera. Cuando se proporciona un `x-amz-content-sha256` valor de encabezado que implica `aws-chunked` la transmisión (por ejemplo, STREAMING-AWS4-HMAC-SHA256-PAYLOAD), las firmas de fragmento no se verifican contra los datos del fragmento.
 
 
-
-
- a| 
-x-amz-token de seguridad
- a| 
-No implementada. Devuelve `XNotImplemented`.
-
 |===
 
 

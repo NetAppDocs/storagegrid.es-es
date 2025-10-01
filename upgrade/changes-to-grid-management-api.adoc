@@ -2,7 +2,7 @@
 permalink: upgrade/changes-to-grid-management-api.html 
 sidebar: sidebar 
 keywords: grid management api, api, api version, swagger, rest api, usageCacheDuration 
-summary: StorageGRID 11,9 utiliza la versión 4 de la API de administración de grid. La versión 4 deja de ser la versión 3; sin embargo, las versiones 1, 2 y 3 siguen siendo compatibles. 
+summary: StorageGRID 12.0 utiliza la versión 4 de la API de administración de Grid.  La versión 4 deja obsoleta la versión 3; sin embargo, las versiones 1, 2 y 3 aún son compatibles. 
 ---
 = Cambios en la API de gestión de grid
 :allow-uri-read: 
@@ -11,42 +11,43 @@ summary: StorageGRID 11,9 utiliza la versión 4 de la API de administración de 
 
 
 [role="lead"]
-StorageGRID 11,9 utiliza la versión 4 de la API de administración de grid. La versión 4 deja de ser la versión 3; sin embargo, las versiones 1, 2 y 3 siguen siendo compatibles.
+StorageGRID 12.0 utiliza la versión 4 de la API de administración de Grid.  La versión 4 deja obsoleta la versión 3; sin embargo, las versiones 1, 2 y 3 aún son compatibles.
 
 
-NOTE: Puede continuar utilizando versiones obsoletas de la API de gestión con StorageGRID 11,9; no obstante, la compatibilidad con estas versiones de la API se quitará en una futura versión de StorageGRID. Después de actualizar a StorageGRID 11,9, puede desactivar las API obsoletas utilizando `PUT /grid/config/management` la API.
+NOTE: Puede seguir usando versiones obsoletas de la API de administración con StorageGRID 12.0; sin embargo, la compatibilidad con estas versiones de la API se eliminará en una futura versión de StorageGRID.  Después de actualizar a StorageGRID 12.0, puede desactivar las API obsoletas mediante el uso de `PUT /grid/config/management` API.
 
 Para obtener más información, vaya a link:../admin/using-grid-management-api.html["Utilice la API de gestión de grid"].
 
 
 
-== Revise la configuración de cumplimiento después de habilitar el bloqueo de objetos S3 global
+== Nuevos puntos finales para los depósitos de sucursales
 
-Revise la configuración de cumplimiento de los arrendatarios existentes después de activar la configuración global S3 Object Lock. Cuando habilita esta opción, la configuración de bloqueo de objetos por inquilino de S3 depende de la versión de StorageGRID en el momento en que se creó el inquilino.
+Se han agregado los siguientes puntos finales para permitirle:link:../tenant/what-is-branch-bucket.html["administrar grupos de sucursales"] :
 
+`GET /org/containers/{branchBucketName}/branch`
 
-
-== Solicitudes de api de gestión heredadas eliminadas
-
-Estas solicitudes heredadas se han eliminado:
-
-`/grid/server-types`
-
-`/grid/ntp-roles`
+`PUT /org/containers/{branchBucketName}/branch`
 
 
 
-== Cambios en `GET /private/storage-usage` API
+== Nuevos puntos finales privados para Move ADC
 
-* Se ha agregado una nueva propiedad `usageCacheDuration` , al cuerpo de la respuesta. Esta propiedad especifica la duración (en segundos) para la que la caché de consulta de uso sigue siendo válida. Este valor se aplica cuando se comprueba el uso con respecto a los límites de la cuota de almacenamiento del inquilino y la capacidad del bloque.
-*  `GET /api/v4/private/storage-usage`El comportamiento se ha corregido para que coincida con el anidamiento del esquema.
-* Estos cambios se aplican solo a la API privada.
+Se han agregado los siguientes puntos finales privados para permitirle:link:../maintain/move-adc-service.html["mover el servicio ADC"] de un nodo de almacenamiento a otro en el mismo sitio:
+
+`/private/move-adc`
+
+`/private/move-adc/start`
+
+`/private/move-adc/retry`
 
 
 
+== Nuevos puntos finales privados para convertir a nodo de solo datos
 
-== Cambios en `GET cross-grid-replication` API
+Se han agregado los siguientes puntos finales privados para permitirle:link:../maintain/convert-to-data-only-node.html["convertir uno o más nodos de almacenamiento combinados"] que no contienen el servicio ADC en nodos de solo datos.
 
-La API */org/containers/:name/cross-grid-replication* GET ya no necesita (`rootAccess`el permiso root access ); sin embargo, debe pertenecer a un grupo de usuarios que tenga el (`viewAllContainers`permiso Manage All buckets (`manageAllContainers`) o View All buckets ).
+`/private/convert-to-data-only-node`
 
-La API PUT */org/containers/:name/cross-grid-replication* no cambia y aún requiere (`rootAccess`el permiso de acceso root ).
+`/private/convert-to-data-only-node/start`
+
+`/private/convert-to-data-only-node/retry`

@@ -29,16 +29,7 @@ NOTE: Se ha eliminado el soporte para los nodos de archivado. El traslado de obj
 Algunas de las ventajas del sistema StorageGRID son:
 
 * Escalable de forma masiva y fácil de usar un repositorio de datos distribuido geográficamente para datos no estructurados.
-* Protocolos de almacenamiento de objetos estándar:
-+
-** Simple Storage Service (S3) de Amazon Web Services
-** OpenStack Swift
-+
-
-NOTE: Se eliminó la compatibilidad con aplicaciones cliente de Swift y se quitará en unas versiones futuras.
-
-
-
+* El protocolo de almacenamiento de objetos estándar del Servicio de almacenamiento simple (S3) de Amazon Web Services.
 * Habilitado para el cloud híbrido. La gestión del ciclo de vida de la información (ILM) basada en políticas almacena objetos en clouds públicos, incluidos Amazon Web Services (AWS) y Microsoft Azure. Los servicios de la plataforma StorageGRID permiten la replicación de contenido, la notificación de eventos y la búsqueda de metadatos de objetos almacenados en clouds públicos.
 * Protección de datos flexible que garantiza la durabilidad y la disponibilidad. Se pueden proteger los datos mediante replicación y códigos de borrado por capas. La verificación de datos en reposo y en tránsito garantiza la integridad a largo plazo.
 * Gestión dinámica del ciclo de vida de los datos para ayudar a gestionar los costes de almacenamiento. Puede crear reglas de ILM que gestionen el ciclo de vida de los datos a nivel del objeto, personalizando la localidad de los datos, la durabilidad, el rendimiento, el coste y y tiempo de retención.
@@ -49,7 +40,7 @@ NOTE: Se eliminó la compatibilidad con aplicaciones cliente de Swift y se quita
 +
 ** Equipos virtuales que se ejecutan en VMware.
 ** Motores de contenedor en hosts Linux.
-** Dispositivos a medida StorageGRID.
+** Dispositivos diseñados por StorageGRID.
 +
 *** Los dispositivos de almacenamiento proporcionan almacenamiento de objetos.
 *** Los dispositivos de servicios proporcionan servicios de administración de grid y equilibrio de carga.

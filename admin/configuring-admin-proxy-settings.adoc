@@ -24,7 +24,7 @@ Para obtener más información sobre AutoSupport, consulte link:configure-autosu
 Puede configurar los ajustes para un solo proxy de administración.
 
 .Pasos
-. Seleccione *CONFIGURACIÓN* > *Seguridad* > *Ajustes de proxy*.
+. Seleccione *Configuración* > *Seguridad* > *Configuración de proxy*.
 +
 Aparecerá la página Configuración de Proxy. De forma predeterminada, se selecciona Almacenamiento en el menú de pestañas.
 

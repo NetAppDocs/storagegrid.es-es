@@ -32,7 +32,7 @@ Realice estos pasos en cualquiera de los dos sistemas StorageGRID.
 
 .Pasos
 . Inicie sesión en Grid Manager desde el nodo de administración principal de cualquiera de las cuadrículas.
-. Selecciona *CONFIGURACIÓN* > *Sistema* > *federación de cuadrícula*.
+. Seleccione *Configuración* > *Sistema* > *Federación de red*.
 . Selecciona *Añadir conexión*.
 . Introduzca los detalles de la conexión.
 +
@@ -119,7 +119,7 @@ Realice estos pasos en el sistema StorageGRID al que se está conectando (la otr
 
 .Pasos
 . Inicie sesión en Grid Manager desde el nodo de administración principal.
-. Selecciona *CONFIGURACIÓN* > *Sistema* > *federación de cuadrícula*.
+. Seleccione *Configuración* > *Sistema* > *Federación de red*.
 . Seleccione *Cargar archivo de verificación* para acceder a la página Cargar.
 . Seleccione *Cargar archivo de verificación*. A continuación, busque y seleccione el archivo que se descargó de la primera cuadrícula (`_connection-name_.grid-federation`).
 +

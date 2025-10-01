@@ -20,7 +20,7 @@ Puede restaurar los datos de objetos para un volumen de almacenamiento con error
 ** link:../maintain/remounting-and-reformatting-storage-volumes-manual-steps.html["Volver a montar y volver a formatear los volúmenes de almacenamiento (pasos manuales)"]
 
 
-* Ha confirmado que el nodo de almacenamiento en el que va a restaurar objetos tiene un estado de conexión de *Connected* image:../media/icon_alert_green_checkmark.png["icono de alerta verde marca de verificación"] en la pestaña *NODES* > *Overview* en Grid Manager.
+* Ha confirmado que el nodo de almacenamiento donde está restaurando objetos tiene un estado de conexión de *Conectado*image:../media/icon_alert_green_checkmark.png["icono de alerta verde marca de verificación"] en la pestaña *Nodos* > *Descripción general* en el Administrador de cuadrícula.
 * Ha confirmado lo siguiente:
 +
 ** No hay una expansión de grid para agregar un nodo de almacenamiento en curso.
@@ -34,11 +34,11 @@ Puede restaurar los datos de objetos para un volumen de almacenamiento con error
 
 
 .Acerca de esta tarea
-Después de reemplazar las unidades y realizar los pasos manuales para formatear los volúmenes, Grid Manager muestra los volúmenes como candidatos para la restauración en la pestaña *MANTENIMIENTO* > *Restauración de volumen* > *Nodos para restaurar*.
+Después de haber reemplazado las unidades y realizado los pasos manuales para formatear los volúmenes, Grid Manager muestra los volúmenes como candidatos para restauración en la pestaña *Mantenimiento* > *Restauración de volumen* > *Nodos a restaurar*.
 
 Siempre que sea posible, restaure los datos de objetos con la página de restauración de volúmenes de Grid Manager. Puede <<enable-auto-restore-mode,active el modo de restauración automática>>iniciar automáticamente la restauración de volumen cuando los volúmenes estén listos para restaurarse o <<manually-restore,realizar la restauración de volúmenes manualmente>>. Siga estas directrices:
 
-* Si los volúmenes se enumeran en *MANTENIMIENTO* > *Restauración de volumen* > *Nodos a restaurar*, restaure los datos del objeto como se describe en los siguientes pasos. Se enumerará los volúmenes si:
+* Si los volúmenes aparecen en *Mantenimiento* > *Restauración de volumen* > *Nodos a restaurar*, restaure los datos del objeto como se describe en los pasos a continuación.  Los volúmenes se enumerarán si:
 +
 ** Se produjo un error en algunos volúmenes de almacenamiento de un nodo, pero no en todos
 ** Todos los volúmenes de almacenamiento de un nodo tienen errores y se reemplazan por la misma cantidad de volúmenes o más volúmenes
@@ -87,7 +87,7 @@ NOTE: La restauración de volúmenes depende de la disponibilidad de recursos do
 Cuando se habilita el modo de restauración automática, la restauración de volúmenes se inicia automáticamente cuando los volúmenes están listos para restaurarse.
 
 .Pasos
-. En Grid Manager, vaya a *MANTENIMIENTO* > *Restauración de volumen*.
+. En Grid Manager, vaya a *Mantenimiento* > *Restauración de volumen*.
 . Seleccione la pestaña *Nodos a restaurar*, luego deslice el interruptor para *Modo de restauración automática* a la posición habilitada.
 . Cuando aparezca el cuadro de diálogo de confirmación, revise los detalles.
 +
@@ -113,7 +113,7 @@ Puede desactivar el modo de restauración automática en cualquier momento.
 Siga estos pasos para restaurar un nodo o volumen con errores.
 
 .Pasos
-. En Grid Manager, vaya a *MANTENIMIENTO* > *Restauración de volumen*.
+. En Grid Manager, vaya a *Mantenimiento* > *Restauración de volumen*.
 . Seleccione la pestaña *Nodos a restaurar*, luego deslice el interruptor para *Modo de restauración automática* a la posición desactivada.
 +
 El número de la pestaña indica la cantidad de nodos con volúmenes que requieren restaurar.

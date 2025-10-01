@@ -19,7 +19,6 @@ Después de reemplazar un nodo de almacenamiento, debe seleccionar Iniciar recup
 * Tiene la clave de acceso de aprovisionamiento.
 * Implementó y configuró el nodo de reemplazo.
 * Tiene la fecha de inicio de cualquier trabajo de reparación para datos codificados de borrado.
-* Ha verificado que el nodo de almacenamiento no se ha reconstruido en los últimos 15 días.
 
 
 .Acerca de esta tarea
@@ -30,7 +29,7 @@ Si el nodo de almacenamiento está instalado como un contenedor en un host Linux
 
 
 .Pasos
-. En Grid Manager, seleccione *MANTENIMIENTO* > *tareas* > *recuperación*.
+. Desde el Administrador de red, seleccione *Mantenimiento* > *Tareas* > *Recuperación*.
 . Seleccione el nodo de cuadrícula que desea recuperar en la lista Pending Nodes.
 +
 Los nodos aparecen en la lista después de que fallan, pero no puede seleccionar un nodo hasta que se haya reinstalado y esté listo para la recuperación.

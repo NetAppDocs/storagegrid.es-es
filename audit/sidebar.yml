@@ -146,11 +146,3 @@ entries:
       url: "/audit/syst-node-stopping.html"
     - title: 'SYSU: Inicio del nodo'
       url: "/audit/sysu-node-start.html"
-    - title: 'WDEL: ELIMINACIÓN de Swift'
-      url: "/audit/wdel-swift-delete.html"
-    - title: 'WGET: Swift GET'
-      url: "/audit/wget-swift-get.html"
-    - title: 'WHEA: CABEZA de Swift'
-      url: "/audit/whea-swift-head.html"
-    - title: 'WPUT: SWIFT PUT'
-      url: "/audit/wput-swift-put.html"

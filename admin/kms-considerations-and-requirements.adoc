@@ -35,7 +35,7 @@ Debe asegurarse de que cada nodo de dispositivo que utilice cifrado de nodo teng
 
 Las comunicaciones entre los nodos del dispositivo y el KMS configurado utilizan conexiones TLS seguras. StorageGRID puede admitir el protocolo TLS 1,2 o TLS 1,3 cuando realiza conexiones KMIP a un clúster KMS o KMS, según lo que admite el KMS y que link:manage-tls-ssh-policy.html["Política de TLS y SSH"]se esté utilizando.
 
-StorageGRID negocia el protocolo y el cifrado (TLS 1,2) o el conjunto de cifrado (TLS 1,3) con el KMS cuando realiza la conexión. Para ver qué versiones de protocolo y conjuntos de cifrado/cifrado están disponibles, revise `tlsOutbound` la sección de la política TLS y SSH activa de la cuadrícula (*CONFIGURACIÓN* > *Seguridad* *CONFIGURACIÓN de seguridad*).
+StorageGRID negocia el protocolo y el cifrado (TLS 1.2) o el conjunto de cifrados (TLS 1.3) con el KMS cuando realiza la conexión.  Para ver qué versiones de protocolo y cifrados/conjuntos de cifrados están disponibles, revise la `tlsOutbound` sección de la política TLS y SSH activa de la red (*Configuración* > *Seguridad* *Configuración de seguridad*).
 
 
 

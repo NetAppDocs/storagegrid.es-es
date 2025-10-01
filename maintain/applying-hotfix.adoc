@@ -26,7 +26,7 @@ La revisión se aplica automáticamente por primera vez al nodo de administraci�
 
 .Pasos
 . Inicie sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
-. Seleccione *MANTENIMIENTO* > *sistema* > *actualización de software*.
+. Seleccione *Mantenimiento* > *Sistema* > *Actualización de software*.
 +
 Aparece la página actualización de software.
 
@@ -70,7 +70,7 @@ Aparece una advertencia que indica que la conexión del explorador puede perders
 Cuando se inicia la revisión:
 
 +
-.. Se ejecutan las validaciones de la revisión.
+.. Se ejecutan las validaciones de revisión, incluida la verificación de la firma del código.
 +
 
 NOTE: Si se informa de algún error, solucione, vuelva a cargar el archivo de revisión y seleccione *Iniciar* de nuevo.

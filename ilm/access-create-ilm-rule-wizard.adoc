@@ -24,11 +24,10 @@ NOTE: Si desea crear la regla ILM predeterminada para una política, siga la lin
 * Ha configurado los pools de Cloud Storage que desee utilizar. Consulte link:creating-cloud-storage-pool.html["Cree el pool de almacenamiento en el cloud"].
 * Usted está familiarizado con el link:data-protection-options-for-ingest.html["opciones de procesamiento"].
 * Si necesita crear una regla compatible para su uso con S3 Object Lock, está familiarizado con el link:requirements-for-s3-object-lock.html["Requisitos para el bloqueo de objetos de S3"].
-* Opcionalmente, has visto el vídeo: https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9872d38f-80b3-4ad4-9f79-b1ff008760c7["Vídeo: Descripción general de las reglas de ILM"^].
+* Opcionalmente has visto el vídeo:
 +
-[link=https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9872d38f-80b3-4ad4-9f79-b1ff008760c7]
-image::../media/video-screenshot-ilm-rules-118.png[Vídeo: Descripción general de las reglas de ILM]
-
+.Descripción general de las reglas de ILM
+video::9872d38f-80b3-4ad4-9f79-b1ff008760c7[panopto]
 
 
 .Acerca de esta tarea

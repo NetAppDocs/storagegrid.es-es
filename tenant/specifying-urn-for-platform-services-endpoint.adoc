@@ -45,7 +45,7 @@ Replicación de CloudMirror
  a| 
 Notificaciones
  a| 
-`sns` o. `kafka`
+`sns`, `kafka` , o `webhook`
 
 
 
@@ -57,7 +57,9 @@ Integración de búsqueda
 |===
 Por ejemplo, para seguir especificando el URN para un punto final de CloudMirror alojado en StorageGRID, debe agregar `s3` a Get `urn:sgws:s3`.
 
-El elemento final del URN identifica el recurso de destino específico en el URI de destino.
+Para la mayoría de los puntos finales, el elemento final del URN identifica el recurso de destino específico en el URI de destino, por ejemplo, `sns-topic-name` .
+
+Para los puntos finales de webhook, el recurso de destino es el propio URI de destino.
 
 [cols="1a,2a"]
 |===
@@ -75,6 +77,8 @@ Replicación de CloudMirror
 Notificaciones
  a| 
 `sns-topic-name` o. `kafka-topic-name`
+
+*Nota:* Para los puntos finales de webhook, el elemento final del URN puede ser cualquier cadena, siempre que el URN del punto final sea único.
 
 
 
@@ -152,6 +156,14 @@ Especifique un punto final Kafka:
 [listing]
 ----
 urn:mysite:kafka:optional:optional:kafka-topic-name
+----
++
+Especifique un punto final de webhook:
+
++
+[listing]
+----
+urn:mysite:webhook:optional:optional:webhook-name
 ----
 * Integración de búsqueda:
 +

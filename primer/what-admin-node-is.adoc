@@ -17,7 +17,7 @@ Los nodos de administración, que proporcionan servicios de gestión como config
 
 == Diferencias entre los nodos de administración primario y no principal
 
-Cuando inicia sesión en el administrador de grid o en el administrador de inquilinos, se conecta a un nodo de administración. Puede conectarse a cualquier nodo de administrador y cada nodo de administrador muestra una vista similar del sistema StorageGRID. Sin embargo, el nodo de administración principal proporciona más funcionalidad que los nodos de administración no principales. Por ejemplo, la mayoría de los procedimientos de mantenimiento se deben realizar desde los nodos de administración principales.
+Cuando inicia sesión en Grid Manager o Tenant Manager, se conecta a un nodo de administración.  Puede conectarse a cualquier nodo de administración y cada nodo de administración muestra una vista similar del sistema StorageGRID .  Sin embargo, el nodo de administración principal proporciona más funciones que los nodos de administración no principales.  Por ejemplo, la mayoría de los procedimientos de mantenimiento deben realizarse desde el nodo de administración principal.
 
 En la tabla se resumen las capacidades de los nodos ADMIN principales y no principales.
 
@@ -99,6 +99,15 @@ No
 
 
  a| 
+Puede descargar el paquete de recuperación
+ a| 
+Sí
+ a| 
+Sí
+
+
+
+ a| 
 Puede realizar un reequilibrio de EC tras la ampliación del nodo de almacenamiento
  a| 
 Sí
@@ -121,6 +130,24 @@ Puede recoger archivos de registro y datos del sistema de uno o más nodos
  a| 
 Sí
  a| 
+Sí
+
+
+
+ a| 
+Puede recuperar nodos de almacenamiento, puerta de enlace y administradores no principales
+ a| 
+Sí
+ a| 
+Sí
+
+
+
+ a| 
+Puede recuperar el nodo de administración principal
+ a| 
+Sí
+ a| 
 No
 
 
@@ -139,12 +166,12 @@ Sí. Actúa como remitente en espera.
 
 Si la implementación de StorageGRID incluye varios nodos de administración, el nodo de administración principal es el remitente preferido para las notificaciones de alertas, los paquetes de AutoSupport y las capturas SNMP.
 
-En operaciones normales del sistema, solo el remitente preferido envía notificaciones. Sin embargo, el resto de los nodos de administración supervisan el remitente preferido. Si se detecta un problema, otros nodos de administración actúan como _remitentes en espera_.
+En condiciones normales de funcionamiento del sistema, sólo el remitente preferido envía notificaciones.  Sin embargo, todos los demás nodos de administración monitorean al remitente preferido.  Si se detecta un problema, otros nodos de administración actúan como remitentes en espera.
 
-Es posible que se envíen varias notificaciones en los siguientes casos:
+Se podrían enviar múltiples notificaciones en estos casos:
 
 * Si los nodos de administración pasan a ser “indistribuidos” entre sí, tanto el remitente preferido como los remitentes en espera intentarán enviar notificaciones, y es posible que se reciban varias copias de las notificaciones.
-* Si el remitente en espera detecta problemas con el remitente preferido y comienza a enviar notificaciones, es posible que el remitente preferido recupere su capacidad para enviar notificaciones. Si esto ocurre, es posible que se envíen notificaciones duplicadas. El remitente en espera dejará de enviar notificaciones cuando ya no detecte errores en el remitente preferido.
+* Si un remitente en espera detecta problemas con el remitente preferido y comienza a enviar notificaciones, el remitente preferido podría recuperar su capacidad de enviar notificaciones.  Si esto ocurre, es posible que se envíen notificaciones duplicadas.  El remitente en espera dejará de enviar notificaciones cuando ya no detecte errores en el remitente preferido.
 +
 
 NOTE: Cuando prueba los paquetes AutoSupport, todos los nodos de administración envían la prueba. Cuando prueba las notificaciones de alerta, debe iniciar sesión en cada nodo de administrador para verificar la conectividad.

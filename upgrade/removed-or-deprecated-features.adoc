@@ -103,7 +103,7 @@ Motor de contenedor Docker
  a| 
 POR CONFIRMAR
  a| 
-La compatibilidad con Docker como motor de contenedor para puestas en marcha de solo software queda obsoleta. En una futura versión, Docker se sustituirá por otro motor de contenedor. Consulte la link:../ubuntu/software-requirements.html#docker-versions-tested["Lista de versiones de Docker admitidas actualmente"].
+La compatibilidad con Docker como motor de contenedores para implementaciones de solo software está obsoleta.  Docker será reemplazado por otro motor de contenedores en una versión futura.  Consulte lalink:../swnodes/software-requirements.html["Requisitos de software para nodos basados en software"] para obtener una lista de las versiones de Docker compatibles actualmente.
 
 
 
@@ -117,6 +117,18 @@ Exportación de auditoría NFS
 12,0
  a| 
 https://docs.netapp.com/us-en/storagegrid-118/admin/configuring-audit-client-access.html["Configure el acceso del cliente de auditoría para NFS (StorageGRID 11,8)."^]
+
+
+
+ a| 
+Reasignación de puertos
+ a| 
+12,0
+ a| 
+12,1
+ a| 
+12,2
+ a| 
 
 
 

@@ -73,4 +73,4 @@ CAUTION: Las solicitudes SelectObjectContent pueden reducir el rendimiento de eq
 
 Consulte la link:../s3/use-s3-select.html["Instrucciones para usar S3 Select"].
 
-Para ver link:../monitor/reviewing-support-metrics.html["Gráficos Grafana"]las operaciones de S3 Select a lo largo del tiempo, selecciona *SUPPORT* > *Tools* > *Metrics* en Grid Manager.
+Para verlink:../monitor/reviewing-support-metrics.html["Gráficos Grafana"] Para seleccionar operaciones a lo largo del tiempo, seleccione *Soporte* > *Herramientas* > *Métricas* en el Administrador de cuadrícula.

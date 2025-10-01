@@ -15,6 +15,12 @@ Conozca cómo se verá afectado su sistema StorageGRID durante la actualización
 
 
 
+== Se permite el acceso SSH externo hasta que se complete la actualización
+
+Se permite el acceso SSH externo durante la actualización.  Cuando se completa la actualización, el acceso SSH externo se bloquea de forma predeterminada.  Después de actualizar, puede usar la pestaña *Bloquear SSH* disponible en la página *Grid Manager* > *Configuración de seguridad* paralink:../admin/manage-external-ssh-access.html["administrar el acceso SSH externo"] .  El acceso SSH entre nodos de la red no se ve afectado.
+
+
+
 == Las actualizaciones de StorageGRID no son disruptivas
 
 El sistema StorageGRID puede procesar y recuperar datos de las aplicaciones cliente durante el proceso de actualización. Si aprueba que se actualicen todos los nodos del mismo tipo (por ejemplo, Nodos de almacenamiento), los nodos se desactivan de uno en uno, por lo que no hay momento en que no estén disponibles todos los nodos de grid o todos los nodos de grid de un determinado tipo.
@@ -40,14 +46,20 @@ NOTE: Puede utilizar varias puertas de enlace y grupos de alta disponibilidad pa
 
 
 
+== Las reparaciones en segundo plano no se ejecutarán en redes con nodos de versiones mixtas
+
+Las reparaciones en segundo plano no se ejecutan durante la actualización cuando la red contiene nodos de versiones mixtas.  Cualquier inconsistencia que ocurra durante una interrupción del sitio no se reparará hasta que se complete la actualización.
+
+
+
 == El firmware del dispositivo se ha actualizado
 
-Durante la actualización de StorageGRID 11,9:
+Durante la actualización de StorageGRID 12.0:
 
-* Todos los nodos de dispositivos StorageGRID se actualizan automáticamente a la versión 3,9 del firmware del instalador de dispositivos StorageGRID.
-* Los dispositivos SG6060 y SGF6024 se actualizan automáticamente a la versión de firmware del BIOS 3B08.EX y a la versión de firmware BMC 4.00.07.
-* Los dispositivos SG100 y SG1000 se actualizan automáticamente a la versión de firmware del BIOS 3B13.EC y a la versión de firmware BMC 4.74.07.
-* Los dispositivos SGF6112, SG6160, SG110 y SG1100 se actualizan automáticamente a la versión de firmware de BMC 3.16.07.
+* Todos los nodos del dispositivo StorageGRID se actualizan automáticamente a la versión 12.0 del firmware del instalador del dispositivo StorageGRID .
+* Los dispositivos SG6060 y SGF6024 se actualizan automáticamente a la versión de firmware BIOS 3B08.EX y a la versión de firmware BMC 4.01.07.
+* Los dispositivos SG100 y SG1000 se actualizan automáticamente a la versión de firmware BIOS 3B13.EC y a la versión de firmware BMC 4.75.07.
+* Los dispositivos SGF6112, SG6160, SG110 y SG1100 se actualizan automáticamente a la versión de firmware BIOS 3A14.QD y a la versión de firmware BMC 3.19.07.
 
 
 
@@ -65,24 +77,18 @@ Durante la actualización de StorageGRID 11,9:
 
 Es posible que se activen alertas cuando se inician y se detienen los servicios y cuando el sistema StorageGRID funciona como un entorno de versiones mixtas (algunos nodos de grid que ejecutan una versión anterior, mientras que otros se han actualizado a una versión posterior). Es posible que se activen otras alertas una vez que se complete la actualización.
 
-Por ejemplo, es posible que vea la alerta *No se puede comunicar con el nodo* cuando se detienen los servicios, o puede que vea la alerta *Error de comunicación de Cassandra* cuando algunos nodos se han actualizado a StorageGRID 11,9 pero otros nodos siguen ejecutando StorageGRID 11,8. En general, estas alertas se borran cuando se completa la actualización.
+Por ejemplo, es posible que vea la alerta *No se puede comunicar con el nodo* cuando se detienen los servicios, o es posible que vea la alerta *Error de comunicación de Cassandra* cuando algunos nodos se han actualizado a StorageGRID 12.0 pero otros nodos aún ejecutan StorageGRID 11.9.  En general, estas alertas desaparecerán cuando se complete la actualización.
 
-La alerta *ILM placement Unable* podría activarse cuando los nodos de almacenamiento se detienen durante la actualización a StorageGRID 11,9. Esta alerta podría persistir durante un día después de que se completa la actualización.
+La alerta *Ubicación ILM inalcanzable* podría activarse cuando los nodos de almacenamiento se detienen durante la actualización a StorageGRID 12.0.  Esta alerta podría persistir durante 1 día después de que se complete la actualización.
 
 Una vez completada la actualización, puede revisar cualquier alerta relacionada con la actualización seleccionando *Alertas resueltas recientemente* o *Alertas actuales* desde el panel de control de Grid Manager.
-
-
-
-== Se generan muchas notificaciones SNMP
-
-Tenga en cuenta que es posible que se genere un gran número de notificaciones SNMP cuando se detengan los nodos de grid y se reinician durante la actualización. Para evitar el exceso de notificaciones, desactive la casilla de verificación *Activar notificaciones de agente SNMP* (*CONFIGURACIÓN* > *Monitoreo* > *Agente SNMP*) para desactivar las notificaciones SNMP antes de iniciar la actualización. A continuación, vuelva a habilitar las notificaciones cuando finalice la actualización.
 
 
 
 == Los cambios de configuración están restringidos
 
 
-NOTE: Esta lista se aplica específicamente a las actualizaciones de StorageGRID 11,8 a StorageGRID 11,9. Si va a actualizar a otra versión de StorageGRID, consulte la lista de cambios restringidos en las instrucciones de actualización para esa versión.
+NOTE: Esta lista se aplica específicamente a las actualizaciones de StorageGRID 11.9 a StorageGRID 12.0.  Si está actualizando a otra versión de StorageGRID , consulte la lista de cambios restringidos en las instrucciones de actualización para esa versión.
 
 Hasta que finalice la tarea *Activar nueva función*:
 
@@ -94,31 +100,12 @@ Hasta que finalice la tarea *Activar nueva función*:
 
 NOTE: Si necesita recuperar un nodo durante la actualización, póngase en contacto con el soporte técnico.
 
-* No debe gestionar grupos de alta disponibilidad, interfaces VLAN ni extremos de balanceador de carga mientras actualiza a StorageGRID 11,9.
-* No elimine ningún grupo de alta disponibilidad hasta que haya finalizado la actualización a StorageGRID 11,9. Es posible que se vuelva inaccesible la dirección IP virtual en otros grupos de alta disponibilidad.
+* No debe administrar grupos de alta disponibilidad, interfaces VLAN ni puntos finales del equilibrador de carga mientras actualiza a StorageGRID 12.0.
+* No elimine ningún grupo de alta disponibilidad hasta que se complete la actualización a StorageGRID 12.0.  Las direcciones IP virtuales en otros grupos de HA podrían volverse inaccesibles.
 
 
 Hasta que finalice la tarea *pasos de actualización final*:
 
 * No realice un procedimiento de expansión.
 * No realice un procedimiento de decomiso.
-
-
-
-
-== No puede ver los detalles del depósito ni gestionar los depósitos desde el gestor de inquilinos
-
-Durante la actualización a StorageGRID 11,9 (es decir, mientras el sistema funciona como un entorno de versión mixta), no se pueden ver los detalles de los bloques ni gestionar bloques mediante el Administrador de inquilinos. Aparece uno de los siguientes errores en la página Cuches del Administrador de inquilinos:
-
-* No puedes usar esta API mientras actualizas a 11,9.
-* No puede ver los detalles de las versiones de los bloques en el administrador de inquilinos mientras actualiza a 11,9.
-
-
-Este error se resolverá después de que se complete la actualización a 11,9.
-
-.Solución alternativa
-Mientras la actualización a 11,9 está en curso, utilice las siguientes herramientas para ver los detalles de los bloques o gestionar bloques, en lugar de utilizar el Gestor de inquilinos:
-
-* Para realizar operaciones S3 estándar en un cucharón, utilice link:../s3/operations-on-buckets.html["API REST DE S3"]o el link:../tenant/understanding-tenant-management-api.html["API de gestión de inquilinos"].
-* Para realizar operaciones personalizadas de StorageGRID en un bloque (por ejemplo, ver y modificar la coherencia del bloque, habilitar o deshabilitar las actualizaciones de la hora del último acceso o configurar la integración de búsqueda), use la API de gestión de inquilinos.
 

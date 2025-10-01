@@ -41,12 +41,12 @@ Si el error no se resuelve automáticamente, vaya al siguiente paso.
 
 . Si su sistema StorageGRID tiene más de un nodo de administración, intente iniciar sesión en el Administrador de grid desde otro nodo de administración para comprobar el estado de un nodo de administración no disponible.
 +
-** Si puede iniciar sesión, puede utilizar las opciones *Panel*, *NODOS*, *Alertas* y *SOPORTE* para ayudar a determinar la causa del error.
+** Si puede iniciar sesión, puede utilizar las opciones *Panel de control*, *Nodos*, *Alertas* y *Soporte* para ayudar a determinar la causa del error.
 ** Si solo tiene un nodo de administración o aún no puede iniciar sesión, vaya al siguiente paso.
 
 
 . Determine si el hardware del nodo está sin conexión.
-. Si el inicio de sesión único (SSO) está activado para el sistema StorageGRID, consulte los pasos para link:../admin/configuring-sso.html["configuración del inicio de sesión único"].
+. Si el inicio de sesión único (SSO) está habilitado para su sistema StorageGRID , consulte los pasos paralink:../admin/configure-sso.html["configuración del inicio de sesión único"] .
 +
 Es posible que deba deshabilitar y volver a habilitar temporalmente el inicio de la sesión único para un nodo de administración a fin de resolver cualquier problema.
 
@@ -62,7 +62,7 @@ Si la cuenta de usuario federada no funciona, intente iniciar sesión en Grid Ma
 ** Si el usuario local puede iniciar sesión:
 +
 ... Revisar las alertas.
-... Seleccione *CONFIGURACIÓN* > *Control de acceso* > *federación de identidades*.
+... Seleccione *Configuración* > *Control de acceso* > *Federación de identidades*.
 ... Haga clic en *probar conexión* para validar la configuración de conexión para el servidor LDAP.
 ... Si la prueba falla, resuelva cualquier error de configuración.
 

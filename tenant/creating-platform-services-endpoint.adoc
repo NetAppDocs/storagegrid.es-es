@@ -17,11 +17,11 @@ Debe crear al menos un extremo del tipo correcto para poder habilitar un servici
 * Ha iniciado sesión en el gestor de inquilinos mediante un link:../admin/web-browser-requirements.html["navegador web compatible"].
 * Un administrador de StorageGRID activó los servicios de plataforma para su cuenta de inquilino.
 * Pertenece a un grupo de usuarios que tiene el link:tenant-management-permissions.html["Gestionar puntos finales o permisos de acceso raíz"].
-* Se ha creado el recurso al que hace referencia el punto final de servicios de plataforma:
+* Se ha creado el recurso al que hace referencia el punto final de servicios de la plataforma:
 +
 ** Replicación de CloudMirror: Bloque de S3
-** Notificación de eventos: Tema de Amazon Simple Notification Service (Amazon SNS) o Kafka
-** Notificación de búsqueda: Índice de Elasticsearch, si el clúster de destino no está configurado para crear índices automáticamente.
+** Notificación de eventos: tema de Amazon Simple Notification Service (Amazon SNS), tema de Kafka o punto final de webhook
+** Notificación de búsqueda: índice de Elasticsearch, si el clúster de destino no está configurado para crear índices automáticamente.
 
 
 * Tiene la información sobre el recurso de destino:
@@ -76,7 +76,7 @@ Para los puntos finales de Kafka, puede utilizar las siguientes credenciales:
 
 --
 ====
-** Certificado de seguridad (si se utiliza un certificado de CA personalizado)
+** Certificado de seguridad (si se requiere verificación del certificado)
 
 
 * Si las funciones de seguridad de Elasticsearch están activadas, tiene el privilegio de clúster de supervisión para las pruebas de conectividad y el privilegio WRITE INDEX o los privilegios INDEX y DELETE INDEX para las actualizaciones de documentos.
@@ -87,7 +87,7 @@ Para los puntos finales de Kafka, puede utilizar las siguientes credenciales:
 . Seleccione *Crear punto final*.
 . Introduzca un nombre para mostrar para describir brevemente el extremo y su propósito.
 +
-El tipo de servicio de plataforma que soporta el punto final se muestra junto al nombre del punto final cuando se muestra en la página de puntos finales, por lo que no es necesario incluir esa información en el nombre.
+El tipo de servicio de plataforma que admite el punto final se muestra junto al nombre del punto final cuando aparece en la página Puntos finales, por lo que no es necesario incluir esa información en el nombre.
 
 . En el campo *URI*, especifique el Identificador de recursos único (URI) del extremo.
 +
@@ -140,6 +140,10 @@ NOTE: No puede cambiar el URN de un punto final después de crear el punto final
 
 . Seleccione *continuar*.
 . Seleccione un valor para *Tipo de autenticación*.
++
+
+NOTE: Si desea autenticación para los puntos finales del webhook, configure la Seguridad de la capa de transporte mutua (mTLS) en<<verify-certs,Paso 9>> .
+
 +
 [role="tabbed-block"]
 ====
@@ -318,17 +322,37 @@ Seleccione *Usar la autenticación de delegación tomada* si el nombre de usuari
 --
 ====
 . Seleccione *continuar*.
-. Seleccione un botón de opción para *verificar servidor* para elegir cómo se verifica la conexión TLS con el extremo.
+. [[verify-certs]]Seleccione un botón de opción para *Verificar certificados* para elegir cómo se verifica la conexión TLS al punto final.
 +
+[role="tabbed-block"]
+====
+.La mayoría de los puntos finales
+--
+Verifique la conexión TLS para la integración de búsqueda, la replicación de CloudMirror, Amazon SNS o los puntos finales de Kafka.
+
 [cols="1a,2a"]
 |===
 | Tipo de verificación del certificado | Descripción 
 
 
  a| 
+TLS
+ a| 
+Valida el certificado del servidor para conexiones TLS al recurso del punto final.
+
+
+
+ a| 
+Desactivado
+ a| 
+La verificación del certificado está deshabilitada.  Esta opción no es segura.
+
+
+
+ a| 
 Utilizar certificado de CA personalizado
  a| 
-Usar un certificado de seguridad personalizado. Si selecciona esta opción, copie y pegue el certificado de seguridad personalizado en el cuadro de texto *Certificado CA*.
+El certificado CA personalizado se utiliza para verificar la identidad del servidor cuando se conecta al punto final.
 
 
 
@@ -337,14 +361,80 @@ Utilizar certificado de CA del sistema operativo
  a| 
 Utilice el certificado de CA de cuadrícula predeterminado instalado en el sistema operativo para asegurar las conexiones.
 
+|===
+--
+.Solo puntos finales de webhook
+--
+Verificar la conexión TLS para los puntos finales del webhook.
+
+[cols="1a,2a"]
+|===
+| Tipo de verificación del certificado | Descripción 
 
 
  a| 
-No verifique el certificado
+TLS
  a| 
-El certificado utilizado para la conexión TLS no se verifica. Esta opción no es segura.
+Valida el certificado del servidor para conexiones TLS al recurso del punto final.
+
+
+
+ a| 
+mTLS
+ a| 
+Valida los certificados de cliente y servidor para conexiones TLS mutuas al recurso del punto final.
+
+
+
+ a| 
+Desactivado
+ a| 
+La verificación del certificado está deshabilitada.  Esta opción no es segura.
+
+
+
+ a| 
+Utilizar certificado de CA personalizado
+ a| 
+El certificado CA personalizado se utiliza para verificar la identidad del servidor cuando se conecta al punto final.
 
 |===
+Cuando selecciona *mTLS*, estas opciones estarán disponibles.
+
+[cols="1a,2a"]
+|===
+| Tipo de verificación del certificado | Descripción 
+
+
+ a| 
+No verificar el certificado del servidor
+ a| 
+Deshabilita la verificación del certificado del servidor, lo que significa que no se verifica la identidad del servidor.  Esta opción no es segura.
+
+
+
+ a| 
+Certificado de cliente
+ a| 
+El certificado de cliente se utiliza para verificar la identidad del cliente cuando se conecta al punto final.
+
+
+
+ a| 
+Clave privada del cliente
+ a| 
+La clave privada para el certificado del cliente.  Si está encriptado, debe utilizar el formato tradicional PKCS #1 (el formato PKCS #8 no es compatible).
+
+
+
+ a| 
+Frase de contraseña de la clave privada del cliente
+ a| 
+La frase de contraseña para descifrar la clave privada del cliente.  Si la clave privada no está cifrada, déjelo en blanco.
+
+|===
+--
+====
 . Seleccione *probar y crear punto final*.
 +
 ** Aparece un mensaje de éxito si se puede acceder al extremo con las credenciales especificadas. La conexión con el extremo se valida desde un nodo en cada sitio.

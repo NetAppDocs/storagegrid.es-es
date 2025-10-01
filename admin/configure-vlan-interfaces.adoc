@@ -26,12 +26,14 @@ Puede crear interfaces de LAN virtual (VLAN) en nodos de administrador y de puer
 * Si necesita agregar interfaces de línea externa, consulte lo siguiente para obtener más información:
 +
 ** *VMware (después de instalar el nodo)*: link:../maintain/vmware-adding-trunk-or-access-interfaces-to-node.html["VMware: Añada tronco o interfaces de acceso a un nodo"]
-** *RHEL (antes de instalar el nodo)*: link:../rhel/creating-node-configuration-files.html["Crear archivos de configuración del nodo"]
-** *Ubuntu o Debian (antes de instalar el nodo)*: link:../ubuntu/creating-node-configuration-files.html["Crear archivos de configuración del nodo"]
-** *RHEL, Ubuntu o Debian (después de instalar el nodo)*: link:../maintain/linux-adding-trunk-or-access-interfaces-to-node.html["Linux: Añada tronco o interfaces de acceso a un nodo"]
+** *Linux (antes de instalar el nodo)*:link:../swnodes/creating-node-configuration-files.html["Crear archivos de configuración del nodo"]
+** *Linux (después de instalar el nodo)*:link:../maintain/linux-adding-trunk-or-access-interfaces-to-node.html["Agregar interfaces troncales o de acceso a un nodo"]
 
 
 
+
+
+NOTE: "Linux" se refiere a una implementación de RHEL, Ubuntu o Debian.  Para obtener una lista de las versiones compatibles, consulte la https://imt.netapp.com/matrix/#welcome["Herramienta de matriz de interoperabilidad de NetApp (IMT)"^] .
 
 
 
@@ -54,7 +56,7 @@ Puede utilizar Grid Manager para crear interfaces VLAN que permitan a los client
 === Acceda al asistente
 
 .Pasos
-. Seleccione *CONFIGURACIÓN* > *Red* > *interfaces VLAN*.
+. Seleccione *Configuración* > *Red* > *Interfaces VLAN*.
 . Seleccione *Crear*.
 
 
@@ -101,7 +103,7 @@ image::../media/vlan-create-parent-interfaces.png[Interfaces principales del asi
 
 
 . Seleccione *Guardar*.
-. Espere hasta 5 minutos para que la nueva interfaz aparezca como una selección en la página grupos de alta disponibilidad y aparezca en la tabla * interfaces de red* para el nodo (*NODES* > *_nodo de interfaz principal_* > *Red*).
+. Espere hasta 5 minutos para que la nueva interfaz aparezca como una selección en la página Grupos de alta disponibilidad y se incluya en la tabla *Interfaces de red* del nodo (*Nodos* > *_nodo de interfaz principal_* > *Red*).
 
 
 
@@ -126,7 +128,7 @@ Por ejemplo, supongamos que VLAN 200 está conectada a interfaces principales en
 
 
 .Pasos
-. Seleccione *CONFIGURACIÓN* > *Red* > *interfaces VLAN*.
+. Seleccione *Configuración* > *Red* > *Interfaces VLAN*.
 . Seleccione la casilla de comprobación de la interfaz de VLAN que desea editar. A continuación, seleccione *acciones* > *Editar*.
 . Si lo desea, actualice el ID de VLAN o la descripción. A continuación, seleccione *continuar*.
 +
@@ -153,7 +155,7 @@ Para evitar cualquier interrupción en el tráfico de cliente, considere realiza
 
 
 .Pasos
-. Seleccione *CONFIGURACIÓN* > *Red* > *interfaces VLAN*.
+. Seleccione *Configuración* > *Red* > *Interfaces VLAN*.
 . Seleccione la casilla de comprobación de cada interfaz de VLAN que desea quitar. A continuación, seleccione *acciones* > *Eliminar*.
 . Seleccione *Sí* para confirmar su selección.
 +

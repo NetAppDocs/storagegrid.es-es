@@ -22,7 +22,7 @@ NOTE: El botón *Pausa* sólo se activa cuando se alcanzan las etapas de evaluac
 
 
 .Pasos
-. Seleccione *MANTENIMIENTO* > *tareas* > *misión*.
+. Seleccione *Mantenimiento* > *Tareas* > *Desmantelamiento*.
 +
 Aparece la página de retirada.
 

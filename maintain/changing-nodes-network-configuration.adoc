@@ -17,13 +17,7 @@ Puede cambiar la configuración de red de uno o varios nodos con la herramienta 
 Tiene el `Passwords.txt` archivo.
 
 .Acerca de esta tarea
-*Linux:* Si va a agregar un nodo de cuadrícula a la red de administración o a la red de cliente por primera vez, y no ha configurado previamente ADMIN_NETWORK_TARGET o CLIENT_NETWORK_TARGET en el archivo de configuración de nodo, debe hacerlo ahora.
-
-Consulte las instrucciones de instalación de StorageGRID para su sistema operativo Linux:
-
-* link:../rhel/index.html["Instalar StorageGRID en Red Hat Enterprise Linux"]
-* link:../ubuntu/index.html["Instalar StorageGRID en Ubuntu o Debian"]
-
+*Linux:* Si está agregando un nodo de cuadrícula a la red de administración o a la red de cliente por primera vez, y no configuró previamente ADMIN_NETWORK_TARGET o CLIENT_NETWORK_TARGET en el archivo de configuración del nodo, debe hacerlo ahora.  Ver StorageGRIDlink:../swnodes/index.html["instrucciones de instalación"] para su sistema operativo Linux.
 
 *Electrodomésticos:* En los dispositivos StorageGRID, si el Cliente o la Red de administración no se configuraron en el Instalador de dispositivos StorageGRID durante la instalación inicial, la red no se puede agregar utilizando solo la herramienta Cambiar IP. En primer lugar, debe https://docs.netapp.com/us-en/storagegrid-appliances/commonhardware/placing-appliance-into-maintenance-mode.html["coloque el aparato en modo de mantenimiento"^] configurar los enlaces, devolver el dispositivo al modo de funcionamiento normal y, a continuación, utilizar la herramienta Cambiar IP para modificar la configuración de red. Consulte la https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/configuring-network-links.html["procedimiento para configurar enlaces de red"^].
 
@@ -42,12 +36,13 @@ Los nodos no se pueden eliminar de la red de grid.
 NOTE: Los intercambios de direcciones IP no están permitidos. Si debe intercambiar direcciones IP entre nodos de cuadrícula, debe utilizar una dirección IP intermedia temporal.
 
 
-NOTE: Si está habilitado el inicio de sesión único (SSO) para el sistema StorageGRID y va a cambiar la dirección IP de un nodo de administración, tenga en cuenta que cualquier confianza de la parte que dependa configurada mediante la dirección IP del nodo de administración (en lugar de su nombre de dominio completo, como se recomienda) pasará a ser no válida. Ya no podrá iniciar sesión en el nodo. Inmediatamente después de cambiar la dirección IP, debe actualizar o volver a configurar la confianza del interlocutor que confía en el nodo en los Servicios de Federación de Active Directory (AD FS) con la nueva dirección IP. Consulte las instrucciones para link:../admin/configuring-sso.html["Configuración de SSO"].
+NOTE: Si el inicio de sesión único (SSO) está habilitado para su sistema StorageGRID y está cambiando la dirección IP de un nodo de administración, tenga en cuenta que cualquier relación de confianza de usuario que se haya configurado utilizando la dirección IP del nodo de administración (en lugar de su nombre de dominio completo, como se recomienda) dejará de ser válida.  Ya no podrás iniciar sesión en el nodo.  Inmediatamente después de cambiar la dirección IP, debe actualizar o reconfigurar la relación de confianza del usuario autenticado del nodo en los Servicios de federación de Active Directory (AD FS) con la nueva dirección IP.  Vea las instrucciones paralink:../admin/configure-sso.html["Configuración de SSO"] .
 
 
 NOTE: Todos los cambios realizados en la red mediante la herramienta Cambiar IP se propagan al firmware del instalador para los dispositivos StorageGRID. De este modo, si se vuelve a instalar el software StorageGRID en un dispositivo o si se pone un dispositivo en modo de mantenimiento, la configuración de red será correcta.
 
 .Pasos
+. El acceso SSH externo está bloqueado de forma predeterminada.  Si es necesario,link:../admin/manage-external-ssh-access.html["permitir el acceso temporalmente"] .
 . Inicie sesión en el nodo de administración principal:
 +
 .. Introduzca el siguiente comando: `ssh admin@_primary_Admin_Node_IP_`
@@ -186,7 +181,7 @@ Updating grid network configuration on Name
 
 
 +
-Después de aplicar o almacenar en zona intermedia los cambios, se genera un nuevo paquete de recuperación como resultado del cambio de configuración de cuadrícula.
+Después de aplicar o preparar cambios, se genera un nuevo paquete de recuperación como resultado del cambio de configuración de la red.
 
 . Si ha seleccionado *fase*, siga estos pasos después de finalizar el aprovisionamiento:
 +
@@ -203,8 +198,50 @@ Después de aplicar o almacenar en zona intermedia los cambios, se genera un nue
 . Seleccione *0* para salir de la herramienta Cambiar IP una vez que hayan finalizado los cambios.
 . Descargue un nuevo paquete de recuperación desde Grid Manager.
 +
-.. Seleccione *MANTENIMIENTO* > *sistema* > *paquete de recuperación*.
+.. Seleccione *Mantenimiento* > *Sistema* > *Paquete de recuperación*.
 .. Introduzca la clave de acceso de aprovisionamiento.
 
 
+. Si ha permitido el acceso SSH externo,link:../admin/manage-external-ssh-access.html["bloquear el acceso"] cuando haya terminado de cambiar la configuración de red del nodo.
 
+
+
+
+== Cambio temporal de la velocidad de PDU de LACP
+
+Para realizar operaciones de mantenimiento en los componentes de red instalados en su dispositivo, como actualizar el firmware de la NIC, puede verificar que la configuración actual de la velocidad de PDU LACP cumpla con los requisitos de sincronización de comunicación de la NIC.  Puede alternar de forma no persistente la velocidad de PDU LACP entre rápida (espera de 1 segundo) y lenta (espera de 30 segundos), si es necesario.
+
+
+NOTE: Para realizar cambios permanentes en la tasa de PDU de LACP, consulte https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/configuring-network-links.html["Configure los enlaces de red"^] .
+
+.Antes de empezar
+* El nodo de administración está instalado y funcionando.
+* Tiene el `Passwords.txt` archivo.
+
+
+.Pasos
+. Inicie sesión en el nodo de administración principal:
++
+.. Introduzca el siguiente comando: `ssh admin@primary_Admin_Node_IP`
+.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
+.. Introduzca el siguiente comando para cambiar a raíz: `su -`
+.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
++
+Al iniciar sesión como root, la petición de datos cambia de `$` a `#`.
+
+
+
+. Para comprobar la configuración actual de la velocidad de PDU LACP, ingrese el siguiente comando:
++
+`run-each-node --parallel --port 8022 '/usr/sbin/set-lacp-rate.sh'`
+
+. Para cambiar temporalmente la velocidad de PDU LACP, ingrese el siguiente comando:
++
+`run-each-node --parallel --port 8022 '/usr/sbin/set-lacp-rate.sh _<speed>_'`
+
++
+dónde `_<speed>_` es `fast` o `slow` .
+
+
+
+La velocidad de PDU LACP volverá a su configuración anterior en el próximo reinicio del dispositivo.

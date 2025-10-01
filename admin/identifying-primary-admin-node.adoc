@@ -21,7 +21,7 @@ Para obtener más información sobre los nodos de administración, consulte link
 
 
 .Pasos
-. Selecciona *NODOS*.
+. Seleccionar *Nodos*.
 . Introduzca *primary* en el cuadro de búsqueda.
 +
 En los resultados de la búsqueda, identifique el nodo con el nodo de administración principal que aparece en la columna Tipo. Debe aparecer un nodo de administración principal.

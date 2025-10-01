@@ -22,7 +22,7 @@ Es posible deshabilitar notificaciones SNMP, actualizar cadenas de comunidad, o 
 Consulte link:configuring-snmp-agent.html["Configure el agente SNMP"] para obtener detalles sobre cada campo en la página del agente SNMP. Debe seleccionar *Guardar* en la parte inferior de la página para confirmar los cambios que realice en cada pestaña.
 
 .Pasos
-. Seleccione *CONFIGURACIÓN* > *Supervisión* > *Agente SNMP*.
+. Seleccione *Configuración* > *Monitoreo* > *Agente SNMP*.
 +
 Aparece la página del agente SNMP.
 

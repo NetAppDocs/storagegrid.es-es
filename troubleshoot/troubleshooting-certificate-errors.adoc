@@ -31,7 +31,7 @@ Para garantizar que las operaciones no se interrumpan por un certificado de serv
 Cuando se utilizan certificados de cliente para la integración de Prometheus externa, los errores de certificado pueden producirse por el certificado de la interfaz de gestión de StorageGRID o por certificados de cliente. La alerta *vencimiento de certificados de cliente configurados en la página certificados* se activa cuando un certificado de cliente está a punto de caducar.
 
 .Pasos
-Si ha recibido una notificación de alerta sobre un certificado caducado, acceda a los detalles del certificado: . Selecciona *CONFIGURACIÓN* > *Seguridad* > *Certificados* y luego link:../admin/using-storagegrid-security-certificates.html#access-security-certificates["seleccione la ficha de certificado adecuada"].
+Si recibió una notificación de alerta sobre un certificado vencido, acceda a los detalles del certificado: .  Seleccione *Configuración* > *Seguridad* > *Certificados* y luegolink:../admin/using-storagegrid-security-certificates.html#access-security-certificates["seleccione la ficha de certificado adecuada"] .
 
 . Compruebe el período de validez del certificado. + Algunos navegadores web y clientes S3 no aceptan certificados con un período de validez superior a 398 días.
 . Si el certificado ha caducado o lo hará pronto, cargue o genere uno nuevo.
@@ -46,7 +46,7 @@ Si ha recibido una notificación de alerta sobre un certificado caducado, acceda
 ** Si está intentando conectarse a StorageGRID con un nombre de dominio:
 +
 ... Introduzca la dirección IP del nodo de administración en lugar del nombre de dominio para omitir el error de conexión y acceder a Grid Manager.
-... En Grid Manager, selecciona *CONFIGURACIÓN* > *Seguridad* > *Certificados* y, a continuación, link:../admin/using-storagegrid-security-certificates.html#access-security-certificates["seleccione la ficha de certificado adecuada"]instala un nuevo certificado personalizado o continúa con el certificado predeterminado.
+... Desde el Administrador de red, seleccione *Configuración* > *Seguridad* > *Certificados* y luegolink:../admin/using-storagegrid-security-certificates.html#access-security-certificates["seleccione la ficha de certificado adecuada"] para instalar un nuevo certificado personalizado o continuar con el certificado predeterminado.
 ... En las instrucciones para administrar StorageGRID, consulte los pasos para link:../admin/configuring-custom-server-certificate-for-grid-manager-tenant-manager.html#add-a-custom-management-interface-certificate["Configuración de un certificado de servidor personalizado para el administrador de grid y el administrador de inquilinos"].
 
 

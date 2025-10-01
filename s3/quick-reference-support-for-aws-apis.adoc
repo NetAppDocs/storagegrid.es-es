@@ -784,7 +784,7 @@ link:operations-on-buckets.html["Operaciones en bloques"]
 StorageGRID admite todos <<common-params,parámetros y cabeceras comunes>> para esta solicitud.
 
 .Solicitar el cuerpo
-Para obtener detalles sobre los campos de cuerpo JSON admitidos, consulte link:bucket-and-group-access-policies.html["Utilice las políticas de acceso de bloques y grupos"].
+Para obtener detalles sobre los campos de cuerpo JSON admitidos, consultelink:use-access-policies.html["Utilice las políticas de acceso de bloques y grupos"] .
 
 
 

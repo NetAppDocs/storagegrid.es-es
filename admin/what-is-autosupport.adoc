@@ -13,14 +13,14 @@ summary: La función AutoSupport permite que StorageGRID envíe paquetes de esta
 [role="lead"]
 La función AutoSupport permite que StorageGRID envíe paquetes de estado y estado al soporte técnico de NetApp.
 
-El uso de AutoSupport puede acelerar significativamente la determinación y resolución de problemas. El soporte técnico también puede supervisar las necesidades de almacenamiento del sistema y ayudarle a determinar si necesita añadir nodos o sitios nuevos. De manera opcional, puede configurar paquetes AutoSupport para que se envíen a otro destino.
+El uso de AutoSupport ayuda a resolver problemas más rápidamente.  El soporte técnico puede monitorear las necesidades de almacenamiento de su sistema y ayudarlo a determinar si necesita agregar nuevos nodos o sitios.  Opcionalmente, AutoSupport puede enviar paquetes a un destino adicional.
 
 StorageGRID tiene dos tipos de AutoSupport:
 
 * *StorageGRID AutoSupport* informa de problemas de software de StorageGRID. Habilitado de forma predeterminada la primera vez que se instala StorageGRID. Usted puede link:configure-autosupport-grid-manager.html["Cambie la configuración predeterminada de AutoSupport"] si es necesario.
 +
 
-NOTE: Si StorageGRID AutoSupport no está activado, aparece un mensaje en el panel de control de Grid Manager. El mensaje incluye un enlace a la página de configuración de AutoSupport. Si cierra el mensaje, no volverá a aparecer hasta que se borre la caché del explorador, aunque AutoSupport permanezca deshabilitado.
+NOTE: Si StorageGRID AutoSupport no está habilitado, aparecerá un mensaje en el panel de Grid Manager.  El mensaje incluye un enlace a la página de configuración de AutoSupport .  Si cierra el mensaje, no volverá a aparecer hasta que se borre la memoria caché de su navegador, incluso si AutoSupport permanece deshabilitado.
 
 * *El hardware del dispositivo AutoSupport* informa de los problemas del dispositivo StorageGRID. Usted debe link:configure-autosupport-grid-manager.html#autosupport-for-appliances["Configure el AutoSupport de hardware en cada dispositivo"].
 

@@ -1,0 +1,144 @@
+---
+permalink: troubleshoot/investigating-potentially-lost-objects.html 
+sidebar: sidebar 
+keywords: lost objects, investigating, objects 
+summary: Cuando se activa la alerta *Objetos potencialmente perdidos*, debes investigar de inmediato.  Recopile información sobre los objetos afectados y comuníquese con el soporte técnico. 
+---
+= Investigar objetos potencialmente perdidos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cuando se activa la alerta *Objetos potencialmente perdidos*, debes investigar de inmediato.  Recopile información sobre los objetos afectados y comuníquese con el soporte técnico.
+
+.Antes de empezar
+* Debe iniciar sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Tienes link:../admin/admin-group-permissions.html["permisos de acceso específicos"].
+* Debe tener el `Passwords.txt` archivo.
+
+
+.Acerca de esta tarea
+La alerta *Objetos potencialmente perdidos* indica que, según la información disponible en StorageGRID, no hay copias de un objeto en la cuadrícula.  Es posible que se hayan perdido datos de forma permanente.
+
+Investigar las alertas de objetos perdidos de inmediato. Es posible que deba tomar medidas para evitar la pérdida de datos adicional. En algunos casos, es posible que pueda restaurar un objeto perdido si realiza una acción rápida.
+
+
+CAUTION: Si se reporta la pérdida de más de 10 objetos, comuníquese con el soporte técnico.  No siga este procedimiento usted mismo.
+
+.Pasos
+. Seleccionar *Nodos*.
+. Seleccione *_Storage Node_* > *Objects*.
+. Revise el número de objetos perdidos que se muestra en la tabla recuentos de objetos.
++
+Este número indica el número total de objetos que este nodo de cuadrícula detecta como no recibidos de todo el sistema StorageGRID. El valor es la suma de los contadores de objetos perdidos del componente almacén de datos dentro de los servicios LDR y DDS.
+
+. Desde un nodo de administración,link:../audit/accessing-audit-log-file.html["acceda al registro de auditoría"] para determinar el identificador único (UUID) del objeto que activó la alerta *Objetos potencialmente perdidos*:
++
+.. Inicie sesión en el nodo de grid:
++
+... Introduzca el siguiente comando: `ssh admin@grid_node_IP`
+... Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
+... Introduzca el siguiente comando para cambiar a raíz: `su -`
+... Introduzca la contraseña que aparece en el `Passwords.txt` archivo. Al iniciar sesión como root, la petición de datos cambia de `$` a `#`.
+
+
+.. Cambie al directorio donde se encuentran los registros de auditoría.
++
+--
+El directorio de registro de auditoría y los nodos aplicables dependen de la configuración del destino de auditoría.
+
+[cols="1a,2a"]
+|===
+| Opción | Destino 
+
+
+ a| 
+Nodos locales (predeterminado)
+ a| 
+`/var/local/log/localaudit.log`
+
+
+
+ a| 
+Nodos de administración/nodos locales
+ a| 
+*** Nodos de administración (principales y no principales): `/var/local/audit/export/audit.log`
+*** Todos los nodos: El `/var/local/log/localaudit.log` archivo normalmente está vacío o falta en este modo.
+
+
+
+
+ a| 
+Servidor de syslog externo
+ a| 
+`/var/local/log/localaudit.log`
+
+|===
+En función de la configuración de destino de auditoría, introduzca: `cd /var/local/log` O. `/var/local/audit/export/`
+
+Para obtener más información, consultelink:../monitor/configure-log-management.html#select-log-location["Seleccionar la ubicación del registro"] .
+
+--
+.. Utilice grep para extraer los mensajes de auditoría de objetos perdidos (OLST). Introduzca: `grep OLST audit_file_name`
+.. Observe el valor de UUID incluido en el mensaje.
++
+[listing]
+----
+Admin: # grep OLST audit.log
+2020-02-12T19:18:54.780426 [AUDT:[CBID(UI64):0x38186FE53E3C49A5][UUID(CSTR):"926026C4-00A4-449B-AC72-BCCA72DD1311"]
+[PATH(CSTR):"source/cats"][NOID(UI32):12288733][VOLI(UI64):3222345986][RSLT(FC32):NONE][AVER(UI32):10]
+[ATIM(UI64):1581535134780426][ATYP(FC32):OLST][ANID(UI32):12448208][AMID(FC32):ILMX][ATID(UI64):7729403978647354233]]
+----
+
+
+. Busque los metadatos del objeto perdido mediante el UUID:
++
+.. Seleccione *ILM* > *Búsqueda de metadatos de objetos*.
+.. Ingresa el UUID y selecciona *Look Up*.
+.. Revise las ubicaciones de los metadatos y realice la acción correspondiente:
++
+[cols="2a,4a"]
+|===
+| Metadatos | Conclusión 
+
+
+ a| 
+<object_identifier> del objeto no encontrada
+ a| 
+Si no se encuentra el objeto, se devuelve el mensaje "ERROR":"".
+
+Si no se encuentra el objeto,<<reset-lost-obj-count,Restablecer el contador de objetos potencialmente perdidos>> para borrar la alerta.  La falta de un objeto indica que el objeto fue eliminado intencionalmente.
+
+
+
+ a| 
+Ubicaciones > 0
+ a| 
+Si hay ubicaciones enumeradas en la salida, la alerta *Objetos potencialmente perdidos* podría ser un falso positivo.
+
+Confirme que los objetos existen. Utilice el Id. De nodo y la ruta de archivo que aparecen en la salida para confirmar que el archivo de objeto está en la ubicación de la lista.
+
+Si los objetos existen,<<reset-lost-obj-count,Restablecer el contador de objetos potencialmente perdidos>> para borrar la alerta.
+
+
+
+ a| 
+Ubicaciones = 0
+ a| 
+Si no hay ubicaciones enumeradas en la salida, es posible que el objeto no esté presente.  Póngase en contacto con el soporte técnico.
+
+Es posible que el soporte técnico le solicite determinar si hay un procedimiento de recuperación del almacenamiento en curso. Consulte la información link:../maintain/restoring-volume.html["Restaurando datos de objetos con Grid Manager"]sobre y.link:../maintain/restoring-object-data-to-storage-volume.html["restaurar datos de objeto en un volumen de almacenamiento"]
+
+|===
+
+
+. [[reset-lost-obj-count]]Después de solucionar los problemas de objetos perdidos, restablezca el contador de Objetos potencialmente perdidos para asegurarse de que las alertas no sean falsos positivos:
++
+.. Seleccionar *Nodos*.
+.. Seleccione *_Nodo de almacenamiento_* > *Tareas*.
+.. En la sección Restablecer contador de objetos potencialmente perdidos, seleccione *Restablecer*.
+
+
+

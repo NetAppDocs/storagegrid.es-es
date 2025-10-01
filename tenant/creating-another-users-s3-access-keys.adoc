@@ -31,7 +31,7 @@ Cada clave puede tener un tiempo de caducidad específico o no puede caducar. Si
 CAUTION: Es posible acceder a los bloques y los objetos de S3 que pertenecen a un usuario mediante el ID de clave de acceso y la clave de acceso secreta mostrada para ese usuario en el Administrador de inquilinos. Por este motivo, proteja las claves de acceso como lo haría con una contraseña. Gire las claves de acceso de forma regular, elimine las claves que no utilice de la cuenta y nunca las comparta con otros usuarios.
 
 .Pasos
-. Seleccione *ADMINISTRACIÓN de ACCESO* > *usuarios*.
+. Seleccione *Administración de acceso* > *Usuarios*.
 . Seleccione el usuario cuyas claves de acceso de S3 desee gestionar.
 +
 Aparece la página de detalles del usuario.

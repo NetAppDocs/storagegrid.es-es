@@ -73,7 +73,7 @@ entries:
     url: "/ilm/troubleshooting-cloud-storage-pools.html"
 - title: Gestione perfiles de código de borrado
   url: "/ilm/manage-erasure-coding-profiles.html"
-- title: Configurar regiones (opcional solo S3)
+- title: Configurar regiones S3
   url: "/ilm/configuring-regions-optional-and-s3-only.html"
 - title: Cree la regla de ILM
   entries:

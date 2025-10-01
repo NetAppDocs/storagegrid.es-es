@@ -21,7 +21,7 @@ Dado que se utiliza un único certificado de interfaz de gestión personalizado 
 Debe completar la configuración en el servidor y, en función de la entidad emisora de certificados raíz (CA) que esté utilizando, los usuarios también pueden necesitar instalar el certificado de la CA de cuadrícula en el explorador Web que utilizarán para acceder a Grid Manager y al gestor de inquilinos.
 
 
-NOTE: Para garantizar que las operaciones no se interrumpan por un certificado de servidor fallido, la alerta *Expiración del certificado de servidor para la interfaz de administración* se activa cuando este certificado de servidor está a punto de expirar. Según sea necesario, puede ver cuándo caduca el certificado actual seleccionando *CONFIGURACIÓN* > *Seguridad* > *certificados* y mirando la fecha de caducidad del certificado de interfaz de administración en la ficha Global.
+NOTE: Para garantizar que las operaciones no se vean interrumpidas por un certificado de servidor fallido, se activa la alerta *Expiración del certificado de servidor para la interfaz de administración* cuando este certificado de servidor está a punto de expirar.  Según sea necesario, puede ver cuándo vence el certificado actual seleccionando *Configuración* > *Seguridad* > *Certificados* y mirando la fecha de vencimiento del certificado de la interfaz de administración en la pestaña Global.
 
 [NOTE]
 ====
@@ -39,7 +39,7 @@ Si accede a Grid Manager o a Intenant Manager utilizando un nombre de dominio en
 Para agregar un certificado de interfaz de gestión personalizado, puede proporcionar su propio certificado o generar uno mediante el Gestor de cuadrícula.
 
 .Pasos
-. Seleccione *CONFIGURACIÓN* > *Seguridad* > *certificados*.
+. Seleccione *Configuración* > *Seguridad* > *Certificados*.
 . En la ficha *Global*, seleccione *Certificado de interfaz de administración*.
 . Seleccione *utilizar certificado personalizado*.
 . Cargue o genere el certificado.
@@ -166,7 +166,7 @@ NOTE: Tras cargar o generar un nuevo certificado, permita que se borren las aler
 Puede volver a utilizar el certificado de interfaz de gestión predeterminado para las conexiones de Grid Manager y de arrendatario Manager.
 
 .Pasos
-. Seleccione *CONFIGURACIÓN* > *Seguridad* > *certificados*.
+. Seleccione *Configuración* > *Seguridad* > *Certificados*.
 . En la ficha *Global*, seleccione *Certificado de interfaz de administración*.
 . Seleccione *utilizar certificado predeterminado*.
 +
@@ -229,7 +229,7 @@ Incluya las etiquetas INICIAL Y FINAL en su selección.
 . Confirme que se configuró el certificado:
 +
 .. Acceda a Grid Manager.
-.. Seleccione *CONFIGURACIÓN* > *Seguridad* > *certificados*
+.. Seleccione *Configuración* > *Seguridad* > *Certificados*
 .. En la ficha *Global*, seleccione *Certificado de interfaz de administración*.
 
 
@@ -243,7 +243,7 @@ Incluya las etiquetas INICIAL Y FINAL en su selección.
 Puede guardar o copiar el contenido del certificado de la interfaz de administración para utilizarlo en otro lugar.
 
 .Pasos
-. Seleccione *CONFIGURACIÓN* > *Seguridad* > *certificados*.
+. Seleccione *Configuración* > *Seguridad* > *Certificados*.
 . En la ficha *Global*, seleccione *Certificado de interfaz de administración*.
 . Seleccione la ficha *servidor* o *paquete CA* y, a continuación, descargue o copie el certificado.
 +

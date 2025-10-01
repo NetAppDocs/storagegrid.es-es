@@ -1,0 +1,315 @@
+---
+permalink: admin/configure-sso.html 
+sidebar: sidebar 
+keywords: use sandbox mode for sso, how to test single sign-on 
+summary: 'Puede seguir el asistente de configuración de SSO e ingresar al modo sandbox para configurar y probar el inicio de sesión único (SSO) antes de habilitarlo para todos los usuarios de StorageGRID .  Una vez habilitado el SSO, puede regresar al modo sandbox cuando sea necesario cambiar o volver a probar la configuración.' 
+---
+= Configurar SSO
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Puede seguir el asistente de configuración de SSO e ingresar al modo sandbox para configurar y probar el inicio de sesión único (SSO) antes de habilitarlo para todos los usuarios de StorageGRID .  Una vez habilitado el SSO, puede regresar al modo sandbox cuando sea necesario para cambiar o volver a probar la configuración.
+
+.Antes de empezar
+* Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Usted tiene el link:admin-group-permissions.html["Permiso de acceso raíz"].
+* Configuró la federación de identidades para el sistema StorageGRID.
+* Para la federación de identidad *tipo de servicio LDAP*, seleccionó Active Directory o Entra ID, según el proveedor de identidad SSO que planea utilizar.
++
+[cols="1a,1a"]
+|===
+| Se ha configurado el tipo de servicio LDAP | Opciones para el proveedor de identidades SSO 
+
+
+ a| 
+Servicio de Federación de Active Directory (AD FS)
+ a| 
+** Active Directory
+** Identificación de entrada
+** PingFederate
+
+
+
+
+ a| 
+Identificación de entrada
+ a| 
+Identificación de entrada
+
+|===
+
+
+.Acerca de esta tarea
+Cuando se habilita el inicio de sesión único y un usuario intenta iniciar sesión en un nodo de administración, StorageGRID envía una solicitud de autenticación al proveedor de identidades de SSO. A su vez, el proveedor de identidades SSO envía una respuesta de autenticación a StorageGRID para indicar si la solicitud de autenticación se ha realizado correctamente. Para solicitudes correctas:
+
+* La respuesta de Active Directory o PingFederate incluye un identificador único universal (UUID) para el usuario.
+* La respuesta de Entra ID incluye un nombre principal de usuario (UPN).
+
+
+Para permitir que StorageGRID (el proveedor de servicios) y el proveedor de identidad SSO se comuniquen de forma segura acerca de las solicitudes de autenticación de usuarios, deberá completar estas tareas:
+
+. Configurar ajustes en StorageGRID.
+. Utilice el software del proveedor de identidad SSO para crear una relación de confianza entre usuarios (AD FS), una aplicación empresarial (Entra ID) o un proveedor de servicios (PingFederate) para cada nodo de administración.
+. Regrese a StorageGRID para habilitar SSO.
+
+
+El modo Sandbox facilita la realización de esta configuración de ida y vuelta y permite probar todas las configuraciones antes de habilitar SSO.  Cuando se utiliza el modo sandbox, los usuarios no pueden iniciar sesión mediante SSO.
+
+
+
+== Acceda al asistente
+
+.Pasos
+. Seleccione *Configuración* > *Control de acceso* > *Inicio de sesión único*.  Aparece la página de inicio de sesión único.
++
+
+NOTE: Si el botón Configurar ajustes de SSO está deshabilitado, confirme que haya configurado el proveedor de identidad como fuente de identidad federada. Consulte link:requirements-for-sso.html["Requisitos y consideraciones para el inicio de sesión único"] .
+
+. Seleccione *Configurar ajustes de SSO*.  Aparece la página Proporcionar detalles del proveedor de identidad.
+
+
+
+
+== Proporcionar detalles del proveedor de identidad
+
+.Pasos
+. Seleccione *Tipo SSO* en la lista desplegable.
+. Si seleccionó Active Directory como tipo de SSO, ingrese el *Nombre del servicio de federación* para el proveedor de identidad, exactamente como aparece en el Servicio de federación de Active Directory (AD FS).
++
+
+NOTE: Para buscar el nombre del servicio de federación, vaya al Administrador de Windows Server. Seleccione *Herramientas* > *Administración AD FS*. En el menú Acción, seleccione *Editar propiedades del servicio de Federación*. El nombre del servicio de Federación se muestra en el segundo campo.
+
+. Especifique qué certificado TLS se utilizará para proteger la conexión cuando el proveedor de identidades envíe información de configuración de SSO en respuesta a las solicitudes de StorageGRID.
++
+** *Utilizar certificado CA* del sistema operativo: Utilice el certificado CA predeterminado instalado en el sistema operativo para asegurar la conexión.
+** *Utilizar certificado de CA personalizado*: Utilice un certificado de CA personalizado para proteger la conexión.
++
+Si selecciona esta configuración, copie el texto del certificado personalizado y péguelo en el cuadro de texto *Certificado CA*.
+
+** *No utilice TLS*: No utilice un certificado TLS para garantizar la conexión.
++
+
+CAUTION: Si cambia el certificado de CA, inmediatamente link:../maintain/starting-or-restarting-service.html["Reinicie el servicio mgmt-api en los nodos de administración"] y prueba un SSO correcto en Grid Manager.
+
+
+
+. Seleccione *Continuar*.  Aparece la página Proporcionar identificador de parte confiable.
+
+
+
+
+== [[enter-sandbox-mode]]Proporcionar identificador de parte confiable
+
+. Complete los campos en la página Proporcionar identificador de parte confiable según el tipo de SSO que haya seleccionado.
++
+[role="tabbed-block"]
+====
+.Active Directory
+--
+.. Especifique el *Identificador de la parte confiada* para StorageGRID.  Este valor controla el nombre que utiliza para cada relación de confianza de usuario confiable en AD FS.
++
+*** Por ejemplo, si el grid solo tiene un nodo de administración y no prevé agregar más nodos de administración en el futuro, introduzca `SG` o `StorageGRID`.
+*** Si su cuadrícula incluye más de un nodo de administración, incluya la cadena `[HOSTNAME]` en el identificador. Por ejemplo,  `SG-[HOSTNAME]` .  Al incluir esta cadena, se genera una tabla que muestra el identificador de la parte confiable para cada nodo de administración en la cuadrícula, según el nombre de host del nodo.
++
+
+NOTE: Debe crear una confianza de parte de confianza para cada nodo de administrador en el sistema StorageGRID. Tener una confianza de parte que confía en cada nodo de administración garantiza que los usuarios puedan iniciar sesión de forma segura desde y hacia cualquier nodo de administración.
+
+
+
+.. Seleccione *Guardar e ingresar al modo sandbox*.
+
+
+--
+.Identificación de entrada
+--
+.. En la sección Aplicación empresarial, especifique el *nombre de la aplicación empresarial* para StorageGRID.  Este valor controla el nombre que utiliza para cada aplicación empresarial en Entra ID.
++
+*** Por ejemplo, si el grid solo tiene un nodo de administración y no prevé agregar más nodos de administración en el futuro, introduzca `SG` o `StorageGRID`.
+*** Si su cuadrícula incluye más de un nodo de administración, incluya la cadena `[HOSTNAME]` en el identificador. Por ejemplo,  `SG-[HOSTNAME]` .  Al incluir esta cadena, se genera una tabla que muestra un nombre de aplicación empresarial para cada nodo de administración en su sistema, según el nombre de host del nodo.
++
+
+NOTE: Debe crear una aplicación empresarial para cada nodo administrador en el sistema StorageGRID. Disponer de una aplicación empresarial para cada nodo de administración garantiza que los usuarios puedan iniciar sesión de forma segura en cualquier nodo de administración.
+
+
+
+.. Siga los pasos enlink:../admin/creating-enterprise-application-entra-id.html["Crear aplicaciones empresariales en Entra ID"] para crear una aplicación empresarial para cada nodo de administración enumerado en la tabla.
+.. Desde Entra ID, copie la URL de metadatos de federación para cada aplicación empresarial.  Luego, pegue esta URL en el campo *URL de metadatos de federación* correspondiente en StorageGRID.
+.. Después de haber copiado y pegado una URL de metadatos de federación para todos los nodos de administración, seleccione *Guardar e ingresar al modo sandbox*.
+
+
+--
+.PingFederate
+--
+.. En la sección Proveedor de servicios (SP), especifique *ID de conexión SP* para StorageGRID. Este valor controla el nombre que utiliza para cada conexión SP en PingFederate.
++
+*** Por ejemplo, si el grid solo tiene un nodo de administración y no prevé agregar más nodos de administración en el futuro, introduzca `SG` o `StorageGRID`.
+*** Si su cuadrícula incluye más de un nodo de administración, incluya la cadena `[HOSTNAME]` en el identificador. Por ejemplo,  `SG-[HOSTNAME]` .  Al incluir esta cadena, se genera una tabla que muestra el ID de conexión de SP para cada nodo de administración en su sistema, según el nombre de host del nodo.
++
+
+NOTE: Debe crear una conexión de SP para cada nodo de administrador en el sistema StorageGRID. Tener una conexión de SP para cada nodo de administrador garantiza que los usuarios puedan iniciar sesión de forma segura en cualquier nodo de administrador.
+
+
+
+.. Especifique la dirección URL de metadatos de federación para cada nodo de administración en el campo *URL de metadatos de Federación*.
++
+Utilice el siguiente formato:
+
++
+[listing]
+----
+https://<Federation Service Name>:<port>/pf/federation_metadata.ping?PartnerSpId=<SP Connection ID>
+----
+.. Seleccione *Guardar e ingresar al modo sandbox*.
+
+
+--
+====
+
+
+
+
+== Configurar las confianzas de partes de confianza, las aplicaciones de la empresa o las conexiones de SP
+
+Después de guardar la configuración e ingresar al modo sandbox, puede completar y probar la configuración para el tipo de SSO que seleccionó.
+
+StorageGRID puede permanecer en modo sandbox tanto tiempo como sea necesario.  Sin embargo, sólo los usuarios federados y los usuarios locales pueden iniciar sesión.
+
+[role="tabbed-block"]
+====
+.Active Directory
+--
+.Pasos
+. Vaya a Servicios de Federación de Active Directory (AD FS).
+. Cree una o más relaciones de confianza de usuario confiable para StorageGRID, utilizando cada identificador de usuario confiable que se muestra en la tabla de la página Configurar SSO.
++
+Debe crear una confianza para cada nodo de administrador que se muestra en la tabla.
+
++
+Para obtener instrucciones, vaya a link:../admin/creating-relying-party-trusts-in-ad-fs.html["Crear confianzas de parte de confianza en AD FS"].
+
+
+
+--
+.Identificación de entrada
+--
+.Pasos
+. En la página Single Sign-On del nodo de administrador al que ha iniciado sesión actualmente, seleccione el botón para descargar y guardar los metadatos SAML.
+. A continuación, para cualquier otro nodo de administrador en el grid, repita estos pasos:
++
+.. Inicie sesión en el nodo.
+.. Seleccione *Configuración* > *Control de acceso* > *Inicio de sesión único*.
+.. Descargue y guarde los metadatos de SAML de ese nodo.
+
+
+. Vaya al portal de Azure.
+. Siga los pasos enlink:../admin/creating-enterprise-application-entra-id.html["Crear aplicaciones empresariales en Entra ID"] para cargar el archivo de metadatos SAML para cada nodo de administración en su aplicación empresarial Entra ID correspondiente.
+
+
+--
+.PingFederate
+--
+.Pasos
+. En la página Single Sign-On del nodo de administrador al que ha iniciado sesión actualmente, seleccione el botón para descargar y guardar los metadatos SAML.
+. A continuación, para cualquier otro nodo de administrador en el grid, repita estos pasos:
++
+.. Inicie sesión en el nodo.
+.. Seleccione *Configuración* > *Control de acceso* > *Inicio de sesión único*.
+.. Descargue y guarde los metadatos de SAML de ese nodo.
+
+
+. Vaya a PingFederate.
+. link:../admin/creating-sp-connection-ping.html["Cree una o varias conexiones de proveedor de servicios (SP) para StorageGRID"] . Utilice el ID de conexión de SP para cada nodo de administración (que se muestra en la tabla de la página Configurar SSO) y los metadatos SAML que descargó para ese nodo de administración.
++
+Debe crear una conexión de SP para cada nodo de administrador que se muestra en la tabla.
+
+
+
+--
+====
+
+
+== [[test-sso]]Configuración de prueba
+
+Antes de implementar el uso del inicio de sesión único para todo el sistema StorageGRID , confirme que el inicio de sesión único y el cierre de sesión único estén configurados correctamente para cada nodo de administración.
+
+[role="tabbed-block"]
+====
+.Active Directory
+--
+.Pasos
+. Desde la página Configurar SSO, busque el enlace en el paso de configuración de prueba del asistente.
++
+La dirección URL se deriva del valor introducido en el campo *Nombre de servicio de Federación*.
+
+. Seleccione el enlace, o copie y pegue la URL en un navegador para acceder a la página de inicio de sesión del proveedor de identidades.
+. Para confirmar que puede utilizar SSO para iniciar sesión en StorageGRID, seleccione *Iniciar sesión en uno de los siguientes sitios*, seleccione el identificador de la parte que confía para su nodo de administración principal y seleccione *Iniciar sesión*.
+. Introduzca el nombre de usuario y la contraseña federados.
++
+** Si las operaciones de inicio de sesión y cierre de sesión SSO se realizan correctamente, se muestra un mensaje de éxito.
+** Si la operación de SSO se realiza sin errores, se muestra un mensaje de error. Solucione el problema, borre las cookies del navegador e inténtelo de nuevo.
+
+
+. Repita estos pasos para verificar la conexión SSO para cada nodo de administrador en el grid.
+
+
+--
+.Identificación de entrada
+--
+.Pasos
+. Vaya a la página Single Sign-On del portal de Azure.
+. Seleccione *probar esta aplicación*.
+. Introduzca las credenciales de un usuario federado.
++
+** Si las operaciones de inicio de sesión y cierre de sesión SSO se realizan correctamente, se muestra un mensaje de éxito.
+** Si la operación de SSO se realiza sin errores, se muestra un mensaje de error. Solucione el problema, borre las cookies del navegador e inténtelo de nuevo.
+
+
+. Repita estos pasos para verificar la conexión SSO para cada nodo de administrador en el grid.
+
+
+--
+.PingFederate
+--
+.Pasos
+. Desde la página Configurar SSO, seleccione el primer enlace en el mensaje del modo Sandbox.
++
+Seleccione y pruebe un enlace cada vez.
+
+. Introduzca las credenciales de un usuario federado.
++
+** Si las operaciones de inicio de sesión y cierre de sesión SSO se realizan correctamente, se muestra un mensaje de éxito.
+** Si la operación de SSO se realiza sin errores, se muestra un mensaje de error. Solucione el problema, borre las cookies del navegador e inténtelo de nuevo.
+
+
+. Seleccione el siguiente enlace para verificar la conexión de SSO para cada nodo de administrador de la cuadrícula.
++
+Si ve un mensaje Página caducada, seleccione el botón *Atrás* de su explorador y vuelva a enviar sus credenciales.
+
+
+
+--
+====
+
+
+== Active el inicio de sesión único
+
+Una vez que haya confirmado que puede usar SSO para iniciar sesión en cada nodo de administración, puede habilitar SSO en todo el sistema StorageGRID.
+
+
+TIP: Cuando SSO está habilitado, todos los usuarios deben utilizar SSO para acceder a Grid Manager, al arrendatario Manager, a la API de gestión de grid y a la API de gestión de inquilinos. Los usuarios locales ya no pueden acceder a StorageGRID.
+
+.Pasos
+. Desde el paso de configuración de prueba del asistente de configuración de SSO, seleccione *Habilitar SSO*.
+. Revise el mensaje de advertencia y seleccione *Habilitar SSO*.
++
+El inicio de sesión único ahora está habilitado.  Aparece la página de inicio de sesión único y ahora incluye los detalles del SSO que acaba de configurar.
+
+. Para editar la configuración, seleccione *Editar*.
+. Para deshabilitar el inicio de sesión único, seleccione *Deshabilitar SSO*.
+
+
+
+TIP: Si usa Azure Portal y accede a StorageGRID desde la misma computadora que usa para acceder a Entra ID, asegúrese de que el usuario del portal de Azure también sea un usuario autorizado de StorageGRID (un usuario en un grupo federado que se haya importado a StorageGRID o cierre la sesión del portal de Azure antes de intentar iniciar sesión en StorageGRID).

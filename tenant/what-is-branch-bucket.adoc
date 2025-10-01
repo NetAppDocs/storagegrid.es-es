@@ -1,0 +1,110 @@
+---
+permalink: tenant/what-is-branch-bucket.html 
+sidebar: sidebar 
+keywords: how to create branch bucket 
+summary: Un bucket de rama proporciona acceso a los objetos de un bucket tal como existían en un momento determinado. 
+---
+= ¿Qué es un bucket de rama?
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Un bucket de rama proporciona acceso a los objetos de un bucket tal como existían en un momento determinado.
+
+Crea un bucket de rama a partir de un bucket existente.  Después de crear un bucket de rama, el bucket original desde el cual se creó se denomina _bucket base_.  Además, puedes crear un bucket de rama a partir de otro bucket de rama.
+
+Un bucket de rama proporciona acceso a datos protegidos, pero no sirve como respaldo.  Para continuar protegiendo los datos, utilice estas funciones en los depósitos base:
+
+* link:../tenant/using-s3-object-lock.html["Bloqueo de objetos de S3"]
+* link:../admin/grid-federation-what-is-cross-grid-replication.html["Replicación entre grid"]para cubos de base
+* link:../tenant/manage-bucket-policy.html["Políticas de cubos"]para que los depósitos versionados limpien versiones antiguas de objetos
+
+
+Tenga en cuenta las siguientes características de los grupos de ramas:
+
+* Puede acceder a los objetos en los depósitos de ramas mediantelink:../tenant/use-s3-console.html["Consola S3 para descargar objetos"] .
+* Cuando los clientes acceden a objetos en un depósito de rama, el depósito de ramalink:../s3/use-access-policies.html["políticas de acceso"] , en lugar de las políticas del depósito base, determinan si se concede o se deniega el acceso.
+* Los objetos creados en un depósito base se evalúan en función de cómolink:../ilm/access-create-ilm-rule-wizard.html["Reglas de ILM"] aplicar al cubo base.  Los objetos creados en un bucket de rama se evalúan en función de cómo se aplican las reglas de ILM al bucket de rama.
+* La replicación entre redes no es compatible con los grupos de sucursales.
+* Los servicios de plataforma no son compatibles con los grupos de sucursales.
+
+
+
+
+== Ejemplos de uso de depósitos de sucursales
+
+* Puede utilizar un depósito de rama para eliminar objetos corruptos creando un depósito de rama desde un punto en el tiempo anterior a la ocurrencia de la corrupción y luego apuntando las aplicaciones al depósito de rama en lugar de al depósito base que contiene los objetos corruptos.
+* Estás guardando datos en un depósito versionado.  Hubo una vulnerabilidad accidental que provocó que se ingieran muchos objetos no deseados después del tiempo _T_.  Puede crear un depósito de rama para el valor de tiempo anterior, _T_, y redirigir las operaciones del cliente a ese depósito de rama.  Luego, solo los objetos ingeridos antes del tiempo anterior _T_ se exponen a los clientes.
+
+
+
+
+== Operaciones sobre objetos en depósitos de ramas
+
+* Una operación PUT de objeto en un bucket de rama crea un objeto en la rama.
+* Una operación GET de objeto en un bucket de rama recupera un objeto de la rama.  Si el objeto no existe en el depósito de la rama, el objeto se recupera del depósito base.
+* Las eliminaciones de objetos de los depósitos de ramas ocurren de la siguiente manera:
++
+[cols="1a,1a,2a,2a,2a"]
+|===
+| Funcionamiento | Objetivo | Resultado | Visibilidad de objetos en el depósito base | Visibilidad de objetos en el bucket de la rama 
+
+
+ a| 
+Eliminar sin ID de versión
+ a| 
+Cubo base
+ a| 
+El marcador de eliminación se crea solo para el depósito base
+ a| 
+HEAD/GET devuelve El objeto no existe, pero aún se puede acceder a versiones específicas
+ a| 
+HEAD/GET devuelve El objeto existe y aún se puede acceder a versiones específicas
+
+El marcador de eliminación se habría creado después del depósito de la rama. `beforeTime` .
+
+
+
+ a| 
+Eliminar con ID de versión
+ a| 
+Cubo base
+ a| 
+Se elimina la versión de objeto específica tanto para el depósito base como para el de la rama
+ a| 
+HEAD/GET devuelve La versión del objeto no existe
+ a| 
+HEAD/GET devuelve La versión del objeto no existe
+
+
+
+ a| 
+Eliminar sin ID de versión
+ a| 
+Cubo de rama
+ a| 
+El marcador de eliminación se crea solo para el depósito de la rama
+ a| 
+HEAD/GET devuelve un objeto (el objeto del depósito base no se ve afectado)
+ a| 
+HEAD/GET devuelve El objeto no existe
+
+
+
+ a| 
+Eliminar con ID de versión
+ a| 
+Cubo de rama
+ a| 
+La versión de objeto específica se elimina solo para el depósito de la rama
+ a| 
+HEAD/GET devuelve la versión específica del objeto (el objeto del bucket base no se ve afectado)
+ a| 
+HEAD/GET devuelve La versión del objeto no existe
+
+|===
+
+
+Consulte tambiénlink:../ilm/how-objects-are-deleted.html#delete-s3-versioned-objects["Cómo se eliminan los objetos con versiones de S3"] .

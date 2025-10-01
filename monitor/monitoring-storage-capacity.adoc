@@ -45,7 +45,7 @@ image::../media/dashboard_storage_over_time.png[Gráfico de almacenamiento a lo 
 
 . Use la página Nodes para obtener más información sobre cuánto almacenamiento se ha usado y cuánto almacenamiento sigue disponible en el grid para datos de objetos y metadatos de objetos.
 +
-.. Selecciona *NODOS*.
+.. Seleccionar *Nodos*.
 .. Seleccione *_grid_* > *almacenamiento*.
 +
 image::../media/nodes_deployment_storage_tab.png[Pestaña Nodes Deployment Storage]
@@ -82,7 +82,7 @@ El espacio útil es la cantidad de espacio de almacenamiento disponible para alm
 image::../media/calculating_watermarks.gif[Dibujo conceptual para el espacio útil total]
 
 .Pasos
-. Seleccione *NODES* > *_Storage Node_* > *Storage*.
+. Seleccione *Nodos* > *_Nodo de almacenamiento_* > *Almacenamiento*.
 +
 Aparecen los gráficos y las tablas del nodo.
 
@@ -140,7 +140,7 @@ En algunos casos, la capacidad de metadatos de objetos del grid puede consumirse
 Algunos de los factores que pueden aumentar el uso de metadatos son el tamaño y la cantidad de metadatos y etiquetas de usuario, el número total de partes en una carga de varias partes y la frecuencia de los cambios en las ubicaciones de almacenamiento de ILM.
 
 .Pasos
-. Seleccione *NODES* > *_Storage Node_* > *Storage*.
+. Seleccione *Nodos* > *_Nodo de almacenamiento_* > *Almacenamiento*.
 . Coloque el cursor sobre el gráfico de metadatos de objetos Storage Used para ver los valores de un tiempo específico.
 +
 image::../media/storage_used_object_metadata.png[Almacenamiento utilizado: Metadatos de objetos]

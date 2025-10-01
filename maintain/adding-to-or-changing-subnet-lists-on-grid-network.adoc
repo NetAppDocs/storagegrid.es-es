@@ -43,6 +43,7 @@ Por ejemplo, no utilice los siguientes rangos de subred para la red de cuadrícu
 
 ====
 .Pasos
+. El acceso SSH externo está bloqueado de forma predeterminada.  Si es necesario,link:../admin/manage-external-ssh-access.html["permitir el acceso temporalmente"] .
 . Inicie sesión en el nodo de administración principal:
 +
 .. Introduzca el siguiente comando: `ssh admin@_primary_Admin_Node_IP_`
@@ -149,7 +150,7 @@ Si no sabía que los cambios propuestos requieren que se reinicien los nodos, pu
 
 
 +
-Después de aplicar o almacenar en zona intermedia los cambios, se genera un nuevo paquete de recuperación como resultado del cambio de configuración de cuadrícula.
+Después de aplicar o preparar cambios, se genera un nuevo paquete de recuperación como resultado del cambio de configuración de la red.
 
 . Si la configuración se detiene debido a errores, están disponibles las siguientes opciones:
 +
@@ -164,12 +165,13 @@ La operación fallida se puede volver a intentar más tarde seleccionando la opc
 
 . Descargue un nuevo paquete de recuperación desde Grid Manager.
 +
-.. Seleccione *MANTENIMIENTO* > *sistema* > *paquete de recuperación*.
+.. Seleccione *Mantenimiento* > *Sistema* > *Paquete de recuperación*.
 .. Introduzca la clave de acceso de aprovisionamiento.
 
 
 +
 
-CAUTION: El archivo del paquete de recuperación debe estar protegido porque contiene claves de cifrado y contraseñas que se pueden usar para obtener datos del sistema StorageGRID.
+CAUTION: El archivo del paquete de recuperación debe estar protegido porque contiene claves de cifrado y contraseñas que se pueden utilizar para obtener datos del sistema StorageGRID .
 
+. Si ha permitido el acceso SSH externo,link:../admin/manage-external-ssh-access.html["bloquear el acceso"] cuando haya terminado de agregar o cambiar las listas de subredes.
 

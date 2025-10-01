@@ -1,8 +1,8 @@
 ---
-permalink: expand/copying-audit-logs.html 
 sidebar: sidebar 
+permalink: expand/copying-audit-logs.html 
 keywords: copy audit log, Admin Node expansion, 
-summary: Cuando agrega un nuevo nodo de administración a través de un procedimiento de expansión, su servicio AMS solo registra eventos y acciones que se producen después de que se une al sistema. Según sea necesario, se pueden copiar registros de auditoría de un nodo de administrador instalado previamente en el nuevo nodo de administrador de ampliación de modo que este se encuentre sincronizado con el resto del sistema de StorageGRID. 
+summary: Cuando se agrega un nuevo nodo de administración a través de un procedimiento de expansión, su servicio AMS solo registra los eventos y acciones que ocurren después de que se une al sistema.  Según sea necesario, puede copiar registros de auditoría de un nodo de administración previamente instalado al nuevo nodo de administración de expansión para que esté sincronizado con el resto del sistema StorageGRID . 
 ---
 = Copiar registros de auditoría
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Cuando agrega un nuevo nodo de administración a través de un procedim
 
 
 [role="lead"]
-Cuando agrega un nuevo nodo de administración a través de un procedimiento de expansión, su servicio AMS solo registra eventos y acciones que se producen después de que se une al sistema. Según sea necesario, se pueden copiar registros de auditoría de un nodo de administrador instalado previamente en el nuevo nodo de administrador de ampliación de modo que este se encuentre sincronizado con el resto del sistema de StorageGRID.
+Cuando se agrega un nuevo nodo de administración a través de un procedimiento de expansión, su servicio AMS solo registra los eventos y acciones que ocurren después de que se une al sistema.  Según sea necesario, puede copiar registros de auditoría de un nodo de administración previamente instalado al nuevo nodo de administración de expansión para que esté sincronizado con el resto del sistema StorageGRID .
 
 .Antes de empezar
 * Completó los pasos de ampliación necesarios para añadir un nodo de administrador.
@@ -23,13 +23,13 @@ Para que los mensajes de auditoría históricos estén disponibles en un nodo de
 
 [NOTE]
 ====
-De manera predeterminada, se envía la información de auditoría al registro de auditoría en los nodos admin. Puede omitir estos pasos si se aplica alguna de las siguientes situaciones:
+De forma predeterminada, la información de auditoría se envía a la `localaudit` Inicie sesión en cada nodo.  Para utilizar este procedimiento, debe haber configurado los nodos de administración como destino de auditoría de la siguiente manera:
 
-* Se configuraron un servidor de syslog externo y registros de auditoría ahora se envían al servidor de syslog en lugar de a los nodos de administrador.
-* Ha especificado explícitamente que los mensajes de auditoría se deben guardar sólo en los nodos locales que los han generado.
+* Ha configurado *Nodos de administración/nodos locales* como destino del registro.
+* Ha configurado *Nodos de administración y servidor syslog externo* como destino del registro.
 
 
-Consulte link:../monitor/configure-audit-messages.html["Configurar los mensajes de auditoría y los destinos de registro"] para obtener más información.
+Referirse alink:../monitor/configure-audit-messages.html["Configure los mensajes de auditoría y el servidor de syslog externo"] Para más detalles.
 
 ====
 .Pasos
@@ -47,9 +47,9 @@ Al iniciar sesión como root, la petición de datos cambia de `$` a `#`.
 . Detenga el servicio AMS para evitar que cree un nuevo archivo: `service ams stop`
 . Navegue al directorio de exportación de auditoría:
 +
-`cd /var/local/log`
+`cd /var/local/audit/export/`
 
-. Cambie el nombre del archivo de origen `audit.log` para asegurarse de que no sobrescriba el archivo en el nodo de administración de expansión en el que lo está copiando:
+. Cambiar el nombre de la fuente `audit.log` archivo para asegurarse de que no sobrescriba el archivo en el nodo de administración de expansión al que lo está copiando:
 +
 [listing]
 ----
@@ -58,7 +58,7 @@ mv audit.log _new_name_.txt
 ----
 . Copie todos los archivos de registro de auditoría en la ubicación de destino en el nodo de administración de expansión:
 +
-`scp -p * _IP_address_:/var/local/log`
+`scp -p * _IP_address_:/var/local/audit/export/`
 
 . Si se le solicita la contraseña para `/root/.ssh/id_rsa`, introduzca la contraseña de acceso SSH para el nodo de administración principal que aparece en el `Passwords.txt` archivo.
 . Restaure el archivo original `audit.log`:
@@ -86,7 +86,7 @@ Al iniciar sesión como root, la petición de datos cambia de `$` a `#`.
 
 . Actualice la configuración del usuario y del grupo para los archivos de registro de auditoría:
 +
-`cd /var/local/log`
+`cd /var/local/audit/export/`
 
 +
 `chown ams-user:bycast *`

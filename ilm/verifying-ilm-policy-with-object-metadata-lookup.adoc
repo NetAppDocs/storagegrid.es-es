@@ -14,7 +14,12 @@ summary: Una vez activada una política de ILM, introduzca los objetos de prueba
 Una vez activada una política de ILM, introduzca los objetos de prueba representativos en el sistema StorageGRID y, a continuación, realice una búsqueda de metadatos de objetos para confirmar que las copias se crean como previstas y que se colocan en las ubicaciones correctas.
 
 .Antes de empezar
-Tiene un identificador de objeto, que puede ser uno de: * *UUID*: El identificador único universal del objeto. * *CBID*: Identificador único del objeto dentro de StorageGRID. Es posible obtener el CBID de un objeto del registro de auditoría. Introduzca el CBID en todas las mayúsculas. * *S3 bucket y clave de objeto*: Cuando un objeto se ingiere a través de la interfaz S3, la aplicación cliente utiliza una combinación de cubo y clave de objeto para almacenar e identificar el objeto. Si el bloque de S3 tiene versiones y desea buscar una versión específica de un objeto S3 mediante el bloque y la clave de objeto, tendrá el *ID de versión*.
+Tienes un identificador de objeto, que puede ser uno de los siguientes:
+
+* *UUID*: Identificador único universal del objeto.
+* *CBID*: El identificador único del objeto dentro de StorageGRID.  Puede obtener el CBID de un objeto desde el registro de auditoría.  Introduzca el CBD en mayúsculas.
+* *Clave de objeto y depósito S3*: cuando se ingiere un objeto a través de la interfaz S3, la aplicación cliente utiliza una combinación de clave de objeto y depósito para almacenar e identificar el objeto.  Si el bucket S3 tiene versiones y desea buscar una versión específica de un objeto S3 usando la clave del bucket y del objeto, tendrá el *ID de versión*.
+
 
 .Pasos
 . Procese el objeto.

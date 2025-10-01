@@ -67,30 +67,48 @@ Por ejemplo, el comportamiento de ingesta seleccionado para una regla de ILM afe
 A continuación encontrará un breve resumen de los valores de coherencia disponibles en StorageGRID:
 
 * *Todos*: Todos los nodos reciben metadatos de objeto inmediatamente o la solicitud fallará.
-* *Strong-global*: Los metadatos de objetos se distribuyen inmediatamente a todos los sitios. Garantiza la coherencia de lectura tras escritura para todas las solicitudes del cliente en todos los sitios.
+* *Strong-global*: garantiza la consistencia de lectura después de escritura para todas las solicitudes de clientes en todos los sitios.  Cuando se configura la semántica de quórum, se aplican los siguientes comportamientos:
++
+** Permite la tolerancia a fallas del sitio para las solicitudes de los clientes cuando las redes tienen tres o más sitios.  Las redes de dos sitios no tendrán tolerancia a fallas del sitio.
+** Las siguientes operaciones S3 no tendrán éxito si un sitio está inactivo:
++
+*** DeleteBucketEncryption
+*** PonerBucketBranch
+*** PutBucketEncryption
+*** PutBucketVersioning
+*** PutObjectLegalHold
+*** PutObjectLockConfiguration
+*** PutObjectRetention
+
+
+
+
++
+Si es necesario, puedes https://kb.netapp.com/hybrid/StorageGRID/Object_Mgmt/Configuring_StorageGRID_quorum_semantics_for_strong-global_consistency["Configurar la semántica de quórum de StorageGRID para lograr una consistencia global sólida"^] .
+
 * *Strong-site*: Los metadatos de objetos se distribuyen inmediatamente a otros nodos en el sitio. Garantiza la coherencia de lectura tras escritura para todas las solicitudes del cliente dentro de un sitio.
 * *Read-after-new-write*: Proporciona consistencia de lectura después de escritura para nuevos objetos y consistencia eventual para actualizaciones de objetos. Ofrece garantías de alta disponibilidad y protección de datos. Recomendado para la mayoría de los casos.
 * *Disponible*: Proporciona consistencia eventual tanto para nuevos objetos como para actualizaciones de objetos. Para los cubos S3, utilice solo según sea necesario (por ejemplo, para un depósito que contiene valores de registro que rara vez se leen, o para operaciones HEAD u GET en claves que no existen). No se admite para bloques de FabricPool S3.
 
 
 
-NOTE: Antes de seleccionar un valor de consistencia, link:../s3/consistency-controls.html["lea la descripción completa de la consistencia"]. Debe comprender los beneficios y las limitaciones antes de cambiar el valor predeterminado.
+NOTE: Antes de seleccionar un valor de consistencia,link:../s3/consistency.html["lea la descripción completa de la consistencia"] .  Debe comprender los beneficios y las limitaciones antes de cambiar el valor predeterminado.
 
 
 
 == Un ejemplo de cómo pueden interactuar las reglas de coherencia e ILM
 
-Suponga que tiene un grid de dos sitios con la siguiente regla de ILM y la siguiente consistencia:
+Supongamos que tiene una cuadrícula de tres sitios con la siguiente regla ILM y la siguiente consistencia:
 
-* *Norma ILM*: Cree dos copias de objetos, una en el sitio local y otra en un sitio remoto. Use un comportamiento de ingesta estricto.
-* *Consistencia*: Fuerte-global (los metadatos de objetos se distribuyen inmediatamente a todos los sitios).
+* *Regla ILM*: Crear tres copias de objetos, una en el sitio local y una en cada sitio remoto.  Utilice el comportamiento de ingesta estricto.
+* *Consistencia*: Fuerte-global (los metadatos del objeto se distribuyen inmediatamente a múltiples sitios).
 
 
-Cuando un cliente almacena un objeto en el grid, StorageGRID realiza copias de objetos y distribuye los metadatos en ambos sitios antes de devolver el éxito al cliente.
+Cuando un cliente almacena un objeto en la red, StorageGRID realiza tres copias del objeto y distribuye metadatos a varios sitios antes de devolver el éxito al cliente.
 
-El objeto está completamente protegido contra la pérdida en el momento del mensaje de procesamiento correcto. Por ejemplo, si el sitio local se pierde poco después del procesamiento, seguirán existiendo copias de los datos del objeto y los metadatos del objeto en el sitio remoto. El objeto se puede recuperar completamente.
+El objeto está completamente protegido contra pérdida en el momento del mensaje de ingesta exitosa.  Por ejemplo, si el sitio local se pierde poco después de la ingesta, aún existen copias de los datos y metadatos del objeto en los sitios remotos.  El objeto es totalmente recuperable desde los otros sitios.
 
-Si, en cambio, utiliza la misma regla de ILM y la coherencia del sitio fuerte, es posible que el cliente reciba un mensaje de éxito después de replicar los datos de objetos en el sitio remoto, pero antes de que los metadatos de los objetos se distribuyan allí. En este caso, el nivel de protección de los metadatos de objetos no coincide con el nivel de protección de los datos de objetos. Si el sitio local se pierde poco después del procesamiento, se pierden los metadatos del objeto. No se puede recuperar el objeto.
+Si, en cambio, utilizara la misma regla ILM y la consistencia del sitio fuerte, el cliente podría recibir un mensaje de éxito después de que los datos del objeto se repliquen en los sitios remotos pero antes de que los metadatos del objeto se distribuyan allí.  En este caso, el nivel de protección de los metadatos del objeto no coincide con el nivel de protección de los datos del objeto.  Si el sitio local se pierde poco después de la ingesta, se pierden los metadatos del objeto.  No se puede recuperar el objeto.
 
 La interrelación entre las reglas de coherencia y de ILM puede ser compleja. Póngase en contacto con NetApp si necesita ayuda.
 

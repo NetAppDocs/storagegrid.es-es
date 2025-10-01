@@ -25,14 +25,14 @@ Toda la actividad de los clientes de S3 se asocia con las cuentas de inquilino d
 La página Tenedores muestra información básica para todas las cuentas de arrendatario actuales.
 
 .Pasos
-. Seleccione *ARRENDATARIOS*.
+. Seleccione *Inquilinos*.
 . Revise la información que se muestra en las páginas de arrendatario.
 +
 El espacio lógico utilizado, el uso de cuota, la cuota y el recuento de objetos se enumeran para cada inquilino. Si no se establece una cuota para un arrendatario, los campos Uso de cuota y Cuota contienen un guión (&#8212;).
 
 +
 
-NOTE: Los valores de espacio utilizado son estimados. Estas estimaciones se ven afectadas por el tiempo de los ingests, la conectividad de red y el estado del nodo.
+NOTE: El tamaño lógico de todos los objetos que pertenecen a este inquilino incluye cargas multiparte incompletas y en progreso.  El tamaño no incluye el espacio físico adicional utilizado para las políticas de ILM.  Los valores de espacio utilizado son estimaciones.  Estas estimaciones se ven afectadas por el momento de la ingesta, la conectividad de la red y el estado del nodo.
 
 +
 image::../media/tenant_accounts_page.png[Página Cuentas de inquilino]
@@ -75,6 +75,10 @@ image::../media/tenant_usage_modal.png[Uso de arrendatario modal]
 . Revise la información general del inquilino en la parte superior de la página.
 +
 En esta sección de la página de detalles se proporciona información de resumen para el inquilino, incluido el recuento de objetos del inquilino, el uso de la cuota, el espacio lógico utilizado y la configuración de la cuota.
+
++
+
+NOTE: El tamaño lógico de todos los objetos que pertenecen a este inquilino incluye cargas multiparte incompletas y en progreso.  El tamaño no incluye el espacio físico adicional utilizado para las políticas de ILM.  Los valores de espacio utilizado son estimaciones.  Estas estimaciones se ven afectadas por el momento de la ingesta, la conectividad de la red y el estado del nodo.
 
 . Desde la pestaña *Desglose del espacio*, revisa el gráfico *Consumo de espacio*.
 +
@@ -129,7 +133,7 @@ Consulte link:../admin/grid-federation-overview.html["¿Qué es GRID federation?
 Si se han establecido directivas de clasificación de tráfico para un inquilino, revise el tráfico de red para ese arrendatario.
 
 .Pasos
-. Seleccione *CONFIGURACIÓN* > *Red* > *Clasificación de tráfico*.
+. Seleccione *Configuración* > *Red* > *Clasificación de tráfico*.
 +
 Aparece la página Directivas de clasificación del tráfico y las directivas existentes se muestran en la tabla.
 
@@ -164,7 +168,7 @@ Consulte link:../audit/index.html["Revisar los registros de auditoría"] para ob
 
 Opcionalmente, utilice las métricas de Prometheus para generar informes sobre la actividad del inquilino.
 
-* En Grid Manager, seleccione *SUPPORT* > *Tools* > *Metrics*. Puede usar consolas existentes, como S3 Overview, para revisar las actividades del cliente.
+* En el Administrador de cuadrícula, seleccione *Soporte* > *Herramientas* > *Métricas*.  Puede utilizar paneles existentes, como S3 Overview, para revisar las actividades del cliente.
 +
 
 NOTE: Las herramientas disponibles en la página Metrics están destinadas principalmente al soporte técnico. Algunas funciones y elementos de menú de estas herramientas no son intencionalmente funcionales.

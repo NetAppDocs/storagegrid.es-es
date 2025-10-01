@@ -1,0 +1,109 @@
+---
+permalink: swnodes/configuring-host-storage.html 
+sidebar: sidebar 
+keywords: how to configure host storage 
+summary: Debe asignar volúmenes de almacenamiento en bloque a cada host Linux. 
+---
+= Configurar el almacenamiento del host (Linux)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe asignar volúmenes de almacenamiento en bloque a cada host Linux.
+
+.Antes de empezar
+Ha revisado los siguientes temas, que le proporcionan información necesaria para realizar esta tarea:
+
+* link:storage-and-performance-requirements.html["Los requisitos de almacenamiento y rendimiento"]
+* link:node-container-migration-requirements.html["Requisitos de migración de contenedores de nodos"]
+
+
+
+NOTE: "Linux" se refiere a una implementación de RHEL, Ubuntu o Debian.  Para obtener una lista de las versiones compatibles, consulte la https://imt.netapp.com/matrix/#welcome["Herramienta de matriz de interoperabilidad de NetApp (IMT)"^] .
+
+.Acerca de esta tarea
+Cuando asigne volúmenes de almacenamiento de bloques (LUN) a hosts, utilice las tablas en «Requisitos de almacenamiento» para determinar lo siguiente:
+
+* Número de volúmenes necesarios para cada host (según la cantidad y los tipos de nodos que se pondrán en marcha en ese host)
+* Categoría de almacenamiento para cada volumen (es decir, datos del sistema o datos de objetos)
+* El tamaño de cada volumen
+
+
+Utilizará esta información, así como el nombre persistente asignado por Linux a cada volumen físico cuando implemente nodos StorageGRID en el host.
+
+
+NOTE: No es necesario crear particiones, formatear o montar ninguno de estos volúmenes; solo debe asegurarse de que sean visibles para los hosts.
+
+
+NOTE: Solo se requiere un LUN de datos de objetos para los nodos de almacenamiento solo de metadatos.
+
+Evite utilizar archivos especiales de dispositivos raw (`/dev/sdb`, por ejemplo) al componer la lista de nombres de volúmenes. Estos archivos pueden cambiar entre reinicios del host, lo que impacta en el funcionamiento correcto del sistema. Si utiliza LUN de iSCSI y rutas múltiples de asignación de dispositivos, considere la posibilidad de usar alias multivía en `/dev/mapper` el directorio, especialmente si la topología de SAN incluye rutas de red redundantes al almacenamiento compartido. También puede utilizar los enlaces de software creados por el sistema en `/dev/disk/by-path/` para los nombres de dispositivos persistentes.
+
+Por ejemplo:
+
+[listing]
+----
+ls -l
+$ ls -l /dev/disk/by-path/
+total 0
+lrwxrwxrwx 1 root root  9 Sep 19 18:53 pci-0000:00:07.1-ata-2 -> ../../sr0
+lrwxrwxrwx 1 root root  9 Sep 19 18:53 pci-0000:03:00.0-scsi-0:0:0:0 -> ../../sda
+lrwxrwxrwx 1 root root 10 Sep 19 18:53 pci-0000:03:00.0-scsi-0:0:0:0-part1 -> ../../sda1
+lrwxrwxrwx 1 root root 10 Sep 19 18:53 pci-0000:03:00.0-scsi-0:0:0:0-part2 -> ../../sda2
+lrwxrwxrwx 1 root root  9 Sep 19 18:53 pci-0000:03:00.0-scsi-0:0:1:0 -> ../../sdb
+lrwxrwxrwx 1 root root  9 Sep 19 18:53 pci-0000:03:00.0-scsi-0:0:2:0 -> ../../sdc
+lrwxrwxrwx 1 root root  9 Sep 19 18:53 pci-0000:03:00.0-scsi-0:0:3:0 -> ../../sdd
+----
+Los resultados serán distintos para cada instalación.
+
+Asigne nombres descriptivos a cada uno de estos volúmenes de almacenamiento en bloques para simplificar la instalación inicial de StorageGRID y los procedimientos de mantenimiento futuros. Si utiliza el controlador multivía de asignación de dispositivos para el acceso redundante a los volúmenes de almacenamiento compartido, puede utilizar `alias` el campo en `/etc/multipath.conf` el archivo.
+
+Por ejemplo:
+
+[listing]
+----
+multipaths {
+     multipath {
+          wwid 3600a09800059d6df00005df2573c2c30
+          alias docker-storage-volume-hostA
+     }
+     multipath {
+          wwid 3600a09800059d6df00005df3573c2c30
+          alias sgws-adm1-var-local
+     }
+     multipath {
+          wwid 3600a09800059d6df00005df4573c2c30
+          alias sgws-adm1-audit-logs
+     }
+     multipath {
+          wwid 3600a09800059d6df00005df5573c2c30
+          alias sgws-adm1-tables
+     }
+     multipath {
+          wwid 3600a09800059d6df00005df6573c2c30
+          alias sgws-gw1-var-local
+     }
+     multipath {
+          wwid 3600a09800059d6df00005df7573c2c30
+          alias sgws-sn1-var-local
+     }
+     multipath {
+          wwid 3600a09800059d6df00005df7573c2c30
+          alias sgws-sn1-rangedb-0
+     }
+     …
+----
+El uso del campo alias de esta manera hace que los alias aparezcan como dispositivos de bloques en `/dev/mapper` el directorio del host, lo que permite especificar un nombre descriptivo y de fácil validación siempre que una operación de configuración o mantenimiento requiera especificar un volumen de almacenamiento de bloques.
+
+Si está configurando almacenamiento compartido para admitir la migración de nodos de StorageGRID y el uso de rutas múltiples de asignación de dispositivos, puede crear e instalar un común `/etc/multipath.conf` en todos los hosts ubicados conjuntamente. Solo tiene que asegurarse de usar un volumen de almacenamiento de motor de contenedores diferente en cada host. El uso de alias e incluir el nombre de host de destino en el alias de cada LUN del volumen de almacenamiento del motor de contenedor hará que esto resulte fácil de recordar y se recomienda.
+
+
+NOTE: La compatibilidad con Docker como motor de contenedor para puestas en marcha de solo software queda obsoleta. En una futura versión, Docker se sustituirá por otro motor de contenedor.
+
+.Información relacionada
+* link:configuring-docker-storage-volume.html["Configurar el volumen de almacenamiento del motor del contenedor"]
+* link:storage-and-performance-requirements.html["Los requisitos de almacenamiento y rendimiento"]
+* link:node-container-migration-requirements.html["Requisitos de migración de contenedores de nodos"]
+

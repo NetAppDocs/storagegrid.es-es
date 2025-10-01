@@ -2,15 +2,15 @@
 :allow-uri-read: 
 
 
-Puede deshabilitar temporalmente o de forma permanente la federación de identidades para grupos y usuarios. Cuando la federación de identidades está deshabilitada, no existe comunicación entre StorageGRID y el origen de identidades. Sin embargo, cualquier configuración que haya configurado se conservará, lo que le permitirá volver a habilitar fácilmente la federación de identidades en el futuro.
+Puede deshabilitar temporal o permanentemente la federación de identidad para grupos y usuarios.  Cuando la federación de identidad está deshabilitada, no hay comunicación entre StorageGRID y la fuente de identidad.  Sin embargo, cualquier configuración que haya realizado se conservará, lo que le permitirá volver a habilitar fácilmente la federación de identidad en el futuro.
 
 .Acerca de esta tarea
 Antes de deshabilitar la federación de identidades, debe tener en cuenta lo siguiente:
 
 * Los usuarios federados no podrán iniciar sesión.
 * Los usuarios federados que hayan iniciado sesión en ese momento, retendrán el acceso al sistema StorageGRID hasta que caduque la sesión, pero no podrán iniciar sesión después de que caduque la sesión.
-* La sincronización entre el sistema StorageGRID y el origen de identidad no se producirá y no se generarán alertas para las cuentas que no se hayan sincronizado.
-* La casilla de verificación *Habilitar federación de identidad* está desactivada si el inicio de sesión único (SSO) está configurado en *enabled* o *Sandbox Mode*. El estado de SSO de la página Single Sign-On debe ser *Desactivado* antes de poder deshabilitar la federación de identidades. Consulte link:../admin/disabling-single-sign-on.html["Desactive el inicio de sesión único"].
+* No se producirá sincronización entre el sistema StorageGRID y la fuente de identidad, y no se generarán alertas para las cuentas que no se hayan sincronizado.
+* La casilla de verificación *Habilitar federación de identidad* está deshabilitada si el estado de inicio de sesión único (SSO) es *Habilitado* o *Modo Sandbox*.  El estado de SSO en la página de inicio de sesión único debe ser *Deshabilitado* antes de poder deshabilitar la federación de identidad. Ver link:../admin/disabling-single-sign-on.html["Desactive el inicio de sesión único"] .
 
 
 .Pasos

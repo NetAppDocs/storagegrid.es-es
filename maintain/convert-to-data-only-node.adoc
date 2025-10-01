@@ -1,0 +1,57 @@
+---
+permalink: maintain/convert-to-data-only-node.html 
+sidebar: sidebar 
+keywords: storagegrid, convert node, data-only node 
+summary: Para aumentar el rendimiento, puede convertir los nodos de almacenamiento que no sean ADC más lentos en nodos de almacenamiento de solo datos. 
+---
+= Convertir un nodo de almacenamiento en un nodo de solo datos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para aumentar el rendimiento, puede convertir los nodos de almacenamiento que no sean ADC más lentos en nodos de almacenamiento de solo datos.
+
+El uso exclusivo de un nodo de almacenamiento para los datos puede ser lógico si los nodos de almacenamiento tienen diferentes características de rendimiento. Por ejemplo, para aumentar potencialmente el rendimiento, podría tener nodos de almacenamiento en disco giratorio de alta capacidad y solo de datos acompañados por nodos de almacenamiento de alto rendimiento solo de metadatos.
+
+Además, puede obtener más capacidad de metadatos eliminando nodos con poca RAM de Cassandra, lo que aumenta el límite de capacidad de metadatos por nodo. Consulte link:../admin/managing-object-metadata-storage.html["Gestione el almacenamiento de metadatos de objetos"] .
+
+Al convertir nodos de solo datos, la cuadrícula debe contener un mínimo de tres nodos de almacenamiento combinados o de solo metadatos por sitio.
+
+.Antes de empezar
+* Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Usted tiene el link:../admin/admin-group-permissions.html["Permiso de mantenimiento o acceso raíz"].
+* El nodo de almacenamiento que desea convertir no contiene el servicio ADC o tienelink:../maintain/move-adc-service.html["movió el servicio ADC"] a otro nodo.
+* El nodo de almacenamiento no es un nodo solo de metadatos ni solo de datos.
+* El nodo de almacenamiento que desea convertir no contiene el servicio ADC o tienelink:../maintain/move-adc-service.html["movió el servicio ADC"] a otro nodo.
+* Hay suficiente espacio de metadatos en otros nodos del sitio (o tienelink:../expand/index.html["amplió su red"] ) para acomodar los metadatos que migrarán desde el nodo de almacenamiento que está convirtiendo.
++
+[CAUTION]
+====
+** Si los metadatos que migran a otros nodos en el mismo sitio exceden el tamaño dellink:../admin/managing-object-metadata-storage.html["espacio reservado para metadatos"] , la red se volverá inestable.
+** Después de iniciar la conversión, no podrás expandir la cuadrícula.
+
+
+====
+
+
+.Acerca de esta tarea
+Utilice este procedimiento para convertir uno o más nodos de almacenamiento combinados que no contienen el servicio ADC en nodos de solo datos.
+
+Además de convertir el nodo de almacenamiento, este procedimiento desmantela Cassandra del nodo.  Todos los metadatos se migrarán a nodos de almacenamiento combinados o de solo metadatos.  Dependiendo de la cantidad de metadatos que se deban migrar, este procedimiento podría tardar varios días por nodo en completarse.
+
+
+TIP: Generalmente, puede convertir hasta 10 nodos a la vez si el uso de metadatos por nodo es inferior a 1 TB.  Si el uso de metadatos por nodo es superior a 1 TB, convierta hasta 5 nodos por procedimiento.
+
+.Pasos
+. Registre los ID de los nodos de almacenamiento que no sean ADC que desea convertir.
+. En la parte superior de Grid Manager, selecciona el icono de ayuda y selecciona *Documentación de API*.
+. Seleccione *Ir a documentación privada de API*.
+. Seleccione el `POST /private/convert-to-data-only-node/start` operación. Consulte link:../admin/using-grid-management-api.html#issue-api-requests["Emita solicitudes API"] Para más información.
++
+Cada nodo se reiniciará durante el procedimiento.
+
+. Puedes utilizar `GET /private/convert-to-data-only-node` para supervisar el procedimiento.  Si se producen errores, seleccione `POST /private/convert-to-data-only-node/retry` para volver a intentar el procedimiento.
+. link:../maintain/downloading-recovery-package.html["Descargar un paquete de recuperación"]después de completar este procedimiento.
+

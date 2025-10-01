@@ -36,12 +36,13 @@ NOTE: Si no se podrá acceder a los servidores DNS existentes a la cuadrícula e
 
 +
 
-NOTE: Si SSO está habilitado para el sistema StorageGRID y todas las confianzas de partes que dependan se configuraron utilizando direcciones IP de nodos de administración (en lugar de nombres de dominio completos, según se recomienda), esté preparado para actualizar o reconfigurar estas confianzas de partes que se basan en los Servicios de Federación de Active Directory (AD FS). Inmediatamente después de cambiar las direcciones IP. Consulte link:../admin/configuring-sso.html["Configurar el inicio de sesión único"].
+NOTE: Si SSO está habilitado para su sistema StorageGRID y se configuraron confianzas de usuario confiable mediante direcciones IP del nodo de administración (en lugar de nombres de dominio completos, como se recomienda), prepárese para actualizar o reconfigurar estas confianzas de usuario confiable en los Servicios de federación de Active Directory (AD FS) inmediatamente después de cambiar las direcciones IP. Ver link:../admin/configure-sso.html["Configurar el inicio de sesión único"] .
 
 +
 
 NOTE: De ser necesario, añada la nueva subred para las nuevas direcciones IP.
 
+. El acceso SSH externo está bloqueado de forma predeterminada.  Si es necesario,link:../admin/manage-external-ssh-access.html["permitir el acceso temporalmente"] .
 . Inicie sesión en el nodo de administración principal:
 +
 .. Introduzca el siguiente comando: `ssh admin@_primary_Admin_Node_IP_`
@@ -132,10 +133,11 @@ NOTE: Todo el grid debe cerrarse, de modo que todos los nodos estén inactivos a
 
 . Descargue el nuevo paquete de recuperación desde Grid Manager.
 +
-.. Seleccione *MANTENIMIENTO* > *sistema* > *paquete de recuperación*.
+.. Seleccione *Mantenimiento* > *Sistema* > *Paquete de recuperación*.
 .. Introduzca la clave de acceso de aprovisionamiento.
 
 
+. Si ha permitido el acceso SSH externo,link:../admin/manage-external-ssh-access.html["bloquear el acceso"] cuando haya terminado de cambiar las direcciones IP.
 
 
 .Información relacionada

@@ -30,7 +30,7 @@ Los grupos de administración permiten determinar a qué usuarios se puede acced
 === Acceda al asistente
 
 .Pasos
-. Seleccione *CONFIGURACIÓN* > *Control de acceso* > *grupos de administración*.
+. Seleccione *Configuración* > *Control de acceso* > *Grupos de administradores*.
 . Seleccione *Crear grupo*.
 
 
@@ -62,7 +62,7 @@ Puede crear un grupo local o importar un grupo federado.
 . Seleccione *Grupo federado*.
 . Introduzca el nombre del grupo que desea importar, exactamente como aparece en el origen de identidad configurado.
 +
-** Para Active Directory y Azure, utilice sAMAccountName.
+** Para Active Directory y Microsoft Entra ID, utilice sAMAccountName.
 ** Para OpenLDAP, utilice CN (Nombre común).
 ** Para otro LDAP, utilice el nombre exclusivo adecuado para el servidor LDAP.
 

@@ -1,33 +1,8 @@
 ---
 permalink: vmware/specifying-domain-name-system-server-information.html 
-sidebar: sidebar 
-keywords: how to specify domain name system server information 
-summary: Debe especificar la información DNS del sistema StorageGRID, de modo que pueda acceder a los servidores externos con nombres de host en lugar de direcciones IP. 
+redirect: storagegrid/swnodes/specifying-domain-name-system-server-information.html 
 ---
-= Especifique la información del servidor DNS
+= 
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
-
-[role="lead"]
-Debe especificar la información DNS del sistema StorageGRID, de modo que pueda acceder a los servidores externos con nombres de host en lugar de direcciones IP.
-
-.Acerca de esta tarea
-La especificación https://docs.netapp.com/us-en/storagegrid-appliances/commonhardware/checking-dns-server-configuration.html["Información del servidor DNS"^] permite usar nombres de host de nombre de dominio completo (FQDN) en lugar de direcciones IP para notificaciones por correo electrónico y AutoSupport.
-
-Para garantizar que el funcionamiento sea correcto, especifique dos o tres servidores DNS. Si especifica más de tres, es posible que solo se utilicen tres debido a las limitaciones conocidas del sistema operativo en algunas plataformas. Si tiene restricciones de enrutamiento en su entorno, puede link:../maintain/modifying-dns-configuration-for-single-grid-node.html["Personalice la lista de servidores DNS"] que los nodos individuales (normalmente todos los nodos en un sitio) usen un conjunto diferente de hasta tres servidores DNS.
-
-Si es posible, utilice servidores DNS a los que cada sitio puede acceder localmente para asegurarse de que un sitio islandn pueda resolver los FQDN para destinos externos.
-
-.Pasos
-. Especifique la dirección IPv4 para al menos un servidor DNS en el cuadro de texto *servidor 1*.
-. Si es necesario, seleccione el signo más junto a la última entrada para agregar entradas adicionales del servidor.
-+
-image::../media/9_gmi_installer_dns_page.gif[Esta imagen se explica por el texto circundante.]
-
-+
-La práctica recomendada es especificar al menos dos servidores DNS. Puede especificar hasta seis servidores DNS.
-
-. Seleccione *Siguiente*.
 

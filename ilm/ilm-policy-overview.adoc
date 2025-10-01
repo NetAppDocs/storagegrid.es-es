@@ -26,7 +26,7 @@ Al instalar StorageGRID y agregar sitios, se crea automáticamente una política
 * Si la cuadrícula contiene más de un sitio, la regla predeterminada replica una copia de cada objeto en cada sitio.
 
 
-Si la política predeterminada no cumple con sus requisitos de almacenamiento, puede crear sus propias reglas y políticas. Consulte link:what-ilm-rule-is.html["Cree una regla de ILM"] y link:creating-ilm-policy.html["Cree una política de ILM"].
+Si la política predeterminada no cumple con sus requisitos de almacenamiento, puede crear sus propias reglas y políticas.  Verlink:what-ilm-rule-is.html["Cree una regla de ILM"] ylink:creating-ilm-policy.html["Cree una política de ILM"] .
 
 
 
@@ -56,6 +56,11 @@ Etiquetas de políticas de ILM:: Si desea permitir a los inquilinos cambiar fác
 Por ejemplo, puede tener tres etiquetas llamadas Gold, Silver y Bronze. Puede asignar una política de ILM a cada etiqueta, en función del tiempo y la ubicación en la que esa política almacena objetos. Los inquilinos pueden elegir la política que quieren usar etiquetando sus bloques. Un bloque con la etiqueta Gold se gestiona mediante la política Gold y recibe el nivel Gold de protección de datos y rendimiento.
 
 --
+
+
+
+NOTE: Puedelink:../ilm/creating-ilm-policy.html#activate-ilm-policy["crear un máximo de 10 etiquetas de política"] para su cuadrícula.
+
 Etiqueta de política de ILM predeterminada:: Una etiqueta de política de ILM predeterminada se crea automáticamente al instalar StorageGRID. Cada cuadrícula debe tener una política activa asignada a la etiqueta predeterminada. La política predeterminada se aplica a cualquier bloque S3 sin etiquetar.
 
 

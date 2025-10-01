@@ -16,12 +16,7 @@ Puede migrar uno o varios nodos StorageGRID de un host Linux (el _host de origen
 Por ejemplo, es posible que desee migrar un nodo para realizar la aplicación de parches y el reinicio del sistema operativo.
 
 .Antes de empezar
-* Ha planificado su implementación de StorageGRID para incluir el soporte para la migración.
-+
-** link:../rhel/node-container-migration-requirements.html["Requisitos de migración de contenedores de nodos para Red Hat Enterprise Linux"]
-** link:../ubuntu/node-container-migration-requirements.html["Requisitos de migración de contenedores de nodos para Ubuntu o Debian"]
-
-
+* Planificó su implementación de StorageGRID para incluir soporte de migración. Ver link:../swnodes/node-container-migration-requirements.html["Requisitos de migración de contenedores de nodos"] .
 * El host de destino ya está preparado para el uso de StorageGRID.
 * El almacenamiento compartido se utiliza para todos los volúmenes de almacenamiento por nodo
 * Las interfaces de red tienen nombres consistentes entre los hosts.
@@ -132,12 +127,7 @@ Checking for duplication of unique values... PASSED
 ----
 . Si se produce algún error de validación, haga una dirección antes de iniciar el nodo migrado.
 +
-Para obtener información sobre la solución de problemas, consulte las instrucciones de instalación de StorageGRID para el sistema operativo Linux.
-
-+
-** link:../rhel/index.html["Instalar StorageGRID en Red Hat Enterprise Linux"]
-** link:../ubuntu/index.html["Instalar StorageGRID en Ubuntu o Debian"]
-
+Para obtener información sobre la solución de problemas, consulte StorageGRIDlink:../swnodes/index.html["instrucciones de instalación"] para su sistema operativo Linux.
 
 
 

@@ -25,7 +25,7 @@ Gestione los grupos de arrendatarios según sea necesario para ver, editar o dup
 Puede ver y editar la información básica y los detalles de cada grupo.
 
 .Pasos
-. Seleccione *ADMINISTRACIÓN de ACCESO* > *grupos*.
+. Seleccione *Administración de acceso* > *Grupos*.
 . Revise la información proporcionada en la página Grupos, que muestra información básica de todos los grupos locales y federados de esta cuenta de arrendatario.
 +
 Si la cuenta de inquilino tiene el permiso *Use grid federation connection* y está viendo grupos en la cuadrícula de origen del inquilino:
@@ -66,15 +66,13 @@ Si la cuenta de inquilino tiene el permiso *Use grid federation connection* y es
 
 
 
-. Edite la configuración del grupo según sea necesario. Consulte link:creating-groups-for-s3-tenant.html["Cree grupos para un inquilino de S3"] y link:creating-groups-for-swift-tenant.html["Cree grupos para un inquilino de Swift"] para obtener más información sobre lo que se debe introducir.
+. Edite la configuración del grupo según sea necesario.  Referirse alink:creating-groups-for-s3-tenant.html["Cree grupos para un inquilino de S3"] para obtener detalles sobre qué ingresar.
 +
 .. En la sección Descripción general, cambie el nombre mostrado seleccionando el nombre o el icono de edición image:../media/icon_edit_tm.png["Icono Editar"].
 .. En la pestaña *Permisos de grupo*, actualice los permisos y seleccione *Guardar cambios*.
 .. En la pestaña *Política de grupo*, realice los cambios y seleccione *Guardar cambios*.
 +
-*** Si está editando un grupo S3, seleccione opcionalmente una política de grupo S3 diferente o introduzca la cadena JSON de una política personalizada, según corresponda.
-*** Si está editando un grupo Swift, opcionalmente seleccione o desactive la casilla de verificación *Swift Administrator*.
-
+Opcionalmente, seleccione una política de grupo S3 diferente o ingrese la cadena JSON para una política personalizada según sea necesario.
 
 
 
@@ -114,10 +112,10 @@ Puede duplicar un grupo existente para crear nuevos grupos más rápidamente.
 NOTE: Si su cuenta de inquilino tiene el permiso *Usar conexión de federación de grid* y duplica un grupo de la cuadrícula de origen del inquilino, el grupo duplicado se clonará en la cuadrícula de destino del inquilino.
 
 .Pasos
-. Seleccione *ADMINISTRACIÓN de ACCESO* > *grupos*.
+. Seleccione *Administración de acceso* > *Grupos*.
 . Seleccione la casilla de control del grupo que desea duplicar.
 . Seleccione *acciones* > *Duplicar grupo*.
-. Consulte link:creating-groups-for-s3-tenant.html["Cree grupos para un inquilino de S3"] o link:creating-groups-for-swift-tenant.html["Cree grupos para un inquilino de Swift"] para obtener más información sobre lo que se debe introducir.
+. Verlink:creating-groups-for-s3-tenant.html["Cree grupos para un inquilino de S3"] para obtener detalles sobre qué ingresar.
 . Seleccione *Crear grupo*.
 
 
@@ -144,7 +142,7 @@ Puede eliminar uno o varios grupos. Cualquier usuario que pertenezca únicamente
 NOTE: Si tu cuenta de inquilino tiene el permiso *Usar conexión de federación de grid* y eliminas un grupo, StorageGRID no eliminará el grupo correspondiente en la otra cuadrícula. Si necesita mantener esta información sincronizada, debe eliminar el mismo grupo de ambas cuadrículas.
 
 .Pasos
-. Seleccione *ADMINISTRACIÓN de ACCESO* > *grupos*.
+. Seleccione *Administración de acceso* > *Grupos*.
 . Seleccione la casilla de verificación para cada grupo que desee eliminar.
 . Selecciona *Acciones* > *Eliminar grupo* o *Acciones* > *Eliminar grupos*.
 +
@@ -152,3 +150,49 @@ Se muestra un cuadro de diálogo de confirmación.
 
 . Selecciona *Borrar grupo* o *Eliminar grupos*.
 
+
+
+
+== Configurar AssumeRole
+
+.Antes de empezar
+Debe ser administrador para configurar AssumeRole.
+
+.Acerca de esta tarea
+Para configurar AssumeRole, cree el grupo objetivo que se asumirá, si el grupo aún no existe.  Edite la política S3 del grupo para especificar las acciones permitidas para asumir este grupo.  Edite la política de confianza S3 del grupo para especificar los usuarios de confianza autorizados para asumir el grupo con la API AssumeRole.
+
+Credenciales de seguridad temporales creadas asumiendo que este grupo es válido por un tiempo limitado.  La sesión dura entre 15 minutos y 12 horas, y la sesión predeterminada es de 1 hora.  Cuando se elimina al usuario de la política de confianza S3 del grupo, el usuario ya no podrá asumir este grupo.
+
+.Pasos
+. Seleccione *Administración de acceso* > *Grupos*.
+. Haga clic en el nombre del grupo.
+. Seleccione la pestaña *Política de confianza S3*.
+. Agregue su política de confianza S3, incluida una lista de usuarios que pueden realizar AssumeRole.
+. Seleccione *Guardar cambios*.
+. Seleccione la pestaña *Política de grupo S3*.
+. Edite la política S3 para especificar solo las acciones S3 requeridas para los usuarios de confianza agregados en la política de confianza S3 de este grupo.
+. Seleccione *Guardar cambios*.
+
+
+
+
+=== Ejemplo de una política de confianza de AssumeRole S3
+
+[listing]
+----
+{
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "sts:AssumeRole",
+            "Principal": {
+                "AWS": [
+                    "urn:sgws:identity::1234567890:user/user1",
+                    "arn:aws:iam::1234567890:user/user2"
+                ]
+            }
+        }
+    ]
+}
+----
+Una vez completada la configuración, los usuarios enumerados en la política de confianza de S3 pueden ejecutar AssumeRole y recibir credenciales.  Los permisos finales están determinados por la política de grupo, la política de depósito y la política de sesión. Para más información, consulte link:../s3/use-access-policies.html["Utilizar políticas de acceso"] .

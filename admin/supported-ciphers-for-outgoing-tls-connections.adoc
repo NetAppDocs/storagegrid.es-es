@@ -19,7 +19,7 @@ El sistema StorageGRID es compatible con un conjunto limitado de conjuntos de ci
 
 StorageGRID admite TLS 1.2 y TLS 1.3 para conexiones a sistemas externos que se utilizan para la federación de identidades y los pools de almacenamiento en cloud.
 
-Se han seleccionado los cifrados TLS compatibles con sistemas externos para garantizar la compatibilidad con una gama de sistemas externos. La lista es mayor que la lista de cifrados que se admiten para usar con aplicaciones cliente S3. Para configurar los cifrados, vaya a *CONFIGURACIÓN* > *SEGURIDAD* > *CONFIGURACIÓN DE SEGURIDAD* y seleccione *Políticas TLS y SSH*.
+Los cifrados TLS compatibles con el uso de sistemas externos se han seleccionado para garantizar la compatibilidad con una variedad de sistemas externos.  La lista es más grande que la lista de cifrados compatibles para su uso con aplicaciones cliente S3.  Para configurar cifrados, vaya a *Configuración* > *Seguridad* > *Configuración de seguridad* y seleccione *Políticas TLS y SSH*.
 
 
 NOTE: Las opciones de configuración de TLS, como las versiones de protocolos, los cifrados, los algoritmos de intercambio de claves y los algoritmos MAC, no se pueden configurar en StorageGRID. Si tiene solicitudes específicas sobre esta configuración, póngase en contacto con su representante de cuenta de NetApp.

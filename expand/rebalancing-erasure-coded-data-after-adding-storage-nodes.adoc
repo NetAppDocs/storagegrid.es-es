@@ -16,7 +16,7 @@ Después de agregar nodos de almacenamiento, puede usar el procedimiento de reeq
 .Antes de empezar
 * Completó los pasos de ampliación para añadir los nuevos nodos de almacenamiento.
 * Ha revisado el link:considerations-for-rebalancing-erasure-coded-data.html["consideraciones que tener en cuenta al reequilibrar los datos codificados a borrado"].
-* Usted entiende que los datos de objetos replicados no se moverán con este procedimiento y que el procedimiento de reequilibrio de EC no tenga en cuenta el uso de datos replicados en cada nodo de almacenamiento al determinar dónde se deben mover datos codificados con borrado.
+* Usted comprende que los datos de objetos replicados no se moverán mediante este procedimiento y que el procedimiento de reequilibrio de EC no mueve los datos replicados.  Sin embargo, los datos replicados se tienen en cuenta al determinar dónde mover los datos de EC.
 * Tiene el `Passwords.txt` archivo.
 
 
@@ -34,16 +34,6 @@ Puede volver a ejecutar el procedimiento después de que todos los volúmenes es
 
 NOTE: Las operaciones de la API de S3 para cargar objetos (o piezas de objetos) pueden fallar durante el procedimiento de reequilibrio de EC si necesitan más de 24 horas para completarse. Las OPERACIONES PUT DE larga duración fallarán si la regla de ILM aplicable utiliza una colocación equilibrada o estricta en la ingesta. Se informará del siguiente error: `500 Internal Server Error`.
 
-* Durante este procedimiento, todos los nodos tienen un límite de capacidad de almacenamiento del 80 %. Los nodos que superan este límite, pero que aún se almacenan por debajo de la partición de datos de destino, se excluyen de:
-+
-** El valor de desequilibrio del sitio
-** Cualquier condición de finalización de tareas
-+
-
-NOTE: La partición de datos de destino se calcula dividiendo los datos totales de una ubicación entre el número de nodos.
-
-
-
 * *Condiciones de finalización de trabajo*. El procedimiento de reequilibrio de EC se considera completo cuando se cumple alguna de las siguientes situaciones:
 +
 ** No puede mover más datos con código de borrado.
@@ -56,7 +46,7 @@ NOTE: La partición de datos de destino se calcula dividiendo los datos totales 
 .Pasos
 . [[Review_Object_Storage]]Revise los detalles del almacenamiento de objetos actual para el sitio que planea reequilibrar.
 +
-.. Selecciona *NODOS*.
+.. Seleccionar *Nodos*.
 .. Seleccione el primer nodo de almacenamiento del sitio.
 .. Seleccione la ficha *almacenamiento*.
 .. Coloque el cursor sobre el gráfico Storage Used - Object Data para ver la cantidad actual de datos replicados y datos codificados de borrado en el nodo de almacenamiento.
@@ -112,7 +102,7 @@ Para obtener ayuda sobre el comando de reequilibrio de datos:
 +
 **  `State`Si es `In progress`, la operación de nuevo equilibrio de EC sigue en ejecución. Deberá supervisar el procedimiento de forma periódica hasta que finalice.
 +
-Use el `Site Imbalance` valor para evaluar el uso desequilibrado de los datos de código de borrado en los nodos de almacenamiento del sitio. Este valor puede ir desde 1,0 a 0, donde 0 indica que el uso de los datos con codificación de borrado está equilibrado en todos los nodos de almacenamiento del sitio.
+Vaya a la página Nodos para evaluar la distribución de datos en los nodos de almacenamiento del sitio.
 
 +
 La tarea de reequilibrio de EC se considera completada y se detendrá cuando los datos de todos los nodos estén dentro de una desviación del 5 % de la partición de datos de destino.

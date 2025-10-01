@@ -25,7 +25,7 @@ Puede supervisar la información básica sobre todos link:../admin/grid-federati
 La página de federación de grid muestra información básica sobre todas las conexiones de federación de grid y sobre todas las cuentas de arrendatario que pueden utilizar conexiones de federación de grid.
 
 .Pasos
-. Selecciona *CONFIGURACIÓN* > *Sistema* > *federación de cuadrícula*.
+. Seleccione *Configuración* > *Sistema* > *Federación de red*.
 +
 Aparecerá la página Grid federation.
 
@@ -107,7 +107,7 @@ image::../media/grid-federation-certificates-tab.png[grid-federación-certificad
 Puede utilizar el panel de control de replicación de cuadrícula cruzada en Grafana para ver las métricas de Prometheus sobre las operaciones de replicación entre grid en su grid.
 
 .Pasos
-. En Grid Manager, selecciona *SUPPORT* > *Tools* > *Metrics*.
+. Desde el Administrador de cuadrícula, seleccione *Soporte* > *Herramientas* > *Métricas*.
 +
 
 NOTE: Las herramientas disponibles en la página Métricas están destinadas al soporte técnico. Algunas funciones y elementos de menú de estas herramientas no son intencionalmente funcionales y están sujetos a cambios. Consulte la lista de link:../monitor/commonly-used-prometheus-metrics.html["Métricas de Prometheus que se usan habitualmente"].

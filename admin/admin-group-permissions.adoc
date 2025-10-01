@@ -50,15 +50,6 @@ NOTE: Para conceder acceso a la página arrendatarios, que contiene la opción *
 
 
 
-== Configuración de la página de topología de grid
-
-Este permiso permite acceder a las fichas Configuración de la página *SUPPORT* > *Tools* > *Topología de cuadrícula*.
-
-
-NOTE: La página de topología de cuadrícula ha quedado obsoleta y se eliminará en una versión futura.
-
-
-
 == ILM
 
 Este permiso permite acceder a las siguientes opciones del menú *ILM*:
@@ -73,7 +64,7 @@ Este permiso permite acceder a las siguientes opciones del menú *ILM*:
 
 
 
-NOTE: Los usuarios deben tener los permisos *Other grid Configuration* y *Grid Topology page Configuration* para administrar los grados de almacenamiento.
+NOTE: Los usuarios deben tener el permiso *Otra configuración de red* para administrar los niveles de almacenamiento.
 
 
 
@@ -81,17 +72,17 @@ NOTE: Los usuarios deben tener los permisos *Other grid Configuration* y *Grid T
 
 Los usuarios deben tener permiso de mantenimiento para utilizar estas opciones:
 
-* *CONFIGURACIÓN* > *Control de acceso*:
+* *Configuración* > *Control de acceso*:
 +
 ** Contraseñas de grid
 
 
-* *CONFIGURACIÓN* > *Red*:
+* *Configuración* > *Red*:
 +
 ** Nombres de dominio de punto final S3
 
 
-* *MANTENIMIENTO* > *tareas*:
+* *Mantenimiento* > *Tareas*:
 +
 ** Retirada
 ** Expansión
@@ -99,13 +90,13 @@ Los usuarios deben tener permiso de mantenimiento para utilizar estas opciones:
 ** Recuperación
 
 
-* *MANTENIMIENTO* > *sistema*:
+* *Mantenimiento* > *Sistema*:
 +
 ** Paquete de recuperación
 ** Actualización de software
 
 
-* *SOPORTE* > *Herramientas*:
+* *Soporte* > *Herramientas*:
 +
 ** Registros
 
@@ -114,29 +105,29 @@ Los usuarios deben tener permiso de mantenimiento para utilizar estas opciones:
 
 Los usuarios que no tienen el permiso de mantenimiento pueden ver, pero no editar, estas páginas:
 
-* *MANTENIMIENTO* > *Red*:
+* *Mantenimiento* > *Red*:
 +
 ** Servidores DNS
 ** Red Grid
 ** Servidores NTP
 
 
-* *MANTENIMIENTO* > *sistema*:
+* *Mantenimiento* > *Sistema*:
 +
 ** Licencia
 
 
-* *CONFIGURACIÓN* > *Red*:
+* *Configuración* > *Red*:
 +
 ** Nombres de dominio de punto final S3
 
 
-* *CONFIGURACIÓN* > *Seguridad*:
+* *Configuración* > *Seguridad*:
 +
 ** Certificados
 
 
-* *CONFIGURACIÓN* > *Supervisión*:
+* *Configuración* > *Monitoreo*:
 +
 ** Servidor de auditoría y syslog
 
@@ -155,7 +146,7 @@ Este permiso proporciona acceso a opciones para gestionar alertas. Los usuarios 
 
 Este permiso proporciona acceso a:
 
-* *SOPORTE* > *Herramientas* > *Métricas* página
+* Página *Soporte* > *Herramientas* > *Métricas*
 * Consultas personalizadas de métricas de Prometheus utilizando la sección *Metrics* de la API de administración de grid
 * Tarjetas del panel de control de Grid Manager que contienen métricas
 
@@ -170,18 +161,15 @@ Este permiso proporciona acceso a la página *ILM* > *Búsqueda de metadatos de 
 
 == Otra configuración de cuadrícula
 
-Este permiso proporciona acceso a opciones de configuración de cuadrícula adicionales.
-
-
-TIP: Para ver estas opciones adicionales, los usuarios también deben tener el permiso *Configuración de página de topología de cuadrícula*.
+Este permiso proporciona acceso a estas opciones de configuración de cuadrícula adicionales:
 
 * *ILM*:
 +
 ** Grados de almacenamiento
 
 
-* *CONFIGURACIÓN* > *sistema*:
-* *SOPORTE* > *OTRO*:
+* *Configuración* > *Sistema*:
+* *Soporte* > *Otros*:
 +
 ** Coste del enlace
 

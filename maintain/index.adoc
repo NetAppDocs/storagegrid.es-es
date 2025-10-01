@@ -14,7 +14,7 @@ summary: Las tareas de mantenimiento de grid incluyen la retirada de un nodo o u
 Las tareas de mantenimiento de grid incluyen la retirada de un nodo o un sitio, el cambio de nombre a un grid, nodo o sitio, y el mantenimiento de redes. También puede realizar procedimientos de host y middleware y procedimientos de nodo de grid.
 
 
-NOTE: En estas instrucciones, “Linux” se refiere a una implementación de Red Hat® Enterprise Linux®, Ubuntu® o Debian®. Para obtener una lista de las versiones compatibles, consulte la https://imt.netapp.com/matrix/#welcome["Herramienta de matriz de interoperabilidad de NetApp"^].
+NOTE: En estas instrucciones, "Linux" se refiere a una implementación de Red Hat® Enterprise Linux® (RHEL), Ubuntu® o Debian®.  Para obtener una lista de las versiones compatibles, consulte la https://imt.netapp.com/matrix/#welcome["Herramienta de matriz de interoperabilidad de NetApp"^] .
 
 
 

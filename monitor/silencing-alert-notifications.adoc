@@ -27,7 +27,7 @@ Si ha habilitado el agente SNMP, las silencios también suprimen las capturas SN
 CAUTION: Tenga cuidado al decidir silenciar una regla de alerta. Si silencia una alerta, es posible que no detecte un problema subyacente hasta que impida que se complete una operación crítica.
 
 .Pasos
-. Seleccione *ALERTS* > *silencios*.
+. Seleccione *Alertas* > *Silencios*.
 +
 Aparece la página silencios.
 
@@ -99,7 +99,7 @@ A qué nodo o nodos desea que se aplique este silencio. Puede suprimir una regla
  a| 
 Edite un silencio
  a| 
-.. Seleccione *ALERTS* > *silencios*.
+.. Seleccione *Alertas* > *Silencios*.
 .. En la tabla, seleccione el botón de opción para el silencio que desea editar.
 .. Seleccione *Editar*.
 .. Cambie la descripción, la cantidad de tiempo restante, las gravedades seleccionadas o el nodo afectado.
@@ -111,7 +111,7 @@ Edite un silencio
  a| 
 Elimine un silencio
  a| 
-.. Seleccione *ALERTS* > *silencios*.
+.. Seleccione *Alertas* > *Silencios*.
 .. En la tabla, seleccione el botón de radio para el silencio que desea eliminar.
 .. Seleccione *Quitar*.
 .. Seleccione *Aceptar* para confirmar que desea eliminar este silencio.

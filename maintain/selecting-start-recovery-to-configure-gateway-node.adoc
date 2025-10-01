@@ -21,7 +21,7 @@ Después de reemplazar un nodo de puerta de enlace, debe seleccionar Iniciar rec
 
 
 .Pasos
-. En Grid Manager, seleccione *MANTENIMIENTO* > *tareas* > *recuperación*.
+. Desde el Administrador de red, seleccione *Mantenimiento* > *Tareas* > *Recuperación*.
 . Seleccione el nodo de cuadrícula que desea recuperar en la lista Pending Nodes.
 +
 Los nodos aparecen en la lista después de que fallan, pero no puede seleccionar un nodo hasta que se haya reinstalado y esté listo para la recuperación.

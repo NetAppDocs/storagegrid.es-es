@@ -27,7 +27,7 @@ En función del problema, es posible que desee hacerlolink:../audit/object-inges
 . Seleccione *ILM* > *Búsqueda de metadatos de objetos*.
 . Escriba el identificador del objeto en el campo *Identificador*.
 +
-Es posible introducir un UUID, CBID, bucket/object-key de S3 o nombre de objeto/contenedor de Swift.
+Puede ingresar un UUID, CBID o una clave de objeto/depósito S3.
 
 . Si desea buscar una versión específica del objeto, escriba el ID de versión (opcional).
 +

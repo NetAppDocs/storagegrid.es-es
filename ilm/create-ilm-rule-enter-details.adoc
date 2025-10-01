@@ -125,7 +125,7 @@ Restricción de ubicación (sólo S3)
  a| 
 Región en la que se creó un bloque de S3. Utilice *ILM* > *Regiones* para definir las regiones que se muestran.
 
-*Nota:* un valor de US-East-1 coincidirán con objetos en cubos creados en la región US-East-1 así como con objetos en cubos que no tienen una región especificada. Consulte link:configuring-regions-optional-and-s3-only.html["Configurar regiones (opcional solo S3)"].
+*Nota:* Un valor de us-east-1 coincidirá con objetos en depósitos creados en la región us-east-1, así como con objetos en depósitos que no tienen ninguna región especificada. Ver link:configuring-regions-optional-and-s3-only.html["Configurar regiones S3"] .
 
 
 

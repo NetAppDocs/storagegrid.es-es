@@ -53,13 +53,11 @@ NOTE: Si link:enabling-s3-object-lock-globally.html["Se ha activado la configura
 
 --
 ====
-* Opcionalmente, ha visto el vídeo: https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e768d4da-da88-413c-bbaa-b1ff00874d10["Vídeo: Información general sobre las políticas de ILM"^]
-+
-[link=https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e768d4da-da88-413c-bbaa-b1ff00874d10]
-image::../media/video-screenshot-ilm-policies-118.png[Vídeo: Información general sobre las políticas de ILM]
+* Opcionalmente has visto el vídeo:
 
 
-
+.Descripción general de las políticas de ILM
+video::e768d4da-da88-413c-bbaa-b1ff00874d10[panopto]
 Consulte también link:ilm-policy-overview.html["Use políticas de ILM"].
 
 .Pasos
@@ -255,10 +253,10 @@ Alternativamente, puede activar una sola política desde la página *ILM* > *Eti
 --
 .Activar varias políticas
 --
-Para activar varias políticas, debe crear etiquetas y asignar una política a cada etiqueta.
+Para activar varias políticas, debe crear etiquetas de políticas y asignar una política a cada etiqueta.  Puede crear un máximo de 10 etiquetas de política para su cuadrícula.
 
 
-TIP: Cuando hay varias etiquetas en uso, si los inquilinos reasignan frecuentemente las etiquetas de política a los buckets, el rendimiento de los grid puede verse afectado. Si tiene inquilinos que no son de confianza, considere la posibilidad de usar solo la etiqueta predeterminada.
+TIP: Cuando se utilizan varias etiquetas de políticas, si los inquilinos reasignan con frecuencia etiquetas de políticas a los depósitos, el rendimiento de la red podría verse afectado.  Si tiene inquilinos que no son de confianza, considere usar solo la etiqueta de política predeterminada.
 
 . Selecciona *ILM* > *Etiquetas de política*.
 . Seleccione *Crear*.

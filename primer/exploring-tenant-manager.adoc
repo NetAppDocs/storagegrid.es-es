@@ -24,7 +24,7 @@ Cuando los usuarios de inquilinos inician sesión en el Administrador de inquili
 
 Una vez que un administrador de grid crea una cuenta de inquilino mediante Grid Manager o la API de gestión de grid, los usuarios de inquilinos pueden iniciar sesión en el Administrador de inquilinos.
 
-La consola de tenant Manager permite que los usuarios inquilinos supervisen el uso del almacenamiento de un vistazo. El panel Storage Usage contiene una lista de los bloques más grandes (S3) o contenedores (Swift) para el inquilino. El valor espacio utilizado es la cantidad total de datos de objeto del bloque o contenedor. El gráfico de barras representa los tamaños relativos de estos cubos o contenedores.
+El panel de control de Tenant Manager permite a los usuarios inquilinos monitorear el uso del almacenamiento de un vistazo.  El panel de uso de almacenamiento contiene una lista de los depósitos S3 más grandes para el inquilino.  El valor de Espacio utilizado es la cantidad total de datos del objeto en el depósito o contenedor.  El gráfico de barras representa los tamaños relativos de estos cubos o contenedores.
 
 El valor mostrado encima del gráfico de barras es una suma del espacio utilizado para todos los cubos o contenedores del arrendatario. Si se especificó el número máximo de gigabytes, terabytes o petabytes disponibles para el inquilino cuando se creó la cuenta, también se muestra la cantidad de cuota utilizada y restante.
 
@@ -34,7 +34,13 @@ image::../media/tenant_dashboard_with_buckets.png[Consola del administrador de i
 
 == Menú Almacenamiento (S3)
 
-El menú Storage se proporciona únicamente para cuentas de inquilinos de S3. Este menú permite a los usuarios de S3 administrar claves de acceso; crear, gestionar y suprimir buckets; administrar puntos finales de servicios de plataforma; y ver cualquier conexión de federación de grid que se les permita utilizar.
+Este menú permite a los usuarios de S3:
+
+* Administrar claves de acceso
+* Crear, administrar y eliminar depósitos
+* Gestione los extremos de los servicios de plataforma
+* Ver cualquier conexión de federación de red que tengan permitido usar
+
 
 
 
@@ -46,7 +52,7 @@ Los usuarios de inquilinos S3 pueden gestionar las claves de acceso de la siguie
 * Los usuarios que tienen el permiso de acceso root pueden administrar las claves de acceso para la cuenta root de S3, su propia cuenta y todos los demás usuarios. Las claves de acceso raíz también proporcionan acceso completo a los bloques y objetos del inquilino, a menos que una política de bloque lo deshabilite explícitamente.
 +
 
-NOTE: La gestión de las claves de acceso de otros usuarios se realiza desde el menú Access Management.
+NOTE: La gestión de las claves de acceso de otros usuarios se realiza desde el menú Gestión de acceso.
 
 
 

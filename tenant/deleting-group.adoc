@@ -19,7 +19,7 @@ Puede eliminar un grupo del sistema. Cualquier usuario que sólo pertenezca a es
 
 
 .Pasos
-. Seleccione *ADMINISTRACIÓN de ACCESO* > *grupos*.
+. Seleccione *Administración de acceso* > *Grupos*.
 . Seleccione la casilla de verificación para cada grupo que desee eliminar.
 . Seleccione *acciones* > *Eliminar grupo*.
 . Selecciona *Borrar grupo*.

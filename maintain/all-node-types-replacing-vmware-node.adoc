@@ -33,7 +33,7 @@ Este procedimiento es solo un paso del proceso de recuperación del nodo de cuad
 . Si el nodo de almacenamiento Grid en el que se ha producido el fallo es un nodo de almacenamiento, determine si alguno de los discos duros virtuales utilizados para el almacenamiento de datos no está dañado y conservarlos para volver a conectarlos al nodo de grid recuperado.
 . Apague la máquina virtual.
 . Seleccione *Acciones* > *Todas las acciones de vCenter* > *Eliminar del disco* para eliminar la máquina virtual.
-. Implemente una máquina virtual nueva para que sea el nodo de reemplazo y conéctelo a una o más redes StorageGRID. Para obtener instrucciones, consulte link:../vmware/deploying-storagegrid-node-as-virtual-machine.html["Poner en marcha un nodo de StorageGRID como máquina virtual"].
+. Implemente una nueva máquina virtual para que sea el nodo de reemplazo y conéctela a una o más redes StorageGRID .  Para obtener instrucciones, consultelink:../swnodes/deploying-storagegrid-node-as-virtual-machine.html["Poner en marcha un nodo de StorageGRID como máquina virtual"] .
 +
 Al poner en marcha el nodo, tiene la opción de reasignar puertos de nodo o aumentar las opciones de CPU o memoria.
 

@@ -13,9 +13,6 @@ summary: Los extremos del equilibrador de carga determinan los puertos y protoco
 [role="lead"]
 Los extremos del equilibrador de carga determinan los puertos y protocolos de red que los clientes S3 pueden utilizar al conectarse al equilibrador de carga de StorageGRID en los nodos de gateway y admin. También puede utilizar puntos finales para acceder a Grid Manager, Tenant Manager o ambos.
 
-
-TIP: Se han eliminado los detalles de Swift de esta versión del sitio del documento. Consulte https://docs.netapp.com/us-en/storagegrid-118/admin/configuring-client-connections.html["Configure las conexiones de clientes S3 y Swift"^].
-
 .Antes de empezar
 * Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
 * Usted tiene el link:admin-group-permissions.html["Permiso de acceso raíz"].
@@ -41,15 +38,15 @@ NOTE: Los cambios en el certificado de extremo pueden tardar hasta 15 minutos en
 
 == Cree un extremo de equilibrador de carga
 
-Cada extremo de equilibrador de carga de cliente S3 especifica un puerto, un tipo de cliente (S3) y un protocolo de red (HTTP o HTTPS). Los extremos de balanceo de carga de la interfaz de gestión especifican un puerto, un tipo de interfaz y una red de cliente que no es de confianza.
+Cada punto final del balanceador de carga del cliente S3 especifica un puerto, un tipo de cliente (S3) y un protocolo de red (HTTP o HTTPS).  Los puntos finales del balanceador de carga de la interfaz de administración especifican un puerto, un tipo de interfaz y una red de cliente no confiable.
 
 
 
 === Acceda al asistente
 
 .Pasos
-. Seleccione *CONFIGURACIÓN* > *Red* > *terminales de equilibrador de carga*.
-. Para crear un punto final para un cliente S3 o Swift, seleccione la pestaña Cliente *S3 o Swift*.
+. Seleccione *Configuración* > *Red* > *Puntos finales del balanceador de carga*.
+. Para crear un punto final para un cliente S3, seleccione la pestaña *Cliente S3*.
 . Para crear un punto final para acceder a Grid Manager, Tenant Manager o ambos, seleccione la pestaña *Interfaz de administración*.
 . Seleccione *Crear*.
 
@@ -64,7 +61,7 @@ Cada extremo de equilibrador de carga de cliente S3 especifica un puerto, un tip
 
 [role="tabbed-block"]
 ====
-.Cliente S3 o Swift
+.Cliente S3
 --
 [cols="1a,3a"]
 |===
@@ -90,7 +87,7 @@ Si ingresa *80* o *8443*, el punto final se configura solo en los nodos de Gatew
  a| 
 Tipo de cliente
  a| 
-Tipo de aplicación cliente que utilizará este extremo, ya sea *S3* o *Swift*.
+Debe ser *S3*.
 
 
 
@@ -102,6 +99,15 @@ El protocolo de red que utilizarán los clientes al conectarse a este extremo.
 * Seleccione *HTTPS* para una comunicación segura cifrada con TLS (recomendado). Debe asociar un certificado de seguridad para poder guardar el extremo.
 * Seleccione *HTTP* para una comunicación no cifrada y menos segura. Utilice HTTP sólo para una cuadrícula que no sea de producción.
 
+
+
+
+ a| 
+Habilitar el almacenamiento en caché
+ a| 
+Habilitar o deshabilitarlink:../admin/managing-load-balancing.html#considerations-for-load-balancer-caching["almacenamiento en caché en los nodos de puerta de enlace"] para este punto final del balanceador de carga.
+
+Si surgen problemas con el almacenamiento en caché, consultelink:../troubleshoot/troubleshooting-load-balancer-caching.html["Solucionar problemas de almacenamiento en caché del balanceador de carga"] .
 
 |===
 --

@@ -67,7 +67,7 @@ La siguiente tabla define los valores de todas las claves admitidas. Cada clave 
 
 
  a| 
-La dirección IPv4 de red de grid del nodo de administrador principal para la cuadrícula a la que pertenece este nodo. Utilice el mismo valor especificado para GRID_NETWORK_IP para el nodo de grid con NODE_TYPE = VM_Admin_Node y ADMIN_ROLE = Primary. Si omite este parámetro, el nodo intenta detectar un nodo de administración principal con mDNS.
+Dirección IPv4 de la red Grid del nodo de administración que desea utilizar para instalar el nodo basado en Linux.  Para la recuperación, utilice la IP del nodo de administración principal si está disponible; de lo contrario, utilice la IP de un nodo de administración que no sea principal.  Si omite este parámetro, el nodo intentará descubrir un nodo de administración principal mediante mDNS.
 
 link:how-grid-nodes-discover-primary-admin-node.html["La forma en que los nodos de grid detectan el nodo de administrador principal"]
 
@@ -277,11 +277,7 @@ Establezca la clave en "TRUE" para que el contenedor StorageGRID use la direcci�
 
 *Mejor práctica:* en redes donde se requiera el modo promiscuo, utilice la clave ADMIN_NETWORK_TARGET_TYPE_INTERFACE_CLONE_MAC en su lugar.
 
-Para obtener más información sobre la clonación de MAC:
-
-* link:../rhel/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["Consideraciones y recomendaciones para la clonación de direcciones MAC (Red Hat Enterprise Linux)"]
-* link:../ubuntu/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["Consideraciones y recomendaciones para la clonación de direcciones MAC (Ubuntu o Debian)"]
-
+Para obtener más detalles sobre la clonación de MAC para Linux, consultelink:../swnodes/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["Consideraciones y recomendaciones para la clonación de direcciones MAC"]
  a| 
 Mejor práctica
 
@@ -639,11 +635,7 @@ Establezca la clave en "true" para hacer que el contenedor StorageGRID utilice l
 
 *Mejor práctica:* en redes donde se requiera el modo promiscuo, utilice la clave CLIENT_NETWORK_TARGET_TYPE_INTERFACE_CLONE_MAC en su lugar.
 
-Para obtener más información sobre la clonación de MAC:
-
-* link:../rhel/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["Consideraciones y recomendaciones para la clonación de direcciones MAC (Red Hat Enterprise Linux)"]
-* link:../ubuntu/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["Consideraciones y recomendaciones para la clonación de direcciones MAC (Ubuntu o Debian)"]
-
+Para obtener más detalles sobre la clonación de MAC para Linux, consultelink:../swnodes/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["Consideraciones y recomendaciones para la clonación de direcciones MAC"]
  a| 
 Mejor práctica
 
@@ -834,11 +826,7 @@ Establezca el valor de la clave en "verdadero" para que el contenedor StorageGRI
 
 *Mejor práctica:* en redes donde se requiera el modo promiscuo, utilice la clave GRID_NETWORK_TARGET_TYPE_INTERFACE_CLONE_MAC en su lugar.
 
-Para obtener más información sobre la clonación de MAC:
-
-* link:../rhel/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["Consideraciones y recomendaciones para la clonación de direcciones MAC (Red Hat Enterprise Linux)"]
-* link:../ubuntu/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["Consideraciones y recomendaciones para la clonación de direcciones MAC (Ubuntu o Debian)"]
-
+Para obtener más detalles sobre la clonación de MAC para Linux, consultelink:../swnodes/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["Consideraciones y recomendaciones para la clonación de direcciones MAC"]
  a| 
 Mejor práctica
 
@@ -980,6 +968,9 @@ Opcional
 
 
 === Claves de reasignación de puertos
+
+
+NOTE: La compatibilidad con la reasignación de puertos está obsoleta y se eliminará en una versión futura. Para eliminar los puertos reasignados, consultelink:../maintain/removing-port-remaps-on-bare-metal-hosts.html["Quite las reasignaciones de puertos en hosts sin sistema operativo"] .
 
 
 

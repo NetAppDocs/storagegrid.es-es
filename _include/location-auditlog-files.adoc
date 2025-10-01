@@ -19,7 +19,7 @@ Nodos locales (predeterminado)
  a| 
 Nodos de administración/nodos locales
  a| 
-* Nodos de administración (primarios y no primarios): `/var/local/audit/export/audit.log`
+* Nodos de administración (principales y no principales): `/var/local/audit/export/audit.log`
 * Todos los nodos: El `/var/local/log/localaudit.log` archivo normalmente está vacío o falta en este modo.
 
 
@@ -33,4 +33,4 @@ Servidor de syslog externo
 |===
 En función de la configuración de destino de auditoría, introduzca: `cd /var/local/log` O. `/var/local/audit/export/`
 
-Para obtener más información, consulte link:../monitor/configure-audit-messages.html#select-audit-information-destinations["Seleccione destinos de información de auditoría"].
+Para obtener más información, consultelink:../monitor/configure-log-management.html#select-log-location["Seleccionar la ubicación del registro"] .

@@ -29,7 +29,7 @@ Utilice el procedimiento de cambio de nombre para corregir errores tipográficos
 
 En la siguiente tabla se resume dónde se muestran los nombres del sistema y los nombres mostrados en la interfaz de usuario de StorageGRID y en los archivos StorageGRID.
 
-[cols="2a,2a,3a"]
+[cols="1a,1a,3a"]
 |===
 | Ubicación | Nombre del sistema | Nombre para mostrar 
 
@@ -55,20 +55,11 @@ Si se cambia el nombre de un elemento, se muestra en lugar del nombre del sistem
 
 
  a| 
-*NODOS* > pestaña *Overview* para un nodo
+*Nodos* > Pestaña *Descripción general* de un nodo
  a| 
 Siempre se muestra
  a| 
 Sólo se muestra si se cambia el nombre del elemento
-
-
-
- a| 
-Páginas heredadas en Grid Manager (por ejemplo, *SUPPORT* > *Grid Topology*)
- a| 
-Se muestra
- a| 
-No se muestra
 
 
 
@@ -99,7 +90,7 @@ Se muestra como nombre principal cuando se cambia el nombre del elemento:
 
 
  a| 
-`Passwords.txt` En el paquete de recuperación
+`Passwords.txt`archivo en el paquete de recuperación
  a| 
 Se muestra como `Server Name`
  a| 

@@ -25,7 +25,7 @@ La página Metrics le permite acceder a las interfaces de usuario Prometheus y G
 NOTE: Las herramientas disponibles en la página Métricas están destinadas al soporte técnico. Algunas funciones y elementos de menú de estas herramientas no son intencionalmente funcionales y están sujetos a cambios. Consulte la lista de link:commonly-used-prometheus-metrics.html["Métricas de Prometheus que se usan habitualmente"].
 
 .Pasos
-. Según lo indicado por el soporte técnico, seleccione *ASISTENCIA* > *Herramientas* > *métricas*.
+. Según las indicaciones del soporte técnico, seleccione *Soporte* > *Herramientas* > *Métricas*.
 +
 A continuación se muestra un ejemplo de la página Metrics:
 

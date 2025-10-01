@@ -25,7 +25,7 @@ La gestión de un servidor de gestión de claves (KMS) implica ver y editar deta
 Es posible ver información sobre cada servidor de gestión de claves (KMS) en el sistema StorageGRID, incluidos los detalles de claves y el estado actual de los certificados de servidor y de cliente.
 
 .Pasos
-. Seleccione *CONFIGURACIÓN* > *Seguridad* > *servidor de administración de claves*.
+. Seleccione *Configuración* > *Seguridad* > *Servidor de administración de claves*.
 +
 Aparecerá la página Servidor de gestión de claves con la siguiente información:
 
@@ -147,7 +147,7 @@ Resuelva con prontitud cualquier problema de servidor o certificado de cliente. 
 CAUTION: Debe solucionar cualquier problema con los certificados Lo antes posible. para mantener el acceso a los datos.
 
 .Pasos
-. Seleccione *CONFIGURACIÓN* > *Seguridad* > *servidor de administración de claves*.
+. Seleccione *Configuración* > *Seguridad* > *Servidor de administración de claves*.
 . En la tabla, observe el valor de Caducidad de certificado para cada KMS.
 . Si se desconoce la caducidad del certificado para cualquier KMS, espere hasta 30 minutos y, a continuación, actualice el explorador web.
 . Si la columna Caducidad del certificado indica que un certificado ha caducado o está a punto de caducar, seleccione el KMS para ir a la página de detalles del KMS.
@@ -173,7 +173,7 @@ NOTE: Si obtiene un estado de *El estado del certificado del servidor es descono
 Puede ver información acerca de los nodos del dispositivo en el sistema StorageGRID que tienen activada la configuración * cifrado de nodos*.
 
 .Pasos
-. Seleccione *CONFIGURACIÓN* > *Seguridad* > *servidor de administración de claves*.
+. Seleccione *Configuración* > *Seguridad* > *Servidor de administración de claves*.
 +
 Se muestra la página servidor de gestión de claves. En la pestaña Configuration Details, se muestra todos los servidores de gestión de claves que se configuraron.
 
@@ -274,7 +274,7 @@ Es posible que deba editar la configuración de un servidor de gestión de clave
 
 
 .Pasos
-. Seleccione *CONFIGURACIÓN* > *Seguridad* > *servidor de administración de claves*.
+. Seleccione *Configuración* > *Seguridad* > *Servidor de administración de claves*.
 +
 Se muestra la página Servidor de gestión de claves donde se muestran todos los servidores de gestión de claves que se configuraron.
 
@@ -382,7 +382,7 @@ Puede eliminar un KMS en los siguientes casos:
 
 
 .Pasos
-. Seleccione *CONFIGURACIÓN* > *Seguridad* > *servidor de administración de claves*.
+. Seleccione *Configuración* > *Seguridad* > *Servidor de administración de claves*.
 +
 Se muestra la página Servidor de gestión de claves donde se muestran todos los servidores de gestión de claves que se configuraron.
 

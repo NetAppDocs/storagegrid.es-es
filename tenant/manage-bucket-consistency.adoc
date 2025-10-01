@@ -63,7 +63,7 @@ Los siguientes ajustes de cucharón utilizan la consistencia *strong* de forma p
 * link:deleting-s3-bucket-objects.html["Eliminación de bloque vacío en segundo plano"]
 * link:enabling-or-disabling-last-access-time-updates.html["Hora del último acceso"]
 * link:../s3/create-s3-lifecycle-configuration.html["Ciclo de vida del cucharón"]
-* link:../s3/bucket-and-group-access-policies.html["Política de bloques"]
+* link:../s3/use-access-policies.html["Política de bloques"]
 * link:../s3/operations-on-buckets.html["Etiquetado de cucharones"]
 * link:changing-bucket-versioning.html["Control de versiones del cucharón"]
 * link:using-s3-object-lock.html["Bloqueo de objetos de S3"]
@@ -76,7 +76,7 @@ NOTE: El valor de coherencia para el control de versiones de bloque, el bloqueo 
 Los siguientes ajustes de cucharón no utilizan una gran consistencia y tienen una mayor disponibilidad para los cambios. Los cambios en estos ajustes pueden tardar algún tiempo antes de tener un efecto.
 
 * link:considerations-for-platform-services.html["Configuración de servicios de plataforma: Notificación, replicación o integración de búsqueda"]
-* link:configuring-cross-origin-resource-sharing-cors.html["Configuración de CORS"]
+* link:configuring-cross-origin-resource-sharing-for-buckets-and-objects.html["Configurar StorageGRID CORS para depósitos y objetos"]
 * <<change-bucket-consistency,Cambie la consistencia del cucharón>>
 
 

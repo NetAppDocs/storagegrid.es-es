@@ -1,0 +1,135 @@
+---
+permalink: swnodes/approving-pending-grid-nodes.html 
+sidebar: sidebar 
+keywords: how to approve pending grid nodes 
+summary: Debe aprobar cada nodo de cuadrícula para poder unirse al sistema StorageGRID. 
+---
+= Aprobar los nodos de cuadrícula pendientes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debe aprobar cada nodo de cuadrícula para poder unirse al sistema StorageGRID.
+
+.Antes de empezar
+Ha puesto en marcha todos los nodos de grid de dispositivos virtuales y StorageGRID.
+
+
+NOTE: Es más eficiente realizar una instalación única de todos los nodos, en lugar de instalar algunos ahora y algunos nodos más adelante.
+
+.Pasos
+. Revise la lista Pending Nodes y confirme que se muestran todos los nodos de grid que ha implementado.
++
+
+NOTE: Si falta un nodo de cuadrícula, confirme que se ha desplegado correctamente y que tiene definida la IP de red de grid correcta del nodo de administración principal para ADMIN_IP.
+
+. Seleccione el botón de opción situado junto al nodo pendiente que desea aprobar.
++
+image::../media/5_gmi_installer_grid_nodes_pending.gif[Esta imagen se explica por el texto circundante.]
+
+. Haga clic en *aprobar*.
+. En Configuración general, modifique la configuración de las siguientes propiedades según sea necesario:
++
+** *Sitio*: El nombre del sistema del sitio para este nodo de cuadrícula.
+** *Nombre*: El nombre del sistema para el nodo. El nombre predeterminado es el nombre que especifique cuando configure el nodo.
++
+Los nombres de sistema son necesarios para las operaciones internas de StorageGRID y no se pueden cambiar después de completar la instalación. Sin embargo, durante este paso del proceso de instalación, puede cambiar los nombres del sistema según sea necesario.
+
++
+
+NOTE: Para un nodo de VMware, aquí puede cambiar el nombre, pero esta acción no cambiará el nombre de la máquina virtual en vSphere.
+
+** *Función NTP*: La función de Protocolo de hora de red (NTP) del nodo de red. Las opciones son *automático*, *primario* y *Cliente*. Al seleccionar *automático*, se asigna la función principal a los nodos de administración, los nodos de almacenamiento con servicios ADC, los nodos de puerta de enlace y cualquier nodo de cuadrícula que tenga direcciones IP no estáticas. Al resto de los nodos de grid se le asigna el rol de cliente.
++
+
+CAUTION: Asegúrese de que al menos dos nodos de cada sitio puedan acceder a al menos cuatro fuentes de NTP externas. Si solo un nodo de un sitio puede acceder a los orígenes NTP, se producirán problemas de tiempo si ese nodo falla. Además, designar dos nodos por sitio como orígenes NTP primarios garantiza una sincronización precisa si un sitio está aislado del resto de la cuadrícula.
+
+** *Tipo de almacenamiento* (solo nodos de almacenamiento): Especifique que un nuevo nodo de almacenamiento se utilice exclusivamente para datos, metadatos o ambos. Las opciones son *Datos y metadatos* (“Combinados”), *Solo datos* y *Solo metadatos*.
++
+
+CAUTION: Consulte link:../primer/what-storage-node-is.html#types-of-storage-nodes["Tipos de nodos de almacenamiento"] para obtener información sobre los requisitos de estos tipos de nodos.
+
+** *Servicio ADC* (sólo nodos de almacenamiento): Seleccione *automático* para que el sistema determine si el nodo requiere el servicio controlador de dominio administrativo (ADC). El servicio ADC realiza un seguimiento de la ubicación y disponibilidad de los servicios de red. Al menos tres nodos de almacenamiento en cada sitio deben incluir el servicio ADC. No puede agregar el servicio ADC a un nodo después de que se haya desplegado.
+
+
+. En Red de cuadrícula, modifique la configuración de las siguientes propiedades según sea necesario:
++
+** *Dirección IPv4 (CIDR)*: La dirección de red CIDR para la interfaz de red Grid (eth0 dentro del contenedor). Por ejemplo: 192.168.1.234/21
+** *Gateway*: El gateway de red de red de red de red de red de red de Por ejemplo: 192.168.0.1
++
+La puerta de enlace es necesaria si hay varias subredes de la cuadrícula.
+
++
+
+NOTE: Si seleccionó DHCP para la configuración de red de cuadrícula y cambia el valor aquí, el nuevo valor se configurará como dirección estática en el nodo. Debe asegurarse de que la dirección IP configurada no esté dentro de un grupo de direcciones DHCP.
+
+
+
+. Si desea configurar la red administrativa para el nodo de grid, añada o actualice los ajustes en la sección Admin Network, según sea necesario.
++
+Introduzca las subredes de destino de las rutas fuera de esta interfaz en el cuadro de texto *subredes (CIDR)*. Si hay varias subredes de administración, se requiere la puerta de enlace de administración.
+
++
+
+NOTE: Si seleccionó DHCP para la configuración de red del administrador y cambia el valor aquí, el nuevo valor se configurará como dirección estática en el nodo. Debe asegurarse de que la dirección IP configurada no esté dentro de un grupo de direcciones DHCP.
+
++
+*Dispositivos:* Para un dispositivo StorageGRID, si la red de administración no se configuró durante la instalación inicial mediante el instalador de dispositivos StorageGRID, no se puede configurar en este cuadro de diálogo Administrador de grid. En su lugar, debe seguir estos pasos:
+
++
+.. Reinicie el dispositivo: En el instalador del equipo, seleccione *Avanzado* > *Reiniciar*.
++
+El reinicio puede tardar varios minutos.
+
+.. Seleccione *Configurar redes* > *Configuración de enlaces* y active las redes apropiadas.
+.. Seleccione *Configurar redes* > *Configuración IP* y configure las redes habilitadas.
+.. Vuelva a la página de inicio y haga clic en *Iniciar instalación*.
+.. En Grid Manager: Si el nodo aparece en la tabla Nodos aprobados, elimine el nodo.
+.. Quite el nodo de la tabla Pending Nodes.
+.. Espere a que el nodo vuelva a aparecer en la lista Pending Nodes.
+.. Confirme que puede configurar las redes adecuadas. Ya deben rellenarse con la información proporcionada en la página de configuración de IP del instalador de dispositivos.
++
+Para obtener más información, consulte la https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/index.html["Inicio rápido para la instalación de hardware"^] para localizar las instrucciones de su aparato.
+
+
+
+. Si desea configurar la Red cliente para el nodo de cuadrícula, agregue o actualice los ajustes en la sección Red cliente según sea necesario. Si se configura la red de cliente, se requiere la puerta de enlace y se convierte en la puerta de enlace predeterminada del nodo después de la instalación.
++
+
+NOTE: Si seleccionó DHCP para la configuración de red de cliente y cambia el valor aquí, el nuevo valor se configurará como dirección estática en el nodo. Debe asegurarse de que la dirección IP configurada no esté dentro de un grupo de direcciones DHCP.
+
++
+*Electrodomésticos:* Para un dispositivo StorageGRID, si la red cliente no se configuró durante la instalación inicial mediante el instalador de dispositivos StorageGRID, no se puede configurar en este cuadro de diálogo Administrador de grid. En su lugar, debe seguir estos pasos:
+
++
+.. Reinicie el dispositivo: En el instalador del equipo, seleccione *Avanzado* > *Reiniciar*.
++
+El reinicio puede tardar varios minutos.
+
+.. Seleccione *Configurar redes* > *Configuración de enlaces* y active las redes apropiadas.
+.. Seleccione *Configurar redes* > *Configuración IP* y configure las redes habilitadas.
+.. Vuelva a la página de inicio y haga clic en *Iniciar instalación*.
+.. En Grid Manager: Si el nodo aparece en la tabla Nodos aprobados, elimine el nodo.
+.. Quite el nodo de la tabla Pending Nodes.
+.. Espere a que el nodo vuelva a aparecer en la lista Pending Nodes.
+.. Confirme que puede configurar las redes adecuadas. Ya deben rellenarse con la información proporcionada en la página de configuración de IP del instalador de dispositivos.
++
+Para obtener más información, consulte la https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/index.html["Inicio rápido para la instalación de hardware"^] para localizar las instrucciones de su aparato.
+
+
+
+. Haga clic en *Guardar*.
++
+La entrada del nodo de grid se mueve a la lista de nodos aprobados.
+
++
+image::../media/7_gmi_installer_grid_nodes_approved.gif[Esta imagen se explica por el texto circundante.]
+
+. Repita estos pasos para cada nodo de cuadrícula pendiente que desee aprobar.
++
+Debe aprobar todos los nodos que desee de la cuadrícula. Sin embargo, puede volver a esta página en cualquier momento antes de hacer clic en *instalar* en la página Resumen. Puede modificar las propiedades de un nodo de cuadrícula aprobado seleccionando su botón de opción y haciendo clic en *Editar*.
+
+. Cuando haya terminado de aprobar nodos de cuadrícula, haga clic en *Siguiente*.
+

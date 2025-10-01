@@ -40,7 +40,7 @@ Debe revisar regularmente los resultados de las verificaciones de fondo y las co
 .Pasos
 . Revise los resultados de las verificaciones de fondo:
 +
-.. Seleccione *NODES* > *_Storage Node_* > *Objects*.
+.. Seleccione *Nodos* > *_Nodo de almacenamiento_* > *Objetos*.
 .. Compruebe los resultados de verificación:
 +
 *** Para comprobar la verificación de datos de objetos replicados, observe los atributos de la sección verificación.
@@ -60,8 +60,8 @@ Seleccione el signo de interrogación image:../media/icon_nms_question.png["sign
 
 . Revise los resultados de los trabajos de comprobación de la existencia de objetos:
 +
-.. Seleccione *MANTENIMIENTO* > *verificación de existencia de objetos* > *Historial de trabajos*.
-.. Analice la columna copias detectadas de objetos que faltan. Si algún trabajo resultó en 100 o más copias de objetos faltantes y se ha activado la alerta de *Objetos perdidos*, póngase en contacto con el soporte técnico.
+.. Seleccione *Mantenimiento* > *Comprobación de existencia de objetos* > *Historial de trabajos*.
+.. Escanee la columna Copias de objetos faltantes detectadas.  Si alguno de los trabajos generó 100 o más copias de objetos faltantes y se activó la alerta *Objetos potencialmente perdidos*, comuníquese con el soporte técnico.
 +
 image::../media/oec_job_history.png[Historial del trabajo de comprobación de la existencia de objetos]
 

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: signing in when sso is down, single sign on failure 
 summary: 'Es posible que no pueda iniciar sesión en Grid Manager si se desactiva el sistema de inicio de sesión único \(SSO\). En este caso, puede deshabilitar y volver a habilitar SSO para un nodo de administración. Para deshabilitar y volver a habilitar SSO, debe acceder al shell de comandos del nodo.' 
 ---
-= Desactive y vuelva a habilitar temporalmente el inicio de sesión único para un nodo de administración
+= Deshabilitar y volver a habilitar temporalmente el SSO para un nodo de administración
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -52,7 +52,7 @@ Ahora se muestra la página de inicio de sesión de Grid Manager porque SSO se h
 . Inicie sesión con la raíz del nombre de usuario y la contraseña del usuario raíz local.
 . Si deshabilitó temporalmente SSO debido a que debe corregir la configuración de SSO:
 +
-.. Seleccione *CONFIGURACIÓN* > *Control de acceso* > *Single Sign-On*.
+.. Seleccione *Configuración* > *Control de acceso* > *Inicio de sesión único*.
 .. Cambie la configuración incorrecta o obsoleta de SSO.
 .. Seleccione *Guardar*.
 +

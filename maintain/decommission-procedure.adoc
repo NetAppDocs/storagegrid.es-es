@@ -22,3 +22,5 @@ Para quitar un nodo de cuadrícula o un sitio, realice uno de los siguientes pro
 CAUTION: Antes de retirar un sitio desconectado, póngase en contacto con su representante de cuenta de NetApp. NetApp revisará sus requisitos antes de habilitar todos los pasos en el asistente del sitio de retirada. No debería intentar retirar un sitio desconectado si cree que podría recuperar el sitio o recuperar datos de objeto del sitio.
 
 
+
+Antes de desmantelar un nodo de la red, debe confirmar que no haya trabajos de reparación de datos activos.  Si alguna reparación ha fallado, debe reiniciarla y dejar que se complete antes de realizar el procedimiento de desmantelamiento. Consulte link:../maintain/checking-data-repair-jobs.html["Compruebe los trabajos de reparación de datos"] .

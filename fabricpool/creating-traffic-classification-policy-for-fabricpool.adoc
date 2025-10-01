@@ -36,7 +36,7 @@ Por ejemplo, si otros clientes S3 utilizan este sistema StorageGRID, deberá cre
 
 
 .Pasos
-. Seleccione *CONFIGURACIÓN* > *Red* > *Clasificación de tráfico*.
+. Seleccione *Configuración* > *Red* > *Clasificación de tráfico*.
 . Seleccione *Crear*.
 . Introduzca un nombre y una descripción (opcional) para la política y seleccione *Continuar*.
 . Para el paso Agregar reglas coincidentes, agregue al menos una regla.

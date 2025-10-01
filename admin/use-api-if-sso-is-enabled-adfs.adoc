@@ -11,7 +11,7 @@ summary: 'Si ha configurado y habilitado el inicio de sesión único (SSO) y uti
 
 
 [role="lead"]
-Si tiene link:../admin/configuring-sso.html["Inicio de sesión único configurado y habilitado (SSO)"] y utiliza Active Directory como proveedor SSO, debe emitir una serie de solicitudes API para obtener un token de autenticación válido para la API de gestión de grid o la API de gestión de inquilinos.
+Si tieneslink:../admin/how-sso-works.html["Inicio de sesión único configurado y habilitado (SSO)"] y utiliza Active Directory como proveedor de SSO, debe emitir una serie de solicitudes de API para obtener un token de autenticación que sea válido para la API de administración de Grid o la API de administración de inquilinos.
 
 
 
@@ -27,7 +27,7 @@ Estas instrucciones se aplican si utiliza Active Directory como proveedor de ide
 .Acerca de esta tarea
 Para obtener un token de autenticación, puede utilizar uno de los siguientes ejemplos:
 
-*  `storagegrid-ssoauth.py`El script de Python, que se encuentra en el directorio de archivos de instalación de StorageGRID (`./rpms`para Red Hat Enterprise Linux, `./debs` para Ubuntu o Debian, y `./vsphere` para VMWare).
+* El `storagegrid-ssoauth.py` Script de Python, que se encuentra en el directorio de archivos de instalación de StorageGRID(`./rpms` para RHEL, `./debs` para Ubuntu o Debian, y `./vsphere` para VMware).
 * Ejemplo de flujo de trabajo de solicitudes curl.
 +
 El flujo de trabajo curl podría llegar a ocurrir si lo hace demasiado lentamente. Es posible que vea el error: `A valid SubjectConfirmation was not found on this Response`.

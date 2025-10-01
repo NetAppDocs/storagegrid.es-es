@@ -32,7 +32,7 @@ TIP: Un administrador de StorageGRID debe habilitar el uso de servicios de plata
 
 == Cómo se configuran los servicios de plataforma
 
-Los servicios de plataforma se comunican con los puntos finales externos que configure mediante link:configuring-platform-services-endpoints.html["Administrador de inquilinos"]o el link:understanding-tenant-management-api.html["API de gestión de inquilinos"]. Cada extremo representa un destino externo, como un bloque de S3 de StorageGRID, un bloque de Amazon Web Services, un tema de Amazon SNS o un clúster de Elasticsearch alojado localmente, en AWS o en otro lugar.
+Los servicios de plataforma se comunican con puntos finales externos que usted configura mediante ellink:configuring-platform-services-endpoints.html["Administrador de inquilinos"] o ellink:understanding-tenant-management-api.html["API de gestión de inquilinos"] .  Cada punto final representa un destino externo, como un bucket S3 de StorageGRID , un bucket de Amazon Web Services, un tema de Amazon SNS, un punto final de webhook o un clúster de Elasticsearch alojado localmente, en AWS o en otro lugar.
 
 Después de crear un punto final externo, puede activar un servicio de plataforma para un bloque agregando configuración XML al bloque. La configuración XML identifica los objetos en los que debe actuar el bloque, la acción que debe tomar el bloque y el extremo que el bloque debe utilizar para el servicio.
 

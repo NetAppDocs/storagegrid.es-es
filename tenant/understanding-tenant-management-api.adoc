@@ -44,7 +44,7 @@ Para obtener información sobre cómo mejorar la seguridad de autenticación, co
 NOTE: Si está habilitado el inicio de sesión único (SSO) para el sistema StorageGRID, debe realizar diferentes pasos para la autenticación. Consulte la link:../admin/using-grid-management-api.html["Instrucciones de uso de la API de gestión de grid"].
 
 * *Config*: Operaciones relacionadas con el lanzamiento del producto y versiones de la API de Gestión de Inquilinos. Puede mostrar la versión de la versión del producto y las versiones principales de la API que admite esa versión.
-* *Contenedores*: Operaciones en S3 cubos o contenedores Swift.
+* *contenedores*: Operaciones en depósitos S3.
 * *Funciones desactivadas*: Operaciones para ver características que podrían haber sido desactivadas.
 * *Endpoints*: Operaciones para gestionar un endpoint. Los extremos permiten que un bloque de S3 use un servicio externo para la replicación de CloudMirror de StorageGRID, notificaciones o integración de búsqueda.
 * *Grid-federation-connections*: Operaciones en conexiones de federación de grid y replicación entre grid.

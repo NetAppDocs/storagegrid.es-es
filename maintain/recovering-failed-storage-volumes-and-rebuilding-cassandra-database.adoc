@@ -18,8 +18,8 @@ Debe ejecutar una secuencia de comandos que reformatea y remonta el almacenamien
 * Las unidades del sistema en el servidor están intactas.
 * Se ha identificado la causa del fallo y, si es necesario, ya se ha adquirido un hardware de almacenamiento de reemplazo.
 * El tamaño total del almacenamiento de reemplazo es el mismo que el original.
-* Comprobó que un decomisionado del nodo de almacenamiento no está en curso o que ha pausado el procedimiento para decomisionar el nodo. (En Grid Manager, seleccione *MANTENIMIENTO* > *tareas* > *misión*.)
-* Ha comprobado que una expansión no está en curso. (En Grid Manager, seleccione *MANTENIMIENTO* > *tareas* > *expansión*.)
+* Ha verificado que no se está realizando un desmantelamiento de un nodo de almacenamiento o ha pausado el procedimiento de desmantelamiento del nodo.  (En el Administrador de red, seleccione *Mantenimiento* > *Tareas* > *Desmantelamiento*.)
+* Has comprobado que no hay ninguna expansión en curso.  (En el Administrador de cuadrícula, seleccione *Mantenimiento* > *Tareas* > *Expansión*.)
 * Tienes link:reviewing-warnings-about-storage-volume-recovery.html["se revisaron las advertencias sobre la recuperación del volumen de almacenamiento"].
 
 
@@ -28,7 +28,7 @@ Debe ejecutar una secuencia de comandos que reformatea y remonta el almacenamien
 +
 No vuelva a montar los volúmenes en este paso. El almacenamiento se vuelve a montar y se añade a `/etc/fstab` en un paso posterior.
 
-. En Grid Manager, vaya a *NODOS* > `*appliance Storage Node*` > *Hardware*. En la sección StorageGRID Appliance de la página, compruebe que el modo RAID de almacenamiento esté en buen estado.
+. En el Administrador de cuadrícula, vaya a *Nodos* > `*appliance Storage Node*` > *Hardware*.  En la sección Dispositivo StorageGRID de la página, verifique que el modo RAID de almacenamiento esté en buen estado.
 . Inicie sesión en el nodo de almacenamiento con errores:
 +
 .. Introduzca el siguiente comando: `ssh admin@_grid_node_IP_`
@@ -51,7 +51,7 @@ NOTE: No es suficiente comentar un volumen con errores en `/etc/fstab` el archiv
 ** Se le pedirá que reconstruya la base de datos de Cassandra si es necesario.
 +
 *** Revise las advertencias. Si no se aplica ninguno de ellos, vuelva a generar la base de datos Cassandra. Introduzca: *Y*
-*** Si hay más de un nodo de almacenamiento desconectado o si se ha reconstruido otro nodo de almacenamiento en los últimos 15 días. Introduzca: *N*
+*** Si más de un nodo de almacenamiento está fuera de línea.  Ingresar: *n*
 +
 La secuencia de comandos se cerrará sin reconstruir Cassandra. Póngase en contacto con el soporte técnico.
 

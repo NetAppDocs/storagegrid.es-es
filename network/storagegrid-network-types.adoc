@@ -91,13 +91,7 @@ Red de cliente (opcional)
 eth2
 
 |===
-Para obtener detalles sobre la asignación de puertos virtuales o físicos a interfaces de red de los nodos, consulte las instrucciones de instalación:
-
-.Nodos basados en software
-* link:../rhel/index.html["Instalar StorageGRID en Red Hat Enterprise Linux"]
-* link:../ubuntu/index.html["Instalar StorageGRID en Ubuntu o Debian"]
-* link:../vmware/index.html["Instale StorageGRID en VMware"]
-
+Para obtener detalles sobre cómo asignar puertos virtuales o físicos a interfaces de red de nodos, consultelink:../swnodes/index.html["Instalar StorageGRID en nodos basados ​​en software"] .
 
 .Nodos del dispositivo
 * https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/hardware-description-sg6100.html["Dispositivo de almacenamiento SG6160"^]

@@ -25,7 +25,7 @@ Si se incluyen nodos de administración en un grupo de alta disponibilidad (ha),
 
 === Utilice SSO
 
-Los pasos de inicio de sesión son ligeramente diferentes si link:configuring-sso.html["Se ha configurado el inicio de sesión único (SSO)"].
+Los pasos para iniciar sesión son ligeramente diferentes silink:how-sso-works.html["Se ha configurado el inicio de sesión único (SSO)"] .
 
 
 
@@ -70,9 +70,6 @@ La pantalla de inicio de sesión que aparece depende de si se ha configurado el 
 --
 .. Introduzca su nombre de usuario y contraseña para el administrador de grid.
 .. Seleccione *Iniciar sesión*.
-+
-image::../media/sign_in_grid_manager_no_sso.png[Iniciar sesión en la página]
-
 
 
 --
@@ -81,23 +78,16 @@ image::../media/sign_in_grid_manager_no_sso.png[Iniciar sesión en la página]
 ** Si StorageGRID utiliza SSO y esta es la primera vez que accede a la URL en este explorador:
 +
 ... Seleccione *Iniciar sesión*. Puede dejar el 0 en el campo Cuenta.
+... Ingrese sus credenciales SSO estándar en la página de inicio de sesión SSO de su organización.
 +
-image::../media/sso_sign_in_first_time.png[Pantalla de inicio de sesión si SSO está activado y no hay cookies]
+Por ejemplo, si StorageGRID usa SSO y usted ha accedido previamente al Administrador de Grid o a una cuenta de inquilino:
 
-... Introduzca sus credenciales de SSO estándar en la página de inicio de sesión con SSO de su organización. Por ejemplo:
 +
-image::../media/sso_organization_page.gif[Ejemplo de página de inicio de sesión de organización para SSO]
+.... Introduzca *0* (el ID de cuenta de Grid Manager) o seleccione *Grid Manager* si aparece en la lista de cuentas recientes.
+.... Seleccione *Iniciar sesión*.
+.... Inicie sesión con sus credenciales SSO estándar en la página de inicio de sesión SSO de su organización.
 
 
-
-** Si StorageGRID utiliza SSO y se ha accedido previamente a Grid Manager o a una cuenta de inquilino:
-+
-... Introduzca *0* (el ID de cuenta de Grid Manager) o seleccione *Grid Manager* si aparece en la lista de cuentas recientes.
-+
-image::../media/sign_in_grid_manager_sso.png[Seleccione Grid Manager en la lista de cuentas recientes si SSO está activado]
-
-... Seleccione *Iniciar sesión*.
-... Inicie sesión con sus credenciales SSO estándar en la página de inicio de sesión SSO de su organización.
 
 
 
@@ -107,8 +97,6 @@ image::../media/sign_in_grid_manager_sso.png[Seleccione Grid Manager en la lista
 
 
 Al iniciar sesión, aparece la página inicial de Grid Manager, que incluye el panel de control. Para saber qué información se proporciona, consulte link:../monitor/viewing-dashboard.html["Permite ver y gestionar el panel de control"].
-
-image::../media/grid_manager_dashboard.png[consola]
 
 
 

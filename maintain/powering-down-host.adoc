@@ -117,10 +117,10 @@ Este LED está encendido cuando es necesario escribir en las unidades los datos 
 
 
 .Información relacionada
-* link:https://docs.netapp.com/us-en/storagegrid-appliances/sg6100/index.html["Dispositivos de almacenamiento SGF6112 y SG6160"^]
-* link:https://docs.netapp.com/us-en/storagegrid-appliances/sg6000/index.html["Dispositivos de almacenamiento SG6000"^]
-* link:https://docs.netapp.com/us-en/storagegrid-appliances/sg5700/index.html["Dispositivos de almacenamiento SG5700"^]
-* link:https://docs.netapp.com/us-en/storagegrid-appliances/sg5800/index.html["Dispositivos de almacenamiento SG5800"^]
-* link:https://docs.netapp.com/us-en/storagegrid-appliances/sg110-1100/index.html["Dispositivos de servicios SG110 y SG1100"^]
-* link:https://docs.netapp.com/us-en/storagegrid-appliances/sg100-1000/index.html["Dispositivos de servicios SG100 y SG1000"^]
+* https://docs.netapp.com/us-en/storagegrid-appliances/sg6100/index.html["Dispositivos de almacenamiento SGF6112 y SG6160"^]
+* https://docs.netapp.com/us-en/storagegrid-appliances/sg6000/index.html["Dispositivos de almacenamiento SG6000"^]
+* https://docs.netapp.com/us-en/storagegrid-appliances/sg5700/index.html["Dispositivos de almacenamiento SG5700"^]
+* https://docs.netapp.com/us-en/storagegrid-appliances/sg5800/index.html["Dispositivos de almacenamiento SG5800"^]
+* https://docs.netapp.com/us-en/storagegrid-appliances/sg110-1100/index.html["Dispositivos de servicios SG110 y SG1100"^]
+* https://docs.netapp.com/us-en/storagegrid-appliances/sg100-1000/index.html["Dispositivos de servicios SG100 y SG1000"^]
 

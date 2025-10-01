@@ -15,7 +15,7 @@ El archivo `/var/local/log/bycast.log` es el archivo principal de solución de p
 
 El archivo `/var/local/log/bycast-err.log` es un subconjunto de `bycast.log` . Contiene mensajes DE ERROR grave Y CRÍTICOS.
 
-De manera opcional, se puede cambiar el destino de los registros de auditoría y enviar información de auditoría a un servidor de syslog externo. Se siguen generando y almacenando registros locales de registros de auditoría cuando se configura un servidor de syslog externo. Consulte link:../monitor/configure-audit-messages.html["Configurar los mensajes de auditoría y los destinos de registro"].
+Opcionalmente, puede cambiar el destino de los registros de auditoría y enviar información de auditoría a un servidor syslog externo.  Los registros locales de registros de auditoría continúan generándose y almacenándose cuando se configura un servidor syslog externo. Ver link:../monitor/configure-log-management.html["Configurar la gestión de registros y el servidor syslog externo"] .
 
 
 
@@ -32,7 +32,7 @@ El límite de rotación para `bycast-err.log` es de siete archivos.
 
 NOTE: Si se ha comprimido un archivo de registro, no debe descomprimirlo en la misma ubicación en la que se escribió. Descomprimir el archivo en la misma ubicación puede interferir con las secuencias de comandos de rotación del registro.
 
-De manera opcional, se puede cambiar el destino de los registros de auditoría y enviar información de auditoría a un servidor de syslog externo. Se siguen generando y almacenando registros locales de registros de auditoría cuando se configura un servidor de syslog externo. Consulte link:../monitor/configure-audit-messages.html["Configurar los mensajes de auditoría y los destinos de registro"].
+Opcionalmente, puede cambiar el destino de los registros de auditoría y enviar información de auditoría a un servidor syslog externo.  Los registros locales de registros de auditoría continúan generándose y almacenándose cuando se configura un servidor syslog externo. Ver link:../monitor/configure-log-management.html["Configurar la gestión de registros y el servidor syslog externo"] .
 
 .Información relacionada
 link:collecting-log-files-and-system-data.html["Recopilar archivos de registro y datos del sistema"]

@@ -24,7 +24,7 @@ Un único certificado de servidor personalizado se usa para todos los nodos de a
 Después de completar la configuración en el servidor, es posible que también necesite instalar el certificado de Grid CA en el cliente API S3 que utilizará para acceder al sistema, según la autoridad de certificación (CA) raíz que esté utilizando.
 
 
-NOTE: Para garantizar que las operaciones no se interrumpan por un certificado de servidor fallido, la alerta *Expiración del certificado de servidor global para la API S3* se activa cuando el certificado del servidor raíz está a punto de expirar. Según sea necesario, puede ver cuándo caduca el certificado actual seleccionando *CONFIGURACIÓN* > *SEGURIDAD* > *Certificados* y mirando la fecha de caducidad del certificado API S3 en la pestaña Global.
+NOTE: Para garantizar que las operaciones no se vean interrumpidas por un certificado de servidor fallido, la alerta *Expiración del certificado de servidor global para la API S3* se activa cuando el certificado del servidor raíz está a punto de expirar.  Según sea necesario, puede ver cuándo vence el certificado actual seleccionando *Configuración* > *Seguridad* > *Certificados* y mirando la fecha de vencimiento del certificado de API S3 en la pestaña Global.
 
 Puede cargar o generar un certificado API personalizado de S3.
 
@@ -33,7 +33,7 @@ Puede cargar o generar un certificado API personalizado de S3.
 == Agregue un certificado API S3 personalizado
 
 .Pasos
-. Seleccione *CONFIGURACIÓN* > *Seguridad* > *certificados*.
+. Seleccione *Configuración* > *Seguridad* > *Certificados*.
 . En la pestaña *Global*, seleccione *S3 certificado API*.
 . Seleccione *utilizar certificado personalizado*.
 . Cargue o genere el certificado.
@@ -164,7 +164,7 @@ NOTE: Tras cargar o generar un nuevo certificado, permita que se borren las aler
 Se puede revertir a utilizar el certificado de API S3 predeterminado para conexiones de cliente S3 a los nodos de almacenamiento. Sin embargo, no puede usar el certificado de API S3 predeterminado para un punto final de equilibrio de carga.
 
 .Pasos
-. Seleccione *CONFIGURACIÓN* > *Seguridad* > *certificados*.
+. Seleccione *Configuración* > *Seguridad* > *Certificados*.
 . En la pestaña *Global*, seleccione *S3 certificado API*.
 . Seleccione *utilizar certificado predeterminado*.
 +
@@ -184,7 +184,7 @@ Si tiene permiso de acceso raíz y se ha utilizado el certificado de API S3 pers
 Puede guardar o copiar el contenido del certificado API de S3 para utilizarlo en cualquier otro lugar.
 
 .Pasos
-. Seleccione *CONFIGURACIÓN* > *Seguridad* > *certificados*.
+. Seleccione *Configuración* > *Seguridad* > *Certificados*.
 . En la pestaña *Global*, seleccione *S3 certificado API*.
 . Seleccione la ficha *servidor* o *paquete CA* y, a continuación, descargue o copie el certificado.
 +

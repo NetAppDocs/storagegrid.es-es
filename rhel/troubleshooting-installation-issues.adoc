@@ -1,31 +1,8 @@
 ---
 permalink: rhel/troubleshooting-installation-issues.html 
-sidebar: sidebar 
-keywords: how to troubleshoot red hat linux installation 
-summary: Si se produce algún problema durante la instalación del sistema StorageGRID, puede acceder a los archivos de registro de la instalación. Es posible que el soporte técnico también deba utilizar los archivos de registro de instalación para resolver problemas. 
+redirect: storagegrid/swnodes/troubleshooting-installation-issues.html 
 ---
-= Solucionar problemas de instalación
+= 
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
 
-[role="lead"]
-Si se produce algún problema durante la instalación del sistema StorageGRID, puede acceder a los archivos de registro de la instalación. Es posible que el soporte técnico también deba utilizar los archivos de registro de instalación para resolver problemas.
-
-Los siguientes archivos de registro de instalación están disponibles en el contenedor que ejecuta cada nodo:
-
-* `/var/local/log/install.log` (se encuentra en todos los nodos de cuadrícula)
-* `/var/local/log/gdu-server.log` (Se encuentra en el nodo de administración principal)
-
-
-Los siguientes archivos de registro de instalación están disponibles en el host:
-
-* `/var/log/storagegrid/daemon.log`
-* `/var/log/storagegrid/nodes/node-name.log`
-
-
-Para obtener información sobre cómo acceder a los archivos log, consulte link:../monitor/collecting-log-files-and-system-data.html["Recopilar archivos de registro y datos del sistema"].
-
-.Información relacionada
-link:../troubleshoot/index.html["Solucionar los problemas de un sistema StorageGRID"]

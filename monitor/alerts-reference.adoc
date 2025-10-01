@@ -174,6 +174,13 @@ Se detectó un problema con una unidad de almacenamiento de conexión directa (D
 
 
  a| 
+La unidad DAS del dispositivo está en la ranura o nodo incorrecto
+ a| 
+Una unidad de almacenamiento de conexión directa (DAS) está en la ranura o nodo incorrecto
+
+
+
+ a| 
 Luz localizadora de la unidad DAS del dispositivo encendida
  a| 
 La luz localizadora de unidades para una o varias unidades de almacenamiento de conexión directa (DAS) en un nodo de almacenamiento de dispositivos está encendida.
@@ -240,6 +247,13 @@ Se ha detectado un problema con una tarjeta de interfaz de red (NIC) en el dispo
 Se ha degradado el suministro de alimentación general del dispositivo
  a| 
 La potencia de un dispositivo StorageGRID se ha desviado de la tensión de funcionamiento recomendada.
+
+
+
+ a| 
+Se requiere actualización del software del sistema operativo SANtricity del dispositivo
+ a| 
+La versión del software SANtricity es inferior al mínimo recomendado para esta versión de StorageGRID.
 
 
 
@@ -380,7 +394,7 @@ El nodo no puede reenviar registros al servidor de syslog externo.
  a| 
 Cola de auditoría grande
  a| 
-La cola de discos para los mensajes de auditoría está llena. Si no se resuelve esta condición, es posible que se produzcan errores en las operaciones S3 o Swift.
+La cola de disco para mensajes de auditoría está llena.  Si no se soluciona esta condición, las operaciones de S3 podrían fallar.
 
 
 
@@ -609,9 +623,23 @@ No se pudo enviar la notificación por correo electrónico para una alerta.
 
 
  a| 
+No se encontró el depósito de destino del archivo de registro
+ a| 
+Falta el depósito de destino de archivo de registros, lo que impide que los registros se archiven en el depósito de destino.
+
+
+
+ a| 
 SNMP informa a los errores
  a| 
 Errores al enviar notificaciones SNMP informan a un destino de captura.
+
+
+
+ a| 
+Acceso externo SSH habilitado
+ a| 
+El acceso externo SSH ha estado habilitado durante más de 24 horas.
 
 
 
@@ -681,9 +709,9 @@ Uno o más certificados de cliente están a punto de caducar.
 
 
  a| 
-Vencimiento del certificado de servidor global para S3 y Swift
+Vencimiento del certificado de servidor global para S3
  a| 
-El certificado de servidor global para S3 y Swift está a punto de caducar.
+El certificado de servidor global para S3 está a punto de caducar.
 
 
 
@@ -944,7 +972,7 @@ El ajuste entre el reloj local y la hora del protocolo de hora de red (NTP) es d
  a| 
 Capacidad de disco de registro de auditoría baja
  a| 
-El espacio disponible para los registros de auditoría es bajo. Si no se resuelve esta condición, es posible que se produzcan errores en las operaciones S3 o Swift.
+El espacio disponible para los registros de auditoría es bajo.  Si no se soluciona esta condición, las operaciones de S3 podrían fallar.
 
 
 
@@ -1007,7 +1035,7 @@ El espacio disponible en el disco raíz es bajo.
  a| 
 Baja capacidad de datos del sistema
  a| 
-El espacio disponible para /var/local es bajo. Si no se resuelve esta condición, es posible que se produzcan errores en las operaciones S3 o Swift.
+El espacio disponible para /var/local es bajo.  Si no se soluciona esta condición, las operaciones de S3 podrían fallar.
 
 
 
@@ -1024,6 +1052,13 @@ El espacio disponible en el directorio /tmp es bajo.
 [cols="1a,2a"]
 |===
 | Nombre de alerta | Descripción 
+
+
+ a| 
+No se alcanzó el quórum del ADC
+ a| 
+El nodo de almacenamiento con servicio ADC está fuera de línea.  Las operaciones de expansión y desmantelamiento están bloqueadas hasta que se restablezca el quórum del ADC.
+
 
 
  a| 
@@ -1238,9 +1273,16 @@ El trabajo de comprobación de la existencia del objeto se ha detenido.
 
 
  a| 
-Objetos perdidos
+Objetos potencialmente perdidos
  a| 
-Se han perdido uno o más objetos de la cuadrícula.
+Uno o más objetos potencialmente perdidos de la red.
+
+
+
+ a| 
+Objetos huérfanos detectados
+ a| 
+Se han detectado objetos huérfanos.
 
 
 
@@ -1255,6 +1297,21 @@ Un cliente está intentando realizar una operación PUT Object que supera los S3
 Se detectó un objeto dañado no identificado
  a| 
 Se encontró un archivo en el almacenamiento de objetos replicado que no se pudo identificar como un objeto replicado.
+
+|===
+
+
+== Alertas de corrupción de objetos
+
+[cols="1a,2a"]
+|===
+| Nombre de alerta | Descripción 
+
+
+ a| 
+Desajuste del tamaño del objeto
+ a| 
+Se detectó un tamaño de objeto inesperado durante el procedimiento de verificación de existencia del objeto.
 
 |===
 
@@ -1348,14 +1405,14 @@ La configuración del servicio nginx-gw no es válida. Ahora se está utilizando
  a| 
 Es necesario reiniciar para deshabilitar FIPS
  a| 
-La directiva de seguridad no requiere el modo FIPS, pero el módulo de seguridad criptográfica de NetApp está habilitado.
+La política de seguridad no requiere el modo FIPS, pero se utilizan módulos FIPS.
 
 
 
  a| 
 Es necesario reiniciar para habilitar FIPS
  a| 
-La directiva de seguridad requiere el modo FIPS, pero el módulo de seguridad criptográfica de NetApp está deshabilitado.
+La política de seguridad requiere el modo FIPS, pero los módulos FIPS no están en uso.
 
 
 

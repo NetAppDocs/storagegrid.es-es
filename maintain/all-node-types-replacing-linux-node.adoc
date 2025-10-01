@@ -13,7 +13,7 @@ summary: Si un fallo requiere implementar uno o más hosts físicos o virtuales 
 [role="lead"]
 Si un fallo requiere implementar uno o más hosts físicos o virtuales nuevos, o reinstalar Linux en un host existente, implemente y configure el host de reemplazo antes de poder recuperar el nodo de grid. Este procedimiento es un paso del proceso de recuperación de nodos de grid para todos los tipos de nodos de grid.
 
-“Linux” se refiere a una implementación de Red Hat® Enterprise Linux®, Ubuntu® o Debian®. Para obtener una lista de las versiones compatibles, consulte la https://imt.netapp.com/matrix/#welcome["Herramienta de matriz de interoperabilidad de NetApp (IMT)"^].
+"Linux" se refiere a una implementación de Red Hat® Enterprise Linux® (RHEL), Ubuntu® o Debian®.  Para obtener una lista de las versiones compatibles, consulte la https://imt.netapp.com/matrix/#welcome["Herramienta de matriz de interoperabilidad de NetApp (IMT)"^] .
 
 Este procedimiento sólo se realiza como un paso del proceso de recuperación de nodos de almacenamiento basados en software, nodos de administración primarios o no primarios, o nodos de puerta de enlace. Los pasos son idénticos independientemente del tipo de nodo de cuadrícula que se esté recuperando.
 

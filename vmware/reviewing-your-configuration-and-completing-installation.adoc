@@ -1,47 +1,8 @@
 ---
 permalink: vmware/reviewing-your-configuration-and-completing-installation.html 
-sidebar: sidebar 
-keywords: how to review your configuration and complete vmware installation 
-summary: Debe revisar con cuidado la información de configuración que ha introducido para asegurarse de que la instalación se complete correctamente. 
+redirect: storagegrid/swnodes/reviewing-your-configuration-and-completing-installation.html 
 ---
-= Revise la configuración y complete la instalación
+= 
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
-
-[role="lead"]
-Debe revisar con cuidado la información de configuración que ha introducido para asegurarse de que la instalación se complete correctamente.
-
-.Pasos
-. Abra la página *Resumen*.
-+
-image::../media/11_gmi_installer_summary_page.gif[Página de resumen del instalador de Grid Manager]
-
-. Verifique que toda la información de configuración de la cuadrícula sea correcta. Utilice los enlaces Modify de la página Summary para volver atrás y corregir los errores.
-. Haga clic en *instalar*.
-+
-
-NOTE: Si un nodo está configurado para utilizar la red de cliente, la puerta de enlace predeterminada para ese nodo cambia de la red de cuadrícula a la red de cliente cuando hace clic en *instalar*. Si se pierde la conectividad, debe asegurarse de acceder al nodo de administración principal a través de una subred accesible. Consulte link:../network/index.html["Directrices sobre redes"] para obtener más información.
-
-. Haga clic en *Descargar paquete de recuperación*.
-+
-Cuando la instalación avanza hasta el punto en el que se define la topología de cuadrícula, se le solicita que descargue el archivo Recovery Package (`.zip`) y confirme que puede acceder correctamente al contenido de este archivo. Debe descargar el archivo de paquete de recuperación para que pueda recuperar el sistema StorageGRID si falla uno o más nodos de grid. La instalación continúa en segundo plano, pero no es posible completar la instalación y acceder al sistema StorageGRID hasta que se descargue y verifique este archivo.
-
-. Compruebe que puede extraer el contenido del `.zip` archivo y, a continuación, guardarlo en dos ubicaciones seguras, seguras e independientes.
-+
-
-CAUTION: El archivo del paquete de recuperación debe estar protegido porque contiene claves de cifrado y contraseñas que se pueden usar para obtener datos del sistema StorageGRID.
-
-. Seleccione la casilla de verificación *He descargado y verificado correctamente el archivo del paquete de recuperación* y haga clic en *Siguiente*.
-+
-Si la instalación sigue en curso, aparece la página de estado. Esta página indica el progreso de la instalación para cada nodo de cuadrícula.
-
-+
-image::../media/12_gmi_installer_status_page.gif[Esta imagen se explica por el texto circundante.]
-
-+
-Cuando se llega a la fase completa de todos los nodos de cuadrícula, aparece la página de inicio de sesión de Grid Manager.
-
-. Inicie sesión en Grid Manager con el usuario "root" y la contraseña que especificó durante la instalación.
 

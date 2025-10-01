@@ -1,0 +1,42 @@
+---
+permalink: admin/enable-cross-origin-resource-sharing-for-management-interface.html 
+sidebar: sidebar 
+keywords: how to configure cross-origin resource sharing, cors, management, api, domain 
+summary: 'Puede habilitar el uso compartido de recursos de origen cruzado (CORS) para las solicitudes de API de administración a StorageGRID, si desea que los datos en StorageGRID sean accesibles mediante API de administración a otro dominio.' 
+---
+= Habilitar StorageGRID CORS para una interfaz de administración
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Como administrador de la red, puede habilitar el uso compartido de recursos de origen cruzado (CORS) para las solicitudes de API de administración a StorageGRID, si desea que los datos en StorageGRID sean accesibles mediante API de administración a otro dominio.
+
+.Antes de empezar
+* Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Ellink:../tenant/tenant-management-permissions.html["Permiso de acceso raíz"] Proporciona acceso a todas las solicitudes de configuración de CORS.
+
+
+.Acerca de esta tarea
+CORS es un mecanismo de seguridad que permite que las aplicaciones web cliente de un dominio accedan a recursos de un dominio diferente.  Por ejemplo, supongamos que desea crear un panel de monitoreo para StorageGRID en el dominio `\http://www.example.com` .  Al habilitar CORS en StorageGRID para `\http://www.example.com` y "Grid Manager", el dominio StorageGRID responde a las solicitudes de API de administración de Grid de `\http://www.example.com` .
+
+Solicitudes de API de administración (mgmt-api) con `application/json` o `multipart/formdata` solicitudes de `Content-Type` son compatibles con CORS.
+
+.Pasos
+. En Grid Manager, vaya a *CONFIGURACIÓN* > *Red* > *Configuración CORS de la interfaz de administración*.
+. Seleccione *Administrador de red*, *Administrador de inquilinos* o ambas opciones.
++
+** *Grid Manager*: habilita CORS para solicitudes de API de administración de cuadrícula entre dominios.
+** *Administrador de inquilinos*: habilita CORS para solicitudes de API de administración de inquilinos entre dominios.
+
+
+. Introduzca la URL del otro dominio en el campo *Dominios*.
++
+Seleccione *Agregar otro dominio* si desea habilitar CORS en StorageGRID para más de un dominio.
+
+. Seleccione *Guardar*.
+
+
+.Información relacionada
+link:../tenant/configuring-cross-origin-resource-sharing-for-buckets-and-objects.html["Configurar StorageGRID CORS para depósitos y objetos"]

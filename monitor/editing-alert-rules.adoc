@@ -25,7 +25,7 @@ Al editar una regla de alerta predeterminada, puede cambiar las condiciones de l
 CAUTION: Tenga cuidado al decidir editar una regla de alerta. Si cambia los valores de activación, es posible que no detecte un problema subyacente hasta que no se complete una operación crucial.
 
 .Pasos
-. Selecciona *ALERTS* > *Reglas*.
+. Seleccione *Alertas* > *Reglas*.
 +
 Aparecerá la página Reglas de alerta.
 

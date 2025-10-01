@@ -25,7 +25,7 @@ Para obtener detalles sobre esta tarea, consulte link:../admin/managing-high-ava
 
 
 .Pasos
-. Seleccione *CONFIGURACIÓN* > *Red* > *grupos de alta disponibilidad*.
+. Seleccione *Configuración* > *Red* > *Grupos de alta disponibilidad*.
 . Seleccione *Crear*.
 . Para el paso *Enter details*, complete los siguientes campos.
 +

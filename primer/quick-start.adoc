@@ -45,14 +45,12 @@ Descubra cómo:
 
 [role="quick-margin-list"]
 * https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/index.html["Instale el hardware del dispositivo"^]
-* link:../rhel/index.html["Instalar StorageGRID en Red Hat Enterprise Linux"]
-* link:../ubuntu/index.html["Instalar StorageGRID en Ubuntu o Debian"]
-* link:../vmware/index.html["Instale StorageGRID en VMware"]
+* link:../swnodes/index.html["Instalar StorageGRID en nodos basados ​​en software"]
 
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tres"] Inicie sesión y compruebe el estado del sistema
 [role="quick-margin-para"]
-En cuanto instale el nodo de administración principal, puede iniciar sesión en Grid Manager. A partir de ahí, puede revisar el estado general del nuevo sistema, habilitar correos electrónicos de alerta y AutoSupport y configurar nombres de dominio de punto final S3.
+Una vez completada la instalación de la red, puede iniciar sesión en el Administrador de red.  Desde allí, puede revisar el estado general de su nuevo sistema, habilitar AutoSupport y correos electrónicos de alerta, y configurar nombres de dominio de puntos finales S3.
 
 [role="quick-margin-para"]
 Descubra cómo:

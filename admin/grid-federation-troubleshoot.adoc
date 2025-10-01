@@ -62,7 +62,7 @@ Al editar una conexión de federación de grid, aparece el siguiente mensaje de 
 Cuando edita una conexión de federación de grid, StorageGRID intenta guardar un archivo de configuración de candidato en todos los nodos de administración de la primera cuadrícula. Aparece un mensaje de advertencia si este archivo no se puede guardar en todos los nodos de administración, por ejemplo, porque un nodo de administración está fuera de línea.
 
 .Acciones recomendadas
-. En la cuadrícula que está utilizando para editar la conexión, seleccione * NODOS *.
+. Desde la cuadrícula que está utilizando para editar la conexión, seleccione *Nodos*.
 . Confirmar que todos los nodos de administración de ese grid están en línea.
 . Si alguno de los nodos está sin conexión, vuelva a conectarlo e intente editar nuevamente la conexión.
 
@@ -84,7 +84,7 @@ Por motivos de seguridad, cuando se clona una cuenta de inquilino desde la cuadr
 .Acciones recomendadas
 Antes de que el usuario root pueda iniciar sesión en la cuadrícula de destino del inquilino, un administrador de grid debe primero en link:changing-password-for-tenant-local-root-user.html["cambie la contraseña del usuario raíz local"]la cuadrícula de destino.
 
-Para que un usuario local clonado pueda iniciar sesión en la cuadrícula de destino del inquilino, el usuario raíz del inquilino clonado debe agregar una contraseña para el usuario en la cuadrícula de destino. Para obtener instrucciones, consulte link:../tenant/managing-local-users.html["Gestionar usuarios locales"] en las instrucciones de uso del gestor de inquilinos.
+Antes de que un usuario local clonado pueda iniciar sesión en la red de destino del inquilino, el usuario raíz del inquilino clonado debe agregar una contraseña para el usuario en la red de destino.  Para obtener instrucciones, consultelink:../tenant/manage-users.html["Gestionar usuarios"] en las instrucciones para utilizar el Administrador de inquilinos.
 
 
 
@@ -99,7 +99,7 @@ Este problema puede ocurrir si las actualizaciones del estado de conexión se re
 .Acciones recomendadas
 . Revise el motivo que aparece en el mensaje de error y resuelva cualquier problema de red u otros problemas que puedan impedir el funcionamiento de la conexión. Consulte <<grid-federation-errors,Alertas y errores de conexión de federación de grid>>.
 . Siga las instrucciones para probar una conexión de federación de rejilla en link:grid-federation-manage-connection.html["Gestionar conexiones de federación de grid"] para confirmar que se ha solucionado el problema.
-. Desde la cuadrícula de origen del inquilino, seleccione *TENANTS*.
+. Desde la cuadrícula de origen del inquilino, seleccione *Inquilinos*.
 . Localice la cuenta de inquilino que no se pudo clonar.
 . Seleccione el nombre del arrendatario para mostrar la página de detalles.
 . Seleccione *Reintentar clon de cuenta*.
@@ -125,14 +125,16 @@ Cuando link:../monitor/grid-federation-monitor-connections.html["visualización 
 image::../media/grid-federation-last-error.png[Captura de pantalla que muestra un mensaje en la última columna de error de una conexión de federación de cuadrícula]
 
 .Detalles
-Para cada conexión de federación de grid, la columna *last error* muestra el error más reciente que se producirá, si lo hubiera, cuando los datos de un inquilino se estaban replicando en la otra cuadrícula. Esta columna solo muestra el último error de replicación entre cuadrículas que se produce; no se mostrarán los errores anteriores que podrían haberse producido. Un error en esta columna puede ocurrir por uno de estos motivos:
+Para cada conexión de federación de red, la columna *Último error* muestra el error más reciente que ocurrió, si lo hubo, cuando los datos de un inquilino se estaban replicando a la otra red.  Esta columna muestra únicamente el último error de replicación entre redes que ocurrió; no se muestran los errores anteriores que podrían haber ocurrido.  Un error en esta columna podría ocurrir por una de estas razones:
 
-* No se ha encontrado la versión del objeto de origen.
-* No se ha encontrado el depósito de origen.
+* No se encontró la versión del objeto de origen.
+* No se encontró el depósito de origen.
 * Se ha suprimido el depósito de destino.
 * Una cuenta diferente ha vuelto a crear el bloque de destino.
 * Se ha suspendido el control de versiones del bloque de destino.
 * La misma cuenta ha vuelto a crear el depósito de destino, pero ahora no tiene versiones.
+* El objeto de origen tiene configuraciones de bloqueo de objetos S3 que no cumplen con las configuraciones de retención a nivel de inquilino de la red de destino.
+* El objeto de origen tiene configuraciones de Bloqueo de objetos S3, y el Bloqueo de objetos S3 está deshabilitado en el depósito de destino.
 
 
 .Acciones recomendadas
@@ -167,7 +169,7 @@ Esta alerta indica que los objetos de arrendatario no se pueden replicar entre l
 
 .Acciones recomendadas
 . Inicie sesión en la cuadrícula donde se activó la alerta.
-. Vaya a *CONFIGURACIÓN* > *Sistema* > *federación de cuadrícula* y localice el nombre de la conexión que aparece en la alerta.
+. Vaya a *Configuración* > *Sistema* > *Federación de red* y localice el nombre de la conexión que aparece en la alerta.
 . En la pestaña de inquilinos permitidos, mire la columna *Último error* para determinar qué cuentas de inquilino tienen errores.
 . Para obtener más información sobre el fallo, consulte las instrucciones de link:../monitor/grid-federation-monitor-connections.html["Supervisar las conexiones de federación de grid"] para revisar las métricas de replicación entre grid.
 . Para cada cuenta de inquilino afectada:
@@ -181,7 +183,6 @@ Esta alerta indica que los objetos de arrendatario no se pueden replicar entre l
 +
 ** Hay un depósito correspondiente para el mismo inquilino en la otra cuadrícula (debe usar el nombre exacto).
 ** Ambos cubos tienen activado el control de versiones de objetos (el control de versiones no se puede suspender en ninguna cuadrícula).
-** Ambos cubos tienen S3 Object Lock desactivado.
 ** Ninguno de los depósitos está en el estado *Deleting objects: Read-only*.
 
 

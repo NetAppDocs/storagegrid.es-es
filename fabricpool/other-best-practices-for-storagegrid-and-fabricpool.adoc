@@ -19,7 +19,7 @@ Al configurar un sistema StorageGRID para utilizarlo con FabricPool, es posible 
 
 Las cargas de trabajo de FabricPool suelen tener una tasa alta de operaciones de lectura, las que pueden generar un alto volumen de mensajes de auditoría.
 
-* Si no necesita un registro de operaciones de lectura de cliente para FabricPool o cualquier otra aplicación S3, vaya opcionalmente a *CONFIGURACIÓN* > *Monitoreo* > *Servidor de auditoría y syslog*. Cambie la configuración de *Lecturas de cliente* a *Error* para disminuir el número de mensajes de auditoría registrados en el registro de auditoría. Consulte link:../monitor/configure-audit-messages.html["Configurar los mensajes de auditoría y los destinos de registro"] para obtener más información.
+* Si no necesita un registro de las operaciones de lectura del cliente para FabricPool o cualquier otra aplicación S3, vaya opcionalmente a *Configuración* > *Monitoreo* > *Servidor de auditoría y syslog*.  Cambie la configuración *Lecturas de cliente* a *Error* para disminuir la cantidad de mensajes de auditoría registrados en el registro de auditoría. Verlink:../monitor/configure-log-management.html["Configurar la gestión de registros y el servidor syslog externo"] Para más detalles.
 * Si tiene un grid grande, utilice varios tipos de aplicaciones S3 o desea conservar todos los datos de auditoría, configure un servidor syslog externo y guarde la información de auditoría de forma remota. El uso de un servidor externo minimiza el impacto en el rendimiento del registro de mensajes de auditoría sin reducir la integridad de los datos de auditoría. Consulte link:../monitor/considerations-for-external-syslog-server.html["Consideraciones sobre el servidor de syslog externo"] para obtener más información.
 
 
@@ -34,6 +34,12 @@ Al configurar StorageGRID, puede habilitar opcionalmente el link:../admin/changi
 == Compresión de objetos
 
 Al configurar StorageGRID, no active el link:../admin/configuring-stored-object-compression.html["opción global para comprimir objetos almacenados"]. Los datos que se organizan en niveles de FabricPool a StorageGRID ya están comprimidos. El uso de la opción StorageGRID no reducirá más el tamaño de un objeto.
+
+
+
+== Bloqueo de objetos de S3
+
+Si la configuración global de Bloqueo de objetos S3 está habilitada para su sistema StorageGRID , no la habilitelink:../s3/use-s3-api-for-s3-object-lock.html["Bloqueo de objetos de S3"] cuando creas depósitos FabricPool .  El bloqueo de objetos S3 no es compatible con los depósitos FabricPool .
 
 
 

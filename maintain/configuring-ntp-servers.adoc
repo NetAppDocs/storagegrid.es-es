@@ -51,7 +51,7 @@ NOTE: Al especificar el origen NTP externo para una instalación de StorageGRID 
 Siga estos pasos para agregar, actualizar o eliminar servidores NTP.
 
 .Pasos
-. Seleccione *MANTENIMIENTO* > *Red* > *Servidores NTP*.
+. Seleccione *Mantenimiento* > *Red* > *Servidores NTP*.
 . En la sección Servidores, agregue, actualice o elimine entradas del servidor NTP, según sea necesario.
 +
 Debe incluir al menos cuatro servidores NTP y puede especificar hasta seis servidores.

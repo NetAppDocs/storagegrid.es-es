@@ -13,18 +13,17 @@ summary: Es posible que deba realizar procedimientos de mantenimiento relacionad
 [role="lead"]
 Es posible que deba realizar procedimientos de mantenimiento relacionados con nodos de grid específicos o servicios de nodos.
 
-Procedimientos del Administrador de servidores:: Server Manager se ejecuta en todos los nodos de grid para supervisar el inicio y la detención de los servicios y garantizar que estos se unen y salen correctamente del sistema StorageGRID. Server Manager también supervisa los servicios en todos los nodos de grid e intentará reiniciar automáticamente los servicios que informen de los errores.
+Mover ADC:: Ellink:../maintain/understanding-adc-service-quorum.html["Servicio ADC"] se encuentra en algunos nodos de almacenamiento.  En determinadas circunstancias de desmantelamiento y conversión de nodos, es necesario trasladar el servicio ADC a otro nodo de almacenamiento en el mismo sitio.
+Convertir un nodo de almacenamiento en un nodo de solo datos:: Puede convertir nodos de almacenamiento que no contienen el servicio ADC en nodos de almacenamiento de solo datos.
+Reinicio, apagado y encendido del nodo:: Debe usar estos procedimientos para reiniciar uno o más nodos, para apagar y reiniciar nodos, o para apagar los nodos y volver a encenderlos.
+Reasignación de puertos:: Puede utilizar los procedimientos de reasignación de puertos para eliminar las reasignaciones de puertos de un nodo, por ejemplo, si desea configurar un punto final de equilibrio de carga mediante un puerto que se haya reasignado anteriormente.
+Administrador del servidor:: Server Manager se ejecuta en todos los nodos de grid para supervisar el inicio y la detención de los servicios y garantizar que estos se unen y salen correctamente del sistema StorageGRID. Server Manager también supervisa los servicios en todos los nodos de grid e intentará reiniciar automáticamente los servicios que informen de los errores.
 +
 --
-Para realizar los procedimientos del Administrador del servidor, normalmente necesita acceder a la línea de comandos del nodo.
+Para realizar procedimientos del Administrador de servidor, normalmente es necesario acceder a la línea de comandos del nodo.
 
 
-NOTE: Debe acceder a Server Manager solo si el soporte técnico le ha indicado hacerlo.
-
-
-NOTE: Debe cerrar la sesión actual del shell de comandos y cerrar la sesión después de terminar con Server Manager. Introduzca: `exit`
+CAUTION: Debe acceder a Server Manager solo si el soporte técnico le ha indicado hacerlo.
 
 --
-Reinicio del nodo, apagado y procedimientos de encendido:: Debe usar estos procedimientos para reiniciar uno o más nodos, para apagar y reiniciar nodos, o para apagar los nodos y volver a encenderlos.
-Procedimientos de reasignación de puertos:: Puede utilizar los procedimientos de reasignación de puertos para eliminar las reasignaciones de puertos de un nodo, por ejemplo, si desea configurar un punto final de equilibrio de carga mediante un puerto que se haya reasignado anteriormente.
 

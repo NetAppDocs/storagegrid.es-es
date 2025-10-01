@@ -13,11 +13,13 @@ summary: Todos los servicios de StorageGRID generan mensajes de auditoría duran
 [role="lead"]
 Todos los servicios de StorageGRID generan mensajes de auditoría durante el funcionamiento normal del sistema. Debe comprender el modo en que estos mensajes de auditoría se mueven al archivo a través del sistema StorageGRID `audit.log`.
 
+Los siguientes flujos de trabajo para mensajes de auditoría y retención de mensajes de auditoría solo son aplicables si StorageGRID está configurado para *Nodos de administración/nodos locales* o *Nodo de administración y servidor syslog externo*.  Si StorageGRID está configurado para "Solo nodos locales" (predeterminado) o "Servidor syslog externo", los mensajes de auditoría se guardan localmente en cada nodo del sistema. `/var/local/log/localaudit.log` archivo y no puede ser procesado por nodos de administración o nodos de almacenamiento.
+
 
 
 == Flujo de mensajes de auditoría
 
-Los mensajes de auditoría los procesan los nodos de administrador y los nodos de almacenamiento que tienen un servicio de controlador de dominio administrativo (ADC).
+Los mensajes de auditoría son procesados ​​por los nodos de administración cuando StorageGRID está configurado para *Nodos de administración/nodos locales* o *Nodo de administración y servidor syslog externo* y por aquellos nodos de almacenamiento que tienen un servicio de controlador de dominio administrativo (ADC).
 
 Como se muestra en el diagrama de flujo de mensajes de auditoría, cada nodo StorageGRID envía sus mensajes de auditoría a uno de los servicios ADC del sitio del centro de datos. El servicio ADC se habilita automáticamente para los primeros tres nodos de almacenamiento instalados en cada sitio.
 
@@ -33,21 +35,21 @@ image::../media/audit_message_flow.gif[Diagrama que resume el flujo de mensajes 
 
 StorageGRID utiliza un proceso de copia y eliminación para garantizar que no se pierdan mensajes de auditoría antes de que puedan escribirse en el registro de auditoría.
 
-Cuando un nodo genera o transmite un mensaje de auditoría, el mensaje se almacena en una cola de mensajes de auditoría en el disco del sistema del nodo de cuadrícula. Una copia del mensaje siempre se mantiene en una cola de mensajes de auditoría hasta que el mensaje se escribe en el archivo log de auditoría del directorio del nodo de administración `/var/local/log`. Esto ayuda a evitar la pérdida de un mensaje de auditoría durante el transporte.
+Cuando un nodo genera o retransmite un mensaje de auditoría, el mensaje se almacena en una cola de mensajes de auditoría en el disco del sistema del nodo de la red.  Siempre se guarda una copia del mensaje en una cola de mensajes de auditoría hasta que el mensaje se escribe en el archivo de registro de auditoría en el nodo de administración. `/var/local/audit/export` directorio.  Esto ayuda a evitar la pérdida de un mensaje de auditoría durante el transporte.
 
 image::../media/audit_message_retention.gif[Diagrama que resume la recepción de mensajes de auditoría en AMS]
 
-La cola de mensajes de auditoría puede aumentar temporalmente debido a problemas de conectividad de red o capacidad de auditoría insuficiente. A medida que las colas aumentan, consumen más espacio disponible en el directorio de cada nodo `/var/local/`. Si el problema persiste y el directorio de mensajes de auditoría de un nodo está demasiado lleno, los nodos individuales priorizarán el procesamiento de su acumulación y no estarán disponibles temporalmente para los mensajes nuevos.
+La cola de mensajes de auditoría puede aumentar temporalmente debido a problemas de conectividad de red o capacidad de auditoría insuficiente.  A medida que aumentan las colas, consumen más espacio disponible en cada nodo. `/var/local/` directorio.  Si el problema persiste y el directorio de mensajes de auditoría de un nodo se llena demasiado, los nodos individuales priorizan el procesamiento de su trabajo atrasado y dejan de estar disponibles temporalmente para recibir nuevos mensajes.
 
 Específicamente, puede ver los siguientes comportamientos:
 
-* Si el `/var/local/log` directorio utilizado por un nodo de administración se llena, el nodo de administración se marcará como no disponible para los nuevos mensajes de auditoría hasta que el directorio deje de estar lleno. Las solicitudes de clientes de S3 no se ven afectadas. La alarma XAMS (repositorios de auditoría no accesibles) se activa cuando no se puede acceder a un repositorio de auditoría.
-* Si el `/var/local/` directorio utilizado por un nodo de almacenamiento con el servicio ADC se llena al 92%, el nodo se marcará como no disponible para auditar los mensajes hasta que el directorio esté lleno al 87%. Las solicitudes de clientes de S3 a otros nodos no se ven afectadas. La alarma NRLY (Relés de auditoría disponibles) se activa cuando no se pueden acceder a los relés de auditoría.
+* Si el `/var/local/audit/export` Cuando el directorio utilizado por un nodo de administración se llena, dicho nodo se marca como no disponible para nuevos mensajes de auditoría hasta que el directorio ya no esté lleno.  Las solicitudes de cliente S3 no se ven afectadas.  La alarma XAMS (Repositorios de auditoría inaccesibles) se activa cuando un repositorio de auditoría no está disponible.
+* Si el `/var/local/` Cuando el directorio utilizado por un nodo de almacenamiento con el servicio ADC se llena en un 92 %, el nodo se marca como no disponible para auditar mensajes hasta que el directorio esté solo en un 87 % lleno.  Las solicitudes del cliente S3 a otros nodos no se ven afectadas.  La alarma NRLY (Relés de auditoría disponibles) se activa cuando los relés de auditoría no están disponibles.
 +
 
 NOTE: Si no hay nodos de almacenamiento disponibles con el servicio ADC, los nodos de almacenamiento almacenan los mensajes de auditoría localmente en el `/var/local/log/localaudit.log` archivo.
 
-* Si el `/var/local/` directorio utilizado por un nodo de almacenamiento se llena al 85%, el nodo comenzará a rechazar S3 solicitudes de clientes con `503 Service Unavailable`.
+* Si el `/var/local/` Cuando el directorio utilizado por un nodo de almacenamiento se llena al 85 %, el nodo comienza a rechazar solicitudes de clientes S3 con `503 Service Unavailable` .
 
 
 Los siguientes tipos de problemas pueden hacer que las colas de mensajes de auditoría crezcan muy grandes:
@@ -65,7 +67,7 @@ Para ayudarle a supervisar el tamaño de las colas de mensajes de auditoría a l
 
 Si se activa la alerta *cola de auditoría grande* o la alarma AMQS heredada, comience comprobando la carga en el sistema--si ha habido un número significativo de transacciones recientes, la alerta y la alarma deben resolverse con el tiempo y pueden ignorarse.
 
-Si la alerta o alarma persiste y aumenta su gravedad, vea un gráfico del tamaño de la cola. Si el número aumenta constantemente durante horas o días, es probable que la carga de auditoría haya superado la capacidad de auditoría del sistema. Reduzca la tasa de operaciones del cliente o disminuya el número de mensajes de auditoría registrados cambiando el nivel de auditoría de las escrituras del cliente y las lecturas del cliente a error o Desactivado. Consulte link:../monitor/configure-audit-messages.html["Configurar los mensajes de auditoría y los destinos de registro"].
+Si la alerta o alarma persiste y aumenta en gravedad, vea un gráfico del tamaño de la cola.  Si el número aumenta de manera constante a lo largo de horas o días, es probable que la carga de auditoría haya excedido la capacidad de auditoría del sistema.  Reduzca la tasa de operación del cliente o disminuya la cantidad de mensajes de auditoría registrados cambiando el nivel de auditoría de Escrituras de cliente y Lecturas de cliente a Error o Desactivado. Ver link:../monitor/configure-log-management.html["Configurar la gestión de registros y el servidor syslog externo"] .
 
 
 

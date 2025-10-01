@@ -85,6 +85,7 @@ La alerta *Red Grid MTU mismatch* se activa cuando la configuración de la unida
 Las diferencias en la configuración de MTU podrían indicar que algunas redes eth0, pero no todas, están configuradas para tramas gigantes. Un error de coincidencia del tamaño de MTU de más de 1000 puede provocar problemas de rendimiento de la red.
 
 .Pasos
+. El acceso SSH externo está bloqueado de forma predeterminada.  Si es necesario,link:../admin/manage-external-ssh-access.html["permitir el acceso temporalmente"] .
 . Enumere la configuración de MTU para eth0 en todos los nodos.
 +
 ** Utilice la consulta proporcionada en Grid Manager.
@@ -148,6 +149,7 @@ El nodo. El valor predeterminado es el nodo local.
 |===
 
 
+. Si ha permitido el acceso SSH externo,link:../admin/manage-external-ssh-access.html["bloquear el acceso"] Cuando hayas terminado la tarea.
 
 
 
@@ -257,12 +259,12 @@ Puede ver problemas con la conectividad de red de los nodos de StorageGRID aloja
 
 === Clonación de direcciones MAC
 
-En algunos casos, los problemas de red se pueden resolver mediante la clonación de direcciones MAC. Si utiliza hosts virtuales, establezca el valor de la clave de clonación de direcciones MAC para cada una de las redes en "true" en el archivo de configuración del nodo. Este ajuste hace que la dirección MAC del contenedor StorageGRID utilice la dirección MAC del host. Para crear archivos de configuración de nodos, consulte las instrucciones para link:../rhel/creating-node-configuration-files.html["Red Hat Enterprise Linux"] o link:../ubuntu/creating-node-configuration-files.html["Ubuntu o Debian"].
+En algunos casos, los problemas de red se pueden resolver mediante la clonación de direcciones MAC.  Si está utilizando hosts virtuales, configure el valor de la clave de clonación de dirección MAC para cada una de sus redes en "verdadero" en su archivo de configuración de nodo.  Esta configuración hace que la dirección MAC del contenedor StorageGRID utilice la dirección MAC del host.  Vea las instrucciones paralink:../swnodes/creating-node-configuration-files.html["crear archivos de configuración de nodo"] .
 
 
 NOTE: Cree interfaces de red virtual independientes que utilice el sistema operativo del host Linux. Al utilizar las mismas interfaces de red para el sistema operativo host Linux y el contenedor StorageGRID, es posible que no se pueda acceder al sistema operativo del host si no se ha habilitado el modo promiscuo en el hipervisor.
 
-Para obtener más información sobre la activación de la clonación MAC, consulte las instrucciones para link:../rhel/configuring-host-network.html["Red Hat Enterprise Linux"] o link:../ubuntu/configuring-host-network.html["Ubuntu o Debian"].
+Para obtener más información, consulte las instrucciones paralink:../swnodes/configuring-host-network.html["Habilitar la clonación de MAC"] .
 
 
 
@@ -270,7 +272,7 @@ Para obtener más información sobre la activación de la clonación MAC, consul
 
 Si no desea utilizar la clonación de direcciones MAC y prefiere permitir que todas las interfaces reciban y transmitan datos para direcciones MAC distintas de las asignadas por el hipervisor, Asegúrese de que las propiedades de seguridad en los niveles de conmutador virtual y grupo de puertos estén establecidas en *Aceptar* para el modo promiscuo, los cambios de dirección MAC y las transmisiones falsificadas. Los valores establecidos en el conmutador virtual pueden ser anulados por los valores en el nivel de grupo de puertos, por lo que asegúrese de que la configuración sea la misma en ambos lugares.
 
-Para obtener más información acerca del uso del modo Promiscuous, consulte las instrucciones para link:../rhel/configuring-host-network.html["Red Hat Enterprise Linux"] o link:../ubuntu/configuring-host-network.html["Ubuntu o Debian"].
+Para obtener más información sobre el uso del modo promiscuo, consulte las instrucciones paralink:../swnodes/configuring-host-network.html["Cómo configurar la red del host"] .
 
 
 
@@ -327,7 +329,7 @@ Es posible que deba habilitar la compatibilidad de IPv6 en el kernel si ha insta
 .Acerca de esta tarea
 Para ver la dirección IPv6 que se ha asignado a un nodo de cuadrícula:
 
-. Selecciona *NODOS* y selecciona el nodo.
+. Seleccione *Nodos* y seleccione el nodo.
 . Seleccione *Mostrar direcciones IP adicionales* junto a *Direcciones IP* en la pestaña Descripción general.
 
 

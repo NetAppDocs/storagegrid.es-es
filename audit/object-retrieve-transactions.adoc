@@ -13,7 +13,7 @@ summary: Puede identificar las transacciones de recuperación de objetos en el r
 [role="lead"]
 Puede identificar las transacciones de recuperación de objetos en el registro de auditoría ubicando los mensajes de auditoría específicos de la API de S3.
 
-En las tablas siguientes no se enumeran todos los mensajes de auditoría generados durante una transacción de recuperación. Sólo se incluyen los mensajes necesarios para rastrear la transacción de recuperación.
+No todos los mensajes de auditoría generados durante una transacción de recuperación aparecen en la siguiente tabla.  Sólo se incluyen los mensajes necesarios para rastrear la transacción recuperada.
 
 
 
@@ -34,27 +34,6 @@ Solicitud realizada para recuperar un objeto de un bloque.
 CBID, S3BK, S3KY
  a| 
 link:sget-s3-get.html["SGET: S3 GET"]
-
-|===
-
-
-== Mensajes de auditoría de recuperación rápida
-
-[cols="1a,1a,2a,1a,1a"]
-|===
-| Codificación | Nombre | Descripción | Traza | Consulte 
-
-
- a| 
-CONSIGA
- a| 
-OBTENGA Swift
- a| 
-Solicitud realizada para recuperar un objeto de un contenedor.
- a| 
-CBID, WCON, WOBJ
- a| 
-link:wget-swift-get.html["WGET: Swift GET"]
 
 |===
 

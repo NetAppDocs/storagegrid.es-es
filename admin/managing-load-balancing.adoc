@@ -38,7 +38,7 @@ Como práctica recomendada general, cada sitio del sistema StorageGRID debe incl
 
 Un punto final de equilibrio de carga define el puerto y el protocolo de red (HTTPS o HTTP) que utilizarán las solicitudes de aplicación cliente entrantes y salientes para acceder a los nodos que contienen el servicio de equilibrio de carga. El extremo también define el tipo de cliente (S3), el modo de enlace y, opcionalmente, una lista de inquilinos permitidos o bloqueados.
 
-Para crear un punto final de equilibrio de carga, seleccione *CONFIGURACIÓN* > *Red* > *Puntos finales de equilibrio de carga* o complete el asistente de configuración de FabricPool y S3. Para obtener instrucciones:
+Para crear un punto final de balanceador de carga, utilice el Administrador de cuadrícula o complete los asistentes de configuración de S3 y FabricPool :
 
 * link:configuring-load-balancer-endpoints.html["Configurar puntos finales del equilibrador de carga"]
 * link:use-s3-setup-wizard-steps.html["Use el asistente de configuración de S3"]
@@ -47,11 +47,87 @@ Para crear un punto final de equilibrio de carga, seleccione *CONFIGURACIÓN* > 
 
 
 
+=== Consideraciones para el almacenamiento en caché del balanceador de carga
+
+El almacenamiento en caché mejora significativamente el rendimiento cuando una carga de trabajo opera en un subconjunto de datos y accede a los objetos varias veces.  Además, el almacenamiento en caché proporciona acceso remoto al almacenamiento de objetos sin una implementación de red completa.  El almacenamiento en caché del equilibrador de carga solo está disponible para los nodos de puerta de enlace.
+
+A medida que crea puntos finales del balanceador de carga:
+
+* Habilite el almacenamiento en caché solo para cargas de trabajo que se puedan almacenar en caché.  Las cargas de trabajo que acceden a datos no almacenados en caché con mayor frecuencia que a datos almacenados en caché tendrán un peor rendimiento que si la caché no los hubiera atendido.  En algunos casos, las cargas de trabajo con altas tasas de sobrescritura y desalojo también pueden exceder la resistencia de escritura de la unidad garantizada.
+* Considere agregar puntos finales o nodos adicionales para almacenar en caché cargas de trabajo individuales que sean buenos candidatos para el almacenamiento en caché.
+* Utilice puntos finales distintos para cargas de trabajo almacenables en caché y no almacenables en caché.  Esta separación garantiza que los mecanismos de almacenamiento en caché se apliquen de forma adecuada y no interfieran con el procesamiento de datos no almacenables en caché.
+* Evalúe una carga de trabajo potencialmente almacenable en caché dirigiéndola al punto final habilitado para caché.  Supervisar y verificar la tasa de aciertos de caché para determinar la idoneidad de la carga de trabajo para el almacenamiento en caché.  Esta evaluación ayuda a optimizar el rendimiento y garantizar el uso eficiente de los recursos de caché.
+* link:../audit/index.html["Revisar los registros de auditoría"]para determinar si una carga de trabajo existente sería un buen candidato para el almacenamiento en caché.  Para un período de tiempo determinado, determine qué porcentaje de GET son para objetos únicos.  Para que sea adecuado para el almacenamiento en caché, este valor debe ser inferior al 50%.
+
+
+
+
+==== Ejemplos de cargas de trabajo que podrían ser buenos candidatos para el almacenamiento en caché
+
+* Lagos de datos
+* Computación de alto rendimiento (HPC)
+* Entrenamiento de IA/ML
+* Redes de distribución de contenido (CDN)
+* Gestión de activos multimedia
+* Producción de vídeo
+
+
+[NOTE]
+====
+* Se pueden almacenar en caché múltiples versiones de objetos.
+* Se admiten operaciones de lectura de rango.
+
+
+====
+
+
+==== Ejemplos de cargas de trabajo que no son buenos candidatos para el almacenamiento en caché
+
+* Piscina de telas
+* Aplicaciones de respaldo
+* Nivelación de almacenamiento
+
+
+
+CAUTION: Si algún contenido que se va a servir mediante la caché requiere cifrado en reposo, https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/optional-enabling-node-encryption.html["habilitar el cifrado de nodo o unidad"^] en el nodo de caché.
+
+
+
+==== Tipos de objetos y solicitudes que no se almacenarán en caché
+
+* El `response-content-encoding` parámetro de consulta
+* El `partNumber` parámetro de consulta
+* Encabezados condicionales
++
+** `If-Match`
+** `If-Modified-Since`
+** `If-None-Match`
+** `If-Unmodified-Since`
+
+
+* Solicitudes que se cifraron en reposo con cualquiera de los siguientes:
++
+** SSE (cifrado del lado del servidor con claves administradas por StorageGRID)
+** SSE-C (cifrado del lado del servidor con claves proporcionadas por el cliente)
+** Cifrado de objetos almacenados
+
+
+
+
+Cualquier solicitud que no esté almacenada en caché se reenvía a un LDR ascendente como si el caché no estuviera habilitado.
+
+.Información relacionada
+* link:../troubleshoot/troubleshooting-load-balancer-caching.html["Solucionar problemas de almacenamiento en caché del balanceador de carga"]
+* Para obtener más información sobre el almacenamiento en caché del equilibrador de carga, comuníquese con el soporte técnico.
+
+
+
+
 === Consideraciones para el puerto
 
 El puerto para un punto final de equilibrio de carga es por defecto 10433 para el primer punto final que cree, pero puede especificar cualquier puerto externo no utilizado entre 1 y 65535. Si utiliza el puerto 80 o 443, el punto final utilizará el servicio Equilibrador de Carga sólo en los nodos de Gateway. Estos puertos están reservados en los nodos de administrador. Si utiliza el mismo puerto para más de un punto final, debe especificar un modo de enlace diferente para cada punto final.
 
-Los puertos utilizados por otros servicios de grid no están permitidos. Consulte la link:../network/network-port-reference.html["Referencia de puerto de red"].
+No se permiten puertos utilizados por otros servicios de la red. Ver link:../network/internal-grid-node-communications.html#storagegrid-internal-ports["Puertos internos StorageGRID"] .
 
 
 

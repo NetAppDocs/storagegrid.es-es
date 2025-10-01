@@ -15,8 +15,8 @@ Debe utilizar los Servicios de Federación de Active Directory (AD FS) para crea
 
 .Antes de empezar
 * Ha configurado el inicio de sesión único para StorageGRID y ha seleccionado *AD FS* como tipo SSO.
-* *Modo Sandbox* está seleccionado en la página Single Sign-On de Grid Manager. Consulte link:../admin/using-sandbox-mode.html["Utilizar el modo de recinto de seguridad"].
-* Conoce el nombre de dominio completo (o la dirección IP) y el identificador de la parte que confía para cada nodo de administración del sistema. Puede encontrar estos valores en la tabla de detalles Admin Nodes en la página StorageGRID Single Sign-On.
+* Tieneslink:../admin/configure-sso.html["entró en modo sandbox"] en el Administrador de cuadrícula.
+* Conoce el nombre de dominio completo (o la dirección IP) y el identificador de la parte confiable para cada nodo de administración en su sistema.  Puede encontrar estos valores en la tabla de detalles de Nodos de administración en la página Configurar SSO de StorageGRID .
 +
 
 NOTE: Debe crear una confianza de parte de confianza para cada nodo de administrador en el sistema StorageGRID. Tener una confianza de parte que confía en cada nodo de administración garantiza que los usuarios puedan iniciar sesión de forma segura desde y hacia cualquier nodo de administración.
@@ -88,7 +88,7 @@ Si faltan los metadatos, confirme que la dirección de metadatos de federación 
 
 
 . Repita estos pasos para configurar una confianza de parte que confía para todos los nodos de administración del sistema StorageGRID.
-. Cuando haya terminado, vuelva a StorageGRID y pruebe todos los fideicomisos de las partes que dependan para confirmar que están configurados correctamente. Consulte link:using-sandbox-mode.html["Utilice el modo Sandbox"] para obtener instrucciones.
+. Cuando haya terminado, regrese a StorageGRID ylink:../admin/configure-sso.html#test-sso["Probar todos los fideicomisos de partes confiantes"] para confirmar que están configurados correctamente.
 
 
 
@@ -139,7 +139,7 @@ Si faltan los metadatos, confirme que la dirección de metadatos de federación 
 
 
 . Repita estos pasos para configurar una confianza de parte que confía para todos los nodos de administración del sistema StorageGRID.
-. Cuando haya terminado, vuelva a StorageGRID y pruebe todos los fideicomisos de las partes que dependan para confirmar que están configurados correctamente. Consulte link:using-sandbox-mode.html["Utilice el modo Sandbox"] para obtener instrucciones.
+. Cuando haya terminado, regrese a StorageGRID ylink:../admin/configure-sso.html#test-sso["Probar todos los fideicomisos de partes confiantes"] para confirmar que están configurados correctamente.
 
 
 
@@ -233,5 +233,5 @@ Las propiedades de la parte de confianza se guardan y cierran.
 
 
 . Repita estos pasos para configurar una confianza de parte que confía para todos los nodos de administración del sistema StorageGRID.
-. Cuando haya terminado, vuelva a StorageGRID y pruebe todos los fideicomisos de las partes que dependan para confirmar que están configurados correctamente. Consulte link:using-sandbox-mode.html["Utilizar el modo de recinto de seguridad"] para obtener instrucciones.
+. Cuando haya terminado, regrese a StorageGRID ylink:../admin/configure-sso.html#test-sso["Probar todos los fideicomisos de partes confiantes"] para confirmar que están configurados correctamente.
 

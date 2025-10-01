@@ -33,12 +33,12 @@ NOTE: Mientras se edita la conexión, las solicitudes de clonación de cuentas o
 
 .Pasos
 . Inicie sesión en Grid Manager desde el nodo de administración principal de cualquiera de las cuadrículas.
-. Seleccione * NODOS * y confirme que todos los demás nodos de administración del sistema estén en línea.
+. Seleccione *Nodos* y confirme que todos los demás nodos de administración en su sistema estén en línea.
 +
 
 NOTE: Cuando edita una conexión de federación de grid, StorageGRID intenta guardar un archivo de configuración de candidato en todos los nodos de administración de la primera cuadrícula. Si este archivo no se puede guardar en todos los nodos de administración, aparecerá un mensaje de advertencia al seleccionar *Guardar y probar*.
 
-. Selecciona *CONFIGURACIÓN* > *Sistema* > *federación de cuadrícula*.
+. Seleccione *Configuración* > *Sistema* > *Federación de red*.
 . Edite los detalles de la conexión utilizando el menú *Acciones* de la página de federación de cuadrícula o la página de detalles de una conexión específica. Consulte link:grid-federation-create-connection.html["Crear conexiones de federación de grid"] para ver qué introducir.
 +
 [role="tabbed-block"]
@@ -91,7 +91,7 @@ Termine de editar la conexión cargando el archivo de verificación en la otra c
 
 .Pasos
 . Inicie sesión en Grid Manager desde el nodo de administración principal.
-. Selecciona *CONFIGURACIÓN* > *Sistema* > *federación de cuadrícula*.
+. Seleccione *Configuración* > *Sistema* > *Federación de red*.
 . Seleccione *Cargar archivo de verificación* para acceder a la página de carga.
 . Seleccione *Cargar archivo de verificación*. A continuación, busque y seleccione el archivo que se descargó de la primera cuadrícula.
 . Introduzca la clave de acceso de aprovisionamiento para la cuadrícula en la que está conectado actualmente.
@@ -111,7 +111,7 @@ Si la conexión se puede establecer mediante los valores editados, aparece un me
 
 .Pasos
 . Inicie sesión en Grid Manager desde el nodo de administración principal.
-. Selecciona *CONFIGURACIÓN* > *Sistema* > *federación de cuadrícula*.
+. Seleccione *Configuración* > *Sistema* > *Federación de red*.
 . Pruebe la conexión utilizando el menú *Acciones* de la página de Grid federation o la página de detalles de una conexión específica.
 +
 [role="tabbed-block"]
@@ -186,7 +186,7 @@ CAUTION: Si los certificados en cualquiera de los extremos de la conexión caduc
 
 .Pasos
 . Inicie sesión en Grid Manager desde el nodo de administración principal de cualquiera de las cuadrículas.
-. Selecciona *CONFIGURACIÓN* > *Sistema* > *federación de cuadrícula*.
+. Seleccione *Configuración* > *Sistema* > *Federación de red*.
 . En cualquiera de los separadores de la página Grid federation, seleccione el nombre de la conexión para mostrar sus detalles.
 . Seleccione la ficha *certificados*.
 . Seleccione *Girar certificados*.
@@ -219,7 +219,7 @@ Antes de eliminar una conexión, tenga en cuenta lo siguiente:
 
 .Pasos
 . A partir de cualquier cuadrícula, inicie sesión en Grid Manager desde el nodo de administración principal.
-. Selecciona *CONFIGURACIÓN* > *Sistema* > *federación de cuadrícula*.
+. Seleccione *Configuración* > *Sistema* > *Federación de red*.
 . Seleccione el nombre de la conexión para mostrar sus detalles.
 . En la pestaña *Arrendatarios permitidos*, determine si la conexión está siendo utilizada por algún inquilino.
 . Si se muestra algún arrendatario, indique a todos los arrendatarios que link:../tenant/grid-federation-manage-cross-grid-replication.html["desactive la replicación entre grid"] para todos sus depósitos en ambas cuadrículas de la conexión.
@@ -236,7 +236,7 @@ TIP: No puede eliminar el permiso *Usar conexión de federación de grid* si alg
 Después de que la replicación entre redes se haya desactivado para todos los depósitos de inquilinos, elimine el permiso *Usar federación de grid* de todos los inquilinos en ambas cuadrículas.
 
 .Pasos
-. Selecciona *CONFIGURACIÓN* > *Sistema* > *federación de cuadrícula*.
+. Seleccione *Configuración* > *Sistema* > *Federación de red*.
 . Seleccione el nombre de la conexión para mostrar sus detalles.
 . Para cada inquilino en la pestaña *Arrendatarios permitidos*, elimine el permiso *Usar conexión de federación de grid* de cada inquilino. Consulte link:grid-federation-manage-tenants.html["Gestionar inquilinos permitidos"].
 . Repita estos pasos para los inquilinos permitidos en la otra cuadrícula.
@@ -275,7 +275,7 @@ La eliminación forzada sólo elimina la conexión de la rejilla local. Para eli
 Aparece un mensaje de éxito. Esta conexión de federación de grid ya no se puede utilizar. Sin embargo, es posible que los bloques de inquilinos aún tengan habilitada la replicación entre grid, y es posible que algunas copias de objeto ya se hayan replicado entre los grids en la conexión.
 
 . Desde la otra cuadrícula de la conexión, inicie sesión en Grid Manager desde el nodo de administración principal.
-. Selecciona *CONFIGURACIÓN* > *Sistema* > *federación de cuadrícula*.
+. Seleccione *Configuración* > *Sistema* > *Federación de red*.
 . Seleccione el nombre de la conexión para mostrar sus detalles.
 . Selecciona *Eliminar* y *Sí*.
 . Seleccione *Forzar eliminación* para eliminar la conexión de esta cuadrícula.

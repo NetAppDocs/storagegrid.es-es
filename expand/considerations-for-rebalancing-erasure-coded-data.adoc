@@ -26,9 +26,9 @@ Procedimiento de reequilibrio de EC:
 * Solo mueve datos de objetos codificados con borrado. No mueve los datos de objetos replicados.
 * Redistribuye los datos dentro de un sitio. No mueve datos de un sitio a otro.
 * Redistribuye los datos entre todos los nodos de almacenamiento de un sitio. No redistribuye datos dentro de los volúmenes de almacenamiento.
-* No tiene en cuenta el uso de los datos replicados en cada nodo de almacenamiento cuando se determine dónde mover los datos con código de borrado.
-* Redistribuye los datos con código de borrado de manera uniforme entre los nodos de almacenamiento sin tener en cuenta las capacidades relativas de cada nodo.
-* No distribuirá datos codificados de borrado a los nodos de almacenamiento que tengan una capacidad superior al 80 %.
+* Intenta distribuir la misma cantidad de bytes a cada nodo.  Los nodos que contienen más datos replicados almacenarán menos datos codificados por borrado una vez que se complete el reequilibrio.
+* Redistribuye los datos codificados por borrado de manera uniforme entre los nodos de almacenamiento sin tener en cuenta las capacidades relativas de cada nodo.  Los datos replicados se incluyen en el cálculo.
+* No distribuirá datos codificados por borrado a nodos de almacenamiento que estén llenos en más del 80 %.
 * Puede disminuir el rendimiento de las operaciones de ILM y de las operaciones de cliente del S3 cuando este se ejecuta&#8212; se necesitan recursos adicionales para redistribuir los fragmentos de código de borrado.
 
 
@@ -39,7 +39,7 @@ Una vez finalizado el procedimiento de reequilibrio de EC:
 * Los valores usados (%) pueden ser diferentes entre los nodos de almacenamiento por dos motivos:
 +
 ** Las copias de objetos replicados seguirán consumiendo espacio en los nodos existentes&#8212;El procedimiento de reequilibrio de EC no mueve datos replicados.
-** Los nodos de mayor capacidad estarán relativamente menos completos que los de menor capacidad, a pesar de que todos los nodos acabarán con aproximadamente la misma cantidad de datos codificados de borrado.
+** Los nodos de mayor capacidad estarán relativamente menos llenos que los de menor capacidad, aunque todos los nodos terminarán con aproximadamente la misma cantidad de datos.
 +
 Por ejemplo, suponga que tres nodos de 200 TB se llenan al 80 % cada uno (200 &#215; 0,8 = 160 TB en cada nodo o 480 TB en el sitio). Si agrega un nodo de 400 TB y ejecuta el procedimiento de reequilibrio, ahora todos los nodos tendrán aproximadamente la misma cantidad de datos de código de borrado (480/4 TB = 120 TB). Sin embargo, el utilizado (%) para el nodo más grande será menor que el usado (%) para los nodos más pequeños.
 
@@ -53,6 +53,10 @@ image::../media/used_space_with_larger_node.png[Espacio usado antes de la expans
 
 
 == Cuándo reequilibrar los datos con código de borrado
+
+El procedimiento de reequilibrio de EC redistribuye los datos codificados por borrado existentes para garantizar que los nodos no se llenen o permanezcan llenos.  El procedimiento ayuda a garantizar que la codificación EC pueda continuar en el sitio.
+
+Ejecute el procedimiento de reequilibrio cuando exista un sesgo preocupante en la distribución de datos en un sitio y el sitio almacene principalmente datos EC (ya que los datos replicados no se pueden mover mediante el reequilibrio).
 
 Considere el siguiente escenario:
 

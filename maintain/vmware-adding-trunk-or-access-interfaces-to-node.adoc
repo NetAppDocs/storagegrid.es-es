@@ -14,7 +14,7 @@ summary: Puede añadir una conexión troncal adicional o interfaces de acceso a 
 Puede añadir un enlace troncal o una interfaz de acceso a un nodo de máquina virtual una vez que se ha instalado el nodo. Las interfaces que agregue se muestran en la página interfaces de VLAN y la página ha groups.
 
 .Antes de empezar
-* Usted tiene acceso a las instrucciones para link:../vmware/index.html["Instalación de StorageGRID en su plataforma VMware"].
+* Tienes acceso a las instrucciones paralink:../swnodes/index.html["Instalación de StorageGRID en su plataforma VMware"] .
 * Tiene máquinas virtuales VMware Node de administrador y Gateway Node.
 * Tiene una subred de red que no se utiliza como Grid, Admin o Client Network.
 * Tiene el `Passwords.txt` archivo.

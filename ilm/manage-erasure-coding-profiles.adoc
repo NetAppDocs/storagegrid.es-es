@@ -25,7 +25,7 @@ Puede ver los detalles de un perfil de código de borrado y cambiar el nombre de
 Puede ver los detalles de un perfil de código de borrado para determinar su estado, el esquema de código de borrado utilizado y otra información.
 
 .Pasos
-. Selecciona *CONFIGURACIÓN* > *Sistema* > *CÓDIGO DE LIMPIEZA*.
+. Seleccione *Configuración* > *Sistema* > *Codificación de borrado*.
 . Seleccione el perfil. Aparece la página de detalles del perfil.
 . De manera opcional, consulte la pestaña reglas de ILM para ver una lista de reglas de ILM que utilizan el perfil y las políticas de ILM que utilizan esas reglas.
 . Opcionalmente, consulte la pestaña Nodos de almacenamiento para obtener más información sobre cada nodo de almacenamiento en el pool de almacenamiento del perfil, como el sitio donde se encuentra y el uso del almacenamiento.
@@ -38,7 +38,7 @@ Puede ver los detalles de un perfil de código de borrado para determinar su est
 Es posible que desee cambiar el nombre de un perfil de codificación de borrado para que sea más obvio lo que hace el perfil.
 
 .Pasos
-. Selecciona *CONFIGURACIÓN* > *Sistema* > *CÓDIGO DE LIMPIEZA*.
+. Seleccione *Configuración* > *Sistema* > *Codificación de borrado*.
 . Seleccione el perfil al que desea cambiar el nombre.
 . Seleccione *Cambiar nombre*.
 . Introduzca un nombre único para el perfil de codificación de borrado.
@@ -69,7 +69,7 @@ StorageGRID le impide desactivar un perfil de código de borrado si se cumple al
 
 
 .Pasos
-. Selecciona *CONFIGURACIÓN* > *Sistema* > *CÓDIGO DE LIMPIEZA*.
+. Seleccione *Configuración* > *Sistema* > *Codificación de borrado*.
 . En la pestaña Activo, revise la columna *Estado* para confirmar que el perfil de codificación de borrado que desea desactivar no se utiliza en ninguna regla de ILM.
 +
 No puede desactivar un perfil de código de borrado si se utiliza en alguna regla de ILM. En el ejemplo, se utiliza el perfil de centro de datos 2+1 1 en al menos una regla de ILM.

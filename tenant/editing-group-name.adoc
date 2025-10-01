@@ -19,7 +19,7 @@ Puede editar el nombre para mostrar de un grupo. No puede editar el nombre únic
 
 
 .Pasos
-. Seleccione *ADMINISTRACIÓN de ACCESO* > *grupos*.
+. Seleccione *Administración de acceso* > *Grupos*.
 . Seleccione la casilla de verificación para el grupo cuyo nombre mostrado desea editar.
 . Seleccione *acciones* > *Editar nombre de grupo*.
 +

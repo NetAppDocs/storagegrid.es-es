@@ -44,7 +44,7 @@ El portátil de servicio tiene lo siguiente:
  a| 
 `Passwords.txt` archivo
  a| 
-Contiene las contraseñas que se necesitan para acceder a los nodos de grid en la línea de comandos. Incluido en el paquete de recuperación.
+Contiene las contraseñas necesarias para acceder a los nodos de la red en la línea de comando.  Incluido en el paquete de recuperación.
 
 
 
@@ -60,13 +60,7 @@ Documentación de StorageGRID
  a| 
 * link:../admin/index.html["Administre StorageGRID"]
 * link:../release-notes/index.html["Notas de la versión"]
-* Instrucciones de instalación para su plataforma
-+
-** link:../rhel/index.html["Instalar StorageGRID en Red Hat Enterprise Linux"]
-** link:../ubuntu/index.html["Instalar StorageGRID en Ubuntu o Debian"]
-** link:../vmware/index.html["Instale StorageGRID en VMware"]
-
-
+* link:../swnodes/index.html["Instrucciones de instalación para su plataforma"]
 
 
 
@@ -106,7 +100,7 @@ Utilice el `.zip` archivo si ejecuta Windows en el portátil de servicio.
 
 
  a| 
-Red Hat Enterprise Linux
+RHEL
 | `StorageGRID-Webscale-_version_-RPM-_uniqueID_.zip` 
 `StorageGRID-Webscale-_version_-RPM-_uniqueID_.tgz` 
 
@@ -134,7 +128,7 @@ Para ampliar una puesta en marcha existente en OpenStack, debe implementar una m
 +
 Las rutas enumeradas en el paso de cada plataforma son relativas al directorio de nivel superior instalado por el archivo de archivado.
 
-. Si va a ampliar un sistema Red Hat Enterprise Linux, seleccione los archivos adecuados.
+. Si está expandiendo un sistema RHEL, seleccione los archivos apropiados.
 
 
 [cols="1a,1a"]
@@ -393,6 +387,9 @@ Esquemas de API para StorageGRID.
 . Si va a ampliar un sistema basado en dispositivos StorageGRID, seleccione los archivos adecuados.
 
 
+
+NOTE: Para la instalación del dispositivo, estos archivos solo son necesarios si necesita evitar el tráfico de red.  El dispositivo puede descargar los archivos necesarios desde el nodo de administración donde se realiza el procedimiento de recuperación.
+
 [cols="1a,1a"]
 |===
 | Ruta y nombre de archivo | Descripción 
@@ -408,9 +405,6 @@ MD5 suma de comprobación para el archivo `/debs/storagegridwebscale-
 images-version-SHA.deb`.
 
 |===
-
-NOTE: Para la instalación del dispositivo, estos archivos sólo son necesarios si necesita evitar el tráfico de red. El dispositivo puede descargar los archivos necesarios del nodo de administración principal.
-
 
 
 == Verifique el hardware y las redes

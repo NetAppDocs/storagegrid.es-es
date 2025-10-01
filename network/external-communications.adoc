@@ -21,13 +21,14 @@ Si las directivas de red de empresa restringen el acceso a cualquiera de los pue
 
 * Se utiliza link:../admin/configuring-load-balancer-endpoints.html["puntos finales del equilibrador de carga"] para permitir el acceso a los puertos definidos por el usuario.
 * Vuelva a asignar puertos al poner en marcha nodos. Sin embargo, no debe reasignar los puntos finales del equilibrador de carga. Consulte la información sobre la reasignación de puertos para el nodo StorageGRID:
-+
-** link:../rhel/creating-node-configuration-files.html#port-remap-keys["Claves de reasignación de puertos para StorageGRID en Red Hat Enterprise Linux"]
-** link:../ubuntu/creating-node-configuration-files.html#port-remap-keys["Claves de reasignación de puertos para StorageGRID en Ubuntu o Debian"]
-** link:../vmware/deploying-storagegrid-node-as-virtual-machine.html#vmware-remap-ports["Reasignar puertos para StorageGRID en VMware"]
-** https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/optional-remapping-network-ports-for-appliance.html["Opcional: Reasignar puertos de red para el dispositivo"^]
 
 
+
+NOTE: La compatibilidad con la reasignación de puertos está obsoleta y se eliminará en una versión futura. Para eliminar los puertos reasignados, consultelink:../maintain/removing-port-remaps.html["Eliminar reasignaciones de puertos en dispositivos StorageGRID"] olink:../maintain/removing-port-remaps-on-bare-metal-hosts.html["Quite las reasignaciones de puertos en hosts sin sistema operativo"] .
+
+* link:../swnodes/creating-node-configuration-files.html["Claves de reasignación de puertos para StorageGRID en Red Hat Enterprise Linux"]
+* link:../swnodes/deploying-storagegrid-node-as-virtual-machine.html#vmware-remap-ports["Reasignar puertos para StorageGRID en VMware"]
+* https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/optional-remapping-network-ports-for-appliance.html["Opcional: Reasignar puertos de red para el dispositivo"^]
 
 
 
@@ -42,21 +43,6 @@ NOTE: Esta lista no incluye puertos que se puedan configurar como link:../admin/
 [cols="1a,1a,1a,1a,1a,4a"]
 |===
 | Puerto | TCP o UDP | Protocolo | De | Para | Detalles 
-
-
- a| 
-22
- a| 
-TCP
- a| 
-SSH
- a| 
-Portátil de servicio
- a| 
-Todos los nodos
- a| 
-Se requiere acceso SSH o consola para procedimientos con pasos de la consola. Opcionalmente, puede utilizar el puerto 2022 en lugar de 22.
-
 
 
  a| 
@@ -176,25 +162,6 @@ Nodos de almacenamiento
 AWS
  a| 
 Solicitudes de pools de almacenamiento en la nube enviadas a destinos de AWS que usan HTTP. Los administradores de grid pueden anular el valor predeterminado del puerto HTTP de 80 al configurar un pool de almacenamiento en el cloud.
-
-
-
- a| 
-111
- a| 
-TCP/UDP
- a| 
-Rpcind
- a| 
-Cliente NFS
- a| 
-Nodos de administración
- a| 
-Utilizado por la exportación de auditoría basada en NFS (portmap).
-
-*Nota:* Este puerto solo es necesario si la exportación de auditoría basada en NFS está habilitada.
-
-*Nota:* El soporte para NFS ha sido obsoleto y se eliminará en una versión futura.
 
 
 
@@ -329,59 +296,6 @@ Solicitudes de pools de almacenamiento en la nube enviadas a destinos de AWS que
 
 
  a| 
-903
- a| 
-TCP
- a| 
-NFS
- a| 
-Cliente NFS
- a| 
-Nodos de administración
- a| 
-Utilizado por la exportación de auditoría basada en NFS (`rpc.mountd`).
-
-*Nota:* Este puerto solo es necesario si la exportación de auditoría basada en NFS está habilitada.
-
-*Nota:* El soporte para NFS ha sido obsoleto y se eliminará en una versión futura.
-
-
-
- a| 
-2022
- a| 
-TCP
- a| 
-SSH
- a| 
-Portátil de servicio
- a| 
-Todos los nodos
- a| 
-Se requiere acceso SSH o consola para procedimientos con pasos de la consola. Opcionalmente, puede utilizar el puerto 22 en lugar de 2022.
-
-
-
- a| 
-2049
- a| 
-TCP
- a| 
-NFS
- a| 
-Cliente NFS
- a| 
-Nodos de administración
- a| 
-Utilizada por la exportación de auditoría basada en NFS (nfs).
-
-*Nota:* Este puerto solo es necesario si la exportación de auditoría basada en NFS está habilitada.
-
-*Nota:* El soporte para NFS ha sido obsoleto y se eliminará en una versión futura.
-
-
-
- a| 
 5353
  a| 
 UDP
@@ -408,21 +322,6 @@ Dispositivo
 KMS
  a| 
 Protocolo de interoperabilidad de gestión de claves (KMIP) tráfico externo de los dispositivos configurados para el cifrado de nodos en el servidor de gestión de claves (KMS), a menos que se especifique un puerto diferente en la página de configuración de KMS del instalador de dispositivos de StorageGRID.
-
-
-
- a| 
-8022
- a| 
-TCP
- a| 
-SSH
- a| 
-Portátil de servicio
- a| 
-Todos los nodos
- a| 
-SSH en el puerto 8022 otorga acceso al sistema operativo base en las plataformas de dispositivos y nodos virtuales para que admitan y solucionar problemas. Este puerto no se usa para los nodos basados en Linux (configuración básica) y no es necesario acceder a ellos entre los nodos de grid ni durante las operaciones normales.
 
 
 
@@ -521,21 +420,6 @@ Tráfico de cliente de S3 directamente a los nodos de almacenamiento (HTTPS).
 
 
  a| 
-18083
- a| 
-TCP
- a| 
-HTTPS
- a| 
-Clientes Swift
- a| 
-Nodos de almacenamiento
- a| 
-Tráfico de clientes de Swift directamente a los nodos de almacenamiento (HTTPS).
-
-
-
- a| 
 18084
  a| 
 TCP
@@ -547,21 +431,6 @@ Clientes S3
 Nodos de almacenamiento
  a| 
 Tráfico de cliente de S3 directamente a los nodos de almacenamiento (HTTP).
-
-
-
- a| 
-18085
- a| 
-TCP
- a| 
-HTTP
- a| 
-Clientes Swift
- a| 
-Nodos de almacenamiento
- a| 
-Tráfico de clientes de Swift directamente a los nodos de almacenamiento (HTTP).
 
 
 

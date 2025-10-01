@@ -152,27 +152,6 @@ Revise las alertas activadas en el pasado para obtener información adicional.
 
 
  a| 
-Supervisar eventos
- a| 
-Entre los eventos se incluye cualquier evento de error del sistema o fallo de un nodo, incluidos errores como errores de red. Supervisar eventos para obtener más información acerca de problemas o para ayudar en la solución de problemas.
- a| 
-* link:../monitor/monitoring-events.html["Supervisar eventos"]
-
-
-
-
- a| 
-Identificar tendencias mediante gráficos e informes de texto
- a| 
-Las tendencias pueden proporcionar pistas valiosas acerca de cuándo aparecieron los problemas por primera vez, y pueden ayudarle a entender la rapidez con la que las cosas están cambiando.
- a| 
-* link:../monitor/using-charts-and-reports.html["Utilice gráficos y gráficos"]
-* link:../monitor/types-of-text-reports.html["Usar informes de texto"]
-
-
-
-
- a| 
 Establecer líneas base
  a| 
 Recopilar información acerca de los niveles normales de varios valores operativos. Estos valores de referencia y las desviaciones de estas líneas de base pueden proporcionar pistas valiosas.
@@ -335,22 +314,13 @@ Puede recopilar esta información para todo el sistema o para un centro de datos
 
 
  a| 
-Tasa de operaciones de S3/Swift
+Tasa de operaciones S3
  a| 
 Operaciones por segundo
  a| 
-En el panel de Grid Manager, seleccione *Rendimiento* > *S3 operaciones* o *Rendimiento* > *Operaciones Swift*.
+En el panel de control de Grid Manager, seleccione *Rendimiento* > *Operaciones S3 para nodos de almacenamiento*.
 
-Para ver las tasas y recuentos de procesamiento y recuperación de un sitio o nodo específico, seleccione *NODES* > *_site o Storage Node_* > *objetos*. Coloque el cursor sobre el gráfico de ingesta y recuperación de S3.
-
-
-
- a| 
-Han fallado las operaciones de S3/Swift
- a| 
-Operaciones
- a| 
-Seleccione *SUPPORT* > *Tools* > *Topología de cuadrícula*. En la pestaña Overview de la sección API Operations, vea el valor de las operaciones de S3 - Failed o Swift - Failed.
+Para ver las tasas de ingesta y recuperación y los recuentos de un sitio o nodo específico, seleccione *Nodos* > *_sitio o Nodo de almacenamiento_* > *Objetos*.  Coloque el cursor sobre el gráfico de ingesta y recuperación de S3.
 
 
 
@@ -370,7 +340,7 @@ Tasa de análisis de ILM
  a| 
 Objetos por segundo
  a| 
-Seleccione *NODES* > *_grid_* > *ILM*.
+Seleccione *Nodos* > *_grid_* > *ILM*.
 
 En el gráfico de la cola de ILM, busque un período donde la línea sea bastante estable. Coloque el cursor sobre el gráfico para estimar un valor de línea base para *Tasa de exploración* para su sistema.
 
@@ -381,7 +351,7 @@ Objetos en cola de operaciones del cliente
  a| 
 Objetos por segundo
  a| 
-Seleccione *NODES* > *_grid_* > *ILM*.
+Seleccione *Nodos* > *_grid_* > *ILM*.
 
 En el gráfico de la cola de ILM, busque un período donde la línea sea bastante estable. Coloque el cursor sobre el gráfico para estimar un valor de línea base para *Objetos en cola (de operaciones del cliente)* para su sistema.
 
@@ -392,7 +362,7 @@ Latencia media de consultas
  a| 
 Milisegundos
  a| 
-Seleccione *NODES* > *_Storage Node_* > *Objects*. En la tabla consultas, vea el valor de latencia media.
+Seleccione *Nodos* > *_Nodo de almacenamiento_* > *Objetos*.  En la tabla Consultas, vea el valor de Latencia promedio.
 
 |===
 
@@ -445,7 +415,7 @@ Evaluación del impacto
  a| 
 ID del sistema StorageGRID
  a| 
-Seleccione *MANTENIMIENTO* > *sistema* > *Licencia*. El ID del sistema de StorageGRID se muestra como parte de la licencia actual.
+Seleccione *Mantenimiento* > *Sistema* > *Licencia*.  El ID del sistema StorageGRID se muestra como parte de la licencia actual.
 
 
 
@@ -473,13 +443,11 @@ Resuma cómo se configura el sistema StorageGRID. Por ejemplo, enumere lo siguie
  a| 
 Registrar archivos y datos del sistema
  a| 
-Recopile archivos de registro y datos del sistema para su sistema. Seleccione *SUPPORT* > *Tools* > *Logs*.
+Recopile archivos de registro y datos del sistema para su sistema.  Seleccione *Soporte* > *Herramientas* > *Recopilación de registros*.
 
 Es posible recopilar registros de toda la cuadrícula o de los nodos seleccionados.
 
-Si va a recopilar registros solo para los nodos seleccionados, asegúrese de incluir al menos un nodo de almacenamiento que tenga el servicio ADC. (Los tres primeros nodos de almacenamiento de un sitio incluyen el servicio ADC).
-
-link:../monitor/collecting-log-files-and-system-data.html["Recopilar archivos de registro y datos del sistema"]
+Si está recopilando registros solo para nodos seleccionados, asegúrese de incluir al menos un nodo de almacenamiento que tenga el servicio ADC.  Los primeros tres nodos de almacenamiento instalados en un sitio incluyen el servicio ADC.
 
 
 

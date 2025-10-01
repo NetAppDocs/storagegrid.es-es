@@ -25,7 +25,7 @@ NOTE: La configuración de proxy de almacenamiento configurada no se aplica a lo
 Puede configurar los ajustes para un solo proxy de almacenamiento.
 
 .Pasos
-. Seleccione *CONFIGURACIÓN* > *Seguridad* > *Ajustes de proxy*.
+. Seleccione *Configuración* > *Seguridad* > *Configuración de proxy*.
 . En la pestaña *Almacenamiento*, selecciona la casilla de verificación *Habilitar proxy de almacenamiento*.
 . Seleccione el protocolo para el proxy de almacenamiento.
 . Introduzca el nombre de host o la dirección IP del servidor proxy.

@@ -117,11 +117,10 @@ No se requiere ninguna acción.
 
 *Alertas resueltas*: Puedes buscar y ver un historial de alertas que se han resuelto.
 
-Opcionalmente, ha visto el vídeo: https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2eea81c5-8323-417f-b0a0-b1ff008506c1["Vídeo: Descripción general de alertas"^]
+Opcionalmente has visto el vídeo:
 
-[link=https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2eea81c5-8323-417f-b0a0-b1ff008506c1]
-image::../media/video-screenshot-alert-overview-118.png[Vídeo: Descripción general de alertas]
-
+.Descripción general de alertas
+video::2eea81c5-8323-417f-b0a0-b1ff008506c1[panopto]
 En la siguiente tabla se describe la información que se muestra en Grid Manager para las alertas actuales y resueltas.
 
 [cols="1a,3a"]

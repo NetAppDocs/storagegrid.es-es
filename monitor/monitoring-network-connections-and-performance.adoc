@@ -24,7 +24,7 @@ Utilice Grid Manager para supervisar la conectividad y el rendimiento de la red,
 Además, tenga  en cuenta link:../admin/managing-traffic-classification-policies.html["creación de políticas de clasificación del tráfico de red"] que puede supervisar el tráfico relacionado con inquilinos, depósitos, subredes o extremos de equilibrio de carga específicos. Puede definir políticas de limitación de tráfico según sea necesario.
 
 .Pasos
-. Selecciona *NODOS*.
+. Seleccionar *Nodos*.
 +
 Aparece la página Nodes. Cada nodo de la cuadrícula se muestra en formato de tabla.
 
@@ -54,7 +54,7 @@ image::../media/nodes_page_network_communication.png[Comunicación de red de pá
 
 . Utilice las métricas asociadas a las directivas de clasificación del tráfico para supervisar el tráfico de red.
 +
-.. Seleccione *CONFIGURACIÓN* > *Red* > *Clasificación de tráfico*.
+.. Seleccione *Configuración* > *Red* > *Clasificación de tráfico*.
 +
 Aparece la página Directivas de clasificación del tráfico y las directivas existentes se muestran en la tabla.
 
@@ -82,7 +82,7 @@ Si una directiva de clasificación de tráfico está diseñada para limitar el t
 Supervisar nodos de cuadrícula individuales para comprobar sus niveles de uso de recursos. Si los nodos están sobrecargados de forma continua, es posible que se necesiten más nodos para realizar operaciones eficientes.
 
 .Pasos
-. En la página *NODES*, seleccione el nodo.
+. Desde la página *Nodos*, seleccione el nodo.
 . Seleccione la ficha *hardware* para visualizar gráficos de utilización de CPU y uso de memoria.
 +
 image::../media/nodes_page_hardware_tab_graphs.png[Página Nodes pestaña hardware]

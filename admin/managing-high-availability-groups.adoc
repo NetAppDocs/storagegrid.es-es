@@ -50,7 +50,7 @@ Del mismo modo, durante el funcionamiento normal, las interfaces de menor priori
 
 == Ver el estado actual del grupo de alta disponibilidad de un nodo
 
-Para ver si un nodo está asignado a un grupo ha y determinar su estado actual, seleccione *NODES* > *_node_*.
+Para ver si un nodo está asignado a un grupo de alta disponibilidad y determinar su estado actual, seleccione *Nodos* > *_nodo_*.
 
 Si la ficha *Descripción general* incluye una entrada para *grupos ha*, el nodo se asigna a los grupos ha enumerados. El valor después de que el nombre del grupo sea el estado actual del nodo del grupo de alta disponibilidad:
 

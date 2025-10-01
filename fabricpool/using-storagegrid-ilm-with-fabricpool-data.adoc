@@ -25,7 +25,7 @@ CAUTION: Para evitar la pérdida de datos, no use una regla de ILM que caduque o
 * Ha revisado el link:best-practices-ilm.html["Prácticas recomendadas para usar ILM con datos de FabricPool"].
 * Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
 * Usted tiene el link:../admin/admin-group-permissions.html["Permiso de acceso de ILM o raíz"].
-* Si actualizó a StorageGRID 11,9 desde una versión anterior de StorageGRID, configuró el pool de almacenamiento que usará. En general, debe crear un pool de almacenamiento para cada sitio de StorageGRID que utilizará para almacenar datos.
+* Si actualizó a StorageGRID 12.0 desde una versión de StorageGRID anterior a 11.7, habrá configurado el grupo de almacenamiento que utilizará.  En general, debe crear un grupo de almacenamiento para cada sitio StorageGRID que utilizará para almacenar datos.  (A partir de la versión 11.7, los grupos de almacenamiento se crean automáticamente para cada sitio).
 +
 
 NOTE: Este requisito no se aplica si instaló inicialmente StorageGRID 11,7 o 11,8. Cuando instala cualquiera de estas versiones inicialmente, se crean automáticamente pools de almacenamiento para cada sitio.

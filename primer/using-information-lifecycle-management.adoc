@@ -11,13 +11,11 @@ summary: 'Utilice la gestión de la vida útil de la información \(ILM\) para c
 
 
 [role="lead"]
-La gestión de la vida útil de la información (ILM) se utiliza para controlar la ubicación, la duración y el comportamiento de ingesta de todos los objetos del sistema StorageGRID. Las reglas de ILM determinan la manera en que StorageGRID almacena los objetos a lo largo del tiempo. Puede configurar una o varias reglas de ILM y luego añadirlas a una política de ILM.
-
-Una cuadrícula sólo tiene una política activa a la vez. Una política puede contener varias reglas.
+Utilice la gestión del ciclo de vida de la información (ILM) para controlar la ubicación, la duración y el comportamiento de ingesta de todos los objetos en su sistema StorageGRID .  Las reglas ILM determinan cómo StorageGRID almacena objetos a lo largo del tiempo.  Configura una o más reglas ILM y luego las agrega a una política ILM.  Una red puede tener más de una política activa a la vez.
 
 Las reglas de ILM definen:
 
-* Qué objetos se deben almacenar. Una regla se puede aplicar a todos los objetos o puede especificar filtros para identificar a qué objetos se aplica una regla. Por ejemplo, una regla puede aplicarse solo a los objetos asociados con determinadas cuentas de inquilino, bloques S3 específicos o contenedores Swift, o valores de metadatos específicos.
+* ¿Qué objetos deben almacenarse?  Una regla puede aplicarse a todos los objetos o puede especificar filtros para identificar a qué objetos se aplica una regla.  Por ejemplo, una regla puede aplicarse solo a objetos asociados con ciertas cuentas de inquilino, depósitos S3 específicos o valores de metadatos específicos.
 * El tipo de almacenamiento y la ubicación. Los objetos pueden almacenarse en los nodos de almacenamiento o en los pools de Cloud Storage.
 * El tipo de copias de objeto realizadas. Las copias pueden replicarse o codificarse con código de borrado.
 * Para las copias replicadas, el número de copias realizadas.

@@ -68,11 +68,11 @@ Puede actualizar los costes de enlace entre los sitios de centros de datos para 
 
 .Antes de empezar
 * Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
-* Usted tiene el link:admin-group-permissions.html["Permiso de configuración de la página de topología de cuadrícula"].
+* Tú tienes ellink:admin-group-permissions.html["Otros permisos de configuración de la red"] .
 
 
 .Pasos
-. Selecciona *SOPORTE* > *OTRO* > *Costo de enlace*.
+. Seleccione *Soporte* > *Otro* > *Costo del enlace*.
 +
 image::../media/configuring_link_costs.png[Coste del enlace]
 

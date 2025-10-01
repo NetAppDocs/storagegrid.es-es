@@ -17,7 +17,7 @@ Si un nodo de grid falla, debe recuperarlo Lo antes posible.. Antes de empezar, 
 CAUTION: StorageGRID es un sistema distribuido compuesto por varios nodos que funcionan entre sí. No utilice instantáneas de disco para restaurar nodos de grid. En su lugar, consulte los procedimientos de recuperación y mantenimiento de cada tipo de nodo.
 
 
-NOTE: Si se produce un error en todo un sitio de StorageGRID, póngase en contacto con el soporte técnico. El soporte técnico trabajará con usted para desarrollar y ejecutar un plan de recuperación de sitios que maximice la cantidad de datos que se recuperan y cumpla con sus objetivos empresariales. Consulte link:how-site-recovery-is-performed-by-technical-support.html["Cómo el soporte técnico recupera un sitio"].
+NOTE: Si un sitio completo de StorageGRID ha fallado, comuníquese con el soporte técnico.  El soporte técnico trabajará con usted para desarrollar y ejecutar un plan de recuperación del sitio que maximice la cantidad de datos recuperados y cumpla con sus objetivos comerciales. Consulte link:how-site-recovery-is-performed-by-technical-support.html["Cómo el soporte técnico recupera un sitio"] .
 
 Entre los motivos para recuperar un Lo antes posible. de nodo de Grid con errores se incluyen los siguientes:
 
@@ -38,15 +38,15 @@ Al recuperar nodos de grid, se da por sentado las siguientes condiciones:
 
 * Se reemplazó y configuró el hardware físico o virtual que falló.
 * La versión del instalador de dispositivos StorageGRID en el dispositivo de sustitución coincide con la versión de software de su sistema StorageGRID, como se describe en https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/verifying-and-upgrading-storagegrid-appliance-installer-version.html["Comprobar y actualizar la versión de StorageGRID Appliance Installer"^].
-* Si recupera un nodo de grid que no es el nodo de administrador principal, hay conectividad entre el nodo de grid que se está recuperando y el nodo de administrador principal.
-* Si va a recuperar un nodo de almacenamiento de dispositivo, debe especificar el mismo tipo de almacenamiento que el dispositivo original (combinado, solo metadatos o solo datos) durante la instalación del dispositivo. Si especifica un tipo de almacenamiento diferente, la recuperación fallará y será necesario volver a instalar el dispositivo con el tipo de almacenamiento correcto especificado.
+* Si está recuperando un nodo de red que no sea el nodo de administración principal, existe conectividad entre el nodo de red que se está recuperando y el nodo de administración que administra el procedimiento de recuperación.
+* Si está recuperando un nodo de almacenamiento del dispositivo, debe especificar el mismo tipo de almacenamiento que el dispositivo original (combinado, solo metadatos o solo datos) durante la instalación del dispositivo.  Si especifica un tipo de almacenamiento diferente, la recuperación fallará y será necesario reinstalar el dispositivo con el tipo de almacenamiento correcto especificado.
 
 
 
 
 == El orden de recuperación de nodos si se produce un error en un servidor que aloja más de un nodo de grid
 
-Si falla un servidor que aloja más de un nodo de grid, puede recuperar los nodos en cualquier orden. Sin embargo, si el servidor con el fallo aloja el nodo de administración principal, primero debe recuperar dicho nodo. Si se recupera el nodo de administrador principal, primero se impide que las recuperaciones de otros nodos se detenguen a medida que esperan para ponerse en contacto con el nodo de administración principal.
+Si falla un servidor que aloja más de un nodo de red, puede recuperar los nodos en cualquier orden.  Sin embargo, si el servidor fallido aloja el nodo de administración principal, primero deberá recuperar ese nodo.
 
 
 

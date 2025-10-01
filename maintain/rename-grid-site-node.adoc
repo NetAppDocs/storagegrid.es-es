@@ -14,11 +14,7 @@ summary: Puede utilizar este procedimiento para agregar o actualizar los nombres
 Puede utilizar este procedimiento para agregar o actualizar los nombres mostrados utilizados para la cuadrícula, las ubicaciones y los nodos. Puede cambiar el nombre de un único elemento, varios elementos o incluso todos los elementos al mismo tiempo. La definición o actualización de un nombre mostrado no afecta de ninguna manera a las operaciones de StorageGRID.
 
 .Antes de empezar
-* Desde el *nodo de administración principal*, ha iniciado sesión en Grid Manager mediante un link:../admin/web-browser-requirements.html["navegador web compatible"].
-+
-
-NOTE: Puede agregar o actualizar nombres mostrados de un nodo de administración no principal, pero debe iniciar sesión en el nodo de administración principal para descargar un paquete de recuperación.
-
+* Desde cualquier nodo de administración, debe iniciar sesión en el administrador de cuadrícula mediante unlink:../admin/web-browser-requirements.html["navegador web compatible"] .
 * Usted tiene el link:../admin/admin-group-permissions.html["Permiso de mantenimiento o acceso raíz"].
 * Tiene la clave de acceso de aprovisionamiento.
 * Comprende los requisitos y las prácticas recomendadas para los nombres mostrados. Consulte link:../maintain/rename-grid-site-node-overview.html["Cambie el nombre de cuadrícula, sitios y nodos"].
@@ -39,7 +35,7 @@ Puede utilizar un nombre mostrado utilizado anteriormente por un nodo diferente,
 Para comenzar, seleccione los elementos cuyo nombre desea cambiar.
 
 .Pasos
-. Selecciona *MANTENIMIENTO* > *Tareas* > *Cambiar nombre de cuadrícula, sitios y nodos*.
+. Seleccione *Mantenimiento* > *Tareas* > *Cambiar el nombre de la cuadrícula, los sitios y los nodos*.
 . Para el paso *Seleccionar nombres*, selecciona los elementos a los que quieres cambiar el nombre.
 +
 [cols="1a,2a"]
@@ -165,9 +161,9 @@ Se muestra un mensaje de éxito. Los nuevos nombres mostrados se utilizan ahora 
 ====
 
 
-=== [[download-recovery-package]]Descargue el paquete de recuperación
+=== [[download-recovery-package]]Descargar el paquete de recuperación
 
-Cuando haya terminado de cambiar el nombre de los elementos, descargue y guarde un nuevo paquete de recuperación. Los nuevos nombres de visualización de los elementos a los que ha cambiado el nombre se incluyen en el `Passwords.txt` archivo.
+Cuando haya terminado de cambiar el nombre de los elementos, descargue y guarde un nuevo paquete de recuperación.  Los nuevos nombres para mostrar de los elementos que renombró se incluyen en el `Passwords.txt` archivo.
 
 .Pasos
 . Introduzca la clave de acceso de aprovisionamiento.
@@ -179,7 +175,7 @@ La descarga comienza inmediatamente.
 . Copie `sgws-recovery-package-_id-revision_.zip` el archivo en dos ubicaciones seguras, separadas y protegidas.
 +
 
-CAUTION: El archivo del paquete de recuperación debe estar protegido porque contiene claves de cifrado y contraseñas que se pueden usar para obtener datos del sistema StorageGRID.
+CAUTION: El archivo del paquete de recuperación debe estar protegido porque contiene claves de cifrado y contraseñas que se pueden utilizar para obtener datos del sistema StorageGRID .
 
 . Selecciona *Finalizar* para volver al primer paso.
 
@@ -191,7 +187,7 @@ CAUTION: El archivo del paquete de recuperación debe estar protegido porque con
 Puede revertir una cuadrícula, un sitio o un nodo cuyo nombre ha cambiado de nombre al sistema original. Al revertir un elemento a su nombre de sistema, las páginas del Administrador de grid y otras ubicaciones de StorageGRID ya no muestran un *Nombre mostrado* para ese elemento. Sólo se muestra el nombre del sistema del elemento.
 
 .Pasos
-. Selecciona *MANTENIMIENTO* > *Tareas* > *Cambiar nombre de cuadrícula, sitios y nodos*.
+. Seleccione *Mantenimiento* > *Tareas* > *Cambiar el nombre de la cuadrícula, los sitios y los nodos*.
 . Para el paso *Seleccionar nombres*, selecciona cualquier elemento que quieras volver a los nombres del sistema.
 . Seleccione *continuar*.
 . Para el paso *Proponer nuevos nombres*, revierta los nombres mostrados de nuevo a los nombres del sistema individualmente o en bloque.
@@ -229,7 +225,7 @@ Se muestra un mensaje de éxito. Los nombres mostrados para estos elementos ya n
 
 --
 ====
-. <<download-recovery-package,Descargue y guarde un nuevo paquete de recuperación>>.
+. <<download-recovery-package,Descargue y guarde un nuevo paquete de recuperación>> .
 +
 Los nombres mostrados de los elementos que ha revertido ya no se incluyen en el `Passwords.txt` archivo.
 

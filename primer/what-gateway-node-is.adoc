@@ -31,6 +31,13 @@ La siguiente tabla muestra los servicios principales para los nodos de puerta de
 
 
  a| 
+Servicio de caché
+ a| 
+Administra un caché local del contenido de los objetos.
+
+
+
+ a| 
 Alta disponibilidad
  a| 
 Administra direcciones IP virtuales de alta disponibilidad para grupos de nodos de administración y nodos de puerta de enlace.

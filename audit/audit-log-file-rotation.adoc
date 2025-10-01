@@ -2,7 +2,7 @@
 permalink: audit/audit-log-file-rotation.html 
 sidebar: sidebar 
 keywords: storagegrid, audit, log file, audit.log, audit.log file, rotation, save, autosave, auto save, auto-save 
-summary: Los archivos de registros de auditoría se guardan en el directorio /var/local/log de un nodo de administración. Los archivos de registro de auditoría activos se denominan audit.log. 
+summary: Los archivos de registros de auditoría se guardan en el directorio /var/local/audit/export/ de un nodo de administración.  Los archivos de registro de auditoría activos se denominan audit.log. 
 ---
 = Rotación del archivo de registro de auditoría
 :allow-uri-read: 
@@ -11,14 +11,14 @@ summary: Los archivos de registros de auditoría se guardan en el directorio /va
 
 
 [role="lead"]
-Los archivos de registros de auditoría se guardan en el directorio de un nodo de administración `/var/local/log`. Los archivos de registro de auditoría activos se denominan `audit.log`.
+Si StorageGRID está configurado para *Nodos de administración/nodos locales* o *Nodo de administración y servidor syslog externo*, los archivos de registros de auditoría se guardan en el nodo de administración. `/var/local/audit/export/` directorio.  Los archivos de registro de auditoría activos se denominan `audit.log` .
 
 
-NOTE: De manera opcional, se puede cambiar el destino de los registros de auditoría y enviar información de auditoría a un servidor de syslog externo. Se siguen generando y almacenando registros locales de registros de auditoría cuando se configura un servidor de syslog externo. Consulte link:../monitor/configure-audit-messages.html["Configurar los mensajes de auditoría y los destinos de registro"].
+NOTE: Opcionalmente, puede cambiar el destino de los registros de auditoría y enviar información de auditoría a un servidor syslog externo.  Los registros locales de registros de auditoría continúan generándose y almacenándose cuando se configura un servidor syslog externo. Consulte link:../monitor/configure-audit-messages.html["Configure los mensajes de auditoría y el servidor de syslog externo"] .
 
 Una vez al día, el archivo activo `audit.log` se guarda y se inicia un nuevo `audit.log` archivo. El nombre del archivo guardado indica cuándo se guardó, en el formato `_yyyy-mm-dd.txt_`. Si se crea más de un registro de auditoría en un solo día, los nombres de los archivos usan la fecha en que se guardó el archivo, anexado por un número, en el formato `_yyyy-mm-dd.txt.n_`. Por ejemplo, `2018-04-15.txt` y `2018-04-15.txt.1` son los primeros y segundos archivos de registro creados y guardados el 15 de abril de 2018.
 
-Después de un día, el archivo guardado se comprime y cambia de nombre, con el formato `_yyyy-mm-dd.txt.gz_`, que conserva la fecha original. Con el tiempo, esto genera el consumo de almacenamiento asignado a los registros de auditoría en el nodo de administración. Un script supervisa el consumo de espacio del registro de auditoría y elimina los archivos de registro según sea necesario para liberar espacio en `/var/local/log` el directorio. Los registros de auditoría se eliminan según la fecha en la que se crearon, y la más antigua se eliminó primero. Puede supervisar las acciones del script en el siguiente archivo `/var/local/log/manage-audit.log`: .
+Después de un día, el archivo guardado se comprime y se renombra, en el formato `_yyyy-mm-dd.txt.gz_` , que conserva la fecha original.  Con el tiempo, el almacenamiento del nodo de administración asignado para los registros de auditoría se consume.  Un script monitorea el consumo de espacio del registro de auditoría y elimina archivos de registro según sea necesario para liberar espacio en el `/var/local/audit/export/` directorio.  Los registros de auditoría se eliminan según la fecha en que se crearon.  Los registros más antiguos se eliminan primero.  Puedes monitorizar las acciones del script en el siguiente archivo: `/var/local/log/manage-audit.log` .
 
 Este ejemplo muestra el archivo activo `audit.log`, el archivo del día anterior (`2018-04-15.txt`) y el archivo comprimido del día anterior (`2018-04-14.txt.gz`).
 

@@ -38,7 +38,7 @@ Cuando StorageGRID reinicia un nodo de grid, emite `reboot` el comando en el nod
 TIP: Si necesita reiniciar más de un nodo, puede usar el link:../maintain/rolling-reboot-procedure.html["procedimiento de reinicio progresivo"].
 
 .Pasos
-. Selecciona *NODOS*.
+. Seleccionar *Nodos*.
 . Seleccione el nodo de cuadrícula que desea reiniciar.
 . Seleccione la ficha *tareas*.
 . Seleccione *Reiniciar*.

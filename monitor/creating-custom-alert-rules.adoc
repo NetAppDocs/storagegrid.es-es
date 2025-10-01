@@ -18,11 +18,10 @@ Puede crear reglas de alerta personalizadas para definir sus propias condiciones
 * Usted tiene el link:../admin/admin-group-permissions.html["Gestionar alertas o permisos de acceso raíz"].
 * Usted está familiarizado con el link:commonly-used-prometheus-metrics.html["Métricas de Prometheus que se usan habitualmente"].
 * Usted entiende el https://prometheus.io/docs/prometheus/latest/querying/basics/["Sintaxis de las consultas Prometheus"^].
-* Opcionalmente, has visto el vídeo: https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=54af90c4-9a38-4136-9621-b1ff008604a3["Vídeo: Alertas personalizadas"^].
+* Opcionalmente has visto el vídeo:
 +
-[link=https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=54af90c4-9a38-4136-9621-b1ff008604a3]
-image::../media/video-screenshot-alert-create-custom-118.png[Vídeo: Alertas personalizadas]
-
+.Alertas personalizadas
+video::54af90c4-9a38-4136-9621-b1ff008604a3[panopto]
 
 
 .Acerca de esta tarea
@@ -40,7 +39,7 @@ Por ejemplo, para probar la expresión `node_memory_MemTotal_bytes < 24000000000
 
 
 .Pasos
-. Selecciona *ALERTS* > *Reglas*.
+. Seleccione *Alertas* > *Reglas*.
 +
 Aparecerá la página Reglas de alerta.
 

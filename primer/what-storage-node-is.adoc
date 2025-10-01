@@ -33,11 +33,16 @@ Puede seleccionar el tipo de nodo de almacenamiento en estas situaciones:
 
 
 
-NOTE: No se puede cambiar el tipo una vez completada la instalación del nodo de almacenamiento.
 
-Nodo de almacenamiento de datos y metadatos (combinado):: De forma predeterminada, todos los nodos de almacenamiento nuevos almacenarán tanto datos como metadatos de objetos. Este tipo de nodo de almacenamiento se denomina nodo de almacenamiento _Combinado_.
-Nodo de almacenamiento solo de metadatos:: El uso exclusivo de un nodo de almacenamiento para metadatos puede tener sentido si el grid almacena una gran cantidad de objetos pequeños. La instalación de capacidad de metadatos dedicada proporciona un mejor equilibrio entre el espacio necesario para una gran cantidad de objetos pequeños y el espacio necesario para los metadatos de esos objetos. Además, los nodos de almacenamiento solo de metadatos alojados en dispositivos de alto rendimiento pueden aumentar el rendimiento.
+=== Nodo de almacenamiento de datos y metadatos (combinado)
 
+De forma predeterminada, todos los nodos de almacenamiento nuevos almacenarán tanto datos como metadatos de objetos. Este tipo de nodo de almacenamiento se denomina nodo de almacenamiento _Combinado_.
+
+
+
+=== Nodo de almacenamiento solo de metadatos
+
+El uso exclusivo de un nodo de almacenamiento para metadatos puede tener sentido si el grid almacena una gran cantidad de objetos pequeños. La instalación de capacidad de metadatos dedicada proporciona un mejor equilibrio entre el espacio necesario para una gran cantidad de objetos pequeños y el espacio necesario para los metadatos de esos objetos. Además, los nodos de almacenamiento solo de metadatos alojados en dispositivos de alto rendimiento pueden aumentar el rendimiento.
 
 Los nodos de almacenamiento solo de metadatos tienen requisitos de hardware específicos:
 
@@ -51,29 +56,34 @@ Los nodos de almacenamiento solo de metadatos tienen requisitos de hardware espe
 *** SSD de 8 TB o almacenamiento equivalente para la base de datos Cassandra (rangedb/0)
 
 
-** Si el sitio StorageGRID existente utiliza nodos de almacenamiento virtual con 24 GB de RAM, 8 CPU de núcleo y 3 TB o 4TB TB de almacenamiento de metadatos, los nodos de solo metadatos basados en software deben usar recursos similares (24 GB de RAM, CPU de 8 núcleos y 4TB GB de almacenamiento de metadatos (rangedb/0).
+** Si el sitio StorageGRID existente utiliza nodos de almacenamiento virtuales con 24 GB de RAM, CPU de 8 núcleos y 3 TB o 4 TB de almacenamiento de metadatos, los nodos solo de metadatos basados ​​en software deben usar recursos similares (24 GB de RAM, CPU de 8 núcleos y 4 TB de almacenamiento de metadatos (rangedb/0)).
 
 
-* Cuando se añade un sitio StorageGRID nuevo, la capacidad de metadatos total del sitio nuevo debe coincidir, como mínimo, con los sitios de StorageGRID existentes y los nuevos recursos del sitio deben coincidir con los nodos de almacenamiento en los sitios de StorageGRID existentes.
-
-
-Al instalar nodos de solo metadatos, el grid también debe contener un número mínimo de nodos para el almacenamiento de datos:
-
-* Para un grid de sitio único, configure al menos dos nodos de almacenamiento combinados o solo de datos.
-* Para una cuadrícula de varios sitios, configure al menos un nodo de almacenamiento combinado o solo de datos _por sitio_.
+* Al agregar un nuevo sitio de StorageGRID , la capacidad total de metadatos del nuevo sitio debe, como mínimo, coincidir con la de los sitios existentes.  Los recursos de un nuevo sitio deben coincidir con los nodos de almacenamiento de los sitios existentes.
 
 
 
 NOTE: Aunque los nodos de almacenamiento solo de metadatos contienen <<ldr-service,Servicio LDR>>y pueden procesar solicitudes de clientes de S3, es posible que el rendimiento de la StorageGRID no aumente.
 
-Nodo de almacenamiento de solo datos:: El uso exclusivo de un nodo de almacenamiento para los datos puede ser lógico si los nodos de almacenamiento tienen diferentes características de rendimiento. Por ejemplo, para aumentar potencialmente el rendimiento, podría tener nodos de almacenamiento en disco giratorio de alta capacidad y solo de datos acompañados por nodos de almacenamiento de alto rendimiento solo de metadatos.
 
 
-Al instalar nodos de solo datos, la cuadrícula debe contener lo siguiente:
+=== Nodo de almacenamiento de solo datos
 
-* Un mínimo de dos nodos de almacenamiento combinados o solo de datos _por grid_
-* Al menos un nodo de almacenamiento combinado o de solo datos _por sitio_
-* Un mínimo de tres nodos de almacenamiento combinados o solo de metadatos _por sitio_
+El uso exclusivo de un nodo de almacenamiento para los datos puede ser lógico si los nodos de almacenamiento tienen diferentes características de rendimiento. Por ejemplo, para aumentar potencialmente el rendimiento, podría tener nodos de almacenamiento en disco giratorio de alta capacidad y solo de datos acompañados por nodos de almacenamiento de alto rendimiento solo de metadatos.
+
+Además, puede obtener más capacidad de metadatos eliminando nodos con poca RAM de Cassandra, lo que aumenta el límite de capacidad de metadatos por nodo. Consulte link:../admin/managing-object-metadata-storage.html["Gestione el almacenamiento de metadatos de objetos"] .
+
+Puede convertir un nodo de almacenamiento que no contenga el<<adc-service,Servicio ADC>> a un nodo de almacenamiento de solo datos. Consulte link:../maintain/convert-to-data-only-node.html["Convertir un nodo de almacenamiento en un nodo de solo datos"] .
+
+
+
+== Nodos de almacenamiento necesarios por red y por sitio
+
+Al seleccionar qué nodos de almacenamiento utilizar en su topología, tenga en cuenta que la cuadrícula o cada sitio en la cuadrícula debe contener lo siguiente:
+
+* Por sitio (en una cuadrícula de uno o varios sitios): Tres<<adc-service,ADC>> Nodos de almacenamiento (pueden ser cualquier combinación de nodos de almacenamiento combinados y de solo metadatos)
+* Cuadrícula de un solo sitio: al menos dos nodos de almacenamiento de objetos (pueden ser cualquier combinación de nodos combinados y de solo datos)
+* Cuadrícula de varios sitios: al menos un nodo de almacenamiento de objetos por sitio (puede ser combinado o solo de datos)
 
 
 
@@ -95,14 +105,16 @@ Cuenta (acct)
  a| 
 Administra cuentas de arrendatario.
 
+Los nodos de almacenamiento de solo datos no alojan este servicio.
+
 
 
  a| 
-Controlador de dominio administrativo (ADC)
+[[adc-service]]Controlador de dominio administrativo (ADC)
  a| 
 Mantiene la topología y la configuración en todo el grid.
 
-*Nota*: Los nodos de almacenamiento solo de datos no alojan el servicio ADC.
+Los nodos de almacenamiento de solo datos no alojan este servicio.
 
 .Detalles
 [%collapsible]
@@ -125,7 +137,7 @@ Cassandra
  a| 
 Almacena y protege los metadatos de objetos.
 
-*Nota*: Los nodos de almacenamiento solo de datos no alojan el servicio Cassandra.
+Los nodos de almacenamiento de solo datos no alojan este servicio.
 
 
 
@@ -134,7 +146,7 @@ Cassandra Reaper
  a| 
 Realiza reparaciones automáticas de metadatos de objetos.
 
-*Nota*: Los nodos de almacenamiento solo de datos no alojan el servicio Cassandra Reaper.
+Los nodos de almacenamiento de solo datos no alojan este servicio.
 
 
 
@@ -171,6 +183,8 @@ El servicio DDS realiza un seguimiento del número total de objetos ingeridos en
 Identidad (no)
  a| 
 Federe las identidades de usuario de LDAP y Active Directory.
+
+Los nodos de almacenamiento de solo datos no alojan este servicio.
 
 
 
@@ -220,6 +234,8 @@ Para garantizar la redundancia y, por lo tanto, la protección contra la pérdid
 Máquina de estado replicada (RSM)
  a| 
 Garantiza que las solicitudes de servicios de la plataforma S3 se envíen a sus respectivos puntos finales.
+
+Los nodos de almacenamiento de solo datos no alojan este servicio.
 
 
 

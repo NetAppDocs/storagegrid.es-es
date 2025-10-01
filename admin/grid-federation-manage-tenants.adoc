@@ -52,7 +52,7 @@ TIP: Antes de que un usuario raíz local pueda iniciar sesión en el inquilino r
 Puede ver los detalles de un inquilino con permiso para utilizar una conexión de federación de grid.
 
 .Pasos
-. Seleccione *ARRENDATARIOS*.
+. Seleccione *Inquilinos*.
 . En la página Tenedores, seleccione el nombre del arrendatario para ver la página de detalles del arrendatario.
 +
 Si se trata de la cuadrícula de origen del inquilino (es decir, si el inquilino se creó en esta cuadrícula), aparece un banner para recordarle que el inquilino se clonó en otra cuadrícula. Si edita o elimina este arrendatario, los cambios no se sincronizarán con la otra cuadrícula.
@@ -121,7 +121,7 @@ Como primer paso, deshabilite la replicación entre grid para todos los buckets 
 
 .Pasos
 . A partir de cualquier cuadrícula, inicie sesión en Grid Manager desde el nodo de administración principal.
-. Selecciona *CONFIGURACIÓN* > *Sistema* > *federación de cuadrícula*.
+. Seleccione *Configuración* > *Sistema* > *Federación de red*.
 . Seleccione el nombre de la conexión para mostrar sus detalles.
 . En la pestaña *Arrendatarios permitidos*, determine si el inquilino está usando la conexión.
 . Si el arrendatario aparece en la lista, indíquele que lo link:../tenant/grid-federation-manage-cross-grid-replication.html["desactive la replicación entre grid"]haga para todos sus cubos en ambas cuadrículas de la conexión.
@@ -145,7 +145,7 @@ Una vez deshabilitada la replicación entre grid para bloques de inquilinos, pue
 ====
 .Página de federación de grid
 --
-.. Selecciona *CONFIGURACIÓN* > *Sistema* > *federación de cuadrícula*.
+.. Seleccione *Configuración* > *Sistema* > *Federación de red*.
 .. Seleccione el nombre de la conexión para mostrar su página de detalles.
 .. En la pestaña *Arrendatarios permitidos*, seleccione el botón de radio para el inquilino.
 .. Selecciona *Eliminar permiso*.
@@ -154,7 +154,7 @@ Una vez deshabilitada la replicación entre grid para bloques de inquilinos, pue
 --
 .Inquilinos
 --
-.. Seleccione *ARRENDATARIOS*.
+.. Seleccione *Inquilinos*.
 .. Seleccione el nombre del arrendatario para mostrar la página de detalles.
 .. En la pestaña *Grid federation*, seleccione el botón de radio para la conexión.
 .. Selecciona *Eliminar permiso*.
@@ -196,7 +196,7 @@ Antes de eliminar el permiso de un inquilino por la fuerza, tenga en cuenta las 
 
 .Pasos
 . Inicie sesión en Grid Manager desde el nodo de administración principal.
-. Selecciona *CONFIGURACIÓN* > *Sistema* > *federación de cuadrícula*.
+. Seleccione *Configuración* > *Sistema* > *Federación de red*.
 . Seleccione el nombre de la conexión para mostrar su página de detalles.
 . En la pestaña *Arrendatarios permitidos*, seleccione el botón de radio para el inquilino.
 . Selecciona *Eliminar permiso*.

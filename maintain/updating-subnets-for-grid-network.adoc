@@ -48,19 +48,19 @@ Por ejemplo, no utilice los siguientes rangos de subred para la red de cuadrícu
 == Agregue una subred
 
 .Pasos
-. Seleccione *MANTENIMIENTO* > *Red* > *Red de red*.
+. Seleccione *Mantenimiento* > *Red* > *Red de cuadrícula*.
 . Seleccione *Agregar otra subred* para agregar una nueva subred en la notación CIDR.
 +
 Por ejemplo, introduzca `10.96.104.0/22`.
 
 . Introduzca la contraseña de aprovisionamiento y seleccione *Guardar*.
-. Espere hasta que se apliquen los cambios y, a continuación, descargue un nuevo paquete de recuperación.
+. Espere hasta que se apliquen los cambios y luego descargue un nuevo paquete de recuperación.
 +
-.. Seleccione *MANTENIMIENTO* > *sistema* > *paquete de recuperación*.
+.. Seleccione *Mantenimiento* > *Sistema* > *Paquete de recuperación*.
 .. Introduzca la *frase de paso de aprovisionamiento*.
 +
 
-CAUTION: El archivo del paquete de recuperación debe estar protegido porque contiene claves de cifrado y contraseñas que se pueden usar para obtener datos del sistema StorageGRID. También se utiliza para recuperar el nodo de administración principal.
+CAUTION: El archivo del paquete de recuperación debe estar protegido porque contiene claves de cifrado y contraseñas que se pueden utilizar para obtener datos del sistema StorageGRID .  También se utiliza para recuperar el nodo de administración principal.
 
 
 
@@ -73,13 +73,13 @@ Las subredes que ha especificado se configuran automáticamente para el sistema 
 == Editar una subred
 
 .Pasos
-. Seleccione *MANTENIMIENTO* > *Red* > *Red de red*.
+. Seleccione *Mantenimiento* > *Red* > *Red de cuadrícula*.
 . Seleccione la subred que desea editar y realice los cambios necesarios.
 . Introduzca la frase de contraseña de Provisionamiento y seleccione *Guardar*.
 . Seleccione *Sí* en el cuadro de diálogo de confirmación.
-. Espere hasta que se apliquen los cambios y, a continuación, descargue un nuevo paquete de recuperación.
+. Espere hasta que se apliquen los cambios y luego descargue un nuevo paquete de recuperación.
 +
-.. Seleccione *MANTENIMIENTO* > *sistema* > *paquete de recuperación*.
+.. Seleccione *Mantenimiento* > *Sistema* > *Paquete de recuperación*.
 .. Introduzca la *frase de paso de aprovisionamiento*.
 
 
@@ -90,13 +90,13 @@ Las subredes que ha especificado se configuran automáticamente para el sistema 
 == Eliminar una subred
 
 .Pasos
-. Seleccione *MANTENIMIENTO* > *Red* > *Red de red*.
+. Seleccione *Mantenimiento* > *Red* > *Red de cuadrícula*.
 . Seleccione el icono de eliminación image:../media/icon-x-to-remove.png["icono de eliminar"]junto a la subred.
 . Introduzca la frase de contraseña de Provisionamiento y seleccione *Guardar*.
 . Seleccione *Sí* en el cuadro de diálogo de confirmación.
-. Espere hasta que se apliquen los cambios y, a continuación, descargue un nuevo paquete de recuperación.
+. Espere hasta que se apliquen los cambios y luego descargue un nuevo paquete de recuperación.
 +
-.. Seleccione *MANTENIMIENTO* > *sistema* > *paquete de recuperación*.
+.. Seleccione *Mantenimiento* > *Sistema* > *Paquete de recuperación*.
 .. Introduzca la *frase de paso de aprovisionamiento*.
 
 

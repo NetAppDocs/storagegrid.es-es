@@ -21,7 +21,7 @@ Para determinar si un sitio se puede retirar del servicio, comience por acceder 
 
 
 .Pasos
-. Seleccione *MANTENIMIENTO* > *tareas* > *misión*.
+. Seleccione *Mantenimiento* > *Tareas* > *Desmantelamiento*.
 . Seleccione *Sitio de misión*.
 +
 Aparece el paso 1 (Seleccionar sitio) del asistente de ubicación de misión. Este paso incluye una lista alfabética de los sitios de su sistema StorageGRID.

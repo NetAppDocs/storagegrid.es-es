@@ -23,7 +23,7 @@ Para obtener detalles sobre esta tarea, consulte link:../admin/creating-tenant-a
 
 
 .Pasos
-. Seleccione *ARRENDATARIOS*.
+. Seleccione *Inquilinos*.
 . Seleccione *Crear*.
 . Para los pasos Enter details, introduzca la siguiente información.
 +
@@ -73,7 +73,7 @@ Los inquilinos de FabricPool no suelen utilizar S3 Select.
 .. Opcionalmente, seleccione *Usar conexión de federación de grid* para permitir que el inquilino utilice un link:../admin/grid-federation-overview.html["conexión de federación de grid"]clon de cuenta y replicación entre grid. A continuación, seleccione la conexión de federación de cuadrícula que desea utilizar.
 
 
-. Para el paso Definir acceso root, especifique qué usuario tendrá el permiso de acceso root inicial para la cuenta de arrendatario, en función de si el sistema StorageGRID utiliza link:../admin/using-identity-federation.html["federación de identidades"], link:../admin/configuring-sso.html["Inicio de sesión único (SSO)"]o ambos.
+. Para el paso Definir acceso raíz, especifique qué usuario tendrá el permiso de acceso raíz inicial para la cuenta de inquilino, en función de si su sistema StorageGRID utilizalink:../admin/using-identity-federation.html["federación de identidades"] ,link:../admin/how-sso-works.html["Inicio de sesión único (SSO)"] , o ambos.
 +
 [cols="1a,2a"]
 |===

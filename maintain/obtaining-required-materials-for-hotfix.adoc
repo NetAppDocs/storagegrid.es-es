@@ -35,14 +35,14 @@ Debe descargar el archivo de revisión de StorageGRID.
 
 
  a| 
-(`.zip`Archivo Recovery Package )
+paquete de recuperación(`.zip` ) archivo
  a| 
-Antes de aplicar una revisión, link:downloading-recovery-package.html["Descargue el archivo más reciente del paquete de recuperación"] en caso de que ocurra algún problema durante la revisión. Luego, después de aplicar la revisión, descargue una nueva copia del archivo del paquete de recuperación y guárdelo en una ubicación segura. El archivo de paquete de recuperación actualizado le permite restaurar el sistema si se produce un fallo.
+Antes de aplicar una revisión,link:downloading-recovery-package.html["Descargue el archivo del paquete de recuperación más reciente"] en caso de que ocurra algún problema durante la revisión.  Luego, una vez aplicada la revisión, descargue una nueva copia del archivo del paquete de recuperación y guárdelo en una ubicación segura.  El archivo del paquete de recuperación actualizado le permite restaurar el sistema si ocurre una falla.
 
 
 
 | Archivo Passwords.txt  a| 
-Opcional y utilizado sólo si aplica una revisión manualmente mediante el cliente SSH. El `Passwords.txt` archivo forma parte del archivo Recovery Package `.zip`.
+Opcional y se utiliza solo si está aplicando una revisión manualmente mediante el cliente SSH.  El `Passwords.txt` El archivo es parte del paquete de recuperación `.zip` archivo.
 
 
 

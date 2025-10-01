@@ -15,7 +15,7 @@ En esta sección se describe cómo el sistema StorageGRID implementa operaciones
 
 Las siguientes condiciones se aplican a todas las operaciones de objeto:
 
-* Todas las operaciones en objetos admiten los StorageGRIDlink:consistency-controls.html["valores de coherencia"], con la excepción de las siguientes:
+* StorageGRIDlink:consistency.html["valores de coherencia"] son compatibles con todas las operaciones sobre objetos, con excepción de las siguientes:
 +
 ** GetObjectAcl
 ** `OPTIONS /`
@@ -26,7 +26,6 @@ Las siguientes condiciones se aplican a todas las operaciones de objeto:
 
 * Las solicitudes de clientes en conflicto, como dos clientes que escriben en la misma clave, se resuelven en función de las "últimas victorias". El plazo para la evaluación de "logros más recientes" se basa en cuándo el sistema StorageGRID completa una solicitud determinada, y no en cuándo los clientes de S3 comienzan una operación.
 * Todos los objetos de un bloque StorageGRID son propiedad del propietario del bloque, incluidos los objetos creados por un usuario anónimo o por otra cuenta.
-* No se puede acceder a los objetos de datos procesados en el sistema de StorageGRID a través de Swift mediante S3.
 
 
 En la siguiente tabla se describe cómo StorageGRID implementa operaciones de objetos API DE REST de S3.

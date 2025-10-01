@@ -24,7 +24,7 @@ image::../media/dashboard_health_panel_license_status.png[Estado de la licencia 
 .Pasos
 . Para acceder a la página Licencia, realice una de las siguientes acciones:
 +
-** Seleccione *MANTENIMIENTO* > *sistema* > *Licencia*.
+** Seleccione *Mantenimiento* > *Sistema* > *Licencia*.
 ** En la tarjeta de estado de salud del panel de control, seleccione el icono de estado de la licencia o el enlace *Licencia*.
 +
 Este vínculo sólo aparece si hay un problema con la licencia.

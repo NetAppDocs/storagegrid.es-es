@@ -33,6 +33,7 @@ NOTE: Si un solo host incluye más de un nodo de cuadrícula, no apague el host 
 NOTE: Si es necesario, puede link:linux-migrating-grid-node-to-new-host.html["Migre los nodos de un host Linux a otro"]realizar el mantenimiento del host sin afectar la funcionalidad o la disponibilidad de su grid.
 
 .Pasos
+. El acceso SSH externo está bloqueado de forma predeterminada.  Si es necesario,link:../admin/manage-external-ssh-access.html["permitir el acceso temporalmente"] .
 . Detenga que todas las aplicaciones cliente no accedan a la cuadrícula.
 . [[log_in_to_gn]]Iniciar sesión en cada nodo de puerta de enlace:
 +
@@ -141,6 +142,7 @@ Este LED está encendido cuando es necesario escribir en las unidades los datos 
 +
 El grid de StorageGRID se ha apagado.
 
+. Si ha permitido el acceso SSH externo,link:../admin/manage-external-ssh-access.html["bloquear el acceso"] cuando haya terminado de apagar los nodos.
 
 
 
@@ -171,7 +173,7 @@ Puede encender estos nodos en cualquier orden.
 
 . Encienda los hosts de todos los nodos de la puerta de enlace.
 . Inicie sesión en Grid Manager.
-. Seleccione *NODES* y supervise el estado de los nodos de la cuadrícula. Compruebe que no hay iconos de alerta junto a los nombres de los nodos.
+. Seleccione *Nodos* y monitoree el estado de los nodos de la red.  Verifique que no haya íconos de alerta junto a los nombres de los nodos.
 
 
 .Información relacionada

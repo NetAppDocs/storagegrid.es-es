@@ -13,6 +13,8 @@ summary: El recurso compartido de auditoría contiene el archivo audit.log activ
 [role="lead"]
 El recurso compartido de auditoría contiene el archivo activo `audit.log` y los archivos de registro de auditoría comprimidos. Puede acceder a los archivos log de auditoría directamente desde la línea de comandos del nodo de administración.
 
+El `audit.log` El archivo permanece vacío a menos que configure StorageGRID para *Nodos de administración/nodos locales* o *Nodo de administración y servidor syslog externo*. Para obtener más información, consulte link:../monitor/configure-log-management.html#select-log-location["Seleccionar la ubicación del registro"] .
+
 .Antes de empezar
 * Tienes link:../admin/admin-group-permissions.html["permisos de acceso específicos"].
 * Debe tener el `Passwords.txt` archivo.
@@ -33,7 +35,7 @@ Al iniciar sesión como root, la petición de datos cambia de `$` a `#`.
 
 . Vaya al directorio que contiene los archivos del registro de auditoría:
 +
-`cd /var/local/log`
+`cd  /var/local/audit/export/`
 
 . Ver el archivo de registro de auditoría actual o guardado, según sea necesario.
 

@@ -99,13 +99,13 @@ Se inicia el procedimiento de retirada del nodo y se muestra el progreso de cada
 
 CAUTION: No desconecte un nodo de almacenamiento después de iniciar el procedimiento de retirada. El cambio de estado puede provocar que parte del contenido no se copie en otras ubicaciones.
 
-. En cuanto el nuevo paquete de recuperación esté disponible, seleccione el enlace Paquete de recuperación en el banner o seleccione *MANTENIMIENTO* > *Sistema* > *Paquete de recuperación* para acceder a la página Paquete de recuperación. A continuación, descargue el `.zip` archivo.
+. Tan pronto como el nuevo paquete de recuperación esté disponible, seleccione el enlace del paquete de recuperación en el banner o seleccione *Mantenimiento* > *Sistema* > *Paquete de recuperación* para acceder a la página del paquete de recuperación.  Luego, descargue el `.zip` archivo.
 +
-Consulte link:downloading-recovery-package.html["Descarga del paquete de recuperación"].
+Ver link:downloading-recovery-package.html["descargando el paquete de recuperación"] .
 
 +
 
-NOTE: Descargue el Lo antes posible. del paquete de recuperación para asegurarse de que puede recuperar la red si hay algún problema durante el procedimiento de retirada de servicio.
+NOTE: Descargue el paquete de recuperación lo antes posible para asegurarse de poder recuperar su red si algo sale mal durante el procedimiento de desmantelamiento.
 
 . Supervise periódicamente la página nodos de misión de descommisión para garantizar que todos los nodos seleccionados se han retirado correctamente.
 +
@@ -122,7 +122,7 @@ Complete estos pasos después de completar el procedimiento de retirada del nodo
 
 . Siga los pasos adecuados para su plataforma. Por ejemplo:
 +
-** *Linux*: Es posible que desee desconectar los volúmenes y eliminar los archivos de configuración de nodo creados durante la instalación. Consulte link:../rhel/index.html["Instalar StorageGRID en Red Hat Enterprise Linux"] y link:../ubuntu/index.html["Instalar StorageGRID en Ubuntu o Debian"].
+** *Linux*: Es posible que desees separar los volúmenes y eliminar los archivos de configuración de nodo que creaste durante la instalación. Ver link:../swnodes/index.html["Instalar StorageGRID en nodos basados ​​en software"] .
 ** *VMware*: Es posible que desee utilizar la opción de vCenter “Eliminar del disco” para eliminar la máquina virtual. También puede ser necesario eliminar los discos de datos que sean independientes de la máquina virtual.
 ** *Dispositivo StorageGRID*: El nodo del dispositivo vuelve automáticamente a un estado no desplegado en el que puede acceder al instalador del dispositivo StorageGRID. Puede apagar el dispositivo o añadirlo a otro sistema StorageGRID.
 

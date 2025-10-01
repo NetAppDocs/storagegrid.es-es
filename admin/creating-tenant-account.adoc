@@ -13,7 +13,7 @@ summary: Debe crear al menos una cuenta de inquilino para controlar el acceso al
 [role="lead"]
 Debe crear al menos una cuenta de inquilino para controlar el acceso al almacenamiento en su sistema de StorageGRID.
 
-Los pasos para crear una cuenta de inquilino varían en función de si link:using-identity-federation.html["federación de identidades"]están configurados y link:configuring-sso.html["inicio de sesión único"]si la cuenta de Grid Manager que se utiliza para crear la cuenta de inquilino pertenece a un grupo de administradores con el permiso de acceso raíz.
+Los pasos para crear una cuenta de inquilino varían según silink:using-identity-federation.html["federación de identidades"] ylink:how-sso-works.html["inicio de sesión único"] están configurados y si la cuenta de Grid Manager que utiliza para crear la cuenta de inquilino pertenece a un grupo de administradores con permiso de acceso raíz.
 
 .Antes de empezar
 * Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
@@ -42,7 +42,7 @@ TIP: Si este grupo de administración no existe en ambas cuadrículas antes de c
 == Acceda al asistente
 
 .Pasos
-. Seleccione *ARRENDATARIOS*.
+. Seleccione *Inquilinos*.
 . Seleccione *Crear*.
 
 
@@ -77,9 +77,7 @@ Si va a crear un inquilino que utilizará una conexión de federación de grid, 
  a| 
 Tipo de cliente
  a| 
-El tipo de protocolo de cliente que usará este inquilino, ya sea *S3* o *Swift*.
-
-*Nota*: El soporte para aplicaciones cliente Swift ha sido obsoleto y será eliminado en una versión futura.
+Debe ser *S3*.
 
 
 
@@ -118,7 +116,7 @@ El inquilino puede usar servicios de plataforma S3 como CloudMirror. Consulte li
  a| 
 Usar origen de identidad propio
  a| 
-El inquilino puede configurar y gestionar su propio origen de identidad para usuarios y grupos federados. Esta opción estará deshabilitada si link:../admin/configuring-sso.html["SSO configurado"]tiene para el sistema StorageGRID.
+El inquilino puede configurar y administrar su propia fuente de identidad para grupos y usuarios federados.  Esta opción está deshabilitada si tienelink:../admin/how-sso-works.html["SSO configurado"] para su sistema StorageGRID .
 
 
 
@@ -290,7 +288,7 @@ La dirección URL del administrador de inquilinos tiene el siguiente formato:
  a| 
 Puerto 443
  a| 
-* En Grid Manager, seleccione *ARRENDATARIOS* y seleccione *Iniciar sesión* a la derecha del nombre del arrendatario.
+* Desde el Administrador de red, seleccione *Inquilinos* y seleccione * Sign in* a la derecha del nombre del inquilino.
 * Introduzca la URL del inquilino en un navegador web:
 +
 `https://_FQDN_or_Admin_Node_IP_/?accountId=_20-digit-account-id_/`
@@ -307,7 +305,7 @@ Puerto 443
  a| 
 Un puerto restringido
  a| 
-* En Grid Manager, seleccione *ARRENDATARIOS* y seleccione *restringido*.
+* Desde el Administrador de red, seleccione *Inquilinos* y seleccione *Restringido*.
 * Introduzca la URL del inquilino en un navegador web:
 +
 `https://_FQDN_or_Admin_Node_IP:port_/?accountId=_20-digit-account-id_`

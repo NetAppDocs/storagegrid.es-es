@@ -28,56 +28,80 @@ NOTE: Algunos servicios de StorageGRID no se han actualizado para utilizar los c
 == Seleccione una política de seguridad
 
 .Pasos
-. Selecciona *CONFIGURACIÓN* > *SEGURIDAD* > *CONFIGURACIÓN DE SEGURIDAD*.
+. Seleccione *Configuración* > *Seguridad* > *Configuración de seguridad*.
 +
 La pestaña *Políticas TLS y SSH* muestra las políticas disponibles. La política actualmente activa se indica mediante una marca de verificación verde en el mosaico de políticas.
 
 +
 image::../media/securitysettings_tls_ssh_policies_current.png[Políticas de TLS y SSH]
 
-. Revise los mosaicos para obtener más información sobre las políticas disponibles.
+. Revise las pestañas para conocer las políticas disponibles.
 +
-[cols="1a,2a"]
-|===
-| Política | Descripción 
+[role="tabbed-block"]
+====
+.Compatibilidad moderna (predeterminado)
+--
+Utilice la política predeterminada si necesita un cifrado fuerte y no tiene requisitos especiales.  Esta política es compatible con la mayoría de los clientes TLS y SSH.
+
+--
+.Compatibilidad con versiones anteriores
+--
+Utilice la política de compatibilidad heredada si necesita opciones de compatibilidad adicionales para clientes más antiguos.  Las opciones adicionales en esta política podrían hacerla menos segura que la política de compatibilidad moderna.
+
+--
+.Criterios comunes
+--
+Utilice la política de Criterios Comunes si necesita la certificación de Criterios Comunes.
+
+--
+.Estricta con FIPS
+--
+Utilice la política estricta FIPS si necesita la certificación Common Criteria y usar el módulo de seguridad criptográfica de NetApp (NCSM) 3.0.8 o el módulo NetApp StorageGRID Kernel Crypto API 6.1.129-1-ntap1-amd64 para conexiones de clientes externos a puntos finales del balanceador de carga, Tenant Manager y Grid Manager.  El uso de esta política podría reducir el rendimiento.
+
+El módulo NCSM 3.0.8 y NetApp StorageGRID Kernel Crypto API 6.1.129-1-ntap1-amd64 se utilizan en las siguientes operaciones:
+
+** NCSM
++
+*** Conexiones TLS entre los siguientes servicios: ADC, AMS, CMN, DDS, LDR, SSM, NMS, mgmt-api, nginx, nginx-gw y cache-svc
+*** Conexiones TLS entre clientes y el servicio nginx-gw (puntos finales del balanceador de carga)
+*** Conexiones TLS entre clientes y el servicio LDR
+*** Cifrado de contenido de objetos para SSE-S3, SSE-C y la configuración de cifrado de objetos almacenados
+*** Conexiones SSH
 
 
- a| 
-Compatibilidad moderna (predeterminado)
- a| 
-Use la directiva predeterminada si necesita cifrado seguro y a menos que tenga requisitos especiales. Esta política es compatible con la mayoría de los clientes TLS y SSH.
++
+Para obtener más información, consulte el Programa de validación de algoritmos criptográficos del NIST.link:https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4838["Certificado #4838"^] .
+
+** Módulo API criptográfica del kernel StorageGRID de NetApp
++
+El módulo NetApp StorageGRID Kernel Crypto API está presente únicamente en plataformas de dispositivos VM y StorageGRID .
+
++
+*** Colección de entropía
+*** Cifrado de nodos
+
+
++
+Para obtener más información, consulte el Programa de validación de algoritmos criptográficos del NIST.link:https://csrc.nist.gov/projects/cryptographic-algorithm-validation-program/validation-search?searchMode=implementation&product=NetApp+StorageGRID+Kernel+Crypto+API&productType=-1&ipp=50["Certificados #A6242 a #A6257"^] ylink:https://csrc.nist.gov/projects/cryptographic-module-validation-program/entropy-validations/certificate/223["Certificado de entropía n.° E223"^] .
 
 
 
- a| 
-Compatibilidad con versiones anteriores
- a| 
-Utilice esta directiva si necesita opciones de compatibilidad adicionales para clientes antiguos. Las opciones adicionales de esta política podrían hacerlo menos seguro que la política de compatibilidad moderna.
+*Nota*: Después de seleccionar esta política,link:../maintain/rolling-reboot-procedure.html["realizar un reinicio continuo"] para que todos los nodos activen el NCSM.  Utilice *Mantenimiento* > *Reinicio progresivo* para iniciar y supervisar los reinicios.
 
-
-
- a| 
-Criterios comunes
- a| 
-Utilice esta política si necesita la certificación Common Criteria.
-
-
-
- a| 
-Estricta con FIPS
- a| 
-Utilice esta directiva si necesita la certificación Common Criteria y necesita utilizar el módulo de seguridad criptográfica 3.0.8 de NetApp para conexiones de clientes externos a puntos finales del equilibrador de carga, el administrador de inquilinos y el administrador de grid. El uso de esta política puede reducir el rendimiento.
-
-*Nota*: Después de seleccionar esta directiva, todos los nodos deben link:../maintain/rolling-reboot-procedure.html["reiniciado de forma rodante"]activar el Módulo de Seguridad criptográfica de NetApp. Utilice *Mantenimiento* > *Reiniciar rodando* para iniciar y supervisar los reinicios.
-
-
-
- a| 
-Personalizado
- a| 
+--
+.Personalizado
+--
 Cree una política personalizada si necesita aplicar sus propios cifrados.
 
-|===
+De manera opcional, si su StorageGRID tiene requisitos de criptografía FIPS 140, habilite la función de modo FIPS para usar el módulo NCSM 3.0.8 y NetApp StorageGRID Kernel Crypto API 6.1.129-1-ntap1-amd64:
+
+.. Establezca el `fipsMode` parámetro a `true` .
+.. Cuando se le solicite,link:../maintain/rolling-reboot-procedure.html["realizar un reinicio continuo"] para que todos los nodos activen los módulos de criptografía.  Utilice *Mantenimiento* > *Reinicio progresivo* para iniciar y supervisar los reinicios.
+.. Seleccione *Soporte* > *Diagnóstico* para ver las versiones activas del módulo FIPS.
+
+
+--
+====
 . Para ver detalles sobre los cifrados, protocolos y algoritmos de cada política, selecciona *Ver detalles*.
 . Para cambiar la política actual, seleccione *Usar política*.
 +

@@ -102,7 +102,7 @@ Si ha utilizado la función de cumplimiento de normativas heredada en una versi�
  a| 
 ¿Cómo se habilita la función a nivel global?
  a| 
-En Grid Manager, seleccione *CONFIGURACIÓN* > *sistema* > *S3 Object Lock*.
+Desde el Administrador de cuadrícula, seleccione *Configuración* > *Sistema* > *Bloqueo de objetos S3*.
  a| 
 Ya no es compatible.
 

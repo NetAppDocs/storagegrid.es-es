@@ -19,18 +19,18 @@ Antes de retirar de servicio un sitio, debe obtener los siguientes materiales.
 
 
  a| 
-Archivo de paquete de recuperación `.zip`
+Paquete de recuperación `.zip` archivo
  a| 
-Debe descargar el archivo de Recovery Package más reciente `.zip`(`sgws-recovery-package-id-revision.zip` ). Puede utilizar el archivo de paquete de recuperación para restaurar el sistema si se produce un fallo.
+Debes descargar el paquete de recuperación más reciente `.zip` archivo(`sgws-recovery-package-id-revision.zip` ).  Puede utilizar el archivo del paquete de recuperación para restaurar el sistema si ocurre una falla.
 
-link:downloading-recovery-package.html["Descargue el paquete de recuperación"]
+link:downloading-recovery-package.html["Descargar el paquete de recuperación"]
 
 
 
  a| 
 `Passwords.txt` archivo
  a| 
-Este archivo contiene las contraseñas que se necesitan para acceder a los nodos de grid en la línea de comandos y se incluye en el paquete de recuperación.
+Este archivo contiene las contraseñas necesarias para acceder a los nodos de la red en la línea de comandos y está incluido en el paquete de recuperación.
 
 
 

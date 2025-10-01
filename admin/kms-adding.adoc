@@ -30,7 +30,7 @@ Si es posible, configure cualquier servidor de administración de claves especí
 En el Paso 1 (detalles de KMS) del Asistente para agregar un servidor de gestión de claves, proporciona detalles sobre el clúster de KMS o KMS.
 
 .Pasos
-. Seleccione *CONFIGURACIÓN* > *Seguridad* > *servidor de administración de claves*.
+. Seleccione *Configuración* > *Seguridad* > *Servidor de administración de claves*.
 +
 Aparece la página del servidor de gestión de claves con la pestaña Detalles de configuración seleccionada.
 

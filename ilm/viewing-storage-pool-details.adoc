@@ -46,7 +46,7 @@ En la tabla se incluye la siguiente información para cada nodo:
 ** Uso de almacenamiento: El porcentaje del espacio útil total para datos de objeto que se ha utilizado para el nodo de almacenamiento.
 +
 
-NOTE: El mismo valor de Uso de almacenamiento (%) también se muestra en el gráfico Almacenamiento usado - Datos de objeto para cada nodo de almacenamiento (seleccione *NODOS* > *_NODO de almacenamiento_* > *Almacenamiento*).
+NOTE: El mismo valor de uso de almacenamiento (%) también se muestra en el gráfico Almacenamiento utilizado - Datos de objeto para cada nodo de almacenamiento (seleccione *Nodos* > *_Nodo de almacenamiento_* > *Almacenamiento*).
 
 
 

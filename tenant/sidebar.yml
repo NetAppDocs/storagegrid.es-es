@@ -39,14 +39,12 @@ entries:
     entries:
     - title: Crear grupos S3
       url: "/tenant/creating-groups-for-s3-tenant.html"
-    - title: Cree grupos Swift
-      url: "/tenant/creating-groups-for-swift-tenant.html"
     - title: Permisos de gestión de inquilinos
       url: "/tenant/tenant-management-permissions.html"
     - title: Gestionar grupos
       url: "/tenant/manage-groups.html"
-  - title: Gestionar usuarios locales
-    url: "/tenant/managing-local-users.html"
+  - title: Gestionar usuarios
+    url: "/tenant/manage-users.html"
 - title: Gestión de claves de acceso de S3
   entries:
   - title: Claves de acceso de inquilinos
@@ -70,6 +68,10 @@ entries:
     url: "/tenant/creating-s3-bucket.html"
   - title: Ver detalles del período
     url: "/tenant/viewing-s3-bucket-details.html"
+  - title: "¿Qué es un bucket de rama?"
+    url: "/tenant/what-is-branch-bucket.html"
+  - title: Administrar grupos de sucursales
+    url: "/tenant/manage-branch-buckets.html"
   - title: Aplique la etiqueta de política de ILM al bloque
     url: "/tenant/ilm-policy-tags.html"
   - title: Gestione la política de bloques
@@ -84,8 +86,8 @@ entries:
     url: "/tenant/using-s3-object-lock.html"
   - title: Actualizar S3 Retención predeterminada de bloqueo de objetos
     url: "/tenant/update-default-retention-settings.html"
-  - title: Configurar el uso compartido de recursos de origen cruzado (CORS)
-    url: "/tenant/configuring-cross-origin-resource-sharing-cors.html"
+  - title: Configurar CORS para depósitos y objetos
+    url: "/tenant/configuring-cross-origin-resource-sharing-for-buckets-and-objects.html"
   - title: Suprimir objetos del depósito
     url: "/tenant/deleting-s3-bucket-objects.html"
   - title: Eliminar depósito

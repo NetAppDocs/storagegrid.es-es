@@ -13,23 +13,20 @@ summary: Antes de recuperar una unidad de sistema fallida de un nodo de almacena
 [role="lead"]
 Antes de recuperar una unidad de sistema con fallos de un nodo de almacenamiento, revise las advertencias generales link:warnings-and-considerations-for-grid-node-recovery.html["advertencias y consideraciones para la recuperación de nodos de grid"] y las siguientes específicas.
 
-Los nodos de almacenamiento tienen una base de datos Cassandra que incluye metadatos de objetos. La base de datos Cassandra puede reconstruirse en las siguientes circunstancias:
+Los nodos de almacenamiento tienen una base de datos Cassandra que incluye metadatos de objetos.  La base de datos de Cassandra podría reconstruirse si:
 
-* Un nodo de almacenamiento se vuelve a conectar después de haber estado desconectado más de 15 días.
-* Se produjo un error en un volumen de almacenamiento y se recuperó.
+* Un volumen de almacenamiento falla y se recupera.
 * La unidad del sistema y uno o más volúmenes de almacenamiento fallan y se recuperan.
 
 
-Cuando se reconstruye Cassandra, el sistema utiliza información de otros nodos de almacenamiento. Si hay demasiados nodos de almacenamiento sin conexión, es posible que algunos datos de Cassandra no estén disponibles. Si Cassandra se ha reconstruido recientemente, es posible que los datos de Cassandra aún no sean coherentes en toda la cuadrícula. Se pueden perder datos si Cassandra se vuelve a generar cuando hay demasiados nodos de almacenamiento sin conexión o si se reconstruyen dos o más nodos de almacenamiento en un plazo de 15 días entre sí.
+Cuando se reconstruye Cassandra, el sistema utiliza información de otros nodos de almacenamiento.  Si Cassandra se ha reconstruido recientemente, es posible que sus datos aún no sean consistentes en toda la red.  Si hay demasiados nodos de almacenamiento sin conexión:
+
+* Es posible que algunos datos de Cassandra no estén disponibles.
+* Podría ocurrir pérdida de datos.
 
 
-CAUTION: Si más de un nodo de almacenamiento presenta errores (o está sin conexión), póngase en contacto con el soporte técnico. No realice el siguiente procedimiento de recuperación. Podrían perderse datos.
 
-
-CAUTION: Si este es el segundo fallo del nodo de almacenamiento en menos de 15 días después de un fallo o una recuperación en el nodo de almacenamiento, póngase en contacto con el soporte técnico. La reconstrucción de Cassandra en dos o más nodos de almacenamiento en 15 días puede provocar la pérdida de datos.
-
-
-NOTE: Si se produce un error en más de un nodo de almacenamiento de un sitio, es posible que se requiera un procedimiento de recuperación del sitio. Consulte link:how-site-recovery-is-performed-by-technical-support.html["Cómo el soporte técnico recupera un sitio"].
+CAUTION: Si más de un nodo de almacenamiento ha fallado (o está fuera de línea), comuníquese con el soporte técnico.  No realice el siguiente procedimiento de recuperación.  Podría ocurrir pérdida de datos. Para obtener más información, consulte link:how-site-recovery-is-performed-by-technical-support.html["Cómo el soporte técnico recupera un sitio"] .
 
 
 CAUTION: Si este nodo de almacenamiento está en modo de mantenimiento de solo lectura para permitir la recuperación de objetos por otro nodo de almacenamiento con volúmenes de almacenamiento con fallos, recupere los volúmenes en el nodo de almacenamiento con volúmenes de almacenamiento con errores antes de recuperar este nodo de almacenamiento con errores. Consulte las instrucciones para link:recovering-from-storage-volume-failure-where-system-drive-is-intact.html["recupere de un fallo en el volumen de almacenamiento donde la unidad del sistema esté intacta"].

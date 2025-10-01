@@ -17,7 +17,7 @@ El elemento básico de un sistema StorageGRID es el nodo de Grid. Los nodos cont
 
 == Tipos de nodos de cuadrícula
 
-El sistema StorageGRID utiliza cuatro tipos de nodos de grid:
+El sistema StorageGRID utiliza tres tipos de nodos de red:
 
 Nodos de administración:: Proporcione servicios de gestión como la configuración, la supervisión y el registro del sistema. Cuando inicia sesión en Grid Manager, se conecta a un nodo de administración. Cada grid debe tener un nodo de administrador primario y puede tener nodos de administrador no primarios adicionales para la redundancia. Puede conectarse a cualquier nodo de administrador y cada nodo de administrador muestra una vista similar del sistema StorageGRID. Sin embargo, se deben realizar los procedimientos de mantenimiento usando el nodo de administración principal.
 +
@@ -30,6 +30,8 @@ Consulte link:what-admin-node-is.html["¿Qué es un nodo de administración?"]
 Nodos de almacenamiento:: Gestione y almacene metadatos y datos de objetos. Cada sitio del sistema StorageGRID debe tener al menos tres nodos de almacenamiento.
 +
 --
+Durante la instalación inicial de un nuevo nodo de almacenamiento, puede especificar que solo se utilice paralink:../primer/what-storage-node-is.html#types-of-storage-nodes["almacenar metadatos"] .
+
 Consulte link:what-storage-node-is.html["¿Qué es un nodo de almacenamiento?"]
 
 --
@@ -45,7 +47,7 @@ Consulte link:what-gateway-node-is.html["¿Qué es un nodo de puerta de enlace?"
 
 == Nodos de hardware y software
 
-Los nodos StorageGRID se pueden poner en marcha como nodos de dispositivo StorageGRID o como nodos basados en software.
+Los nodos StorageGRID se pueden implementar como nodos de dispositivo StorageGRID o como nodos basados ​​en software.  El número máximo de nodos (incluidos todos los tipos de nodos) por sistema es 220.
 
 
 
@@ -63,16 +65,9 @@ Consulte lo siguiente para obtener más información sobre los dispositivos disp
 
 === Nodos basados en software
 
-Los nodos de grid basados en software se pueden poner en marcha como máquinas virtuales de VMware o en motores de contenedor en un host Linux.
-
-* Máquina virtual (VM) en VMware vSphere: Consulte link:../vmware/index.html["Instale StorageGRID en VMware"].
-* En un motor de contenedores en Red Hat Enterprise Linux: Consulte link:../rhel/index.html["Instalar StorageGRID en Red Hat Enterprise Linux"].
-* Dentro de un motor de contenedores en Ubuntu o Debian: Ver link:../ubuntu/index.html["Instalar StorageGRID en Ubuntu o Debian"].
-
+Los nodos de red basados en software se pueden implementar como máquinas virtuales VMware o dentro de motores de contenedores en un host Linux. Ver link:../swnodes/index.html["Instalar StorageGRID en nodos basados ​​en software"] .
 
 Utilice https://imt.netapp.com/matrix/#welcome["Herramienta de matriz de interoperabilidad de NetApp (IMT)"^] para determinar las versiones compatibles.
-
-Durante la instalación inicial de un nuevo nodo de almacenamiento basado en software, puede especificar que sólo se utilice en link:../primer/what-storage-node-is.html#types-of-storage-nodes["almacenar metadatos"].
 
 
 
@@ -109,6 +104,42 @@ AMS (Sistema de Gestión de Auditoría)
 Supervisa y registra todos los eventos y transacciones auditados del sistema en un archivo de registro de texto.
  a| 
 Nodos de administración
+
+
+
+ a| 
+Apache Tomcat
+ a| 
+Servidor web para aplicaciones basadas en Java.
+ a| 
+Nodos de administración
+
+
+
+ a| 
+Demonio Avahi
+ a| 
+Maneja mDNS, que se utiliza para la resolución de nombres y el descubrimiento de servicios dentro de la red local.
+ a| 
+Todos los nodos
+
+
+
+ a| 
+Servicio de caché
+ a| 
+Se ejecuta en nodos de balanceador de carga (Gateway) y administra un caché local de contenido de objetos.
+ a| 
+Nodos de puerta de enlace
+
+
+
+ a| 
+Cassandra
+ a| 
+Administra la base de datos distribuida para metadatos de objetos.
+ a| 
+Nodos de almacenamiento (excepto los de solo datos)
 
 
 
@@ -187,7 +218,7 @@ Nodos de administración y puerta de enlace
  a| 
 Identidad (no)
  a| 
-Federe las identidades de usuario de LDAP y Active Directory.
+Administra usuarios y grupos locales, autenticación y federa identidades de usuarios de LDAP y Active Directory.
  a| 
 Nodos de almacenamiento que usan el servicio ADC
 
@@ -239,9 +270,9 @@ Todos los nodos
 
 
  a| 
-nginx-gw
+Balanceador de carga nginx-gw
  a| 
-Activa el servicio Load Balancer.
+Proporciona un equilibrio de carga del tráfico S3 desde los clientes a los nodos de almacenamiento. El servicio Load Balancer se puede configurar a través de la página de configuración Load Balancer Endpoints. Este servicio también se conoce como servicio nginx-gw.
  a| 
 Nodos de administración y puerta de enlace
 
@@ -253,6 +284,24 @@ NMS (Sistema de gestión de redes)
 Activa las opciones de supervisión, generación de informes y configuración que se muestran a través de Grid Manager.
  a| 
 Nodos de administración
+
+
+
+ a| 
+Exportador de nodos (recopilación de datos de Prometheus)
+ a| 
+Publica estadísticas a nivel de sistema para la recopilación de métricas de series de tiempo de Prometheus.
+ a| 
+Todos los nodos
+
+
+
+ a| 
+ntp
+ a| 
+Servicio de protocolo de tiempo de red (NTP).
+ a| 
+Todos los nodos
 
 
 
@@ -293,7 +342,70 @@ Hay una instancia presente en cada nodo de cuadrícula
 
 
  a| 
-Recolector de rastreo
+Administrador del servidor
+ a| 
+Administra los servicios de StorageGRID .
+ a| 
+Todos los nodos
+
+
+
+ a| 
+Agente SNMP
+ a| 
+Responde a las solicitudes SNMP.
+ a| 
+Nodos de administración
+
+
+
+ a| 
+Servicio de gestión de puertos SNMP
+ a| 
+Maneja la gestión dinámica de puertos SNMP.
+ a| 
+Todos los nodos
+
+
+
+ a| 
+SSH (Shell seguro)
+ a| 
+Maneja el acceso seguro y la administración remota del sistema.
+ a| 
+Todos los nodos
+
+
+
+ a| 
+SSM (Monitor de estado del sistema)
+ a| 
+Supervisa las condiciones del hardware e informa al servicio NMS.
+ a| 
+Todos los nodos
+
+
+
+ a| 
+Estadísticas
+ a| 
+Registra métricas adicionales relacionadas con los depósitos S3.
+ a| 
+Nodos de almacenamiento
+
+
+
+ a| 
+Agente de rastreo (agente jaeger)
+ a| 
+Recibe y procesa la información de seguimiento enviada por el recolector de seguimiento (jaeger-collector).
+ a| 
+Todos los nodos
+
+
+
+ a| 
+Coleccionista de rastros (coleccionista de jaeger)
  a| 
 Realiza la recogida de seguimiento para recopilar información que el soporte técnico utiliza. El servicio de recopilación de rastreo utiliza el software Jaeger de código abierto.
  a| 

@@ -18,13 +18,13 @@ Puede usar el administrador de inquilinos para crear bloques S3 para los datos d
 * Pertenece a un grupo de usuarios que tiene acceso root o Gestionar todos los cubos link:tenant-management-permissions.html["permiso"]. Estos permisos anulan la configuración de los permisos en las políticas de grupo o bloque.
 +
 
-NOTE: Los permisos para establecer o modificar las propiedades de Bloqueo de objetos S3 de cubos u objetos pueden ser otorgados por link:../s3/bucket-and-group-access-policies.html["política de bloques o política de grupo"].
+NOTE: Los permisos para establecer o modificar las propiedades de bloqueo de objetos S3 de depósitos u objetos se pueden otorgar mediantelink:../s3/use-access-policies.html["política de bloques o política de grupo"] .
 
 * Si tiene previsto habilitar el bloqueo de objetos de S3 para un depósito, un administrador de grid ha habilitado la configuración global de bloqueo de objetos de S3 para el sistema StorageGRID y ha revisado los requisitos para los bloques y objetos de bloqueo de objetos de S3.
 * Si cada inquilino tendrá 5.000 buckets, cada nodo de almacenamiento del grid tiene un mínimo de 64 GB de RAM.
 +
 
-NOTE: Cada rejilla puede tener un máximo de 100.000 cubos.
+NOTE: Cada cuadrícula puede tener un máximo de 100.000 contenedores, incluidoslink:../tenant/what-is-branch-bucket.html["cubos de ramas"] .
 
 
 
@@ -72,7 +72,7 @@ Región
  a| 
 La región del cubo.
 
-El administrador de StorageGRID gestiona las regiones disponibles. La región de un bloque puede afectar la política de protección de datos aplicada a los objetos. Por defecto, todos los cubos se crean en la `us-east-1` región.
+Su administrador de StorageGRID administra las regiones disponibles.  La región de un depósito puede afectar la política de protección de datos aplicada a los objetos.  De forma predeterminada, todos los depósitos se crean en el `us-east-1` región.  Si la región predeterminada está configurada en una región distinta a `us-east-1` , esta otra región se selecciona inicialmente en el menú desplegable.
 
 *Nota*: No puedes cambiar la región después de crear el cubo.
 
@@ -87,7 +87,15 @@ El administrador de StorageGRID gestiona las regiones disponibles. La región de
 .Pasos
 . Opcionalmente, habilite el control de versiones del objeto para el bloque.
 +
-Habilite el control de versiones de objetos si desea almacenar cada versión de cada objeto en este bloque. A continuación, puede recuperar versiones anteriores de un objeto según sea necesario. Debe habilitar el control de versiones de objetos si el bloque se va a utilizar para la replicación entre grid.
+Habilite el control de versiones de objetos si desea almacenar cada versión de cada objeto en este bloque. A continuación, puede recuperar versiones anteriores de un objeto según sea necesario.
+
++
+Debe habilitar el control de versiones de objetos si:
+
++
+** El contenedor se utilizará para la replicación entre redes.
+** Quieres crear unlink:../tenant/what-is-branch-bucket.html["cubo de rama"] de este cubo.
+
 
 . Si la opción Bloqueo de objetos S3 global está habilitada, habilite opcionalmente Bloqueo de objetos S3 para que el depósito almacene objetos utilizando un modelo WORM.
 +
@@ -146,12 +154,16 @@ Un período de retención _maximum_, que puede ser un valor de 1 día a 100 año
 
 
 
-. [[capacity-limit]]Opcionalmente, seleccione *Enable capacity limit*.
+. [[limite-de-capacidad]]Opcionalmente, seleccione *Habilitar límite de capacidad*, ingrese un valor y seleccione la unidad de capacidad.
 +
 El límite de capacidad es la capacidad máxima disponible para los objetos de este bloque. Este valor representa una cantidad lógica (tamaño de objeto), no una cantidad física (tamaño en disco).
 
 +
 Si no se establece ningún límite, la capacidad de este depósito es ilimitada. Consulte link:../tenant/understanding-tenant-manager-dashboard.html#bucket-capacity-usage["Límite de uso de capacidad"] si desea obtener más información.
+
+. [[object-count-limit]]Opcionalmente, seleccione *Habilitar límite de conteo de objetos*.
++
+El límite de conteo de objetos es la cantidad máxima de objetos que este depósito puede contener.  Este valor representa una cantidad lógica (cantidad de objetos).  Si no se establece ningún límite, el número de objetos es ilimitado.
 
 . Seleccione *Crear cucharón*.
 +
@@ -159,3 +171,5 @@ El cucharón se crea y se agrega a la tabla de la página Cuches.
 
 . Opcionalmente, seleccione *Ir a la página de detalles del depósito* para link:viewing-s3-bucket-details.html["ver detalles del período"]realizar una configuración adicional.
 
+
+También puedeslink:../tenant/manage-branch-buckets.html["crear depósitos de ramas"] según sea necesario.

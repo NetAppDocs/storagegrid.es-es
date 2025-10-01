@@ -24,7 +24,7 @@ Para cualquier política de clasificación de tráfico existente, puede ver mét
 Incluso si no se establecen límites para una política de clasificación del tráfico, se recopilan las métricas y los gráficos proporcionan información útil para comprender las tendencias del tráfico.
 
 .Pasos
-. Seleccione *CONFIGURACIÓN* > *Red* > *Clasificación de tráfico*.
+. Seleccione *Configuración* > *Red* > *Clasificación de tráfico*.
 +
 Aparece la página Políticas de clasificación de tráfico y las políticas existentes se muestran en la tabla.
 
@@ -54,9 +54,9 @@ NOTE: Cuando se completan las solicitudes, este gráfico sólo muestra el uso de
 ** Tasa de solicitud de lectura por tamaño de objeto: La tasa de SOLICITUDES DE OBTENCIÓN/CABECERA que coinciden con esta política. El posicionamiento en una celda individual muestra las tasas por segundo. Las tasas que se muestran en la vista flotante se truncan en números enteros y pueden informar de 0 cuando hay solicitudes que no sean cero en el bloque.
 
 
-. También puede acceder a los gráficos desde el menú *SUPPORT*.
+. Alternativamente, acceda a los gráficos desde el menú *Soporte*.
 +
-.. Seleccione *SUPPORT* > *Tools* > *Metrics*.
+.. Seleccione *Soporte* > *Herramientas* > *Métricas*.
 .. Selecciona *Política de clasificación de tráfico* en la sección *Grafana*.
 .. Seleccione la política en el menú en la parte superior izquierda de la página.
 .. Coloque el cursor sobre un gráfico para ver una ventana emergente que muestra la fecha y hora de la muestra, los tamaños de los objetos que se agregan al recuento y el número de solicitudes por segundo durante ese período de tiempo.

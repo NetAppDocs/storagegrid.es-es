@@ -170,7 +170,7 @@ Puerto
  a| 
 El puerto StorageGRID que desea usar para el equilibrio de carga. Este campo se establece por defecto en 10433 para el primer punto final que cree, pero puede introducir cualquier puerto externo no utilizado. Si introduce 80 o 443, el punto final se configura sólo en los nodos de Gateway, ya que estos puertos están reservados en los nodos de Admin.
 
-*Nota:* Los puertos utilizados por otros servicios de red no están permitidos. Consulte la link:../network/network-port-reference.html["Referencia de puerto de red"].
+*Nota:* No se permiten los puertos utilizados por otros servicios de red. Ver link:../network/internal-grid-node-communications.html#storagegrid-internal-ports["Puertos internos StorageGRID"] .
 
 
 
@@ -347,7 +347,7 @@ Para obtener detalles sobre esta tarea, consulte link:creating-tenant-account.ht
 +
 Los nombres de inquilinos no necesitan ser únicos. Cuando se crea la cuenta de arrendatario, recibe un ID de cuenta numérico único.
 
-. Defina el acceso raíz para la cuenta de arrendatario, en función de si el sistema StorageGRID utiliza link:using-identity-federation.html["federación de identidades"], link:configuring-sso.html["Inicio de sesión único (SSO)"]o ambos.
+. Defina el acceso raíz para la cuenta de inquilino, en función de si su sistema StorageGRID utilizalink:using-identity-federation.html["federación de identidades"] ,link:how-sso-works.html["Inicio de sesión único (SSO)"] , o ambos.
 +
 [cols="1a,2a"]
 |===

@@ -17,7 +17,7 @@ En determinadas circunstancias, es posible que uno o más grupos de nodos no pue
 El aislamiento de nodos se indica mediante:
 
 * Alertas, como *No se puede comunicar con el nodo* (*Alertas* > *Actual*)
-* Diagnóstico relacionado con la conectividad (*SOPORTE* > *Herramientas* > *Diagnóstico*)
+* Diagnósticos relacionados con la conectividad (*Soporte* > *Herramientas* > *Diagnósticos*)
 
 
 Entre las consecuencias de tener nodos aislados se incluyen las siguientes:

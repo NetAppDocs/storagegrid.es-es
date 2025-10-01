@@ -17,4 +17,4 @@ Estas instrucciones son para los administradores responsables de generar informe
 
 Para usar el archivo de registro de texto, debe tener acceso al recurso compartido de auditoría configurado en el nodo de administración.
 
-Para obtener información sobre la configuración de niveles de mensajes de auditoría y el uso de un servidor syslog externo, consulte link:../monitor/configure-audit-messages.html["Configurar los mensajes de auditoría y los destinos de registro"].
+Para obtener información sobre cómo configurar los niveles de mensajes de auditoría y utilizar un servidor syslog externo, consultelink:../monitor/configure-log-management.html["Configurar la gestión de registros y el servidor syslog externo"] .

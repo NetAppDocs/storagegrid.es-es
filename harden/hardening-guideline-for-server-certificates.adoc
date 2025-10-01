@@ -11,7 +11,7 @@ summary: Debe reemplazar los certificados predeterminados creados durante la ins
 
 
 [role="lead"]
-Debe reemplazar los certificados predeterminados creados durante la instalación y seleccionar la política de seguridad adecuada para las conexiones TLS y SSH.
+Debe controlar el acceso SSH, reemplazar los certificados TLS predeterminados y seleccionar la política de seguridad adecuada para las conexiones TLS y SSH.
 
 
 
@@ -48,6 +48,12 @@ Además, los clientes deben usar una comprobación estricta del nombre de host a
 
 Es posible seleccionar una política de seguridad para determinar qué protocolos y cifrados se usan para establecer conexiones TLS seguras con aplicaciones cliente y conexiones SSH seguras a servicios StorageGRID internos.
 
-La directiva de seguridad controla cómo TLS y SSH cifran los datos en movimiento. Como práctica recomendada, debe desactivar las opciones de cifrado que no son necesarias para la compatibilidad de aplicaciones. Utilice la directiva Modern predeterminada, a menos que el sistema deba cumplir con Common Criteria o que necesite utilizar otros cifrados.
+La política de seguridad controla cómo TLS y SSH cifran los datos en movimiento.  Como práctica recomendada, debe deshabilitar las opciones de cifrado que no sean necesarias para la compatibilidad de la aplicación.  Utilice la política moderna predeterminada, a menos que su sistema necesite cumplir con los Criterios comunes, con FIPS 140-2 o necesite usar otros cifrados.
 
 Consulte link:../admin/manage-tls-ssh-policy.html["Gestione la política TLS y SSH"] para obtener detalles e instrucciones.
+
+
+
+== Administrar el acceso SSH externo
+
+Para mejorar la seguridad del sistema, el acceso SSH externo está bloqueado de forma predeterminada.  Habilite el acceso SSH solo cuando necesite realizar tareas que requieran acceso SSH entrante, como resolución de problemas.  Referirse alink:../admin/manage-external-ssh-access.html["Administrar el acceso SSH externo"] para obtener detalles e instrucciones.

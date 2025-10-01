@@ -1,32 +1,8 @@
 ---
 permalink: ubuntu/how-grid-nodes-discover-primary-admin-node.html 
-sidebar: sidebar 
-keywords: How grid nodes discover primary Admin Node 
-summary: Los nodos de grid se comunican con el nodo de administrador principal para realizar tareas de configuración y gestión. Cada nodo de grid debe conocer la dirección IP del nodo de administrador principal en la red de grid. 
+redirect: storagegrid/swnodes/how-grid-nodes-discover-primary-admin-node.html 
 ---
-= La forma en que los nodos de grid detectan el nodo de administrador principal
+= 
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
 
-[role="lead"]
-Los nodos de grid se comunican con el nodo de administrador principal para realizar tareas de configuración y gestión. Cada nodo de grid debe conocer la dirección IP del nodo de administrador principal en la red de grid.
-
-Para garantizar que un nodo de grid pueda acceder al nodo de administrador principal, puede realizar cualquiera de las siguientes acciones al implementar el nodo:
-
-* Puede usar el parámetro ADMIN_IP para introducir la dirección IP del nodo administrador primario manualmente.
-* Puede omitir el parámetro ADMIN_IP para que el nodo del grid detecte el valor automáticamente. La detección automática es especialmente útil cuando la red de cuadrícula utiliza DHCP para asignar la dirección IP al nodo de administración principal.
-
-
-La detección automática del nodo de administración principal se realiza mediante un sistema de nombres de dominio de multidifusión (mDNS). Cuando se inicia por primera vez el nodo de administración principal, publica su dirección IP mediante mDNS. A continuación, otros nodos de la misma subred pueden consultar la dirección IP y adquirirla automáticamente. Sin embargo, debido a que el tráfico IP de multidifusión no se puede enrutar en subredes, los nodos de otras subredes no pueden adquirir directamente la dirección IP del nodo de administración principal.
-
-[NOTE]
-====
-Si utiliza la detección automática:
-
-* Debe incluir la configuración ADMIN_IP para al menos un nodo de grid en las subredes a las que no está conectado directamente el nodo de administración principal. A continuación, este nodo de cuadrícula publicará la dirección IP del nodo de administración principal para otros nodos de la subred a fin de detectar con mDNS.
-* Asegúrese de que la infraestructura de red admite la transferencia de tráfico IP multifundido dentro de una subred.
-
-
-====

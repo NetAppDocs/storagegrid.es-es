@@ -1,7 +1,7 @@
 ---
 permalink: network/linux-deployments.html 
 sidebar: sidebar 
-keywords: linux network, container engine, red hat enterprise linux rhel network, ubuntu network 
+keywords: linux network, container engine, red hat enterprise linux network, rhel network, ubuntu network 
 summary: Para obtener eficiencia, fiabilidad y seguridad, el sistema StorageGRID se ejecuta en Linux como una colección de motores de contenedor. No se requiere una configuración de red relacionada con el motor del contenedor en un sistema StorageGRID. 
 ---
 = Implementaciones de Linux
@@ -18,7 +18,7 @@ Utilice un dispositivo que no sea de vínculo, como un par VLAN o Ethernet virtu
 
 CAUTION: No utilice dispositivos de enlace o puente directamente como interfaz de red de contenedor. Hacerlo podría evitar el arranque de nodos debido a un problema de kernel con el uso de macvlan con dispositivos de enlace y puente en el espacio de nombres de contenedores.
 
-Consulte las instrucciones de instalación para link:../rhel/index.html["Red Hat Enterprise Linux"]las implementaciones de o.link:../ubuntu/index.html["Ubuntu o Debian"]
+Ver ellink:../swnodes/index.html["instrucciones de instalación"] .
 
 
 
@@ -41,12 +41,14 @@ NOTE: El host puede usar una interfaz física del host en sí y uno o más nodos
 * Abra los puertos requeridos en el host.
 * Si piensa utilizar interfaces VLAN en StorageGRID, el host debe tener una o varias interfaces troncales en las que se pueda acceder a las VLAN deseadas. Estas interfaces se pueden pasar al contenedor de nodos como eth0, eth2 o como interfaces adicionales. Para añadir enlaces troncales o interfaces de acceso, consulte lo siguiente:
 +
-** *RHEL (antes de instalar el nodo)*: link:../rhel/creating-node-configuration-files.html["Crear archivos de configuración del nodo"]
-** *Ubuntu o Debian (antes de instalar el nodo)*: link:../ubuntu/creating-node-configuration-files.html["Crear archivos de configuración del nodo"]
-** *RHEL, Ubuntu o Debian (después de instalar el nodo)*: link:../maintain/linux-adding-trunk-or-access-interfaces-to-node.html["Linux: Añada tronco o interfaces de acceso a un nodo"]
+** *Linux (antes de instalar el nodo)*:link:../swnodes/creating-node-configuration-files.html["Crear archivos de configuración del nodo"]
+** *Linux (después de instalar el nodo)*:link:../maintain/linux-adding-trunk-or-access-interfaces-to-node.html["Agregar interfaces troncales o de acceso a un nodo"]
 
 
 
+
+
+NOTE: "Linux" se refiere a una implementación de RHEL, Ubuntu o Debian.  Para obtener una lista de las versiones compatibles, consulte la https://imt.netapp.com/matrix/#welcome["Herramienta de matriz de interoperabilidad de NetApp (IMT)"^] .
 
 
 
@@ -132,8 +134,4 @@ Por ejemplo, para ejecutar un nodo de administrador, un nodo de puerta de enlace
 
 En este escenario, debe proporcionar un mínimo de 11 + 20 + 10 = 41 Gbps de ancho de banda de red, Que podrían ser satisfechas por dos interfaces de 40 Gbps o cinco interfaces de 10 Gbps, potencialmente agregadas en enlaces y luego compartidas por las tres o más VLAN que llevan las subredes Grid, Admin y Client locales al centro de datos físico que contiene el host.
 
-Para obtener algunas maneras recomendadas de configurar los recursos físicos y de red en los hosts del clúster de StorageGRID con el fin de prepararse para la implementación de StorageGRID, consulte lo siguiente:
-
-* link:../rhel/configuring-host-network.html["Configurar la red host (Red Hat Enterprise Linux)"]
-* link:../ubuntu/configuring-host-network.html["Configurar la red host (Ubuntu o Debian)"]
-
+Para conocer algunas formas recomendadas de configurar recursos físicos y de red en los hosts de su clúster StorageGRID para prepararse para su implementación de StorageGRID , consultelink:../swnodes/configuring-host-network.html["Configure la red del host"] .

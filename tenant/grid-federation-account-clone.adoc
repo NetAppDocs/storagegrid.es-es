@@ -44,7 +44,7 @@ Al crear grupos y usuarios, comience siempre desde la cuadrícula de origen del 
 
 
 [role="quick-margin-list"]
-* Si no está utilizando la federación de identidades ylink:creating-groups-for-s3-tenant.html["crear nuevos grupos locales"], a continuaciónlink:managing-local-users.html["crear usuarios locales"], .
+* Si no está utilizando la federación de identidad,link:creating-groups-for-s3-tenant.html["crear nuevos grupos locales"] y luegolink:manage-users.html["crear usuarios locales"] .
 
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Cuatro"] Crear claves de acceso S3
@@ -78,9 +78,9 @@ NOTE: Los usuarios que seleccione al crear un grupo local en la cuadrícula de o
 
 === Los usuarios locales creados en la cuadrícula de origen se clonan
 
-Cuando se crea un usuario local nuevo en el grid de origen, StorageGRID clona automáticamente ese usuario en el grid de destino. Tanto el usuario original como su clon tienen la misma configuración de nombre completo, nombre de usuario y *Denegar acceso*. Ambos usuarios también pertenecen a los mismos grupos. Para obtener instrucciones, consulte link:managing-local-users.html["Gestionar usuarios locales"].
+Cuando crea un nuevo usuario local en la red de origen, StorageGRID clona automáticamente ese usuario en la red de destino.  Tanto el usuario original como su clon tienen el mismo nombre completo, nombre de usuario y configuración *Denegar acceso*.  Ambos usuarios también pertenecen a los mismos grupos. Para obtener instrucciones, consultelink:manage-users.html["Gestionar usuarios"] .
 
-Por motivos de seguridad, las contraseñas de usuario local no se clonan en el grid de destino. Si un usuario local necesita acceder a Tenant Manager en la cuadrícula de destino, el usuario raíz de la cuenta de inquilino debe agregar una contraseña para ese usuario en la cuadrícula de destino. Para obtener instrucciones, consulte link:managing-local-users.html["Gestionar usuarios locales"].
+Por razones de seguridad, las contraseñas de los usuarios locales no se clonan en la red de destino.  Si un usuario local necesita acceder a Tenant Manager en la red de destino, el usuario raíz de la cuenta de inquilino debe agregar una contraseña para ese usuario en la red de destino. Para obtener instrucciones, consultelink:manage-users.html["Gestionar usuarios"] .
 
 image::../media/grid-federation-local-user-clone.png[imagen que muestra que los usuarios locales se han clonado de la cuadrícula de origen a la de destino]
 

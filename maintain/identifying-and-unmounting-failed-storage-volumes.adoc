@@ -30,28 +30,22 @@ NOTE: Repare el hardware y conecte correctamente los discos antes de ejecutar `r
 
 CAUTION: Identifique cuidadosamente los volúmenes de almacenamiento fallidos. Utilizará esta información para verificar qué volúmenes se deben reformatear. Una vez reformateado un volumen, no se pueden recuperar los datos del volumen.
 
-Para recuperar correctamente los volúmenes de almacenamiento con fallos, es necesario conocer los nombres de los dispositivos de los volúmenes de almacenamiento con errores y sus ID de volumen.
+Para recuperar volúmenes de almacenamiento fallidos, debe conocer tanto los nombres de los dispositivos de los volúmenes de almacenamiento fallidos como sus ID de volumen.
 
-En la instalación, a cada dispositivo de almacenamiento se le asigna un identificador único universal (UUID) del sistema de archivos y se monta en un directorio de configuración en el nodo de almacenamiento utilizando ese UUID del sistema de archivos asignado. El UUID del sistema de archivos y el directorio rangedb se enumeran en el `/etc/fstab` archivo. El nombre del dispositivo, el directorio rangedb y el tamaño del volumen montado se muestran en el Administrador de grid.
-
-En el siguiente ejemplo, el dispositivo `/dev/sdc` tiene un tamaño de volumen de 4 TB, se monta en `/var/local/rangedb/0`, utilizando el nombre del dispositivo `/dev/disk/by-uuid/822b0547-3b2b-472e-ad5e-e1cf1809faba` en el /`etc/fstab` archivo:
-
-image::../media/mounting_storage_devices.gif[Ejemplo de tamaño de volumen]
+Durante la instalación, a cada dispositivo de almacenamiento se le asigna un identificador único universal (UUID) de sistema de archivos y se monta en un directorio rangedb en el nodo de almacenamiento utilizando ese UUID de sistema de archivos asignado.  El UUID del sistema de archivos y el directorio rangedb se enumeran en el `/etc/fstab` archivo.  El punto de montaje, el nombre del dispositivo y el tamaño del volumen se muestran en el Administrador de cuadrícula.
 
 .Pasos
 . Complete los siguientes pasos para registrar los volúmenes de almacenamiento que han fallado y sus nombres de dispositivo:
 +
-.. Seleccione *SUPPORT* > *Tools* > *Topología de cuadrícula*.
-.. Selecciona *SITE* > *Nodo de almacenamiento fallido* > *LDR* > *Almacenamiento* > *Descripción general* > *Principal* y busca almacenes de objetos con alarmas.
+.. Seleccione *Nodos* > *_sitio_* > *_Nodo de almacenamiento fallido_* > *Almacenamiento*.
+.. Desplácese hacia abajo para ubicar la tabla Volúmenes y la tabla Almacenes de objetos y registre la siguiente información para cada volumen con un estado Desconocido o Fuera de línea.
 +
-image::../media/ldr_storage_object_stores.gif[Sección de almacenes de objetos]
+*** Desde la tabla Volúmenes, registre el punto de montaje, el dispositivo y el tamaño.
+*** Desde la tabla de almacenes de objetos, registre el `object_store_ID` .
++
+El `object_store_ID` es el ID del volumen de almacenamiento con errores. Por ejemplo, especifique `0` en el comando de un almacén de objetos con ID 0000.
 
-.. Seleccione *SITE* > *Nodo de almacenamiento fallido* > *SSM* > *Recursos* > *Descripción general* > *Principal*. Determine el punto de montaje y el tamaño del volumen de cada volumen de almacenamiento con error identificado en el paso anterior.
-+
-Los almacenes de objetos están numerados en notación hexadecimal. Por ejemplo, 0000 es el primer volumen y 000F es el decimosexto volumen. En el ejemplo, el almacén de objetos con un ID de 0000 se corresponde con `/var/local/rangedb/0` el nombre de dispositivo sdc y un tamaño de 107 GB.
 
-+
-image::../media/ssm_storage_volumes.gif[ejemplo que muestra almacenes de objetos y puntos de montaje]
 
 
 
@@ -61,17 +55,14 @@ image::../media/ssm_storage_volumes.gif[ejemplo que muestra almacenes de objetos
 .. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
 .. Introduzca el siguiente comando para cambiar a raíz: `su -`
 .. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
-
-
 +
 Al iniciar sesión como root, la petición de datos cambia de `$` a `#`.
+
+
 
 . Ejecute el siguiente script para desmontar un volumen de almacenamiento con errores:
 +
 `sn-unmount-volume object_store_ID`
-
-+
-El `object_store_ID` es el ID del volumen de almacenamiento con errores. Por ejemplo, especifique `0` en el comando de un almacén de objetos con ID 0000.
 
 . Si se le solicita, pulse *y* para detener el servicio Cassandra en función del volumen de almacenamiento 0.
 +

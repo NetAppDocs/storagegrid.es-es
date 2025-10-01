@@ -1,42 +1,8 @@
 ---
 permalink: rhel/starting-storagegrid-host-service.html 
-sidebar: sidebar 
-keywords: how to start host service 
-summary: Para iniciar los nodos de StorageGRID y asegurarse de que reinicien después del reinicio de un host, debe habilitar e iniciar el servicio de host StorageGRID. 
+redirect: storagegrid/swnodes/starting-storagegrid-host-service.html 
 ---
-= Inicie el servicio de host StorageGRID
+= 
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
-
-[role="lead"]
-Para iniciar los nodos de StorageGRID y asegurarse de que reinicien después del reinicio de un host, debe habilitar e iniciar el servicio de host StorageGRID.
-
-.Pasos
-. Ejecute los siguientes comandos en cada host:
-+
-[listing]
-----
-sudo systemctl enable storagegrid
-sudo systemctl start storagegrid
-----
-. Ejecute el siguiente comando para asegurarse de que se sigue la implementación:
-+
-[listing]
-----
-sudo storagegrid node status node-name
-----
-. Si alguno de los nodos devuelve el estado «Sin ejecución» o «Detenido», ejecute el siguiente comando:
-+
-[listing]
-----
-sudo storagegrid node start node-name
-----
-. Si anteriormente habilitó e inició el servicio de host de StorageGRID (o si no está seguro de si el servicio se ha habilitado e iniciado), también debe ejecutar el siguiente comando:
-+
-[listing]
-----
-sudo systemctl reload-or-restart storagegrid
-----
 

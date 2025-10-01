@@ -25,7 +25,7 @@ TIP: Si un inquilino tiene el permiso *Usar conexión de federación de grid*, p
 NOTE: La aplicación de la configuración de inquilino a través del grid puede tardar 15 minutos o más en función de la conectividad de red, el estado del nodo y las operaciones de Cassandra.
 
 .Pasos
-. Seleccione *ARRENDATARIOS*.
+. Seleccione *Inquilinos*.
 +
 image::../media/tenant_accounts_page.png[Página Cuentas de inquilino]
 

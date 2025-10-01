@@ -34,8 +34,8 @@ entries:
       entries:
       - title: Active Directory
         url: "/admin/use-api-if-sso-is-enabled-adfs.html"
-      - title: Azure
-        url: "/admin/use-api-if-sso-is-enabled-azure.html"
+      - title: Identificación de entrada
+        url: "/admin/use-api-if-sso-is-enabled-entra-id.html"
       - title: PingFederate
         url: "/admin/use-api-if-sso-is-enabled-ping.html"
     - title: Desactivar las funcionalidades con la API
@@ -61,24 +61,24 @@ entries:
     url: "/admin/managing-users.html"
   - title: Utilizar inicio de sesión único (SSO)
     entries:
-    - title: Configurar el inicio de sesión único
-      url: "/admin/configuring-sso.html"
-    - title: Requisitos para el inicio de sesión único
+    - title: Cómo funciona el SSO
+      url: "/admin/how-sso-works.html"
+    - title: Requisitos para SSO
       url: "/admin/requirements-for-sso.html"
     - title: Confirmar que los usuarios federados pueden iniciar sesión
       url: "/admin/confirming-federated-users-can-sign-in.html"
-    - title: Utilizar el modo de recinto de seguridad
-      url: "/admin/using-sandbox-mode.html"
+    - title: Configurar SSO
+      url: "/admin/configure-sso.html"
     - title: Crear confianzas de parte de confianza en AD FS
       url: "/admin/creating-relying-party-trusts-in-ad-fs.html"
-    - title: Cree aplicaciones empresariales en Azure
-      url: "/admin/creating-enterprise-application-azure.html"
+    - title: Crear aplicaciones empresariales en Entra ID
+      url: "/admin/creating-enterprise-application-entra-id.html"
     - title: Crear conexiones SP en PingFederate
       url: "/admin/creating-sp-connection-ping.html"
-    - title: Desactive el inicio de sesión único
+    - title: Deshabilitar SSO
       url: "/admin/disabling-single-sign-on.html"
-    - title: Desactive y vuelva a habilitar temporalmente el inicio de sesión único
-        para un nodo de administración
+    - title: Deshabilitar y volver a habilitar temporalmente el SSO para un nodo de
+        administración
       url: "/admin/temporarily-disabling-and-reenabling-sso-for-admin-node.html"
 - title: Usar federación de grid
   entries:
@@ -133,6 +133,8 @@ entries:
       url: "/admin/changing-network-options-object-encryption.html"
     - title: Cambie la configuración de seguridad de la interfaz
       url: "/admin/changing-browser-session-timeout-interface.html"
+    - title: Administrar el acceso SSH externo
+      url: "/admin/manage-external-ssh-access.html"
   - title: Configuración de servidores de gestión de claves
     entries:
     - title: "¿Qué es el servidor de gestión de claves"
@@ -228,14 +230,16 @@ entries:
 - title: Administrar redes y conexiones
   entries:
   - title: Configure los ajustes de red
-    url: "/admin/configuring-network-settings.html"
     pdf-filename: Administrar redes y conexiones
+    url: "/admin/configuring-network-settings.html"
   - title: Directrices para redes StorageGRID
     url: "/admin/guidelines-for-storagegrid-networks.html"
   - title: Ver direcciones IP
     url: "/admin/viewing-ip-addresses.html"
   - title: Configure las interfaces VLAN
     url: "/admin/configure-vlan-interfaces.html"
+  - title: Habilitar CORS para una interfaz de administración
+    url: "/admin/enable-cross-origin-resource-sharing-for-management-interface.html"
   - title: Administrar directivas de clasificación de tráfico
     entries:
     - title: "¿Qué es la política de clasificación de tráfico"
@@ -270,10 +274,8 @@ entries:
     url: "/admin/sending-eseries-autosupport-messages-through-storagegrid.html"
 - title: Gestione nodos de almacenamiento
   entries:
-  - title: Gestión del nodo de almacenamiento
-    pdf-filename: Gestione nodos de almacenamiento
-    url: "/admin/managing-storage-nodes.html"
   - title: Utilice las opciones de almacenamiento
+    pdf-filename: Gestione nodos de almacenamiento
     entries:
     - title: Qué es la segmentación de objetos
       url: "/admin/what-object-segmentation-is.html"
@@ -293,5 +295,3 @@ entries:
     url: "/admin/using-multiple-admin-nodes.html"
   - title: Identifique el nodo de administración principal
     url: "/admin/identifying-primary-admin-node.html"
-  - title: Ver el estado de notificación y las colas
-    url: "/admin/viewing-notification-status-and-queues.html"

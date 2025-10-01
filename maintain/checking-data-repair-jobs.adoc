@@ -11,10 +11,12 @@ summary: Antes de retirar un nodo de cuadrícula, debe confirmar que no hay ning
 
 
 [role="lead"]
-Antes de retirar un nodo de cuadrícula, debe confirmar que no hay ningún trabajo de reparación de datos activo. Si alguna reparación ha fallado, debe reiniciarla y dejar que se complete antes de realizar el procedimiento de retirada.
+Antes de desmantelar o expandir un nodo de red, debe confirmar que no haya trabajos de reparación de datos activos.  Si alguna reparación ha fallado, debe reiniciarla y dejar que se complete antes de realizar el procedimiento de desmantelamiento.
+
+Referirse alink:../expand/index.html["Tipos de expansión"] para obtener detalles sobre cómo expandir un nodo de la cuadrícula.
 
 .Acerca de esta tarea
-Si necesita decomisionar un nodo de almacenamiento desconectado, también realizará estos pasos una vez que finalice el procedimiento de retirada para garantizar que el trabajo de reparación de datos se haya completado correctamente. Debe asegurarse de que todos los fragmentos codificados de borrado que estaban en el nodo eliminado se hayan restaurado correctamente.
+Si necesita desmantelar un nodo de almacenamiento desconectado, complete estos pasos una vez finalizado el procedimiento de desmantelamiento para asegurarse de que el trabajo de reparación de datos se haya completado.  Debe asegurarse de que se hayan restaurado todos los fragmentos codificados por borrado que estaban en el nodo eliminado.
 
 Estos pasos solo se aplican a sistemas que tienen objetos codificados de borrado.
 

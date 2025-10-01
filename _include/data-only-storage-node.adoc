@@ -1,0 +1,7 @@
+= 
+:allow-uri-read: 
+
+
+El uso exclusivo de un nodo de almacenamiento para los datos puede ser lógico si los nodos de almacenamiento tienen diferentes características de rendimiento. Por ejemplo, para aumentar potencialmente el rendimiento, podría tener nodos de almacenamiento en disco giratorio de alta capacidad y solo de datos acompañados por nodos de almacenamiento de alto rendimiento solo de metadatos.
+
+Además, puede obtener más capacidad de metadatos eliminando nodos con poca RAM de Cassandra, lo que aumenta el límite de capacidad de metadatos por nodo. Consulte link:../admin/managing-object-metadata-storage.html["Gestione el almacenamiento de metadatos de objetos"] .

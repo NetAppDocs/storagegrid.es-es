@@ -40,7 +40,7 @@ NOTE: Si necesita comprimir objetos y su aplicación cliente debe utilizar lectu
 
 
 .Pasos
-. Selecciona *CONFIGURACIÓN* > *Sistema* > *Ajustes de almacenamiento* > *Compresión de objetos*.
+. Seleccione *Configuración* > *Sistema* > *Configuración de almacenamiento* > *Compresión de objetos*.
 . Seleccione la casilla de verificación *Comprimir objetos almacenados*.
 . Seleccione *Guardar*.
 

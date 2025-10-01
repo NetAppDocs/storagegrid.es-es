@@ -48,7 +48,7 @@ CAUTION: Cuando los metadatos del objeto utilizan el 90% o más del espacio de m
 CAUTION: Si el tamaño del volumen 0 es menor que la opción de almacenamiento de espacio reservado de metadatos (por ejemplo, en un entorno que no es de producción), el cálculo de la alerta *almacenamiento de metadatos bajo* podría ser inexacto.
 
 .Pasos
-. Seleccione *ALERTS* > *Current*.
+. Seleccione *Alertas* > *Actual*.
 . En la tabla de alertas, expanda el grupo de alertas *almacenamiento de metadatos bajo*, si es necesario, y seleccione la alerta específica que desea ver.
 . Revise los detalles en el cuadro de diálogo de alertas.
 . Si se ha activado una alerta de *almacenamiento de metadatos bajo* importante o crítica, realice una ampliación para añadir nodos de almacenamiento inmediatamente.

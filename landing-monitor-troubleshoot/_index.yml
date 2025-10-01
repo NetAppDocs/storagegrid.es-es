@@ -31,8 +31,8 @@ indexpage:
       url: "../monitor/using-snmp-monitoring.html"
   - title: Utilice los mensajes de auditoría y otros registros
     links:
-    - title: Configurar mensajes de auditoría
-      url: "../monitor/configure-audit-messages.html"
+    - title: Configurar la gestión de registros
+      url: "../monitor/configure-log-management.html"
     - title: Usar servidor de syslog externo
       url: "../monitor/considerations-for-external-syslog-server.html"
     - title: Revisar los registros de auditoría
@@ -43,6 +43,8 @@ indexpage:
     links:
     - title: Revisar las métricas de soporte
       url: "../monitor/reviewing-support-metrics.html"
+    - title: Cambiar la priorización de E/S
+      url: "../monitor/manage-io-prioritization.html"
     - title: Ejecutar diagnóstico
       url: "../monitor/running-diagnostics.html"
     - title: Solucionar problemas comunes

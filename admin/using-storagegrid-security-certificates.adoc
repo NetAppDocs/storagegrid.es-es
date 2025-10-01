@@ -19,13 +19,15 @@ StorageGRID utiliza dos tipos de certificados de seguridad:
 * *Los certificados de cliente* autentican una identidad de cliente o usuario al servidor, proporcionando una autenticación más segura que las contraseñas solamente. Los certificados de cliente no cifran datos.
 
 
-Cuando un cliente se conecta al servidor mediante HTTPS, el servidor responde con el certificado de servidor, que contiene una clave pública. El cliente verifica este certificado comparando la firma del servidor con la firma de su copia del certificado. Si las firmas coinciden, el cliente inicia una sesión con el servidor utilizando la misma clave pública.
+Cuando un cliente se conecta al servidor mediante HTTPS, el servidor responde con el certificado del servidor, que contiene una clave pública.  El cliente compara la firma del servidor con la firma de su copia del certificado.  Si las firmas coinciden, el cliente inicia una sesión con el servidor utilizando la misma clave pública.
 
 StorageGRID funciona como servidor para algunas conexiones (como el extremo de equilibrio de carga) o como cliente para otras conexiones (como el servicio de replicación de CloudMirror).
 
 *Certificado de CA de cuadrícula predeterminado*
 
-StorageGRID incluye una entidad de certificación (CA) integrada que genera un certificado de CA de grid interno durante la instalación del sistema. El certificado de CA de cuadrícula se utiliza, de forma predeterminada, para proteger el tráfico interno de StorageGRID. Una entidad de certificación externa (CA) puede emitir certificados personalizados que cumplan plenamente con las políticas de seguridad de la información de su empresa. Aunque se puede utilizar el certificado de CA de cuadrícula para un entorno que no sea de producción, la práctica recomendada para un entorno de producción es utilizar certificados personalizados firmados por una entidad de certificación externa. También se admiten conexiones no seguras sin certificado, pero no se recomienda.
+StorageGRID tiene una autoridad de certificación (CA) incorporada que genera un certificado CA de Grid interno durante la instalación del sistema.  El certificado CA de Grid se utiliza, de forma predeterminada, para proteger el tráfico interno de StorageGRID .  Una autoridad de certificación (CA) externa puede emitir certificados personalizados que cumplan totalmente con las políticas de seguridad de la información de su organización.
+
+Utilice el certificado CA de Grid para entornos que no sean de producción.  Para la producción, utilice certificados personalizados firmados por una autoridad de certificación externa.  Se admiten conexiones no seguras sin certificado, pero no se recomiendan.
 
 * Los certificados de CA personalizados no eliminan los certificados internos; sin embargo, los certificados personalizados deben ser los especificados para verificar las conexiones del servidor.
 * Todos los certificados personalizados deben cumplir con el link:../harden/hardening-guideline-for-server-certificates.html["directrices de fortalecimiento del sistema para los certificados de servidor"].
@@ -44,7 +46,7 @@ Las variantes de los tipos de certificado de servidor y cliente se implementan d
 Puede acceder a información sobre todos los certificados de StorageGRID en una única ubicación, junto con enlaces al flujo de trabajo de configuración de cada certificado.
 
 .Pasos
-. En Grid Manager, selecciona *CONFIGURACIÓN* > *Seguridad* > *Certificados*.
+. Desde Grid Manager, seleccione *Configuración* > *Seguridad* > *Certificados*.
 +
 image::security_certificates.png[Certificados]
 
@@ -178,7 +180,7 @@ Podrá:
 
 *** link:../ilm/creating-cloud-storage-pool.html["Especifique un certificado de Cloud Storage Pool para S3, C2S S3 o Azure"]
 *** link:../monitor/email-alert-notifications.html["Especifique un certificado para notificaciones de alertas por correo electrónico"]
-*** link:../monitor/configure-audit-messages.html#use-external-syslog-server["Use un certificado para un servidor de syslog externo"]
+*** link:../monitor/configure-log-management.html#use-external-syslog-server["Use un certificado para un servidor de syslog externo"]
 *** link:grid-federation-manage-connection.html#rotate-connection-certificates["Rotar certificados de conexión de federación de cuadrícula"]
 *** link:using-identity-federation.html["Ver y editar un certificado de federación de identidades"]
 *** link:kms-adding.html["Cargar certificados de servidor de gestión de claves (KMS) y de cliente"]
@@ -215,7 +217,7 @@ Este certificado también autentica las conexiones API de gestión de grid y API
 
 Puede usar el certificado predeterminado creado durante la instalación o cargar un certificado personalizado.
  a| 
-*CONFIGURACIÓN* > *Seguridad* > *certificados*, seleccione la ficha *Global* y, a continuación, seleccione *Certificado de interfaz de administración*
+*Configuración* > *Seguridad* > *Certificados*, seleccione la pestaña *Global* y luego seleccione *Certificado de interfaz de administración*
  a| 
 link:configuring-custom-server-certificate-for-grid-manager-tenant-manager.html["Configure los certificados de interfaz de gestión"]
 
@@ -234,7 +236,7 @@ Servidor
  a| 
 Autentica las conexiones de clientes S3 seguras a un nodo de almacenamiento y a los extremos del balanceador de carga (opcional).
  a| 
-*CONFIGURACIÓN* > *Seguridad* > *Certificados*, selecciona la pestaña *Global* y luego selecciona *Certificado API S3*
+*Configuración* > *Seguridad* > *Certificados*, seleccione la pestaña *Global* y luego seleccione *Certificado API S3*
  a| 
 link:configuring-custom-server-certificate-for-storage-node.html["Configure los certificados de API S3"]
 
@@ -263,7 +265,7 @@ Instalado en cada cliente, lo que permite que StorageGRID autentique el acceso d
 * Permite una supervisión segura de StorageGRID mediante herramientas externas.
 
  a| 
-*CONFIGURACIÓN* > *Seguridad* > *certificados* y, a continuación, seleccione la ficha *Cliente*
+*Configuración* > *Seguridad* > *Certificados* y luego seleccione la pestaña *Cliente*
  a| 
 link:configuring-administrator-client-certificates.html["Configurar certificados de cliente"]
 
@@ -286,7 +288,7 @@ También puede usar una versión personalizada del certificado global <<Certific
 
 *Nota:* el certificado utilizado para la autenticación del equilibrador de carga es el certificado más utilizado durante el funcionamiento normal de StorageGRID.
  a| 
-*CONFIGURACIÓN* > *Red* > *terminales de equilibrador de carga*
+*Configuración* > *Red* > *Puntos finales del balanceador de carga*
  a| 
 * link:configuring-load-balancer-endpoints.html["Configurar puntos finales del equilibrador de carga"]
 * link:../fabricpool/creating-load-balancer-endpoint-for-fabricpool.html["Cree un extremo de equilibrador de carga para FabricPool"]
@@ -330,7 +332,7 @@ Autentica la conexión entre un servidor de correo electrónico SMTP y una Stora
 * Especifique un certificado de cliente solo si el servidor de correo SMTP requiere certificados de cliente para la autenticación.
 
  a| 
-*ALERTAS* > *Configuración de correo electrónico*
+*Alertas* > *Configuración de correo electrónico*
  a| 
 link:../monitor/email-alert-notifications.html["Configure notificaciones por correo electrónico para las alertas"]
 
@@ -351,9 +353,9 @@ Autentica la conexión TLS o RELP/TLS entre un servidor syslog externo que regis
 
 *Nota:* no se requiere un certificado de servidor syslog externo para conexiones TCP, RELP/TCP y UDP a un servidor syslog externo.
  a| 
-*CONFIGURACIÓN* > *Monitoreo* > *Servidor de auditoría y syslog*
+*Configuración* > *Monitoreo* > *Servidor de auditoría y syslog*
  a| 
-link:../monitor/configure-audit-messages.html#use-external-syslog-server["Use un servidor de syslog externo"]
+link:../monitor/configure-log-management.html#use-external-syslog-server["Use un servidor de syslog externo"]
 
 |===
 
@@ -370,7 +372,7 @@ Servidor y cliente
  a| 
 Autenticar y cifrar la información enviada entre el sistema de StorageGRID actual y otro grid en una conexión de federación de grid.
  a| 
-*CONFIGURACIÓN* > *Sistema* > *Grid federation*
+*Configuración* > *Sistema* > *Federación de red*
  a| 
 * link:grid-federation-create-connection.html["Crear conexiones de federación de grid"]
 * link:grid-federation-manage-connection.html#rotate_grid_fed_certificates["Rotar certificados de conexión"]
@@ -391,7 +393,7 @@ Servidor
  a| 
 Autentica la conexión entre StorageGRID y un proveedor de identidades externo, como Active Directory, OpenLDAP u Oracle Directory Server. Se utiliza para la federación de identidades, lo que permite que los grupos de administración y los usuarios sean gestionados por un sistema externo.
  a| 
-*CONFIGURACIÓN* > *Control de acceso* > *federación de identidades*
+*Configuración* > *Control de acceso* > *Federación de identidades*
  a| 
 link:using-identity-federation.html["Usar la federación de identidades"]
 
@@ -410,7 +412,7 @@ Servidor y cliente
  a| 
 Autentica la conexión entre StorageGRID y un servidor de gestión de claves (KMS) externo, que proporciona claves de cifrado a los nodos de los dispositivos StorageGRID.
  a| 
-*CONFIGURACIÓN* > *Seguridad* > *servidor de administración de claves*
+*Configuración* > *Seguridad* > *Servidor de administración de claves*
  a| 
 link:kms-adding.html["Añadir servidor de gestión de claves (KMS)"]
 
@@ -450,9 +452,9 @@ Servidor
  a| 
 Autentica la conexión entre los servicios de federación de identidades, como Active Directory Federation Services (AD FS), y StorageGRID, que se utilizan para solicitudes de inicio de sesión único (SSO).
  a| 
-*CONFIGURACIÓN* > *Control de acceso* > *Single Sign-On*
+*Configuración* > *Control de acceso* > *Inicio de sesión único*
  a| 
-link:configuring-sso.html["Configurar el inicio de sesión único"]
+link:how-sso-works.html["Configurar el inicio de sesión único"]
 
 |===
 
@@ -469,7 +471,7 @@ En este ejemplo, StorageGRID actúa como servidor.
 . Debe configurar una conexión de cliente S3 al extremo del equilibrador de carga y cargar el mismo certificado al cliente.
 . Cuando el cliente desea guardar o recuperar datos, se conecta al extremo de equilibrio de carga mediante HTTPS.
 . StorageGRID responde con el certificado de servidor, que contiene una clave pública y una firma basada en la clave privada.
-. El cliente verifica este certificado comparando la firma del servidor con la firma de su copia del certificado. Si las firmas coinciden, el cliente inicia una sesión utilizando la misma clave pública.
+. El cliente compara la firma del servidor con la firma de su copia del certificado.  Si las firmas coinciden, el cliente inicia una sesión utilizando la misma clave pública.
 . El cliente envía datos de objeto a StorageGRID.
 
 

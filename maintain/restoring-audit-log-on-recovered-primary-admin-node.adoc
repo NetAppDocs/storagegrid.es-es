@@ -33,7 +33,7 @@ De manera predeterminada, se envía la información de auditoría al registro de
 * Ha especificado explícitamente que los mensajes de auditoría se deben guardar sólo en los nodos locales que los han generado.
 
 
-Consulte link:../monitor/configure-audit-messages.html["Configurar los mensajes de auditoría y los destinos de registro"] para obtener más información.
+Verlink:../monitor/configure-log-management.html["Configurar la gestión de registros y el servidor syslog externo"] Para más detalles.
 
 ====
 .Pasos
@@ -48,12 +48,12 @@ Consulte link:../monitor/configure-audit-messages.html["Configurar los mensajes 
 +
 Después de iniciar sesión como root, la petición de datos cambia de `$` a `#`.
 
-. Compruebe qué archivos de auditoría se han conservado: `cd /var/local/log`
+. Compruebe qué archivos de auditoría se han conservado: `cd /var/local/audit/export`
 . Copie los archivos log de auditoría conservados en el nodo de administración recuperado: `scp admin@_grid_node_IP_:/var/local/tmp/saved-audit-logs/YYYY* .`
 +
 Cuando se lo pida, introduzca la contraseña de administrador.
 
 . Por motivos de seguridad, elimine los registros de auditoría del nodo de grid con errores después de verificar que se han copiado correctamente al nodo de administrador recuperado.
-. Actualice la configuración de usuario y grupo de los archivos de registro de auditoría en el nodo de administración recuperado: `chown ams-user: bycast *`
+. Actualice la configuración de usuario y grupo de los archivos de registro de auditoría en el nodo de administración recuperado: `chown ams-user:bycast *`
 . Cerrar sesión como raíz: `exit`
 

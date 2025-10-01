@@ -40,6 +40,7 @@ Por ejemplo, no utilice los siguientes rangos de subred para la red de cuadrícu
 
 ====
 .Pasos
+. El acceso SSH externo está bloqueado de forma predeterminada.  Si es necesario,link:../admin/manage-external-ssh-access.html["permitir el acceso temporalmente"] .
 . Inicie sesión en el nodo de administración principal:
 +
 .. Introduzca el siguiente comando: `ssh admin@_primary_Admin_Node_IP_`
@@ -102,7 +103,7 @@ image::../media/change_ip_tool_aesl_sample_input.gif[ejemplo de la herramienta d
 . Cuando esté listo, introduzca *q* para volver a la pantalla del menú principal. Los cambios se mantienen hasta que se borran o se aplican.
 +
 
-NOTE: Si seleccionó cualquiera de los modos de selección de nodos “Todos” en el paso 2, presione *Intro* (sin *q*) para llegar al siguiente nodo de la lista.
+NOTE: Si seleccionó cualquiera de los modos de selección de nodos "todos" en el paso 3, presione *Enter* (sin *q*) para pasar al siguiente nodo de la lista.
 
 . Elija una de las siguientes opciones:
 +
@@ -153,8 +154,9 @@ Updating grid network configuration on Name
 
 . Descargue un nuevo paquete de recuperación desde Grid Manager.
 +
-.. Seleccione *MANTENIMIENTO* > *sistema* > *paquete de recuperación*.
+.. Seleccione *Mantenimiento* > *Sistema* > *Paquete de recuperación*.
 .. Introduzca la clave de acceso de aprovisionamiento.
 
 
+. Si ha permitido el acceso SSH externo,link:../admin/manage-external-ssh-access.html["bloquear el acceso"] cuando haya terminado de agregar o cambiar las listas de subredes.
 

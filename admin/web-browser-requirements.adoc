@@ -21,24 +21,24 @@ Debe utilizar un navegador web compatible.
  a| 
 Google Chrome
  a| 
-119
+138
 
 
 
  a| 
 Microsoft Edge
  a| 
-119
+138
 
 
 
  a| 
 Mozilla Firefox
  a| 
-119
+140
 
 |===
-Debe establecer la ventana del navegador en un ancho recomendado.
+Establezca la ventana del navegador en un ancho recomendado.
 
 [cols="3a,1a"]
 |===

@@ -48,7 +48,7 @@ SPUT S3 PUT object bucket1/part3.txt tenant:92484777680322627870  cbid:5373D7383
 `audit-explain audit.log 2019-08-12.txt.gz 2019-08-13.txt.gz`
 
 +
-`audit-explain /var/local/log/*`
+`audit-explain /var/local/audit/export/*`
 
 * Acepte la entrada de una tubería, lo que le permite filtrar y preprocesar la entrada mediante el `grep` comando u otros medios. Por ejemplo:
 +
@@ -84,9 +84,9 @@ Al iniciar sesión como root, la petición de datos cambia de `$` a `#`.
 
 
 
-. Introduzca el siguiente comando, donde `/var/local/log/audit.log` representa el nombre y la ubicación del archivo o archivos que desea analizar:
+. Introduzca el siguiente comando, donde `/var/local/audit/export/audit.log` representa el nombre y la ubicación del archivo o archivos que desea analizar:
 +
-`$ audit-explain /var/local/log/audit.log`
+`$ audit-explain /var/local/audit/export/audit.log`
 
 +
  `audit-explain`La herramienta imprime interpretaciones legibles por el ser humano de todos los mensajes en el archivo o archivos especificados.

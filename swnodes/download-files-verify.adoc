@@ -1,0 +1,71 @@
+---
+permalink: swnodes/download-files-verify.html 
+sidebar: sidebar 
+keywords: installation files, how to verify files 
+summary: Si es necesario, puede verificar manualmente los archivos en el archivo de instalación de StorageGRID. 
+---
+= Verificar manualmente los archivos de instalación (opcional)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si es necesario, puede verificar manualmente los archivos en el archivo de instalación de StorageGRID.
+
+.Antes de empezar
+Tieneslink:../swnodes/downloading-and-extracting-storagegrid-installation-files.html#download-verification-package["se ha descargado el paquete de verificación"] desde https://mysupport.netapp.com/site/products/all/details/storagegrid/downloads-tab["Página de descargas de NetApp para StorageGRID"^] .
+
+.Pasos
+. Extraiga los artefactos del paquete de verificación:
++
+`tar -xf StorageGRID_12.0.0_Code_Signature_Verification_Package.tar.gz`
+
+. Asegúrese de que se han extraído estos artefactos:
++
+** Certificado de hoja: `Leaf-Cert.pem`
+** Cadena de certificados: `CA-Int-Cert.pem`
+** Cadena de respuesta de marca de tiempo: `TS-Cert.pem`
+** Archivo de suma de comprobación: `sha256sum`
+** Firma de suma de comprobación: `sha256sum.sig`
+** Archivo de respuesta de marca de tiempo: `sha256sum.sig.tsr`
+
+
+. Utilice la cadena para verificar que el certificado de hoja es válido.
++
+*Ejemplo*: `openssl verify -CAfile CA-Int-Cert.pem Leaf-Cert.pem`
+
++
+*Salida esperada*: `Leaf-Cert.pem: OK`
+
+. Si el paso _2_ ha fallado debido a un certificado de hoja caducado, utilice el `tsr` archivo para verificarlo.
++
+*Ejemplo*: `openssl ts -CAfile CA-Int-Cert.pem -untrusted TS-Cert.pem -verify -data sha256sum.sig -in sha256sum.sig.tsr`
+
++
+*La salida esperada incluye*: `Verification: OK`
+
+. Cree un archivo de clave pública a partir del certificado LEAF.
++
+*Ejemplo*: `openssl x509 -pubkey -noout -in Leaf-Cert.pem > Leaf-Cert.pub`
+
++
+*Salida esperada*: _None_
+
+. Utilice la clave pública para verificar el `sha256sum` archivo con `sha256sum.sig`.
++
+*Ejemplo*: `openssl dgst -sha256 -verify Leaf-Cert.pub -signature sha256sum.sig sha256sum`
+
++
+*Salida esperada*: `Verified OK`
+
+. Verifique `sha256sum` el contenido del archivo con las sumas de comprobación recién creadas.
++
+*Ejemplo*: `sha256sum -c sha256sum`
+
++
+*Salida esperada*: `_<filename>_: OK` +
+`_<filename>_` es el nombre del archivo que descargó.
+
+. link:../swnodes/downloading-and-extracting-storagegrid-installation-files.html["Complete los pasos restantes"]para extraer y elegir los archivos apropiados del archivo de instalación.
+

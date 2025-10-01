@@ -2,7 +2,7 @@
 permalink: tenant/understanding-tenant-manager-dashboard.html 
 sidebar: sidebar 
 keywords: how to understand tenant manager dashboard 
-summary: 'La consola de administrador de inquilinos proporciona información general sobre la configuración de una cuenta de inquilino y la cantidad de espacio que usan los objetos de los bloques \(S3\) o los contenedores \(Swift\) del inquilino. Si el inquilino tiene una cuota, la consola muestra cuánta cuota se usa y cuánta queda. Si hay algún error relacionado con la cuenta de inquilino, los errores se muestran en el panel de control.' 
+summary: El panel de control del administrador de inquilinos proporciona una descripción general de la configuración de una cuenta de inquilino y la cantidad de espacio utilizado por los objetos en los depósitos S3 del inquilino.  Si el inquilino tiene una cuota, el panel muestra cuánto de la cuota se utiliza y cuánto queda.  Si hay algún error relacionado con la cuenta del inquilino, los errores se muestran en el panel de control. 
 ---
 = Conozca la consola de tenant Manager
 :allow-uri-read: 
@@ -11,10 +11,10 @@ summary: 'La consola de administrador de inquilinos proporciona información gen
 
 
 [role="lead"]
-La consola de tenant Manager proporciona información general de la configuración de una cuenta de inquilino y la cantidad de espacio que usan los objetos de los bloques del inquilino (S3) o los contenedores (Swift). Si el inquilino tiene una cuota, la consola muestra cuánta cuota se usa y cuánta queda. Si hay algún error relacionado con la cuenta de inquilino, los errores se muestran en el panel de control.
+El panel de control del administrador de inquilinos proporciona una descripción general de la configuración de una cuenta de inquilino y la cantidad de espacio utilizado por los objetos en los depósitos S3 del inquilino.  Si el inquilino tiene una cuota, el panel muestra cuánto de la cuota se utiliza y cuánto queda.  Si hay algún error relacionado con la cuenta del inquilino, los errores se muestran en el panel de control.
 
 
-NOTE: Los valores de espacio utilizado son estimaciones. Estas estimaciones se ven afectadas por el tiempo de los ingests, la conectividad de red y el estado del nodo.
+NOTE: El tamaño lógico de todos los objetos que pertenecen a este inquilino incluye cargas multiparte incompletas y en progreso.  El tamaño no incluye el espacio físico adicional utilizado para las políticas de ILM.  Los valores de espacio utilizado son estimaciones.  Estas estimaciones se ven afectadas por el momento de la ingesta, la conectividad de la red y el estado del nodo.
 
 Cuando se han cargado objetos, el panel de control tiene el siguiente ejemplo:
 

@@ -21,4 +21,4 @@ Si tiene una política de ILM más compleja que incluye reglas para colocar obje
 
 Un gráfico que muestra la rapidez con la que se consume la capacidad de almacenamiento general puede ayudarle a comprender cuánto almacenamiento debe añadir a la expansión y cuándo se necesitará el espacio de almacenamiento adicional. Puede utilizar Grid Manager para link:../monitor/monitoring-storage-capacity.html["supervise y cree un gráfico de la capacidad de almacenamiento"].
 
-Al planificar los plazos de una expansión, recuerde considerar cuánto tiempo puede tardar en obtener e instalar almacenamiento adicional.
+Al planificar el momento de una expansión, recuerde tener en cuenta cuánto tiempo podría llevar adquirir e instalar almacenamiento adicional.  Para simplificar la planificación de la expansión, considere agregar nodos de almacenamiento cuando los nodos de almacenamiento existentes alcancen el 70 % de su capacidad.

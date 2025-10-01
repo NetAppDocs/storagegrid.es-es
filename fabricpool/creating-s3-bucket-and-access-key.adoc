@@ -44,7 +44,7 @@ TIP: No puede cambiar el nombre del bloque después de crear el bloque.
 
 .. Seleccione la región para este segmento.
 +
-Por defecto, todos los cubos se crean en la `us-east-1` región.
+De forma predeterminada, todos los depósitos se crean en el `us-east-1` región.  Si la región predeterminada está configurada en una región distinta a `us-east-1` , esta otra región se selecciona inicialmente en el menú desplegable.
 
 .. Seleccione *continuar*.
 .. Seleccione *Crear cucharón*.

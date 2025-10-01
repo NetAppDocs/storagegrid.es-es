@@ -27,8 +27,9 @@ NOTE: Los detalles proporcionados para cada tipo de registro son solo de referen
 
 == Acceda a los registros
 
-Para acceder a los registros, link:collecting-log-files-and-system-data.html["recopilar archivos de registro y datos del sistema"]puede desde uno o varios nodos como archivo de registro único. O bien, si el nodo de administrador principal no está disponible o no puede conectarse a un nodo específico, puede acceder a los archivos de registro individuales de cada nodo de grid las siguientes formas:
+Para acceder a los registros, puedelink:collecting-log-files-and-system-data.html["recopilar archivos de registro y datos del sistema"] desde uno o más nodos como un único archivo de registro.  O bien, puede acceder a archivos de registro individuales para cada nodo de la red de la siguiente manera:
 
+.Pasos
 . Introduzca el siguiente comando: `ssh admin@grid_node_IP`
 . Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
 . Introduzca el siguiente comando para cambiar a raíz: `su -`
@@ -41,13 +42,13 @@ Para acceder a los registros, link:collecting-log-files-and-system-data.html["re
 
 La exportación de registros al servidor de syslog proporciona estas capacidades:
 
-* Recibe una lista de todas las solicitudes de Grid Manager y del administrador de inquilinos, además de las solicitudes S3 y Swift.
+* Reciba una lista de todas las solicitudes de Grid Manager y Tenant Manager, además de las solicitudes de S3.
 * Mejor visibilidad de las solicitudes S3 que devuelven errores, sin el impacto en el rendimiento causado por los métodos de registro de auditorías.
 * Acceso a solicitudes de capa HTTP y códigos de error que son fáciles de analizar.
 * Mejor visibilidad de las solicitudes que fueron bloqueadas por los clasificadores de tráfico en el equilibrador de carga.
 
 
-Para exportar los registros, consulte link:../monitor/configure-audit-messages.html["Configurar los mensajes de auditoría y los destinos de registro"].
+Para exportar los registros, consultelink:../monitor/configure-log-management.html["Configurar la gestión de registros y el servidor syslog externo"] .
 
 
 
@@ -72,6 +73,11 @@ Información sobre el sistema operativo base, incluidas las versiones de imagen 
 
 | paquetes  a| 
 Información sobre la configuración global (bundles).
+
+
+
+| servicio de caché  a| 
+Registros del servicio de caché (solo en nodos de puerta de enlace).
 
 
 
@@ -107,6 +113,11 @@ Métricas y registros de grupos de alta disponibilidad.
 
 | Árbitro lambda  a| 
 Registros relacionados con la solicitud de proxy de S3 Select.
+
+
+
+| filtrado  a| 
+Registros del servicio leakd.
 
 
 
@@ -153,7 +164,7 @@ Archivos y registros de configuración de federación de grid y equilibrador de 
 ** El formato de estos mensajes de registro es `[$time_iso8601] $remote_addr $status $bytes_sent $request_length $request_time "$endpointId" "$upstream_addr" "$request" "$http_host"`
 
 
-* `endpoint-access.log.gz`: S3 y Swift solicitan puntos finales de equilibrio de carga.
+* `endpoint-access.log.gz`:Solicitudes S3 a puntos finales del balanceador de carga.
 +
 ** Estos mensajes tienen el prefijo `endpoint:` cuando se exportan mediante syslog.
 ** El formato de estos mensajes de registro es `[$time_iso8601] $remote_addr $status $bytes_sent $request_length $request_time "$endpointId" "$upstream_addr" "$request" "$http_host"`
@@ -227,6 +238,6 @@ Resultado de los comandos de contenedor de StorageGRID. Contiene información de
 
 
 | paquete de recuperación sincronizada  a| 
-Relacionado con el mantenimiento de la coherencia del último paquete de recuperación en todos los nodos de administración y de almacenamiento que alojan el servicio ADC.
+Relacionado con el mantenimiento de la coherencia del último paquete de recuperación en todos los nodos de administración y nodos de almacenamiento que alojan el servicio ADC.
 
 |===

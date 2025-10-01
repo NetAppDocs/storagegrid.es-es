@@ -1,0 +1,28 @@
+= 
+:allow-uri-read: 
+
+
+* *Todos*: Todos los nodos reciben metadatos de objeto inmediatamente o la solicitud fallará.
+* *Strong-global*: garantiza la consistencia de lectura después de escritura para todas las solicitudes de clientes en todos los sitios.  Cuando se configura la semántica de quórum, se aplican los siguientes comportamientos:
++
+** Permite la tolerancia a fallas del sitio para las solicitudes de los clientes cuando las redes tienen tres o más sitios.  Las redes de dos sitios no tendrán tolerancia a fallas del sitio.
+** Las siguientes operaciones S3 no tendrán éxito si un sitio está inactivo:
++
+*** DeleteBucketEncryption
+*** PonerBucketBranch
+*** PutBucketEncryption
+*** PutBucketVersioning
+*** PutObjectLegalHold
+*** PutObjectLockConfiguration
+*** PutObjectRetention
+
+
+
+
++
+Si es necesario, puedes https://kb.netapp.com/hybrid/StorageGRID/Object_Mgmt/Configuring_StorageGRID_quorum_semantics_for_strong-global_consistency["Configurar la semántica de quórum de StorageGRID para lograr una consistencia global sólida"^] .
+
+* *Strong-site*: Los metadatos de objetos se distribuyen inmediatamente a otros nodos en el sitio. Garantiza la coherencia de lectura tras escritura para todas las solicitudes del cliente dentro de un sitio.
+* *Read-after-new-write*: Proporciona consistencia de lectura después de escritura para nuevos objetos y consistencia eventual para actualizaciones de objetos. Ofrece garantías de alta disponibilidad y protección de datos. Recomendado para la mayoría de los casos.
+* *Disponible*: Proporciona consistencia eventual tanto para nuevos objetos como para actualizaciones de objetos. Para los cubos S3, utilice solo según sea necesario (por ejemplo, para un depósito que contiene valores de registro que rara vez se leen, o para operaciones HEAD u GET en claves que no existen). No se admite para bloques de FabricPool S3.
+

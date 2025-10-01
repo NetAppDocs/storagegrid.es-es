@@ -24,7 +24,7 @@ La configuración de correo electrónico utilizada para las notificaciones de al
 Si la implementación de StorageGRID incluye varios nodos de administración, el nodo de administración principal es el remitente preferido para las notificaciones de alertas, los paquetes de AutoSupport y las capturas SNMP. Si el nodo de administración principal deja de estar disponible, otros nodos de administración envían temporalmente las notificaciones. Consulte link:../primer/what-admin-node-is.html["¿Qué es un nodo de administración?"].
 
 .Pasos
-. Seleccione *ALERTS* > *Configuración de correo electrónico*.
+. Seleccione *Alertas* > *Configuración de correo electrónico*.
 +
 Aparece la página Configuración de correo electrónico.
 
@@ -290,7 +290,7 @@ Si se activa la alerta *error de notificación por correo electrónico* o no pue
 .Pasos
 . Compruebe la configuración.
 +
-.. Seleccione *ALERTS* > *Configuración de correo electrónico*.
+.. Seleccione *Alertas* > *Configuración de correo electrónico*.
 .. Compruebe que la configuración del servidor de correo electrónico (SMTP) es correcta.
 .. Compruebe que ha especificado direcciones de correo electrónico válidas para los destinatarios.
 
