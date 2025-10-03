@@ -244,9 +244,9 @@ Navegador
  a| 
 Nodos de administración
  a| 
-Lo utilizan los exploradores web y los clientes de API de administración para acceder a Grid Manager y a arrendatario Manager.
+Utilizado por navegadores web y clientes de API de administración para acceder al Administrador de red y al Administrador de inquilinos.
 
-*Nota*: Si cierra los puertos 443 o 8443 de Grid Manager, cualquier usuario conectado actualmente a un puerto bloqueado, incluido usted, perderá el acceso a Grid Manager a menos que su dirección IP se haya agregado a la lista de direcciones con privilegios. Consulte link:../admin/configure-firewall-controls.html["Configurar los controles del firewall"] Para configurar direcciones IP con privilegios.
+*Nota*: Si cierra los puertos 443 o 8443 de Grid Manager, todos los usuarios que estén conectados actualmente en un puerto bloqueado, incluido usted, perderán el acceso a Grid Manager a menos que su dirección IP se haya agregado a la lista de direcciones privilegiadas. Referirse alink:../admin/configure-firewall-controls.html["Configurar los controles del firewall"] para configurar direcciones IP privilegiadas.
 
 
 
@@ -306,7 +306,7 @@ Todos los nodos
  a| 
 Todos los nodos
  a| 
-Proporciona el servicio DNS de multidifusión (mDNS) que se utiliza para los cambios de IP de red completa y para la detección de nodos de administración principales durante la instalación, la expansión y la recuperación.
+Proporciona el servicio DNS de multidifusión (mDNS) utilizado para cambios de IP de red completa y para el descubrimiento del nodo de administración principal durante la instalación, expansión y recuperación.
 
 
 
@@ -336,9 +336,26 @@ Navegador
  a| 
 Nodos de administración
  a| 
-Opcional. Lo utilizan los exploradores web y los clientes API de administración para acceder a Grid Manager. Se puede utilizar para separar las comunicaciones de Grid Manager y de arrendatario Manager.
+Opcional. Utilizado por navegadores web y clientes API de administración para acceder al Administrador de Grid. Se puede utilizar para separar las comunicaciones entre Grid Manager y Tenant Manager.
 
-*Nota*: Si cierra los puertos 443 o 8443 de Grid Manager, cualquier usuario conectado actualmente a un puerto bloqueado, incluido usted, perderá el acceso a Grid Manager a menos que su dirección IP se haya agregado a la lista de direcciones con privilegios. Consulte link:../admin/configure-firewall-controls.html["Configurar los controles del firewall"] Para configurar direcciones IP con privilegios.
+*Nota*: Si cierra los puertos 443 o 8443 de Grid Manager, todos los usuarios que estén conectados actualmente en un puerto bloqueado, incluido usted, perderán el acceso a Grid Manager a menos que su dirección IP se haya agregado a la lista de direcciones privilegiadas.  Referirse alink:../admin/configure-firewall-controls.html["Configurar los controles del firewall"] para configurar direcciones IP privilegiadas.
+
+
+
+ a| 
+8443
+ a| 
+TCP
+ a| 
+HTTPS
+ a| 
+Navegador
+ a| 
+Dispositivos
+ a| 
+Utilizado por navegadores web y clientes de API de administración para acceder al instalador del dispositivo StorageGRID .
+
+*Nota*: El puerto 443 redirige al puerto 8443 para el instalador del dispositivo StorageGRID .
 
 
 
@@ -400,7 +417,7 @@ Navegador
  a| 
 Nodos de administración
  a| 
-Opcional. Lo utilizan exploradores web y clientes de API de gestión para acceder al administrador de inquilinos. Se puede utilizar para separar las comunicaciones de Grid Manager y de arrendatario Manager.
+Opcional. Utilizado por navegadores web y clientes de API de administración para acceder al Administrador de inquilinos. Se puede utilizar para separar las comunicaciones entre Grid Manager y Tenant Manager.
 
 
 
