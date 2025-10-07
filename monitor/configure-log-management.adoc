@@ -557,7 +557,7 @@ Un banner verde indica que se ha guardado la configuración.
 +
 Los resultados de la prueba aparecen continuamente en la página hasta que se detiene la prueba. Mientras la prueba está en curso, los mensajes de auditoría siguen enviarse a los destinos configurados anteriormente.
 
-. Si recibe algún error, corríjalo y vuelva a seleccionar *Enviar mensajes de prueba*.
+. Si recibe algún error durante la configuración del servidor syslog o en el tiempo de ejecución, corríjalo y seleccione *Enviar mensajes de prueba* nuevamente.
 +
 Consulte link:../troubleshoot/troubleshooting-syslog-server.html["Solucione problemas de un servidor de syslog externo"] para ayudarle a resolver cualquier error.
 
