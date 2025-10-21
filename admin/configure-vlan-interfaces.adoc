@@ -11,7 +11,7 @@ summary: 'Puede crear interfaces LAN virtuales \(VLAN\) en nodos de administraci
 
 
 [role="lead"]
-Puede crear interfaces de LAN virtual (VLAN) en nodos de administrador y de puerta de enlace, y usarlas en grupos de alta disponibilidad y extremos de equilibrador de carga para aislar y dividir el tráfico para garantizar la seguridad, la flexibilidad y el rendimiento.
+Cree interfaces de LAN virtual (VLAN) en nodos de administración y nodos de puerta de enlace y úselas en grupos de alta disponibilidad y puntos finales de balanceador de carga para aislar y particionar el tráfico para lograr seguridad, flexibilidad y rendimiento. Los nodos seleccionados en el grupo HA pueden usar las interfaces VLAN para compartir hasta 10 direcciones IP virtuales, de modo que si un nodo deja de funcionar, otro nodo se hace cargo del tráfico hacia y desde las direcciones IP virtuales.
 
 
 
