@@ -46,6 +46,23 @@ NOTE: Esta lista no incluye puertos que se puedan configurar como link:../admin/
 
 
  a| 
+22
+ a| 
+TCP
+ a| 
+SSH
+ a| 
+Portátil de servicio
+ a| 
+Todos los nodos
+ a| 
+Se requiere acceso a SSH o consola para procedimientos con pasos de consola. Opcionalmente, puede utilizar el puerto 2022 en lugar del 22.
+
+*Nota*: Este puerto solo es necesario cuando se necesita habilitar el acceso SSH para ciertas operaciones de mantenimiento.
+
+
+
+ a| 
 25
  a| 
 TCP
@@ -307,6 +324,8 @@ Todos los nodos
 Todos los nodos
  a| 
 Proporciona el servicio DNS de multidifusión (mDNS) utilizado para cambios de IP de red completa y para el descubrimiento del nodo de administración principal durante la instalación, expansión y recuperación.
+
+*Nota*: La configuración de este puerto es opcional.
 
 
 

@@ -2,7 +2,7 @@
 permalink: troubleshoot/investigating-potentially-lost-objects.html 
 sidebar: sidebar 
 keywords: lost objects, investigating, objects 
-summary: Cuando se activa la alerta *Objetos potencialmente perdidos*, debes investigar de inmediato.  Recopile información sobre los objetos afectados y comuníquese con el soporte técnico. 
+summary: Cuando se active la alerta de objetos potencialmente perdidos, debe investigar inmediatamente. Recopile información sobre los objetos afectados y comuníquese con el soporte técnico. 
 ---
 = Investigar objetos potencialmente perdidos
 :allow-uri-read: 

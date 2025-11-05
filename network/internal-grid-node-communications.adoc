@@ -249,6 +249,8 @@ Todos los nodos
  a| 
 Proporciona el servicio DNS de multidifusión (mDNS) utilizado para cambios de IP de red completa y para el descubrimiento del nodo de administración principal durante la instalación, expansión y recuperación.
 
+*Nota*: La configuración de este puerto es opcional.
+
 
 
  a| 

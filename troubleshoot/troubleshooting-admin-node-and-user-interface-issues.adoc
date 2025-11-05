@@ -70,7 +70,7 @@ Si la cuenta de usuario federada no funciona, intente iniciar sesión en Grid Ma
 ** Si el usuario local no puede iniciar sesión y está seguro de que las credenciales son correctas, vaya al siguiente paso.
 
 
-. Utilice Secure Shell (ssh) para iniciar sesión en el nodo de administración:
+. Utilice Secure Shell (SSH) para iniciar sesión en el nodo de administración:
 +
 .. Introduzca el siguiente comando: `ssh admin@Admin_Node_IP`
 .. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.

@@ -28,6 +28,10 @@ Para mejorar la seguridad del sistema, el acceso SSH externo está bloqueado de 
 +
 .. Seleccione la casilla de verificación para bloquear el acceso (predeterminado).
 .. Desmarque la casilla de verificación para permitir el acceso.
++
+
+NOTE: Requiere acceso al puerto 22 entre el portátil de servicio y todos los demás nodos de la red.  Elimine el acceso al puerto 22 cuando complete la tarea de mantenimiento.
+
 
 
 . Seleccione *Guardar*.
