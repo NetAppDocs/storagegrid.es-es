@@ -59,4 +59,4 @@ https://docs.netapp.com/us-en/storagegrid-118/maintain/recovering-from-archive-n
 
 |===
 
-NOTE: Si falla un servidor que aloja más de un nodo de grid, puede recuperar los nodos en cualquier orden. Sin embargo, si el servidor con el fallo aloja el nodo de administración principal, primero debe recuperar dicho nodo. Si se recupera el nodo de administrador principal, primero se impide que las recuperaciones de otros nodos se detenguen a medida que esperan para ponerse en contacto con el nodo de administración principal.
+NOTE: Si falla un servidor que aloja más de un nodo de red, puede recuperar los nodos en cualquier orden. Sin embargo, si el servidor que falló aloja el nodo de administración principal y no existen nodos de administración secundarios, primero debe recuperar el nodo de administración principal. Recuperar primero el nodo de administración principal evita que otras recuperaciones de nodos se detengan mientras esperan comunicarse con el nodo de administración principal.

@@ -46,7 +46,7 @@ Al recuperar nodos de grid, se da por sentado las siguientes condiciones:
 
 == El orden de recuperación de nodos si se produce un error en un servidor que aloja más de un nodo de grid
 
-Si falla un servidor que aloja más de un nodo de red, puede recuperar los nodos en cualquier orden.  Sin embargo, si el servidor fallido aloja el nodo de administración principal, primero deberá recuperar ese nodo.
+Si falla un servidor que aloja más de un nodo de red, puede recuperar los nodos en cualquier orden. Sin embargo, si el servidor que falló aloja el nodo de administración principal y no existen nodos de administración secundarios, primero debe recuperar el nodo de administración principal.
 
 
 

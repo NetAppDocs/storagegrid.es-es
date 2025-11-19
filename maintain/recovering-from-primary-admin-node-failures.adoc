@@ -16,8 +16,6 @@ Debe completar un conjunto específico de tareas para recuperar el sistema despu
 
 CAUTION: Debe reparar o sustituir un nodo de administración principal con errores de inmediato, o el grid puede perder la capacidad de procesar objetos nuevos. El período de tiempo exacto depende de la tasa de ingesta de objetos: Si necesita una evaluación más precisa del plazo para el grid, póngase en contacto con el soporte técnico.
 
-El servicio nodo de gestión de configuración (CMN) del nodo de administración principal es responsable de emitir bloques de identificadores de objetos para la cuadrícula. Estos identificadores se asignan a los objetos a medida que se ingieren. No se pueden ingerir nuevos objetos a menos que haya identificadores disponibles. La ingesta de objetos puede continuar mientras el CMN no está disponible porque el suministro de identificadores de aproximadamente un mes se almacena en caché en la cuadrícula. Sin embargo, después de que se agoten los identificadores almacenados en caché, no es posible añadir objetos nuevos.
-
 Siga estos pasos de alto nivel para recuperar un nodo de administración principal:
 
 . link:copying-audit-logs-from-failed-primary-admin-node.html["Copie los registros de auditoría del nodo de administración principal con errores"]
