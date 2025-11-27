@@ -20,4 +20,4 @@ Ir a https://docs.netapp.com/us-en/storage-management-storagegrid/index.html["Ad
 
 La consola NetApp , construida sobre la base BlueXP mejorada y reestructurada, proporciona una gestión centralizada del almacenamiento NetApp y de los servicios de datos NetApp en entornos locales y en la nube a nivel empresarial, brindando información en tiempo real, flujos de trabajo más rápidos y una administración simplificada, que es altamente segura y compatible.
 
-Para obtener más detalles sobre lo que ha cambiado, consulte lalink:https://docs.netapp.com/us-en/bluexp-relnotes/index.html["Notas de la versión de la consola de NetApp"] .
+Para obtener más detalles sobre los cambios, consulte el link:https://docs.netapp.com/us-en/console-relnotes/index.html["Notas de la versión de la consola de NetApp"].
