@@ -1,10 +1,10 @@
 ---
 permalink: expand/adding-storage-capacity-for-erasure-coded-objects.html 
 sidebar: sidebar 
-keywords: erasure coding, capacity, storage nodes, ec, expand, expansion 
+keywords: erasure coding, capacity, storage nodes, ec, expand, expansion, StorageGRID 
 summary: Si la política de ILM incluye una regla que realiza copias con código de borrado, debe planificar dónde añadir más almacenamiento y cuándo añadir más almacenamiento. La cantidad de almacenamiento que se agrega y la programación de la adición pueden afectar la capacidad de almacenamiento útil de la cuadrícula. 
 ---
-= Añada capacidad de almacenamiento para objetos codificados de borrado
+= Planificación de expansión para datos codificados por borrado (EC) en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

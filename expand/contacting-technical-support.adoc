@@ -1,10 +1,10 @@
 ---
 permalink: expand/contacting-technical-support.html 
 sidebar: sidebar 
-keywords: troubleshoot expansion, contact technical support 
+keywords: troubleshoot expansion, contact technical support, StorageGRID 
 summary: Si encuentra errores durante el proceso de expansión de cuadrícula que no puede resolver o si falla una tarea de cuadrícula, recopile los archivos de registro y póngase en contacto con el soporte técnico. 
 ---
-= Solucione los problemas de ampliación
+= Solucionar errores de expansión en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

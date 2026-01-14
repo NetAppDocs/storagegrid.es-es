@@ -1,10 +1,10 @@
 ---
 permalink: expand/considerations-for-rebalancing-erasure-coded-data.html 
 sidebar: sidebar 
-keywords: erasure coding, rebalance, ec rebalance, site rebalance 
+keywords: erasure coding, rebalance, ec rebalance, site rebalance, StorageGRID 
 summary: Si va a realizar una ampliación para añadir nodos de almacenamiento y utiliza reglas de ILM para borrar datos de código, es posible que deba realizar el procedimiento de reequilibrio de EC si no puede agregar nodos de almacenamiento suficientes para el esquema de código de borrado que está utilizando. 
 ---
-= Consideraciones que tener en cuenta al reequilibrar los datos codificados a borrado
+= Obtenga información sobre el reequilibrio de EC después de la expansión en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

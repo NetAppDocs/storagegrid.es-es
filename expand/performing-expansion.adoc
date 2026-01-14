@@ -1,10 +1,10 @@
 ---
 permalink: expand/performing-expansion.html 
 sidebar: sidebar 
-keywords: expand, expansion procedure 
+keywords: expand, expansion procedure, StorageGRID 
 summary: Cuando se realiza la ampliación, los nuevos nodos de grid se añaden a la puesta en marcha de StorageGRID existente. 
 ---
-= Realizar la expansión
+= Realizar una expansión de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

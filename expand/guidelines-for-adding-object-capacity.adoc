@@ -1,10 +1,10 @@
 ---
 permalink: expand/guidelines-for-adding-object-capacity.html 
 sidebar: sidebar 
-keywords: adding storage capacity, guidelines, storage volumes, expansion 
+keywords: adding storage capacity, guidelines, storage volumes, expansion, StorageGRID 
 summary: 'Puede expandir la capacidad de almacenamiento de objetos del sistema StorageGRID añadiendo volúmenes de almacenamiento a los nodos de almacenamiento existentes o añadiendo nodos de almacenamiento nuevos a los sitios existentes. Debe añadir capacidad de almacenamiento de modo que cumpla los requisitos de la política de gestión del ciclo de vida de la información \(ILM\).' 
 ---
-= Directrices para añadir capacidad de objeto
+= Pautas para agregar capacidad de objetos en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

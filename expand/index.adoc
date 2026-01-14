@@ -1,17 +1,17 @@
 ---
 permalink: expand/index.html 
 sidebar: sidebar 
-keywords: expand grid 
+keywords: expand grid, StorageGRID 
 summary: Puede expandir la capacidad o las funcionalidades de su sistema StorageGRID sin interrumpir las operaciones del sistema. 
 ---
-= Tipos de expansión
+= Obtenga información sobre cómo ampliar su sistema StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Puede expandir la capacidad o las funcionalidades de su sistema StorageGRID sin interrumpir las operaciones del sistema.
+Obtenga información sobre cómo ampliar su sistema StorageGRID para aumentar la capacidad o las capacidades sin interrumpir las operaciones. Puede agregar volúmenes de almacenamiento a nodos de almacenamiento existentes, agregar nuevos nodos de red a un sitio existente o agregar un sitio nuevo.
 
 Antes de expandir un nodo de la cuadrícula, debe confirmar que no haya trabajos de reparación de datos activos.  Si alguna reparación ha fallado, debe reiniciarla y dejar que se complete antes de realizar el procedimiento de desmantelamiento o expansión. Consulte link:../maintain/checking-data-repair-jobs.html["Compruebe los trabajos de reparación de datos"] .
 

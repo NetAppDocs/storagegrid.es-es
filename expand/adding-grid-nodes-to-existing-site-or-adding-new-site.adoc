@@ -1,10 +1,10 @@
 ---
 permalink: expand/adding-grid-nodes-to-existing-site-or-adding-new-site.html 
 sidebar: sidebar 
-keywords: grid node, add node, add site, expand, expansion 
+keywords: grid node, add node, add site, expand, expansion, StorageGRID 
 summary: Siga este procedimiento para agregar nodos de cuadrícula a sitios existentes o para agregar un sitio nuevo. Solo puede ejecutar un tipo de expansión a la vez. 
 ---
-= Añada nodos de grid a un sitio existente o añada otro nuevo
+= Resumen del flujo de trabajo para agregar nodos de red o nuevos sitios a StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -24,7 +24,7 @@ NOTE: Se le impide iniciar una expansión mientras otro procedimiento de expansi
 
 
 .Pasos
-. link:updating-subnets-for-grid-network.html["Actualice las subredes de la red de cuadrícula"].
-. link:deploying-new-grid-nodes.html["Implemente nuevos nodos de grid"].
-. link:performing-expansion.html["Realizar la expansión"].
+. link:updating-subnets-for-grid-network.html["Actualizar subredes para la red Grid"].
+. link:deploying-new-grid-nodes.html["Implementar los nuevos nodos de la red"].
+. link:performing-expansion.html["Realice la expansión"].
 
