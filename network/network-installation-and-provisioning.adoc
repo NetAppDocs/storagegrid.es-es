@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: network install, network provisioning 
 summary: Debe comprender cómo se utilizan Grid Network y las redes de administración y cliente opcionales durante la implementación de nodos y la configuración de grid. 
 ---
-= Instalación y aprovisionamiento de red
+= Instalación y aprovisionamiento de red para StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

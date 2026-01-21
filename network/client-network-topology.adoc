@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: client network topology 
 summary: 'Tener una red cliente es opcional. El uso de una red cliente permite que el tráfico de red del cliente \ (por ejemplo, S3\) se separe del tráfico interno de la cuadrícula, lo que permite que la red de grid sea más segura. El tráfico administrativo puede ser gestionado por el cliente o la red de cuadrícula cuando la red de administración no está configurada.' 
 ---
-= Topología de la red de cliente
+= Topología de red de cliente para StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

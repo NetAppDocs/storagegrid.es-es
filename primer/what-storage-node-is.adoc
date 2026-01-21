@@ -1,10 +1,10 @@
 ---
 permalink: primer/what-storage-node-is.html 
 sidebar: sidebar 
-keywords: what is a storage node, how many storage nodes 
+keywords: StorageGRID, what is a storage node, how many storage nodes 
 summary: Los nodos de almacenamiento gestionan y almacenan metadatos y datos de objetos. Los nodos de almacenamiento incluyen los servicios y procesos necesarios para almacenar, mover, verificar y recuperar datos y metadatos de objetos en el disco. 
 ---
-= ¿Qué es un nodo de almacenamiento?
+= ¿Qué es un nodo de almacenamiento StorageGRID?
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

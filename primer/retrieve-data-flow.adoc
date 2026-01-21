@@ -1,10 +1,10 @@
 ---
 permalink: primer/retrieve-data-flow.html 
 sidebar: sidebar 
-keywords: object data, retrieve 
+keywords: StorageGRID, object data, retrieve 
 summary: Una operación de recuperación consta de un flujo de datos definido entre el sistema StorageGRID y el cliente. El sistema utiliza atributos para realizar el seguimiento de la recuperación del objeto de un nodo de almacenamiento o, si es necesario, de un pool de almacenamiento en la nube. 
 ---
-= Recuperar el flujo de datos
+= Cómo StorageGRID gestiona la recuperación de objetos
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

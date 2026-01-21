@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: admin network topology, using admin network 
 summary: Tener una red Admin es opcional. Una forma de utilizar una red administrativa y una red de grid es configurar una red Grid enrutable y una red de administración limitada para cada nodo. 
 ---
-= Topología de red de administrador
+= Topología de red de administración para StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

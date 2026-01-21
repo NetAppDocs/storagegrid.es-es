@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: networking for appliance, port bond mode 
 summary: Puede configurar los puertos de red en dispositivos StorageGRID para utilizar los modos de enlace de puertos que cumplan con los requisitos de rendimiento, redundancia y conmutación al respaldo. 
 ---
-= Nodos del dispositivo
+= Configuración de red para nodos de StorageGRID appliance
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

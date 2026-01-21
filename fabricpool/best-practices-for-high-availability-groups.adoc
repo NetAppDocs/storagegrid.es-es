@@ -1,10 +1,10 @@
 ---
 permalink: fabricpool/best-practices-for-high-availability-groups.html 
 sidebar: sidebar 
-keywords: fabricPool, high availability group, HA group, active-active, active-backup, cloud tier, best practices 
+keywords: fabricPool, StorageGRID, high availability group, HA group, active-active, active-backup, cloud tier, best practices 
 summary: Antes de asociar StorageGRID como nivel de cloud de FabricPool, conozca los grupos de alta disponibilidad de StorageGRID y revise las prácticas recomendadas para usar grupos de alta disponibilidad con FabricPool. 
 ---
-= Prácticas recomendadas para grupos de alta disponibilidad
+= Prácticas recomendadas para grupos de alta disponibilidad (HA) de StorageGRID con FabricPool
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

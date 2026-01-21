@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, network port, internal communications, ports, TCP, UDP, grid communications, port 
 summary: 'El firewall interno de StorageGRID sólo permite conexiones entrantes a puertos específicos de la red de cuadrícula, con la excepción de los puertos 22, 80, 123 y 443 \(consulte la información acerca de las comunicaciones externas\). Las conexiones también se aceptan en los puertos definidos por puntos finales del equilibrador de carga.' 
 ---
-= Comunicaciones internas de los nodos de grid
+= Comunicaciones internas de los nodos de grid para StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

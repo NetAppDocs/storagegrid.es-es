@@ -1,10 +1,10 @@
 ---
 permalink: fabricpool/other-best-practices-for-storagegrid-and-fabricpool.html 
 sidebar: sidebar 
-keywords: fabricPool, best practices, audit log, encryption, compressions, tiering, ontap, consistency 
+keywords: fabricPool, StorageGRID, best practices, audit log, encryption, compressions, tiering, ontap, consistency 
 summary: Al configurar un sistema StorageGRID para utilizarlo con FabricPool, es posible que deba cambiar otras opciones de StorageGRID. Antes de cambiar una configuración global, considere cómo afectará el cambio a otras aplicaciones S3. 
 ---
-= Otras prácticas recomendadas para StorageGRID y FabricPool
+= Mejores prácticas para la configuración global de StorageGRID con FabricPool
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

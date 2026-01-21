@@ -1,10 +1,10 @@
 ---
 permalink: primer/what-admin-node-is.html 
 sidebar: sidebar 
-keywords: admin nodes 
+keywords: StorageGRID, admin nodes 
 summary: Los nodos de administración, que proporcionan servicios de gestión como configuración, supervisión y registro del sistema. Los nodos de administración también se pueden usar para equilibrar la carga del tráfico de clientes S3. Cada grid debe tener un nodo de administrador primario y puede tener cualquier cantidad de nodos de administrador no primarios por motivos de redundancia. 
 ---
-= ¿Qué es un nodo de administración?
+= ¿Qué es un nodo de administración StorageGRID?
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

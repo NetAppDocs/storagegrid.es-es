@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure storagegrid for fabricpool, using fabricpool with storagegrid, 
 summary: Si utiliza el software ONTAP de NetApp, puede utilizar FabricPool de NetApp para organizar en niveles los datos inactivos en un sistema de almacenamiento de objetos de StorageGRID de NetApp. 
 ---
-= Configure StorageGRID para FabricPool
+= Flujo de trabajo de configuración para usar StorageGRID con FabricPool
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

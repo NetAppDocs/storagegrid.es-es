@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: networking after installation, dhcp networking 
 summary: Después de completar la implementación y la configuración de un nodo de grid, siga estas directrices para el direccionamiento DHCP y los cambios de configuración de red. 
 ---
-= Directrices posteriores a la instalación
+= Directrices posteriores a la instalación para StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

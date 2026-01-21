@@ -1,10 +1,10 @@
 ---
 permalink: harden/hardening-guidelines-for-software-upgrades.html 
 sidebar: sidebar 
-keywords: Hardening guidelines, upgrades 
+keywords: StorageGRID, hardening guidelines, upgrades 
 summary: Debe mantener su sistema StorageGRID y los servicios relacionados actualizados para defender los ataques. 
 ---
-= Directrices de refuerzo para las actualizaciones de software
+= Directrices de refuerzo para las actualizaciones de software de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

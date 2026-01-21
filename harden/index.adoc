@@ -1,10 +1,10 @@
 ---
 permalink: harden/index.html 
 sidebar: sidebar 
-keywords: Hardening guidelines, system, security 
+keywords: StorageGRID, hardening guidelines, system, security 
 summary: El endurecimiento del sistema es el proceso de eliminar tantos riesgos de seguridad como sea posible a través de un sistema StorageGRID. 
 ---
-= Consideraciones generales sobre el refuerzo del sistema
+= Conoce el endurecimiento del sistema para StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

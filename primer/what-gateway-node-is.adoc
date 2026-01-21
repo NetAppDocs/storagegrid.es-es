@@ -1,10 +1,10 @@
 ---
 permalink: primer/what-gateway-node-is.html 
 sidebar: sidebar 
-keywords: gateway nodes, api gateway 
+keywords: StorageGRID, gateway nodes, api gateway 
 summary: Los nodos de puerta de enlace proporcionan una interfaz de equilibrio de carga dedicada que las aplicaciones cliente S3 pueden utilizar para conectarse a StorageGRID. El equilibrio de carga maximiza la velocidad y la capacidad de conexión mediante la distribución de la carga de trabajo entre varios nodos de almacenamiento. Los nodos de puerta de enlace son opcionales. 
 ---
-= ¿Qué es un nodo de puerta de enlace?
+= ¿Qué es un nodo Gateway de StorageGRID?
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

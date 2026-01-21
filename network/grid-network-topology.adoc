@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid network topology 
 summary: La topología de red más sencilla se crea configurando la red de cuadrícula únicamente. 
 ---
-= Topología de red de cuadrícula
+= Topología de red Grid para StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

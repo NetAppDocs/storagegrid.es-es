@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: network gateway requirements 
 summary: Siga estos requisitos y directrices para las puertas de enlace o routers de red. 
 ---
-= Requisitos de puerta de enlace de red
+= Requisitos de gateway de red para StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

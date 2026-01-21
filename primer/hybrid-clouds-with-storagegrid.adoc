@@ -1,7 +1,7 @@
 ---
 permalink: primer/hybrid-clouds-with-storagegrid.html 
 sidebar: sidebar 
-keywords: hybrid cloud, cloud storage pool, platform services, fabricpool, ontap 
+keywords: StorageGRID, hybrid cloud, cloud storage pool, platform services, fabricpool, ontap 
 summary: Utilice StorageGRID en una configuración de cloud híbrido implementando gestión de datos condicionada por políticas para almacenar objetos en pools de almacenamiento de cloud, aprovechando los servicios de plataforma StorageGRID y organizando los datos en niveles desde ONTAP a StorageGRID con FabricPool de NetApp. 
 ---
 = Clouds híbridos con StorageGRID

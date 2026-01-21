@@ -1,7 +1,7 @@
 ---
 permalink: primer/quick-start.html 
 sidebar: sidebar 
-keywords: storagegrid quick start, tasks 
+keywords: StorageGRID, quick start, tasks 
 summary: Siga estos pasos generales para configurar y usar cualquier sistema StorageGRID. 
 ---
 = Inicio rápido para StorageGRID
