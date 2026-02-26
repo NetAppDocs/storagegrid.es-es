@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: conflicting client requests 
 summary: 'Las solicitudes de clientes en conflicto, como dos clientes que escriben en la misma clave, se resuelven en función de las "últimas victorias".' 
 ---
-= Solicitudes de clientes en conflicto
+= Cómo la API de REST de StorageGRID S3 resuelve las solicitudes de clientes en conflicto
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

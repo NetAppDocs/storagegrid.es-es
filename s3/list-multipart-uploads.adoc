@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ListMultipartUploads, uploads, multipart uploads, bucket 
 summary: La operación ListMultipartUploads muestra las cargas de varias partes en curso para un bloque. 
 ---
-= ListCargas multipartitas
+= S3 ListMultipartUploads operación y parámetros compatibles en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

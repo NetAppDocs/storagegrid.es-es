@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: consistency, consistency control, consistency values 
 summary: La consistencia proporciona un equilibrio entre la disponibilidad de los objetos y la coherencia de dichos objetos en distintos nodos de almacenamiento y sitios. Puede cambiar la consistencia según lo requiera la aplicación. 
 ---
-= Coherencia
+= Cómo la API de REST de StorageGRID S3 equilibra la disponibilidad y la coherencia
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

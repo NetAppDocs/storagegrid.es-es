@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to troubleshoot load balancer caching 
 summary: Obtenga información sobre los posibles problemas con el almacenamiento en caché del equilibrador de carga y cómo solucionarlos. 
 ---
-= Solucionar problemas de almacenamiento en caché del balanceador de carga
+= Conoce los problemas de almacenamiento en caché del equilibrador de carga en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

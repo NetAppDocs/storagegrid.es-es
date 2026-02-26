@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: get object 
 summary: Puede usar la solicitud GET Object de S3 para recuperar un objeto de un bloque de S3. 
 ---
-= GetObject
+= Recupera un objeto de un bucket en StorageGRID con la solicitud GetObject
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

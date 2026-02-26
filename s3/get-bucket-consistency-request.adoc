@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: S3 REST API, S3 operations, GET bucket consistency 
 summary: La solicitud OBTENER coherencia de bloques permite determinar la coherencia que se aplica a un bloque en particular. 
 ---
-= OBTENGA coherencia de bloques
+= Recupera el nivel de consistencia del bucket en StorageGRID con la solicitud GET Bucket consistency
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

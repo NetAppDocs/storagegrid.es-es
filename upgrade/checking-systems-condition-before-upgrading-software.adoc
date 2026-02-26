@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: upgrade, grid tasks, firewall, ports 
 summary: Antes de actualizar un sistema StorageGRID, verifique que el sistema esté listo para acomodar la actualización. Asegúrese de que el sistema funciona con normalidad y de que todos los nodos de grid funcionan. 
 ---
-= Compruebe el estado del sistema
+= Revisa el estado de tu sistema StorageGRID antes de actualizar
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

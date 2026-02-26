@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords:  
 summary: Algunas funciones y funcionalidades se eliminaron o quedaron obsoletas en esta versión. Revise estos elementos para saber si necesita actualizar las aplicaciones del cliente o modificar la configuración antes de realizar la actualización. 
 ---
-= Características y capacidades eliminadas o obsoletas
+= Funciones y capacidades eliminadas o en desuso en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

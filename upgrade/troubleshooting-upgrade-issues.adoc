@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: upgrade, troubleshoot, troubleshooting, errors, upgrade precheck 
 summary: Si algo sale mal al realizar una actualización, es posible que pueda resolver el problema usted mismo. Si no puede resolver un problema, recopile toda la información que pueda y póngase en contacto con el soporte técnico. 
 ---
-= Solucione problemas de actualización
+= Soluciona problemas de actualización de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

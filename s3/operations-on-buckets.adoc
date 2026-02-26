@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: bucket, buckets, operations on buckets 
 summary: El sistema StorageGRID admite un máximo de 5,000 bloques para cada cuenta de inquilino de S3. 
 ---
-= Operaciones en bloques
+= Operaciones de bucket S3 y detalles de implementación en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

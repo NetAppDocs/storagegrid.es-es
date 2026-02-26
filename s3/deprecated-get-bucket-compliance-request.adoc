@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: S3 REST API, S3 operations, deprecated GET compliance requests 
 summary: La solicitud de cumplimiento de normativas GET Bucket quedó obsoleta. Sin embargo, puede seguir utilizando esta solicitud para determinar la configuración de cumplimiento actual para un bloque compatible heredado existente. 
 ---
-= Obsoleto: OBTENER solicitud de cumplimiento de bloques
+= Solicitud obsoleta de GET Bucket compliance en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

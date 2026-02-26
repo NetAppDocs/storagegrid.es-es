@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: S3 REST API, S3 operations, deprecated bucket requests 
 summary: Es posible que deba utilizar la API DE REST de StorageGRID S3 para gestionar los bloques creados con la función de cumplimiento heredada. 
 ---
-= Solicitudes de bloque obsoletas para cumplimiento de normativas heredadas
+= Solicitudes obsoletas de bucket para la antigua StorageGRID Compliance
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

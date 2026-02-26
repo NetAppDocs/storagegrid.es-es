@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: authenticate requests, authenticating, requests 
 summary: El sistema StorageGRID admite el acceso autenticado y anónimo a objetos mediante la API de S3. 
 ---
-= Autenticar solicitudes
+= Cómo StorageGRID S3 REST API autentica las solicitudes
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

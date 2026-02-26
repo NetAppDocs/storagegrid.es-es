@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: s3 rest api support changes 
 summary: Debe conocer los cambios en la compatibilidad del sistema StorageGRID con la API DE REST de S3. 
 ---
-= Cambios en la compatibilidad con la API DE REST de S3
+= Cambios en la compatibilidad de StorageGRID con la API de REST de S3
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

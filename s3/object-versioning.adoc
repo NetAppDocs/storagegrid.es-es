@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: object version, object versioning 
 summary: Puede establecer el estado de control de versiones de un bloque si desea conservar varias versiones de un objeto. Habilitar el control de versiones de un bloque puede ayudar a protegerse contra la eliminación accidental de objetos y permite recuperar y restaurar versiones anteriores de un objeto. 
 ---
-= Control de versiones de objetos
+= Cómo StorageGRID utiliza el versionado de objetos
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

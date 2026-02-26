@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: troubleshoot low soft read-only watermark override alert, optimized watermarks 
 summary: Si utiliza valores personalizados para las marcas de agua del volumen de almacenamiento, es posible que necesite resolver la alerta de anulación de la Marca de agua de sólo lectura baja. Si es posible, debe actualizar el sistema para empezar a utilizar los valores optimizados. 
 ---
-= Solucionar los problemas de las alertas de anulación de la Marca de agua de sólo lectura baja
+= Resuelve la alerta de anulación de marca de agua en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: server side encryption, encryption, operations on objects, objects 
 summary: El cifrado del lado del servidor le permite proteger los datos de objetos en reposo. StorageGRID cifra los datos mientras escribe el objeto y descifra los datos cuando accede al objeto. 
 ---
-= Usar cifrado del servidor
+= Cómo StorageGRID utiliza el cifrado del lado del servidor
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

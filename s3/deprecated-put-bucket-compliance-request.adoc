@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: S3 REST API, S3 operations, PUT deprecated compliance requests 
 summary: La solicitud de cumplimiento de normativas PUT Bucket quedó obsoleta. Sin embargo, puede seguir utilizando esta solicitud para modificar la configuración de cumplimiento de un bloque compatible heredado existente. 
 ---
-= Obsoleto: Solicitud de cumplimiento de bloques PUT
+= Solicitud obsoleta de PUT Bucket compliance en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

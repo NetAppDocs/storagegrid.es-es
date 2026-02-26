@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: bucket access policies, group access policies, session policies 
 summary:  
 ---
-= Utilizar políticas de acceso
+= Cómo StorageGRID usa las políticas de AWS para controlar el acceso a los buckets y objetos de S3
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: HeadObject 
 summary: Puede utilizar la solicitud S3 HeadObject para recuperar metadatos de un objeto sin devolver el objeto en sí. 
 ---
-= Objeto principal
+= Recupera metadatos de un objeto en StorageGRID con la solicitud S3 HeadObject
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

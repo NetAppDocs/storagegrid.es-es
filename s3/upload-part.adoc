@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: s3 UploadPart operation 
 summary: La operación UploadPart carga una pieza en una carga de varias partes para un objeto. 
 ---
-= UploadPart
+= Cabeceras de solicitud admitidas y no admitidas para operaciones S3 UploadPart en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

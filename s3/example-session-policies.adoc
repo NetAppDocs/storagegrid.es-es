@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: session policy example 
 summary: Utilice el ejemplo de esta sección para crear políticas de sesión de StorageGRID . 
 ---
-= Ejemplo de política de sesión
+= Ejemplo de política de sesión de StorageGRID S3 API de REST
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
