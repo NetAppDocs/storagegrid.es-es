@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audi, message, GNRG, GNDS Registration 
 summary: El servicio CMN genera este mensaje de auditoría cuando un servicio ha actualizado o registrado información sobre sí mismo en el sistema StorageGRID. 
 ---
-= GNRG: Registro GNDS
+= Mensaje de auditoría GNRG para el registro GNDS en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

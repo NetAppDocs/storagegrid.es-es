@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, LLST, Location Lost 
 summary: 'Este mensaje se genera siempre que no se encuentre una ubicación para una copia de objeto \(replicada o con código de borrado\).' 
 ---
-= LLST: Ubicación perdida
+= Mensaje de auditoría LLST para ubicaciones de copias de objetos perdidas en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

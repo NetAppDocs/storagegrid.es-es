@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message formats, message format 
 summary: Los mensajes de auditoría intercambiados dentro del sistema StorageGRID incluyen información estándar común a todos los mensajes y contenido específico que describe el evento o la actividad que se está reportando. 
 ---
-= Formato de mensaje de auditoría
+= Conoce la estructura de los mensajes de auditoría de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

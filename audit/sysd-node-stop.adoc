@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, SYSD, Node Stop 
 summary: Cuando un servicio se detiene correctamente, se genera este mensaje para indicar que se ha solicitado el cierre. Normalmente, este mensaje se envía sólo después de un reinicio posterior, porque la cola de mensajes de auditoría no se borra antes del cierre. Busque el mensaje SYST, enviado al principio de la secuencia de apagado, si el servicio no se ha reiniciado. 
 ---
-= SYSD: Parada del nodo
+= Mensaje de auditoría SYSD para paradas de nodo graceful en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

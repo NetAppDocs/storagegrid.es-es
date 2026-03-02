@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, messages, system, ECOC, ETAF, GNRG, GNUR, GTED, GTST, GTSU, LLST, OLST, SADD, SADE, SVRF, SVRU, SYSD, SYST, SYSU, VLST 
 summary: 'Los mensajes de auditoría que pertenecen a la categoría de auditoría del sistema se utilizan para eventos relacionados con el propio sistema de auditoría, estados de nodo de cuadrícula, actividad de tarea de todo el sistema \(tareas de grid\) y operaciones de copia de seguridad de servicio.' 
 ---
-= Mensajes de auditoría del sistema
+= Mensajes de auditoría para eventos del sistema en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

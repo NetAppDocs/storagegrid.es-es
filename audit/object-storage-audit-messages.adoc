@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: audit, object storage, object management, object retrieval, node transfer, verification, BROR, CBSE, CBRE, CGRR, EBDL, EBKR, SCMT, SREM 
 summary: Debería estar familiarizado con los mensajes de auditoría que pertenecen a la categoría de auditoría de almacenamiento de objetos. Estos son eventos relacionados con el almacenamiento y la gestión de objetos dentro del sistema StorageGRID. Entre estas se incluyen las recuperaciones y almacenamiento de objetos, el nodo de grid a transferencias de Grid-nodo y las verificaciones. 
 ---
-= Mensajes de auditoría del almacenamiento de objetos
+= Mensajes de auditoría para eventos de almacén de objetos en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, tool, audit-explain, audit explain, translate audit messages, translate messages, translate audit message, translate message 
 summary: Puede utilizar la herramienta audit-explain para traducir los mensajes de auditoría del registro de auditoría a un formato fácil de leer. 
 ---
-= Utilice la herramienta de explicación de auditoría
+= Usa la herramienta audit-explain para traducir los mensajes de auditoría de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

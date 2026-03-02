@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, SVRF, Object Store Verify Fail 
 summary: Este mensaje se emite siempre que un bloque de contenido falla en el proceso de verificación. Cada vez que se leen los datos de objetos replicados o se escriben en el disco, se realizan varias comprobaciones de verificación e integridad para garantizar que los datos enviados al usuario solicitante sean idénticos a los datos procesados originalmente en el sistema. Si alguna de estas comprobaciones falla, el sistema pone automáticamente en cuarentena los datos de objeto replicados corruptos para impedir que se recupere de nuevo. 
 ---
-= SVRF: Fallo de verificación del almacén de objetos
+= Mensaje de auditoría SVRF para fallos de verificación de almacén de objetos en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

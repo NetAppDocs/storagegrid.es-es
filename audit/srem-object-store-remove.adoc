@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, SREM, Object Store Remove 
 summary: Este mensaje se genera cuando se elimina el contenido del almacenamiento persistente y ya no se puede acceder a él mediante API habituales. 
 ---
-= SREM: Almacén de objetos Quitar
+= Mensaje de auditoría SREM para la eliminación del almacén de objetos en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

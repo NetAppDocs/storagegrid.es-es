@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, log file formats, log formats, log file format, log format 
 summary: Los archivos de registro de auditoría se encuentran en cada nodo de administrador y contienen una colección de mensajes de auditoría individuales. 
 ---
-= Formato del archivo de registro de auditoría
+= Conoce el formato de los archivos de registro de auditoría en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

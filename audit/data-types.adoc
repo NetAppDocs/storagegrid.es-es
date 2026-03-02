@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, data, types, UI32, UI64, FC32, IPAD, CSTR, IPAD 
 summary: Se utilizan diferentes tipos de datos para almacenar información en mensajes de auditoría. 
 ---
-= Tipos de datos
+= Tipos de datos en los mensajes de auditoría de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

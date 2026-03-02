@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: audit message examples, audit.log, atyp, sput, s3 put 
 summary: Puede encontrar información detallada en cada mensaje de auditoría. Todos los mensajes de auditoría tienen el mismo formato. 
 ---
-= Ejemplos de mensajes de auditoría
+= Formato de mensajes de auditoría de StorageGRID y ejemplos
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

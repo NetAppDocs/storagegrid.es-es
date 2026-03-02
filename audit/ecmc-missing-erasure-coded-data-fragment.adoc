@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, ECMC, Missing Erasure-Coded Data Fragment 
 summary: Este mensaje de auditoría indica que el sistema ha detectado que falta un fragmento de datos con código de borrado. 
 ---
-= ECMC: Falta el fragmento de datos con código de borrado
+= Mensaje de auditoría ECMC por datos con código de borrado faltantes en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

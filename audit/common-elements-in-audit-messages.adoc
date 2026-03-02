@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, messages, message, common elements, AMID, ANID, ASES, ASQN, ATID, ATIM, ATYP, AVER, RSLT 
 summary: Todos los mensajes de auditoría contienen los elementos comunes. 
 ---
-= Elementos comunes de los mensajes de auditoría
+= Elementos comunes en los mensajes de auditoría de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

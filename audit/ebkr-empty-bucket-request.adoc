@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, EBKR, Empty Bucket Request 
 summary: 'Este mensaje indica que un usuario ha enviado una solicitud para activar o desactivar el depósito vacío (es decir, para suprimir objetos de depósito o para dejar de suprimir objetos).' 
 ---
-= EBKR: Solicitud de depósito vacío
+= Mensaje de auditoría EBKR para solicitudes de bucket vacíos en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

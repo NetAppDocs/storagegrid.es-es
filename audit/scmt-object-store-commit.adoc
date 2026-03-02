@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, SCMT, Object Store Commit 
 summary: 'El contenido de la cuadrícula no está disponible ni se reconoce como almacenado hasta que se haya asignado \(lo que significa que se ha almacenado de forma persistente\). El contenido almacenado de forma persistente se ha escrito completamente en el disco y ha pasado las comprobaciones de integridad relacionadas. Este mensaje se genera cuando un bloque de contenido se confirma en el almacenamiento.' 
 ---
-= SCMT: Confirmación del almacén de objetos
+= Mensaje de auditoría SCMT para commits de almacén de objetos en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

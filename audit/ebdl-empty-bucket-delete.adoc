@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, EBDL, Empty Bucket Delete 
 summary: 'El análisis de ILM eliminó un objeto de un bloque que elimina todos los objetos (mediante una operación de bloque vacío).' 
 ---
-= EBDL: Eliminación de bloque vacío
+= Mensaje de auditoría EBDL para eliminaciones de objetos de bucket vacíos en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, CBSB, Object Send Begin 
 summary: Durante las operaciones normales del sistema, los bloques de contenido se transfieren de forma continua entre diferentes nodos a medida que se accede a los datos, se replican y se conservan. Cuando se inicia la transferencia de un bloque de contenido de un nodo a otro, la entidad de origen emite este mensaje. 
 ---
-= CBSB: Inicio de envío de objeto
+= Mensaje de auditoría CBSB para el inicio del envío de objetos en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

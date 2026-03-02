@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, ECOC, Corrupt Erasure-Coded Data Fragment 
 summary: Este mensaje de auditoría indica que el sistema ha detectado un fragmento de datos con código de borrado dañado. 
 ---
-= ECOC: Fragmento de datos con código de borrado corrupto
+= Mensaje de auditoría ECOC para datos con código de borrado corruptos en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

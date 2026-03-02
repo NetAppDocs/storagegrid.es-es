@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, GTST, Grid Task Started 
 summary: Este mensaje de auditoría indica que el servicio CMN ha comenzado a procesar la tarea de cuadrícula especificada. El mensaje de auditoría sigue inmediatamente el mensaje tarea de cuadrícula enviada para las tareas de cuadrícula iniciadas por el servicio de envío de tareas de cuadrícula interna y seleccionadas para la activación automática. Para las tareas de cuadrícula enviadas a la tabla pendiente, este mensaje se genera cuando el usuario inicia la tarea de cuadrícula. 
 ---
-= GTST: Se ha iniciado la tarea de cuadrícula
+= Mensaje de auditoría GTST para tareas grid iniciadas en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, GTSU, Grid Task Submitted 
 summary: Este mensaje de auditoría indica que se ha enviado una tarea de cuadrícula al servicio CMN. 
 ---
-= GTSU: Se ha enviado la tarea de la cuadrícula
+= Mensaje de auditoría GTSU para tareas de grid enviadas en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

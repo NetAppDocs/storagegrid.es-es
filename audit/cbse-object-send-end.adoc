@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, CBSE, Object Send End 
 summary: Cuando se completa la transferencia de un bloque de contenido de un nodo a otro, la entidad de origen emite este mensaje. 
 ---
-= CBSE: Fin de envío de objeto
+= Mensaje de auditoría CBSE para el fin del envío de objeto en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

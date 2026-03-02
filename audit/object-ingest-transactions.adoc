@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: object ingest transaction, S3 ingest, SPUT, ORLM, WPUT 
 summary: Puede identificar las transacciones de ingesta de clientes en el registro de auditoría mediante la ubicación de S3 mensajes de auditoría específicos de la API. 
 ---
-= Transacciones de procesamiento de objetos
+= Mensajes de auditoría para transacciones de ingesta de objetos en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

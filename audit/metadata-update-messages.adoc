@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, Metadata update, S3 metadata update, SUPD 
 summary: Los mensajes de auditoría se generan cuando un cliente S3 actualiza los metadatos de un objeto. 
 ---
-= Mensajes de actualización de metadatos
+= Mensajes de auditoría para actualizaciones de metadatos de objetos S3 en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

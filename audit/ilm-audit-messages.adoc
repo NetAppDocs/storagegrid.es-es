@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: audit messages, ILM, IDEL, LKCU, ORLM 
 summary: Los mensajes de auditoría que pertenecen a la categoría de auditoría ILM se utilizan para eventos relacionados con las operaciones de ciclo de vida de la información. 
 ---
-= Mensajes de auditoría de ILM
+= Mensajes de auditoría de StorageGRID ILM
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

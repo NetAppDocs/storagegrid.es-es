@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, LKCU, Overwritten Object Cleanup 
 summary: Este mensaje se genera cuando StorageGRID elimina un objeto sobrescrito que anteriormente requería una limpieza para liberar espacio de almacenamiento. Un objeto se sobrescribe cuando un cliente S3 escribe un objeto en una ruta que ya contiene un objeto. El proceso de eliminación se realiza automáticamente y en segundo plano. 
 ---
-= LKCU: Limpieza de objetos sobrescritos
+= Mensaje de auditoría LKCU para la limpieza de objetos sobrescritos en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, tool, audit-sum, audit sum, write, read, head, delete, minimum time, maximum time, average time, minimum size, maximum size, average size 
 summary: 'Puede utilizar la herramienta de suma de auditoría para contar los mensajes de auditoría de escritura, lectura, encabezado y eliminación y para ver el tiempo mínimo, máximo y promedio \(o tamaño\) de cada tipo de operación.' 
 ---
-= Utilice la herramienta de suma de auditoría
+= Usa la herramienta audit-sum para resumir los mensajes de auditoría de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, GTED, Grid Task Ended 
 summary: Este mensaje de auditoría indica que el servicio CMN ha terminado de procesar la tarea de cuadrícula especificada y ha movido la tarea a la tabla histórica. Si el resultado es SUCS, ABRT o ROLF, habrá un mensaje de auditoría iniciado tarea de cuadrícula correspondiente. Los otros resultados indican que el procesamiento de esta tarea de cuadrícula nunca se ha iniciado. 
 ---
-= GTED: La tarea de la red terminó
+= Mensaje de auditoría GTED para tareas de grid finalizadas en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

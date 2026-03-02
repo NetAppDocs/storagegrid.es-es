@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, SYSU, Node Start 
 summary: 'Cuando se reinicia un servicio, este mensaje se genera para indicar si el cierre anterior estaba limpio \(ordenado\) o desordenado \(inesperado\).' 
 ---
-= SYSU: Inicio del nodo
+= Mensaje de auditoría SYSU para el inicio de nodo en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

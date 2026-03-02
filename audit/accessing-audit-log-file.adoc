@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, log, log file, access, accessing 
 summary: El recurso compartido de auditoría contiene el archivo audit.log activo y todos los archivos de registro de auditoría comprimidos. Puede acceder a los archivos log de auditoría directamente desde la línea de comandos del nodo de administración. 
 ---
-= Acceda al archivo de registro de auditoría
+= Accede a los archivos de registro de auditoría desde la línea de comandos del nodo de administración de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

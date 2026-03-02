@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, SADE, Security Audit Enable 
 summary: 'Este mensaje indica que el servicio de origen \(ID de nodo\) ha restaurado el registro de mensajes de auditoría; los mensajes de auditoría se vuelven a recopilar y entregar.' 
 ---
-= SADE: Activación de auditoría de seguridad
+= Mensaje de auditoría SADE para habilitar la auditoría de seguridad en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

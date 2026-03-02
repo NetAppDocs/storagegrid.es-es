@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: audit message, event, shea, s3 head 
 summary: Cada mensaje de auditoría del registro de auditoría registra datos específicos de un evento del sistema. 
 ---
-= Datos específicos de un evento
+= Datos específicos del evento en los mensajes de auditoría de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
