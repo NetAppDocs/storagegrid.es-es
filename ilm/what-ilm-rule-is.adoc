@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: what is information lifecycle rule, ilm rule 
 summary: 'Para administrar objetos, debe crear un conjunto de reglas de gestión del ciclo de vida de la información \(ILM\) y organizarlas en una política de ILM.' 
 ---
-= Utilice reglas de ILM para gestionar objetos
+= Conoce las reglas ILM en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

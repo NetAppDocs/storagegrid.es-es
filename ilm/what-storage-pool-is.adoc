@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: what is a storage pool 
 summary: Un pool de almacenamiento es una agrupación lógica de nodos de almacenamiento. 
 ---
-= ¿Qué es un pool de almacenamiento?
+= Conoce los grupos de almacenamiento en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

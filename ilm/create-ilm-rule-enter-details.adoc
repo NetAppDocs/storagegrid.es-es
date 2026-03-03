@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ILM rule step 1, define basics 
 summary: 'Paso 1 \(Introducir detalles\) del asistente Crear una regla de ILM le permite introducir un nombre y una descripción para la regla y definir filtros para la regla.' 
 ---
-= Paso 1 de 3: Introduzca los detalles
+= Ingresa detalles y filtros para una regla StorageGRID ILM
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

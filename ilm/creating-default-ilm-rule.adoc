@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: create default ilm rule 
 summary: Antes de crear una política de ILM, debe crear una regla predeterminada para colocar los objetos que no coincidan con otra regla en la política. La regla predeterminada no puede usar ningún filtro. Debe aplicarse a todos los inquilinos, todos los grupos y todas las versiones del objeto. 
 ---
-= Cree una regla de ILM predeterminada
+= Crea una regla ILM predeterminada en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

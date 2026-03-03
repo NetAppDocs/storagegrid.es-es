@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: enable s3 object lock, object lock 
 summary: Si una cuenta de inquilino de S3 tiene que cumplir con los requisitos de normativa al guardar datos de objetos, debe habilitar el bloqueo de objetos de S3 para todo el sistema StorageGRID. Al habilitar el ajuste global de bloqueo de objetos de S3, cualquier usuario inquilino de S3 puede crear y gestionar bloques y objetos con S3 Object Lock. 
 ---
-= Habilite el bloqueo de objetos de S3 globalmente
+= Habilita el bloqueo de objetos S3 a nivel global en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

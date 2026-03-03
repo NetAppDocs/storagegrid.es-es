@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: object lock workflow 
 summary: Como administrador de grid, debe coordinar estrechamente con los usuarios inquilinos a fin de asegurarse de que los objetos estén protegidos de forma que cumplan sus requisitos de retención. 
 ---
-= S3 Tareas de bloqueo de objetos
+= Flujo de trabajo de S3 Object Lock en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

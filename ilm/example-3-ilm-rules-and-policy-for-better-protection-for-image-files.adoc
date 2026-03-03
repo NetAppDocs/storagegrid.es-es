@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: example ILM rule, information lifecycle rule examples 
 summary: Puede utilizar las siguientes reglas y políticas de ejemplo para asegurarse de que las imágenes de más de 1 MB tengan un código de borrado y que dos copias estén hechas de imágenes más pequeñas. 
 ---
-= Ejemplo 3: Reglas de ILM y política para mejorar la protección de los archivos de imagen
+= Reglas ILM y política para proteger archivos de imagen en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

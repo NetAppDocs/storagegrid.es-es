@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ingest options, balanced ingest, strict ingest, dual-commit ingest 
 summary: 'Al crear una regla de ILM, se deben especificar una de estas tres opciones para proteger los objetos durante la ingesta: Dual commit, strict o balanced.' 
 ---
-= Opciones de procesamiento
+= Opciones de ingestión de ILM en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

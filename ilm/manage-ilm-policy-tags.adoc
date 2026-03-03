@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ILM policy tag 
 summary: Puede ver detalles de etiqueta de política de ILM, editar una etiqueta o quitar una etiqueta. 
 ---
-= Gestione etiquetas de políticas de ILM
+= Administra las etiquetas de políticas ILM en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

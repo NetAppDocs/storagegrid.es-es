@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how object retention is determined 
 summary: StorageGRID ofrece opciones tanto para los administradores de grid como para los usuarios individuales de inquilino para especificar el tiempo que se tarda en almacenar los objetos. En general, cualquier instrucción de retención proporcionada por un usuario inquilino tiene prioridad sobre las instrucciones de retención proporcionadas por el administrador de grid. 
 ---
-= Cómo se determina la retención de objetos
+= Cómo StorageGRID determina la retención de objetos
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: erasure-coding scheme 
 summary: Los esquemas de codificación de borrado controlan cuántos fragmentos de datos se crean y cuántos fragmentos de paridad se crean para cada objeto. 
 ---
-= ¿Qué son los esquemas de código de borrado?
+= Conoce los esquemas de codificación de borrado en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

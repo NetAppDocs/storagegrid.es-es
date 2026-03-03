@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cloud storage pool, troubleshoot 
 summary: Utilice estos pasos de solución de problemas para resolver los errores que puede encontrar al crear, editar o eliminar un pool de almacenamiento en la nube. 
 ---
-= Solucione problemas de Cloud Storage Pools
+= Soluciona problemas de los Cloud Storage Pools en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

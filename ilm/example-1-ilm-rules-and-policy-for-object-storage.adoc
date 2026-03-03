@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: example ILM rule, information lifecycle rule examples 
 summary: Es posible usar las siguientes reglas y políticas de ejemplo como punto de inicio al definir una política de ILM para cumplir con los requisitos de retención y protección de objetos. 
 ---
-= Ejemplo 1: Reglas de ILM y políticas para el almacenamiento de objetos
+= Reglas y políticas de ILM para la protección y retención básica de objetos en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

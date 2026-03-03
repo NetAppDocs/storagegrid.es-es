@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: strict ingest example, example ILM rule, information lifecycle rule examples 
 summary: Puede usar un filtro de ubicación y el comportamiento de ingesta estricto de una regla para evitar que los objetos se guarden en una ubicación de centro de datos en particular. 
 ---
-= Ejemplo 5: Reglas de ILM y política para el comportamiento de consumo estricto
+= Reglas y política de ILM para el comportamiento de ingesta estricto en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

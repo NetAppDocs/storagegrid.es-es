@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: remove cloud storage pool 
 summary: Puede quitar un pool de almacenamiento en cloud si no se utiliza en una regla de gestión de la vida útil de la información y no contiene datos de objetos. 
 ---
-= Quitar un pool de almacenamiento en el cloud
+= Eliminar un Cloud Storage Pool en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

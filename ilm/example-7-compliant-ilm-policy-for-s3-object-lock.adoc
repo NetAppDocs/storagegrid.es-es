@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ILM policy,S3 Object Lock 
 summary: Puede usar el bloque de S3, las reglas de ILM y la política de ILM en este ejemplo como un punto de partida para definir una política de ILM para cumplir con los requisitos de retención y protección de objetos para los objetos en bloques con el bloqueo de objetos S3 habilitado. 
 ---
-= Ejemplo 7: Política de ILM conforme con la normativa para el bloqueo de objetos S3
+= Política ILM compatible para S3 Object Lock en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

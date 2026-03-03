@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: erasure coding advantages, disadvantages, EC requirements 
 summary: Antes de decidir si se debe utilizar la replicación o el código de borrado para proteger los datos de objetos frente a pérdidas, debe comprender las ventajas, las desventajas y los requisitos para la codificación de borrado. 
 ---
-= Ventajas, desventajas y requisitos de codificación de borrado
+= Ventajas, desventajas y requisitos para la codificación de borrado en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

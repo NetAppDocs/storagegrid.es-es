@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: rename erasure-coding profile, ec profile 
 summary: Puede ver los detalles de un perfil de código de borrado y cambiar el nombre de un perfil si es necesario. Puede desactivar un perfil de código de borrado si actualmente no se está utilizando en ninguna regla de ILM. 
 ---
-= Gestione perfiles de código de borrado
+= Administra los perfiles de código de borrado en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: remove ilm rule, edit ilm rule, clone ilm rule, ilm queue 
 summary: A medida que cambian sus requisitos de almacenamiento, es posible que deba aplicar otra normativa o modificar las reglas de ILM asociadas a la política. Puede ver las métricas de ILM para determinar el rendimiento del sistema. 
 ---
-= Funciona con políticas de ILM y reglas de ILM
+= Trabaja con políticas ILM y reglas ILM en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

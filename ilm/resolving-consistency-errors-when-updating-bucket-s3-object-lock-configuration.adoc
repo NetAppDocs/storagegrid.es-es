@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: consistency error, s3 object lock and consistency 
 summary: Si un sitio de centro de datos o varios nodos de almacenamiento de un sitio no están disponibles, es posible que deba ayudar a los usuarios inquilinos S3 a aplicar los cambios en la configuración del bloqueo de objetos S3 o del cumplimiento heredado. 
 ---
-= Resuelva los errores de coherencia al actualizar la configuración de bloqueo de objetos de S3 o cumplimiento heredado
+= Resuelve errores de consistencia al actualizar la configuración de S3 Object Lock o legacy Compliance en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

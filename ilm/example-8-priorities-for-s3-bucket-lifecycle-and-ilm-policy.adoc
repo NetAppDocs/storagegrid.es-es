@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: retention priority, example S3 bucket lifecycle, example ILM policy 
 summary: Según la configuración del ciclo de vida, los objetos siguen los ajustes de retención del ciclo de vida de bloques de S3 o una política de ILM. 
 ---
-= Ejemplo 8: Prioridades para el ciclo de vida del bloque de S3 y política de ILM
+= Cómo interactúan el ciclo de vida de los buckets S3 y la política ILM en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

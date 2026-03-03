@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storage pool guidelines 
 summary: Configura y utiliza pools de almacenamiento para protegerse frente a la pérdida de datos distribuyendo los datos entre varios sitios. Las copias replicadas y las copias con código de borrado requieren diferentes configuraciones de pools de almacenamiento. 
 ---
-= Directrices para crear pools de almacenamiento
+= Directrices para la configuración de storage pool en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

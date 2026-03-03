@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: remove storage pool 
 summary: Es posible quitar un pool de almacenamiento que no se está usando. 
 ---
-= Quitar un pool de almacenamiento
+= Eliminar un pool de almacenamiento en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

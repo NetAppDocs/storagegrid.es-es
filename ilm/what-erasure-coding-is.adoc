@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: what is erasure coding, what is ec 
 summary: El código de borrado es uno de los dos métodos que utiliza StorageGRID para almacenar datos de objetos. Cuando los objetos coinciden con una regla de ILM que utiliza código de borrado, esos objetos se dividen en fragmentos de datos, se calculan fragmentos de paridad adicionales y cada fragmento se almacena en un nodo de almacenamiento diferente. 
 ---
-= ¿Qué es el código de borrado?
+= Aprende sobre el código de borrado en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

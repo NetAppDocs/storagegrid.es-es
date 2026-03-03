@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: verify ilm policy, object metadata lookup 
 summary: Una vez activada una política de ILM, introduzca los objetos de prueba representativos en el sistema StorageGRID y, a continuación, realice una búsqueda de metadatos de objetos para confirmar que las copias se crean como previstas y que se colocan en las ubicaciones correctas. 
 ---
-= Comprobar una política de ILM con la búsqueda de metadatos de objetos
+= Verifica una política ILM con búsqueda de metadatos de objetos en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

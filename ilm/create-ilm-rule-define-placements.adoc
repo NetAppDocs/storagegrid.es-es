@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ilm rule step 2, define placements 
 summary: 'El paso Definir ubicaciones del asistente Crear reglas de ILM permite definir las instrucciones de ubicación que determinan el tiempo en que se almacenan los objetos, el tipo de copias \(replicadas o con código de borrado\), la ubicación de almacenamiento y el número de copias.' 
 ---
-= Paso 2 de 3: Definir colocaciones
+= Define instrucciones de colocación para una regla de StorageGRID ILM
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
