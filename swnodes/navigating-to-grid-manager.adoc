@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to navigate to Grid Manager 
 summary: El Gestor de cuadrícula se utiliza para definir toda la información necesaria para configurar el sistema StorageGRID. 
 ---
-= Desplácese hasta Grid Manager
+= Ve al Grid Manager de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

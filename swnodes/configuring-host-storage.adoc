@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure host storage 
 summary: Debe asignar volúmenes de almacenamiento en bloque a cada host Linux. 
 ---
-= Configurar el almacenamiento del host (Linux)
+= Configura el almacenamiento de host de StorageGRID para implementaciones de Linux
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

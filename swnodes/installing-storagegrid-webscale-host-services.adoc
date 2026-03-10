@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to install StorageGRID host services 
 summary: Utilice el paquete StorageGRID correspondiente a su tipo de sistema operativo para instalar los servicios de host de StorageGRID . 
 ---
-= Instalar servicios de host de StorageGRID (Linux)
+= Instala los servicios de host de StorageGRID en Linux
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: after installation 
 summary: Después de completar una instalación, realice las tareas de integración y configuración necesarias. Puede realizar las tareas opcionales según sea necesario. 
 ---
-= A continuación, ¿dónde ir
+= Conoce los pasos obligatorios y opcionales después de instalar StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

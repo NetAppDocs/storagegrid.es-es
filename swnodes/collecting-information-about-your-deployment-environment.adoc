@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to collect information about your vmware deployment environment 
 summary: Antes de implementar nodos de grid, debe recopilar información acerca de la configuración de red y el entorno de VMware. 
 ---
-= Recopilar información sobre su entorno de implementación (VMware)
+= Recopila información sobre tu entorno VMware para StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

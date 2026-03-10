@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to approve pending grid nodes 
 summary: Debe aprobar cada nodo de cuadrícula para poder unirse al sistema StorageGRID. 
 ---
-= Aprobar los nodos de cuadrícula pendientes
+= Aprueba los nodos de grid pendientes para StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

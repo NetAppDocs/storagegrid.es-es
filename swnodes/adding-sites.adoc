@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to add sites 
 summary: Debe crear al menos un sitio cuando instale StorageGRID. Puede crear sitios adicionales para aumentar la fiabilidad y la capacidad de almacenamiento de su sistema StorageGRID. 
 ---
-= Agregar sitios
+= Agrega sitios en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

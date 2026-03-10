@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to start host service 
 summary: Para iniciar los nodos de StorageGRID y asegurarse de que reinicien después del reinicio de un host, debe habilitar e iniciar el servicio de host StorageGRID. 
 ---
-= Iniciar el servicio de host StorageGRID (Linux)
+= Inicia el servicio de host de StorageGRID en Linux
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

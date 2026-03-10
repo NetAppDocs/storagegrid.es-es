@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how grid nodes discover the primary Admin Node 
 summary: Los nodos de grid se comunican con el nodo de administrador principal para realizar tareas de configuración y gestión. Cada nodo de grid debe conocer la dirección IP del nodo de administrador principal en la red de grid. 
 ---
-= La forma en que los nodos de grid detectan el nodo de administrador principal
+= Cómo los nodos grid descubren el nodo Admin primario en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

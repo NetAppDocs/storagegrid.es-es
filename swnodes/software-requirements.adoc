@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: software requirements 
 summary: Es posible usar una máquina virtual para alojar cualquier tipo de nodo StorageGRID. Se necesita una máquina virtual para cada nodo de grid. 
 ---
-= Requisitos de software
+= Requisitos de software para StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: example debian node configuration file, example ubuntu linux node configuration file, example red hat linux node configuration file, example rhel node configuration file 
 summary: Puede usar los archivos de configuración del nodo de ejemplo para ayudar a configurar los archivos de configuración del nodo para el sistema StorageGRID. Los ejemplos muestran archivos de configuración de nodo para todos los tipos de nodos de cuadrícula. 
 ---
-= Archivos de configuración de nodo de ejemplo (Linux)
+= Ejemplo de archivos de configuración para nodos de StorageGRID en Linux
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to create rhel ubuntu or debian node configuration files, port, remap, port remap 
 summary: Los archivos de configuración de los nodos son archivos de texto pequeños que proporcionan la información que el servicio de host StorageGRID necesita para iniciar un nodo y conectarlo a la red adecuada y bloquear recursos de almacenamiento. Los archivos de configuración de los nodos se usan para los nodos virtuales y no se usan para los nodos del dispositivo. 
 ---
-= Crear archivos de configuración de nodos para implementaciones de Linux
+= Crea archivos de configuración de nodos StorageGRID para implementaciones en Linux
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: installation files, how to verify files 
 summary: Si es necesario, puede verificar manualmente los archivos en el archivo de instalación de StorageGRID. 
 ---
-= Verificar manualmente los archivos de instalación (opcional)
+= Verifica los archivos de instalación de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

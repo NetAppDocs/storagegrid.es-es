@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to specify Grid Network subnets 
 summary: Debe especificar las subredes que se utilizan en la red de cuadrícula. 
 ---
-= Especifique las subredes de red de red
+= Especifica las subredes de la red Grid para StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

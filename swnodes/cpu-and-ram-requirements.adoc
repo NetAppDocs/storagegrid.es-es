@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cpu, ram, cpu cores 
 summary: Antes de instalar el software StorageGRID, verifique y configure el hardware de manera que esté listo para admitir el sistema StorageGRID. 
 ---
-= Requisitos de CPU y RAM
+= Requisitos de CPU y RAM para StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
