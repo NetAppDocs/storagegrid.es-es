@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to review audit messages, how to view audit messages 
 summary: Los mensajes de auditoría pueden ayudarle a comprender mejor las operaciones detalladas del sistema StorageGRID. Es posible usar registros de auditoría para solucionar problemas y evaluar el rendimiento. 
 ---
-= Revisar los mensajes de auditoría
+= Revisa los mensajes de auditoría de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

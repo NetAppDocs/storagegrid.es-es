@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: when to monitor, what to monitor 
 summary: Aunque el sistema de StorageGRID puede seguir funcionando cuando se producen errores o alguna parte del grid no está disponible, debe supervisar y solucionar posibles problemas antes de que afecten la eficiencia o la disponibilidad del grid. 
 ---
-= Qué y cuándo supervisar
+= Qué y cuándo supervisar en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

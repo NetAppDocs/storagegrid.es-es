@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: hardware tab 
 summary: En la pestaña hardware, se muestra la utilización de CPU y la memoria de cada nodo, así como información de hardware adicional sobre los dispositivos. 
 ---
-= Vea la pestaña hardware
+= Ver la pestaña Hardware de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

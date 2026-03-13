@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: monitoring, monitoring network connections, network, network performance 
 summary: La integridad y el ancho de banda de la red entre nodos y los sitios, y el uso de recursos por parte de los nodos de grid individuales, son esenciales para la eficacia de las operaciones. 
 ---
-= Supervise las redes y los recursos del sistema
+= Supervisa los recursos de red y del sistema en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

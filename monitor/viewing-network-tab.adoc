@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: network tab 
 summary: La pestaña Red muestra un gráfico que muestra el tráfico de red recibido y enviado a través de todas las interfaces de red del nodo, sitio o cuadrícula. 
 ---
-= Abra la pestaña Network
+= Ver la pestaña Network de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

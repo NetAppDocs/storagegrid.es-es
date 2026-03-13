@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: load balancer tab 
 summary: La pestaña Load Balancer incluye gráficos de rendimiento y diagnóstico relacionados con la operación del servicio Load Balancer. 
 ---
-= Abra el separador Equilibrador de Carga
+= Ver la pestaña Load balancer de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

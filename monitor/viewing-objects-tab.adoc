@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: objects tab 
 summary: La ficha Objetos proporciona información sobre las tasas de procesamiento y recuperación de S3. 
 ---
-= Abra la pestaña objetos
+= Ver la pestaña Objects de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to view support metrics, how to review support metrics 
 summary: Al solucionar problemas, puede trabajar con el soporte técnico para revisar métricas y gráficos detallados para su sistema StorageGRID. 
 ---
-= Revisar las métricas de soporte
+= Revisa las métricas de soporte de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

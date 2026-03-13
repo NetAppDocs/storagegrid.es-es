@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: overview tab 
 summary: La pestaña Overview proporciona información básica sobre cada nodo. También muestra todas las alertas que actualmente afectan al nodo. 
 ---
-= Vea la ficha Descripción general
+= Ver la pestaña Overview de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: syslog server, external syslog server, sizing, sizing syslog server, audit messages 
 summary: Un servidor de syslog externo es un servidor fuera de StorageGRID que se puede utilizar para recopilar información de auditoría del sistema en una sola ubicación. El uso de un servidor de syslog externo permite reducir el tráfico de red en los nodos de administrador y gestionar la información de auditorías de manera más eficiente. 
 ---
-= Consideraciones que tener en cuenta sobre el uso de un servidor de syslog externo
+= Servidores syslog externos en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

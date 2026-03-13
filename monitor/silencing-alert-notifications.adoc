@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to disable alert rules, how to remove a custom alert rule 
 summary: Opcionalmente, puede configurar silencios para suprimir temporalmente las notificaciones de alerta. 
 ---
-= Silenciar notificaciones de alerta
+= Silencia las notificaciones de alerta en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

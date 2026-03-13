@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to view dashboard, how to configure dashboard 
 summary: Puede utilizar la consola para supervisar las actividades del sistema de un vistazo. Puedes crear paneles personalizados para supervisar la implementación de StorageGRID. 
 ---
-= Permite ver y gestionar el panel de control
+= Ver y gestionar el panel de control en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

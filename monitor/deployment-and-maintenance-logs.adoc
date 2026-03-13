@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: deployment, logs, Maintenance 
 summary: Puede utilizar los registros de implementación y de mantenimiento para solucionar problemas. 
 ---
-= Registros de implementación y mantenimiento
+= Registros de implementación y mantenimiento en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

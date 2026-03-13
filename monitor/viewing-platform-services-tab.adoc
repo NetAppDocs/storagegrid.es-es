@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: platform services tab 
 summary: La pestaña Servicios de plataforma proporciona información sobre cualquier operación de servicio de plataforma S3 en un sitio. 
 ---
-= Consulte la ficha Servicios de plataforma
+= Ver la pestaña de servicios de la plataforma StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

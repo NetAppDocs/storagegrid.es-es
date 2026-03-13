@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ilm tab 
 summary: 'En la pestaña ILM, se proporciona información sobre las operaciones de gestión de la vida útil de la información \(ILM\).' 
 ---
-= Vea la pestaña ILM
+= Ver la pestaña ILM de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

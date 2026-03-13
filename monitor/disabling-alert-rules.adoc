@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to disable alert rules, how to remove a custom alert rule 
 summary: Puede cambiar el estado activado/desactivado para una regla de alerta predeterminada o personalizada. 
 ---
-= Deshabilitar reglas de alerta
+= Desactiva las reglas de alerta en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

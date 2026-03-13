@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid federation, monitor connection, cross grid replication metrics 
 summary: Puede supervisar información básica sobre todas las conexiones de federación de grid, información detallada sobre una conexión específica o métricas de Prometheus sobre las operaciones de replicación entre grid. Puede supervisar una conexión desde cualquier cuadrícula. 
 ---
-= Supervisar las conexiones de federación de grid
+= Supervisa las conexiones de federación de grid de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

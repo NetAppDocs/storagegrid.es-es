@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: log management, audit level, external syslog server, log destinations 
 summary: Según sea necesario, configure los niveles de auditoría, los encabezados de protocolo y la ubicación de los mensajes y registros de auditoría. 
 ---
-= Configurar la gestión de registros
+= Configura la gestión de registros en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

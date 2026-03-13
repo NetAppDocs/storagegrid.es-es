@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: alerts reference 
 summary: Esta referencia muestra las alertas por defecto que aparecen en Grid Manager. Las acciones recomendadas están en el mensaje de alerta que recibe. 
 ---
-= Referencia de alertas
+= Alertas en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

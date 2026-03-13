@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: put, get, performance 
 summary: Puede supervisar el rendimiento de ciertas operaciones, como el almacén de objetos y la recuperación, para ayudar a identificar los cambios que podrían requerir una investigación adicional. 
 ---
-= SUPERVISE EL RENDIMIENTO DE PUT y GET
+= Supervisa el rendimiento de PUT y GET en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

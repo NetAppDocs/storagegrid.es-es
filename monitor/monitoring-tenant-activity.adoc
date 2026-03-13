@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to monitor tenant activity 
 summary: Toda la actividad de los clientes de S3 se asocia con las cuentas de inquilino de StorageGRID. Puede usar Grid Manager para supervisar el uso del almacenamiento o el tráfico de red de todos los inquilinos o de un inquilino específico. Puede utilizar el registro de auditoría o los paneles de Grafana para recopilar información más detallada sobre cómo usan los inquilinos StorageGRID. 
 ---
-= Supervise la actividad de los inquilinos
+= Supervisa la actividad de los inquilinos en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

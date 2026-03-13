@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: snmp agent, mib, trap, inform 
 summary: Es posible configurar el agente SNMP de StorageGRID para que use un sistema de gestión SNMP de terceros para el acceso a MIB de solo lectura y las notificaciones. 
 ---
-= Configure el agente SNMP
+= Configura el agente SNMP en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

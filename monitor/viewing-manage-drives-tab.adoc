@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: Manage drives tab, hardware diagnostics, fail drive, logically replace drive 
 summary: La pestaña Gestionar unidades permite acceder a los detalles y realizar tareas de solución de problemas y mantenimiento en las unidades de los dispositivos que admiten esta función. 
 ---
-= Consulte la pestaña Gestionar unidades
+= Ver la pestaña Manage drives de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

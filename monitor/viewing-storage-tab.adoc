@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storage tab 
 summary: La pestaña almacenamiento resume la disponibilidad del almacenamiento y otras medidas relacionadas con él. 
 ---
-= Consulte la pestaña almacenamiento
+= Ver la pestaña StorageGRID Storage
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

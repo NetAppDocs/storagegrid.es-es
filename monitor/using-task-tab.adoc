@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: Tasks tab, rename node, reboot node, storage state, maintenance mode 
 summary: La pestaña Tareas se muestra para todos los nodos.  Puede utilizar esta pestaña para cambiar el nombre o reiniciar un nodo o para poner un nodo del dispositivo en modo de mantenimiento.  Para los nodos de almacenamiento, puede configurar el estado de almacenamiento. 
 ---
-= Utilice la pestaña Tareas
+= Usa la pestaña Tareas de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

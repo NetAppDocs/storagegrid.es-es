@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to monitor storage capacity 
 summary: Supervise el espacio total utilizable disponible para garantizar que el sistema StorageGRID no se quede sin espacio de almacenamiento para objetos o para metadatos de objetos. 
 ---
-= Supervise la capacidad de almacenamiento
+= Supervisa la capacidad de almacenamiento en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

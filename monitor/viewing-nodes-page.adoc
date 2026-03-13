@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: nodes page 
 summary: Cuando necesite información más detallada sobre el sistema de StorageGRID que la que proporciona la consola, se puede usar la página Nodos para ver métricas de todo el grid, cada sitio del grid y cada nodo de un sitio. 
 ---
-= Vea la página Nodes
+= Ver la página de nodos de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

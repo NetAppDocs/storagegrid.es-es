@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to edit alert rules 
 summary: Puede editar una regla de alerta para cambiar las condiciones de activación, para una regla de alerta personalizada, también puede actualizar el nombre de la regla, la descripción y las acciones recomendadas. 
 ---
-= Editar reglas de alerta
+= Edita las reglas de alerta en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

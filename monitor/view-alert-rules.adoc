@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to manage alert rules 
 summary: Las reglas de alerta definen las condiciones que activan alertas específicas. StorageGRID incluye un conjunto de reglas de alerta predeterminadas, que se pueden utilizar tal cual o modificar, o bien se pueden crear reglas de alerta personalizadas. 
 ---
-= Ver reglas de alerta
+= Ver las reglas de alerta de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

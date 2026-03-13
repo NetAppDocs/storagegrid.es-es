@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SANtricity System Manager tab, hardware diagnostics 
 summary: La pestaña SANtricity System Manager le permite acceder a SANtricity System Manager sin necesidad de configurar ni conectar el puerto de gestión del dispositivo de almacenamiento. Puede utilizar esta pestaña para revisar la información de diagnóstico de hardware y entorno, así como los problemas relacionados con las unidades. 
 ---
-= Ver la pestaña Administrador del sistema de SANtricity (solo E-Series)
+= Ver la pestaña SANtricity System Manager de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

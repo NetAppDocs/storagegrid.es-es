@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: load balancing, monitoring 
 summary: Si está utilizando un equilibrador de carga para gestionar las conexiones de cliente a StorageGRID, debe supervisar las operaciones de equilibrio de carga después de configurar el sistema inicialmente y después de realizar cualquier cambio de configuración o llevar a cabo una ampliación. 
 ---
-= Supervisar las operaciones de equilibrio de carga
+= Supervisa las operaciones de equilibrio de carga en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
