@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to create platform services endpoint 
 summary: Debe crear al menos un extremo del tipo correcto para poder habilitar un servicio de plataforma. 
 ---
-= Cree un extremo de servicios de plataforma
+= Crear un endpoint de servicios de plataforma StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to duplicate tenant group 
 summary: Puede crear nuevos grupos más rápidamente duplicando un grupo existente. 
 ---
-= Grupo duplicado
+= Duplicar un grupo de tenant de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

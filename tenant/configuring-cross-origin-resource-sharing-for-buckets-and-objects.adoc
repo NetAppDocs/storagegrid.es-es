@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure cross-origin resource sharing, cors 
 summary: 'Puede configurar el uso compartido de recursos de origen cruzado \(CORS\) para un depósito de S3 si desea que las aplicaciones web de otros dominios puedan acceder a ese depósito y a los objetos de ese depósito.' 
 ---
-= Configurar StorageGRID CORS para depósitos y objetos
+= Configura CORS para buckets S3 en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

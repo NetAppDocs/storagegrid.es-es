@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to understand tenant management api 
 summary: Puede realizar tareas de administración del sistema mediante la API REST de gestión de inquilinos en lugar de la interfaz de usuario de inquilino Manager. Por ejemplo, se recomienda utilizar la API para automatizar operaciones o crear varias entidades, como los usuarios, más rápidamente. 
 ---
-= Comprender la API de gestión de inquilinos
+= Conoce la API de gestión de inquilinos de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

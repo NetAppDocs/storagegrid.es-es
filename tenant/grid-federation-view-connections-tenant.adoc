@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid federation connection, view, clear error, last error 
 summary: Si su cuenta de inquilino tiene el permiso de conexión Usar federación de grid, puede ver las conexiones permitidas. 
 ---
-= Ver conexiones de federación de grid
+= Ver las conexiones de grid federation en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

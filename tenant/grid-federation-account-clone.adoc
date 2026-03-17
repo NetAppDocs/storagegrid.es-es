@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: account clone, cloning tenant, grid federation, cross-grid replication 
 summary: 'Si se creó o editó un inquilino para usar una conexión de federación de grid, ese inquilino se replica desde un sistema StorageGRID \(el inquilino de origen\) a otro sistema StorageGRID \(el inquilino de réplica\). Una vez que el inquilino se ha replicado, todos los grupos y usuarios agregados al inquilino de origen se clonan en el inquilino de réplica.' 
 ---
-= Clone los usuarios y los grupos de inquilinos
+= Clona grupos de inquilinos y usuarios en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

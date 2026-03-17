@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to manage s3 access key 
 summary: Cada usuario de una cuenta de inquilino de S3 debe tener una clave de acceso para almacenar y recuperar objetos en el sistema StorageGRID. Una clave de acceso consta de un ID de clave de acceso y una clave de acceso secreta. 
 ---
-= Gestión de claves de acceso de S3
+= Gestiona claves de acceso S3 en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

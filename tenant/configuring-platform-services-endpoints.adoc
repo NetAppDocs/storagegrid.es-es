@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure platform services endpoint 
 summary: Para poder configurar un servicio de plataforma para un bloque, debe configurar al menos un extremo para que sea el destino del servicio de plataforma. 
 ---
-= Configure los extremos de servicios de la plataforma
+= Configura los endpoints de servicios de plataforma en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

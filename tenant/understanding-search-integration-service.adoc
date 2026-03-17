@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to understand search integration service 
 summary: Puede habilitar la integración de búsqueda para un bloque de S3 si desea usar un servicio de búsqueda y análisis de datos externo para sus metadatos de objetos. 
 ---
-= Comprender el servicio de integración de búsquedas
+= Conoce el servicio de integración de búsquedas de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

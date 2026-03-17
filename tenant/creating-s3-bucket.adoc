@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to create S3 bucket 
 summary: Puede usar el administrador de inquilinos para crear bloques S3 para los datos de objetos. 
 ---
-= Cree un bloque de S3
+= Crear un bucket S3 de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

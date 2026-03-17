@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to sign out of tenant manager 
 summary: Una vez que haya terminado de trabajar con el Administrador de inquilinos, debe cerrar sesión para garantizar que los usuarios no autorizados no puedan acceder al sistema StorageGRID. Es posible que cerrar el navegador no le cierre la sesión del sistema según la configuración de cookies del navegador. 
 ---
-= Cierre la sesión del responsable de inquilinos
+= Sign out de StorageGRID Tenant Manager
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

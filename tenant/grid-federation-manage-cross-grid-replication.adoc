@@ -2,9 +2,9 @@
 permalink: tenant/grid-federation-manage-cross-grid-replication.html 
 sidebar: sidebar 
 keywords: grid federation, cross-grid replication, use grid federation connection, replicate client delete markers, s3 bucket 
-summary: si se asignó a su cuenta de inquilino el permiso de uso de conexión de federación de grid cuando se creó, puede utilizar la replicación entre grid para replicar automáticamente objetos entre bloques de la cuadrícula de origen de inquilino y bloques en la cuadrícula de destino de inquilino. La replicación entre grid puede producirse en una o en ambas direcciones. 
+summary: Si a tu cuenta de inquilino se le asignó el permiso Use grid federation connection cuando se creó, puedes usar la replicación entre grids para replicar automáticamente objetos entre los buckets en la grid de origen del inquilino y los buckets en la grid de destino del inquilino. La replicación entre grids puede ocurrir en una o en ambas direcciones. 
 ---
-= Gestionar la replicación entre grid
+= Administra la replicación entre grids en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to understand tenant manager dashboard 
 summary: El panel de control del administrador de inquilinos proporciona una descripción general de la configuración de una cuenta de inquilino y la cantidad de espacio utilizado por los objetos en los depósitos S3 del inquilino.  Si el inquilino tiene una cuota, el panel muestra cuánto de la cuota se utiliza y cuánto queda.  Si hay algún error relacionado con la cuenta del inquilino, los errores se muestran en el panel de control. 
 ---
-= Conozca la consola de tenant Manager
+= Panel de control de Tenant Manager en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

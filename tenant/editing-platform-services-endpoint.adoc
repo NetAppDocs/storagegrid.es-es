@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to edit platform services endpoint 
 summary: Puede editar la configuración de un extremo de servicios de plataforma para cambiar su nombre, URI u otros detalles. Por ejemplo, es posible que deba actualizar las credenciales caducadas o cambiar el URI para apuntar a un índice de Elasticsearch de backup para la conmutación por error. No se puede cambiar el URN de un extremo de servicios de plataforma. 
 ---
-= Editar extremo de servicios de plataforma
+= Edita un punto final de servicios de plataforma en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

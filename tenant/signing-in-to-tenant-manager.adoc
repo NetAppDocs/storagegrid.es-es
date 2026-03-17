@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to sign in to tenant manager 
 summary: Para acceder al Administrador de inquilinos, introduzca la URL del inquilino en la barra de direcciones de un navegador web compatible. 
 ---
-= Inicie sesión en el Administrador de inquilinos
+= Sign in a StorageGRID Tenant Manager
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

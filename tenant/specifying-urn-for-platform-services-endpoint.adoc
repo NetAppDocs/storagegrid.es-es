@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to specify platform services urn 
 summary: 'Al crear un extremo de servicios de plataforma, debe especificar un nombre de recurso único (URN). Utilizará el URN para hacer referencia al punto final cuando cree un XML de configuración para el servicio de plataforma. El URN de cada extremo debe ser único.' 
 ---
-= Especifique URN para el extremo de servicios de la plataforma
+= Especifica un URN para un endpoint de servicios de plataforma StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

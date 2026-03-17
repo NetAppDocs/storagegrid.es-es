@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to delete tenant platform services endpoint 
 summary: Puede eliminar un extremo si ya no desea utilizar el servicio de plataforma asociado. 
 ---
-= Eliminar extremo de servicios de plataforma
+= Eliminar un endpoint de servicios de plataforma de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

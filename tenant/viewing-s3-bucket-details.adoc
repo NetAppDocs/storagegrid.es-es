@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to view bucket details 
 summary: Puede ver los depósitos en su cuenta de inquilino. 
 ---
-= Ver detalles del período
+= Ver detalles del bucket S3 en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

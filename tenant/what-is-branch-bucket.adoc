@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to create branch bucket 
 summary: Un bucket de rama proporciona acceso a los objetos de un bucket tal como existían en un momento determinado. 
 ---
-= ¿Qué es un bucket de rama?
+= Conoce StorageGRID branch buckets
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

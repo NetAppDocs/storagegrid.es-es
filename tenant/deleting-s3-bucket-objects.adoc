@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to delete bucket objects, empty bucket 
 summary: Puede utilizar el gestor de inquilinos para suprimir los objetos de uno o más depósitos. 
 ---
-= Suprimir objetos del depósito
+= Eliminar objetos de un bucket S3 de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

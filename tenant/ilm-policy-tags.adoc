@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to assign ilm policy tag to bucket 
 summary: Seleccione una etiqueta de política de ILM para asignarla a un bloque en función de sus requisitos de almacenamiento de objetos. 
 ---
-= Aplique una etiqueta de política de ILM a un bloque
+= Aplicar una etiqueta de política ILM a un bucket StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

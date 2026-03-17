@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: s3 bucket event notification, sequencer key 
 summary: Puede habilitar la notificación de eventos para un bucket de S3 si desea que StorageGRID envíe notificaciones sobre eventos especificados a un clúster Kafka de destino o a Amazon Simple Notification Service. 
 ---
-= Comprender las notificaciones para bloques
+= Conoce las notificaciones de eventos de StorageGRID para buckets S3
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

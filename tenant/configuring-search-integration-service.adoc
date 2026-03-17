@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure search integration service 
 summary: Para activar la integración de búsqueda de un depósito, cree XML de configuración de integración de búsqueda y utilice el Gestor de inquilinos para aplicar el XML a un depósito. 
 ---
-= Configure el servicio de integración de búsqueda
+= Configura el servicio de integración de búsqueda en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

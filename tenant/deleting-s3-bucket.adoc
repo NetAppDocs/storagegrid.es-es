@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to delete S3 bucket 
 summary: Puede usar el administrador de inquilinos para eliminar un bloque de S3 que esté vacío. 
 ---
-= Eliminar bloque de S3
+= Eliminar un bucket S3 de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

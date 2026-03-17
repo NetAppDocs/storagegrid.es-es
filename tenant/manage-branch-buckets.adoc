@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to create branch bucket 
 summary: Utilice el Administrador de inquilinos para crear y ver detalles de las sucursales. 
 ---
-= Administrar grupos de sucursales
+= Administra los buckets de la rama StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

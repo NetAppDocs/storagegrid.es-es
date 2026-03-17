@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to create other user S3 access key 
 summary: Si usa un inquilino de S3 y tiene el permiso apropiado, puede crear claves de acceso S3 para otros usuarios, como las aplicaciones que necesitan acceso a bloques y objetos. 
 ---
-= Cree las claves de acceso S3 de otro usuario
+= Crea las claves de acceso S3 de otro usuario en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

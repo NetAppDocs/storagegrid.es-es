@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to view and edit group 
 summary: Al ver los detalles de un grupo, puede cambiar el nombre para mostrar del grupo, los permisos, las directivas y los usuarios que pertenecen al grupo. 
 ---
-= Ver y editar detalles del grupo
+= Ver y editar los detalles del grupo de inquilinos en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

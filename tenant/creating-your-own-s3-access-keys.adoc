@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to create your own S3 access key 
 summary: Si usa un inquilino de S3 y tiene el permiso correspondiente, puede crear sus propias claves de acceso S3. Debe tener una clave de acceso para acceder a los cubos y objetos. 
 ---
-= Cree sus propias claves de acceso S3
+= Crea tus propias claves de acceso S3 en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

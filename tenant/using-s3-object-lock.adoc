@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to use s3 object lock 
 summary: Puede utilizar S3 Object Lock si los cubos y los objetos deben cumplir con los requisitos normativos de retención. 
 ---
-= Utilice Bloqueo de objetos S3 para retener objetos
+= Usa S3 Object Lock para retener objetos en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

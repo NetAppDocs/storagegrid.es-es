@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to enable or disable last access time updates 
 summary: 'Cuando los administradores de grid crean las reglas de gestión del ciclo de vida de la información \(ILM\) para un sistema StorageGRID, pueden especificar opcionalmente que se utilice la última hora de acceso de un objeto para determinar si se debe mover ese objeto a una ubicación de almacenamiento diferente. Si usa un inquilino de S3, puede aprovechar esas reglas al habilitar actualizaciones en la última hora de acceso para los objetos de un bloque de S3.' 
 ---
-= Activar o desactivar las actualizaciones de la hora del último acceso
+= Activar o desactivar las actualizaciones del tiempo de acceso en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to manage bucket consistency, how to change bucket consistency, read after new write, read-after-new-write, strong site, strong-site, strong global, strong-global 
 summary: Los valores de coherencia se pueden utilizar para especificar la disponibilidad de cambios de configuración de bloques, así como para proporcionar un equilibrio entre la disponibilidad de los objetos dentro de un bloque y la coherencia de dichos objetos en distintos nodos de almacenamiento y sitios. Puede cambiar los valores de coherencia para que sean diferentes de los valores predeterminados para que las aplicaciones cliente puedan satisfacer sus necesidades operativas. 
 ---
-= Gestione la coherencia de los bloques
+= Gestiona la coherencia de los buckets StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

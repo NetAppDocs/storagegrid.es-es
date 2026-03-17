@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: tenant management permissions 
 summary: Antes de crear un grupo de arrendatarios, tenga en cuenta qué permisos desea asignar a ese grupo. Los permisos de administración de inquilinos determinan qué tareas pueden realizar los usuarios con el Administrador de inquilinos o la API de gestión de inquilinos. Un usuario puede pertenecer a uno o más grupos. Los permisos son acumulativos si un usuario pertenece a varios grupos. 
 ---
-= Permisos de gestión de inquilinos
+= Permisos de gestión de tenants de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

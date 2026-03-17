@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure event notifications, bucket notification 
 summary: Para habilitar las notificaciones de un depósito, cree XML de configuración de notificaciones y utilice el Gestor de inquilinos para aplicar el XML a un bloque. 
 ---
-= Configure las notificaciones de eventos
+= Configura las notificaciones de eventos en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

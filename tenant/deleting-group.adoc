@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to delete tenant group 
 summary: Puede eliminar un grupo del sistema. Cualquier usuario que sólo pertenezca a ese grupo ya no podrá iniciar sesión en el Administrador de inquilinos ni utilizar la cuenta de arrendatario. 
 ---
-= Eliminar grupo
+= Eliminar un grupo de tenant de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

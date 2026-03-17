@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to delete S3 access key 
 summary: Si usa un inquilino de S3 y tiene el permiso correspondiente, puede eliminar sus propias claves de acceso S3. Cuando se elimina una clave de acceso, ya no se puede utilizar para acceder a los objetos y los bloques de la cuenta de inquilino. 
 ---
-= Elimine sus propias claves de acceso de S3
+= Elimina tus propias claves de acceso a S3 en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

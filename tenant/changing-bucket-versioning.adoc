@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to change bucket versioning, disabled versioning, enabled versioning, suspended versioning 
 summary: Si utiliza un inquilino S3, puede cambiar el estado de control de versiones de los bloques S3. 
 ---
-= Cambiar el control de versiones del objeto para un bloque
+= Cambiar el versionado de objetos para un bucket S3 en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

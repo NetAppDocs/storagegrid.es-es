@@ -1,10 +1,10 @@
 ---
 permalink: tenant/manage-bucket-policy.html 
 sidebar: sidebar 
-keywords: how to create S3 tenant groups, federated group, local group 
+keywords: bucket policy, S3 bucket policy, manage bucket policy 
 summary: Puede controlar el acceso de los usuarios a un bloque de S3 y los objetos de ese bloque. 
 ---
-= Gestione la política de bloques
+= Gestiona la política de bucket de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

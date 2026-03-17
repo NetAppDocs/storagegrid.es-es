@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to view and edit tenant groups, manage groups, duplicate group, remove group, edit group 
 summary: Gestione los grupos de arrendatarios según sea necesario para ver, editar o duplicar un grupo y mucho más. 
 ---
-= Gestionar grupos
+= Gestiona grupos de inquilinos StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

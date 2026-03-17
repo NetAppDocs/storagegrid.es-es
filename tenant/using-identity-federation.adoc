@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to use identity federation, how to use federated groups with Tenant Manager 
 summary: El uso de la federación de identidades agiliza la configuración de usuarios y grupos de inquilinos, y permite a los usuarios de inquilinos iniciar sesión en la cuenta de inquilinos utilizando credenciales conocidas. 
 ---
-= Usar la federación de identidades
+= Usa la federación de identidades en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -2,16 +2,16 @@
 permalink: tenant/grid-federation-clone-keys-with-api.html 
 sidebar: sidebar 
 keywords: s3 access key, secret key id, account clone, tenant manager api 
-summary: Si su cuenta de inquilino tiene el permiso de conexión Usar federación de grid, puede usar la API de gestión de inquilinos para clonar manualmente las claves de acceso S3 desde el inquilino en la cuadrícula de origen al inquilino en la cuadrícula de destino. 
+summary: Si tu cuenta de inquilino StorageGRID tiene el permiso Use grid federation connection, puedes usar la Tenant Management API para clonar manualmente las claves de acceso S3. 
 ---
-= Clone las claves de acceso S3 mediante la API
+= Clona claves de acceso S3 entre grids de StorageGRID usando la Tenant Management API
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Si su cuenta de inquilino tiene el permiso *Usar conexión de federación de grid*, puede usar la API de administración de inquilinos para clonar manualmente las claves de acceso S3 del inquilino en la cuadrícula de origen al inquilino en la cuadrícula de destino.
+Si tu cuenta de inquilino StorageGRID tiene el permiso *Usar conexión de federación de grid*, puedes usar la API de gestión de inquilinos para clonar manualmente las claves de acceso S3 del inquilino en el grid de origen al inquilino en el grid de destino.
 
 .Antes de empezar
 * La cuenta de inquilino tiene el permiso *Use grid federation connection*.

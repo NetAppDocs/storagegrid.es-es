@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to view your s3 access key 
 summary: Si usa un inquilino de S3 y tiene el permiso correspondiente, puede ver una lista de sus claves de acceso S3. Puede ordenar la lista por tiempo de caducidad, de modo que puede determinar qué claves caducarán pronto. Según sea necesario, puede crear nuevas claves o eliminar claves que ya no utilice. 
 ---
-= Consulte las claves de acceso de S3
+= Consulta tus claves de acceso a S3 en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

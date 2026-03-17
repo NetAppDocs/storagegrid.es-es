@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to troubleshoot platform services endpoint 
 summary: Si se produce un error cuando StorageGRID intenta comunicarse con un punto final de servicios de plataforma, se muestra un mensaje en el panel de control. En la página Platform Services Endpoints, la columna Last error indica durante cuánto tiempo se produjo el error. No se muestra ningún error si los permisos asociados con las credenciales de un extremo son incorrectos. 
 ---
-= Solucionar errores de extremos de servicios de plataforma
+= Soluciona errores en el punto final de los servicios de la plataforma StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

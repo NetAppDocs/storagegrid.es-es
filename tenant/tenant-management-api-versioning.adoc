@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: tenant management api version 
 summary: La API de gestión de inquilinos utiliza versiones para dar cabida a actualizaciones no disruptivas. 
 ---
-= Creación de versiones de la API de gestión de inquilinos
+= Versionado de la API de gestión de inquilinos de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

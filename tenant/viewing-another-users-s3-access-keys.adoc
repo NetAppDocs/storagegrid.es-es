@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to view other user access key 
 summary: Si está utilizando un inquilino S3 y tiene los permisos adecuados, puede ver las claves de acceso S3 de otro usuario. Puede ordenar la lista por tiempo de caducidad para que pueda determinar qué claves caducarán pronto. Según sea necesario, puede crear nuevas claves y eliminar claves que ya no estén en uso. 
 ---
-= Ver las claves de acceso S3 de otro usuario
+= Ver las claves de acceso S3 de otro usuario en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
