@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, appliance 
 summary: El instalador del dispositivo StorageGRID proporciona el estado hasta que se completa la instalación. Una vez finalizada la instalación del software, el dispositivo se reinicia. 
 ---
-= Supervisar la instalación del dispositivo de servicios
+= Supervisa la instalación del dispositivo de servicios StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

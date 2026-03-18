@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, decommission nodes, decommissioning nodes, maintenance task 
 summary: Cuando accede a la página nodos de misión de descommisión de Grid Manager, puede ver de un vistazo qué nodos se pueden retirar del servicio. 
 ---
-= Acceda a la página nodos de misión
+= Accede a la página Decommission Nodes en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit log, copy audit log, copying audit log, primary admin node, primary admin node 
 summary: Si puede copiar los registros de auditoría del nodo de administración principal que ha fallado, debe conservarlos para mantener el registro de actividad y uso del sistema de la cuadrícula. Es posible restaurar los registros de auditoría conservados al nodo administrador principal recuperado después de que esté activo y en ejecución. 
 ---
-= Copie los registros de auditoría del nodo de administración principal con errores
+= Copia los registros de auditoría de un nodo de administración StorageGRID primario fallido
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

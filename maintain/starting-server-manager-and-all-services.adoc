@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, server manager, start server manager, start services, start all services 
 summary: Es posible que necesite iniciar Server Manager, que también inicia todos los servicios en el nodo de cuadrícula. 
 ---
-= Inicie Server Manager y todos los servicios
+= Inicia el Administrador de servidores StorageGRID y todos los servicios
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

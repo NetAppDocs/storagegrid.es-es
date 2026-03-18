@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, grid node procedure 
 summary: Es posible que deba realizar procedimientos de mantenimiento relacionados con nodos de grid específicos o servicios de nodos. 
 ---
-= Procedimientos de mantenimiento de nodos
+= Procedimientos de mantenimiento de nodos StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

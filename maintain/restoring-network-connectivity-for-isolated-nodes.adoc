@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, network connection, restore network connection, isolated node, restore isolated node connection 
 summary: En determinadas circunstancias, es posible que uno o más grupos de nodos no puedan ponerse en contacto con el resto de la cuadrícula. Por ejemplo, los cambios en la dirección IP de todo el sitio o la cuadrícula pueden dar lugar a nodos aislados. 
 ---
-= Restaure la conectividad de red para nodos aislados
+= Restaura la conectividad de red para nodos StorageGRID aislados
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

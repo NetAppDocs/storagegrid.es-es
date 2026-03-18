@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, decommission 
 summary: Antes de retirar de servicio un sitio, debe obtener los siguientes materiales. 
 ---
-= Reúna los materiales necesarios
+= Reúne los materiales necesarios para decomisionar el sitio de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

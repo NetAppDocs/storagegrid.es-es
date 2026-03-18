@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, decommission, connected nodes, decommission node 
 summary: Puede retirar y eliminar permanentemente los nodos conectados a la cuadrícula. 
 ---
-= Retirada de nodos de grid conectados
+= Decomisionar nodos StorageGRID conectados
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

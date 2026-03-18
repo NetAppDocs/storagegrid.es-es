@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, reboot node, command shell reboot 
 summary: Si necesita supervisar la operación de reinicio más de cerca o si no puede acceder a Grid Manager, puede iniciar sesión en el nodo de cuadrícula y ejecutar el comando de reinicio del Administrador del servidor desde el shell de comandos. 
 ---
-= Reinicie el nodo de cuadrícula desde el shell de comandos
+= Reinicia el nodo StorageGRID desde el intérprete de comandos
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

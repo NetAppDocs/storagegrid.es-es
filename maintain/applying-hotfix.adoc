@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, hotfix, software update 
 summary: La revisión se aplica automáticamente por primera vez al nodo de administración principal. A continuación, debe aprobar la aplicación de la revisión a otros nodos de cuadrícula hasta que todos los nodos ejecuten la misma versión de software. Puede personalizar la secuencia de aprobación seleccionando aprobar nodos de cuadrícula individuales, grupos de nodos de cuadrícula o todos los nodos de cuadrícula. 
 ---
-= Aplicar revisión
+= Aplica una corrección urgente en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

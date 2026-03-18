@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: restore replicated data, restore erasure-coded data, recover appliance storage node, recover storage volume 
 summary: Después de recuperar los volúmenes de almacenamiento para el nodo de almacenamiento del dispositivo, se pueden restaurar los datos de objetos replicados o con código de borrado que se perdieron cuando falló el nodo de almacenamiento. 
 ---
-= Restaure datos de objetos al volumen de almacenamiento de dispositivo
+= Restaurar datos de objetos en un volumen de almacenamiento para una StorageGRID appliance
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

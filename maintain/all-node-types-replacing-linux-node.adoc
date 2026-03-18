@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: replace linux node 
 summary: Si un fallo requiere implementar uno o más hosts físicos o virtuales nuevos, o reinstalar Linux en un host existente, implemente y configure el host de reemplazo antes de poder recuperar el nodo de grid. Este procedimiento es un paso del proceso de recuperación de nodos de grid para todos los tipos de nodos de grid. 
 ---
-= Sustituya el nodo Linux
+= Reemplazar un nodo Linux en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, disconnected nodes, decommission node 
 summary: 'Es posible que deba retirar un nodo que no esté conectado actualmente a la cuadrícula \(uno cuyo estado sea desconocido o administrativamente inactivo\).' 
 ---
-= Retirada de nodos de red desconectados
+= Decomisionar nodos StorageGRID desconectados
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

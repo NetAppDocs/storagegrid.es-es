@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, stop service, service 
 summary: Algunos procedimientos de mantenimiento requieren que detenga un solo servicio mientras se ejecutan otros servicios del nodo de grid. Detenga únicamente los servicios individuales cuando se lo indique un procedimiento de mantenimiento. 
 ---
-= Detenga el servicio
+= Detén un servicio StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit log, copy audit log, copying audit log, non-primary admin node, non primary admin node 
 summary: Si puede copiar registros de auditoría del nodo de administración fallido, debe conservarlos para mantener el registro de la red de la actividad y el uso del sistema. Es posible restaurar los registros de auditoría conservados en el nodo administrador no primario recuperado después de que esté activo y en ejecución. 
 ---
-= Copie registros de auditoría del nodo administrador que no es principal con errores
+= Copia los registros de auditoría de un nodo de administración StorageGRID no primario que falló
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

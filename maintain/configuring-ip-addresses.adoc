@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: configure ip address, change IP tool, ethernet, dhcp, ha group 
 summary: Puede realizar la configuración de red configurando direcciones IP para nodos de grid mediante la herramienta Cambiar IP. 
 ---
-= Directrices de direcciones IP
+= Directrices de dirección IP de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: recover, admin node failure, workflow 
 summary: El proceso de recuperación de un nodo de administrador depende de si se trata del nodo de administrador principal o del nodo de administrador que no es primario. 
 ---
-= Recuperación de nodo de administración principal o no principal
+= Recuperación del nodo de administración primario o no primario en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

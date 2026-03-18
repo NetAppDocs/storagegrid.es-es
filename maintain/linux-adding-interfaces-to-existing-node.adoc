@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: add interfaces, add client network interface, add admin network interface 
 summary: Siga estos pasos para añadir una interfaz en la red de administración o la red de cliente a un nodo Linux después de que se haya instalado. 
 ---
-= Linux: Añada interfaces de administrador o de cliente a un nodo existente
+= Agrega interfaces de Admin o Client a un nodo Linux en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

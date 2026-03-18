@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, volume warning 
 summary: Antes de recuperar volúmenes de almacenamiento con fallos para un nodo de almacenamiento, debe revisar las siguientes advertencias. 
 ---
-= Advertencias para la recuperación del volumen de almacenamiento
+= Advertencias para la recuperación de volúmenes de almacenamiento StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

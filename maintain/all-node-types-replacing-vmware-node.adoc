@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: replace VMware node 
 summary: Cuando se recupera un nodo StorageGRID con fallos que se encontraba en VMware, se elimina el nodo fallido y se implementa un nodo de recuperación. 
 ---
-= Sustituya el nodo VMware
+= Reemplazar un nodo VMware en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

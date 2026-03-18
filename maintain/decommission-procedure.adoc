@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to decommission 
 summary: Puede realizar un procedimiento de retirada del servicio para quitar de forma permanente nodos de cuadrícula o de todo un sitio del sistema StorageGRID. 
 ---
-= Retirada del nodo o sitio
+= Decomisionar un nodo o sitio de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: add extra interface to node, trunk interface, access interface 
 summary: Puede añadir tronco o interfaces de acceso adicionales a un nodo Linux después de instalarlo. Las interfaces que agregue se muestran en la página interfaces de VLAN y la página ha groups. 
 ---
-= Linux: Añada tronco o interfaces de acceso a un nodo
+= Agrega interfaces trunk o de acceso a un nodo Linux en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, linux, linux host, bare metal host, baremetal host, remove port remap, removing port remap, port remap 
 summary: Si desea configurar un extremo para el servicio Load Balancer y desea utilizar un puerto que ya se ha configurado como el puerto asignado a un remap de puertos, primero debe eliminar el remap de puertos existente o el extremo no será efectivo. 
 ---
-= Quite las reasignaciones de puertos en hosts sin sistema operativo
+= Eliminar la reasignación de puertos StorageGRID en hosts bare metal
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

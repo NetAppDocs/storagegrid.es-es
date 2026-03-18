@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, ntp, ntp server, configure ntp, configuring ntp 
 summary: 'Puede agregar, actualizar o quitar servidores de protocolo de tiempo de redes \(NTP\) para garantizar que los datos se sincronizen de forma precisa entre los nodos de grid de su sistema StorageGRID.' 
 ---
-= Gestione servidores NTP
+= Administra los servidores NTP en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

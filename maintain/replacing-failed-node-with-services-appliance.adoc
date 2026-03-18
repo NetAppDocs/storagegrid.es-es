@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, replace failed node, services appliance 
 summary: Puede usar un dispositivo de servicios para recuperar un nodo de puerta de enlace con errores, un nodo de administración no primario con errores, o un nodo de administración primario con errores que se alojó en VMware, un host Linux o un dispositivo de servicios. Este procedimiento es un paso del procedimiento de recuperación de nodos de cuadrícula. 
 ---
-= Sustituya el nodo con fallos por el dispositivo de servicios
+= Reemplaza el nodo StorageGRID fallido con un dispositivo de servicios
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

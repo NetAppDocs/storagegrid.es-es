@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to pause decommission 
 summary: Si necesita realizar un segundo procedimiento de mantenimiento, puede pausar el procedimiento de retirada de un nodo de almacenamiento durante determinadas fases. Una vez finalizado el otro procedimiento, puede reanudar el decomisionado. 
 ---
-= Pausar y reanudar el proceso de retirada de los nodos de almacenamiento
+= Pausar y reanudar el proceso de decomisionar los nodos de almacenamiento StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

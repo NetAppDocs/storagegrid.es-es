@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, maintenance, maintain, failed storage volumes, failed volumes, cassandra, cassandra rebuild, rebuild cassandra, cassandra database 
 summary: Debe ejecutar una secuencia de comandos que reformatea y remonta el almacenamiento en volúmenes de almacenamiento con fallos y reconstruye la base de datos Cassandra en el nodo de almacenamiento si el sistema determina que es necesario. 
 ---
-= Recuperar volúmenes de almacenamiento con fallos y reconstruir la base de datos de Cassandra
+= Recupera volúmenes de almacenamiento fallidos y reconstruye la base de datos Cassandra en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, hotfix 
 summary: Antes de aplicar una revisión, debe obtener todos los materiales requeridos. 
 ---
-= Obtener los materiales necesarios para la revisión
+= Obtén los materiales necesarios para una corrección urgente de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

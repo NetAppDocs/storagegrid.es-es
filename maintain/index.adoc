@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: maintain overview, maintenance overview, about maintain, about maintenance 
 summary: Las tareas de mantenimiento de grid incluyen la retirada de un nodo o un sitio, el cambio de nombre a un grid, nodo o sitio, y el mantenimiento de la red. También puede realizar procedimientos de host y middleware y procedimientos de nodo de grid. 
 ---
-= Mantenimiento de la red
+= Mantenimiento de grid de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

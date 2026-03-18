@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, replace gateway node, replacing gateway node 
 summary: Puede reemplazar un nodo de puerta de enlace con error por un nodo de puerta de enlace que se ejecute en el mismo hardware físico o virtual, o puede reemplazar un nodo de puerta de enlace que se ejecute en VMware o un host Linux por un nodo de puerta de enlace alojado en un dispositivo de servicios. 
 ---
-= Sustituya el nodo de puerta de enlace
+= Reemplazar nodo StorageGRID Gateway
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

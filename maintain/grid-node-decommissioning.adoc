@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, decommission, remove grid node 
 summary: Puede usar el procedimiento de retirada de nodo para quitar uno o varios nodos de cuadrícula en uno o varios sitios. No se puede retirar el nodo de administrador principal. 
 ---
-= Retirada del nodo de grid
+= Decomisionar un nodo de grid de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

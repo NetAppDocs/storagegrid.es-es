@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, node decommission, decommission 
 summary: Antes de realizar un desmantelamiento de un nodo de cuadrícula, debe obtener la siguiente información. 
 ---
-= Reúna los materiales necesarios
+= Reúne el material necesario para decomisionar el nodo StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

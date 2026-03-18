@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, subnet list, grid network 
 summary: Puede utilizar la herramienta Cambiar IP para agregar o cambiar subredes en la red de cuadrícula. 
 ---
-= Agregar o cambiar listas de subred en Grid Network
+= Agrega o cambia las listas de subredes en Grid Network en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

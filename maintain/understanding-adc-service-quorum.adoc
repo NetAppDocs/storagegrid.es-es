@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, adc, adc quorum 
 summary: 'Es posible que no pueda retirar determinados nodos de almacenamiento en un sitio si quedan muy pocos servicios de controlador de dominio administrativo \(ADC\) tras el desmantelamiento.' 
 ---
-= ¿Qué es el quórum ADC?
+= ¿Qué es el quórum de StorageGRID ADC?
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

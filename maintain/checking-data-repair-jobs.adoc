@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, data repair 
 summary: Antes de retirar un nodo de cuadrícula, debe confirmar que no hay ningún trabajo de reparación de datos activo. Si alguna reparación ha fallado, debe reiniciarla y dejar que se complete antes de realizar el procedimiento de retirada. 
 ---
-= Compruebe los trabajos de reparación de datos
+= Revisa los trabajos de reparación de datos en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: recover, restore node to host, node configuration file, start host service 
 summary: Para restaurar un nodo de grid fallido en un nuevo host Linux, siga estos pasos para restaurar el archivo de configuración del nodo. 
 ---
-= Restaurar los nodos de grid en el host
+= Restaura los nodos StorageGRID en el host
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

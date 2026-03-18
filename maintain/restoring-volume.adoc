@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, restore, volume 
 summary: Puede restaurar datos de objetos para un volumen de almacenamiento o un nodo de almacenamiento con errores mediante Grid Manager. También puede utilizar Grid Manager para supervisar los procesos de restauración en curso y mostrar un historial de restauración. 
 ---
-= Restaurar datos de objetos con Grid Manager
+= Restaura datos de objetos usando StorageGRID Grid Manager
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

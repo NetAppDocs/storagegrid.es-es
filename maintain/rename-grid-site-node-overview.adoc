@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: rename grid, rename site, rename node, display name, system name 
 summary: Según sea necesario, puede cambiar los nombres mostrados en Grid Manager para toda la cuadrícula, cada sitio y cada nodo. Puede actualizar los nombres mostrados de forma segura y siempre que lo necesite. 
 ---
-= Utilice el procedimiento de cambio de nombre
+= Usa el procedimiento de cambio de nombre de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

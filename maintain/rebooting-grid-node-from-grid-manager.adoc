@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: reboot grid node, tasks tab 
 summary: Se puede reiniciar un nodo de cuadrícula individual desde la pestaña Tasks de la página Nodes. 
 ---
-= Reinicie el nodo de cuadrícula desde la pestaña Tareas
+= Reinicia el nodo StorageGRID desde la pestaña Tareas
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

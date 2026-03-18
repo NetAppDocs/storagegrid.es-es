@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, gateway node 
 summary: Después de reemplazar un nodo de puerta de enlace, debe seleccionar Iniciar recuperación en el Administrador de grid para configurar el nuevo nodo como reemplazo del nodo con error. 
 ---
-= Seleccione Start Recovery para configurar Gateway Node
+= Selecciona Iniciar recuperación para configurar el nodo StorageGRID Gateway
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: recover, archive node failure, workflow 
 summary: Se ha eliminado el soporte para los nodos de archivado. 
 ---
-= Recupere desde errores de nodo de archivado
+= Recupera de fallos del nodo de archivo StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, convert node, data-only node 
 summary: Para aumentar el rendimiento, puede convertir los nodos de almacenamiento que no sean ADC más lentos en nodos de almacenamiento de solo datos. 
 ---
-= Convertir un nodo de almacenamiento en un nodo de solo datos
+= Convertir un nodo de almacenamiento StorageGRID en un nodo solo de datos
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: add extra interface to node, access interface, VM interface 
 summary: Puede añadir una conexión troncal adicional o interfaces de acceso a un nodo de máquina virtual después de haberse instalado. Las interfaces que agregue se muestran en la página interfaces de VLAN y la página ha groups. 
 ---
-= VMware: Añada tronco o interfaces de acceso a un nodo
+= Agrega interfaces trunk o de acceso a un nodo VMware en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

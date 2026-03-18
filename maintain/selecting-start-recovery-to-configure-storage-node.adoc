@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, storage node 
 summary: Después de reemplazar un nodo de almacenamiento, debe seleccionar Iniciar recuperación en el Administrador de grid para configurar el nodo nuevo como reemplazo del nodo con error. 
 ---
-= Seleccione Start Recovery para configurar Storage Node
+= Selecciona Iniciar recuperación para configurar el nodo de almacenamiento StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: recover, stop services, shut down nodes, node shutdown 
 summary: Antes de poder apagar un sistema StorageGRID, debe detener todos los servicios que se ejecutan en cada nodo de grid y, a continuación, apagar todas las máquinas virtuales de VMware, los motores de contenedor y los dispositivos StorageGRID. 
 ---
-= Detenga los servicios y apague los nodos de grid
+= Detén los servicios y apaga los nodos StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

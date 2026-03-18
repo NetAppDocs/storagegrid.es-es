@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, node ip address, change node ip, change node ip address, changing node ip, changing node ip address 
 summary: Si necesita cambiar la dirección IP de red de cuadrícula para todos los nodos de la cuadrícula, debe seguir este procedimiento especial. No puede cambiar la IP de red de cuadrícula utilizando el procedimiento para cambiar nodos individuales. 
 ---
-= Cambie las direcciones IP para todos los nodos de la cuadrícula
+= Cambiar las direcciones IP de todos los nodos en una grid de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

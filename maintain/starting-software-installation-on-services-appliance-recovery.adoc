@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, services appliance, start software installation 
 summary: Para instalar un nodo de pasarela o un nodo de administración en un dispositivo de servicios, se utiliza el instalador del dispositivo StorageGRID, que se incluye en el dispositivo. 
 ---
-= Inicie la instalación del software en el dispositivo de servicios
+= Inicia la instalación del software StorageGRID en un dispositivo de servicios
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

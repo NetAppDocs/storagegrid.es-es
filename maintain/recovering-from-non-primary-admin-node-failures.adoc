@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, non-primary admin node failure 
 summary: 'Debe completar las siguientes tareas para recuperar el sistema de un fallo que no es del nodo de administrador principal. Un nodo de administrador aloja el servicio nodo de gestión de configuración \(CMN\) y se conoce como nodo de administración principal. Aunque puede tener varios nodos de administrador, cada sistema StorageGRID solo incluye un nodo de administrador primario. Todos los demás nodos de administrador son nodos de administrador no primarios.' 
 ---
-= Recupere el sistema de fallos de nodos de administrador que no son primarios
+= Recupera de fallos no primarios del nodo de administración StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

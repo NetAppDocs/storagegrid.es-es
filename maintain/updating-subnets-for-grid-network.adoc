@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, subnet, grid network, update subnets 
 summary: 'StorageGRID mantiene una lista de las subredes de red utilizadas para comunicarse entre los nodos de grid en la red de cuadrícula \(eth0\). Estas entradas incluyen las subredes utilizadas para la red de cuadrícula por cada sitio del sistema StorageGRID, así como las subredes utilizadas para NTP, DNS, LDAP u otros servidores externos a los que se acceda a través de la puerta de enlace de red de cuadrícula. Al agregar nodos de cuadrícula o un sitio nuevo en una expansión, es posible que deba actualizar o agregar subredes a la red de cuadrícula.' 
 ---
-= Actualice las subredes de la red de cuadrícula
+= Actualiza las subredes para la red Grid de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

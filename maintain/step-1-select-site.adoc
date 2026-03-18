@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, select site 
 summary: Para determinar si un sitio se puede retirar del servicio, comience por acceder al asistente del sitio de retirada. 
 ---
-= Paso 1: Seleccione Sitio
+= Selecciona un sitio para decomisionar en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

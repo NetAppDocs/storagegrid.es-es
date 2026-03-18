@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, restore audit log, non-primary admin node 
 summary: Si pudo conservar el registro de auditoría del nodo de administración no primario con errores, de manera que se conserve la información del registro de auditoría histórico, puede copiarla al nodo de administración no primario que se está recuperando. 
 ---
-= Restaure el registro de auditoría en el nodo de administración no primario recuperado
+= Restaurar registro de auditoría en un nodo de administración StorageGRID no primario recuperado
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, donotstart, do not start, donotstart file, do not start file 
 summary: Si está realizando varios procedimientos de mantenimiento o configuración bajo la dirección del soporte técnico, es posible que se le solicite que utilice un archivo DoNotStart para evitar que los servicios se inicien cuando se inicie o reinicie Server Manager. 
 ---
-= Utilice un archivo DoNotStart
+= Usa un archivo StorageGRID DoNotStart
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

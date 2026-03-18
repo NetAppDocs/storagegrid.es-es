@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, power nodes, power on nodes, power off nodes, power down nodes 
 summary: Puede que tenga que apagar todo el sistema StorageGRID, por ejemplo, si va a mover un centro de datos. Estos pasos proporcionan una descripción general de alto nivel de la secuencia recomendada para realizar un apagado controlado e inicio. 
 ---
-= Apague y encienda todos los nodos de grid
+= Apaga y enciende todos los nodos StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

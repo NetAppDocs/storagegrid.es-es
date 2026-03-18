@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, restore, ilm policy, storage configuration 
 summary: Si tiene pensado retirar un nodo de almacenamiento, debe revisar la política de ILM del sistema StorageGRID antes de iniciar el proceso de retirada del servicio. 
 ---
-= Revisar la configuración de almacenamiento y la política de ILM
+= Revisa la política ILM de StorageGRID y la configuración de almacenamiento
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

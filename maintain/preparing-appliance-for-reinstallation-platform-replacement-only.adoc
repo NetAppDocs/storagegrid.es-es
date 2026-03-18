@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, appliance, reinstallation appliance, reinstall appliance 
 summary: Al recuperar un nodo de cuadrícula que se alojó en un dispositivo de servicios, primero debe preparar el dispositivo para la reinstalación del software StorageGRID. 
 ---
-= Preparar el aparato para su reinstalación (sólo sustitución de la plataforma)
+= Prepara el dispositivo StorageGRID para la reinstalación (solo reemplazo de plataforma)
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

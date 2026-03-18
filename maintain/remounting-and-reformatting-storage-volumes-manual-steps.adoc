@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, appliance storage volume, appliance volume, remount manually, reformat manually 
 summary: Se deben ejecutar manualmente dos scripts para volver a montar los volúmenes de almacenamiento conservados y formatear los volúmenes de almacenamiento con errores. El primer script remonta volúmenes con un formato correcto como volúmenes de almacenamiento de StorageGRID. El segundo script reformatea todos los volúmenes desmontados, reconstruye Cassandra, si es necesario, e inicia los servicios. 
 ---
-= Volver a montar y volver a formatear los volúmenes de almacenamiento (pasos manuales)
+= Volver a montar y formatear los volúmenes de almacenamiento StorageGRID (pasos manuales)
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

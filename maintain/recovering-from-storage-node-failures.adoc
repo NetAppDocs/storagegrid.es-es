@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: recover, storage node failure, Reaper 
 summary: El procedimiento para recuperar un nodo de almacenamiento con errores depende del tipo de error y del tipo de nodo de almacenamiento que se ha producido un error. 
 ---
-= Recupere el sistema de errores de nodo de almacenamiento
+= Recupera de fallos en el nodo de almacenamiento StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

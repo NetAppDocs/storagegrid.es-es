@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to remove site 
 summary: Antes de utilizar el procedimiento de retirada del sitio para quitar un sitio, debe revisar las consideraciones. 
 ---
-= Consideraciones para quitar un sitio
+= Consideraciones para decomisionar un sitio en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

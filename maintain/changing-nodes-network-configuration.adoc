@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, network configuration, node network configuration 
 summary: Puede cambiar la configuración de red de uno o varios nodos con la herramienta Cambiar IP. Puede cambiar la configuración de la red de cuadrícula o agregar, cambiar o quitar las redes de administrador o de cliente. 
 ---
-= Cambie la configuración de red de los nodos
+= Cambiar la configuración de la red de nodos en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

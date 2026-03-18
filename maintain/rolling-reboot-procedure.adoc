@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: reboot nodes, rolling reboot procedure 
 summary: Puede realizar un reinicio gradual para reiniciar varios nodos de grid sin provocar una interrupción del servicio. 
 ---
-= Realice un reinicio gradual
+= Realiza un reinicio progresivo de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

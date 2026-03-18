@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, appliance storage node 
 summary: Debe seleccionar Start Recovery en el Grid Manager para configurar un Storage Node del dispositivo como reemplazo del nodo con errores. 
 ---
-= Seleccione Start Recovery para configurar el nodo de almacenamiento del dispositivo
+= Selecciona Iniciar recuperación para configurar el nodo de almacenamiento del appliance StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

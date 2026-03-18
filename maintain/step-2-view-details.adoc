@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, view details 
 summary: 'En el paso 2 \(Ver detalles\) del asistente del sitio de retirada, puede revisar qué nodos están incluidos en el sitio, ver cuánto espacio se ha utilizado en cada nodo de almacenamiento y evaluar cuánto espacio libre está disponible en los otros sitios de la cuadrícula.' 
 ---
-= Paso 2: Ver detalles
+= Revisa los detalles del sitio antes de decomisionar en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

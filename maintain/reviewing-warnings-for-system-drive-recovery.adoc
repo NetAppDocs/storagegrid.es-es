@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, system drive warning, storage node 
 summary: Antes de recuperar una unidad de sistema fallida de un nodo de almacenamiento, revise las advertencias y consideraciones generales para la recuperación de nodos de grid y las siguientes advertencias específicas. 
 ---
-= Advertencias para la recuperación de las unidades del sistema del nodo de almacenamiento
+= Advertencias para la recuperación de la unidad del sistema de StorageGRID Storage Node
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

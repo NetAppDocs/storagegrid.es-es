@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, restore admin node database, restore database, non-primary admin node 
 summary: Si desea conservar la información histórica sobre los atributos y las alertas en un nodo de administración no principal que haya fallado, puede restaurar la base de datos del nodo de administración desde el nodo de administración primario. 
 ---
-= Restaure la base de datos del nodo de administrador al recuperar un nodo de administrador que no es primario
+= Restaurar la base de datos del nodo de administración StorageGRID al recuperar un nodo de administración no primario
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

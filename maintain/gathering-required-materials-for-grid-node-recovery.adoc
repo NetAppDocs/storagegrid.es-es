@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recovery, grid node recovery, node recovery 
 summary: Antes de realizar procedimientos de mantenimiento, debe asegurarse de tener los materiales necesarios para recuperar un nodo de cuadrícula con errores. 
 ---
-= Recopile los materiales necesarios para la recuperación de los nodos de grid
+= Reúne los materiales necesarios para la recuperación de nodos de grid de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

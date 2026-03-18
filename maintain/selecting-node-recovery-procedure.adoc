@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, procedure 
 summary: Debe seleccionar el procedimiento de recuperación correcto para el tipo de nodo que ha fallado. 
 ---
-= Seleccione el procedimiento de recuperación nodo
+= Selecciona el procedimiento de recuperación del nodo StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, warning 
 summary: Si un nodo de grid falla, debe recuperarlo Lo antes posible.. Antes de empezar, debe revisar todas las advertencias y consideraciones de la recuperación de nodos. 
 ---
-= Advertencias y consideraciones sobre los procesos de recuperación de nodos de grid
+= Advertencias y consideraciones para la recuperación de nodos de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

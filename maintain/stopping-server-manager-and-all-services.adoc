@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, stop server manager, stop all services, stop services 
 summary: Server Manager está pensado para ejecutarse en todo momento, pero es posible que necesite detener Server Manager y todos los servicios que se ejecutan en un nodo de cuadrícula. 
 ---
-= Detenga Server Manager y todos los servicios
+= Detén StorageGRID Administrador de servidores y todos los servicios
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

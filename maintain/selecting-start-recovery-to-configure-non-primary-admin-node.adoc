@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, non-primary admin node 
 summary: Después de reemplazar un nodo de administración no primario, debe seleccionar Iniciar recuperación en el Administrador de grid para configurar el nuevo nodo como reemplazo del nodo con error. 
 ---
-= Seleccione Start Recovery para configurar el nodo de administrador que no es primario
+= Selecciona Iniciar recuperación para configurar el nodo de administración StorageGRID no primario
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

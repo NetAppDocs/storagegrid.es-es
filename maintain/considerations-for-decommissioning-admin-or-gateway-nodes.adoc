@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, decommission admin node, decommission gateway node 
 summary: Revise las consideraciones para retirar un nodo de administración o un nodo de gateway. 
 ---
-= Consideraciones sobre el desmantelamiento de los nodos de administración o gateway
+= Consideraciones para decomisionar un nodo Admin o Gateway de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, appliance, reinstallation appliance, reinstall appliance 
 summary: Al recuperar un nodo de almacenamiento del dispositivo, primero debe preparar el dispositivo para la reinstalación del software StorageGRID. 
 ---
-= Prepare el nodo de almacenamiento del dispositivo para su reinstalación
+= Prepara el nodo de almacenamiento del dispositivo StorageGRID para la reinstalación
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

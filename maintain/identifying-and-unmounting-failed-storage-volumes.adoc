@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, storage volume, failed storage volume, unmount failed volume 
 summary: Al recuperar un nodo de almacenamiento con volúmenes de almacenamiento con fallos, se deben identificar y desmontar los volúmenes con errores. Debe verificar que solo los volúmenes de almacenamiento con errores se hayan reformateado como parte del procedimiento de recuperación. 
 ---
-= Identifique y desmonte los volúmenes de almacenamiento que han fallado
+= Identifica y desmonta volúmenes de almacenamiento fallidos en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

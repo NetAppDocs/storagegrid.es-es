@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, primary admin node, replace primary admin node, replacing primary admin node 
 summary: El nodo de reemplazo debe configurarse como nodo de administrador principal para el sistema StorageGRID. 
 ---
-= Configure el nodo de administración principal de reemplazo
+= Configura un nodo de administración primario de reemplazo en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

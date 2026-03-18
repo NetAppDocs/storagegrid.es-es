@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: rename grid, rename sites, rename node, change display name, bulk rename tool 
 summary: Puede utilizar este procedimiento para agregar o actualizar los nombres mostrados utilizados para la cuadrícula, las ubicaciones y los nodos. Puede cambiar el nombre de un único elemento, varios nombres o incluso de todos los elementos al mismo tiempo. La definición o actualización de un nombre mostrado no afecta de ninguna manera a las operaciones de StorageGRID. 
 ---
-= Agregar o actualizar nombres mostrados
+= Agrega o actualiza los nombres de visualización de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

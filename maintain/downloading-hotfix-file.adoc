@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, hotfix, download 
 summary: Debe descargar el archivo de revisión antes de poder aplicar la revisión. 
 ---
-= Descargue el archivo de revisión
+= Descarga un archivo de corrección urgente de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
