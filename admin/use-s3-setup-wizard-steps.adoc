@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: FabricPool and S3 setup wizard, object storage system, S3 application 
 summary: Puede usar el asistente de configuración de S3 para configurar StorageGRID como el sistema de almacenamiento de objetos de una aplicación S3. 
 ---
-= Acceda al asistente de configuración de S3 y complete este
+= Accede y completa el asistente de configuración de S3 en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

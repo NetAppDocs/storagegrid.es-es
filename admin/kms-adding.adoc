@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: add kms, key management server 
 summary: Utilice el asistente del servidor de gestión de claves de StorageGRID para agregar cada clúster KMS o KMS. 
 ---
-= Añadir un servidor de gestión de claves (KMS)
+= Agrega un servidor de gestión de claves en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: platform services message delivery 
 summary: Todas las operaciones de servicios de plataforma se realizan in situ. 
 ---
-= Entrega de mensajes de servicios de plataforma por sitio
+= Entrega por sitio de mensajes de servicios de plataforma StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

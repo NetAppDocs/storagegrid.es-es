@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: firewall, privileged IP address, untrusted client network, configure firewall controls, monitor 
 summary: Es posible configurar el acceso de red para puertos StorageGRID internos específicos. 
 ---
-= Configure el firewall interno
+= Configura el firewall interno de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

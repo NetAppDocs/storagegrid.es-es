@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: traffic classification, network traffic, traffic limits, policy 
 summary: Cree políticas de clasificación de tráfico si desea supervisar y, opcionalmente, limitar el tráfico de red por bloque, inquilino, subred IP o extremo de equilibrador de carga. De manera opcional, puede establecer límites para una política en función del ancho de banda, el número de solicitudes simultáneas o la tasa de solicitudes. 
 ---
-= Cree directivas de clasificación de tráfico
+= Crear políticas de clasificación de tráfico StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

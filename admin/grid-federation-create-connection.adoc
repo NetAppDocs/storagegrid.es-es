@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid federation, create connection, configure connection 
 summary: Puede crear una conexión de federación de grid entre dos sistemas StorageGRID si desea clonar detalles de inquilinos y replicar datos de objetos. 
 ---
-= Crear conexiones de federación de grid
+= Crear conexiones de federación de grid StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

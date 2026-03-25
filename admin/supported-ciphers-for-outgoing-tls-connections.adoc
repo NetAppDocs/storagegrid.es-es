@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: tls cipher suites, transport layer security connections 
 summary: 'El sistema StorageGRID admite un conjunto limitado de conjuntos de cifrado para conexiones de seguridad de la capa de transporte \(TLS\) a los sistemas externos utilizados para la federación de identidades y los pools de almacenamiento en cloud.' 
 ---
-= Cifrados compatibles para conexiones TLS salientes
+= Cifrados admitidos para conexiones TLS salientes en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

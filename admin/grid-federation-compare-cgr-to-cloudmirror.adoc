@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cross-grid replication, cloudmirror replication 
 summary: Cuando empiece a usar grid federation, revise las similitudes y diferencias entre la replicación entre grid y el servicio de replicación de StorageGRID CloudMirror. 
 ---
-= Compare la replicación entre grid y la replicación de CloudMirror
+= Compara la replicación entre grids y la replicación CloudMirror en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

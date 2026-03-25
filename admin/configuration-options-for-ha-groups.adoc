@@ -4,14 +4,14 @@ sidebar: sidebar
 keywords: ha groups, best practices, high availability group options 
 summary: El diagrama siguiente proporciona ejemplos de diferentes formas de configurar los grupos de alta disponibilidad. Cada opción tiene ventajas y desventajas. 
 ---
-= Opciones de configuración para grupos de alta disponibilidad
+= Opciones de configuración para los grupos de alta disponibilidad de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Los diagramas siguientes proporcionan ejemplos de diferentes formas de configurar grupos de alta disponibilidad. Cada opción tiene ventajas y desventajas.
+Los siguientes diagramas ofrecen ejemplos de diferentes formas en que puedes configurar grupos de alta disponibilidad (HA). Cada opción tiene ventajas y desventajas.
 
 En los diagramas, el azul indica la interfaz primaria del grupo de alta disponibilidad y el amarillo indica la interfaz de backup del grupo de alta disponibilidad.
 

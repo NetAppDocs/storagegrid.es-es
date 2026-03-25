@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ip address, view ip addresses for nodes, what is node ip address 
 summary: Puede ver la dirección IP de cada nodo de grid en el sistema StorageGRID. Luego, puede usar esta dirección IP para iniciar sesión en el nodo de la cuadrícula en la línea de comandos y realizar diversos procedimientos de mantenimiento. 
 ---
-= Ver direcciones IP
+= Ver direcciones IP en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

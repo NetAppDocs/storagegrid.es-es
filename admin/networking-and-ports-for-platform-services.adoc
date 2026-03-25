@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: platform services, ports for platform services, 443, 80 
 summary: Si permite que un inquilino de S3 utilice los servicios de plataforma, debe configurar las redes para el grid para garantizar que los mensajes de servicios de plataforma se puedan entregar a sus destinos. 
 ---
-= Red y puertos para servicios de plataforma
+= Red y puertos para los servicios de plataforma StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

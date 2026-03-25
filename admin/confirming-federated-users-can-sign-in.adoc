@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: sso configuration 
 summary: 'Antes de habilitar el inicio de sesión único \(SSO\), debe confirmar que al menos un usuario federado puede iniciar sesión en el Gestor de grid y en el Gestor de arrendatarios para cualquier cuenta de arrendatario existente.' 
 ---
-= Confirmar que los usuarios federados pueden iniciar sesión
+= Confirma que los usuarios federados pueden Sign in en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: s3 endpoint domain names, virtual-hosted-style requests 
 summary: Para admitir S3 solicitudes de estilo hospedado virtual, debe utilizar Grid Manager para configurar la lista de S3 nombres de dominio de punto final a los que se conectan los clientes S3. 
 ---
-= Configure los nombres de dominio de punto final S3
+= Configura los nombres de dominio del endpoint S3 en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

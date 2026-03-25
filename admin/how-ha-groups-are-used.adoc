@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ha groups, high availability group 
 summary: Puede usar grupos de alta disponibilidad para proporcionar conexiones de alta disponibilidad a StorageGRID para datos de objetos y para uso administrativo. 
 ---
-= ¿Cómo se utilizan los grupos de alta disponibilidad?
+= Cómo los grupos de HA de StorageGRID proporcionan alta disponibilidad
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure autosupport, what is autosupport-on-demand 
 summary: De forma predeterminada, la función StorageGRID AutoSupport se habilita cuando se instala por primera vez StorageGRID. Sin embargo, debe configurar el AutoSupport de hardware en cada dispositivo. Según sea necesario, puede cambiar la configuración de AutoSupport. 
 ---
-= Configure AutoSupport
+= Configura AutoSupport en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

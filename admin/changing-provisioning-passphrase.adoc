@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: provisioning passphrase, change passphrase 
 summary: Utilice este procedimiento para cambiar la frase de contraseña de aprovisionamiento de StorageGRID .  La frase de contraseña es necesaria para los procedimientos de recuperación, expansión y mantenimiento.  La frase de contraseña también es necesaria para descargar copias de seguridad del paquete de recuperación que incluyen la información de topología de la red, las contraseñas de la consola del nodo de la red y las claves de cifrado para el sistema StorageGRID . 
 ---
-= Cambie la clave de acceso del aprovisionamiento
+= Cambia la contraseña de aprovisionamiento de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

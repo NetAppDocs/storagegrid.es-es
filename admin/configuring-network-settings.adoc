@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: network settings, vlan interface, traffic classification 
 summary: Puede configurar varios ajustes de red desde el Gestor de cuadrícula para ajustar el funcionamiento del sistema StorageGRID. 
 ---
-= Configure los ajustes de red
+= Configura los ajustes de red de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

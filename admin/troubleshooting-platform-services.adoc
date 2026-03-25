@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: troubleshoot platform services, platform services endpoint error 
 summary: Los extremos utilizados en los servicios de plataforma los crean y mantienen los usuarios de arrendatarios en el Administrador de arrendatarios; sin embargo, si un arrendatario tiene problemas al configurar o utilizar servicios de plataforma, puede utilizar el Administrador de grid para ayudar a resolver el problema. 
 ---
-= Solucione problemas de servicios de plataforma
+= Soluciona problemas de los servicios de la plataforma StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

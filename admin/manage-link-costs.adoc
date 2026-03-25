@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: link cost, site latency, manage link costs, prioritize sites 
 summary: Los costes de enlace le permiten priorizar qué sitio de centro de datos proporciona un servicio solicitado cuando existen dos o más centros de datos. Puede ajustar los costes de vínculo para reflejar la latencia entre los sitios. 
 ---
-= Gestionar costes de enlaces
+= Administra los costes de enlace en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

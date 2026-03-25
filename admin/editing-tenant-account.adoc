@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: edit tenant account, change tenant name, allow platform services, tenant quota 
 summary: Una cuenta de inquilino se puede editar para cambiar el nombre para mostrar, la cuota de almacenamiento o los permisos de inquilino. 
 ---
-= Edite la cuenta de inquilino
+= Editar una cuenta de inquilino de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

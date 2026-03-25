@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: autosupport, technical support, storagegrid health, system status, Active IQ 
 summary: La función AutoSupport permite que StorageGRID envíe paquetes de estado y estado al soporte técnico de NetApp. 
 ---
-= ¿Qué es AutoSupport?
+= Conoce AutoSupport en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

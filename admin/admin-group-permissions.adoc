@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: admin group permissions 
 summary: Al crear grupos de usuarios de administrador, debe seleccionar uno o más permisos para controlar el acceso a funciones específicas de Grid Manager. A continuación, puede asignar cada usuario a uno o varios de estos grupos de administración para determinar qué tareas puede realizar el usuario. 
 ---
-= Permisos de grupo de administradores
+= Permisos del grupo Admin en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

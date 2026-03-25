@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: object metadata, metadata capacity, best practices 
 summary: La capacidad de metadatos de objetos de un sistema StorageGRID controla la cantidad máxima de objetos que se pueden almacenar en ese sistema. Para garantizar que el sistema StorageGRID tenga espacio suficiente para almacenar objetos nuevos, debe comprender dónde y cómo StorageGRID almacena los metadatos de objetos. 
 ---
-= Gestione el almacenamiento de metadatos de objetos
+= Administra el almacenamiento de metadatos de objetos en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

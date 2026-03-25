@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure load balancer endpoint, how to attach certificate to load balancer endpoint 
 summary: Los extremos del equilibrador de carga determinan los puertos y protocolos de red que los clientes S3 pueden utilizar al conectarse al equilibrador de carga de StorageGRID en los nodos de gateway y admin. También puede utilizar puntos finales para acceder a Grid Manager, Tenant Manager o ambos. 
 ---
-= Configurar puntos finales del equilibrador de carga
+= Configura los puntos finales del equilibrador de carga StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

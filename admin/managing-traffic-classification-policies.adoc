@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: QoS, quality of service, traffic classification, best practices, limit traffic, monitor traffic 
 summary: 'Las directivas de clasificación del tráfico le permiten identificar y supervisar diferentes tipos de tráfico de red. Estas políticas pueden ayudar con la limitación y la supervisión del tráfico para mejorar sus ofertas de calidad de servicio (QoS).' 
 ---
-= ¿Qué son las políticas de clasificación de tráfico?
+= Políticas de clasificación de tráfico en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

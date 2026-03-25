@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: network traffic, traffic classification policy, monitor traffic 
 summary: Puede supervisar el tráfico de red mediante los gráficos que están disponibles en la página de políticas de clasificación del tráfico. 
 ---
-= Ver las métricas de tráfico de red
+= Ver métricas de tráfico de red en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

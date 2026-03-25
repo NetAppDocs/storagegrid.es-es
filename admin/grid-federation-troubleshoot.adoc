@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: troubleshoot, grid federation connection, account clone, cross-grid replication, alerts, errors 
 summary: Es posible que deba solucionar alertas y errores relacionados con las conexiones de federación de grid, el clon de cuenta y la replicación entre grid. 
 ---
-= Solucionar errores de federación de grid
+= Soluciona errores de federación de grid en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

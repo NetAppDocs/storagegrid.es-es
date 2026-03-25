@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: create tenant, tenant account 
 summary: Debe crear al menos una cuenta de inquilino para controlar el acceso al almacenamiento en su sistema de StorageGRID. 
 ---
-= Cree una cuenta de inquilino
+= Crear una cuenta de inquilino de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

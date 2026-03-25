@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: relying party trust, active directory, ad fs, single sign on, sso 
 summary: 'Debe utilizar los Servicios de Federación de Active Directory (AD FS) para crear una confianza de parte de confianza para cada nodo de administración del sistema. Puede crear confianzas de parte confiando mediante comandos de PowerShell, importando los metadatos de SAML desde StorageGRID o introduciendo los datos manualmente.' 
 ---
-= Crear confianzas de parte de confianza en AD FS
+= Crea confianzas de terceros en AD FS para StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

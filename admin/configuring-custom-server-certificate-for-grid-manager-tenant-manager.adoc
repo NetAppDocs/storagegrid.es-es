@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: custom certificates, grid manager, tenant manager, management interface certificate 
 summary: Puede reemplazar el certificado de servidor StorageGRID predeterminado por un único certificado de servidor personalizado que permite a los usuarios acceder al Administrador de grid y al Administrador de inquilinos sin tener que encontrar advertencias de seguridad. También puede revertir al certificado de interfaz de gestión predeterminado o generar una nueva. 
 ---
-= Configure los certificados de interfaz de gestión
+= Configura certificados de la interfaz de gestión en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

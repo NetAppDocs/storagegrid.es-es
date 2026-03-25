@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: tenant, delete, remove tenant 
 summary: Puede eliminar una cuenta de inquilino si desea eliminar de forma permanente el acceso del inquilino al sistema. 
 ---
-= Eliminar cuenta de inquilino
+= Eliminar una cuenta de inquilino de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

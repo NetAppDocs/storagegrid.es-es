@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: Grid Management API,  API operations 
 summary: La API de gestión de grid organiza las operaciones de API disponibles en las siguientes secciones. 
 ---
-= Operaciones de API de gestión de grid
+= Operaciones de Grid Management API en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: firewall access, firewall ports, external firewall 
 summary: Puede abrir o cerrar puertos específicos en el firewall externo. 
 ---
-= Controle el acceso a un firewall externo
+= Controla el acceso a StorageGRID en un firewall externo
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

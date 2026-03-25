@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: TLS and SSH policy, secure connection, FIPS, Common Criteria 
 summary: La política de TLS y SSH determina qué protocolos y cifrados se usan para establecer conexiones TLS seguras con aplicaciones de cliente y conexiones SSH seguras a servicios StorageGRID internos. 
 ---
-= Gestione la política TLS y SSH
+= Administra la política TLS y SSH en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

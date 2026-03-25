@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid federation, troubleshoot 
 summary: Después de resolver la alerta de fallo permanente de replicación entre cuadrículas, debe determinar si algún objeto o marcador de borrado no se puede replicar en la otra cuadrícula. A continuación, puede volver a ingerir estos objetos o utilizar la API de administración de grid para volver a intentar la replicación. 
 ---
-= Identifique y vuelva a intentar operaciones de replicación fallidas
+= Identifica y vuelve a intentar las operaciones de replicación fallidas de StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

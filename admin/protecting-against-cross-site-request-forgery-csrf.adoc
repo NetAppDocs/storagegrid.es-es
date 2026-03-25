@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: csrf, cross site request forgery, token 
 summary: 'Puede ayudar a protegerse contra ataques de falsificación de solicitudes entre sitios \(CSRF\) contra StorageGRID utilizando tokens CSRF para mejorar la autenticación que utiliza cookies. El administrador de grid y el administrador de inquilinos habilitan automáticamente esta característica de seguridad; otros clientes de API pueden elegir si habilitar la función cuando se conectan.' 
 ---
-= Protección contra falsificación de solicitudes entre sitios (CSRF)
+= Protege contra la falsificación de petición en sitios cruzados (CSRF) en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

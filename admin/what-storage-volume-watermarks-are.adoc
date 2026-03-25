@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: what are storage volume watermarks, storage volume soft read-only watermark, storage volume hard read-only watermark, storage volume read-write watermark 
 summary: StorageGRID usa tres marcas de agua de volúmenes de almacenamiento para garantizar que los nodos de almacenamiento pasan de forma segura a un estado de solo lectura antes de que se ejecuten con un espacio mínimo y para permitir que los nodos de almacenamiento que se hayan migrado al estado de solo lectura se vuelvan a escribir. 
 ---
-= ¿Qué son las marcas de agua del volumen de almacenamiento?
+= Conoce las marcas de agua de los volúmenes de almacenamiento en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

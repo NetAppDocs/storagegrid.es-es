@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to manage local users 
 summary: Es posible ver usuarios locales y federados. También puede crear usuarios locales y asignarles grupos de administración locales para determinar a qué funciones de Grid Manager pueden acceder estos usuarios. 
 ---
-= Gestionar usuarios
+= Administra usuarios en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

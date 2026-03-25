@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid manager, sign on, log out 
 summary: Cuando haya terminado de trabajar con Grid Manager, deberá cerrar sesión para asegurarse de que los usuarios no autorizados no puedan acceder al sistema StorageGRID. Es posible que cerrar el navegador no le cierre la sesión del sistema según la configuración de cookies del navegador. 
 ---
-= Cierre la sesión en Grid Manager
+= Sign out de StorageGRID Grid Manager
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

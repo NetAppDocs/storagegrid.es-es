@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storage node is full 
 summary: 'A medida que los nodos de almacenamiento alcancen la capacidad, debe ampliar el sistema StorageGRID añadiendo almacenamiento nuevo. Hay tres opciones disponibles: Añadir volúmenes de almacenamiento, añadir bandejas de ampliación de almacenamiento y añadir nodos de almacenamiento.' 
 ---
-= Gestione nodos de almacenamiento completos
+= Gestiona nodos de almacenamiento completos en StorageGRID
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
