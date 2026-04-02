@@ -33,7 +33,7 @@ image::../media/grid-federation-workflow.png[Flujo de trabajo de conexión de fe
 
 * Los grids utilizados para la federación de grid deben ejecutar versiones de StorageGRID que sean idénticas o que no tengan más de una diferencia principal entre ellas.
 +
-Para obtener más información sobre los requisitos de la versión, consulte la link:../release-notes/index.html["Notas de la versión"].
+Para obtener más información sobre los requisitos de versión, consulta la  https://library.netapp.com/ecm/ecm_download_file/ECMLP3351267["Notas de la versión"^]. Debes iniciar sesión con tu cuenta de NetApp o crear una cuenta para acceder a las notas de la versión.
 
 * Un grid puede tener una o más conexiones de federación de grid a otras grids. Cada conexión de federación de grid es independiente de cualquier otra conexión. Por ejemplo, si Grid 1 tiene una conexión con Grid 2 y una segunda conexión con Grid 3, no hay ninguna conexión implícita entre Grid 2 y Grid 3.
 * Las conexiones de federación de grid son bidireccionales. Una vez establecida la conexión, puede supervisar y gestionar la conexión desde cualquiera de las dos redes.

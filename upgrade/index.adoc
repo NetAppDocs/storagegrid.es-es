@@ -25,8 +25,8 @@ CAUTION: No inicie la actualización si necesita urgentemente ampliar su almacen
 Revise estos temas para conocer las nuevas características y mejoras en StorageGRID 12.0, determinar si alguna característica ha quedado obsoleta o se ha eliminado y obtener información sobre los cambios en las API de StorageGRID .
 
 * link:how-your-system-is-affected-during-upgrade.html["Cómo se ve afectado el sistema durante la actualización"]
-* link:whats-new.html["Novedades de StorageGRID 12.0"]
-* link:removed-or-deprecated-features.html["Operaciones eliminadas o obsoletas"]
-* link:changes-to-grid-management-api.html["Cambios en la API de gestión de grid"]
-* link:changes-to-tenant-management-api.html["Cambios en la API de gestión de inquilinos"]
+* link:../release-notes/whats-new.html["Novedades de StorageGRID 12.0"]
+* link:../release-notes/removed-or-deprecated-features.html["Operaciones eliminadas o obsoletas"]
+* link:../release-notes/changes-to-grid-management-api.html["Cambios en la API de gestión de grid"]
+* link:../release-notes/changes-to-tenant-management-api.html["Cambios en la API de gestión de inquilinos"]
 

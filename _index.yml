@@ -17,10 +17,8 @@ indexpage:
   tiles:
   - title: Manos a la obra
     links:
-    - title: Notas de la versión
-      url: "/release-notes/index.html"
     - title: Novedades
-      url: "/upgrade/whats-new.html"
+      url: "/release-notes/whats-new.html"
     - title: Más información sobre StorageGRID
       url: "/primer/index.html"
     - title: Directrices sobre redes

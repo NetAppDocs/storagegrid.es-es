@@ -34,7 +34,7 @@ indexpage:
   - title: Actualice o corrija
     links:
     - title: Novedades
-      url: "../upgrade/whats-new.html"
+      url: "../release-notes/whats-new.html"
     - title: Tiempo estimado para completar
       url: "../upgrade/estimating-time-to-complete-upgrade.html"
     - title: Cómo se ve afectado el sistema durante la actualización

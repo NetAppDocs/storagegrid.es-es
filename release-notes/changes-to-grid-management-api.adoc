@@ -1,0 +1,53 @@
+---
+permalink: release-notes/changes-to-grid-management-api.html 
+sidebar: sidebar 
+keywords: grid management api, api, api version, swagger, rest api, usageCacheDuration 
+summary: StorageGRID 12.0 utiliza la versión 4 de la API de administración de Grid.  La versión 4 deja obsoleta la versión 3; sin embargo, las versiones 1, 2 y 3 aún son compatibles. 
+---
+= Cambios en la API de gestión de Grid en StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID 12.0 utiliza la versión 4 de la API de administración de Grid.  La versión 4 deja obsoleta la versión 3; sin embargo, las versiones 1, 2 y 3 aún son compatibles.
+
+
+NOTE: Puede seguir usando versiones obsoletas de la API de administración con StorageGRID 12.0; sin embargo, la compatibilidad con estas versiones de la API se eliminará en una futura versión de StorageGRID.  Después de actualizar a StorageGRID 12.0, puede desactivar las API obsoletas mediante el uso de `PUT /grid/config/management` API.
+
+Para obtener más información, vaya a link:../admin/using-grid-management-api.html["Utilice la API de gestión de grid"].
+
+
+
+== Nuevos puntos finales para los depósitos de sucursales
+
+Se han agregado los siguientes puntos finales para permitirle:link:../tenant/what-is-branch-bucket.html["administrar grupos de sucursales"] :
+
+`GET /org/containers/{branchBucketName}/branch`
+
+`PUT /org/containers/{branchBucketName}/branch`
+
+
+
+== Nuevos puntos finales privados para Move ADC
+
+Se han agregado los siguientes puntos finales privados para permitirle:link:../maintain/move-adc-service.html["mover el servicio ADC"] de un nodo de almacenamiento a otro en el mismo sitio:
+
+`/private/move-adc`
+
+`/private/move-adc/start`
+
+`/private/move-adc/retry`
+
+
+
+== Nuevos puntos finales privados para convertir a nodo de solo datos
+
+Se han agregado los siguientes puntos finales privados para permitirle:link:../maintain/convert-to-data-only-node.html["convertir uno o más nodos de almacenamiento combinados"] que no contienen el servicio ADC en nodos de solo datos.
+
+`/private/convert-to-data-only-node`
+
+`/private/convert-to-data-only-node/start`
+
+`/private/convert-to-data-only-node/retry`

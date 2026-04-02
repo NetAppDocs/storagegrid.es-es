@@ -59,7 +59,7 @@ La frase de contraseña se crea y documenta cuando se instala el sistema Storage
 Documentación de StorageGRID
  a| 
 * link:../admin/index.html["Administre StorageGRID"]
-* link:../release-notes/index.html["Notas de la versión"]
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP3351267["Notas de la versión"^]. Debes iniciar sesión con tu cuenta de NetApp o crear una cuenta para acceder a las notas de la versión.
 * link:../swnodes/index.html["Instrucciones de instalación para su plataforma"]
 
 
