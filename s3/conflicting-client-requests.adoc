@@ -2,7 +2,7 @@
 permalink: s3/conflicting-client-requests.html 
 sidebar: sidebar 
 keywords: conflicting client requests 
-summary: 'Las solicitudes de clientes en conflicto, como dos clientes que escriben en la misma clave, se resuelven en función de las "últimas victorias".' 
+summary: Las solicitudes contradictorias de los clientes, como por ejemplo que dos clientes escriban en la misma clave, se resuelven según el principio de latest-wins. 
 ---
 = Cómo la API de REST de StorageGRID S3 resuelve las solicitudes de clientes en conflicto
 :allow-uri-read: 

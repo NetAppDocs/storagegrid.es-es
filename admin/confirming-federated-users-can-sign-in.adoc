@@ -2,7 +2,7 @@
 permalink: admin/confirming-federated-users-can-sign-in.html 
 sidebar: sidebar 
 keywords: sso configuration 
-summary: 'Antes de habilitar el inicio de sesión único \(SSO\), debe confirmar que al menos un usuario federado puede iniciar sesión en el Gestor de grid y en el Gestor de arrendatarios para cualquier cuenta de arrendatario existente.' 
+summary: 'Antes de habilitar el inicio de sesión único (SSO), debe confirmar que al menos un usuario federado puede iniciar sesión en Grid Manager y en el Gestor de inquilinos para cualquier cuenta de inquilino existente.' 
 ---
 = Confirma que los usuarios federados pueden Sign in en StorageGRID
 :allow-uri-read: 

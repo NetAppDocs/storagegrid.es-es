@@ -2,7 +2,7 @@
 permalink: admin/managing-tenants.html 
 sidebar: sidebar 
 keywords: manage tenants, tenant account, what is a tenant 
-summary: 'Una cuenta de inquilino permite usar la API DE REST Simple Storage Service \(S3\) para almacenar y recuperar objetos en un sistema StorageGRID.' 
+summary: 'Una cuenta de inquilino permite usar la API DE REST DE Simple Storage Service (S3) para almacenar y recuperar objetos en un sistema StorageGRID.' 
 ---
 = Cuentas de tenant en StorageGRID
 :allow-uri-read: 

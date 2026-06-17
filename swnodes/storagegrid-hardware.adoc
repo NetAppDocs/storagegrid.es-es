@@ -10,7 +10,7 @@ summary: Descubra cómo instalar, configurar y usar el hardware del dispositivo 
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

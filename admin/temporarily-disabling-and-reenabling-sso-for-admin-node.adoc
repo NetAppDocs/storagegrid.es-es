@@ -2,7 +2,7 @@
 permalink: admin/temporarily-disabling-and-reenabling-sso-for-admin-node.html 
 sidebar: sidebar 
 keywords: signing in when sso is down, single sign on failure 
-summary: 'Es posible que no pueda iniciar sesión en Grid Manager si se desactiva el sistema de inicio de sesión único \(SSO\). En este caso, puede deshabilitar y volver a habilitar SSO para un nodo de administración. Para deshabilitar y volver a habilitar SSO, debe acceder al shell de comandos del nodo.' 
+summary: 'Es posible que no puedas iniciar sesión en Grid Manager si el sistema de inicio de sesión único (SSO) deja de funcionar. En ese caso, puedes desactivar y volver a activar temporalmente el SSO para un Admin Node. Para desactivar y volver a activar el SSO, debes acceder al shell de comandos del nodo.' 
 ---
 = Deshabilita temporalmente y vuelve a habilitar SSO para un nodo de administración StorageGRID
 :allow-uri-read: 

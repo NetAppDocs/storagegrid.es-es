@@ -2,7 +2,7 @@
 permalink: expand/rebalancing-erasure-coded-data-after-adding-storage-nodes.html 
 sidebar: sidebar 
 keywords: erasure coding, EC, rebalancing, site rebalance procedure, StorageGRID 
-summary: Después de agregar nodos de almacenamiento, puede usar el procedimiento de reequilibrio de codificación de borrado para redistribuir fragmentos con código de borrado entre los nodos de almacenamiento nuevos y existentes. 
+summary: Después de añadir los nodos de almacenamiento, puedes usar el procedimiento de reequilibrio de código de borrado para redistribuir los fragmentos codificados con código de borrado entre los nodos de almacenamiento existentes y los nuevos. 
 ---
 = Reequilibre los datos codificados por borrado después de agregar nodos a su sistema StorageGRID
 :allow-uri-read: 

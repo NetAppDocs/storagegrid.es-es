@@ -2,7 +2,7 @@
 permalink: audit/lkdm-leaked-object-cleanup.html 
 sidebar: sidebar 
 keywords: storagegrid, audit, message, LKDM, Leaked Object Cleanup 
-summary:  
+summary: El mensaje de auditoría LKDM se genera cuando se ha limpiado o eliminado un fragmento filtrado. 
 ---
 = Mensaje de auditoría LKDM para limpieza de objetos filtrados en StorageGRID
 :allow-uri-read: 

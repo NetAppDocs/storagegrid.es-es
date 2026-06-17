@@ -39,7 +39,7 @@ NOTE: En ciertas situaciones, NetApp podría terminar el soporte para determinad
 
 
  a| 
-Alarmas heredadas (_NOT Alerts_)
+Alarmas, heredadas (_no Alertas_)
  a| 
 11,7
  a| 
@@ -104,6 +104,19 @@ Motor de contenedor Docker
 POR CONFIRMAR
  a| 
 La compatibilidad con Docker como motor de contenedores para implementaciones de solo software está obsoleta.  Docker será reemplazado por otro motor de contenedores en una versión futura.  Consulte lalink:../swnodes/software-requirements.html["Requisitos de software para nodos basados en software"] para obtener una lista de las versiones de Docker compatibles actualmente.
+
+
+
+ a| 
+Configuración del correo electrónico (legacy)
+ a| 
+11,9
+ a| 
+12,0
+ a| 
+12,1
+ a| 
+https://docs.netapp.com/us-en/storagegrid-118/monitor/managing-alarms.html#configure-notifications-for-alarms-legacy-system["Configura notificaciones para alarmas (sistema heredado) (StorageGRID 11.8)"^]
 
 
 

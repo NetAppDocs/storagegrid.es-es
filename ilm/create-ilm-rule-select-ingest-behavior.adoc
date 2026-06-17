@@ -2,7 +2,7 @@
 permalink: ilm/create-ilm-rule-select-ingest-behavior.html 
 sidebar: sidebar 
 keywords: ilm rule step 3, define ingest behavior 
-summary: 'Paso 3 \(Seleccionar comportamiento de ingesta\) del asistente Crear regla de ILM le permite elegir cómo se protegen los objetos filtrados por esta regla a medida que se ingieren.' 
+summary: 'El paso 3 (Seleccionar comportamiento de ingesta) del asistente para crear una regla ILM te permite elegir cómo se protegen los objetos filtrados por esta regla en el momento de su ingesta.' 
 ---
 = Selecciona el comportamiento de ingesta para una regla StorageGRID ILM
 :allow-uri-read: 

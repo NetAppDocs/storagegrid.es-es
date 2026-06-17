@@ -2,7 +2,7 @@
 permalink: ilm/ilm-policy-overview.html 
 sidebar: sidebar 
 keywords: ILM policy, information lifecycle policy considerations 
-summary: 'Una política de gestión de ciclo de vida de la información \(ILM\) es un conjunto ordenado de reglas de ILM que determina cómo gestiona el sistema StorageGRID los datos de objetos con el tiempo.' 
+summary: 'Una política de gestión de ciclo de vida de la información (ILM) es un conjunto ordenado de reglas de ILM que determinan el modo en que el sistema StorageGRID gestiona los datos de objetos a lo largo del tiempo.' 
 ---
 = Conoce las políticas ILM en StorageGRID
 :allow-uri-read: 

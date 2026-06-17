@@ -2,7 +2,7 @@
 permalink: monitor/viewing-ilm-tab.html 
 sidebar: sidebar 
 keywords: ilm tab 
-summary: 'En la pestaña ILM, se proporciona información sobre las operaciones de gestión de la vida útil de la información \(ILM\).' 
+summary: 'La pestaña ILM proporciona información sobre las operaciones de gestión de la vida útil de la información (ILM).' 
 ---
 = Ver la pestaña ILM de StorageGRID
 :allow-uri-read: 

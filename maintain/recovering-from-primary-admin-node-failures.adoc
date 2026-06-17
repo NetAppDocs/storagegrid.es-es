@@ -2,7 +2,7 @@
 permalink: maintain/recovering-from-primary-admin-node-failures.html 
 sidebar: sidebar 
 keywords: storagegrid, recover, primary admin node failure 
-summary: 'Debe completar un conjunto específico de tareas para recuperar el sistema después de un fallo en un nodo de administrador principal. El nodo de administración principal aloja el servicio nodo de administración de configuración \(CMN\) de la cuadrícula.' 
+summary: 'Debe completar un conjunto específico de tareas para recuperar el sistema después de un fallo en un nodo de administrador principal. El nodo de administrador principal aloja el servicio Configuration Management Node (CMN) de la cuadrícula.' 
 ---
 = Recupera de fallos del nodo primario de administración de StorageGRID
 :allow-uri-read: 
@@ -14,7 +14,7 @@ summary: 'Debe completar un conjunto específico de tareas para recuperar el sis
 Debe completar un conjunto específico de tareas para recuperar el sistema después de un fallo en un nodo de administrador principal. El nodo de administrador principal aloja el servicio Configuration Management Node (CMN) de la cuadrícula.
 
 
-CAUTION: Debe reparar o sustituir un nodo de administración principal con errores de inmediato, o el grid puede perder la capacidad de procesar objetos nuevos. El período de tiempo exacto depende de la tasa de ingesta de objetos: Si necesita una evaluación más precisa del plazo para el grid, póngase en contacto con el soporte técnico.
+CAUTION: Debes reparar o sustituir sin demora un nodo de administración principal que haya fallado o podrías no poder realizar ciertos procedimientos de mantenimiento.
 
 Siga estos pasos de alto nivel para recuperar un nodo de administración principal:
 

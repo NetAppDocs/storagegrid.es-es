@@ -2,7 +2,7 @@
 permalink: admin/configure-vlan-interfaces.html 
 sidebar: sidebar 
 keywords: how to configure vlan interfaces, vlan interfaces, trunk interface 
-summary: 'Puede crear interfaces LAN virtuales \(VLAN\) en nodos de administración y de puerta de enlace y usarlas en grupos de alta disponibilidad y extremos de equilibrador de carga para aislar y dividir el tráfico para la seguridad, flexibilidad y rendimiento.' 
+summary: 'Puedes crear interfaces de red local virtual (VLAN) en los nodos de administración y en los nodos de puerta de enlace y usarlas en grupos de alta disponibilidad y puntos finales de balanceador de carga para aislar y dividir el tráfico por seguridad, flexibilidad y rendimiento.' 
 ---
 = Configura interfaces VLAN en StorageGRID
 :allow-uri-read: 

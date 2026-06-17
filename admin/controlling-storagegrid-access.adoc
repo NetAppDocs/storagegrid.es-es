@@ -2,7 +2,7 @@
 permalink: admin/controlling-storagegrid-access.html 
 sidebar: sidebar 
 keywords: administrator access, single sign on, sso, users, groups, client certificates, passwords, passphrase 
-summary: 'Puede controlar quién puede acceder a StorageGRID y qué tareas pueden realizar los usuarios creando o importando grupos y usuarios, y asignando permisos a cada grupo. De manera opcional, puede habilitar el inicio de sesión único \(SSO\), crear certificados de cliente y cambiar contraseñas de grid.' 
+summary: 'Puede controlar quién puede acceder a StorageGRID y qué tareas pueden realizar los usuarios creando o importando grupos y usuarios, y asignando permisos a cada grupo. De manera opcional, puede habilitar el inicio de sesión único (SSO), crear certificados de cliente y cambiar contraseñas de grid.' 
 ---
 = Control del acceso a StorageGRID
 :allow-uri-read: 

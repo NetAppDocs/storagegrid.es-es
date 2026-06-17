@@ -2,7 +2,7 @@
 permalink: maintain/step-6-monitor-decommission.html 
 sidebar: sidebar 
 keywords: storagegrid, recover, monitor decommission, decommission 
-summary: 'En el paso 6 \(retirada del monitor\) del asistente de página Sitio de misión de retirada, puede supervisar el progreso a medida que se quita el sitio.' 
+summary: 'En el paso 6 (Supervisión de misión) del asistente de página Sitio de retirada, puede supervisar el progreso a medida que se quita el sitio.' 
 ---
 = Supervisa el progreso de la descomisión de instalaciones en StorageGRID
 :allow-uri-read: 

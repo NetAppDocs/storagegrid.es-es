@@ -2,7 +2,7 @@
 permalink: tenant/enabling-or-disabling-last-access-time-updates.html 
 sidebar: sidebar 
 keywords: how to enable or disable last access time updates 
-summary: 'Cuando los administradores de grid crean las reglas de gestión del ciclo de vida de la información \(ILM\) para un sistema StorageGRID, pueden especificar opcionalmente que se utilice la última hora de acceso de un objeto para determinar si se debe mover ese objeto a una ubicación de almacenamiento diferente. Si usa un inquilino de S3, puede aprovechar esas reglas al habilitar actualizaciones en la última hora de acceso para los objetos de un bloque de S3.' 
+summary: 'Cuando los administradores de la red crean las reglas de gestión del ciclo de vida de la información (ILM) para un sistema StorageGRID, pueden especificar, de forma opcional, que se utilice el tiempo de acceso más reciente a un objeto para determinar si dicho objeto debe trasladarse a una ubicación de almacenamiento diferente. Si usas un inquilino de S3, puedes aprovechar estas reglas habilitando las actualizaciones del tiempo de acceso para los objetos en un bucket de S3.' 
 ---
 = Activar o desactivar las actualizaciones del tiempo de acceso en StorageGRID
 :allow-uri-read: 

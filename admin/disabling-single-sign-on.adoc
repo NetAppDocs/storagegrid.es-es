@@ -2,7 +2,7 @@
 permalink: admin/disabling-single-sign-on.html 
 sidebar: sidebar 
 keywords: disable sso, disable single sign on 
-summary: 'Puede deshabilitar el inicio de sesión único \(SSO\) si ya no desea utilizar esta funcionalidad. Debe deshabilitar el inicio de sesión único antes de poder deshabilitar la federación de identidades.' 
+summary: 'Si ya no desea usar esta funcionalidad, puede deshabilitar el inicio de sesión único (SSO). Debe deshabilitar el inicio de sesión único antes de poder deshabilitar la federación de identidades.' 
 ---
 = Desactiva el inicio de sesión único en StorageGRID
 :allow-uri-read: 

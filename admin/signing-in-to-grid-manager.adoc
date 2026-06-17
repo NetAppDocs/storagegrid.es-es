@@ -2,7 +2,7 @@
 permalink: admin/signing-in-to-grid-manager.html 
 sidebar: sidebar 
 keywords: grid manager, sign in, log in 
-summary: 'Para acceder a la página de inicio de sesión de Grid Manager, introduzca el nombre de dominio completo \(FQDN\) o la dirección IP de un nodo de administración en la barra de direcciones de un explorador web compatible.' 
+summary: 'Para acceder a la página de inicio de sesión de Grid Manager, introduzca el nombre de dominio completo (FQDN) o la dirección IP de un nodo de administración en la barra de direcciones de un explorador web compatible.' 
 ---
 = Sign in al StorageGRID Grid Manager
 :allow-uri-read: 

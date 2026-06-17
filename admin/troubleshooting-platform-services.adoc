@@ -2,7 +2,7 @@
 permalink: admin/troubleshooting-platform-services.html 
 sidebar: sidebar 
 keywords: troubleshoot platform services, platform services endpoint error 
-summary: Los extremos utilizados en los servicios de plataforma los crean y mantienen los usuarios de arrendatarios en el Administrador de arrendatarios; sin embargo, si un arrendatario tiene problemas al configurar o utilizar servicios de plataforma, puede utilizar el Administrador de grid para ayudar a resolver el problema. 
+summary: Los puntos finales utilizados en los servicios de la plataforma son creados y gestionados por los usuarios del inquilino en el Tenant Manager. Sin embargo, si un inquilino tiene problemas para configurar o usar los servicios de la plataforma, podrías usar el Grid Manager para ayudar a resolver el problema. 
 ---
 = Soluciona problemas de los servicios de la plataforma StorageGRID
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Los extremos utilizados en los servicios de plataforma los crean y mant
 
 
 [role="lead"]
-Los extremos utilizados en los servicios de plataforma los crean y mantienen los usuarios de arrendatarios en el Administrador de arrendatarios; sin embargo, si un arrendatario tiene problemas al configurar o utilizar servicios de plataforma, puede utilizar el Administrador de grid para ayudar a resolver el problema.
+Los puntos finales utilizados en los servicios de la plataforma son creados y gestionados por los usuarios del inquilino en el Tenant Manager. Sin embargo, si un inquilino tiene problemas para configurar o usar los servicios de la plataforma, podrías usar el Grid Manager para ayudar a resolver el problema.
 
 
 

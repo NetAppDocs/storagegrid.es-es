@@ -2,7 +2,7 @@
 permalink: tenant/protecting-against-cross-site-request-forgery-csrf.html 
 sidebar: sidebar 
 keywords: how to protect against cross-site request forgery, csrf 
-summary: 'Puede ayudar a protegerse contra ataques de falsificación de solicitudes entre sitios \(CSRF\) contra StorageGRID utilizando tokens CSRF para mejorar la autenticación que utiliza cookies. El administrador de grid y el administrador de inquilinos habilitan automáticamente esta característica de seguridad; otros clientes de API pueden elegir si habilitar la función cuando se conectan.' 
+summary: 'Puedes ayudar a proteger StorageGRID frente a los ataques de falsificación de solicitudes entre sitios (CSRF) utilizando tokens CSRF para reforzar la autenticación que usa cookies.' 
 ---
 = Protégete contra la falsificación de petición en sitios cruzados en StorageGRID
 :allow-uri-read: 

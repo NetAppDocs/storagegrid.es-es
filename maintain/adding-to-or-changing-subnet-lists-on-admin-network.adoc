@@ -24,9 +24,13 @@ Puede agregar, eliminar o cambiar subredes a todos los nodos de la lista de subr
 No utilice subredes que contengan las siguientes direcciones IPv4 para la red de cuadrícula, la red de administración o la red de cliente de ningún nodo:
 
 * 192.168.130.101
+* 192.168.130.121
 * 192.168.131.101
+* 192.168.131.121
 * 192.168.130.102
+* 192.168.130.122
 * 192.168.131.102
+* 192.168.131.122
 * 198.51.100.2
 * 198.51.100.4
 

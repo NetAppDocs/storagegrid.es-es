@@ -2,7 +2,7 @@
 permalink: maintain/step-5-resolve-node-conflicts.html 
 sidebar: sidebar 
 keywords: storagegrid, recover, resolve node conflict 
-summary: 'En el paso 5 \(resolver conflictos de nodo\) del asistente para sitio de retirada, puede determinar si alguno de los nodos del sistema StorageGRID está desconectado o si alguno de los nodos del sitio seleccionado pertenece a un grupo \(ha\) de alta disponibilidad. Después de resolver cualquier conflicto de nodo, se inicia el procedimiento de retirada desde esta página.' 
+summary: 'En el paso 5 (resolver conflictos de nodos) del asistente para sitio de retirada, puede determinar si alguno de los nodos del sistema StorageGRID está desconectado o si alguno de los nodos del sitio seleccionado pertenece a un grupo de alta disponibilidad (ha). Después de resolver cualquier conflicto de nodo, se inicia el procedimiento de retirada desde esta página.' 
 ---
 = Resuelve conflictos de nodos e inicia la descomisión de sitios en StorageGRID
 :allow-uri-read: 

@@ -2,7 +2,7 @@
 permalink: monitor/monitoring-information-lifecycle-management.html 
 sidebar: sidebar 
 keywords: lifecycle management, lifecycle, monitoring, ILM, information lifecycle management 
-summary: 'El sistema de gestión de la vida útil de la información \(ILM\) proporciona gestión de datos para todos los objetos almacenados en el grid. Debe supervisar las operaciones de ILM para averiguar si el grid puede manejar la carga actual o si se necesitan más recursos.' 
+summary: 'El sistema de gestión del ciclo de vida de la información (ILM) proporciona gestión de datos para todos los objetos almacenados en el grid. Debe supervisar las operaciones de ILM para averiguar si el grid puede manejar la carga actual o si se necesitan más recursos.' 
 ---
 = Supervisa la gestión del ciclo de vida de la información en StorageGRID
 :allow-uri-read: 
