@@ -2,7 +2,7 @@
 permalink: admin/managing-full-storage-nodes.html 
 sidebar: sidebar 
 keywords: storage node is full 
-summary: 'A medida que los nodos de almacenamiento alcancen su capacidad máxima, debes ampliar el sistema StorageGRID añadiendo nuevo almacenamiento. Hay tres opciones disponibles: añadir volúmenes de almacenamiento, añadir bandejas de expansión de almacenamiento y añadir nodos de almacenamiento.' 
+summary: A medida que los nodos de almacenamiento alcanzan su capacidad, debes ampliar el sistema StorageGRID agregando nuevo almacenamiento. Puedes hacerlo añadiendo volúmenes de almacenamiento, bandejas de expansión de almacenamiento y nodos de almacenamiento. 
 ---
 = Gestiona nodos de almacenamiento completos en StorageGRID
 :allow-uri-read: 

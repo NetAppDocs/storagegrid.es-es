@@ -2,7 +2,7 @@
 permalink: tenant/manage-users.html 
 sidebar: sidebar 
 keywords: how to create local tenant users, manage users 
-summary: 'Puedes crear usuarios locales y asignarlos a grupos locales para determinar a qué funciones pueden acceder estos usuarios. El Tenant Manager incluye un usuario local predefinido, llamado `root`, aunque puedes agregar y eliminar usuarios locales, no puedes eliminar al usuario raíz.' 
+summary: Puedes crear usuarios locales y asignarlos a grupos locales para determinar a qué funciones pueden acceder dichos usuarios. El Tenant Manager incluye un usuario local predefinido, llamado root. Aunque puedes añadir y eliminar usuarios locales, no puedes eliminar al usuario raíz. 
 ---
 = Gestiona los usuarios inquilinos de StorageGRID
 :allow-uri-read: 
