@@ -28,9 +28,9 @@ Cuando inicie sesión por primera vez en Grid Manager, puede utilizar el panel d
 
 La consola contiene información sobre el estado y el rendimiento del sistema, el uso del almacenamiento, procesos de ILM, operaciones de S3 y los nodos del grid. Puede link:../monitor/viewing-dashboard.html["configure el panel de control"]seleccionar de entre una colección de tarjetas que contienen la información que necesita para controlar eficazmente su sistema.
 
-image::../media/grid_manager_dashboard_and_menu.png[De Grid Manager]
+image:grid_manager_dashboard_and_menu.png["De Grid Manager"]
 
-Para obtener una explicación de la información que se muestra en cada tarjeta, seleccione el icono de ayuda de image:../media/icon_nms_question.png["icono de signo de interrogación"]esa tarjeta.
+Para obtener una explicación de la información que aparece en cada tarjeta, selecciona el icono de ayuda image:icon_nms_question.png["icono de signo de interrogación"] para esa tarjeta.
 
 
 
@@ -44,7 +44,7 @@ Puede utilizar *Buscar* para buscar entradas en la barra lateral del Gestor de c
 
 == Menú de ayuda
 
-El menú de ayuda image:../media/icon-help-menu-bar.png["icono ayuda en la barra de menús"]proporciona acceso a:
+El menú de ayuda image:icon-help-menu-bar.png["icono ayuda en la barra de menús"] permite acceder a:
 
 * Ellink:../fabricpool/use-fabricpool-setup-wizard.html["FabricPool"] ylink:../admin/use-s3-setup-wizard.html["Configuración de S3"] magos
 * El sitio de documentación de StorageGRID para la versión actual

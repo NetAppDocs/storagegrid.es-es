@@ -26,6 +26,6 @@ Para obtener información sobre cómo cambiar direcciones IP, consulte link:../m
 Las direcciones IP de ese nodo de grid se enumeran en una tabla.
 
 +
-image::../media/nodes_page_overview_tab_extended.png[Direcciones IP de página de nodos]
+image:nodes_page_overview_tab_extended.png["Direcciones IP de página de nodos"]
 
 

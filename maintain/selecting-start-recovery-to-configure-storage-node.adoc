@@ -37,7 +37,7 @@ Los nodos aparecen en la lista después de que fallan, pero no puede seleccionar
 . Introduzca la *frase de paso de aprovisionamiento*.
 . Haga clic en *Iniciar recuperación*.
 +
-image::../media/4b_select_recovery_node.png[Captura de pantalla que muestra la página Mantenimiento > recuperación]
+image:4b_select_recovery_node.png["Captura de pantalla que muestra la página Mantenimiento > Recuperación"]
 
 . Supervise el progreso de la recuperación en la tabla recuperando Grid Node.
 +
@@ -45,7 +45,7 @@ image::../media/4b_select_recovery_node.png[Captura de pantalla que muestra la p
 NOTE: Mientras se está ejecutando el procedimiento de recuperación, puede hacer clic en *Restablecer* para iniciar una nueva recuperación. Aparece un cuadro de diálogo que indica que el nodo quedará en un estado indeterminado si restablece el procedimiento.
 
 +
-image::../media/recovery_reset_warning.gif[captura de pantalla que muestra el cuadro de diálogo de advertencia de restablecimiento de recuperación]
+image:recovery_reset_warning.gif["captura de pantalla que muestra el cuadro de diálogo de advertencia de restablecimiento de recuperación"]
 
 +
 Si desea volver a intentar la recuperación después de restablecer el procedimiento, debe restaurar el nodo a un estado preinstalado, de la manera siguiente:
@@ -57,6 +57,6 @@ Si desea volver a intentar la recuperación después de restablecer el procedimi
 
 . Cuando el nodo de almacenamiento alcance la etapa «Esperando pasos manuales», vaya a link:remounting-and-reformatting-storage-volumes-manual-steps.html["Volver a montar y volver a formatear los volúmenes de almacenamiento (pasos manuales)"].
 +
-image::../media/recovery_reset_button.gif[captura de pantalla que muestra el escenario "esperando pasos manuales"]
+image:recovery_reset_button.gif["captura de pantalla que muestra el escenario \"esperando pasos manuales\""]
 
 

@@ -34,7 +34,7 @@ NOTE: Si desea utilizar un servicio LDAP v3 que no figura en la lista, comuníqu
 .Acerca de esta tarea
 Si puede configurar un servicio de federación de identidades para su inquilino depende de cómo se haya configurado su cuenta de inquilino. Es posible que el inquilino comparta el servicio de federación de identidades configurado para Grid Manager. Si ve este mensaje cuando accede a la página Identity Federation, no puede configurar un origen de identidad federado independiente para este arrendatario.
 
-image::../media/tenant_shares_identity_federation.png[El inquilino comparte la Federación de identidades]
+image:tenant_shares_identity_federation.png["El inquilino comparte la Federación de identidades"]
 
 
 
@@ -47,7 +47,7 @@ Al configurar Identify federation, proporciona los valores que StorageGRID neces
 . Seleccione *Activar federación de identidades*.
 . En la sección Tipo de servicio LDAP, seleccione el tipo de servicio LDAP que desea configurar.
 +
-image::../media/ldap_service_type.png[Página Federación de identidades que muestra las opciones de tipo de servicio LDAP]
+image:ldap_service_type.png["Página Federación de identidades que muestra las opciones de tipo de servicio LDAP"]
 
 +
 Seleccione *otros* para configurar valores para un servidor LDAP que utilice Oracle Directory Server.
@@ -158,7 +158,7 @@ Después de introducir todos los valores, es necesario probar la conexión para 
 Por ejemplo, introduzca su propio nombre de usuario y contraseña. No incluya ningún carácter especial en el nombre de usuario, como @ o /.
 
 +
-image::../media/identity_federation_test_connection.png[Solicitud de federación de identidades para validar el formato de nombre de usuario de enlace]
+image:identity_federation_test_connection.png["Solicitud de federación de identidades para validar el formato de nombre de usuario de enlace"]
 
 +
 ** Si la configuración de conexión es válida, aparecerá un mensaje que indica que la conexión se ha realizado correctamente. Seleccione *Guardar* para guardar la configuración.

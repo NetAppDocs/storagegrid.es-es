@@ -91,7 +91,7 @@ Si elimina un nombre utilizado por las aplicaciones S3, las solicitudes de estil
 
 .Pasos
 . Seleccione *Configuración* > *Red* > *Nombres de dominio de punto final S3*.
-. Seleccione el icono de eliminación image:../media/icon-x-to-remove.png["icono de eliminar"]junto al nombre de dominio.
+. Selecciona el icono de eliminación image:icon-x-to-remove.png["icono de eliminar"] junto al nombre de dominio.
 . Seleccione *Sí* para confirmar la eliminación.
 
 

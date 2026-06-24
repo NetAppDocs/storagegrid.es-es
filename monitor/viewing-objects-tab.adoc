@@ -15,4 +15,4 @@ El separador Objetos proporciona información sobre link:../s3/index.html["S3 ta
 
 La pestaña Objects se muestra para cada nodo de almacenamiento, cada sitio y toda la cuadrícula. Para los nodos de almacenamiento, la pestaña Objects también proporciona información y recuentos de objetos acerca de consultas de metadatos y verificación en segundo plano.
 
-image::../media/nodes_page_objects_tab.png[Página nodos, pestaña objetos]
+image:nodes_page_objects_tab.png["Página nodos, pestaña objetos"]

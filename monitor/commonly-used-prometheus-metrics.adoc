@@ -31,7 +31,7 @@ Las métricas recopiladas por Prometheus se utilizan en varios lugares de Grid M
 
 * *Página de nodos*: Los gráficos y gráficos de las fichas disponibles en la página Nodes utilizan la herramienta de visualización Grafana para mostrar las métricas de series de tiempo recogidas por Prometheus. Grafana muestra los datos de la serie Time en formatos de gráficos y gráficos, mientras que Prometheus sirve como origen de datos del back-end.
 +
-image::../media/nodes_page_network_traffic_graph.png[Gráfico Prometheus]
+image:nodes_page_network_traffic_graph.png["Gráfico Prometheus"]
 
 * *Alertas*: Las alertas se activan en niveles de gravedad específicos cuando las condiciones de regla de alerta que utilizan las métricas Prometheus se evalúan como verdaderas.
 * *API de gestión de grid*: Puede utilizar métricas Prometheus en reglas de alerta personalizadas o con herramientas de automatización externas para supervisar su sistema StorageGRID. Puede consultar una lista completa de la métrica Prometheus en la API de Grid Management. (En la parte superior de Grid Manager, selecciona el icono de ayuda y selecciona *Documentación de API* > *Métricas*). Si bien hay más de mil métricas disponibles, solo se requiere una cantidad relativamente pequeña para supervisar las operaciones de StorageGRID más importantes.

@@ -39,7 +39,7 @@ Desde esta pestaña, puede:
 
 
 +
-image::../media/grid-federation-connections-tab.png[Pestaña Conexiones de federación de grid]
+image:grid-federation-connections-tab.png["Pestaña Conexiones de federación de grid"]
 
 . Para ver información básica de todas las cuentas de inquilino en esta cuadrícula que tienen el permiso *Usar conexión de federación de grid*, selecciona la pestaña *Inquilinos permitidos*.
 +
@@ -51,7 +51,7 @@ Desde esta pestaña, puede:
 ** Seleccione un arrendatario permitido y link:../admin/grid-federation-manage-tenants.html["elimine el permiso"].
 ** Compruebe si hay errores de replicación entre cuadrículas y borre el último error, si lo hubiera. Consulte link:../admin/grid-federation-troubleshoot.html["Solucionar errores de federación de grid"].
 +
-image::../media/grid-federation-permitted-tenants-tab.png[Pestaña Inquilinos permitidos de federación de grid]
+image:grid-federation-permitted-tenants-tab.png["Pestaña Inquilinos permitidos de federación de grid"]
 
 
 
@@ -82,7 +82,7 @@ Desde esta pestaña, puede:
 ** link:../admin/grid-federation-manage-tenants.html["Eliminar el permiso de un inquilino"] para utilizar la conexión.
 ** Compruebe si hay errores de replicación entre cuadrículas y borre el último error. Consulte link:../admin/grid-federation-troubleshoot.html["Solucionar errores de federación de grid"].
 +
-image::../media/grid-federation-permitted-tenants-tab-for-connection.png[grid-federation-allowed-tenants-tab-for-connection]
+image:grid-federation-permitted-tenants-tab-for-connection.png["grid-federation-allowed-tenants-tab-for-connection"]
 
 
 
@@ -94,7 +94,7 @@ Desde esta pestaña, puede:
 ** link:../admin/grid-federation-manage-connection.html["Rotar certificados de conexión"].
 ** Seleccione *Servidor* o *Cliente* para ver o descargar el certificado asociado o copiar el certificado PEM.
 +
-image::../media/grid-federation-certificates-tab.png[grid-federación-certificados-tab]
+image:grid-federation-certificates-tab.png["grid-federación-certificados-tab"]
 
 
 

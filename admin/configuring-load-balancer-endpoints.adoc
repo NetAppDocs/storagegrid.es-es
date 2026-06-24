@@ -429,7 +429,7 @@ Puede ver detalles de los extremos de equilibrador de carga existentes, incluido
 * Para ver información básica de todos los puntos finales de equilibrio de carga, revise las tablas en la página Puntos Finales de Equilibrador de Carga.
 * Para ver todos los detalles acerca de un extremo específico, incluidos los metadatos del certificado, seleccione el nombre del extremo en la tabla. La información que se muestra varía en función del tipo de punto final y de cómo se configura.
 +
-image::../media/load_balancer_endpoint_details.png[Detalles del punto final del equilibrador de carga]
+image:load_balancer_endpoint_details.png["Detalles del punto final del equilibrador de carga"]
 
 * Para editar un punto final, utilice el menú *Acciones* de la página Puntos Finales de Equilibrador de Carga.
 +
@@ -456,7 +456,7 @@ Editar el nombre del extremo
 
  a| 
 .. Seleccione el nombre del extremo para mostrar los detalles.
-.. Seleccione el icono de edición image:../media/icon_edit_tm.png["Icono Editar"].
+.. Selecciona el icono de edición image:icon_edit_tm.png["Icono Editar"].
 .. Introduzca el nuevo nombre.
 .. Seleccione *Guardar*.
 

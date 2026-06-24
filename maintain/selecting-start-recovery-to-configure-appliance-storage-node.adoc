@@ -30,21 +30,21 @@ Los nodos aparecen en la lista después de que fallan, pero no puede seleccionar
 . Introduzca la *frase de paso de aprovisionamiento*.
 . Haga clic en *Iniciar recuperación*.
 +
-image::../media/4b_select_recovery_node.png[Captura de pantalla que muestra la página Mantenimiento > recuperación]
+image:4b_select_recovery_node.png["Captura de pantalla que muestra la página Mantenimiento > Recuperación"]
 
 . Supervise el progreso de la recuperación en la tabla recuperando Grid Node.
 +
 Cuando el nodo de la cuadrícula alcance la etapa «Esperando pasos manuales», vaya al tema siguiente y siga los pasos manuales para volver a montar y formatear los volúmenes de almacenamiento del dispositivo.
 
 +
-image::../media/recovery_reset_button.gif[captura de pantalla que muestra el escenario en espera de los pasos manuales]
+image:recovery_reset_button.gif["captura de pantalla que muestra el escenario en espera de los pasos manuales"]
 
 +
 
 NOTE: En cualquier momento durante la recuperación, puede hacer clic en *Restablecer* para iniciar una nueva recuperación. Aparece un cuadro de diálogo que indica que el nodo quedará en un estado indeterminado si restablece el procedimiento.
 
 +
-image::../media/recovery_reset_warning.gif[captura de pantalla que muestra el cuadro de diálogo de advertencia de restablecimiento de recuperación]
+image:recovery_reset_warning.gif["captura de pantalla que muestra el cuadro de diálogo de advertencia de restablecimiento de recuperación"]
 
 +
 Si desea volver a intentar la recuperación después de restablecer el procedimiento, debe restaurar el nodo del dispositivo a un estado preinstalado ejecutando en el nodo. `sgareinstall`

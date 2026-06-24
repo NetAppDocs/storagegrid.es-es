@@ -28,7 +28,7 @@ También puede seleccionar *acciones* > *Ver detalles del grupo*.
 Aparece la página de detalles del grupo. En el siguiente ejemplo, se muestra la página de detalles del grupo S3.
 
 +
-image::../media/tenant_group_details.png[Ver detalles del grupo]
+image:tenant_group_details.png["Ver detalles del grupo"]
 
 . Realice cambios en la configuración del grupo según sea necesario.
 +
@@ -36,7 +36,7 @@ image::../media/tenant_group_details.png[Ver detalles del grupo]
 TIP: Para asegurarse de que se guardan los cambios, seleccione *Guardar cambios* después de realizar cambios en cada sección. Cuando se guarden los cambios, aparecerá un mensaje de confirmación en la esquina superior derecha de la página.
 
 +
-.. Si lo desea, seleccione el nombre mostrado o el icono de edición image:../media/icon_edit_tm.png["Icono Editar"]para actualizar el nombre mostrado.
+.. Si lo deseas, selecciona el nombre que se muestra o el icono de edición image:icon_edit_tm.png["Icono Editar"] para actualizar el nombre que se muestra.
 +
 No puede cambiar el nombre único de un grupo. No puede editar el nombre mostrado de un grupo federado.
 

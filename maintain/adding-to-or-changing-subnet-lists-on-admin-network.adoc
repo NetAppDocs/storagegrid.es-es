@@ -62,7 +62,7 @@ Al iniciar sesión como root, la petición de datos cambia de `$` a `#`.
 Aparece el menú principal.
 
 +
-image::../media/change_ip_tool_main_menu.png[Captura de pantalla que muestra la pantalla de bienvenida de la herramienta Change IP]
+image:change_ip_tool_main_menu.png["Captura de pantalla que muestra la pantalla de bienvenida de la herramienta Change IP"]
 
 . De manera opcional, limite las redes/nodos a los que se realizan las operaciones. Elija una de las siguientes opciones:
 +
@@ -101,7 +101,7 @@ TIP: Puede reducir la cantidad de escritura necesaria con la flecha hacia arriba
 
 La entrada de ejemplo siguiente muestra cómo agregar subredes a la lista de subredes de la red de administración:
 
-image::../media/change_ip_tool_aesl_sample_input.gif[ejemplo de la herramienta de cambio ip]
+image:change_ip_tool_aesl_sample_input.gif["ejemplo de la herramienta de cambio ip"]
 
 --
 . Cuando esté listo, introduzca *q* para volver a la pantalla del menú principal. Los cambios se mantienen hasta que se borran o se aplican.
@@ -113,7 +113,7 @@ NOTE: Si seleccionó cualquiera de los modos de selección de nodos "todos" en e
 +
 ** Seleccione la opción *5* para mostrar las ediciones en la salida que está aislada para mostrar sólo el elemento cambiado. Los cambios se resaltan en verde (adiciones) o rojo (eliminaciones), como se muestra en la siguiente salida de ejemplo:
 +
-image::../media/change_ip_tool_aesl_sample_output.png[captura de pantalla descrita por el texto circundante]
+image:change_ip_tool_aesl_sample_output.png["captura de pantalla descrita por el texto circundante"]
 
 ** Seleccione la opción *6* para mostrar las ediciones en la salida que muestran la configuración completa. Los cambios se resaltan en verde (adiciones) o rojo (eliminaciones). *Nota:* algunos emuladores de terminal pueden mostrar adiciones y eliminaciones utilizando formato de tachado.
 +

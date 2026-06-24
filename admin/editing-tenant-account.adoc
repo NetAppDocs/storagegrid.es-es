@@ -27,7 +27,7 @@ NOTE: La aplicación de la configuración de inquilino a través del grid puede 
 .Pasos
 . Seleccione *Inquilinos*.
 +
-image::../media/tenant_accounts_page.png[Página Cuentas de inquilino]
+image:tenant_accounts_page.png["Página Cuentas de inquilino"]
 
 . Localice la cuenta de inquilino que desea editar.
 +

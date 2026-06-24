@@ -21,7 +21,7 @@ La vida útil de un objeto incluye las operaciones de procesamiento, gestión de
 * *Eliminar*: El proceso de eliminar todas las copias de objetos de la cuadrícula. Los objetos se pueden eliminar como resultado de que la aplicación cliente envíe una solicitud de eliminación al sistema StorageGRID o como resultado de un proceso automático que StorageGRID realiza cuando finaliza la vida útil del objeto.
 
 
-image::../media/object_lifecycle.png[diagrama que muestra la vida útil de un objeto]
+image:object_lifecycle.png["diagrama que muestra la vida útil de un objeto"]
 
 .Información relacionada
 * link:../ilm/index.html["Gestión de objetos con ILM"]

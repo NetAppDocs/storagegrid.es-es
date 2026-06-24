@@ -67,7 +67,7 @@ Se muestran los siguientes valores:
 
 
 +
-image::../media/nodes_page_storage_used_object_data.png[Nodos almacenamiento de páginas datos de objeto usados]
+image:nodes_page_storage_used_object_data.png["Nodos almacenamiento de páginas datos de objeto usados"]
 
 . Seleccione los controles de tiempo encima del gráfico para ver el uso del almacenamiento en diferentes periodos de tiempo.
 +

@@ -24,6 +24,6 @@ En este ejemplo, todo el tráfico comparte la misma red, incluido el tráfico re
 
 NOTE: Esta topología es adecuada para implementaciones de un único sitio que no están disponibles externamente, implementaciones de prueba de concepto o de prueba, o cuando un equilibrador de carga de terceros actúa como límite de acceso del cliente. Cuando sea posible, la red de red debe utilizarse exclusivamente para el tráfico interno. Tanto la red de administración como la red de cliente tienen restricciones de firewall adicionales que bloquean el tráfico externo a los servicios internos. Se admite el uso de Grid Network para el tráfico de clientes externos, pero este uso ofrece menos capas de protección.
 
-image::../media/grid_network.png[Red Grid]
+image:grid_network.png["Red Grid"]
 
-image::../media/grid_network_ips.png[Las IP de red de grid]
+image:grid_network_ips.png["Las IP de red de grid"]

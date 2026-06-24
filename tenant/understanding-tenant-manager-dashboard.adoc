@@ -18,7 +18,7 @@ NOTE: El tamaño lógico de todos los objetos que pertenecen a este inquilino in
 
 Cuando se han cargado objetos, el panel de control tiene el siguiente ejemplo:
 
-image::../media/tenant_dashboard_with_buckets.png[Consola - Lista de bloques]
+image:tenant_dashboard_with_buckets.png["Consola - Lista de bloques"]
 
 
 
@@ -48,11 +48,11 @@ CAUTION: El uso de la cuota se basa en estimaciones internas y puede superarse e
 Puede colocar el cursor sobre cualquiera de los segmentos del gráfico para ver el espacio total consumido por ese cucharón o contenedor.
 
 +
-image::../media/tenant_dashboard_storage_usage_segment.png[Segmento de gráfico de barras]
+image:tenant_dashboard_storage_usage_segment.png["Segmento de gráfico de barras"]
 
 * Para corresponder con el gráfico de barras, una lista de los cubos o contenedores más grandes, incluida la cantidad total de datos de objeto y el número de objetos de cada cucharón o contenedor.
 +
-image::../media/tenant_dashboard_buckets.png[Almacenes de panel de inquilinos]
+image:tenant_dashboard_buckets.png["Almacenes de panel de inquilinos"]
 
 +
 Si el inquilino tiene más de nueve cubos o contenedores, el resto de cubos o contenedores se combinan en una sola entrada al final de la lista.
@@ -89,6 +89,6 @@ Si no se establece ningún límite para un depósito, su capacidad es ilimitada.
 
 Si ha utilizado Grid Manager para configurar uno o más puntos finales para su uso con servicios de plataforma, el panel de control de tenant Manager muestra una alerta si se han producido errores de punto final en los últimos siete días.
 
-image::../media/tenant_dashboard_endpoint_error.png[Panel que muestra el mensaje de punto final]
+image:tenant_dashboard_endpoint_error.png["Panel que muestra el mensaje de punto final"]
 
 Para ver detalles sobre link:troubleshooting-platform-services-endpoint-errors.html["errores de punto final de servicios de plataforma"], seleccione *Endpoints* para mostrar la página Endpoints.

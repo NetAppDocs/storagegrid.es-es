@@ -19,13 +19,13 @@ Si se produce un error cuando StorageGRID intenta comunicarse con un punto final
 
 Si se ha producido algún error de punto final de servicios de plataforma en los últimos 7 días, el panel de control del gestor de inquilinos muestra un mensaje de alerta. Puede ir a la página de extremos de servicios de plataforma para ver más detalles sobre el error.
 
-image::../media/tenant_dashboard_endpoint_error.png[mensaje de error de punto final en el panel de control]
+image:tenant_dashboard_endpoint_error.png["mensaje de error de punto final en el panel de control"]
 
 El mismo error que aparece en el panel de control también aparece en la parte superior de la página Puntos Finales de Servicios de Plataforma. Para ver un mensaje de error más detallado:
 
 .Pasos
 . En la lista de puntos finales, seleccione el extremo que tiene el error.
-. En la página de detalles del punto final, seleccione *Conexión*. Esta pestaña muestra sólo el error más reciente de un punto final e indica cuánto tiempo se produjo el error. Los errores que incluyen el icono rojo X image:../media/icon_alert_red_critical.png["Icono X rojo"]se han producido en los últimos 7 días.
+. En la página de detalles del punto final, selecciona *Conexión*. Esta pestaña muestra únicamente el error más reciente de un punto final e indica cuánto tiempo hace que se produjo el error. Los errores que incluyen el icono de la X roja image:icon_alert_red_critical.png["Icono X rojo"] ocurrieron en los últimos 7 días.
 
 
 

@@ -32,7 +32,7 @@ Una vez completado el procedimiento de retirada de instalaciones:
 Puede usar el procedimiento de retirada del sitio para quitar un sitio en el que todos los nodos están conectados a StorageGRID (conocido como decomiso de un sitio conectado) o para quitar un sitio en el que todos los nodos estén desconectados de StorageGRID (conocido como decomiso de sitio desconectado). Antes de comenzar, debe comprender las diferencias entre estos procedimientos.
 
 
-NOTE: Si un sitio contiene una mezcla de nodos conectados (image:../media/icon_alert_green_checkmark.png["Icono Alerta verde marca de verificación"]) y desconectados (image:../media/icon_alarm_gray_administratively_down.png["Icono alarma gris administrativamente abajo"] o image:../media/icon_alarm_blue_unknown.png["Icono alarma azul desconocida"]), debe volver a conectar todos los nodos sin conexión.
+NOTE: Si un sitio contiene una combinación de nodos conectados (image:icon_alert_green_checkmark.png["Icono Alerta verde marca de verificación"]) y nodos desconectados (image:icon_alarm_gray_administratively_down.png["Icono alarma gris administrativamente abajo"] o image:icon_alarm_blue_unknown.png["Icono alarma azul desconocida"]), debes volver a poner en línea todos los nodos que estén fuera de línea.
 
 * Una retirada de sitio conectado permite quitar un sitio operativo del sistema StorageGRID. Por ejemplo, puede realizar una retirada de sitio conectado para eliminar un sitio que sea funcional pero que ya no sea necesario.
 * Cuando StorageGRID quita un sitio conectado, utiliza ILM para gestionar los datos de los objetos del sitio. Antes de iniciar una retirada de sitios conectados, debe eliminar el sitio de todas las reglas de ILM y activar una nueva política de ILM. ILM procesos para migrar datos de objetos y los procesos internos para quitar un sitio pueden producirse a la vez, pero la práctica recomendada es permitir que se completen los pasos de ILM antes de iniciar el procedimiento de retirada real.
@@ -54,8 +54,8 @@ Antes de quitar un sitio conectado o desconectado, debe tener en cuenta los sigu
 
 * No puede retirar un sitio que incluya el nodo de administración principal.
 * No puede decomisionar un sitio si alguno de los nodos tiene una interfaz que pertenezca a un grupo de alta disponibilidad. Debe editar el grupo de alta disponibilidad para quitar la interfaz del nodo o quitar todo el grupo de alta disponibilidad.
-* No puede retirar un sitio si contiene una mezcla deimage:../media/icon_alarm_gray_administratively_down.png["Icono alarma gris administrativamente abajo"] nodos conectados (image:../media/icon_alert_green_checkmark.png["Icono Alerta verde marca de verificación"]) y desconectados (image:../media/icon_alarm_blue_unknown.png["Icono alarma azul desconocida"] o ).
-* No puede retirar un sitio si algún nodo de otro sitio está desconectado (image:../media/icon_alarm_blue_unknown.png["Icono alarma azul desconocida"] o image:../media/icon_alarm_gray_administratively_down.png["Icono alarma gris administrativamente abajo"]).
+* No puedes decomisionar un sitio si contiene una mezcla de nodos conectados (image:icon_alert_green_checkmark.png["Icono Alerta verde marca de verificación"]) y desconectados (image:icon_alarm_blue_unknown.png["Icono alarma azul desconocida"] o image:icon_alarm_gray_administratively_down.png["Icono alarma gris administrativamente abajo"]).
+* No puedes decomisionar un sitio si algún nodo de cualquier otro sitio está desconectado (image:icon_alarm_blue_unknown.png["Icono alarma azul desconocida"] o image:icon_alarm_gray_administratively_down.png["Icono alarma gris administrativamente abajo"]).
 * No puede iniciar el procedimiento de retirada del sitio si hay una operación de reparación ec-nodo-en curso. Consulte link:checking-data-repair-jobs.html["Compruebe los trabajos de reparación de datos"] para realizar un seguimiento de las reparaciones de datos con código de borrado.
 * Mientras se está ejecutando el procedimiento de retirada de instalaciones:
 +
@@ -117,7 +117,7 @@ CAUTION: No cree nunca una regla de ILM de una sola copia para acomodar la elimi
 
 Antes de que StorageGRID pueda eliminar un sitio conectado, debe asegurarse de lo siguiente:
 
-* Todos los nodos del sistema StorageGRID deben tener un estado de conexión *Conectado* (image:../media/icon_alert_green_checkmark.png["Icono Alerta verde marca de verificación"]); sin embargo, los nodos pueden tener alertas activas.
+* Todos los nodos de tu sistema StorageGRID deben tener un estado de conexión *Conectado* (image:icon_alert_green_checkmark.png["Icono Alerta verde marca de verificación"]); sin embargo, los nodos pueden tener alertas activas.
 +
 
 NOTE: Puede completar los pasos 1-4 del Asistente para sitio de retirada si uno o más nodos están desconectados. Sin embargo, no puede completar el paso 5 del asistente, que inicia el proceso de retirada, a menos que todos los nodos estén conectados.
@@ -147,11 +147,11 @@ CAUTION: No debería intentar retirar un sitio desconectado si cree que podría 
 
 * Todos los nodos del sitio deben tener el estado de conexión de uno de los siguientes:
 +
-** *Desconocido* (image:../media/icon_alarm_blue_unknown.png["Icono alarma azul desconocida"]): Por una razón desconocida, un nodo está desconectado o los servicios en el nodo están inesperadamente apagados. Por ejemplo, un servicio del nodo podría estar detenido o podría haber perdido la conexión de red debido a un fallo de alimentación o a un corte inesperado.
-** *Administrativamente abajo* (image:../media/icon_alarm_gray_administratively_down.png["Icono alarma gris administrativamente abajo"]): El nodo no está conectado a la red por una razón esperada. Por ejemplo, el nodo o los servicios del nodo se han apagado correctamente.
+** *Desconocido* (image:icon_alarm_blue_unknown.png["Icono alarma azul desconocida"]): Por una razón desconocida, un nodo se ha desconectado o los servicios del nodo han dejado de funcionar de forma inesperada. Por ejemplo, es posible que se haya detenido un servicio del nodo o que el nodo haya perdido la conexión de red debido a un corte de energía o a una interrupción inesperada.
+** *Fuera de servicio por motivos administrativos* (image:icon_alarm_gray_administratively_down.png["Icono alarma gris administrativamente abajo"]): El nodo no está conectado a la grid por una razón prevista. Por ejemplo, el nodo o los servicios en el nodo se han apagado de forma controlada.
 
 
-* Todos los nodos de todos los demás sitios deben tener el estado de conexión *Connected* (image:../media/icon_alert_green_checkmark.png["Icono Alerta verde marca de verificación"]); sin embargo, estos otros nodos pueden tener alertas activas.
+* Todos los nodos de los demás sitios deben tener un estado de conexión *Conectado* (image:icon_alert_green_checkmark.png["Icono Alerta verde marca de verificación"]); sin embargo, estos otros nodos pueden tener alertas activas.
 * Debe entender que ya no podrá utilizar StorageGRID para ver o recuperar los datos de objeto almacenados en el sitio. Cuando StorageGRID realiza este procedimiento, no intenta conservar ningún dato del sitio desconectado.
 +
 

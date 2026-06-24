@@ -27,7 +27,7 @@ A su vez, cada servicio ADC actúa como relé y envía su colección de mensajes
 
 Cada nodo de administración almacena los mensajes de auditoría en archivos de registro de texto; el archivo de registro activo se denomina `audit.log`.
 
-image::../media/audit_message_flow.gif[Diagrama que resume el flujo de mensajes de auditoría a través de relés]
+image:audit_message_flow.gif["Diagrama que resume el flujo de mensajes de auditoría a través de relés"]
 
 
 
@@ -37,7 +37,7 @@ StorageGRID utiliza un proceso de copia y eliminación para garantizar que no se
 
 Cuando un nodo genera o retransmite un mensaje de auditoría, el mensaje se almacena en una cola de mensajes de auditoría en el disco del sistema del nodo de la red.  Siempre se guarda una copia del mensaje en una cola de mensajes de auditoría hasta que el mensaje se escribe en el archivo de registro de auditoría en el nodo de administración. `/var/local/audit/export` directorio.  Esto ayuda a evitar la pérdida de un mensaje de auditoría durante el transporte.
 
-image::../media/audit_message_retention.gif[Diagrama que resume la recepción de mensajes de auditoría en AMS]
+image:audit_message_retention.gif["Diagrama que resume la recepción de mensajes de auditoría en AMS"]
 
 La cola de mensajes de auditoría puede aumentar temporalmente debido a problemas de conectividad de red o capacidad de auditoría insuficiente.  A medida que aumentan las colas, consumen más espacio disponible en cada nodo. `/var/local/` directorio.  Si el problema persiste y el directorio de mensajes de auditoría de un nodo se llena demasiado, los nodos individuales priorizan el procesamiento de su trabajo atrasado y dejan de estar disponibles temporalmente para recibir nuevos mensajes.
 

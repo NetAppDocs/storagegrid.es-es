@@ -24,7 +24,7 @@ Si es posible, utilice servidores DNS a los que cada sitio puede acceder localme
 . Especifique la dirección IPv4 para al menos un servidor DNS en el cuadro de texto *servidor 1*.
 . Si es necesario, seleccione el signo más junto a la última entrada para agregar entradas adicionales del servidor.
 +
-image::../media/9_gmi_installer_dns_page.gif[Esta imagen se explica por el texto circundante.]
+image:9_gmi_installer_dns_page.gif["Esta imagen se explica por el texto circundante."]
 
 +
 La práctica recomendada es especificar al menos dos servidores DNS. Puede especificar hasta seis servidores DNS.

@@ -32,7 +32,7 @@ Puede completar el asistente de configuración de FabricPool cuando empiece a us
 . Inicie sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
 . Si el banner del asistente de configuración *FabricPool y S3* aparece en el panel de control, seleccione el enlace en el banner. Si el banner ya no aparece, seleccione el icono de ayuda en la barra de encabezado del Administrador de cuadrículas y seleccione *FabricPool y el asistente de configuración S3*.
 +
-image::../media/help_menu.png[menú ayuda]
+image:help_menu.png["menú ayuda"]
 
 . En la sección FabricPool de la página del asistente de configuración de FabricPool y S3, seleccione *Configurar ahora*.
 +
@@ -432,7 +432,7 @@ NOTE: No seleccione un depósito que tenga S3 Object Lock habilitado para su uso
 Durante este paso, debe descargar un archivo que puede usar para introducir valores en ONTAP System Manager.
 
 .Pasos
-. De manera opcional, seleccione el icono de copia (image:../media/icon_tenant_copy_url.png["icono de copia"]) para copiar en el portapapeles el ID de clave de acceso y la clave de acceso secreta.
+. Si lo deseas, selecciona el icono de copiar (image:icon_tenant_copy_url.png["icono de copia"]) para copiar tanto el ID de la clave de acceso como la clave de acceso secreta al portapapeles.
 +
 Estos valores están incluidos en el archivo de descarga, pero es posible que desee guardarlos por separado.
 

@@ -24,7 +24,7 @@ Los costes de enlace le permiten priorizar qué sitio de centro de datos proporc
 
 El diagrama muestra una cuadrícula de tres sitios con costes de enlace configurados entre sitios:
 
-image::../media/link_costs.gif[Diagrama conceptual para vincular costes entre centros de datos]
+image:link_costs.gif["Diagrama conceptual para vincular costes entre centros de datos"]
 
 * El servicio Load Balancer en los nodos de administración y de puerta de enlace distribuye equitativamente las conexiones de los clientes a todos los nodos de almacenamiento en el mismo sitio del centro de datos y a cualquier sitio del centro de datos con un coste de enlace de 0.
 +
@@ -74,14 +74,14 @@ Puede actualizar los costes de enlace entre los sitios de centros de datos para 
 .Pasos
 . Seleccione *Soporte* > *Otro* > *Costo del enlace*.
 +
-image::../media/configuring_link_costs.png[Coste del enlace]
+image:configuring_link_costs.png["Coste del enlace"]
 
 . Seleccione un sitio en *origen de enlace* e introduzca un valor de coste entre 0 y 100 en *destino de enlace*.
 +
 No puede cambiar el coste del enlace si el origen es el mismo que el destino.
 
 +
-Para cancelar los cambios, seleccione image:../media/nms_revert.gif["icono de deshacer"]*Revertir*.
+Para cancelar los cambios, selecciona image:nms_revert.gif["icono de deshacer"]*Revert*.
 
 . Seleccione *aplicar cambios*.
 

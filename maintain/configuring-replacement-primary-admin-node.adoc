@@ -36,7 +36,7 @@ El nodo de reemplazo debe configurarse como nodo de administrador principal para
 
 . Haga clic en *recuperar un nodo de administración principal con errores*.
 +
-image::../media/install_or_recover_primary_admin_node.png[Instale o recupere el nodo de administrador principal]
+image:install_or_recover_primary_admin_node.png["Instale o recupere el nodo de administrador principal"]
 
 . Cargue la copia de seguridad más reciente del paquete de recuperación:
 +

@@ -21,7 +21,7 @@ Según elija, StorageGRID realiza copias provisionales y pone en cola los objeto
 
 El diagrama de flujo muestra lo que ocurre cuando una regla de ILM se equipara con objetos que utiliza cada una de las tres opciones de ingesta.
 
-image::../media/ingest_object_lifecycle.png[Diagrama que muestra cómo se produce la ingesta de objetos para cada opción de ingesta]
+image:ingest_object_lifecycle.png["Diagrama que muestra cómo se produce la ingesta de objetos para cada opción de ingesta"]
 
 
 

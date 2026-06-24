@@ -31,14 +31,14 @@ La revisión se aplica automáticamente por primera vez al nodo de administraci�
 Aparece la página actualización de software.
 
 +
-image::../media/software_update_landing.png[Página de destino de la actualización del software]
+image:software_update_landing.png["Página de destino de la actualización del software"]
 
 . Seleccione *aplicar revisión*.
 +
 Aparece la página de corrección de StorageGRID.
 
 +
-image::../media/hotfix_choose_file.png[HotFix Elija Archivo]
+image:hotfix_choose_file.png["HotFix Elija Archivo"]
 
 . Seleccione el archivo de corrección que descargó del sitio de soporte de NetApp.
 +
@@ -81,7 +81,7 @@ En esta tabla se muestran todos los nodos de la cuadrícula y la fase actual de 
 
 .. La barra de progreso llega al final y el nodo de administración principal se muestra como completado.
 +
-image::../media/hotfix_progress_table.png[Tabla de progreso de Hotfix]
+image:hotfix_progress_table.png["Tabla de progreso de Hotfix"]
 
 
 
@@ -108,7 +108,7 @@ NOTE: Debe completar la revisión de StorageGRID antes de poder iniciar una actu
 Cuando la etapa progresa más allá de “En cola”, el botón *Eliminar* se oculta y ya no se puede eliminar el nodo del proceso de revisión.
 
 +
-image::../media/approve_all_progresstable.png[Progreso de la revisión con el botón quitar]
+image:approve_all_progresstable.png["Progreso de la revisión con el botón quitar"]
 
 
 

@@ -205,7 +205,7 @@ En general, utilice el mismo número de días para los certificados en ambos lad
 
 Puede eliminar una conexión de federación de cuadrícula de cualquiera de las dos cuadrículas de la conexión. Como se muestra en la figura, debe realizar los pasos de requisitos previos en ambas cuadrículas para confirmar que la conexión no está siendo utilizada por ningún inquilino en ninguna de las cuadrículas.
 
-image::../media/grid-federation-remove-connection.png[pasos para eliminar la conexión de federación de grid]
+image:grid-federation-remove-connection.png["pasos para eliminar la conexión de federación de grid"]
 
 Antes de eliminar una conexión, tenga en cuenta lo siguiente:
 

@@ -16,7 +16,7 @@ En el paso 5 (resolver conflictos de nodos) del asistente para sitio de retirada
 .Antes de empezar
 Debe asegurarse de que todos los nodos del sistema StorageGRID tengan el estado correcto, de la siguiente manera:
 
-* Todos los nodos del sistema StorageGRID deben estar conectados (image:../media/icon_alert_green_checkmark.png["Icono Alerta verde marca de verificación"]).
+* Todos los nodos de tu sistema StorageGRID deben estar conectados (image:icon_alert_green_checkmark.png["Icono Alerta verde marca de verificación"]).
 +
 
 NOTE: Si está realizando una retirada de sitios desconectada, todos los nodos del sitio que va a quitar deben estar desconectados y todos los nodos del resto de sitios deben estar conectados.
@@ -56,9 +56,9 @@ NOTE: Si necesita realizar otro procedimiento de mantenimiento durante un desman
 
 
 .Pasos
-. Revise la sección Nodos Desconectados del Paso 5 (Resolver conflictos de nodos) para determinar si algún nodo del sistema StorageGRID tiene un estado de conexión desconocido (image:../media/icon_alarm_blue_unknown.png["Icono alarma azul desconocida"]) o administrativamente caído ( )image:../media/icon_alarm_gray_administratively_down.png["Icono alarma gris administrativamente abajo"].
+. Consulta la sección sobre nodos desconectados del Paso 5 (Resolver conflictos entre nodos) para determinar si algún nodo de tu sistema StorageGRID tiene un estado de conexión Desconocido (image:icon_alarm_blue_unknown.png["Icono alarma azul desconocida"]) o Administrativamente inactivo (image:icon_alarm_gray_administratively_down.png["Icono alarma gris administrativamente abajo"]).
 +
-image::../media/decommission_site_step_5_disconnected_nodes.png[Retirar del servicio Paso 5 resolver conflictos de nodos]
+image:decommission_site_step_5_disconnected_nodes.png["Retirar del servicio Paso 5 resolver conflictos de nodos"]
 
 . Si alguno de los nodos está desconectado, vuelva a ponerlos en línea.
 +
@@ -69,7 +69,7 @@ Consulte la link:../maintain/grid-node-procedures.html["Procedimientos de nodo"]
 En esta tabla se enumeran los nodos del sitio seleccionado que pertenecen a un grupo de alta disponibilidad.
 
 +
-image::../media/decommission_site_step_5_ha_groups.png[Retirada de grupos de alta disponibilidad del paso 5 del sitio]
+image:decommission_site_step_5_ha_groups.png["Retirada de grupos de alta disponibilidad del paso 5 del sitio"]
 
 . Si aparece algún nodo, realice una de las siguientes acciones:
 +
@@ -85,21 +85,21 @@ Si todos los nodos están conectados y no se utiliza ningún nodo en el sitio se
 El botón *Iniciar misión* se activa.
 
 +
-image::../media/decommission_site_step_5_provision_passphrase.png[Retirada de la frase de paso 5 de la instalación]
+image:decommission_site_step_5_provision_passphrase.png["Retirada de la frase de paso 5 de la instalación"]
 
 . Si está listo para iniciar el procedimiento de retirada del sitio, seleccione *Iniciar misión*.
 +
 Una advertencia indica el sitio y los nodos que se van a quitar. Se le recuerda que puede tardar días, semanas o incluso meses en eliminar completamente el sitio.
 
 +
-image::../media/decommission_site_step_5_warning.png[Advertencia de retirada del emplazamiento, paso 5]
+image:decommission_site_step_5_warning.png["Advertencia de retirada del emplazamiento, paso 5"]
 
 . Revise la advertencia. Si está listo para comenzar, seleccione *Aceptar*.
 +
 Aparece un mensaje cuando se genera la nueva configuración de cuadrícula. Este proceso puede tardar algún tiempo, dependiendo del tipo y el número de nodos de cuadrícula que se retiraron.
 
 +
-image::../media/decommission_site_step_5_grid_configuration.png[Retirar la configuración de la cuadrícula del paso 5 del sitio]
+image:decommission_site_step_5_grid_configuration.png["Retirar la configuración de la cuadrícula del paso 5 del sitio"]
 
 +
 Cuando se ha generado la nueva configuración de cuadrícula, aparece el paso 6 (retirada del monitor).

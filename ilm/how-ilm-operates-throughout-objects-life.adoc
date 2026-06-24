@@ -29,4 +29,4 @@ NOTE: Los objetos de un depósito que tiene S3 Object Lock activado no se pueden
 
 El diagrama resume el funcionamiento de ILM a lo largo del ciclo de vida de un objeto.
 
-image::../media/overview_of_object_lifecycle.png[Descripción general del ciclo de vida del objeto]
+image:overview_of_object_lifecycle.png["Descripción general del ciclo de vida del objeto"]

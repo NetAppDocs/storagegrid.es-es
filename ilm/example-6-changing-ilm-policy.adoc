@@ -47,7 +47,7 @@ NOTE: StorageGRID considera que cada perfil de código de borrado es único y no
 
 En este ejemplo, la activa política de ILM se diseñó inicialmente para un sistema StorageGRID de dos sitios y utiliza dos reglas de ILM.
 
-image::../media/policy_6_active_policy.png[Ejemplo de política de ILM 6 Active Policy]
+image:policy_6_active_policy.png["Ejemplo de política de ILM 6 Active Policy"]
 
 En esta política de ILM, los objetos del inquilino A están protegidos con codificación de borrado 2+1 en un único sitio, mientras que los objetos que pertenecen al resto de usuarios se protegen en dos sitios mediante replicación de copia.
 

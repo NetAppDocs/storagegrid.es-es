@@ -40,7 +40,7 @@ Los usuarios de S3 que no pertenecen a ningún grupo no tienen permisos de admin
 Si su cuenta de inquilino tiene el permiso *Usar conexión de federación de grid*, un banner azul indica que esta es la cuadrícula de origen del inquilino. Todos los usuarios locales que cree en esta cuadrícula se clonarán en la otra cuadrícula de la conexión.
 
 +
-image::../media/grid-federation-tenant-user-banner.png[Imagen del banner azul en la página de usuario si ésta es la cuadrícula de origen de inquilino]
+image:grid-federation-tenant-user-banner.png["Imagen del banner azul en la página de usuario si ésta es la cuadrícula de origen de inquilino"]
 
 . Seleccione *Crear usuario*.
 
@@ -157,7 +157,7 @@ Si la cuenta de inquilino tiene el permiso *Use grid federation connection* y es
 
 . Edite la configuración del usuario según sea necesario. Consulte <<create-user,Crear usuario local>> para obtener más información acerca de lo que se debe introducir.
 +
-.. En la sección Visión General, cambie el nombre completo seleccionando el nombre o el icono de edición image:../media/icon_edit_tm.png["Icono Editar"].
+.. En la sección «Descripción general», cambia el nombre completo seleccionando el nombre o el icono de edición image:icon_edit_tm.png["Icono Editar"].
 +
 No puede cambiar el nombre de usuario.
 

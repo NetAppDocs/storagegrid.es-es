@@ -21,7 +21,7 @@ Siga las acciones recomendadas para cada alerta relacionada con metadatos que se
 
 StorageGRID reserva una cierta cantidad de espacio en el volumen 0 de cada nodo de almacenamiento para los metadatos del objeto. Este espacio, conocido como _espacio reservado real_, se subdivide en el espacio permitido para los metadatos del objeto (el espacio de metadatos permitido) y el espacio necesario para las operaciones esenciales de la base de datos, como la compactación y la reparación. El espacio de metadatos permitido rige la capacidad general del objeto.
 
-image::../media/metadata_allowed_space_volume_0.png[Metadatos volumen de espacio permitido 0]
+image:metadata_allowed_space_volume_0.png["Metadatos volumen de espacio permitido 0"]
 
 Si los metadatos de objetos consumen más del 100% del espacio permitido para los metadatos, las operaciones de la base de datos no se podrán ejecutar de manera eficiente y se producirán errores.
 

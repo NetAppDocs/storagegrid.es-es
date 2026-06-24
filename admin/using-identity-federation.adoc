@@ -48,7 +48,7 @@ Puede configurar una fuente de identidad para Grid Manager si desea importar gru
 . Seleccione *Activar federación de identidades*.
 . En la sección Tipo de servicio LDAP, seleccione el tipo de servicio LDAP que desea configurar.
 +
-image::../media/ldap_service_type.png[Página Federación de identidades que muestra las opciones de tipo de servicio LDAP]
+image:ldap_service_type.png["Página Federación de identidades que muestra las opciones de tipo de servicio LDAP"]
 
 +
 Seleccione *otros* para configurar valores para un servidor LDAP que utilice Oracle Directory Server.
@@ -159,7 +159,7 @@ Después de introducir todos los valores, es necesario probar la conexión para 
 Por ejemplo, introduzca su propio nombre de usuario y contraseña. No incluya ningún carácter especial en el nombre de usuario, como @ o /.
 
 +
-image::../media/identity_federation_test_connection.png[Solicitud de federación de identidades para validar el formato de nombre de usuario de enlace]
+image:identity_federation_test_connection.png["Solicitud de federación de identidades para validar el formato de nombre de usuario de enlace"]
 
 +
 ** Si la configuración de conexión es válida, aparecerá un mensaje que indica que la conexión se ha realizado correctamente. Seleccione *Guardar* para guardar la configuración.

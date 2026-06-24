@@ -65,7 +65,7 @@ Al iniciar sesión como root, la petición de datos cambia de `$` a `#`.
 Aparece el menú principal.
 
 +
-image::../media/change_ip_tool_main_menu.png[Captura de pantalla que muestra la pantalla de bienvenida de la herramienta Change IP]
+image:change_ip_tool_main_menu.png["Captura de pantalla que muestra la pantalla de bienvenida de la herramienta Change IP"]
 
 . En el menú principal, seleccione la opción para editar subredes para la red de cuadrícula (opción *4*).
 +
@@ -93,7 +93,7 @@ TIP: Puede reducir la cantidad de escritura necesaria con la flecha hacia arriba
 
 La entrada de ejemplo siguiente muestra la configuración de subredes para la Lista de subredes de redes de cuadrícula:
 
-image::../media/change_ip_tool_gnsl_sample_input.gif[captura de pantalla descrita por el texto circundante]
+image:change_ip_tool_gnsl_sample_input.gif["captura de pantalla descrita por el texto circundante"]
 
 --
 . Cuando esté listo, introduzca *q* para volver a la pantalla del menú principal. Los cambios se mantienen hasta que se borran o se aplican.
@@ -101,7 +101,7 @@ image::../media/change_ip_tool_gnsl_sample_input.gif[captura de pantalla descrit
 +
 ** Seleccione la opción *5* para mostrar las ediciones en la salida que está aislada para mostrar sólo el elemento cambiado. Los cambios se resaltan en verde (adiciones) o rojo (eliminaciones), como se muestra en la siguiente salida de ejemplo:
 +
-image::../media/change_ip_tool_gnsl_sample_output.gif[captura de pantalla descrita por el texto circundante]
+image:change_ip_tool_gnsl_sample_output.gif["captura de pantalla descrita por el texto circundante"]
 
 ** Seleccione la opción *6* para mostrar las ediciones en la salida que muestran la configuración completa. Los cambios se resaltan en verde (adiciones) o rojo (eliminaciones).
 +

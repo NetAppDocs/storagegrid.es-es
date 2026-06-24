@@ -44,21 +44,21 @@ NOTE: Este procedimiento solo es para configurar un servidor proxy StorageGRID p
 Se mostrará la página de inicio de SANtricity System Manager.
 
 +
-image::../media/autosupport_santricity_home_page.png[Página de inicio de AutoSupport SANtricity]
+image:autosupport_santricity_home_page.png["Página de inicio de AutoSupport SANtricity"]
 
 . Seleccione *Soporte* > *Centro de soporte* > * AutoSupport*.
 +
 Se muestra la página de operaciones AutoSupport.
 
 +
-image::../media/autosupport_santricity_operations.png[Operaciones de AutoSupport SANtricity AutoSupport]
+image:autosupport_santricity_operations.png["Operaciones de AutoSupport SANtricity AutoSupport"]
 
 . Seleccione *Configurar método de entrega de AutoSupport*.
 +
 Se muestra la página Configurar método de entrega de AutoSupport.
 
 +
-image::../media/autosupport_configure_delivery_santricity.png[AutoSupport configure el método de entrega de AutoSupport SANtricity]
+image:autosupport_configure_delivery_santricity.png["AutoSupport configure el método de entrega de AutoSupport SANtricity"]
 
 . Seleccione *HTTPS* para el método de entrega.
 +

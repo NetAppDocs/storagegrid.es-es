@@ -82,7 +82,7 @@ Después de unos minutos:
 
 
 +
-image::../media/delete-bucket-objects-in-progress.png[captura de pantalla donde se muestran los objetos de bloque que se están eliminando]
+image:delete-bucket-objects-in-progress.png["captura de pantalla donde se muestran los objetos de bloque que se están eliminando"]
 
 . Según sea necesario mientras se ejecuta la operación, seleccione *Detener eliminación de objetos* para detener el proceso. Luego, opcionalmente, seleccione *Eliminar objetos en el cubo* para reanudar el proceso.
 +
@@ -93,7 +93,7 @@ Cuando selecciona *Dejar de eliminar objetos*, el depósito vuelve al modo de es
 Cuando el depósito está vacío, se actualiza el banner de estado, pero el depósito permanece como de sólo lectura.
 
 +
-image::../media/delete-bucket-objects-complete.png[captura de pantalla que muestra todos los objetos de cubo eliminados]
+image:delete-bucket-objects-complete.png["captura de pantalla que muestra todos los objetos de cubo eliminados"]
 
 . Debe realizar una de las siguientes acciones:
 +

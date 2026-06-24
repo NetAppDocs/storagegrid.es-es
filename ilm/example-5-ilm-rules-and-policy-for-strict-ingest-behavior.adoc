@@ -84,7 +84,7 @@ Comportamiento de ingesta
 Estricto. Utilice siempre las colocaciones de esta regla durante el procesamiento. La ingesta falla si no es posible almacenar dos copias del objeto en el centro de datos de París.
 
 |===
-image::../media/ilm_rule_1_example_5_strict_ingest.png[Ejemplo de ingesta estricta de la regla ILM 1 5]
+image:ilm_rule_1_example_5_strict_ingest.png["Ejemplo de ingesta estricta de la regla ILM 1 5"]
 
 
 

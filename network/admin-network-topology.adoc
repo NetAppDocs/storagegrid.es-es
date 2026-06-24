@@ -19,6 +19,6 @@ La red de administrador puede ser única para cada nodo y puede estar compuesta 
 
 En este ejemplo, la red de grid se utiliza para el tráfico relacionado con las solicitudes de cliente S3 y la gestión de objetos, mientras que la red de administración se utiliza para las funciones administrativas.
 
-image::../media/grid_admin_networks.png[Redes de administrador de grid]
+image:grid_admin_networks.png["Redes de administrador de grid"]
 
-image::../media/grid_admin_networks_ips.png[Las IP del administrador de grid Networks]
+image:grid_admin_networks_ips.png["Las IP del administrador de grid Networks"]

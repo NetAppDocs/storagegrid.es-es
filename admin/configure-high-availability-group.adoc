@@ -69,7 +69,7 @@ Una interfaz debe ser para que un nodo de puerta de enlace o un nodo de administ
 Utilice los encabezados de columna para ordenar las filas o introduzca un término de búsqueda para localizar las interfaces más rápidamente.
 
 +
-image::../media/ha_group_add_interfaces.png[Interfaces de adición de grupos de ALTA DISPONIBILIDAD]
+image:ha_group_add_interfaces.png["Interfaces de adición de grupos de ALTA DISPONIBILIDAD"]
 
 +
 
@@ -84,7 +84,7 @@ NOTE: Después de crear una interfaz VLAN, espere hasta 5 minutos para que la nu
 ** Si selecciona interfaces en diferentes tipos de nodos, aparece una nota informativa. Se le recuerda que si se produce una conmutación al respaldo, los servicios que proporciona el nodo que antes estaba activo podrían no estar disponibles en el nodo recién activo. Por ejemplo, un nodo de puerta de enlace de backup no puede ofrecer una protección de alta disponibilidad de los servicios de nodo de administración. Del mismo modo, un nodo de administración de copia de seguridad no puede realizar todos los procedimientos de mantenimiento que puede proporcionar el nodo de administración primario.
 ** Si no puede seleccionar una interfaz, su casilla de verificación está desactivada. La sugerencia de herramienta proporciona más información.
 +
-image::../media/vlan_parent_interface_tooltip.png[Sugerencia de la herramienta de interfaz VLAN]
+image:vlan_parent_interface_tooltip.png["Sugerencia de la herramienta de interfaz VLAN"]
 
 ** No puede seleccionar una interfaz si su valor de subred o puerta de enlace entra en conflicto con otra interfaz seleccionada.
 ** No puede seleccionar una interfaz configurada si no tiene una dirección IP estática.
@@ -105,7 +105,7 @@ Si el grupo HA incluye más de una interfaz, puede determinar cuál es la interf
 La primera interfaz de la lista es la interfaz principal. La interfaz Primary es la interfaz activa a menos que se produzca un fallo.
 
 +
-image::../media/ha_group_determine_failover.png[Los grupos DE ALTA DISPONIBILIDAD determinan el orden de prioridad]
+image:ha_group_determine_failover.png["Los grupos DE ALTA DISPONIBILIDAD determinan el orden de prioridad"]
 
 +
 
@@ -128,7 +128,7 @@ La dirección de red no debe tener ningún bit de host configurado. Por ejemplo,
 NOTE: Si utiliza un prefijo de 32 bits, la dirección de red VIP también funciona como dirección de puerta de enlace y dirección VIP.
 
 +
-image::../media/ha_group_select_virtual_ips.png[HA Groups entra en VIP]
+image:ha_group_select_virtual_ips.png["HA Groups entra en VIP"]
 
 . Opcionalmente, si cualquier cliente administrativo o inquilino de S3 accederá a estas direcciones VIP desde una subred diferente, introduzca la dirección IP de la puerta de enlace *. La dirección de la puerta de enlace debe estar en la subred VIP.
 +

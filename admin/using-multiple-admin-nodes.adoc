@@ -15,7 +15,7 @@ Un sistema StorageGRID puede incluir varios nodos de administrador para permitir
 
 Si un nodo de administración deja de estar disponible, el procesamiento de atributos continúa, las alertas siguen activándose y las notificaciones por correo electrónico y los paquetes de AutoSupport aún se envían. Sin embargo, tener varios nodos de administración no ofrece protección de conmutación al nodo de respaldo, excepto notificaciones y paquetes de AutoSupport.
 
-image::../media/admin_node_redundancy.png[Diagrama de redundancia del nodo de administración]
+image:admin_node_redundancy.png["Diagrama de redundancia del nodo de administración"]
 
 Si falla un nodo de administración, existen dos opciones para ver y configurar el sistema StorageGRID:
 

@@ -233,7 +233,7 @@ NOTE: Algunos procedimientos de recuperación de StorageGRID usan Reaper para ge
 La barra de progreso y la columna Etapa de la página Recuperación proporcionan un estado de alto nivel `sn-recovery-postinstall.sh` del script.
 
 +
-image::../media/recovering_cassandra.png[Captura de pantalla que muestra el progreso de la recuperación en la interfaz de gestión de grid]
+image:recovering_cassandra.png["Captura de pantalla que muestra el progreso de la recuperación en la interfaz de gestión de grid"]
 
 . Una vez que el `sn-recovery-postinstall.sh` script haya iniciado servicios en el nodo, se pueden restaurar los datos de objetos en cualquier volumen de almacenamiento que haya formateado el script.
 +

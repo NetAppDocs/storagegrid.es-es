@@ -36,7 +36,7 @@ Aparecerá la página nodos de misión. Desde esta página, puede:
 En este ejemplo, la columna Decomision possible indica que puede decomisionar el nodo de puerta de enlace y uno de los cuatro nodos de almacenamiento.
 
 +
-image::../media/decommission_nodes_page_all_connected.png[Página Decomisión nodos]
+image:decommission_nodes_page_all_connected.png["Página Decomisión nodos"]
 
 
 
@@ -68,8 +68,8 @@ No puede decomisionar un nodo de grid conectado si hay algún nodo de grid desco
 
 La columna *Estado* incluye uno de estos iconos para los nodos de cuadrícula desconectados:
 
-** image:../media/icon_alarm_gray_administratively_down.png["icono de questionmark gris"] (Gris): Administrativamente hacia abajo
-** image:../media/icon_alarm_blue_unknown.png["icono de signo de interrogación azul"] (Azul): Desconocido
+** image:icon_alarm_gray_administratively_down.png["icono de questionmark gris"] (gris): administrativamente inactivo
+** image:icon_alarm_blue_unknown.png["icono de signo de interrogación azul"] (azul): desconocido
 
  a| 
 Debe volver a conectar todos los nodos desconectados o link:decommissioning-disconnected-grid-nodes.html["decomisionar todos los nodos desconectados"] antes de poder quitar un nodo conectado.

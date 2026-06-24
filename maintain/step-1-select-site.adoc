@@ -27,7 +27,7 @@ Para determinar si un sitio se puede retirar del servicio, comience por acceder 
 Aparece el paso 1 (Seleccionar sitio) del asistente de ubicación de misión. Este paso incluye una lista alfabética de los sitios de su sistema StorageGRID.
 
 +
-image::../media/decommission_site_step_select_site.png[Retirar sitio Paso 1 Seleccionar sitio]
+image:decommission_site_step_select_site.png["Retirar sitio Paso 1 Seleccionar sitio"]
 
 . Consulte los valores de la columna *capacidad de almacenamiento utilizada* para determinar cuánto almacenamiento se está utilizando actualmente para los datos de objetos de cada sitio.
 +
@@ -54,7 +54,7 @@ NOTE: Si hay más de una razón por la que un sitio no puede ser desmantelado, s
 
 
  a| 
-Marca de verificación verde (image:../media/icon_alert_green_checkmark.png["Icono Alerta verde marca de verificación"])
+Marca de verificación verde (image:icon_alert_green_checkmark.png["Icono Alerta verde marca de verificación"])
  a| 
 Puede retirar este sitio.
  a| 
@@ -83,7 +83,7 @@ Ninguno. No puede realizar este procedimiento.
  a| 
 No. Todos los nodos de este sitio están desconectados. Póngase en contacto con el representante de cuenta de NetApp.
  a| 
-No puede realizar una retirada de sitio conectado a menos que todos los nodos del sitio estén conectados (image:../media/icon_alert_green_checkmark.png["Icono Alerta verde marca de verificación"]).
+No puedes decomisionar un sitio conectado a menos que todos los nodos del sitio estén conectados (image:icon_alert_green_checkmark.png["Icono Alerta verde marca de verificación"]).
  a| 
 Si desea realizar una retirada de sitios sin conexión, debe ponerse en contacto con su representante de cuenta de NetApp, que revisará sus requisitos y activará el resto del asistente para la retirada de sitios.
 
@@ -91,7 +91,7 @@ Si desea realizar una retirada de sitios sin conexión, debe ponerse en contacto
 
 |===
 +
-El ejemplo muestra un sistema StorageGRID con tres sitios. La marca de verificación verde (image:../media/icon_alert_green_checkmark.png["Icono Alerta verde marca de verificación"]) para los sitios de Raleigh y Sunnyvale indica que puede retirar esos sitios. Sin embargo, no puede retirar el sitio de Vancouver porque contiene el nodo de administración principal.
+El ejemplo muestra un sistema StorageGRID con tres sitios. La marca de verificación verde (image:icon_alert_green_checkmark.png["Icono Alerta verde marca de verificación"]) junto a los sitios Raleigh y Sunnyvale indica que puedes decomisionar esos sitios. Sin embargo, no puedes decomisionar el sitio Vancouver porque contiene el nodo de administración principal.
 
 
 

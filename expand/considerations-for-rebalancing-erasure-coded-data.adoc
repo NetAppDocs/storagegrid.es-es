@@ -44,7 +44,7 @@ Una vez finalizado el procedimiento de reequilibrio de EC:
 Por ejemplo, suponga que tres nodos de 200 TB se llenan al 80 % cada uno (200 &#215; 0,8 = 160 TB en cada nodo o 480 TB en el sitio). Si agrega un nodo de 400 TB y ejecuta el procedimiento de reequilibrio, ahora todos los nodos tendrán aproximadamente la misma cantidad de datos de código de borrado (480/4 TB = 120 TB). Sin embargo, el utilizado (%) para el nodo más grande será menor que el usado (%) para los nodos más pequeños.
 
 +
-image::../media/used_space_with_larger_node.png[Espacio usado antes de la expansión]
+image:used_space_with_larger_node.png["Espacio usado antes de la expansión"]
 
 
 
@@ -64,7 +64,7 @@ Considere el siguiente escenario:
 * La política de ILM usa una regla de codificación de borrado de 2+1 para todos los objetos de mayor tamaño que 1.0 MB y una regla de replicación de 2 copias para los objetos más pequeños.
 * Todos los nodos de almacenamiento se han lleno por completo. La alerta *Low Object Storage* se ha disparado en el nivel de gravedad principal.
 +
-image::../media/used_space_before_expansion.png[Espacio usado antes de la expansión]
+image:used_space_before_expansion.png["Espacio usado antes de la expansión"]
 
 
 
@@ -74,7 +74,7 @@ image::../media/used_space_before_expansion.png[Espacio usado antes de la expans
 
 Para comprender cuándo no es necesario reequilibrar EC, suponga que se han añadido tres (o más) nuevos nodos de almacenamiento. En este caso, no es necesario realizar un reequilibrio de EC. Los nodos de almacenamiento originales se mantendrán llenos, pero los objetos nuevos ahora usarán los tres nodos nuevos para 2+1 código de borrado&#8212;Los dos fragmentos de datos y el fragmento de paridad único podrán almacenarse en un nodo diferente.
 
-image::../media/used_space_after_3_node_expansion.png[Espacio utilizado tras la ampliación de 3 nodos]
+image:used_space_after_3_node_expansion.png["Espacio utilizado tras la ampliación de 3 nodos"]
 
 
 CAUTION: Aunque puede ejecutar el procedimiento de equilibrio de EC en este caso, mover los datos existentes con código de borrado reducirá temporalmente el rendimiento del grid, lo que puede afectar a las operaciones del cliente.
@@ -85,11 +85,11 @@ CAUTION: Aunque puede ejecutar el procedimiento de equilibrio de EC en este caso
 
 Para comprender cuándo es necesario reequilibrar EC, suponga que solo puede añadir dos nodos de almacenamiento, en lugar de tres. Dado que el esquema de 2+1 requiere al menos tres nodos de almacenamiento para tener espacio disponible, los nodos vacíos no se pueden usar para nuevos datos codificados de borrado.
 
-image::../media/used_space_after_2_node_expansion.png[Espacio utilizado tras la ampliación de 2 nodos]
+image:used_space_after_2_node_expansion.png["Espacio utilizado tras la ampliación de 2 nodos"]
 
 Para utilizar los nuevos nodos de almacenamiento, debe ejecutar el procedimiento de reequilibrio de EC. Cuando este procedimiento se ejecuta, StorageGRID redistribuye los datos existentes con código de borrado y los fragmentos de paridad entre todos los nodos de almacenamiento del sitio. En este ejemplo, cuando se haya completado el procedimiento de reequilibrio de EC, los cinco nodos ahora sólo estarán llenos al 60 % y los objetos pueden seguir ingiriendo en el esquema de código de borrado 2+1 en todos los nodos de almacenamiento.
 
-image::../media/used_space_after_ec_rebalance.png[Espacio usado aAfter EC reequilibrar]
+image:used_space_after_ec_rebalance.png["Espacio usado aAfter EC reequilibrar"]
 
 
 

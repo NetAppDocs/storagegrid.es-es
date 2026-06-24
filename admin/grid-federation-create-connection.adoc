@@ -15,7 +15,7 @@ Puede crear una conexión de federación de grid entre dos sistemas StorageGRID 
 
 Como se muestra en la figura, la creación de una conexión de federación de cuadrícula incluye pasos en ambas cuadrículas. Agrega la conexión en una cuadrícula y la completa en la otra. Puede empezar desde cualquiera de las dos cuadrículas.
 
-image::../media/grid-federation-create-connection.png[descripción gráfica de los pasos para crear una conexión en dos cuadrículas]
+image:grid-federation-create-connection.png["descripción gráfica de los pasos para crear una conexión en dos cuadrículas"]
 
 .Antes de empezar
 * Ha revisado el link:grid-federation-overview.html["consideraciones y requisitos"] para configurar las conexiones de federación de grid.

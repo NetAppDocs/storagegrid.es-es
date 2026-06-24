@@ -40,7 +40,7 @@ Aparecerá la página nodos de misión. Cuando el procedimiento de retirada de s
 La etapa actual está en pausa y el botón *Reanudar* está activado.
 
 +
-image::../media/decommission_nodes_procedure_paused.png[Procedimiento de retirada de nodos en pausa]
+image:decommission_nodes_procedure_paused.png["Procedimiento de retirada de nodos en pausa"]
 
 . Una vez finalizado el otro procedimiento de mantenimiento, seleccione *Reanudar* para continuar con la retirada.
 

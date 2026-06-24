@@ -29,26 +29,26 @@ Además, tenga  en cuenta link:../admin/managing-traffic-classification-policies
 Aparece la página Nodes. Cada nodo de la cuadrícula se muestra en formato de tabla.
 
 +
-image::../media/nodes_menu.png[Menú nodos]
+image:nodes_menu.png["Menú nodos"]
 
 . Seleccione el nombre de la cuadrícula, un sitio específico del centro de datos o un nodo de la cuadrícula y, a continuación, seleccione la ficha *Red*.
 +
 El gráfico de tráfico de red proporciona un resumen del tráfico general de red para la cuadrícula en su conjunto, el sitio del centro de datos o para el nodo.
 
 +
-image::../media/nodes_page_network_traffic_graph.png[Gráfico de tráfico de red de la página Nodes]
+image:nodes_page_network_traffic_graph.png["Gráfico de tráfico de red de la página Nodes"]
 
 +
 .. Si ha seleccionado un nodo de cuadrícula, desplácese hacia abajo para revisar la sección *interfaces de red* de la página.
 +
-image::../media/nodes_page_network_interfaces.png[Nodes Page Network interfaces]
+image:nodes_page_network_interfaces.png["Nodes Page Network interfaces"]
 
 .. Para nodos de cuadrícula, desplácese hacia abajo para revisar la sección *Comunicación de red* de la página.
 +
 Las tablas de recepción y transmisión muestran cuántos bytes y paquetes se han recibido y enviado a través de cada red, así como otras métricas de recepción y transmisión.
 
 +
-image::../media/nodes_page_network_communication.png[Comunicación de red de página nodos]
+image:nodes_page_network_communication.png["Comunicación de red de página nodos"]
 
 
 
@@ -59,7 +59,7 @@ image::../media/nodes_page_network_communication.png[Comunicación de red de pá
 Aparece la página Directivas de clasificación del tráfico y las directivas existentes se muestran en la tabla.
 
 +
-image::../media/traffic_classification_policies_main_screen_w_examples.png[Ejemplo de directiva de tráfico para gráfico]
+image:traffic_classification_policies_main_screen_w_examples.png["Ejemplo de directiva de tráfico para gráfico"]
 
 .. Para ver gráficos que muestran las métricas de red asociadas a una directiva, seleccione el botón de opción situado a la izquierda de la directiva y, a continuación, haga clic en *métricas*.
 .. Revise los gráficos para comprender el tráfico de red asociado a la directiva.
@@ -85,7 +85,7 @@ Supervisar nodos de cuadrícula individuales para comprobar sus niveles de uso d
 . Desde la página *Nodos*, seleccione el nodo.
 . Seleccione la ficha *hardware* para visualizar gráficos de utilización de CPU y uso de memoria.
 +
-image::../media/nodes_page_hardware_tab_graphs.png[Página Nodes pestaña hardware]
+image:nodes_page_hardware_tab_graphs.png["Página Nodes pestaña hardware"]
 
 . Para mostrar un intervalo de tiempo diferente, seleccione uno de los controles situados encima del gráfico o gráfico. Puede visualizar la información disponible para intervalos de 1 hora, 1 día, 1 semana o 1 mes. También puede establecer un intervalo personalizado, que le permite especificar intervalos de fecha y hora.
 . Si el nodo está alojado en un dispositivo de almacenamiento o un dispositivo de servicios, desplácese hacia abajo para ver las tablas de los componentes. El estado de todos los componentes debe ser «Nominal». Investigue los componentes que tienen otro estado.

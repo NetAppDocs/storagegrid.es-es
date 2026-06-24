@@ -31,7 +31,7 @@ Puede ingresar un UUID, CBID o una clave de objeto/depósito S3.
 
 . Si desea buscar una versión específica del objeto, escriba el ID de versión (opcional).
 +
-image::../media/object_lookup.png[Página Búsqueda de objetos]
+image:object_lookup.png["Página Búsqueda de objetos"]
 
 . Seleccione *Buscar*.
 +
@@ -52,6 +52,6 @@ En el ejemplo siguiente se muestran los resultados de búsqueda de metadatos de 
 
 
 +
-image::../media/object_lookup_results.png[Resultados de la búsqueda de objetos]
+image:object_lookup_results.png["Resultados de la búsqueda de objetos"]
 
 

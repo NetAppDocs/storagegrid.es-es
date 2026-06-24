@@ -48,7 +48,7 @@ Aparecerá la página Reglas de alerta.
 Aparece el cuadro de diálogo Crear regla personalizada.
 
 +
-image::../media/alerts_create_custom_rule.png[Alertas > Crear regla personalizada]
+image:alerts_create_custom_rule.png["Alertas > Crear regla personalizada"]
 
 . Active o desactive la casilla de verificación *Enabled* para determinar si esta regla de alerta está actualmente habilitada.
 +
@@ -98,7 +98,7 @@ Esta expresión provoca que se active una alerta si la cantidad de RAM instalada
 `node_memory_MemTotal_bytes < 24000000000`
 
 +
-Para ver las métricas disponibles y probar las expresiones de Prometheus, seleccione el icono de ayuda image:../media/icon_nms_question.png["icono de signo de interrogación"]y siga el enlace a la sección Métricas de la API de administración de grid.
+Para ver las métricas disponibles y probar expresiones de Prometheus, selecciona el icono de ayuda image:icon_nms_question.png["icono de signo de interrogación"] y sigue el enlace a la sección Metrics de la Grid Management API.
 
 . En el campo *duración*, introduzca la cantidad de tiempo que una condición debe permanecer en vigor continuamente antes de que se active la alerta y seleccione una unidad de tiempo.
 +

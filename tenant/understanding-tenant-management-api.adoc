@@ -63,7 +63,7 @@ NOTE: Si está habilitado el inicio de sesión único (SSO) para el sistema Stor
 
 Al expandir cada operación de API, puede ver su acción HTTP, su URL de extremo, una lista de cualquier parámetro requerido o opcional, un ejemplo del cuerpo de la solicitud (cuando sea necesario) y las posibles respuestas.
 
-image::../media/tenant_api_swagger_example.gif[Ejemplo que muestra la operación DE OBTENER grupos en la API de Swagger]
+image:tenant_api_swagger_example.gif["Ejemplo que muestra la operación DE OBTENER grupos en la API de Swagger"]
 
 
 

@@ -19,7 +19,7 @@ Para mostrar un intervalo de tiempo diferente, seleccione uno de los controles s
 
 Para los nodos, la tabla de interfaces de red proporciona información acerca de los puertos de red física de cada nodo. La tabla de comunicaciones de red proporciona detalles acerca de las operaciones de recepción y transmisión de cada nodo y de cualquier contador de fallos informado por el controlador.
 
-image::../media/nodes_page_network_tab.png[Página Nodes pestaña Network]
+image:nodes_page_network_tab.png["Página Nodes pestaña Network"]
 
 .Información relacionada
 link:monitoring-network-connections-and-performance.html["Supervisar las conexiones de red y el rendimiento"]

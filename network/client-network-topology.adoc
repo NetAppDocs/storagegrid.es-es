@@ -19,9 +19,9 @@ Si configura una red de cliente para un nodo durante la instalación, la puerta 
 
 En este ejemplo, la red cliente se utiliza para las solicitudes de cliente S3 y para las funciones administrativas, mientras que la red de grid está dedicada a las operaciones de gestión de objetos internos.
 
-image::../media/grid_client_networks.png[Redes de clientes de grid]
+image:grid_client_networks.png["Redes de clientes de grid"]
 
-image::../media/grid_client_networks_ips.png[IP de redes de cliente de grid]
+image:grid_client_networks_ips.png["IP de redes de cliente de grid"]
 
 .Información relacionada
 link:../maintain/changing-nodes-network-configuration.html["Cambie la configuración de red de los nodos"]

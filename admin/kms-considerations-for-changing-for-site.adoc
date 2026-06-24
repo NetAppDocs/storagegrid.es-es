@@ -20,15 +20,15 @@ Por ejemplo:
 . Inicialmente configuras un KMS predeterminado que se aplica a todos los sitios que no tienen un KMS dedicado.
 . Cuando se guarda el KMS, todos los nodos de dispositivo que tienen activada la configuración de *cifrado de nodos* se conectan al KMS y solicitan la clave de cifrado. Esta clave se usa para cifrar los nodos del dispositivo en todos los sitios. Esta misma clave también debe utilizarse para descifrar esos dispositivos.
 +
-image::../media/kms_default_key.png[CLAVE predeterminada DE KMS]
+image:kms_default_key.png["CLAVE predeterminada DE KMS"]
 
 . Decide agregar un KMS específico de un sitio para un sitio (Data Center 3 en la figura). Sin embargo, como los nodos del dispositivo ya están cifrados, se produce un error de validación cuando se intenta guardar la configuración para el KMS específico del sitio. El error se produce porque el KMS específico del sitio no tiene la clave correcta para descifrar los nodos en ese sitio.
 +
-image::../media/kms_wrong_key.png[CLAVE incorrecta DE KMS]
+image:kms_wrong_key.png["CLAVE incorrecta DE KMS"]
 
 . Para solucionar el problema, copia la versión actual de la clave de cifrado del KMS predeterminado al nuevo KMS. (Técnicamente, copia la clave original en una nueva clave con el mismo alias. La clave original se convierte en una versión anterior de la nueva clave.) El KMS específico del sitio ahora tiene la clave correcta para descifrar los nodos del dispositivo en el centro de datos 3, por lo que se puede guardar en StorageGRID.
 +
-image::../media/kms_copied_key.png[CLAVE copiada DE KMS]
+image:kms_copied_key.png["CLAVE copiada DE KMS"]
 
 
 

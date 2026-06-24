@@ -17,7 +17,7 @@ El almacenamiento de objetos separa la ubicación física de los datos del méto
 
 Cada objeto de un sistema de almacenamiento basado en objetos tiene dos partes: Datos de objetos y metadatos de objetos.
 
-image::../media/object_conceptual_drawing.png[Objeto]
+image:object_conceptual_drawing.png["Objeto"]
 
 
 
@@ -56,7 +56,7 @@ Cuando StorageGRID concuerda objetos con una regla de gestión de la vida útil 
 
 En el ejemplo siguiente, la regla make 2 copies especifica que se coloquen dos copias replicadas de cada objeto en un pool de almacenamiento que contenga tres nodos de almacenamiento.
 
-image::../media/ilm_replication_make_2_copies.png[Crear regla de 2 copias]
+image:ilm_replication_make_2_copies.png["Crear regla de 2 copias"]
 
 
 
@@ -66,7 +66,7 @@ Cuando StorageGRID enlaza objetos con una regla de ILM que se configura para cre
 
 En el siguiente ejemplo, se muestra el uso de códigos de borrado en los datos de un objeto. En este ejemplo, la regla ILM utiliza un esquema de codificación de borrado 4+2. Cada objeto se divide en cuatro fragmentos de datos iguales y dos fragmentos de paridad se calculan a partir de los datos del objeto. Cada uno de los seis fragmentos se almacena en un nodo de almacenamiento diferente en tres centros de datos para proporcionar protección de datos ante fallos de nodos o pérdidas de sitios.
 
-image::../media/ec_three_sites_4_plus_2.png[Código de borrado tres Sitios 4 Plus 2]
+image:ec_three_sites_4_plus_2.png["Código de borrado tres Sitios 4 Plus 2"]
 
 .Información relacionada
 * link:../ilm/index.html["Gestión de objetos con ILM"]

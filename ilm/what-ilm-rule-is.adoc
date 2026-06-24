@@ -79,15 +79,15 @@ Cada regla puede definir varias ubicaciones para un único período de tiempo y 
 
 En el ejemplo se muestran dos instrucciones de colocación en la página Definir ubicaciones del asistente Crear reglas de ILM.
 
-image::../media/ilm_rule_multiple_placements_in_single_time_period.png[Pantalla de ubicaciones de ILM en Grid Manager]
+image:ilm_rule_multiple_placements_in_single_time_period.png["Pantalla de ubicaciones de ILM en Grid Manager"]
 
-La primera instrucción de colocación image:../media/icon_number_1.png["Icono número 1"]tiene dos líneas para el primer año:
+La primera instrucción de asignación image:icon_number_1.png["Icono número 1"] tiene dos líneas para el primer año:
 
 * La primera línea crea dos copias de objetos replicadas en dos sitios de centro de datos.
 * La segunda línea crea una copia 6+3 con código de borrado utilizando todos los sitios del centro de datos.
 
 
-La segunda instrucción de colocación image:../media/icon_number_2.png["Icono número 1"]crea dos copias después de un año y mantiene esas copias para siempre.
+La segunda instrucción de asignación image:icon_number_2.png["Icono número 1"] crea dos copias al cabo de un año y las conserva indefinidamente.
 
 Cuando defina el conjunto de instrucciones de colocación para una regla, debe asegurarse de que al menos una instrucción de colocación comienza en el día 0, de que no haya espacios entre los períodos de tiempo definidos. y que la instrucción de colocación final continúa para siempre o hasta que ya no se requiere ninguna copia de objeto.
 

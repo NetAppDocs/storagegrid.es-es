@@ -42,7 +42,7 @@ CAUTION: Algunos pasos y etapas de expansión pueden tardar una cantidad signifi
 Aparece la página expansión de cuadrícula. En la sección Pending Nodes, se enumeran los nodos listos para añadir.
 
 +
-image::../media/grid_expansion_page.png[Captura de pantalla que muestra la página expansión de cuadrícula]
+image:grid_expansion_page.png["Captura de pantalla que muestra la página expansión de cuadrícula"]
 
 . Seleccione *Configurar expansión*.
 +
@@ -60,7 +60,7 @@ Aparece el cuadro de diálogo selección de sitio.
 Según sea necesario, puede colocar el cursor sobre la *Dirección MAC de red de cuadrícula* de un nodo para ver los detalles sobre ese nodo.
 
 +
-image::../media/grid_node_details.png[Captura de pantalla de detalles del nodo de cuadrícula]
+image:grid_node_details.png["Captura de pantalla de detalles del nodo de cuadrícula"]
 
 +
 

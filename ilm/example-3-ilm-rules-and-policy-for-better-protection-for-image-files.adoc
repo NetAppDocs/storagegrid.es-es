@@ -66,7 +66,7 @@ Ubicaciones
 Cree una copia codificada con borrado al 2+1 mediante tres ubicaciones
 
 |===
-image::../media/policy_3_rule_1_ec_images_adv_filtering.png[Regla ILM 1 por ejemplo 3: Utilice EC para archivos de imagen superiores a 1 MB]
+image:policy_3_rule_1_ec_images_adv_filtering.png["Regla ILM 1 por ejemplo 3: Utilice EC para archivos de imagen superiores a 1 MB"]
 
 Debido a que esta regla se configura como la primera regla de la directiva, la instrucción de colocación de codificación de borrado solo se aplica a los archivos .jpg y .png que sean mayores de 1 MB.
 
@@ -121,4 +121,4 @@ Este ejemplo de política de ILM incluye tres reglas:
 * La regla predeterminada se aplica a todos los objetos restantes (es decir, cualquier archivo que no sea de imagen).
 
 
-image::../media/policy_3_configured_policy.png[Política de ILM, por ejemplo 3: Mejor protección para los archivos de imagen]
+image:policy_3_configured_policy.png["Política de ILM, por ejemplo 3: Mejor protección para los archivos de imagen"]

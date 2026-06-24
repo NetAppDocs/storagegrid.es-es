@@ -19,7 +19,7 @@ Una operación de ingesta, o guardado, consta de un flujo de datos definido entr
 
 Cuando un cliente procesa un objeto al sistema StorageGRID, el servicio LDR en los nodos de almacenamiento procesa la solicitud y almacena los metadatos y los datos en el disco.
 
-image::../media/ingest_data_flow.png[Procesamiento con ubicación síncrona]
+image:ingest_data_flow.png["Procesamiento con ubicación síncrona"]
 
 . La aplicación cliente crea el objeto y lo envía al sistema StorageGRID mediante una solicitud PUT HTTP.
 . El objeto se evalúa según la política de ILM del sistema.

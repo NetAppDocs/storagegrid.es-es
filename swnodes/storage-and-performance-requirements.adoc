@@ -395,7 +395,7 @@ NOTE: Un nodo de almacenamiento de dispositivo también puede tener hasta 48 vol
 
 Como se muestra en la figura, StorageGRID reserva espacio para los metadatos del objeto en el volumen de almacenamiento 0 de cada nodo de almacenamiento. Cualquier espacio restante en el volumen de almacenamiento 0 y cualquier otro volumen de almacenamiento en el nodo de almacenamiento se utilizan exclusivamente para los datos de objetos.
 
-image::../media/metadata_space_storage_node.png[Nodo de almacenamiento de espacio de metadatos]
+image:metadata_space_storage_node.png["Nodo de almacenamiento de espacio de metadatos"]
 
 Para proporcionar redundancia y proteger los metadatos de objetos de la pérdida, StorageGRID almacena tres copias de los metadatos para todos los objetos del sistema en cada sitio. Las tres copias de metadatos de objetos se distribuyen uniformemente por todos los nodos de almacenamiento de cada sitio.
 

@@ -47,6 +47,6 @@ Puede usar la dirección IP para la IP del nodo de administración principal en 
 Aparece la página utilizada para configurar una cuadrícula StorageGRID.
 
 +
-image::../media/gmi_installer_first_screen.gif[Primera pantalla del instalador de StorageGRID]
+image:gmi_installer_first_screen.gif["Primera pantalla del instalador de StorageGRID"]
 
 

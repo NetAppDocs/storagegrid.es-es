@@ -35,13 +35,13 @@ NOTE: No cree más grados de almacenamiento de los necesarios. Por ejemplo, no c
 . Seleccione *ILM* > *grados de almacenamiento*.
 . Definir grados de almacenamiento personalizados:
 +
-.. Para cada grado de almacenamiento personalizado que desee agregar, seleccione *Insertar* image:../media/icon_nms_insert.gif["insertar icono"] para agregar una fila.
+.. Para cada nivel de almacenamiento personalizado que quieras añadir, selecciona *Insert* image:icon_nms_insert.gif["insertar icono"] para añadir una fila.
 .. Introduzca una etiqueta descriptiva.
 +
-image::../media/editing_storage_grades.gif[Página Storage Grades]
+image:editing_storage_grades.gif["Página Storage Grades"]
 
 .. Seleccione *aplicar cambios*.
-.. Opcionalmente, si necesitas modificar una etiqueta guardada, selecciona *Editar* image:../media/icon_nms_edit.gif["icono editar"] y selecciona *Aplicar cambios*.
+.. Si lo deseas, si necesitas modificar una etiqueta guardada, selecciona *Editar* image:icon_nms_edit.gif["icono editar"] y selecciona *Aplicar cambios*.
 +
 
 NOTE: No se pueden eliminar los grados de almacenamiento.
@@ -50,10 +50,10 @@ NOTE: No se pueden eliminar los grados de almacenamiento.
 
 . Asigne nuevos grados de almacenamiento a los nodos de almacenamiento:
 +
-.. Localice el nodo de almacenamiento en la lista LDR y seleccione su icono *Editar* image:../media/icon_nms_edit.gif["icono editar"].
+.. Busca el nodo de almacenamiento en la lista LDR y selecciona su icono *Editar* image:icon_nms_edit.gif["icono editar"].
 .. Seleccione el grado de almacenamiento adecuado en la lista.
 +
-image::../media/assigning_storage_grades_to_storage_nodes.gif[Página Storage Grades]
+image:assigning_storage_grades_to_storage_nodes.gif["Página Storage Grades"]
 
 +
 

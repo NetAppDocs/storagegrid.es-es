@@ -26,7 +26,7 @@ Puede editar el nombre para mostrar de un grupo. No puede editar el nombre únic
 Aparece el cuadro de diálogo Editar nombre del grupo.
 
 +
-image::../media/edit_group_name.png[Editar el nombre del grupo]
+image:edit_group_name.png["Editar el nombre del grupo"]
 
 . Si está editando un grupo local, actualice el nombre para mostrar según sea necesario.
 +

@@ -201,8 +201,8 @@ Al definir un filtrado avanzado, es posible especificar varios tipos de metadato
 * El segundo valor de metadatos especifica objetos inferiores o iguales a 100 MB.
 
 
-image::../media/advanced_filtering_size_between.png[Ejemplo de filtrado avanzado para el tamaño del objeto]
+image:advanced_filtering_size_between.png["Ejemplo de filtrado avanzado para el tamaño del objeto"]
 
 El uso de múltiples entradas permite tener un control preciso sobre qué objetos coinciden. En el siguiente ejemplo, la regla se aplica a los objetos que tienen Marca A o Marca B como valor de los metadatos de usuario camera_type. Sin embargo, la regla sólo se aplica a los objetos de Marca B que son menores de 10 MB.
 
-image::../media/advanced_filtering_multiple_rows.png[Ejemplo de filtrado avanzado para metadatos de usuario]
+image:advanced_filtering_multiple_rows.png["Ejemplo de filtrado avanzado para metadatos de usuario"]

@@ -19,7 +19,7 @@ Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requi
 .Acerca de esta tarea
 Si hay un problema con la licencia de software para este sistema StorageGRID, la tarjeta de estado del panel incluye un icono de estado de licencia y un enlace de *Licencia*. El número indica el número de problemas relacionados con la licencia.
 
-image::../media/dashboard_health_panel_license_status.png[Estado de la licencia de la tarjeta de estado del panel de control]
+image:dashboard_health_panel_license_status.png["Estado de la licencia de la tarjeta de estado del panel de control"]
 
 .Pasos
 . Para acceder a la página Licencia, realice una de las siguientes acciones:

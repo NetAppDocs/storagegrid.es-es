@@ -109,7 +109,7 @@ Editar nombre completo (sólo usuarios locales)
 
  a| 
 .. Seleccione el nombre del usuario para mostrar los detalles.
-.. Seleccione el icono de edición image:../media/icon_edit_tm.png["Icono Editar"].
+.. Selecciona el icono de edición image:icon_edit_tm.png["Icono Editar"].
 .. Introduzca el nuevo nombre.
 .. Seleccione *Guardar cambios*.
 

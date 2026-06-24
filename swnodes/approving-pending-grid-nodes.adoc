@@ -27,7 +27,7 @@ NOTE: Si falta un nodo de cuadrícula, confirme que se ha desplegado correctamen
 
 . Seleccione el botón de opción situado junto al nodo pendiente que desea aprobar.
 +
-image::../media/5_gmi_installer_grid_nodes_pending.gif[Esta imagen se explica por el texto circundante.]
+image:5_gmi_installer_grid_nodes_pending.gif["Esta imagen se explica por el texto circundante."]
 
 . Haga clic en *aprobar*.
 . En Configuración general, modifique la configuración de las siguientes propiedades según sea necesario:
@@ -125,7 +125,7 @@ Para obtener más información, consulte la https://docs.netapp.com/us-en/storag
 La entrada del nodo de grid se mueve a la lista de nodos aprobados.
 
 +
-image::../media/7_gmi_installer_grid_nodes_approved.gif[Esta imagen se explica por el texto circundante.]
+image:7_gmi_installer_grid_nodes_approved.gif["Esta imagen se explica por el texto circundante."]
 
 . Repita estos pasos para cada nodo de cuadrícula pendiente que desee aprobar.
 +

@@ -35,11 +35,11 @@ El panel de Grid Manager le permite evaluar rápidamente la cantidad de almacena
 NOTE: El resumen no incluye medios de archivado.
 
 +
-image::../media/dashboard_data_and_metadata_space_usage_breakdown.png[Desglose del uso del espacio de datos y metadatos]
+image:dashboard_data_and_metadata_space_usage_breakdown.png["Desglose del uso del espacio de datos y metadatos"]
 
 .. Anote el gráfico en la tarjeta Almacenamiento a lo largo del tiempo. Utilice la lista desplegable Período de tiempo para ayudarle a determinar la rapidez con la que se consume el almacenamiento.
 +
-image::../media/dashboard_storage_over_time.png[Gráfico de almacenamiento a lo largo del tiempo]
+image:dashboard_storage_over_time.png["Gráfico de almacenamiento a lo largo del tiempo"]
 
 
 
@@ -48,7 +48,7 @@ image::../media/dashboard_storage_over_time.png[Gráfico de almacenamiento a lo 
 .. Seleccionar *Nodos*.
 .. Seleccione *_grid_* > *almacenamiento*.
 +
-image::../media/nodes_deployment_storage_tab.png[Pestaña Nodes Deployment Storage]
+image:nodes_deployment_storage_tab.png["Pestaña Nodes Deployment Storage"]
 
 .. Coloque el cursor sobre los gráficos *Almacenamiento usado - datos de objetos* y *Almacenamiento usado - metadatos de objetos* para ver cuánto almacenamiento de objetos y almacenamiento de metadatos de objetos está disponible para toda la cuadrícula, y cuánto se ha utilizado con el tiempo.
 +
@@ -79,7 +79,7 @@ Supervise el espacio utilizable total de cada nodo de almacenamiento para garant
 .Acerca de esta tarea
 El espacio útil es la cantidad de espacio de almacenamiento disponible para almacenar objetos. El espacio útil total de un nodo de almacenamiento se calcula sumando el espacio disponible en todos los almacenes de objetos del nodo.
 
-image::../media/calculating_watermarks.gif[Dibujo conceptual para el espacio útil total]
+image:calculating_watermarks.gif["Dibujo conceptual para el espacio útil total"]
 
 .Pasos
 . Seleccione *Nodos* > *_Nodo de almacenamiento_* > *Almacenamiento*.
@@ -97,17 +97,17 @@ Se muestran los siguientes valores:
 ** *Datos codificados por borrado*: Estimación de la cantidad de datos de objetos codificados por borrado en este nodo, sitio o cuadrícula.
 ** *Total*: La cantidad total de espacio utilizable en este nodo, sitio o cuadrícula. El valor utilizado es `storagegrid_storage_utilization_data_bytes` la métrica.
 +
-image::../media/nodes_page_storage_used_object_data.png[Nodos almacenamiento de páginas datos de objeto usados]
+image:nodes_page_storage_used_object_data.png["Nodos almacenamiento de páginas datos de objeto usados"]
 
 
 
 . Revise los valores disponibles en las tablas Volumes y Object store, debajo de los gráficos.
 +
 
-NOTE: Para ver gráficos de estos valores, haga clic en los iconos del gráfico image:../media/icon_chart_new_for_11_5.png["Icono de gráfico"]en las columnas disponibles.
+NOTE: Para ver gráficos de estos valores, haz clic en los iconos de gráficos image:icon_chart_new_for_11_5.png["Icono de gráfico"] en las columnas disponibles.
 
 +
-image::../media/nodes_page_storage_tables.png[Objeto almacena tablas]
+image:nodes_page_storage_tables.png["Objeto almacena tablas"]
 
 . Supervise los valores a lo largo del tiempo para estimar la tasa a la que se está consumiendo el espacio de almacenamiento útil.
 . Para mantener las operaciones del sistema normales, añada nodos de almacenamiento, añada volúmenes de almacenamiento o datos de objetos de archivado antes de consumir el espacio útil.
@@ -143,7 +143,7 @@ Algunos de los factores que pueden aumentar el uso de metadatos son el tamaño y
 . Seleccione *Nodos* > *_Nodo de almacenamiento_* > *Almacenamiento*.
 . Coloque el cursor sobre el gráfico de metadatos de objetos Storage Used para ver los valores de un tiempo específico.
 +
-image::../media/storage_used_object_metadata.png[Almacenamiento utilizado: Metadatos de objetos]
+image:storage_used_object_metadata.png["Almacenamiento utilizado: Metadatos de objetos"]
 
 +
 Utilizado (%):: El porcentaje de espacio de metadatos permitido que se utilizó en este nodo de almacenamiento.
@@ -202,4 +202,4 @@ Si tiene una nueva instalación de StorageGRID, permita que los datos y los meta
 . Utilice estos valores para estimar cuándo tendrá que añadir nuevos nodos de almacenamiento para el almacenamiento de datos y metadatos.
 
 
-image::../media/forecast-metadata-usage.png[Previsión de uso de metadatos por sitio]
+image:forecast-metadata-usage.png["Previsión de uso de metadatos por sitio"]

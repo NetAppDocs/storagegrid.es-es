@@ -104,10 +104,7 @@ Este problema puede ocurrir si las actualizaciones del estado de conexión se re
 . Seleccione el nombre del arrendatario para mostrar la página de detalles.
 . Seleccione *Reintentar clon de cuenta*.
 +
-image::../media/grid-federation-retry-account-clone.png[Captura de pantalla que muestra un mensaje de error y el botón Reintentar clon de cuenta]
-
-+
-Si se ha resuelto el error, la cuenta de inquilino se clonará ahora en la otra cuadrícula.
+image:grid-federation-retry-account-clone.png["Captura de pantalla que muestra un mensaje de error y el botón Reintentar clon de cuenta"] Si el error se ha solucionado, la cuenta del tenant ahora se clonará en la otra grid.
 
 
 
@@ -122,7 +119,7 @@ Si se ha resuelto el error, la cuenta de inquilino se clonará ahora en la otra 
 .Problema
 Cuando link:../monitor/grid-federation-monitor-connections.html["visualización de una conexión de federación de grid"] (o cuando link:grid-federation-manage-tenants.html["gestión de los inquilinos permitidos"] se trata de una conexión), nota un error en la columna *Último error* de la página de detalles de la conexión. Por ejemplo:
 
-image::../media/grid-federation-last-error.png[Captura de pantalla que muestra un mensaje en la última columna de error de una conexión de federación de cuadrícula]
+image:grid-federation-last-error.png["Captura de pantalla que muestra un mensaje en la última columna de error de una conexión de federación de cuadrícula"]
 
 .Detalles
 Para cada conexión de federación de red, la columna *Último error* muestra el error más reciente que ocurrió, si lo hubo, cuando los datos de un inquilino se estaban replicando a la otra red.  Esta columna muestra únicamente el último error de replicación entre redes que ocurrió; no se muestran los errores anteriores que podrían haber ocurrido.  Un error en esta columna podría ocurrir por una de estas razones:

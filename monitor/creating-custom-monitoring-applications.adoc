@@ -17,6 +17,6 @@ Si desea supervisar las métricas que no se muestran en una página existente de
 
 También puede acceder a la métrica Prometheus directamente con una herramienta de supervisión externa, como Grafana. El uso de una herramienta externa requiere que usted cargue o genere un certificado de cliente administrativo para permitir que StorageGRID autentique la herramienta para la seguridad. Consulte la link:../admin/index.html["Instrucciones para administrar StorageGRID"].
 
-Para ver las operaciones de la API de métricas, incluida la lista completa de las métricas disponibles, vaya a Grid Manager. En la parte superior de la página, selecciona el icono de ayuda y selecciona *Documentación de la API* > *Métricas*. image:../media/help_api_docs_metrics.png["Sección Métricas de documentación de la API de ayuda"]
+Para consultar las operaciones de la API de métricas, incluida la lista completa de las métricas disponibles, accede al Grid Manager. En la parte superior de la página, selecciona el icono de ayuda y selecciona *API documentation* > *metrics*. image:help_api_docs_metrics.png["Sección Métricas de documentación de la API de ayuda"]
 
 Los detalles de cómo implementar una aplicación de supervisión personalizada están fuera del alcance de esta documentación.

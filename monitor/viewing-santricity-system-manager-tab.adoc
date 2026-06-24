@@ -37,7 +37,7 @@ NOTE: Debe tener el firmware 8.70 de SANtricity o superior para acceder a SANtri
 
 La pestaña muestra la página de inicio de SANtricity System Manager.
 
-image::../media/nodes_page_santricity_tab.png[Pestaña Nodes page SANtricity]
+image:nodes_page_santricity_tab.png["Pestaña Nodes page SANtricity"]
 
 
 NOTE: Puede usar el enlace SANtricity System Manager para abrir la instancia de SANtricity System Manager en una nueva ventana del navegador para facilitar la visualización.

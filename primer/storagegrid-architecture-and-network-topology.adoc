@@ -29,7 +29,7 @@ El sistema StorageGRID se puede implementar en un solo sitio de centro de datos 
 
 En una puesta en marcha con un único sitio, la infraestructura y las operaciones del sistema StorageGRID están centralizadas.
 
-image::../media/data_center_site_single.png[Sitio de un único centro de datos]
+image:data_center_site_single.png["Sitio de un único centro de datos"]
 
 
 
@@ -39,7 +39,7 @@ En una implementación con varios sitios, se pueden instalar diferentes tipos y 
 
 Los sitios suelen estar ubicados en lugares geográficamente diferentes a lo largo de distintos dominios de falla, como una falla sísmica o una llanura aluvial.  El intercambio de datos y la recuperación ante desastres se logran mediante la distribución automatizada de datos a otros sitios.
 
-image::../media/data_center_sites_multiple.png[Sitio de varios centros de datos]
+image:data_center_sites_multiple.png["Sitio de varios centros de datos"]
 
 También pueden existir múltiples sitios lógicos dentro de un solo centro de datos para permitir el uso de replicación distribuida y codificación de borrado para una mayor disponibilidad y resiliencia.
 
@@ -55,7 +55,7 @@ En una puesta en marcha de un único sitio o de varios sitios, de manera opciona
 
 Este diagrama muestra cómo se organizan los nodos de cuadrícula en un sistema StorageGRID.
 
-image::../media/grid_nodes_and_components.png[diagrama descrito por texto circundante]
+image:grid_nodes_and_components.png["diagrama descrito por texto circundante"]
 
 Los clientes S3 almacenan y recuperan objetos en StorageGRID. Otros clientes se usan para enviar notificaciones por correo electrónico, para acceder a la interfaz de gestión de StorageGRID y, opcionalmente, para acceder al recurso compartido de auditoría.
 

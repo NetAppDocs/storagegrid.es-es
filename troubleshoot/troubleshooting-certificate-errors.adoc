@@ -24,7 +24,7 @@ Si accede a Grid Manager o a Intenant Manager utilizando un nombre de dominio en
 
 En el ejemplo siguiente se muestra un error de certificado cuando expiró el certificado de interfaz de gestión personalizado:
 
-image::../media/certificate_error.png[Error de certificado de ejemplo]
+image:certificate_error.png["Error de certificado de ejemplo"]
 
 Para garantizar que las operaciones no se interrumpan por un certificado de servidor fallido, la alerta *Expiración del certificado de servidor para la interfaz de administración* se activa cuando el certificado de servidor está a punto de expirar.
 

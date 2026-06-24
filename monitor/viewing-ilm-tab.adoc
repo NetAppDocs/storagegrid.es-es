@@ -17,7 +17,7 @@ La pestaña ILM se muestra para cada nodo de almacenamiento, cada sitio y toda l
 
 En el caso de los nodos de almacenamiento, la pestaña ILM proporciona detalles sobre la evaluación de ILM y la verificación en segundo plano para los objetos con código de borrado.
 
-image::../media/nodes_page_ilm_tab.png[Pestaña Nodes page ILM]
+image:nodes_page_ilm_tab.png["Pestaña Nodes page ILM"]
 
 .Información relacionada
 * link:monitoring-information-lifecycle-management.html["Supervise la gestión del ciclo de vida de la información"]

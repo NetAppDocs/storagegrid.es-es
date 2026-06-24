@@ -58,7 +58,7 @@ Puede ver los detalles de un inquilino con permiso para utilizar una conexión d
 Si se trata de la cuadrícula de origen del inquilino (es decir, si el inquilino se creó en esta cuadrícula), aparece un banner para recordarle que el inquilino se clonó en otra cuadrícula. Si edita o elimina este arrendatario, los cambios no se sincronizarán con la otra cuadrícula.
 
 +
-image::../media/grid-federation-tenant-detail.png[federación de grid en la página de detalles de inquilino]
+image:grid-federation-tenant-detail.png["federación de grid en la página de detalles de inquilino"]
 
 . Opcionalmente, seleccione la pestaña *Grid federation* en link:../monitor/grid-federation-monitor-connections.html["supervise la conexión de federación de grid"].
 
@@ -96,7 +96,7 @@ Para evitar estos errores, elimine el permiso del inquilino para utilizar la con
 
 Para evitar que un inquilino utilice una conexión de federación de grid, debe eliminar el permiso *Usar conexión de federación de grid*.
 
-image::../media/grid-federation-remove-permission.png[pasos para eliminar la conexión de federación de grid]
+image:grid-federation-remove-permission.png["pasos para eliminar la conexión de federación de grid"]
 
 Antes de eliminar el permiso de un inquilino para utilizar una conexión de federación de grid, tenga en cuenta lo siguiente:
 
@@ -167,7 +167,7 @@ Una vez deshabilitada la replicación entre grid para bloques de inquilinos, pue
 ** Si el permiso se puede eliminar, volverá a la página de detalles y aparecerá un mensaje de éxito. Este inquilino ya no puede utilizar la conexión de federación de grid.
 ** Si uno o más bloques de inquilinos aún tienen habilitada la replicación entre grid, se muestra un error.
 +
-image::../media/grid-federation-remove-permission-error.png[se muestra un mensaje de error si el inquilino tiene cgr activado para un depósito]
+image:grid-federation-remove-permission-error.png["se muestra un mensaje de error si el inquilino tiene cgr activado para un depósito"]
 
 +
 Puede realizar una de las siguientes acciones:

@@ -15,7 +15,7 @@ La segmentación de objetos es el proceso de dividir un objeto en una colección
 
 Cuando un objeto se procesa en el sistema StorageGRID, el servicio LDR divide el objeto en segmentos y crea un contenedor de segmentos que enumera la información de encabezado de todos los segmentos como contenido.
 
-image::../media/object_segmentation_diagram.gif[Flujo de trabajo de segmentación de objetos]
+image:object_segmentation_diagram.gif["Flujo de trabajo de segmentación de objetos"]
 
 Al recuperar un contenedor de segmentos, el servicio LDR reúne el objeto original de sus segmentos y devuelve el objeto al cliente.
 

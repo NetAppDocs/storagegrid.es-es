@@ -60,7 +60,7 @@ Al iniciar sesión como root, la petición de datos cambia de `$` a `#`.
 Aparece el menú principal.
 
 +
-image::../media/change_ip_tool_main_menu.png[Captura de pantalla que muestra la pantalla de bienvenida de la herramienta Change IP]
+image:change_ip_tool_main_menu.png["Captura de pantalla que muestra la pantalla de bienvenida de la herramienta Change IP"]
 
 . Si lo desea, seleccione *1* para elegir los nodos que desea actualizar. A continuación, seleccione una de las siguientes opciones:
 +
@@ -111,7 +111,7 @@ Los cambios se mantienen hasta que se borran o se aplican.
 +
 ** *5*: Muestra las ediciones en la salida que está aislada para mostrar sólo el elemento cambiado. Los cambios se resaltan en verde (adiciones) o rojo (eliminaciones), como se muestra en la salida de ejemplo:
 +
-image::../media/change_ip_tool_edit_ip_mask_sample_output.png[captura de pantalla descrita por el texto circundante]
+image:change_ip_tool_edit_ip_mask_sample_output.png["captura de pantalla descrita por el texto circundante"]
 
 ** *6*: Muestra las ediciones en salida que muestran la configuración completa. Los cambios se resaltan en verde (adiciones) o rojo (eliminaciones).
 +
@@ -128,13 +128,13 @@ Esta validación garantiza que no se violen las reglas para las redes Grid, Admi
 En este ejemplo, la validación devolvió errores.
 
 +
-image::../media/change_ip_tool_validate_sample_error_messages.gif[captura de pantalla descrita por el texto circundante]
+image:change_ip_tool_validate_sample_error_messages.gif["captura de pantalla descrita por el texto circundante"]
 
 +
 En este ejemplo, se ha aprobado la validación.
 
 +
-image::../media/change_ip_tool_validate_sample_passed_messages.gif[captura de pantalla descrita por el texto circundante]
+image:change_ip_tool_validate_sample_passed_messages.gif["captura de pantalla descrita por el texto circundante"]
 
 . Una vez aprobada la validación, elija una de las siguientes opciones:
 +

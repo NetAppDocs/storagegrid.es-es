@@ -62,7 +62,7 @@ Como primer paso, acceda a la página Rolling reboot y seleccione los nodos que 
 . Revise el estado de conexión y los iconos de alerta en la columna *Nombre del nodo*.
 +
 
-TIP: No se puede reiniciar un nodo si está desconectado de la cuadrícula. Las casillas de verificación están desactivadas para los nodos con estos iconos: image:../media/icon_alarm_gray_administratively_down.png["icono de signo de interrogación gris"] O image:../media/icon_alarm_blue_unknown.png["icono de signo de interrogación azul"].
+TIP: No puedes reiniciar un nodo si está desconectado de la grid. Las casillas de selección están desactivadas para los nodos con estos iconos: image:icon_alarm_gray_administratively_down.png["icono de signo de interrogación gris"] o image:icon_alarm_blue_unknown.png["icono de signo de interrogación azul"].
 
 . Si algún nodo tiene alertas activas, revise la lista de alertas en la columna *Resumen de alertas*.
 +

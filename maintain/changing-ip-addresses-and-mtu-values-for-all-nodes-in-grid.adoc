@@ -60,7 +60,7 @@ Al iniciar sesión como root, la petición de datos cambia de `$` a `#`.
 Aparece el menú principal. De forma predeterminada, el `Selected nodes` campo se establece en `all`.
 
 +
-image::../media/change_ip_tool_main_menu.png[Captura de pantalla que muestra la pantalla de bienvenida de la herramienta Change IP]
+image:change_ip_tool_main_menu.png["Captura de pantalla que muestra la pantalla de bienvenida de la herramienta Change IP"]
 
 . En el menú principal, seleccione *2* para editar la información de IP/máscara de subred, puerta de enlace y MTU para todos los nodos.
 +
@@ -85,7 +85,7 @@ Los cambios se mantienen hasta que se borran o se aplican.
 +
 ** *5*: Muestra las ediciones en la salida que está aislada para mostrar sólo el elemento cambiado. Los cambios se resaltan en verde (adiciones) o rojo (eliminaciones), como se muestra en la salida de ejemplo:
 +
-image::../media/change_ip_tool_edit_ip_mask_sample_output.png[captura de pantalla descrita por el texto circundante]
+image:change_ip_tool_edit_ip_mask_sample_output.png["captura de pantalla descrita por el texto circundante"]
 
 ** *6*: Muestra las ediciones en salida que muestran la configuración completa. Los cambios se resaltan en verde (adiciones) o rojo (eliminaciones).
 +
@@ -102,13 +102,13 @@ Esta validación garantiza que no se violen las reglas para la red de grid, como
 En este ejemplo, la validación devolvió errores.
 
 +
-image::../media/change_ip_tool_validate_sample_error_messages.gif[captura de pantalla descrita por el texto circundante]
+image:change_ip_tool_validate_sample_error_messages.gif["captura de pantalla descrita por el texto circundante"]
 
 +
 En este ejemplo, se ha aprobado la validación.
 
 +
-image::../media/change_ip_tool_validate_sample_passed_messages.gif[captura de pantalla descrita por el texto circundante]
+image:change_ip_tool_validate_sample_passed_messages.gif["captura de pantalla descrita por el texto circundante"]
 
 . Después de la validación, seleccione *10* para aplicar la nueva configuración de red.
 . Seleccione *Stage* para aplicar los cambios la próxima vez que se reinicien los nodos.

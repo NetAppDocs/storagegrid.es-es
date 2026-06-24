@@ -34,7 +34,7 @@ NOTE: El script repair-data está obsoleto y se eliminará en una versión futur
 == Utilice `repair-data` el script para restaurar datos de objetos
 
 .Antes de empezar
-* Ha confirmado que el nodo de almacenamiento recuperado tiene un estado de conexión de *Conectado*image:../media/icon_alert_green_checkmark.png["icono de alerta verde marca de verificación"] en la pestaña *Nodos* > *Descripción general* en el Administrador de cuadrícula.
+* Has comprobado que el nodo de almacenamiento recuperado presenta un estado de conexión *Conectado* image:icon_alert_green_checkmark.png["icono de alerta verde marca de verificación"] en la pestaña *Nodos* > *Resumen* del Grid Manager.
 
 
 .Acerca de esta tarea

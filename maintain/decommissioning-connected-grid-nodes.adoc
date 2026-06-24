@@ -30,7 +30,7 @@ NOTE: La retirada no se iniciará si uno o más volúmenes están sin conexión 
 
 NOTE: Si uno o más volúmenes quedan sin conexión mientras existe una decomisión en curso, el proceso de decomiso se completa una vez que estos volúmenes vuelvan a estar en línea.
 
-* Todos los nodos de la cuadrícula tienen un estado normal (verde)image:../media/icon_alert_green_checkmark.png["icono de marca de verificación verde"]. Si ve uno de estos iconos en la columna *Estado*, debe intentar resolver el problema:
+* Todos los nodos de la red tienen un estado Normal (verde) image:icon_alert_green_checkmark.png["icono de marca de verificación verde"]. Si ves uno de estos iconos en la columna *Health*, debes intentar resolver el problema:
 +
 [cols="1a,1a,3a"]
 |===
@@ -38,7 +38,7 @@ NOTE: Si uno o más volúmenes quedan sin conexión mientras existe una decomisi
 
 
  a| 
-image:../media/icon_alarm_yellow_notice.gif["icono cuadrado amarillo"]
+image:icon_alarm_yellow_notice.gif["icono cuadrado amarillo"]
  a| 
 Amarillo
  a| 
@@ -47,7 +47,7 @@ Aviso
 
 
  a| 
-image:../media/icon_alert_yellow_minor.png["icono de diamante naranja claro"]
+image:icon_alert_yellow_minor.png["icono de diamante naranja claro"]
  a| 
 Naranja claro
  a| 
@@ -56,7 +56,7 @@ Menor
 
 
  a| 
-image:../media/icon_alert_orange_major.png["icono de diamante naranja oscuro"]
+image:icon_alert_orange_major.png["icono de diamante naranja oscuro"]
  a| 
 Naranja oscuro
  a| 
@@ -65,7 +65,7 @@ Importante
 
 
  a| 
-image:../media/icon_alert_red_critical.png["icono rojo x"]
+image:icon_alert_red_critical.png["icono rojo x"]
  a| 
 Rojo
  a| 

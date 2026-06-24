@@ -25,7 +25,7 @@ NOTE: Cuando StorageGRID decomisiona el sitio, desactivará automáticamente tod
 . Edite o elimine cada regla no utilizada:
 +
 ** Para editar una regla, vaya a la página de reglas de ILM y actualice todas las ubicaciones con un perfil de código de borrado o un pool de almacenamiento que haga referencia al sitio. A continuación, vuelva a *Paso 4 (Eliminar referencias de ILM)*.
-** Para eliminar una regla, seleccione el icono de papelera image:../media/icon_trash_can.png["CAN de papelera de iconos"]y seleccione *OK*.
+** Para eliminar una regla, selecciona el icono de la papelera image:icon_trash_can.png["CAN de papelera de iconos"] y selecciona *OK*.
 +
 
 NOTE: Debe eliminar la regla *Hacer 2 copias* antes de poder retirar un sitio.

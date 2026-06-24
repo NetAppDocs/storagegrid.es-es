@@ -52,7 +52,7 @@ En el ejemplo siguiente se muestran los resultados de búsqueda de metadatos de 
 
 NOTE: La siguiente captura de pantalla es un ejemplo. Los resultados variarán en función de la versión de StorageGRID.
 
-image::../media/object_lookup_results.png[Resultados de la búsqueda de objetos]
+image:object_lookup_results.png["Resultados de la búsqueda de objetos"]
 
 .Información relacionada
 link:../s3/index.html["USE LA API DE REST DE S3"]

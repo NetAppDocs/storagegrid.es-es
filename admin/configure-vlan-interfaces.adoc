@@ -85,7 +85,7 @@ En la tabla, se enumeran las interfaces disponibles para todos los nodos de admi
 Por ejemplo, es posible que desee conectar una VLAN a la interfaz de red de cliente (eth2) para un nodo de puerta de enlace y un nodo de administrador.
 
 +
-image::../media/vlan-create-parent-interfaces.png[Interfaces principales del asistente de creación de VLAN]
+image:vlan-create-parent-interfaces.png["Interfaces principales del asistente de creación de VLAN"]
 
 . Seleccione *continuar*.
 
@@ -99,7 +99,7 @@ image::../media/vlan-create-parent-interfaces.png[Interfaces principales del asi
 +
 ** Si necesita cambiar el ID de VLAN o la descripción, seleccione *introducir detalles de VLAN* en la parte superior de la página.
 ** Si necesita cambiar una interfaz padre, seleccione *elegir interfaces padre* en la parte superior de la página o seleccione *anterior*.
-** Si necesita eliminar una interfaz principal, seleccione la papelera image:../media/icon-trash-can.png["icono de papelera"].
+** Si necesitas eliminar una interfaz principal, selecciona el icono de la papelera image:icon-trash-can.png["icono de papelera"].
 
 
 . Seleccione *Guardar*.

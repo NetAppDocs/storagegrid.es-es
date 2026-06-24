@@ -85,7 +85,7 @@ Para ver los detalles de una regla de ILM, incluido el diagrama de retención y 
 . Selecciona *ILM* > *Reglas*.
 . Seleccione el nombre de la regla cuyos detalles desea ver. Ejemplo:
 +
-image::../media/ilm_rule_details_page.png[Página de detalles de reglas de ILM]
+image:ilm_rule_details_page.png["Página de detalles de reglas de ILM"]
 
 
 
@@ -174,9 +174,9 @@ NOTE: Como la consola se puede personalizar, es posible que la pestaña ILM no e
 
 . Supervise las métricas en la pestaña ILM.
 +
-Puede seleccionar el signo de interrogación image:../media/icon_nms_question.png["icono de signo de interrogación"]para ver una descripción de los elementos en la pestaña ILM.
+Puedes hacer clic en el signo de interrogación image:icon_nms_question.png["icono de signo de interrogación"] para ver una descripción de los elementos de la pestaña ILM.
 
 +
-image::../media/ilm_metrics_on_dashboard.png[Métricas de ILM en la consola de Grid Manager]
+image:ilm_metrics_on_dashboard.png["Métricas de ILM en la consola de Grid Manager"]
 
 

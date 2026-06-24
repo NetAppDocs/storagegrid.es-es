@@ -35,7 +35,7 @@ Aparecerá la página Reglas de alerta.
 Se muestra el cuadro de diálogo Editar regla. Este ejemplo muestra una regla de alerta predeterminada: Los campos Nombre único, Descripción y Acciones recomendadas están desactivados y no se pueden editar.
 
 +
-image::../media/alert_rules_edit_rule.png[Alertas > Editar regla]
+image:alert_rules_edit_rule.png["Alertas > Editar regla"]
 
 . Active o desactive la casilla de verificación *Enabled* para determinar si esta regla de alerta está actualmente habilitada.
 +
@@ -86,7 +86,7 @@ De manera opcional, las acciones recomendadas que se deben realizar cuando se ac
 NOTE: Si desea restaurar una condición para una regla de alerta predeterminada editada a su valor original, seleccione los tres puntos a la derecha de la condición modificada.
 
 +
-image::../media/alert_rules_edit_revert_to_default.png[Reglas de alerta: Revertir una condición editada al valor predeterminado]
+image:alert_rules_edit_revert_to_default.png["Reglas de alerta: Revertir una condición editada al valor predeterminado"]
 
 +
 

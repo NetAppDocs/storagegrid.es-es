@@ -21,7 +21,7 @@ La clonación de cuenta es necesaria para link:grid-federation-what-is-cross-gri
 
 El diagrama de flujo de trabajo muestra los pasos que realizarán los administradores de grid y los inquilinos permitidos para configurar el clon de cuenta. Estos pasos se realizan después de la link:grid-federation-create-connection.html["la conexión de federación de grid está configurada"].
 
-image::../media/grid-federation-account-clone-workflow.png[flujo de trabajo del clon de cuenta]
+image:grid-federation-account-clone-workflow.png["flujo de trabajo del clon de cuenta"]
 
 
 

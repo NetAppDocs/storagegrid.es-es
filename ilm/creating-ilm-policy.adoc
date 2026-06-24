@@ -194,7 +194,7 @@ Simule una política sobre objetos de prueba antes de activar la política y apl
 CAUTION: Revise cualquier cambio en la ubicación de los objetos existentes replicados y con código de borrado. El cambio de la ubicación de un objeto existente podría dar lugar a problemas temporales de recursos cuando se evalúan e implementan las nuevas colocaciones.
 
 .Resultados
-Cualquier modificación de las reglas de la política se reflejará en los resultados de Simulation y mostrará la nueva coincidencia y la anterior. La ventana Simular política retiene los objetos que ha probado hasta que seleccione *Borrar todo* o el icono Eliminar image:../media/icon-x-to-remove.png["Icono Eliminar"]para cada objeto de la lista Resultados de Simulation.
+Cualquier modificación en las reglas de la política se reflejará en los resultados de la simulación y mostrará la nueva coincidencia y la coincidencia anterior. La ventana Simular policy conserva los objetos que probaste hasta que selecciones *Clear all* o el icono de eliminar image:icon-x-to-remove.png["Icono Eliminar"] para cada objeto en la lista de resultados de la simulación.
 
 .Información relacionada
 link:simulating-ilm-policy-examples.html["Ejemplo de simulaciones de políticas de ILM"]

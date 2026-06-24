@@ -21,7 +21,7 @@ La pestaña Overview se muestra para todos los nodos.
 
 La sección Información de Nodo del separador Visión General muestra información básica sobre el nodo.
 
-image::../media/nodes_page_overview_tab.png[Pestaña Nodes Page Overview]
+image:nodes_page_overview_tab.png["Pestaña Nodes Page Overview"]
 
 La información general de un nodo incluye lo siguiente:
 
@@ -31,13 +31,13 @@ La información general de un nodo incluye lo siguiente:
 * *ID*: Identificador único del nodo, que también se conoce como UUID.
 * *Estado de conexión*: Uno de los tres estados. Se muestra el icono del estado más grave.
 +
-** *Desconocido* image:../media/icon_alarm_blue_unknown.png["icono de signo de interrogación azul"]: Por una razón desconocida, el nodo no está conectado a la red, o uno o más servicios están inesperadamente apagados. Por ejemplo, se ha perdido la conexión de red entre los nodos, está desconectada o un servicio está inactivo. La alerta *no se puede comunicar con el nodo* también puede activarse. Es posible que otras alertas estén activas también. Esta situación requiere atención inmediata.
+** *Desconocido* image:icon_alarm_blue_unknown.png["icono de signo de interrogación azul"]: Por una razón desconocida, el nodo no está conectado a la red o uno o más servicios están inactivos de forma inesperada. Por ejemplo, se ha perdido la conexión de red entre los nodos, hay un corte de corriente o un servicio está inactivo. También podría activarse la alerta *Unable to communicate with node*. Es posible que haya otras alertas activas. Esta situación requiere atención inmediata.
 +
 
 NOTE: Es posible que un nodo aparezca como desconocido durante las operaciones de apagado gestionadas. Puede ignorar el estado Desconocido en estos casos.
 
-** *Administrativamente abajo* image:../media/icon_alarm_gray_administratively_down.png["icono de questionmark gris"]: El nodo no está conectado a la red por una razón esperada. Por ejemplo, el nodo o los servicios del nodo se han apagado correctamente, el nodo se está reiniciando o se está actualizando el software. Una o más alertas también pueden estar activas.
-** *Conectado* image:../media/icon_alert_green_checkmark.png["icono de alerta verde marca de verificación"]: El nodo está conectado a la red.
+** *Fuera de servicio por motivos administrativos* image:icon_alarm_gray_administratively_down.png["icono de questionmark gris"]: el nodo no está conectado a la grid por un motivo previsto. Por ejemplo, el nodo, o los servicios en el nodo, se ha apagado de forma controlada, el nodo se está reiniciando o el software se está actualizando. También puede haber una o más alertas activas.
+** *Conectado* image:icon_alert_green_checkmark.png["icono de alerta verde marca de verificación"]: el nodo está conectado a la red.
 
 
 * *Almacenamiento utilizado*: Sólo para nodos de almacenamiento.
@@ -57,6 +57,6 @@ NOTE: Es posible que un nodo aparezca como desconocido durante las operaciones d
 
 La sección Alertas del separador Visión General muestra cualquier link:monitoring-system-health.html#view-current-and-resolved-alerts["las alertas que afectan actualmente a este nodo que no se han silenciado"]. Seleccione el nombre de la alerta para ver detalles adicionales y acciones recomendadas.
 
-image::../media/nodes_page_alerts_table.png[Tabla de alertas de página nodos]
+image:nodes_page_alerts_table.png["Tabla de alertas de página nodos"]
 
 También se incluyen alertas para link:monitoring-system-health.html#monitor-node-connection-states["estados de conexión de nodo"].

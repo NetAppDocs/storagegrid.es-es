@@ -30,7 +30,7 @@ Como primer paso, acceda al asistente de creación de grupos.
 . Seleccione *Administración de acceso* > *Grupos*.
 . Si su cuenta de inquilino tiene el permiso *Usar conexión de federación de grid*, confirme que aparece un banner azul, indicando que los nuevos grupos creados en esta cuadrícula se clonarán en el mismo inquilino en la otra cuadrícula de la conexión. Si este banner no aparece, puede que haya iniciado sesión en la cuadrícula de destino del inquilino.
 +
-image::../media/grid-federation-tenant-group-banner.png[Imagen del banner azul en la página Grupos de la cuadrícula de origen de inquilino]
+image:grid-federation-tenant-group-banner.png["Imagen del banner azul en la página Grupos de la cuadrícula de origen de inquilino"]
 
 . Seleccione *Crear grupo*.
 

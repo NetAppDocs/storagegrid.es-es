@@ -37,7 +37,7 @@ Al iniciar sesión como root, la petición de datos cambia de `$` a `#`.
 ** Si nunca ha ejecutado un trabajo de reparación de datos, la salida es `No job found`. No es necesario reiniciar ningún trabajo de reparación.
 ** Si el trabajo de reparación de datos se ejecutó anteriormente o se está ejecutando actualmente, la salida muestra información para la reparación. Cada reparación tiene un ID de reparación único.
 +
-image::../media/repair-data-status.png[Reparar el estado de los datos]
+image:repair-data-status.png["Reparar el estado de los datos"]
 
 
 

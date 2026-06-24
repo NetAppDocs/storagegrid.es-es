@@ -64,7 +64,7 @@ El grado de almacenamiento, _incluye todos los grados de almacenamiento_, incluy
 NOTE: Se le advertirá si agrega más de una entrada con diferentes grados de almacenamiento para un sitio.
 
 +
-Para eliminar una entrada, seleccione el icono Eliminar image:../media/icon-x-to-remove.png["icono de eliminar"].
+Para eliminar una entrada, selecciona el icono de eliminación image:icon-x-to-remove.png["icono de eliminar"].
 
 . Cuando esté satisfecho con sus selecciones, seleccione *Guardar*.
 +

@@ -24,7 +24,7 @@ En los nodos de almacenamiento, cada sitio y toda la cuadrícula, la pestaña al
 
 NOTE: Cuando un nodo no está conectado a la cuadrícula, como durante la actualización o un estado desconectado, es posible que algunas métricas no estén disponibles o se excluyan de los totales de la ubicación y la cuadrícula. Después de que un nodo se vuelva a conectar a la cuadrícula, espere varios minutos para que los valores se estabilicen.
 
-image::../media/nodes_storage_node_storage_tab.png[Nodos > nodo de almacenamiento > pestaña Storage]
+image:nodes_storage_node_storage_tab.png["Nodos > Nodo de almacenamiento > pestaña Almacenamiento"]
 
 
 
@@ -32,7 +32,7 @@ image::../media/nodes_storage_node_storage_tab.png[Nodos > nodo de almacenamient
 
 Para todos los nodos, la ficha almacenamiento contiene detalles de los dispositivos de disco y volúmenes del nodo. Para los nodos de almacenamiento, la tabla Object Stores proporciona información sobre cada volumen de almacenamiento.
 
-image::../media/nodes_page_storage_tables.png[Tablas de almacenamiento de páginas de nodos]
+image:nodes_page_storage_tables.png["Tablas de almacenamiento de páginas de nodos"]
 
 .Información relacionada
 link:monitoring-storage-capacity.html["Supervise la capacidad de almacenamiento"]

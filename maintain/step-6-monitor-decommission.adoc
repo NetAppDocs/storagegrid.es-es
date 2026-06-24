@@ -33,7 +33,7 @@ Es posible que cada nodo de puerta de enlace o nodo de administrador solo requie
 .Pasos
 . Tan pronto como se haya generado un nuevo paquete de recuperación, descargue el archivo.
 +
-image::../media/decommission_site_step_6_recovery_package.png[Paquete de recuperación del paso 6 del desmantelamiento del sitio]
+image:decommission_site_step_6_recovery_package.png["Paquete de recuperación del paso 6 del desmantelamiento del sitio"]
 
 +
 
@@ -56,14 +56,14 @@ NOTE: El archivo del paquete de recuperación debe estar protegido porque contie
 El movimiento de datos se inició cuando se activó la nueva política de ILM en el paso 3 (revisar política de ILM). El movimiento de datos se realizará durante todo el procedimiento de retirada de servicio.
 
 +
-image::../media/decommission_site_step_6_data_movement.png[Retirada del movimiento de datos del paso 6 del sitio]
+image:decommission_site_step_6_data_movement.png["Retirada del movimiento de datos del paso 6 del sitio"]
 
 . En la sección progreso de nodos de la página, supervise el progreso del procedimiento de retirada a medida que se quitan los nodos.
 +
 Cuando se elimina un nodo de almacenamiento, cada nodo pasa por una serie de etapas. Aunque la mayoría de estas fases se dan de forma rápida o incluso imperceptible, es posible que tenga que esperar días o incluso semanas para que se completen otras fases, en función de la cantidad de datos necesarios que se vayan a mover. Se necesita tiempo adicional para gestionar datos codificados de borrado y volver a evaluar la ILM.
 
 +
-image::../media/decommission_site_step_6_storage_node.png[Decomisión del nodo de almacenamiento Paso 6 del sitio]
+image:decommission_site_step_6_storage_node.png["Decomisión del nodo de almacenamiento Paso 6 del sitio"]
 
 +
 Si va a supervisar el progreso de una retirada de sitios conectados, consulte esta tabla para comprender las etapas de retirada de un nodo de almacenamiento:
@@ -213,7 +213,7 @@ Minutos
 +
 ** Durante el paso *reparar Cassandra*, StorageGRID realiza las reparaciones necesarias a los clústeres Cassandra que permanecen en la cuadrícula. Estas reparaciones pueden tardar varios días o más, según la cantidad de nodos de almacenamiento que haya en el grid.
 +
-image::../media/decommission_site_step_6_repair_cassandra.png[Retirar sitio Paso 6 reparar Cassandra]
+image:decommission_site_step_6_repair_cassandra.png["Retirar sitio Paso 6 reparar Cassandra"]
 
 ** Durante el paso *Desactivar perfiles de EC y Eliminar grupos de almacenamiento*, se realizan los siguientes cambios de ILM:
 +
@@ -227,13 +227,13 @@ NOTE: El pool de almacenamiento Todos los nodos de almacenamiento (StorageGRID 1
 
 ** Finalmente, durante el paso *Eliminar configuración*, cualquier referencia restante al sitio y sus nodos se quita del resto de la cuadrícula.
 +
-image::../media/decommission_site_step_6_remove_configuration.png[Retirar la configuración del sitio Paso 6 Quitar]
+image:decommission_site_step_6_remove_configuration.png["Retirar la configuración del sitio Paso 6 Quitar"]
 
 
 
 . Una vez completado el procedimiento de retirada, la página Sitio de retirada muestra un mensaje de éxito y el sitio eliminado ya no se muestra.
 +
-image::../media/decommission_site_success_message.png[Mensaje de retirada del sitio correcta]
+image:decommission_site_success_message.png["Mensaje de retirada del sitio correcta"]
 
 
 

@@ -29,6 +29,6 @@ El gráfico muestra las tasas de procesamiento y recuperación de S3 de todo su 
 El gráfico muestra las tasas de ingesta y recuperación del nodo. En la pestaña también se incluyen métricas para recuentos de objetos, consultas de metadatos y operaciones de verificación.
 
 +
-image::../media/nodes_storage_node_objects_help.png[Captura de pantalla de nodos > _Storage Node_ > objetos > Ayuda del atributo]
+image:nodes_storage_node_objects_help.png["captura de pantalla de Nodes > _Storage Node_ > Objects > attribute help"]
 
 

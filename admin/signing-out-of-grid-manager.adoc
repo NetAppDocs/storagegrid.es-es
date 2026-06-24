@@ -16,7 +16,7 @@ Cuando haya terminado de trabajar con Grid Manager, debe cerrar sesión para ase
 .Pasos
 . Seleccione su nombre de usuario en la esquina superior derecha.
 +
-image::../media/sign_out.png[Enlace para cerrar sesión]
+image:sign_out.png["Enlace para cerrar sesión"]
 
 . Selecciona *Cerrar sesión*.
 +

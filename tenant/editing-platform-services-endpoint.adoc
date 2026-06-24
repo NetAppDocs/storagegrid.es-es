@@ -34,7 +34,7 @@ Aparece la página de detalles del extremo.
 NOTE: No puede cambiar el URN de un punto final después de crear el punto final.
 
 +
-.. Para cambiar el nombre mostrado del punto final, seleccione el icono de edición image:../media/icon_edit_tm.png["Icono Editar"].
+.. Para cambiar el nombre que se muestra para el punto final, selecciona el icono de edición image:icon_edit_tm.png["Icono Editar"].
 .. Según sea necesario, cambie el URI.
 .. Según sea necesario, cambie el tipo de autenticación.
 +

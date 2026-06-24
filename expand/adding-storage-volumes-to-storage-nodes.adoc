@@ -39,7 +39,7 @@ Para los nodos de almacenamiento del dispositivo, el nombre mundial de cada disc
 Para ayudarle a interpretar las estadísticas de lectura y escritura del disco relacionadas con los puntos de montaje del volumen, la primera parte del nombre que aparece en la columna *Nombre* de la tabla dispositivos de disco (es decir, _sdc_, _sdd_, _sde_, etc.) coincide con el valor que se muestra en la columna *dispositivo* de la tabla de volúmenes.
 
 +
-image::../media/nodes_page_storage_tables_vol_expansion.png[Tablas de almacenamiento de páginas de nodos]
+image:nodes_page_storage_tables_vol_expansion.png["Tablas de almacenamiento de páginas de nodos"]
 
 . Siga las instrucciones para que su plataforma añada volúmenes de almacenamiento nuevos al nodo de almacenamiento.
 +

@@ -66,7 +66,7 @@ NOTE: No puedes eliminar ni modificar la región predeterminada en la pestaña *
 +
 Debe utilizar este nombre de región exacto como elemento de solicitud LocationConstraint al crear el bloque de S3 correspondiente.
 
-.. Para eliminar una región no utilizada, seleccione el icono Suprimir image:../media/icon-x-to-remove.png["Icono Eliminar"].
+.. Para eliminar una región que no se utilice, selecciona el icono de eliminación image:icon-x-to-remove.png["Icono Eliminar"].
 +
 Aparece un mensaje de error si intenta eliminar una región que se utiliza actualmente en cualquier política (activa o inactiva).
 

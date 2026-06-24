@@ -24,7 +24,7 @@ Es posible que deba retirar un nodo que no esté conectado actualmente a la cuad
 
 
 .Acerca de esta tarea
-Puede identificar los nodos desconectados buscando el icono azul Desconocido image:../media/icon_alarm_blue_unknown.png["Icono desconocido"]o el icono gris hacia abajo administrativamente image:../media/icon_alarm_gray_administratively_down.png["Icono administrativamente caído"]en la columna *Estado*.
+Puedes identificar los nodos desconectados buscando el icono azul Unknown image:icon_alarm_blue_unknown.png["Icono desconocido"] o el icono gris Administratively down image:icon_alarm_gray_administratively_down.png["Icono administrativamente caído"] en la columna *Health*.
 
 Antes de retirar el servicio de un nodo desconectado, tenga en cuenta lo siguiente:
 

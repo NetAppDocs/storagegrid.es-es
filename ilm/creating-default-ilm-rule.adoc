@@ -23,7 +23,7 @@ La regla predeterminada es la última regla que se debe evaluar en una política
 
 En esta política de ejemplo, la primera regla se aplica solo a los objetos que pertenecen a test-tenant-1. La regla predeterminada, que es última, se aplica a los objetos que pertenecen a todas las demás cuentas de arrendatario.
 
-image::../media/ilm_policies_page_default_rule.png[Regla predeterminada de la página de políticas de ILM]
+image:ilm_policies_page_default_rule.png["Regla predeterminada de la página de políticas de ILM"]
 
 Al crear la regla predeterminada, tenga en cuenta estos requisitos:
 

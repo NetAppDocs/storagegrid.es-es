@@ -19,7 +19,7 @@ La replicación entre grid es la replicación automática de objetos entre bucke
 
 El diagrama de flujo de trabajo resume los pasos para configurar la replicación entre redes entre depósitos en dos redes.
 
-image::../media/grid-federation-cgr-workflow.png[Flujo de trabajo de replicación entre grid]
+image:grid-federation-cgr-workflow.png["Flujo de trabajo de replicación entre grid"]
 
 
 
@@ -50,7 +50,7 @@ Puede configurar la replicación entre redes para que se produzca en una direcci
 
 Si habilita la replicación entre cuadrículas para un depósito en una sola cuadrícula, los objetos agregados a ese depósito (el depósito de origen) se replican en el depósito correspondiente en la otra cuadrícula (el depósito de destino).  Sin embargo, los objetos agregados al depósito de destino no se replican en el origen.  En la figura, la replicación entre redes está habilitada para `my-bucket` de la cuadrícula 1 a la cuadrícula 2, pero no está habilitado en la otra dirección.
 
-image::../media/grid-federation-cross-grid-replication-one-direction.png[imagen que muestra una conexión de federación de cuadrícula en una dirección]
+image:grid-federation-cross-grid-replication-one-direction.png["imagen que muestra una conexión de federación de cuadrícula en una dirección"]
 
 
 
@@ -58,7 +58,7 @@ image::../media/grid-federation-cross-grid-replication-one-direction.png[imagen 
 
 Si habilita la replicación entre grid para el mismo bucket en ambos grids, los objetos agregados a cada bucket se replican en el otro grid. En la figura, la replicación entre grid está activada en `my-bucket` ambas direcciones.
 
-image::../media/grid-federation-cross-grid-replication.png[imagen que muestra la replicación en una dirección en comparación con la replicación en ambas direcciones]
+image:grid-federation-cross-grid-replication.png["imagen que muestra la replicación en una dirección en comparación con la replicación en ambas direcciones"]
 
 
 
@@ -137,7 +137,7 @@ Cuando un cliente S3 elimina un objeto de un bloque que tiene habilitada la repl
 
 En la figura, *Replicar marcadores de eliminación* se configuró en *Sí* cuandolink:../tenant/grid-federation-manage-cross-grid-replication.html["se ha activado la replicación entre grid"] .  Las solicitudes de eliminación del depósito de origen que incluyen un ID de versión no eliminan objetos del depósito de destino.  Las solicitudes de eliminación del depósito de origen que no incluyen un ID de versión parecen eliminar objetos en el depósito de destino.
 
-image::../media/grid-federation-cross-grid-replication-delete.png[imagen que muestra la supresión del cliente de réplica en ambas cuadrículas]
+image:grid-federation-cross-grid-replication-delete.png["imagen que muestra la supresión del cliente de réplica en ambas cuadrículas"]
 
 
 NOTE: Si desea mantener las eliminaciones de objetos sincronizadas entre las cuadrículas, cree las correspondientes link:../s3/create-s3-lifecycle-configuration.html["Configuraciones de ciclo de vida de S3"] para los depósitos en ambas cuadrículas.

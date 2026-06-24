@@ -88,7 +88,7 @@ Puede resolver la alerta *anulación de Marca de agua de sólo lectura baja* act
 . Para cada sitio de la cuadrícula, expanda la lista de nodos.
 . Revise los valores porcentuales que se muestran en la columna *datos de objeto utilizados* para cada nodo de almacenamiento de cada sitio.
 +
-image::../media/nodes_page_object_data_used_with_alert.png[Página Nodes donde se muestran los datos del objeto que se usan para 3 SNS]
+image:nodes_page_object_data_used_with_alert.png["Página Nodes donde se muestran los datos del objeto que se usan para 3 SNS"]
 
 . Siga el paso apropiado:
 +

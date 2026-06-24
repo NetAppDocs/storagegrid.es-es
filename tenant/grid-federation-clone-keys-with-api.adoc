@@ -39,7 +39,7 @@ Puede clonar sus propias claves de acceso si necesita acceder a los mismos depó
 `POST /org/users/current-user/replicate-s3-access-key`
 
 +
-image::../media/grid-federation-post-current-user-replicate.png[Punto final POSTERIOR para replicar la propia clave de acceso]
+image:grid-federation-post-current-user-replicate.png["Punto final POSTERIOR para replicar la propia clave de acceso"]
 
 . Seleccione *probar*.
 . En el cuadro de texto *body*, reemplace las entradas de ejemplo de *accessKey* y *secretAccessKey* con los valores del archivo *.csv* que descargó.
@@ -47,7 +47,7 @@ image::../media/grid-federation-post-current-user-replicate.png[Punto final POST
 Asegúrese de conservar las comillas dobles alrededor de cada cadena.
 
 +
-image::../media/grid-federation-clone-access-key.png[La API de tenant Manager introduce valores para clonar la clave de acceso]
+image:grid-federation-clone-access-key.png["La API de tenant Manager introduce valores para clonar la clave de acceso"]
 
 . Si la clave caduca, reemplace la entrada de ejemplo para *Expires* con la fecha y hora de vencimiento como una cadena en formato ISO 8601 data-time (por ejemplo, `2024-02-28T22:46:33-08:00`). Si la clave no caduca, introduzca *null* como valor para la entrada *Expires* (o elimine la línea *Expires* y la coma anterior).
 . Seleccione *Ejecutar*.
@@ -80,7 +80,7 @@ Puede clonar las claves de acceso de otro usuario si necesita acceder a los mism
 `POST /org/users/{userId}/replicate-s3-access-key`
 
 +
-image::../media/grid-federation-post-other-user.png[Punto final POSTERIOR para replicar la clave de acceso de otro usuario]
+image:grid-federation-post-other-user.png["Punto final POSTERIOR para replicar la clave de acceso de otro usuario"]
 
 . Seleccione *probar*.
 . En el cuadro de texto *UserId*, pega el ID de usuario que copiaste.

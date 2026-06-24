@@ -57,7 +57,7 @@ Ubicaciones
 Cree una copia codificada con borrado al 2+1 mediante tres ubicaciones
 
 |===
-image::../media/policy_2_rule_1_ec_objects_adv_filtering.png[Regla de ILM 1 por ejemplo 2: Utilice EC para todos los objetos de más de 1 MB]
+image:policy_2_rule_1_ec_objects_adv_filtering.png["Regla de ILM 1 por ejemplo 2: Utilice EC para todos los objetos de más de 1 MB"]
 
 
 

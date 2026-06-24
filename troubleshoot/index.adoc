@@ -386,7 +386,7 @@ Si no puede resolver el problema por su cuenta, póngase en contacto con el sopo
 
 [cols="1a,2a,4a"]
 |===
-| image:../media/feature_checkmark.gif["marca de verificación"] | Elemento | Notas 
+| image:feature_checkmark.gif["marca de verificación"] | Elemento | Notas 
 
 
  a| 

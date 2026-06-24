@@ -32,11 +32,11 @@ NOTE: La creación de punto final fallará si los servicios de plataforma no est
 
 Si se produce un error cuando StorageGRID intenta llegar a un punto final existente, se muestra un mensaje en el panel de control del gestor de inquilinos.
 
-image::../media/tenant_dashboard_endpoint_error.png[mensaje de error de punto final en el panel de control]
+image:tenant_dashboard_endpoint_error.png["mensaje de error de punto final en el panel de control"]
 
-Los usuarios de arrendatarios pueden ir a la página endpoints para revisar el mensaje de error más reciente de cada extremo y determinar cuánto tiempo ha ocurrido el error. La columna *último error* muestra el mensaje de error más reciente para cada extremo e indica cuánto tiempo se produjo el error. Los errores que incluyen image:../media/icon_alert_red_critical.png["Icono X rojo"]el icono se han producido en los últimos 7 días.
+Los usuarios de Tenant pueden acceder a la página Endpoints para consultar el mensaje de error más reciente de cada endpoint y determinar cuánto tiempo hace que ocurrió el error. La columna *Last error* muestra el mensaje de error más reciente de cada endpoint e indica cuánto tiempo hace que ocurrió el error. Los errores que incluyen el icono image:icon_alert_red_critical.png["Icono X rojo"] ocurrieron en los últimos 7 días.
 
-image::../media/endpoints_last_error.png[Captura de pantalla de la página endpoints que muestra la columna Last error]
+image:endpoints_last_error.png["Captura de pantalla de la página endpoints que muestra la columna Last error"]
 
 
 NOTE: Algunos mensajes de error en la columna *último error* pueden incluir un identificador de registro entre paréntesis. Un administrador de grid o soporte técnico puede usar este ID para encontrar información más detallada sobre el error en bycast.log.
@@ -120,7 +120,7 @@ Para ver la tasa de fallos de solicitud para servicios de plataforma:
 . Seleccione *_site_* > *Servicios de plataforma*.
 . Vea el gráfico de tasa de errores de solicitud.
 +
-image::../media/nodes_page_site_level_platform_services.gif[Página nodos Servicios de plataforma a nivel de sitio]
+image:nodes_page_site_level_platform_services.gif["Página nodos Servicios de plataforma a nivel de sitio"]
 
 
 

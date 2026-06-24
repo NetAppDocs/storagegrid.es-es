@@ -28,7 +28,7 @@ El panel de control de Tenant Manager permite a los usuarios inquilinos monitore
 
 El valor mostrado encima del gráfico de barras es una suma del espacio utilizado para todos los cubos o contenedores del arrendatario. Si se especificó el número máximo de gigabytes, terabytes o petabytes disponibles para el inquilino cuando se creó la cuenta, también se muestra la cantidad de cuota utilizada y restante.
 
-image::../media/tenant_dashboard_with_buckets.png[Consola del administrador de inquilinos]
+image:tenant_dashboard_with_buckets.png["Consola del administrador de inquilinos"]
 
 
 

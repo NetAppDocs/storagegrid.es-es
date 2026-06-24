@@ -68,7 +68,7 @@ Si la ficha *Descripción general* incluye una entrada para *grupos ha*, el nodo
 
 En este ejemplo, el nodo de administración principal se ha añadido a dos grupos de alta disponibilidad. Este nodo es actualmente la interfaz activa del grupo de clientes de administración y una interfaz de respaldo del grupo de clientes de FabricPool.
 
-image::../media/ha_group_primary_interface.png[Interfaz primaria del grupo DE ALTA DISPONIBILIDAD]
+image:ha_group_primary_interface.png["Interfaz primaria del grupo DE ALTA DISPONIBILIDAD"]
 
 
 

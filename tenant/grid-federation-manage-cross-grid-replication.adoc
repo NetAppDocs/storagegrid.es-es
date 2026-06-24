@@ -19,7 +19,7 @@ Si a su cuenta de inquilino se le asignó el permiso *Usar conexión de federaci
 
 El diagrama de flujo de trabajo resume los pasos que se realizan para configurar la replicación entre cuadrículas entre depósitos en dos cuadrículas.  Estos pasos se describen con más detalle a continuación del diagrama.
 
-image::../media/grid-federation-cgr-workflow.png[Flujo de trabajo de replicación entre grid]
+image:grid-federation-cgr-workflow.png["Flujo de trabajo de replicación entre grid"]
 
 
 
@@ -86,7 +86,7 @@ Debe realizar estos pasos antes de agregar cualquier objeto a cada bloque.
 *** *Sí* (por defecto): Se agrega un marcador de borrado al depósito de origen y se replica en el cubo de destino.
 *** *No*: Se agrega un marcador de eliminación al depósito de origen, pero no se replica en el depósito de destino.
 +
-image::../media/grid-federation-cross-grid-replication-client-deletes.png[imagen que muestra la supresión del cliente de réplica en ambas cuadrículas]
+image:grid-federation-cross-grid-replication-client-deletes.png["imagen que muestra la supresión del cliente de réplica en ambas cuadrículas"]
 
 +
 

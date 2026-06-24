@@ -25,7 +25,7 @@ Una conexión de federación de grid es una conexión bidireccional, de confianz
 
 El diagrama de flujo de trabajo resume los pasos para configurar una conexión de federación de grid entre dos cuadrículas.
 
-image::../media/grid-federation-workflow.png[Flujo de trabajo de conexión de federación de grid]
+image:grid-federation-workflow.png["Flujo de trabajo de conexión de federación de grid"]
 
 
 
@@ -85,7 +85,7 @@ Cuando se configura una conexión de federación de grid, StorageGRID genera aut
 * Certificados de servidor y cliente para autenticar y cifrar la información enviada desde la cuadrícula 2 a la cuadrícula 1
 
 
-image::../media/grid-federation-certificates.png[Certificados de federación de grid]
+image:grid-federation-certificates.png["Certificados de federación de grid"]
 
 Por defecto, los certificados son válidos durante 730 días (2 años). Cuando estos certificados se acercan a su fecha de vencimiento, la alerta *Vencimiento del certificado de federación de grid* le recuerda que debe rotar los certificados, lo que puede hacer con el Administrador de grid.
 

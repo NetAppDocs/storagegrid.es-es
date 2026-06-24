@@ -20,7 +20,7 @@ Debe crear al menos un sitio cuando instale StorageGRID. Puede crear sitios adic
 Agregue tantos sitios adicionales como sea necesario para la topología de la cuadrícula. Puede agregar hasta 16 sitios.
 
 +
-image::../media/3_gmi_installer_sites_page.gif[Esta imagen se explica por el texto circundante.]
+image:3_gmi_installer_sites_page.gif["Esta imagen se explica por el texto circundante."]
 
 . Haga clic en *Siguiente*.
 

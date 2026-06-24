@@ -75,7 +75,7 @@ StorageGRID le impide desactivar un perfil de código de borrado si se cumple al
 No puede desactivar un perfil de código de borrado si se utiliza en alguna regla de ILM. En el ejemplo, se utiliza el perfil de centro de datos 2+1 1 en al menos una regla de ILM.
 
 +
-image::../media/ec_profile_used_in_ilm_rule.png[Perfil de EC utilizado en la regla de ILM]
+image:ec_profile_used_in_ilm_rule.png["Perfil de EC utilizado en la regla de ILM"]
 
 . Si el perfil se utiliza en una regla de ILM, siga estos pasos:
 +

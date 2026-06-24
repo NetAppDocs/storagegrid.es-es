@@ -15,7 +15,7 @@ Antes de poder usar un servidor de gestión de claves (KMS) para proteger los da
 
 El diagrama de flujo muestra los pasos de alto nivel para usar un KMS para proteger los datos de StorageGRID en los nodos de los dispositivos.
 
-image::../media/kms_configuration_overview.png[Flujo de trabajo de configuración de KM, que se describe en el siguiente texto]
+image:kms_configuration_overview.png["Flujo de trabajo de configuración de KM, que se describe en el siguiente texto"]
 
 El diagrama de flujo muestra la configuración de KMS y la configuración de dispositivos que se producen en paralelo; sin embargo, puede configurar los servidores de gestión de claves antes o después de habilitar el cifrado de nodos para los nodos de la aplicación nuevos, en función de sus requisitos.
 

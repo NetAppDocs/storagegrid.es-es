@@ -30,7 +30,7 @@ video::2eea81c5-8323-417f-b0a0-b1ff008506c1[panopto]
 Aparecerá la página Reglas de alerta.
 
 +
-image::../media/alert_rules_page.png[Página Reglas de alerta]
+image:alert_rules_page.png["Página Reglas de alerta"]
 
 . Revise la información en la tabla de reglas de alertas:
 +
@@ -51,9 +51,9 @@ Condiciones
  a| 
 Expresiones Prometheus que determinan cuándo se activa esta alerta. Puede activarse una alerta en uno o más de los siguientes niveles de gravedad, pero no es necesario utilizar una condición para cada gravedad.
 
-** *Crítico* image:../media/icon_alert_red_critical.png["Alerta de icono Rojo crítico"]: Existe una condición anormal que ha detenido las operaciones normales de un nodo o servicio StorageGRID. Debe abordar el problema subyacente de inmediato. Se pueden producir interrupciones del servicio y pérdida de datos si no se resuelve el problema.
-** *Mayor* image:../media/icon_alert_orange_major.png["Alerta de icono naranja principal"]: Existe una condición anormal que está afectando las operaciones actuales o acercándose al umbral de una alerta crítica. Debe investigar las alertas principales y solucionar cualquier problema subyacente para garantizar que esta condición no detenga el funcionamiento normal de un nodo o servicio de StorageGRID.
-** *Menor* image:../media/icon_alert_yellow_minor.png["Alerta de icono menor amarilla"]: El sistema funciona normalmente, pero existe una condición anormal que podría afectar la capacidad del sistema para funcionar si continúa. Debe supervisar y resolver alertas menores que no borren por sí solas para asegurarse de que no den lugar a un problema más grave.
+** *Crítico* image:icon_alert_red_critical.png["Alerta de icono Rojo crítico"]: Existe una situación anómala que ha detenido las operaciones normales de un nodo o servicio de StorageGRID. Debes solucionar el problema subyacente de inmediato. Si no resuelves el problema, podría haber interrupciones en el servicio y pérdida de datos.
+** *Grave* image:icon_alert_orange_major.png["Alerta de icono naranja principal"]: existe una situación anómala que está afectando el funcionamiento actual o que se está acercando al umbral de una alerta crítica. Deberías investigar las alertas graves y resolver cualquier problema subyacente para asegurarte de que la situación anómala no detenga el funcionamiento normal de un nodo o servicio de StorageGRID.
+** *Menor* image:icon_alert_yellow_minor.png["Alerta de icono menor amarilla"]: El sistema está funcionando con normalidad, pero existe una condición anómala que podría afectar la capacidad del sistema para operar si continúa. Deberías supervisar y resolver las alertas menores que no se resuelvan por sí solas para asegurarte de que no resulten en un problema más grave.
 
 
 

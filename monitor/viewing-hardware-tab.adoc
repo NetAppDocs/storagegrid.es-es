@@ -18,13 +18,13 @@ NOTE: Grid Manager se actualiza con cada versión, por lo que es posible que no 
 
 La pestaña hardware se muestra para todos los nodos.
 
-image::../media/nodes_page_hardware_tab_graphs.png[Página Nodes pestaña hardware]
+image:nodes_page_hardware_tab_graphs.png["Página Nodes pestaña hardware"]
 
 Para mostrar un intervalo de tiempo diferente, seleccione uno de los controles situados encima del gráfico o gráfico. Puede visualizar la información disponible para intervalos de 1 hora, 1 día, 1 semana o 1 mes. También puede establecer un intervalo personalizado, que le permite especificar intervalos de fecha y hora.
 
 Para ver detalles sobre el uso de la CPU y el uso de memoria, coloque el cursor sobre cada gráfico.
 
-image::../media/nodes_page_memory_usage_details.png[Página nodos > hardware > Detalles de uso de memoria]
+image:nodes_page_memory_usage_details.png["Página de nodos > Hardware > Detalles del uso de la memoria"]
 
 Si el nodo es un nodo de dispositivo, en esta pestaña también se incluye una sección con más información sobre el hardware del dispositivo.
 
@@ -45,7 +45,7 @@ La sección Información de nodos de la ficha Descripción general muestra infor
 ** *Clic*: Uno de los puertos 10, 25 o 100 GbE físicos del aparato. Estos puertos se pueden unir y conectar a la red de cuadrícula de StorageGRID (eth0) y a la red de cliente (eth2).
 ** * mtc*: Uno de los puertos físicos de 1 GbE del aparato. Una o varias interfaces mtc se enlazan para formar la interfaz de red de administración de StorageGRID (eth1). Puede dejar disponibles otras interfaces mtc para la conectividad local temporal de un técnico en el centro de datos.
 +
-image::../media/nodes_page_overview_tab_extended.png[Descripción general de la página nodos ampliada]
+image:nodes_page_overview_tab_extended.png["Descripción general de la página nodos ampliada"]
 
 +
 En la sección Alerts de la pestaña Overview se muestran las alertas activas para el nodo.
@@ -56,7 +56,7 @@ En la sección Alerts de la pestaña Overview se muestran las alertas activas pa
 +
 .. Consulte los gráficos de utilización de CPU y memoria para determinar los porcentajes de uso de CPU y memoria a lo largo del tiempo. Para mostrar un intervalo de tiempo diferente, seleccione uno de los controles situados encima del gráfico o gráfico. Puede visualizar la información disponible para intervalos de 1 hora, 1 día, 1 semana o 1 mes. También puede establecer un intervalo personalizado, que le permite especificar intervalos de fecha y hora.
 +
-image::../media/nodes_page_hardware_tab_graphs.png[Gráficos de hardware]
+image:nodes_page_hardware_tab_graphs.png["Gráficos de hardware"]
 
 .. Desplácese hacia abajo para ver la tabla de componentes del aparato. En esta tabla se incluye información como el nombre de modelo del dispositivo, los nombres de las controladoras, los números de serie y las direcciones IP, y el estado de cada componente.
 +
@@ -67,7 +67,7 @@ NOTE: Algunos campos, como el hardware de informática y IP de BMC Controller, a
 Los componentes de las bandejas de almacenamiento y las bandejas de expansión si forman parte de la instalación se muestran en una tabla aparte debajo de la tabla del dispositivo.
 
 +
-image::../media/nodes_page_hardware_tab_for_appliance.png[Página nodos ficha hardware para el dispositivo]
+image:nodes_page_hardware_tab_for_appliance.png["Página nodos ficha hardware para el dispositivo"]
 
 +
 [cols="1a,2a"]
@@ -375,12 +375,12 @@ Si un estado no es nominal, revise las alertas actuales. También puede usar Sys
 El gráfico tráfico de red proporciona un resumen del tráfico de red general.
 
 +
-image::../media/nodes_page_network_traffic_graph.png[Gráfico de tráfico de red de la página Nodes]
+image:nodes_page_network_traffic_graph.png["Gráfico de tráfico de red de la página Nodes"]
 
 +
 .. Revise la sección Network interfaces.
 +
-image::../media/nodes_page_network_interfaces.png[Nodes Page Network interfaces]
+image:nodes_page_network_interfaces.png["Nodes Page Network interfaces"]
 
 +
 Utilice la siguiente tabla con los valores de la columna *velocidad* de la tabla interfaces de red para determinar si los puertos de red 10/25-GbE del dispositivo se han configurado para utilizar el modo activo/backup o el modo LACP.
@@ -468,16 +468,16 @@ Consulte https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/conf
 Las tablas de recepción y transmisión muestran cuántos bytes y paquetes se han recibido y enviado a través de cada red, así como otras métricas de recepción y transmisión.
 
 +
-image::../media/nodes_page_network_communication.png[Comunicación de red de página nodos]
+image:nodes_page_network_communication.png["Comunicación de red de página nodos"]
 
 
 
 . Seleccione *almacenamiento* para ver gráficos que muestran los porcentajes de almacenamiento utilizados a lo largo del tiempo para los metadatos de objetos y datos de objetos, así como información sobre dispositivos de disco, volúmenes y almacenes de objetos.
 +
-image::../media/nodes_page_storage_used_object_data.png[Almacenamiento usado: Datos de objetos]
+image:nodes_page_storage_used_object_data.png["Almacenamiento usado: Datos de objetos"]
 
 +
-image::../media/storage_used_object_metadata.png[Almacenamiento utilizado: Metadatos de objetos]
+image:storage_used_object_metadata.png["Almacenamiento utilizado: Metadatos de objetos"]
 
 +
 .. Desplácese hacia abajo para ver la cantidad de almacenamiento disponible para cada volumen y almacén de objetos.
@@ -488,7 +488,7 @@ El nombre a nivel mundial de cada disco coincide con el identificador a nivel mu
 Para ayudarle a interpretar las estadísticas de lectura y escritura del disco relacionadas con los puntos de montaje del volumen, la primera parte del nombre que aparece en la columna *Nombre* de la tabla dispositivos de disco (es decir, _sdc_, _sdd_, _sde_, etc.) coincide con el valor que se muestra en la columna *dispositivo* de la tabla de volúmenes.
 
 +
-image::../media/nodes_page_storage_tables.png[Tablas de almacenamiento de páginas de nodos]
+image:nodes_page_storage_tables.png["Tablas de almacenamiento de páginas de nodos"]
 
 
 
@@ -512,7 +512,7 @@ La sección Información de nodos de la ficha Descripción general muestra infor
 ** *Clic*: Uno de los puertos 10, 25 o 100 GbE físicos del aparato. Estos puertos se pueden unir y conectar a la red de cuadrícula de StorageGRID (eth0) y a la red de cliente (eth2).
 ** * mtc*: Uno de los puertos 1-GbE físicos del aparato. Una o más interfaces mtc se vinculan para formar la interfaz de red de administración (eth1). Puede dejar disponibles otras interfaces mtc para la conectividad local temporal de un técnico en el centro de datos.
 +
-image::../media/nodes_page_overview_tab_services_appliance.png[Pestaña Nodes de la página Overview para el dispositivo de servicios]
+image:nodes_page_overview_tab_services_appliance.png["Pestaña Nodes de la página Overview para el dispositivo de servicios"]
 
 
 
@@ -523,11 +523,11 @@ En la sección Alerts de la pestaña Overview se muestran las alertas activas pa
 +
 .. Consulte los gráficos de utilización de CPU y memoria para determinar los porcentajes de uso de CPU y memoria a lo largo del tiempo. Para mostrar un intervalo de tiempo diferente, seleccione uno de los controles situados encima del gráfico o gráfico. Puede visualizar la información disponible para intervalos de 1 hora, 1 día, 1 semana o 1 mes. También puede establecer un intervalo personalizado, que le permite especificar intervalos de fecha y hora.
 +
-image::../media/nodes_page_hardware_tab_graphs_services_appliance.png[Página nodos gráficos de la pestaña hardware para el dispositivo de servicios]
+image:nodes_page_hardware_tab_graphs_services_appliance.png["Página nodos gráficos de la pestaña hardware para el dispositivo de servicios"]
 
 .. Desplácese hacia abajo para ver la tabla de componentes del aparato. Esta tabla contiene información, como el nombre del modelo, número de serie, versión de firmware de la controladora y el estado de cada componente.
 +
-image::../media/nodes_page_hardware_tab_services_appliance.png[Página nodos Ficha hardware para el dispositivo de servicios]
+image:nodes_page_hardware_tab_services_appliance.png["Página nodos Ficha hardware para el dispositivo de servicios"]
 
 +
 [cols="1a,2a"]
@@ -624,12 +624,12 @@ Si un estado no es nominal, revise las alertas actuales.
 El gráfico tráfico de red proporciona un resumen del tráfico de red general.
 
 +
-image::../media/nodes_page_network_traffic_graph.png[Gráfico de tráfico de red de la página Nodes]
+image:nodes_page_network_traffic_graph.png["Gráfico de tráfico de red de la página Nodes"]
 
 +
 .. Revise la sección Network interfaces.
 +
-image::../media/nodes_page_hardware_tab_network_services_appliance.png[Página nodos ficha hardware Network Services Appliance]
+image:nodes_page_hardware_tab_network_services_appliance.png["Página nodos ficha hardware Network Services Appliance"]
 
 +
 Utilice la siguiente tabla con los valores de la columna *velocidad* de la tabla interfaces de red para determinar si los cuatro puertos de red 40/100-GbE del dispositivo estaban configurados para utilizar el modo activo/backup o el modo LACP.
@@ -714,12 +714,12 @@ Activa/Backup
 Las tablas de recepción y transmisión muestran cuántos bytes y paquetes se han recibido y enviado a través de cada red, así como otras métricas de recepción y transmisión.
 
 +
-image::../media/nodes_page_network_communication.png[Comunicación de red de página nodos]
+image:nodes_page_network_communication.png["Comunicación de red de página nodos"]
 
 
 
 . Seleccione *almacenamiento* para ver información sobre los dispositivos de disco y los volúmenes del dispositivo de servicios.
 +
-image::../media/nodes_page_storage_tab_services_appliance.png[Página nodos ficha almacenamiento Servicios dispositivo]
+image:nodes_page_storage_tab_services_appliance.png["Página nodos ficha almacenamiento Servicios dispositivo"]
 
 

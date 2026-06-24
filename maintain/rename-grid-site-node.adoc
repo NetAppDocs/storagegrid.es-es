@@ -108,7 +108,7 @@ Siga estos pasos para introducir un nombre mostrado para cada elemento que desee
 +
 Consulte link:../maintain/rename-grid-site-node-overview.html["Cambie el nombre de cuadrícula, sitios y nodos"]para aprender los requisitos de nomenclatura.
 
-. Para eliminar cualquier elemento que no desee cambiar de nombre, seleccione image:../media/icon-x-to-remove.png["Icono X."] en la columna *Eliminar de la lista*.
+. Para eliminar los elementos que no quieras renombrar, selecciona image:icon-x-to-remove.png["Icono X."] en la columna *Eliminar de la lista*.
 +
 Si no va a proponer un nuevo nombre para un elemento, debe eliminarlo de la tabla.
 
@@ -132,12 +132,12 @@ El *Rename preview* incluye todos los elementos que se mostraron para el paso *P
 +
 A medida que escribe, el texto se resalta donde se encuentre en los nombres de la izquierda.
 
-. Seleccione  esta opción image:../media/icon-x-to-remove.png["Icono X."] para eliminar cualquier elemento que no desee cambiar de nombre con esta herramienta.
+. Selecciona image:icon-x-to-remove.png["Icono X."] para eliminar los elementos que no quieras renombrar con esta herramienta.
 +
-Por ejemplo, supongamos que desea cambiar el nombre de todos los nodos que contienen la cadena `Data-Center-1`, pero no desea cambiar el nombre del `Data-Center-1` sitio en sí. Seleccione  esta opción image:../media/icon-x-to-remove.png["Icono X."] para eliminar el sitio de la vista previa de cambio de nombre.
+Por ejemplo, supón que quieres cambiar el nombre de todos los nodos que contienen la cadena `Data-Center-1`, pero no quieres cambiar el nombre del sitio `Data-Center-1` en sí. Selecciona image:icon-x-to-remove.png["Icono X."] para quitar el sitio de la vista previa del cambio de nombre.
 
 +
-image::../media/rename-bulk-rename-tool.png[Herramienta de cambio de nombre masivo anterior]
+image:rename-bulk-rename-tool.png["Herramienta de cambio de nombre masivo anterior"]
 
 . En el campo *New string*, ingresa la cadena de reemplazo que deseas usar en su lugar. Por ejemplo, introduzca *DC1*.
 +
@@ -147,10 +147,10 @@ Consulte link:../maintain/rename-grid-site-node-overview.html["Cambie el nombre 
 Al introducir la cadena de sustitución, los nombres de la izquierda se actualizan, de modo que puede verificar que los nuevos nombres sean correctos.
 
 +
-image::../media/rename-bulk-rename-tool-after.png[Herramienta de cambio de nombre masivo después de]
+image:rename-bulk-rename-tool-after.png["Herramienta de cambio de nombre masivo después de"]
 
 . Cuando esté satisfecho con los nombres mostrados en la vista previa, seleccione *Agregar nombres* para agregar los nombres a la tabla para el paso *Proponer nuevos nombres*.
-. Realice los cambios adicionales necesarios o seleccione image:../media/icon-x-to-remove.png["Icono X."] para eliminar los elementos que no desee cambiar de nombre.
+. Realiza los cambios adicionales que sean necesarios o selecciona image:icon-x-to-remove.png["Icono X."] para eliminar los elementos que no quieras renombrar.
 . Cuando esté listo para cambiar el nombre de todos los elementos de la tabla, seleccione *Cambiar nombre*.
 +
 Se muestra un mensaje de éxito. Los nuevos nombres mostrados se utilizan ahora en Grid Manager.
@@ -196,7 +196,7 @@ Puede revertir una cuadrícula, un sitio o un nodo cuyo nombre ha cambiado de no
 ====
 .Vuelva a los nombres del sistema de forma individual
 --
-.. Copie el nombre original del sistema de cada elemento y péguelo en el campo *Nombre para mostrar*, o seleccione image:../media/icon-x-to-remove.png["Icono X."] para eliminar cualquier elemento que no desee revertir.
+.. Copia el nombre original del sistema de cada elemento y pégalo en el campo *Nombre para mostrar*, o selecciona image:icon-x-to-remove.png["Icono X."] para eliminar los elementos que no quieras restaurar.
 +
 Para revertir un nombre para mostrar, el nombre del sistema debe aparecer en el campo *Nombre para mostrar*, pero el nombre no distingue entre mayúsculas y minúsculas.
 
@@ -213,7 +213,7 @@ Aparece un mensaje de éxito. Los nombres mostrados para estos elementos ya no s
 .. En el campo *cadena existente*, ingrese la cadena de nombre mostrado que desea reemplazar.
 .. En el campo *New string*, ingresa la cadena de nombre del sistema que deseas usar en su lugar.
 .. Seleccione *Agregar nombres* para agregar los nombres a la tabla para el paso *Proponer nuevos nombres*.
-.. Confirme que cada entrada en el campo *Nombre para mostrar* coincide con el nombre del campo *Nombre del sistema*. Realice los cambios o seleccione image:../media/icon-x-to-remove.png["Icono X."]eliminar los elementos que no desee revertir.
+.. Comprueba que cada entrada del campo *Nombre para mostrar* coincida con el nombre del campo *Nombre del sistema*. Realiza los cambios que desees o selecciona image:icon-x-to-remove.png["Icono X."] para eliminar los elementos que no quieras revertir.
 +
 Para revertir un nombre para mostrar, el nombre del sistema debe aparecer en el campo *Nombre para mostrar*, pero el nombre no distingue entre mayúsculas y minúsculas.
 

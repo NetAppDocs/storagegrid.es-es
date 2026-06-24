@@ -77,7 +77,7 @@ Dado que la regla 1 de ILM se aplica a todas las versiones del objeto, debe crea
 
 Para crear una regla que utilice el tiempo no corriente como tiempo de referencia, seleccione *Sí* para la pregunta, ¿Aplicar esta regla solo a versiones de objetos anteriores (en bloques S3 con control de versiones activado)? En el paso 1 (introduzca detalles) del asistente Create an ILM Rule. Cuando selecciona *Sí*, _Tiempo no corriente_ se selecciona automáticamente para el tiempo de referencia y no puede seleccionar un tiempo de referencia diferente.
 
-image::../media/ilm-rule-apply-only-to-older-object-verions.png[Aplique la regla de ILM solo a las versiones de objetos más antiguas (hora no actual).]
+image:ilm-rule-apply-only-to-older-object-verions.png["Aplique la regla de ILM solo a las versiones de objetos más antiguas (hora no actual)."]
 
 En este ejemplo, sólo se almacenan dos copias de las versiones no corrientes, y esas copias se almacenarán durante dos años.
 

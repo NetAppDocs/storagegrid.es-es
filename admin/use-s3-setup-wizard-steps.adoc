@@ -26,7 +26,7 @@ Puede utilizar el asistente de configuración de S3 para configurar StorageGRID 
 . Inicie sesión en Grid Manager mediante una link:web-browser-requirements.html["navegador web compatible"].
 . Si el banner del asistente de configuración *FabricPool y S3* aparece en el panel de control, seleccione el enlace en el banner. Si el banner ya no aparece, seleccione el icono de ayuda en la barra de encabezado del Administrador de cuadrículas y seleccione *FabricPool y el asistente de configuración S3*.
 +
-image::../media/help_menu.png[menú ayuda]
+image:help_menu.png["menú ayuda"]
 
 . En la sección de aplicación S3 de la página del asistente de configuración de FabricPool y S3, seleccione *Configurar ahora*.
 
@@ -409,7 +409,7 @@ En el paso de descarga de datos, puede descargar uno o dos archivos para guardar
 . Si seleccionó *Crear clave de acceso S3 de usuario root automáticamente*, realice una o ambas de las siguientes acciones:
 +
 ** Seleccione *Descargar claves de acceso* para descargar un `.csv` archivo que contenga el nombre de la cuenta de inquilino, el ID de clave de acceso y la clave de acceso secreta.
-** Seleccione el icono de copia (image:../media/icon_tenant_copy_url.png["icono de copia"]) para copiar el ID de clave de acceso y la clave de acceso secreta en el portapapeles.
+** Selecciona el icono de copiar (image:icon_tenant_copy_url.png["icono de copia"]) para copiar el ID de la clave de acceso y la clave secreta de acceso en el portapapeles.
 
 
 . Seleccione *Descargar valores de configuración* para descargar un `.txt` archivo que contenga la configuración para el punto final del equilibrador de carga, el inquilino, el depósito y el usuario raíz.

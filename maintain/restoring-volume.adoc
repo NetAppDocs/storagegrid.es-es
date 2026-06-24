@@ -20,7 +20,7 @@ Puede restaurar los datos de objetos para un volumen de almacenamiento con error
 ** link:../maintain/remounting-and-reformatting-storage-volumes-manual-steps.html["Volver a montar y volver a formatear los volúmenes de almacenamiento (pasos manuales)"]
 
 
-* Ha confirmado que el nodo de almacenamiento donde está restaurando objetos tiene un estado de conexión de *Conectado*image:../media/icon_alert_green_checkmark.png["icono de alerta verde marca de verificación"] en la pestaña *Nodos* > *Descripción general* en el Administrador de cuadrícula.
+* Has comprobado que el nodo de almacenamiento en el que estás restaurando los objetos presenta un estado de conexión *Conectado* image:icon_alert_green_checkmark.png["icono de alerta verde marca de verificación"] en la pestaña *Nodos* > *Resumen* del Grid Manager.
 * Ha confirmado lo siguiente:
 +
 ** No hay una expansión de grid para agregar un nodo de almacenamiento en curso.

@@ -68,7 +68,7 @@ Si la cuenta de inquilino tiene el permiso *Use grid federation connection* y es
 
 . Edite la configuración del grupo según sea necesario.  Referirse alink:creating-groups-for-s3-tenant.html["Cree grupos para un inquilino de S3"] para obtener detalles sobre qué ingresar.
 +
-.. En la sección Descripción general, cambie el nombre mostrado seleccionando el nombre o el icono de edición image:../media/icon_edit_tm.png["Icono Editar"].
+.. En la sección «Descripción general», cambia el nombre que se muestra seleccionando el nombre o el icono de edición image:icon_edit_tm.png["Icono Editar"].
 .. En la pestaña *Permisos de grupo*, actualice los permisos y seleccione *Guardar cambios*.
 .. En la pestaña *Política de grupo*, realice los cambios y seleccione *Guardar cambios*.
 +
@@ -80,7 +80,7 @@ Opcionalmente, seleccione una política de grupo S3 diferente o ingrese la caden
 +
 .. Seleccione la ficha Usuarios.
 +
-image::../media/manage_users.png[Gestionar usuarios]
+image:manage_users.png["Gestionar usuarios"]
 
 .. Selecciona *Añadir usuarios*.
 .. Seleccione los usuarios existentes que desea agregar y seleccione *Agregar usuarios*.

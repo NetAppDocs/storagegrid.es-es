@@ -34,7 +34,7 @@ Es posible que el nodo no esté disponible durante un breve periodo de tiempo cu
 .Pasos
 . En vCenter, añada un nuevo adaptador de red (tipo VMXNEL3) a una máquina virtual de nodo de administración y nodo de puerta de enlace. Seleccione las casillas de verificación *Connected* y *Connect at Power On*.
 +
-image::../media/vcenter.png[VCenter]
+image:vcenter.png["VCenter"]
 
 . Use SSH para iniciar sesión en el nodo de administrador o en el nodo de puerta de enlace.
 . Utilice esta opción `ip link show` para confirmar que se ha detectado la nueva interfaz de red ens256.

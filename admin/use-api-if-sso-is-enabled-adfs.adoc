@@ -58,7 +58,7 @@ Cuando se le solicite, escriba valores para los siguientes argumentos:
 ** La dirección de StorageGRID
 ** El ID de cuenta de inquilino, si desea acceder a la API de gestión de inquilinos.
 +
-image::../media/sso_auth_python_script_adfs.png[Script de autenticación SSO para AD FS]
+image:sso_auth_python_script_adfs.png["Script de autenticación SSO para AD FS"]
 
 +
 El token de autorización de StorageGRID se proporciona en la salida. Ahora puede utilizar el token para otras solicitudes, de forma similar a cómo utilizaría la API si no se estuviera utilizando SSO.

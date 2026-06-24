@@ -36,7 +36,7 @@ CAUTION: Guarde la contraseña de aprovisionamiento en una ubicación segura.  E
 El sistema muestra un banner verde de éxito cuando se completa el cambio de la clave de acceso de aprovisionamiento.
 
 +
-image::../media/change_provisioning_passphrase_success.png[Se ha cambiado el mensaje correcto para el aprovisionamiento de la clave de acceso]
+image:change_provisioning_passphrase_success.png["Se ha cambiado el mensaje correcto para el aprovisionamiento de la clave de acceso"]
 
 . Seleccione *paquete de recuperación*.
 . Ingrese la nueva contraseña de aprovisionamiento para descargar el nuevo paquete de recuperación.

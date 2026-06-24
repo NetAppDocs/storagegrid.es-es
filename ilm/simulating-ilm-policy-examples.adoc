@@ -28,7 +28,7 @@ En este ejemplo, la *política de ILM de ejemplo* se está simulando contra los 
 
 Después de simular la política, confirme que cada objeto ha coincidido con la regla correcta.
 
-image::../media/simulate_policy_screen.png[Simular resultados de políticas]
+image:simulate_policy_screen.png["Simular resultados de políticas"]
 
 En este ejemplo:
 
@@ -57,7 +57,7 @@ En este ejemplo, se está simulando la política *Demo*. Esta política, que est
 Aparecen los resultados de Simulation, que muestran que el `Havok.png` objeto fue emparejado por la regla *PNGs*.
 
 +
-image::../media/simulate_reorder_rules_pngs_result.png[Ejemplo 2: Reordenar reglas al simular una política de ILM]
+image:simulate_reorder_rules_pngs_result.png["Ejemplo 2: Reordenar reglas al simular una política de ILM"]
 
 +
 Sin embargo, `Havok.png` estaba destinado a probar la regla *X-MEN*.
@@ -75,7 +75,7 @@ Sin embargo, `Havok.png` estaba destinado a probar la regla *X-MEN*.
 Los objetos probados anteriormente se vuelven a evaluar con la directiva actualizada y se muestran los nuevos resultados de simulación. En el ejemplo, la columna Regla coincidente muestra que el `Havok.png` objeto ahora coincide con la regla de metadatos X-men, como se esperaba. La columna Coincidencia anterior muestra que la regla NGs coincide con el objeto en la simulación anterior.
 
 +
-image::../media/simulate_reorder_rules_correct_result.png[Ejemplo 2: Reordenar reglas al simular una política de ILM]
+image:simulate_reorder_rules_correct_result.png["Ejemplo 2: Reordenar reglas al simular una política de ILM"]
 
 
 
@@ -87,7 +87,7 @@ Este ejemplo muestra cómo simular una política, corregir una regla en la polí
 
 En este ejemplo, se está simulando la política *Demo*. Esta política está destinada a buscar objetos que tienen `series=x-men` metadatos de usuario. Sin embargo, se han producido resultados inesperados al simular esta política con respecto `Beast.jpg` al objeto. En lugar de coincidir con la regla de metadatos de X-men, el objeto coincide con la regla predeterminada, dos copias de dos centros de datos.
 
-image::../media/simulate_results_for_object_wrong_metadata.png[Ejemplo 3: Corrección de una regla al simular una política de ILM]
+image:simulate_results_for_object_wrong_metadata.png["Ejemplo 3: Corrección de una regla al simular una política de ILM"]
 
 Cuando un objeto de prueba no coincide con la regla esperada de la directiva, debe examinar cada regla de la directiva y corregir cualquier error.
 
@@ -108,6 +108,6 @@ Como ejemplo, supongamos que los metadatos para la regla X-men se ingresaron com
 En este ejemplo, la regla X-men corregida ahora coincide con el `Beast.jpg` objeto basado en los `series=x-men` metadatos del usuario, como se esperaba.
 
 +
-image::../media/simulate_results_for_object_corrected_metadata.png[Ejemplo 3: Corrección de una regla al simular una política de ILM]
+image:simulate_results_for_object_corrected_metadata.png["Ejemplo 3: Corrección de una regla al simular una política de ILM"]
 
 

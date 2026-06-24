@@ -43,7 +43,7 @@ CAUTION: Cualquier operación de API que realice mediante la página web de Docu
 .Pasos
 . En el encabezado de Grid Manager, selecciona el icono de ayuda y selecciona *Documentación de API*.
 +
-image::../media/help_menu.png[Menú Ayuda]
+image:help_menu.png["Menú Ayuda"]
 
 . Para realizar una operación con la API privada, seleccione *Ir a documentación de API privada* en la página API de administración de StorageGRID.
 +
@@ -55,7 +55,7 @@ Al expandir una operación de API, puede ver las acciones HTTP disponibles, como
 
 . Seleccione una acción HTTP para ver los detalles de la solicitud, incluida la dirección URL del extremo, una lista de los parámetros necesarios o opcionales, un ejemplo del cuerpo de la solicitud (cuando sea necesario) y las posibles respuestas.
 +
-image::../media/swagger_example.png[Ejemplo de interfaz de usuario de Swagger]
+image:swagger_example.png["Ejemplo de interfaz de usuario de Swagger"]
 
 . Determine si la solicitud requiere parámetros adicionales, como un ID de grupo o de usuario. A continuación, obtenga estos valores. Es posible que primero deba emitir una solicitud de API diferente para obtener la información que necesita.
 . Determine si necesita modificar el cuerpo de solicitud de ejemplo. Si es así, puede seleccionar *Modelo* para conocer los requisitos de cada campo.

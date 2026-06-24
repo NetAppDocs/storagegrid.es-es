@@ -17,7 +17,7 @@ La pestaña Load Balancer se muestra para los nodos de administrador y de puerta
 
 Si no se está ejecutando ninguna E/S a través del servicio de Equilibrador de Carga, o no hay ningún equilibrador de carga configurado, los gráficos muestran “No hay datos”.
 
-image::../media/nodes_page_load_balancer_tab.png[Pestaña Nodes Page Load Balancer]
+image:nodes_page_load_balancer_tab.png["Pestaña Nodes Page Load Balancer"]
 
 
 

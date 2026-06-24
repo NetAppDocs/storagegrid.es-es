@@ -27,19 +27,19 @@ CAUTION: Si está realizando una retirada del sitio desconectada, ILM no podrá 
 .Pasos
 . En el paso 2 (Ver detalles), revise las advertencias relacionadas con el sitio que seleccionó para quitar.
 +
-image::../media/decommission_site_step_2_site_warnings.png[Advertencias de retirada del sitio paso 2]
+image:decommission_site_step_2_site_warnings.png["Advertencias de retirada del sitio paso 2"]
 
 +
 Aparecerá una advertencia en los siguientes casos:
 
 +
 ** El sitio incluye un nodo de puerta de enlace. Si S3 clientes se están conectando actualmente a este nodo, debe configurar un nodo equivalente en otro sitio. Asegúrese de que los clientes pueden conectarse al nodo de repuesto antes de continuar con el procedimiento de retirada.
-** El sitio contiene una mezcla de nodos conectados (image:../media/icon_alert_green_checkmark.png["Icono Alerta verde marca de verificación"]) y desconectados (image:../media/icon_alarm_gray_administratively_down.png["Icono alarma gris administrativamente abajo"] o image:../media/icon_alarm_blue_unknown.png["Icono alarma azul desconocida"]). Antes de poder quitar este sitio, deben volver a conectar todos los nodos sin conexión.
+** El sitio contiene una combinación de nodos conectados (image:icon_alert_green_checkmark.png["Icono Alerta verde marca de verificación"]) y nodos desconectados (image:icon_alarm_gray_administratively_down.png["Icono alarma gris administrativamente abajo"] o image:icon_alarm_blue_unknown.png["Icono alarma azul desconocida"]). Antes de poder eliminar este sitio, debes volver a poner en línea todos los nodos que están fuera de línea.
 
 
 . Revise los detalles sobre el sitio que ha seleccionado para eliminar.
 +
-image::../media/decommission_site_step_2_view_details.png[Retirada del sitio Paso 2 Ver detalles]
+image:decommission_site_step_2_view_details.png["Retirada del sitio Paso 2 Ver detalles"]
 
 +
 Se incluye la siguiente información para el sitio seleccionado:
@@ -54,9 +54,9 @@ Se incluye la siguiente información para el sitio seleccionado:
 
 ** Nombres de nodo, tipos y estados de conexión:
 +
-*** image:../media/icon_alert_green_checkmark.png["Icono Alerta verde marca de verificación"] (Conectado)
-*** image:../media/icon_alarm_gray_administratively_down.png["Icono alarma gris administrativamente abajo"] (Administrativamente inactivo)
-*** image:../media/icon_alarm_blue_unknown.png["Icono alarma azul desconocida"] (Desconocido)
+*** image:icon_alert_green_checkmark.png["Icono Alerta verde marca de verificación"] (Conectado)
+*** image:icon_alarm_gray_administratively_down.png["Icono alarma gris administrativamente abajo"] (Fuera de servicio por motivos administrativos)
+*** image:icon_alarm_blue_unknown.png["Icono alarma azul desconocida"] (Desconocido)
 
 
 ** Detalles sobre cada nodo:
@@ -69,7 +69,7 @@ Se incluye la siguiente información para el sitio seleccionado:
 
 . En la sección Detalles de otros sitios de la página, evalúe cuánto espacio hay disponible en los otros sitios de la cuadrícula.
 +
-image::../media/decommission_site_step_2_view_details_for_other_sites.png[Retirada del emplazamiento Paso 2 Ver detalles de otros sitios]
+image:decommission_site_step_2_view_details_for_other_sites.png["Retirada del emplazamiento Paso 2 Ver detalles de otros sitios"]
 
 +
 Si va a realizar una retirada de sitios conectados y va a utilizar ILM para mover datos de objetos del sitio seleccionado (en lugar de eliminarlos solamente), debe asegurarse de que los otros sitios tengan suficiente capacidad para acomodar los datos movidos y de que la capacidad adecuada quede para un crecimiento futuro.

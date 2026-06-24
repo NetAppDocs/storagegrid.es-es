@@ -35,10 +35,10 @@ El espacio lógico utilizado, el uso de cuota, la cuota y el recuento de objetos
 NOTE: El tamaño lógico de todos los objetos que pertenecen a este inquilino incluye cargas multiparte incompletas y en progreso.  El tamaño no incluye el espacio físico adicional utilizado para las políticas de ILM.  Los valores de espacio utilizado son estimaciones.  Estas estimaciones se ven afectadas por el momento de la ingesta, la conectividad de la red y el estado del nodo.
 
 +
-image::../media/tenant_accounts_page.png[Página Cuentas de inquilino]
+image:tenant_accounts_page.png["Página Cuentas de inquilino"]
 
-. Opcionalmente, inicie sesión en una cuenta de inquilino seleccionando el enlace de inicio de sesión image:../media/icon_tenant_sign_in.png["Icono de inicio de sesión del inquilino"]en la columna *Iniciar sesión/Copiar URL*.
-. Opcionalmente, copie la URL de la página de inicio de sesión de un inquilino seleccionando el enlace de copia URL image:../media/icon_tenant_copy_url.png["Icono de URL de copia de inquilino"]en la columna *Iniciar sesión/Copiar URL*.
+. Si lo deseas, puedes Sign in en una cuenta de inquilino seleccionando el enlace de Sign in image:icon_tenant_sign_in.png["Icono de inicio de sesión del inquilino"] en la columna *Sign in/Copy URL*.
+. Si lo deseas, copia la URL de la página de Sign in de un inquilino seleccionando el enlace de copiar URL image:icon_tenant_copy_url.png["Icono de URL de copia de inquilino"] en la columna *Sign in/Copy URL*.
 . Opcionalmente, seleccione *Exportar a CSV* para ver y exportar un `.csv` archivo que contiene los valores de uso para todos los inquilinos.
 +
 Se le pedirá que abra o guarde el `.csv` archivo.
@@ -47,7 +47,7 @@ Se le pedirá que abra o guarde el `.csv` archivo.
 El contenido del `.csv` archivo se parece al siguiente ejemplo:
 
 +
-image::../media/tenant_accounts_example_csv.png[Ejemplo de cuentas de inquilino .csv]
+image:tenant_accounts_example_csv.png["Ejemplo de cuentas de inquilino .csv"]
 
 +
 Puede abrir `.csv` el archivo en una aplicación de hoja de cálculo o utilizarlo en la automatización.
@@ -70,7 +70,7 @@ Puede ver los detalles de un arrendatario específico.
 Aparece la página de detalles del arrendatario.
 
 +
-image::../media/tenant_usage_modal.png[Uso de arrendatario modal]
+image:tenant_usage_modal.png["Uso de arrendatario modal"]
 
 . Revise la información general del inquilino en la parte superior de la página.
 +
@@ -91,7 +91,7 @@ Si se ha establecido una cuota para este arrendatario, la cantidad de cuota util
 Puede colocar el cursor sobre el gráfico de barras para ver el almacenamiento que utiliza cada cucharón o contenedor. Puede colocar el cursor sobre el segmento de espacio libre para ver la cantidad de cuota de almacenamiento restante.
 
 +
-image::../media/tenant_bucket_space_consumption_GM.png[Gráfico de barra de consumo del bloque de inquilinos]
+image:tenant_bucket_space_consumption_GM.png["Gráfico de barra de consumo del bloque de inquilinos"]
 
 +
 
@@ -114,7 +114,7 @@ En esta tabla se muestran los bloques S3 para el arrendatario. El espacio usado 
 El contenido de un archivo de un inquilino S3 individual `.csv` se parece al siguiente ejemplo:
 
 +
-image::../media/tenant_bucket_details_csv.png[Ejemplo de CSV de detalles de bloque de inquilinos]
+image:tenant_bucket_details_csv.png["Ejemplo de CSV de detalles de bloque de inquilinos"]
 
 +
 Puede abrir `.csv` el archivo en una aplicación de hoja de cálculo o utilizarlo en la automatización.

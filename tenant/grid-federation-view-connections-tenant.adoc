@@ -76,7 +76,7 @@ NOTE: Esta columna solo muestra el último error de replicación entre cuadrícu
 Por ejemplo, este error indica que el depósito de destino para la replicación entre grid estaba en un estado no válido, posiblemente porque el control de versiones estaba suspendido o porque se activó el bloqueo de objetos S3.
 
 +
-image::../media/grid-federation-cgr-object-example-last-error.png[grid-federation-cgr-object-example-last-error]
+image:grid-federation-cgr-object-example-last-error.png["grid-federation-cgr-object-example-last-error"]
 
 . Realice las acciones recomendadas. Por ejemplo, si se suspendió el control de versiones en el bloque de destino para la replicación entre grid, vuelva a habilitar el control de versiones para ese bloque.
 . Seleccione la conexión de la tabla.

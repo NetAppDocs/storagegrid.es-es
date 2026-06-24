@@ -33,7 +33,7 @@ Al iniciar sesión como root, la petición de datos cambia de `$` a `#`.
 Por ejemplo, el resultado del nodo de administración principal muestra el estado actual de los servicios AMS, CMN y NMS en ejecución. Este resultado se actualiza inmediatamente si cambia el estado de un servicio.
 
 +
-image::../media/storagegrid_status_output.gif[captura de pantalla de la salida del comando storage-grid]
+image:storagegrid_status_output.gif["captura de pantalla de la salida del comando storage-grid"]
 
 . Vuelva a la línea de comandos y pulse *Ctrl*+*C*.
 . Opcionalmente, consulte un informe estático para todos los servicios que se ejecutan en el nodo de cuadrícula: `/usr/local/servermanager/reader.rb`
