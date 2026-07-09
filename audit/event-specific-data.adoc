@@ -15,9 +15,16 @@ Cada mensaje de auditoría del registro de auditoría registra datos específico
 
 Después del contenedor de apertura `[AUDT:` que identifica el mensaje en sí, el siguiente juego de atributos proporciona información sobre el evento o la acción descrita por el mensaje de auditoría. Estos atributos se resaltan en el siguiente ejemplo:
 
-[]
-====
-2018-12-SUST08:24:45.921845 [AUDT:*\[RSLT\(FC32\):SUCS\]* *\[TIME\(UI64\):11454 60025621595611246499\[SUST08\[SAIP\(IPAD\):"10.224.0 60025621595611246499.100 60025621595611246499"\[S3AI\(ECSTR\):"CSTR\\\\"[CSTR\][CSTR\\][CSTR]\\\\[CSTR][CSTR]\\\\[CSTR][CSTR][CSTR\\\\\\\\"[CSTR][CSTR][CSTR][CSTR\\\\\\\\\\\[CSTR][CSTR][CSTR][CSTR][CSTR][CSTR\\\\\\\\\\\[CSTR][CSTR][CSTR][CSTR][CSTR][CSTR][CSTR][CSTR\\\\\\\\\\\\\\[KJC][KJC\\\ 15552417629170647261 12281045 1543998285921845 10 30720
-
-====
+[listing, subs="+quotes"]
+----
+2018-12-05T08:24:45.921845 [AUDT: *\[RSLT\(FC32\):SUCS\]*
+*\[TIME\(UI64\):11454\]\[SAIP\(IPAD\):"10.224.0.100"\]\[S3AI\(CSTR\):"60025621595611246499"\]*
+*\[SACC\(CSTR\):"account"\]\[S3AK\(CSTR\):"SGKH4_Nc8SO1H6w3w0nCOFCGgk__E6dYzKlumRsKJA=="\]*
+*\[SUSR\(CSTR\):"urn:sgws:identity::60025621595611246499:root"\]*
+*\[SBAI\(CSTR\):"60025621595611246499"\]\[SBAC\(CSTR\):"account"\]\[S3BK\(CSTR\):"bucket"\]*
+*\[S3KY\(CSTR\):"object"\]\[CBID\(UI64\):0xCC128B9B9E428347\]*
+*\[UUID\(CSTR\):"B975D2CE-E4DA-4D14-8A23-1CB4B83F2CD8"\]\[CSIZ\(UI64\):30720\]*[AVER(UI32):10]
+\[ATIM(UI64):1543998285921845]\[ATYP\(FC32\):SHEA\][ANID(UI32):12281045][AMID(FC32):S3RQ]
+\[ATID(UI64):15552417629170647261]]
+----
  `ATYP`El elemento (subrayado en el ejemplo) identifica qué evento generó el mensaje. Este mensaje de ejemplo incluye link:shea-s3-head.html["SHEA"]el código de mensaje ([ATYP(FC32):SHEA]), que indica que se generó mediante una solicitud de S3 HEAD correcta.
