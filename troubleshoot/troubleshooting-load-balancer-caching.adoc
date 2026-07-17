@@ -15,6 +15,7 @@ Obtenga información sobre los posibles problemas con el almacenamiento en cach�
 
 
 
+[[determine-if-a-request-was-a-cache-hit]]
 == Determinar si una solicitud fue un acierto de caché
 
 * El encabezado X-Cache se establece en la respuesta a las solicitudes manejadas por el servicio de caché.  Códigos posibles:
@@ -31,6 +32,7 @@ Obtenga información sobre los posibles problemas con el almacenamiento en cach�
 
 
 
+[[low-cache-hit-rate]]
 == Baja tasa de aciertos de caché
 
 * Se pueden esperar tasas de aciertos de caché bajas cuando se agrega una nueva carga de trabajo o cuando cambia el conjunto de trabajo al que accede una carga de trabajo.  En estas situaciones, se espera que la tasa de aciertos aumente con el tiempo.
@@ -41,6 +43,7 @@ Obtenga información sobre los posibles problemas con el almacenamiento en cach�
 
 
 
+[[low-performance]]
 == Bajo rendimiento
 
 * Evaluar la tasa de aciertos de caché.  Las bajas tasas de aciertos de caché pueden generar un bajo rendimiento general.

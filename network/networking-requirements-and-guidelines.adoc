@@ -15,6 +15,7 @@ Debe verificar que la infraestructura y la configuración de redes actuales pued
 
 
 
+[[general-networking-requirements]]
 == Requisitos generales de red
 
 Todas las puestas en marcha de StorageGRID deben admitir las siguientes conexiones.
@@ -45,6 +46,7 @@ Solo las conexiones de cliente de S3 y las conexiones administrativas de SSH, Gr
 
 
 
+[[wide-area-networks-wans-for-multiple-sites]]
 == Redes de área extensa (WAN) para varios sitios
 
 Al configurar un sistema StorageGRID con varios sitios, la conexión WAN entre sitios debe tener un ancho de banda mínimo de 25 Mbit/segundo en cada dirección antes de tener en cuenta el tráfico de clientes. La replicación de datos o el código de borrado entre sitios, la expansión de nodos o sitios, la recuperación de nodos y otras operaciones o configuraciones requerirán un ancho de banda adicional.
@@ -53,6 +55,7 @@ Los requisitos mínimos reales de ancho de banda WAN dependen de la actividad de
 
 
 
+[[connections-for-admin-nodes-and-gateway-nodes]]
 == Conexiones para nodos de administrador y nodos de puerta de enlace
 
 Los nodos de administración siempre deben estar protegidos de clientes que no son de confianza, como los que están en la Internet abierta. Debe asegurarse de que ningún cliente que no sea de confianza puede acceder a un nodo de administración en la red de grid, la red de administración o la red de cliente.
@@ -61,6 +64,7 @@ Los nodos de administración y los nodos de puerta de enlace que planea añadir 
 
 
 
+[[using-network-address-translation-nat]]
 == Uso de la traducción de direcciones de red (NAT)
 
 No utilice la traducción de direcciones de red (NAT) en la red de grid entre nodos de grid o entre sitios de StorageGRID. Cuando utilice direcciones IPv4 privadas para la red de cuadrícula, esas direcciones deben poder enrudarse directamente desde cada nodo de cuadrícula de cada sitio. Sin embargo, según sea necesario, puede utilizar NAT entre clientes externos y nodos de cuadrícula, como para proporcionar una dirección IP pública para un nodo de puerta de enlace. El uso de NAT para tender un segmento de red pública sólo se admite cuando se emplea una aplicación de túnel que es transparente para todos los nodos de la cuadrícula, lo que significa que los nodos de la cuadrícula no necesitan conocimientos de direcciones IP públicas.

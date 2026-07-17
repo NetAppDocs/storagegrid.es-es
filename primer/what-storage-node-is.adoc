@@ -17,6 +17,7 @@ Cada sitio del sistema StorageGRID debe tener al menos tres nodos de almacenamie
 
 
 
+[[types-of-storage-nodes]]
 == Tipos de nodos de almacenamiento
 
 Durante la instalación, puede seleccionar el tipo de nodo de almacenamiento que desea instalar. Estos tipos están disponibles para nodos de almacenamiento basados en software y para nodos de almacenamiento basados en dispositivos compatibles con la función:
@@ -34,12 +35,14 @@ Puede seleccionar el tipo de nodo de almacenamiento en estas situaciones:
 
 
 
+[[data-and-metadata-storage-node-combined]]
 === Nodo de almacenamiento de datos y metadatos (combinado)
 
 De forma predeterminada, todos los nodos de almacenamiento nuevos almacenarán tanto datos como metadatos de objetos. Este tipo de nodo de almacenamiento se denomina nodo de almacenamiento _Combinado_.
 
 
 
+[[metadata-only-storage-node]]
 === Nodo de almacenamiento solo de metadatos
 
 El uso exclusivo de un nodo de almacenamiento para metadatos puede tener sentido si el grid almacena una gran cantidad de objetos pequeños. La instalación de capacidad de metadatos dedicada proporciona un mejor equilibrio entre el espacio necesario para una gran cantidad de objetos pequeños y el espacio necesario para los metadatos de esos objetos. Además, los nodos de almacenamiento solo de metadatos alojados en dispositivos de alto rendimiento pueden aumentar el rendimiento.
@@ -67,6 +70,7 @@ NOTE: Aunque los nodos de almacenamiento solo de metadatos contienen <<ldr-servi
 
 
 
+[[data-only-storage-node]]
 === Nodo de almacenamiento de solo datos
 
 El uso exclusivo de un nodo de almacenamiento para los datos puede ser lógico si los nodos de almacenamiento tienen diferentes características de rendimiento. Por ejemplo, para aumentar potencialmente el rendimiento, podría tener nodos de almacenamiento en disco giratorio de alta capacidad y solo de datos acompañados por nodos de almacenamiento de alto rendimiento solo de metadatos.
@@ -77,6 +81,7 @@ Puede convertir un nodo de almacenamiento que no contenga el<<adc-service,Servic
 
 
 
+[[required-storage-nodes-per-grid-and-per-site]]
 == Nodos de almacenamiento necesarios por red y por sitio
 
 Al seleccionar qué nodos de almacenamiento utilizar en su topología, tenga en cuenta que la cuadrícula o cada sitio en la cuadrícula debe contener lo siguiente:
@@ -88,6 +93,7 @@ Al seleccionar qué nodos de almacenamiento utilizar en su topología, tenga en 
 
 
 
+[[primary-services-for-storage-nodes]]
 == Servicios principales para nodos de almacenamiento
 
 En la siguiente tabla se muestran los servicios principales de los nodos de almacenamiento; sin embargo, esta tabla no enumera todos los servicios de los nodos.

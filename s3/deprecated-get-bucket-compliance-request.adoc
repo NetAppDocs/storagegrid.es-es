@@ -26,6 +26,7 @@ Para completar esta operación, debe tener el permiso s3:GetBucketCompliance o s
 
 
 
+[[request-example]]
 == Ejemplo de solicitud
 
 Esta solicitud de ejemplo le permite determinar la configuración de cumplimiento para el depósito denominado `mybucket`.
@@ -39,6 +40,7 @@ Host: _host_
 ----
 
 
+[[response-example]]
 == Ejemplo de respuesta
 
 En el XML de respuesta, `<SGCompliance>` muestra la configuración de cumplimiento vigente para el bloque. Esta respuesta de ejemplo muestra la configuración de cumplimiento de un bloque en el que se conservará cada objeto durante un año (525,600 minutos), a partir del momento en que el objeto se ingiere en la cuadrícula. Actualmente, no existe ningún derecho legal en este segmento. Cada objeto se eliminará automáticamente después de un año.
@@ -90,6 +92,7 @@ Eliminación automática
 |===
 
 
+[[error-responses]]
 == Respuestas de error
 
 Si el depósito no se ha creado para que sea compatible, el código de estado HTTP de la respuesta es `404 Not Found`, con un código de error S3 `XNoSuchBucketCompliance` .

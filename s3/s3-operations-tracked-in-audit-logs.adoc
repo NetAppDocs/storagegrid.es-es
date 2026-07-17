@@ -15,6 +15,7 @@ Los servicios de StorageGRID generan los mensajes de auditoría y se almacenan e
 
 
 
+[[bucket-operations-tracked-in-the-audit-logs]]
 == Se realizó un seguimiento de las operaciones de bloque en los registros de auditoría
 
 * CreateBucket
@@ -32,6 +33,7 @@ Los servicios de StorageGRID generan los mensajes de auditoría y se almacenan e
 
 
 
+[[object-operations-tracked-in-the-audit-logs]]
 == Se realizó un seguimiento de las operaciones de objetos en los registros de auditoría
 
 * CompleteMultipartUpload

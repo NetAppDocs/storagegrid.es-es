@@ -15,6 +15,7 @@ Debe controlar el acceso SSH, reemplazar los certificados TLS predeterminados y 
 
 
 
+[[hardening-guidelines-for-certificates]]
 == Directrices de refuerzo para los certificados
 
 Debe sustituir los certificados predeterminados creados durante la instalación por sus propios certificados personalizados.
@@ -44,6 +45,7 @@ Además, los clientes deben usar una comprobación estricta del nombre de host a
 
 
 
+[[hardening-guidelines-for-tls-and-ssh-policy]]
 == Directrices de endurecimiento para las políticas TLS y SSH
 
 Es posible seleccionar una política de seguridad para determinar qué protocolos y cifrados se usan para establecer conexiones TLS seguras con aplicaciones cliente y conexiones SSH seguras a servicios StorageGRID internos.
@@ -54,6 +56,7 @@ Consulte link:../admin/manage-tls-ssh-policy.html["Gestione la política TLS y S
 
 
 
+[[manage-external-ssh-access]]
 == Administrar el acceso SSH externo
 
 Para mejorar la seguridad del sistema, el acceso SSH externo está bloqueado de forma predeterminada.  Habilite el acceso SSH solo cuando necesite realizar tareas que requieran acceso SSH entrante, como resolución de problemas.  Referirse alink:../admin/manage-external-ssh-access.html["Administrar el acceso SSH externo"] para obtener detalles e instrucciones.

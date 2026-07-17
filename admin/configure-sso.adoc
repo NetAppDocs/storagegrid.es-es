@@ -60,6 +60,7 @@ El modo Sandbox facilita la realización de esta configuración de ida y vuelta 
 
 
 
+[[access-the-wizard]]
 == Acceda al asistente
 
 .Pasos
@@ -73,6 +74,7 @@ NOTE: Si el botón Configurar ajustes de SSO está deshabilitado, confirme que h
 
 
 
+[[provide-identity-provider-details]]
 == Proporcionar detalles del proveedor de identidad
 
 .Pasos
@@ -101,6 +103,7 @@ CAUTION: Si cambia el certificado de CA, inmediatamente link:../maintain/startin
 
 
 
+[[enter-sandbox-modeprovide-relying-party-identifier]]
 == [[enter-sandbox-mode]]Proporcionar identificador de parte confiable
 
 . Complete los campos en la página Proporcionar identificador de parte confiable según el tipo de SSO que haya seleccionado.
@@ -171,6 +174,7 @@ https://<Federation Service Name>:<port>/pf/federation_metadata.ping?PartnerSpId
 
 
 
+[[configure-relying-party-trusts-enterprise-applications-or-sp-connections]]
 == Configurar las confianzas de partes de confianza, las aplicaciones de la empresa o las conexiones de SP
 
 Después de guardar la configuración e ingresar al modo sandbox, puede completar y probar la configuración para el tipo de SSO que seleccionó.
@@ -231,6 +235,7 @@ Debe crear una conexión de SP para cada nodo de administrador que se muestra en
 ====
 
 
+[[test-ssotest-configuration]]
 == [[test-sso]]Configuración de prueba
 
 Antes de implementar el uso del inicio de sesión único para todo el sistema StorageGRID , confirme que el inicio de sesión único y el cierre de sesión único estén configurados correctamente para cada nodo de administración.
@@ -294,6 +299,7 @@ Si ve un mensaje Página caducada, seleccione el botón *Atrás* de su explorado
 ====
 
 
+[[enable-single-sign-on]]
 == Active el inicio de sesión único
 
 Una vez que haya confirmado que puede usar SSO para iniciar sesión en cada nodo de administración, puede habilitar SSO en todo el sistema StorageGRID.

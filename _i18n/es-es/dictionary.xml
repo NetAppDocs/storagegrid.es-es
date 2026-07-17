@@ -8883,7 +8883,6 @@
   <block id="308239ed7e43fc89ae81da72046a1cb5" category="summary">Cada mensaje de auditoría del registro de auditoría registra datos específicos de un evento del sistema.</block>
   <block id="43e9c4a674688908c439631161649671" category="doc">Datos específicos de un evento</block>
   <block id="fe6f2eb2d34a6fb8fcd20196ff437c86" category="paragraph">Después del contenedor de apertura<block ref="76918408696376cc0b0c9acf06dc901e" prefix=" " category="inline-code"></block> que identifica el mensaje en sí, el siguiente juego de atributos proporciona información sobre el evento o la acción descrita por el mensaje de auditoría. Estos atributos se resaltan en el siguiente ejemplo:</block>
-  <block id="0db84933e70a875f988a06f943ee983e" category="paragraph">2018-12-SUST08:24:45.921845 [AUDT:*\[RSLT\(FC32\):SUCS\]* *\[TIME\(UI64\):11454 60025621595611246499\[SUST08\[SAIP\(IPAD\):"10.224.0 60025621595611246499.100 60025621595611246499"\[S3AI\(ECSTR\):"CSTR\\\\"[CSTR\][CSTR\\][CSTR]\\\\[CSTR][CSTR]\\\\[CSTR][CSTR][CSTR\\\\\\\\"[CSTR][CSTR][CSTR][CSTR\\\\\\\\\\\[CSTR][CSTR][CSTR][CSTR][CSTR][CSTR\\\\\\\\\\\[CSTR][CSTR][CSTR][CSTR][CSTR][CSTR][CSTR][CSTR\\\\\\\\\\\\\\[KJC][KJC\\\ 15552417629170647261 12281045 1543998285921845 10 30720</block>
   <block id="330f957a5bec85ad2bedd3f07d7dc2a1" category="paragraph"><block ref="77b67b7419230d63f01bbbe32666b7e8" prefix=" " category="inline-code"></block>El elemento (subrayado en el ejemplo) identifica qué evento generó el mensaje. Este mensaje de ejemplo incluye <block ref="93c5ff5de753ca04c1a8d5c3e6acd152" category="inline-link-macro-rx"></block>el código de mensaje ([ATYP(FC32):SHEA]), que indica que se generó mediante una solicitud de S3 HEAD correcta.</block>
   <block id="bc3cda0f98b17a806d22f17a594d539e" category="summary">El servicio CMN genera este mensaje de auditoría cuando un servicio ha actualizado o registrado información sobre sí mismo en el sistema StorageGRID.</block>
   <block id="372ef73078ea0cb4e30ab742e0c3d63d" category="doc">GNRG: Registro GNDS</block>
@@ -22854,4 +22853,5 @@
   <block id="58a49eb623c4a6b9fafad050142d4526" category="paragraph"><block ref="58a49eb623c4a6b9fafad050142d4526" category="inline-image-macro-rx" type="image"></block></block>
   <block id="bb70c14ff3206571f466d4eba7c5ee22" category="paragraph"><block ref="bb70c14ff3206571f466d4eba7c5ee22" category="inline-image-macro-rx" type="image"></block></block>
   <block id="cb92d4f4887328dd78af4c98d48eb460" category="paragraph"><block ref="cb92d4f4887328dd78af4c98d48eb460" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="07475a26866d8d6533c6342bd2454b1e" category="list-text">Contiene registros relacionados con AutoSupport.</block>
 </blocks>

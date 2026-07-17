@@ -19,6 +19,7 @@ Antes de habilitar el inicio de sesión único (SSO), revise cómo se ven afecta
 
 
 
+[[sign-in-when-sso-is-enabled]]
 == Inicie sesión cuando SSO esté habilitado
 
 Cuando se habilita SSO y usted inicia sesión en StorageGRID, se le redirigirá a la página SSO de su organización para validar sus credenciales.
@@ -69,6 +70,7 @@ No es necesario volver a introducir las credenciales de SSO.
 
 
 
+[[sign-out-when-sso-is-enabled]]
 == Cierre sesión cuando SSO esté habilitado
 
 Cuando se habilita SSO en StorageGRID, lo que sucede cuando se inicia sesión depende de lo que se haya iniciado sesión y del lugar en el que se está cerrando sesión.

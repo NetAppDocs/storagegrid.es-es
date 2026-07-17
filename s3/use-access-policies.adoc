@@ -15,6 +15,7 @@ StorageGRID utiliza el lenguaje de políticas de Amazon Web Services (AWS) para 
 
 
 
+[[access-policy-overview]]
 == Información general sobre las políticas de acceso
 
 StorageGRID admite tres tipos de políticas de acceso:
@@ -137,6 +138,7 @@ La política de bloque tiene un límite de tamaño de 20,480 bytes y la polític
 
 
 
+[[consistency-for-policies]]
 == Coherencia de las políticas
 
 De forma predeterminada, cualquier actualización que realice a las directivas de grupo será consistente. Cuando una normativa de grupo es coherente, los cambios pueden tardar 15 minutos adicionales en aplicarse debido al almacenamiento en caché de la política. Por defecto, cualquier actualización que realice en las políticas de depósito es fuertemente coherente.
@@ -150,12 +152,14 @@ NOTE: Si establece la consistencia en un valor diferente para resolver una situa
 
 
 
+[[what-is-session-policy]]
 == ¿Qué es la política de sesión?
 
 Una política de sesión es una política de acceso que restringe temporalmente los permisos disponibles durante una sesión específica, como cuando un usuario asume un grupo.  Una política de sesión solo puede permitir un subconjunto de permisos y no puede otorgar permisos adicionales.  El propio grupo podría tener permisos más amplios.
 
 
 
+[[use-arn-in-policy-statements]]
 == Utilice ARN en las declaraciones de política
 
 En las declaraciones de política, el ARN se utiliza en los elementos Principal y Recursos.
@@ -193,6 +197,7 @@ El cuerpo de la solicitud HTTP para la operación PutBucketPolicy debe estar cod
 
 
 
+[[specify-resources-in-a-policy]]
 == Especifique recursos en una política
 
 En las sentencias de directiva, puede utilizar el elemento Resource para especificar el bloque o el objeto para el que se permiten o deniegan los permisos.
@@ -215,6 +220,7 @@ En las sentencias de directiva, puede utilizar el elemento Resource para especif
 
 
 
+[[specify-principals-in-a-policy]]
 == Especifique los principales en una directiva
 
 Utilice el elemento Principal para identificar al usuario, grupo o cuenta de arrendatario que la sentencia de directiva permite o deniega el acceso al recurso.
@@ -272,6 +278,7 @@ Por ejemplo, supongamos que Alex abandona la organización y se elimina el nombr
 
 
 
+[[specify-permissions-in-a-policy]]
 == Especificar permisos en una directiva
 
 En una directiva, el elemento Acción se utiliza para permitir/denegar permisos a un recurso. Hay un conjunto de permisos que puede especificar en una directiva, que se indican mediante el elemento "Acción" o, alternativamente, "NotAction" para la exclusión. Cada uno de estos elementos se asigna a operaciones de API de REST de S3 específicas.
@@ -286,6 +293,7 @@ NOTE: Se realiza una supresión cuando se utiliza una PUT para sobrescribir un v
 
 
 
+[[permissions-that-apply-to-buckets]]
 === Permisos que se aplican a los bloques
 
 [cols="2a,2a,1a"]
@@ -624,6 +632,7 @@ Sí, separe los permisos para PUT y DELETE
 |===
 
 
+[[permissions-that-apply-to-objects]]
 === Permisos que se aplican a objetos
 
 [cols="2a,2a,1a"]
@@ -825,6 +834,7 @@ RestoreObject
 |===
 
 
+[[use-putoverwriteobject-permissionuse-putoverwriteobject-permission]]
 == [[use-putoverwriteobject-permission]]Usa el permiso PutOverwriteObject
 
 el permiso s3:PutOverwriteObject es un permiso StorageGRID personalizado que se aplica a operaciones que crean o actualizan objetos. La configuración de este permiso determina si el cliente puede sobrescribir los datos de un objeto, metadatos definidos por el usuario o el etiquetado de objetos S3.
@@ -852,6 +862,7 @@ NOTE: Si la política S3 actual permite sobrescribir y el permiso PutOverwriteOb
 
 
 
+[[specify-conditions-in-a-policy]]
 == Especificar condiciones en una política
 
 Las condiciones definen cuándo estará en vigor una política. Las condiciones consisten en operadores y pares clave-valor.
@@ -877,6 +888,7 @@ En el ejemplo siguiente, la condición ipaddress utiliza la clave de condición 
 ----
 
 
+[[supported-condition-operators]]
 === Operadores de condición admitidos
 
 Los operadores de condición se categorizan de la siguiente manera:
@@ -1013,6 +1025,7 @@ Se agrega a cualquier operador de condición, excepto la condición Nula, para v
 |===
 
 
+[[supported-condition-keys]]
 === Teclas de condición compatibles
 
 [cols="1a,1a,2a"]
@@ -1170,6 +1183,7 @@ Se compara con el `sse-customer-algorithm` o al `copy-source-sse-customer-algori
 |===
 
 
+[[specify-variables-in-a-policy]]
 == Especifique las variables en una política
 
 Las variables de las directivas se pueden utilizar para rellenar la información de directivas cuando esté disponible. Puede utilizar variables de política en el `Resource` elemento y en comparaciones de cadenas en el `Condition` elemento.
@@ -1246,6 +1260,7 @@ Carácter especial. Utiliza el carácter como carácter literal $.
 |===
 
 
+[[create-policies-requiring-special-handling]]
 == Crear directivas que requieran un manejo especial
 
 A veces, una directiva puede otorgar permisos peligrosos para la seguridad o para operaciones continuas, como bloquear al usuario raíz de la cuenta. La implementación de la API REST de StorageGRID S3 es menos restrictiva durante la validación de políticas que Amazon, pero igual de estricta durante la evaluación de la política.
@@ -1366,6 +1381,7 @@ Válido. Los objetos son propiedad de la cuenta de propietario del bloque. Se ap
 |===
 
 
+[[write-once-read-many-worm-protection]]
 == Protección WORM (escritura única lectura múltiple)
 
 Se pueden crear bloques DE escritura única y lectura múltiple (WORM) para proteger los datos, los metadatos de objetos definidos por el usuario y el etiquetado de objetos de S3. Puede configurar los bloques WORM para permitir la creación de objetos nuevos y evitar sobrescrituras o eliminaciones del contenido existente. Utilice uno de los enfoques aquí descritos.

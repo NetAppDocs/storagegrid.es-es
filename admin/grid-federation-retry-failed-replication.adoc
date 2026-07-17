@@ -17,6 +17,7 @@ La alerta de error permanente * de replicación cruzada de la red indica que los
 
 
 
+[[determine-if-any-objects-failed-to-be-replicated]]
 == Determine si se ha producido un fallo en la replicación de algún objeto
 
 Para determinar si algún objeto o marcador de borrado no se ha replicado en la otra cuadrícula, puede buscar mensajes en el registro de auditoríalink:../audit/cgrr-cross-grid-replication-request.html["CGRR (Solicitud de Replicación entre Grid)"]. Este mensaje se agrega al registro cuando StorageGRID no puede replicar un objeto, un objeto multiparte o un marcador de eliminación en el bloque de destino.
@@ -116,6 +117,7 @@ Tipo de error. Si se produce un error en la replicación entre cuadrículas, el 
 
 
 
+[[retry-failed-replications]]
 == Vuelva a intentar las replicaciones fallidas
 
 Después de generar una lista de objetos y de eliminar marcadores que no se han replicado en el depósito de destino y resolver los problemas subyacentes, puede volver a intentar la replicación de una de las dos formas siguientes:
@@ -150,6 +152,7 @@ NOTE: Pendiente significa que la solicitud de replicación entre grid se ha agre
 
 
 
+[[monitor-replication-retries]]
 == Supervisar reintentos de replicación
 
 Debe supervisar las operaciones de reintento de replicación para asegurarse de que se completen.

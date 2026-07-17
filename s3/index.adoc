@@ -17,6 +17,7 @@ La compatibilidad con la API REST DE S3 permite conectar las aplicaciones orient
 
 
 
+[[supported-versions]]
 == Versiones compatibles
 
 StorageGRID admite las siguientes versiones específicas de STS, S3 y HTTP:
@@ -56,6 +57,8 @@ https://datatracker.ietf.org/doc/html/rfc2616["RFC de IETF 2616: Protocolo de tr
 |===
 
 
+[[updates-to-s3-rest-api-support]]
+[[updates-to-rest-api-support]]
 == Actualizaciones del soporte de la API de REST DE S3
 
 [cols="1a,4a"]

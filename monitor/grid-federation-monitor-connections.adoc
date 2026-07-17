@@ -20,6 +20,7 @@ Puede supervisar la información básica sobre todos link:../admin/grid-federati
 
 
 
+[[view-all-connections]]
 == Ver todas las conexiones
 
 La página de federación de grid muestra información básica sobre todas las conexiones de federación de grid y sobre todas las cuentas de arrendatario que pueden utilizar conexiones de federación de grid.
@@ -59,6 +60,7 @@ image:grid-federation-permitted-tenants-tab.png["Pestaña Inquilinos permitidos 
 
 
 
+[[view-specific-connectionview-a-specific-connection]]
 == [[view-specific-connection]]Ver una conexión específica
 
 Puede ver los detalles de una conexión de federación de grid específica.
@@ -102,6 +104,7 @@ image:grid-federation-certificates-tab.png["grid-federación-certificados-tab"]
 
 
 
+[[review-cross-grid-replication-metrics]]
 == Revisión de las métricas de replicación entre grid
 
 Puede utilizar el panel de control de replicación de cuadrícula cruzada en Grafana para ver las métricas de Prometheus sobre las operaciones de replicación entre grid en su grid.

@@ -18,6 +18,7 @@ NOTE: Su administrador de grid debe darle permiso para usar características esp
 
 
 
+[[what-is-s3-object-lock]]
 == ¿Qué es el bloqueo de objetos de S3?
 
 La función StorageGRID S3 Object Lock es una solución de protección de objetos equivalente a S3 Object Lock en Amazon simple Storage Service (Amazon S3).
@@ -34,6 +35,7 @@ De hecho, todos los objetos recién ingeridos tienen valores de retención cuand
 
 
 
+[[retention-modes]]
 === Modos de retención
 
 La función de bloqueo de objetos StorageGRID S3 admite dos modos de retención para aplicar diferentes niveles de protección a los objetos. Estos modos son equivalentes a los modos de retención de Amazon S3.
@@ -56,6 +58,7 @@ La función de bloqueo de objetos StorageGRID S3 admite dos modos de retención 
 
 
 
+[[retention-settings-for-object-versions]]
 === Configuración de retención para versiones de objetos
 
 Si se crea un depósito con S3 Object Lock habilitado, los usuarios pueden utilizar la aplicación cliente S3 para especificar opcionalmente los siguientes valores de retención para cada objeto que se agregue al depósito:
@@ -74,6 +77,7 @@ Para obtener más información sobre la configuración del objeto, consulte link
 
 
 
+[[default-retention-setting-for-buckets]]
 === Valor de retención predeterminado para los depósitos
 
 Si se crea un depósito con S3 Object Lock habilitado, los usuarios pueden especificar opcionalmente los siguientes ajustes predeterminados para el bloque:
@@ -88,6 +92,7 @@ Consulte link:../tenant/creating-s3-bucket.html["Cree un bloque de S3"] y link:.
 
 
 
+[[s3-object-lock-tasks]]
 == S3 Tareas de bloqueo de objetos
 
 Las siguientes listas para administradores de grid y usuarios de tenant contienen las tareas de alto nivel para utilizar la función Bloqueo de objetos S3.
@@ -127,6 +132,7 @@ Usuario inquilino::
 
 
 
+[[requirements-for-buckets-with-s3-object-lock-enabled]]
 == Requisitos para bloques con bloqueo de objetos de S3 habilitado
 
 * Si la opción de configuración global de bloqueo de objetos S3 se encuentra habilitada para el sistema StorageGRID, puede usar el administrador de inquilinos, la API de gestión de inquilinos o la API REST de S3 para crear bloques con el bloqueo de objetos S3 habilitado.
@@ -139,6 +145,7 @@ Usuario inquilino::
 
 
 
+[[requirements-for-objects-in-buckets-with-s3-object-lock-enabled]]
 == Requisitos para objetos en bloques con S3 Object Lock habilitado
 
 * Para proteger una versión de objeto, puede especificar la configuración de retención predeterminada para el bloque, o bien puede especificar la configuración de retención para cada versión de objeto. La configuración de retención a nivel de objeto se puede especificar mediante la aplicación cliente S3 o la API DE REST S3.
@@ -147,6 +154,7 @@ Usuario inquilino::
 
 
 
+[[lifecycle-of-objects-in-buckets-with-s3-object-lock-enabled]]
 == Ciclo de vida de los objetos en bloques con S3 Object Lock habilitado
 
 Cada objeto que se guarda en un depósito con S3 Object Lock habilitado pasa por las siguientes etapas:
@@ -176,6 +184,7 @@ StorageGRID almacena varias copias de cada objeto protegido durante el período 
 
 
 
+[[can-i-still-manage-legacy-compliant-buckets]]
 == ¿Puedo seguir gestionando los depósitos compatibles heredados?
 
 La función de bloqueo de objetos S3 sustituye la función Compliance disponible en versiones anteriores de StorageGRID. Si ha creado cubos compatibles con una versión anterior de StorageGRID, puede seguir gestionando la configuración de estos bloques; sin embargo, ya no puede crear nuevos bloques compatibles. Para obtener instrucciones, consulte https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/How_to_manage_legacy_Compliant_buckets_in_StorageGRID_11.5["Base de conocimientos de NetApp: Cómo gestionar bloques heredados que cumplen con la normativa StorageGRID 11.5"^].

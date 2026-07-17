@@ -15,6 +15,7 @@ Antes de decidir si se debe utilizar la replicación o el código de borrado par
 
 
 
+[[advantages-of-erasure-coding]]
 == Ventajas de la codificación de borrado
 
 En comparación con la replicación, la codificación de borrado ofrece una mayor fiabilidad, disponibilidad y eficiencia del almacenamiento.
@@ -35,6 +36,7 @@ NOTE: El espacio en disco para los objetos codificados de borrado se calcula com
 
 
 
+[[disadvantages-of-erasure-coding]]
 == Desventajas del código de borrado
 
 En comparación con la replicación, los códigos de borrado tienen las siguientes desventajas:
@@ -49,6 +51,7 @@ En comparación con la replicación, los códigos de borrado tienen las siguient
 
 
 
+[[when-to-use-erasure-coding]]
 == Cuándo se debe utilizar la codificación de borrado
 
 Utilice la codificación de borrado para los siguientes requisitos:

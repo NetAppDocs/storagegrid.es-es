@@ -30,6 +30,7 @@ NOTE: Si utiliza el protocolo de cliente S3, también puede usar depósitos S3 y
 
 
 
+[[create-tenant-accounts]]
 == Crear cuentas de inquilino
 
 Las cuentas de inquilino las crea un administrador de grid de StorageGRID mediante Grid Manager. Al crear una cuenta de inquilino, el administrador de grid especifica la siguiente información:
@@ -46,6 +47,7 @@ Además, los administradores de grid pueden habilitar la configuración de bloqu
 
 
 
+[[configure-s3-tenants]]
 == Configure los inquilinos S3
 
 Después de crear una cuenta de inquilino de S3, puede acceder al administrador de inquilinos para realizar tareas como las siguientes:

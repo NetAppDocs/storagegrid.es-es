@@ -17,6 +17,7 @@ Consulte link:using-multiple-storage-pools-for-cross-site-replication.html["Ejem
 
 
 
+[[guidelines-for-all-storage-pools]]
 == Directrices para todos los pools de almacenamiento
 
 * Mantenga las configuraciones del pool de almacenamiento de la forma más sencilla posible. No cree más pools de almacenamiento de los necesarios.
@@ -27,6 +28,7 @@ Consulte link:using-multiple-storage-pools-for-cross-site-replication.html["Ejem
 
 
 
+[[guidelines-for-storage-pools-used-for-replicated-copies]]
 == Directrices para los pools de almacenamiento utilizados para copias replicadas
 
 * Para la protección contra pérdida de sitio mediante link:what-replication-is.html["replicación"], especifique uno o más pools de almacenamiento específicos de la dirección en link:create-ilm-rule-define-placements.html["Instrucciones de colocación para cada regla de ILM"].
@@ -43,6 +45,7 @@ El uso de un pool de almacenamiento para cada sitio garantiza que las copias de 
 
 
 
+[[guidelines-for-storage-pools-used-for-erasure-coded-copies]]
 == Directrices para los pools de almacenamiento utilizados para las copias con código de borrado
 
 * Para la protección contra pérdida de sitio con link:what-erasure-coding-is.html["código de borrado"], cree pools de almacenamiento que consten de al menos tres sitios. Si un pool de almacenamiento incluye solo dos sitios, no puede usar ese pool de almacenamiento para el código de borrado. No hay esquemas de codificación de borrado disponibles para un pool de almacenamiento que tenga dos ubicaciones.

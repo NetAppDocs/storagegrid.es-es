@@ -21,6 +21,7 @@ Según sea necesario, puede agrupar las interfaces de red de varios nodos de gat
 
 
 
+[[primary-services-for-gateway-nodes]]
 == Servicios principales para nodos de puerta de enlace
 
 La siguiente tabla muestra los servicios principales para los nodos de puerta de enlace; sin embargo, esta tabla no enumera todos los servicios de nodo.

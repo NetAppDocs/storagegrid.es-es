@@ -15,6 +15,7 @@ La capacidad de metadatos de objetos de un sistema StorageGRID controla la canti
 
 
 
+[[what-is-object-metadata]]
 == ¿Qué son los metadatos de objetos?
 
 Los metadatos de objetos son cualquier información que describa un objeto. StorageGRID utiliza metadatos de objetos para realizar un seguimiento de las ubicaciones de todos los objetos en el grid y gestionar el ciclo de vida de cada objeto a lo largo del tiempo.
@@ -32,6 +33,7 @@ Para un objeto en StorageGRID, los metadatos de objeto incluyen los siguientes t
 
 
 
+[[how-is-object-metadata-stored]]
 == ¿Cómo se almacenan los metadatos de objetos?
 
 StorageGRID mantiene los metadatos de objetos en una base de datos de Cassandra, que se almacena independientemente de los datos de objetos. Para proporcionar redundancia y proteger los metadatos de objetos de la pérdida, StorageGRID almacena tres copias de los metadatos para todos los objetos del sistema en cada sitio.
@@ -42,6 +44,7 @@ image:metadata_space_across_sites.png["Espacio de metadatos entre sitios"]
 
 
 
+[[where-is-object-metadata-stored]]
 == ¿Dónde se almacenan los metadatos de objetos?
 
 En esta figura, se representan los volúmenes de almacenamiento para un único nodo de almacenamiento.
@@ -54,6 +57,7 @@ La cantidad de espacio reservado para los metadatos de objeto en un nodo de alma
 
 
 
+[[metadata-reserved-space-setting]]
 == Valor de espacio reservado de metadatos
 
 El _Metadata reserved space_ es un valor para todo el sistema que representa la cantidad de espacio que se reservará para los metadatos en el volumen 0 de cada nodo de almacenamiento. Como se muestra en la tabla, el valor predeterminado de esta configuración se basa en:
@@ -111,6 +115,7 @@ Cualquier cantidad
 |===
 
 
+[[view-metadata-reserved-space-setting]]
 === Ver valor de espacio reservado de metadatos
 
 Siga estos pasos para ver la configuración de espacio reservado de metadatos para el sistema StorageGRID.
@@ -126,6 +131,7 @@ La configuración predeterminada para una nueva instalación de StorageGRID 11,6
 
 
 
+[[actual-reserved-space-for-metadata]]
 == Espacio reservado real para los metadatos
 
 En contraste con la configuración de espacio reservado de metadatos del sistema, el _espacio reservado real_ para los metadatos del objeto se determina para cada nodo de almacenamiento. Para cualquier nodo de almacenamiento determinado, el espacio reservado real para los metadatos depende del tamaño del volumen 0 para el nodo y de la configuración de espacio reservado de metadatos en todo el sistema.
@@ -156,6 +162,7 @@ El menor de estos valores:
 |===
 
 
+[[view-actual-reserved-space-for-metadata]]
 === Ver el espacio reservado real para metadatos
 
 Siga estos pasos para ver el espacio reservado real para metadatos en un nodo de almacenamiento en particular.
@@ -173,6 +180,7 @@ En la captura de pantalla, el valor *Real reservado* es 8 TB. Esta captura de pa
 
 
 
+[[example-for-actual-reserved-metadata-space]]
 === Ejemplo de espacio de metadatos reservado real
 
 Suponga que instala un nuevo sistema StorageGRID mediante la versión 11,7 o posterior. Para este ejemplo, supongamos que cada nodo de almacenamiento tiene más de 128 GB de RAM y que el volumen 0 del nodo de almacenamiento 1 (SN1) es de 6 TB. Según estos valores:
@@ -183,6 +191,7 @@ Suponga que instala un nuevo sistema StorageGRID mediante la versión 11,7 o pos
 
 
 
+[[allowed-metadata-space]]
 == Espacio de metadatos permitido
 
 El espacio reservado real de cada nodo de almacenamiento para metadatos se subdivide en el espacio disponible para los metadatos del objeto (el _espacio de metadatos permitido_) y el espacio necesario para las operaciones esenciales de la base de datos (como compactación y reparación) y las futuras actualizaciones de hardware y software. El espacio de metadatos permitido rige la capacidad general del objeto.
@@ -191,6 +200,7 @@ image:metadata_allowed_space_volume_0.png["Metadatos volumen de espacio permitid
 
 En la tabla siguiente se muestra cómo StorageGRID calcula el *espacio de metadatos permitido* para diferentes nodos de almacenamiento, en función de la cantidad de memoria del nodo y del espacio reservado real para los metadatos.
 
+[[table-allowed-space-for-metadata]]
 [cols="1a,1a,2a,2a"]
 |===
 
@@ -232,6 +242,7 @@ En la tabla siguiente se muestra cómo StorageGRID calcula el *espacio de metada
 |===
 
 
+[[view-allowed-metadata-space]]
 === Ver el espacio de metadatos permitido
 
 Siga estos pasos para ver el espacio de metadatos permitido para un nodo de almacenamiento.
@@ -254,6 +265,7 @@ El valor *permitido* corresponde a esta métrica Prometheus:
 
 
 
+[[example-for-allowed-metadata-space]]
 == Ejemplo de espacio de metadatos permitido
 
 Supongamos que instala un sistema StorageGRID mediante la versión 11.6. Para este ejemplo, supongamos que cada nodo de almacenamiento tiene más de 128 GB de RAM y que el volumen 0 del nodo de almacenamiento 1 (SN1) es de 6 TB. Según estos valores:
@@ -265,6 +277,7 @@ Supongamos que instala un sistema StorageGRID mediante la versión 11.6. Para es
 
 
 
+[[how-storage-nodes-of-different-sizes-affect-object-capacity]]
 == Cómo afectan los nodos de almacenamiento de diferentes tamaños a la capacidad de objetos
 
 Como se ha descrito anteriormente, StorageGRID distribuye uniformemente los metadatos de objetos de los nodos de almacenamiento de cada sitio. Por este motivo, si un sitio contiene nodos de almacenamiento de distintos tamaños, el nodo más pequeño del sitio determina la capacidad de metadatos del sitio.

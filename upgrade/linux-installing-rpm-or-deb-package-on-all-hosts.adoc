@@ -15,6 +15,7 @@ Si hay algún nodo de StorageGRID implementado en hosts Linux, descargue e insta
 
 
 
+[[download-upgrade-linux-and-hotfix-files]]
 == Descargue archivos de actualización, Linux y correcciones urgentes
 
 Cuando realiza una actualización de StorageGRID desde Grid Manager, se le pedirá que descargue el archivo de actualización y cualquier revisión necesaria como primer paso. Sin embargo, si necesita descargar archivos para actualizar los hosts de Linux, puede ahorrar tiempo descargando todos los archivos necesarios con antelación.
@@ -67,6 +68,7 @@ Se le pedirá que cargue el archivo de revisión en la página de actualización
 
 
 
+[[install-archive-on-all-linux-hosts]]
 == Instale el archivo en todos los hosts Linux
 
 Realice estos pasos antes de actualizar el software StorageGRID.
@@ -84,6 +86,7 @@ Los nuevos paquetes se instalan como paquetes adicionales.
 
 
 
+[[remove-installation-archives-for-previous-versions]]
 == Elimine los archivos de instalación de las versiones anteriores
 
 Para liberar espacio en hosts Linux, puede eliminar los archivos de instalación de versiones anteriores de StorageGRID que ya no necesita.

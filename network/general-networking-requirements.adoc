@@ -37,6 +37,7 @@ Si no está listo para configurar las redes de administración y cliente opciona
 
 
 
+[[connections-for-admin-nodes-and-gateway-nodes]]
 == Conexiones para nodos de administrador y nodos de puerta de enlace
 
 Los nodos de administración siempre deben estar protegidos de clientes que no son de confianza, como los que están en la Internet abierta. Debe asegurarse de que ningún cliente que no sea de confianza puede acceder a un nodo de administración en la red de grid, la red de administración o la red de cliente.
@@ -45,6 +46,7 @@ Los nodos de administración y los nodos de puerta de enlace que planea añadir 
 
 
 
+[[using-network-address-translation-nat]]
 == Uso de la traducción de direcciones de red (NAT)
 
 No utilice la traducción de direcciones de red (NAT) en la red de grid entre nodos de grid o entre sitios de StorageGRID. Cuando utilice direcciones IPv4 privadas para la red de cuadrícula, esas direcciones deben poder enrudarse directamente desde cada nodo de cuadrícula de cada sitio. Sin embargo, según sea necesario, puede utilizar NAT entre clientes externos y nodos de cuadrícula, como para proporcionar una dirección IP pública para un nodo de puerta de enlace. El uso de NAT para tender un segmento de red pública sólo se admite cuando se emplea una aplicación de túnel que es transparente para todos los nodos de la cuadrícula, lo que significa que los nodos de la cuadrícula no necesitan conocimientos de direcciones IP públicas.

@@ -25,6 +25,7 @@ El uso compartido de recursos de origen cruzado (CORS) es un mecanismo de seguri
 
 
 
+[[enable-cors-for-a-bucket]]
 == Activar CORS para un cucharón
 
 .Pasos
@@ -70,6 +71,7 @@ Aparece la página de detalles bucket.
 
 
 
+[[modify-cors-setting]]
 == Modificar el ajuste de CORS
 
 .Pasos
@@ -79,6 +81,7 @@ Aparece la página de detalles bucket.
 
 
 
+[[disable-cors-setting]]
 == Desactive el ajuste CORS
 
 .Pasos

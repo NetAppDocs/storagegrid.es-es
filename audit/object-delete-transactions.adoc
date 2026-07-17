@@ -17,6 +17,7 @@ En las tablas siguientes no se enumeran todos los mensajes de auditoría generad
 
 
 
+[[s3-delete-audit-messages]]
 == S3 elimina mensajes de auditoría
 
 [cols="1a,1a,2a,1a,2a"]
@@ -38,6 +39,7 @@ link:sdel-s3-delete.html["SDEL: ELIMINACIÓN DE S3"]
 |===
 
 
+[[example-s3-object-deletion]]
 == Ejemplo: Eliminación de objetos de S3
 
 Cuando un cliente S3 elimina un objeto de un nodo de almacenamiento (servicio LDR), se genera un mensaje de auditoría y se guarda en el registro de auditoría.
@@ -47,6 +49,7 @@ NOTE: En el ejemplo siguiente no se enumeran todos los mensajes de auditoría ge
 
 
 
+[[sdel-s3-delete]]
 === SDEL: Eliminación S3
 
 La eliminación de objetos comienza cuando el cliente envía una solicitud DeleteObject a un servicio LDR. El mensaje contiene el bloque del cual se elimina el objeto y la clave S3 del objeto, que se utiliza para identificar el objeto.

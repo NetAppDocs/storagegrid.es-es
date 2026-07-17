@@ -26,6 +26,7 @@ TIP: Si desea cambiar la dirección IP de la red de grid para todos los nodos de
 
 
 
+[[ethernet-interfaces]]
 == Interfaces Ethernet
 
 La dirección IP asignada a eth0 siempre es la dirección IP de red de cuadrícula del nodo. La dirección IP asignada a eth1 siempre es la dirección IP de red de administrador del nodo de grid. La dirección IP asignada a eth2 es siempre la dirección IP de red de cliente del nodo grid.
@@ -34,12 +35,14 @@ Tenga en cuenta que en algunas plataformas, como dispositivos StorageGRID, eth0,
 
 
 
+[[dhcp]]
 == DHCP
 
 DHCP solo puede configurarse durante la fase de implementación. No puede configurar DHCP durante la configuración. Debe usar los procedimientos de cambio de direcciones IP si desea cambiar las direcciones IP, las máscaras de subred y las puertas de enlace predeterminadas para un nodo de grid. Si se usa la herramienta Change IP, las direcciones DHCP se volverán estáticas.
 
 
 
+[[high-availability-ha-groups]]
 == Grupos de alta disponibilidad
 
 * Si una interfaz de red de cliente está contenida en un grupo de alta disponibilidad, no puede cambiar la dirección IP de la red de cliente de esa interfaz a una dirección que esté fuera de la subred configurada para el grupo de alta disponibilidad.

@@ -18,6 +18,7 @@ NOTE: En estas instrucciones, "Linux" se refiere a una implementación de Red Ha
 
 
 
+[[before-you-begin]]
 == Antes de empezar
 
 * Debe conocer en gran medida el sistema StorageGRID.
@@ -28,6 +29,7 @@ NOTE: En estas instrucciones, "Linux" se refiere a una implementación de Red Ha
 
 
 
+[[maintenance-procedures-for-appliances]]
 == Procedimientos de mantenimiento para aparatos
 
 Para conocer los procedimientos de hardware, consulte la https://docs.netapp.com/us-en/storagegrid-appliances/commonhardware/index.html["Instrucciones de mantenimiento para su dispositivo StorageGRID"^].

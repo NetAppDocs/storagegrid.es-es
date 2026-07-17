@@ -15,6 +15,7 @@ Una operación de ingesta, o guardado, consta de un flujo de datos definido entr
 
 
 
+[[data-flow]]
 == Flujo de datos
 
 Cuando un cliente procesa un objeto al sistema StorageGRID, el servicio LDR en los nodos de almacenamiento procesa la solicitud y almacena los metadatos y los datos en el disco.

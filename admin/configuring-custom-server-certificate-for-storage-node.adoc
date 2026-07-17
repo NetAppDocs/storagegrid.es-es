@@ -30,6 +30,7 @@ Puede cargar o generar un certificado API personalizado de S3.
 
 
 
+[[add-a-custom-s3-api-certificate]]
 == Agregue un certificado API S3 personalizado
 
 .Pasos
@@ -159,6 +160,7 @@ NOTE: Tras cargar o generar un nuevo certificado, permita que se borren las aler
 
 
 
+[[restore-the-default-s3-api-certificate]]
 == Restaure el certificado API S3 predeterminado
 
 Se puede revertir a utilizar el certificado de API S3 predeterminado para conexiones de cliente S3 a los nodos de almacenamiento. Sin embargo, no puede usar el certificado de API S3 predeterminado para un punto final de equilibrio de carga.
@@ -179,6 +181,7 @@ Si tiene permiso de acceso raíz y se ha utilizado el certificado de API S3 pers
 
 
 
+[[download-or-copy-the-s3-api-certificate]]
 == Descargue o copie el certificado API S3
 
 Puede guardar o copiar el contenido del certificado API de S3 para utilizarlo en cualquier otro lugar.

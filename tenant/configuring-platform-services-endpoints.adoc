@@ -17,6 +17,7 @@ El acceso a servicios de la plataforma está habilitado por inquilino por un adm
 
 
 
+[[what-is-a-platform-services-endpoint]]
 == ¿Qué es un extremo de servicios de plataforma?
 
 Un punto final de servicios de plataforma especifica la información que StorageGRID necesita para acceder al destino externo.
@@ -29,12 +30,14 @@ Puede utilizar el mismo extremo que el destino para más de un bloque de origen.
 
 
 
+[[endpoints-for-cloudmirror-replication]]
 == Extremos para la replicación de CloudMirror
 
 StorageGRID admite extremos de replicación que representan bloques de S3. Estos bloques se pueden alojar en Amazon Web Services, la misma puesta en marcha de StorageGRID remota o en otro servicio.
 
 
 
+[[endpoints-for-notifications]]
 == Extremos para notificaciones
 
 StorageGRID admite puntos finales de Amazon SNS, Kafka y webhook.  Los puntos finales de Simple Queue Service (SQS) y AWS Lambda no son compatibles.
@@ -43,6 +46,7 @@ Para los puntos finales de Kafka, no se admite TLS mutuo.  Como resultado, si ti
 
 
 
+[[endpoints-for-the-search-integration-service]]
 == Extremos del servicio de integración de búsqueda
 
 StorageGRID admite extremos de integración de búsqueda que representan clústeres de Elasticsearch. Estos clústeres de Elasticsearch pueden estar en un centro de datos local o alojados en un cloud de AWS o en otro lugar.

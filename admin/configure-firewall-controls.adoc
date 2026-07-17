@@ -35,6 +35,8 @@ Para obtener más información sobre los firewalls externos y la seguridad de la
 
 
 
+[[access-firewall-controls]]
+[[Access-firewall-controls]]
 == Acceda a los controles del cortafuegos
 
 .Pasos
@@ -50,6 +52,7 @@ Puede utilizar estas pestañas en cualquier orden. Las configuraciones estableci
 
 
 
+[[privileged-address-list]]
 == Lista de direcciones con privilegios
 
 Utilice el separador Lista de Direcciones con Privilegios para otorgar a los hosts acceso a los puertos que están cerrados por defecto o cerrados por valores en el separador Gestionar Acceso Externo.
@@ -76,6 +79,7 @@ TIP: Esta opción elimina algunas protecciones para los servicios internos. Déj
 
 
 
+[[manage-external-access]]
 == Gestione el acceso externo
 
 Cuando se cierra un puerto en la pestaña Administrar acceso externo, ninguna dirección IP que no sea de grid puede acceder al puerto a menos que agregue la dirección IP a la lista de direcciones con privilegios. Solo puede cerrar los puertos que están abiertos de forma predeterminada y sólo puede abrir los puertos que haya cerrado.
@@ -105,6 +109,7 @@ NOTE: Utilice la barra de desplazamiento situada a la derecha de la tabla para a
 
 
 
+[[untrusted-client-network]]
 == Red cliente no confiable
 
 Si la red cliente de un nodo no es de confianza, el nodo solo acepta el tráfico entrante en los puertos configurados como puntos finales de equilibrio de carga y, opcionalmente, los puertos adicionales que seleccione en esta pestaña. También puede usar esta pestaña para especificar la configuración predeterminada para los nuevos nodos agregados en una expansión.

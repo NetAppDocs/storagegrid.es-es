@@ -17,6 +17,7 @@ La clonación de cuenta es necesaria para link:grid-federation-what-is-cross-gri
 
 
 
+[[workflow-for-account-clone]]
 == Flujo de trabajo del clon de cuenta
 
 El diagrama de flujo de trabajo muestra los pasos que realizarán los administradores de grid y los inquilinos permitidos para configurar el clon de cuenta. Estos pasos se realizan después de la link:grid-federation-create-connection.html["la conexión de federación de grid está configurada"].
@@ -25,12 +26,14 @@ image:grid-federation-account-clone-workflow.png["flujo de trabajo del clon de c
 
 
 
+[[grid-admin-workflow]]
 == Flujo de trabajo del administrador de grid
 
 Los pasos que realizan los administradores de grid dependen de si los sistemas de StorageGRID en el link:grid-federation-overview.html["conexión de federación de grid"] uso de inicio de sesión único (SSO) o federación de identidades.
 
 
 
+[[account-clone-ssoconfigure-sso-for-account-clone-optional]]
 === [[account-clone-sso]]Configurar SSO para el clon de cuenta (opcional)
 
 Si alguno de los sistemas StorageGRID de la conexión de federación de grid utiliza SSO, ambos grids deben utilizar SSO. Antes de crear las cuentas de inquilino para la federación de grid, los administradores de grid de origen y destino del inquilino deben realizar estos pasos.
@@ -50,6 +53,7 @@ NOTE: Si este grupo de administración no existe en ambas cuadrículas antes de 
 
 
 
+[[account-clone-identity-federationconfigure-grid-level-identity-federation-for-account-clone-optional]]
 === [[account-clone-identity-federation]]Configurar federación de identidades a nivel de cuadrícula para el clon de cuenta (opcional)
 
 Si alguno de los sistemas StorageGRID utiliza la federación de identidades sin SSO, ambas cuadrículas deben utilizar la federación de identidades. Antes de crear las cuentas de inquilino para la federación de grid, los administradores de grid de origen y destino del inquilino deben realizar estos pasos.
@@ -66,6 +70,7 @@ NOTE: Si asigna permiso de acceso raíz a un grupo federado que no existe en amb
 
 
 
+[[create-permitted-s3-tenant-account]]
 === Cree una cuenta de inquilino de S3 permitida
 
 Después de configurar, de manera opcional, el inicio de sesión único o la federación de identidades, un administrador de grid lleva a cabo estos pasos para determinar qué inquilinos pueden replicar objetos del bloque en otros sistemas StorageGRID.
@@ -98,6 +103,7 @@ Para obtener más información, consulte link:grid-federation-manage-tenants.htm
 
 
 
+[[permitted-tenant-account-workflow]]
 == Flujo de trabajo de cuenta de inquilino permitido
 
 Después de que un inquilino con el permiso *Usar conexión de federación de grid* se replica en la cuadrícula de destino, las cuentas de inquilino permitidas pueden realizar estos pasos para clonar grupos de inquilinos, usuarios y claves de acceso S3.

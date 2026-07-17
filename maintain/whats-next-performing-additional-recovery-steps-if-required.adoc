@@ -17,6 +17,7 @@ La recuperación de nodos está completa si no necesitaba tomar ninguna acción 
 
 
 
+[[corrective-actions-and-next-steps]]
 == Acciones correctivas y pasos siguientes
 
 Durante el reemplazo de nodo, es posible que haya que realizar una de las siguientes acciones correctivas:

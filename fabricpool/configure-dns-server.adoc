@@ -17,6 +17,7 @@ Consulte link:../admin/managing-load-balancing.html["Consideraciones que tener e
 
 
 
+[[dns-entries-for-storagegrid-server-name]]
 == Entradas DNS para el nombre del servidor StorageGRID
 
 Agregue entradas DNS para asociar el nombre del servidor StorageGRID (nombre de dominio completo) a cada dirección IP de StorageGRID que utilice. Las direcciones IP que introduzca en el DNS dependen de si va a utilizar un grupo de alta disponibilidad de nodos de equilibrio de carga:
@@ -28,6 +29,7 @@ Agregue entradas DNS para asociar el nombre del servidor StorageGRID (nombre de 
 
 
 
+[[dns-entries-for-virtual-hosted-style-requests]]
 == Entradas DNS para solicitudes virtuales de estilo alojado
 
 Si ha definido link:../admin/configuring-s3-api-endpoint-domain-names.html["Nombres de dominio de punto final S3"] y utilizará solicitudes virtuales de estilo hospedado, agregue entradas DNS para todos los nombres de dominio de punto final S3 necesarios, incluidos los nombres comodín.

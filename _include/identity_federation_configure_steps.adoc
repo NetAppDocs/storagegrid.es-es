@@ -99,6 +99,7 @@ Si selecciona esta opción, copie y pegue el certificado de seguridad personaliz
 
 
 
+[[test-the-connection-and-save-the-configuration]]
 === Pruebe la conexión y guarde la configuración
 
 Después de introducir todos los valores, es necesario probar la conexión para poder guardar la configuración. StorageGRID verifica la configuración de conexión del servidor LDAP y el formato de nombre de usuario de enlace, si proporcionó uno.

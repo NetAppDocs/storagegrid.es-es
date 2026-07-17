@@ -15,6 +15,7 @@ Una cuenta de inquilino permite usar la API DE REST DE Simple Storage Service (S
 
 
 
+[[what-is-a-tenant-account]]
 == ¿Qué es una cuenta de inquilino?
 
 Cada cuenta de inquilino tiene sus propios grupos locales o federados, usuarios, bloques de S3 y objetos.
@@ -31,6 +32,7 @@ NOTE: Si utiliza el protocolo de cliente S3, también puede usar depósitos S3 y
 
 
 
+[[how-to-create-a-tenant-account]]
 == Cómo crear una cuenta de inquilino
 
 Las cuentas de arrendatario las crea un link:../admin/managing-tenants.html["El administrador de grid de StorageGRID que utiliza Grid Manager"]. Al crear una cuenta de inquilino, el administrador de grid especifica lo siguiente:
@@ -44,6 +46,7 @@ Además, los administradores de grid pueden habilitar la configuración de bloqu
 
 
 
+[[configure-s3-tenants]]
 === Configure los inquilinos S3
 
 Después de un link:../admin/creating-tenant-account.html["Se crea la cuenta de inquilino de S3"], puede acceder al Gestor de inquilinos para realizar tareas como las siguientes:

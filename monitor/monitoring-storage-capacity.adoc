@@ -19,6 +19,7 @@ link:viewing-storage-tab.html["ver información sobre la capacidad de almacenami
 
 
 
+[[monitor-storage-capacity-for-the-entire-grid]]
 == Supervise la capacidad de almacenamiento de todo el grid
 
 Supervise la capacidad de almacenamiento general del grid para garantizar que quede espacio libre adecuado para los datos de objetos y los metadatos de objetos. Comprender los cambios en la capacidad de almacenamiento a lo largo del tiempo puede ayudarle a añadir nodos de almacenamiento o volúmenes de almacenamiento antes de consumir la capacidad de almacenamiento utilizable del grid.
@@ -72,6 +73,7 @@ Para obtener más información sobre la planificación de una expansión de alma
 
 
 
+[[monitor-storage-capacity-for-each-storage-node]]
 == Supervise la capacidad de almacenamiento para cada nodo de almacenamiento
 
 Supervise el espacio utilizable total de cada nodo de almacenamiento para garantizar que el nodo tenga suficiente espacio para los datos de objetos nuevos.
@@ -128,6 +130,7 @@ link:../troubleshoot/troubleshooting-low-object-data-storage-alert.html["Almacen
 
 
 
+[[monitor-object-metadata-capacity-for-each-storage-node]]
 == Supervise la capacidad de metadatos de los objetos para cada nodo de almacenamiento
 
 Supervisar el uso de metadatos de cada nodo de almacenamiento para garantizar que sigue estando disponible un espacio adecuado para las operaciones esenciales de la base de datos. Es necesario añadir nodos de almacenamiento nuevos en cada sitio antes de que los metadatos del objeto superen el 100 % del espacio de metadatos permitido.
@@ -188,6 +191,7 @@ Cuando se añaden los nodos nuevos, el sistema reequilibra automáticamente los 
 
 
 
+[[monitor-space-usage-forecasts]]
 == Controla las previsiones de uso de espacio
 
 Supervise las previsiones de uso de espacio para los datos de usuario y los metadatos para estimar cuándo necesitará link:../expand/index.html["expanda una cuadrícula"].

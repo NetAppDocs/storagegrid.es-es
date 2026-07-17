@@ -18,12 +18,14 @@ NOTE: StorageGRID soporta valores no consecutivos en orden ascendente para el `p
 
 
 
+[[resolve-conflicts]]
 == Resolver conflictos
 
 Las solicitudes de clientes en conflicto, como dos clientes que escriben en la misma clave, se resuelven en función de las "últimas victorias". El plazo para la evaluación de "logros más recientes" se basa en cuándo el sistema StorageGRID completa una solicitud determinada, y no en cuándo los clientes de S3 comienzan una operación.
 
 
 
+[[supported-request-headers]]
 == Encabezados de solicitud admitidos
 
 Se admiten los siguientes encabezados de solicitud:
@@ -55,6 +57,7 @@ NOTE: El `ETag` valor devuelto no es una suma de MD5 de los datos, sino que sigu
 
 
 
+[[unsupported-request-headers]]
 == Encabezados de solicitud no compatibles
 
 No se admiten las siguientes cabeceras de solicitud:
@@ -73,6 +76,7 @@ El `If-None-Match header` es aceptado pero no funciona.
 
 
 
+[[versioning]]
 == Creación de versiones
 
 Esta operación completa una carga de varias partes. Si el control de versiones está activado para un depósito, la versión del objeto se crea después de completar la carga de varias partes.
@@ -86,6 +90,7 @@ NOTE: Cuando se habilita el control de versiones para un bloque, al completar un
 
 
 
+[[failed-replication-notification-or-metadata-notification]]
 == Error en la replicación, notificación o notificación de metadatos
 
 Si el bloque donde se produce la carga de varias partes está configurado para un servicio de plataforma, la carga de varias partes se realiza correctamente incluso si la acción de replicación o notificación asociada falla.

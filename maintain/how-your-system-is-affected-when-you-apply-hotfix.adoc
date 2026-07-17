@@ -15,6 +15,7 @@ Debe entender cómo se verá afectado su sistema StorageGRID al aplicar una revi
 
 
 
+[[storagegrid-hotfixes-are-non-disruptive]]
 == Las correcciones urgentes de StorageGRID no son disruptivas
 
 El sistema StorageGRID puede procesar y recuperar datos de las aplicaciones cliente durante el proceso de revisión. Si aprueba todos los nodos del mismo tipo a la revisión (por ejemplo, Nodos de almacenamiento), los nodos se desactivan de uno en uno, por lo que no hay momento en que no estén disponibles todos los nodos de grid o todos los nodos de grid de un determinado tipo.
@@ -29,6 +30,7 @@ Para garantizar la disponibilidad continua, asegúrese de que su política de IL
 
 
 
+[[client-applications-might-experience-short-term-disruptions]]
 == Las aplicaciones cliente pueden experimentar interrupciones a corto plazo
 
 El sistema StorageGRID puede procesar y recuperar datos de aplicaciones cliente en todo el proceso de revisión; sin embargo, es posible que las conexiones de cliente a nodos de puerta de enlace o nodos de almacenamiento individuales se interrumpieran temporalmente si la revisión necesita reiniciar los servicios en esos nodos. La conectividad se restaurará una vez completado el proceso de revisión y los servicios se reanudan en los nodos individuales.
@@ -40,12 +42,14 @@ NOTE: Puede usar varias puertas de enlace y grupos de alta disponibilidad para p
 
 
 
+[[alerts-and-snmp-notifications-might-be-triggered]]
 == Es posible que se activen alertas y notificaciones SNMP
 
 Las alertas y notificaciones SNMP se pueden activar cuando se reinician los servicios y cuando el sistema StorageGRID funciona como un entorno de versiones mixtas (algunos nodos de grid que ejecutan una versión anterior, mientras que otros se han actualizado a una versión posterior). En general, estas alertas y notificaciones se borran cuando se completa la revisión.
 
 
 
+[[configuration-changes-are-restricted]]
 == Los cambios de configuración están restringidos
 
 Al aplicar una revisión a StorageGRID:

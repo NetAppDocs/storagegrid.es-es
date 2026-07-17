@@ -31,6 +31,7 @@ Estas instrucciones se aplican a Windows Server 2016 AD FS. Si está utilizando 
 
 
 
+[[create-a-relying-party-trust-using-windows-powershell]]
 == Cree una confianza de parte de confianza mediante Windows PowerShell
 
 Puede utilizar Windows PowerShell para crear rápidamente una o más confianzas de parte que dependan.
@@ -93,6 +94,7 @@ Si faltan los metadatos, confirme que la dirección de metadatos de federación 
 
 
 
+[[create-a-relying-party-trust-by-importing-federation-metadata]]
 == Cree una confianza de parte de confianza importando metadatos de federación
 
 Puede importar los valores de cada una de las partes que confía mediante el acceso a los metadatos de SAML de cada nodo de administrador.
@@ -144,6 +146,7 @@ Si faltan los metadatos, confirme que la dirección de metadatos de federación 
 
 
 
+[[create-a-relying-party-trust-manually]]
 == Cree una confianza de parte de confianza manualmente
 
 Si elige no importar los datos de las confianzas de la pieza de confianza, puede introducir los valores manualmente.

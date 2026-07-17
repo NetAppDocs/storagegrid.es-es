@@ -31,6 +31,7 @@ Existen otros tipos de nodos, como los nodos de administrador o los nodos de pas
 ====
 
 
+[[export-node-from-source-host]]
 == Exportar nodo desde el host de origen
 
 Como primer paso, cierre el nodo de la cuadrícula y expórtelo desde el host de Linux de origen.
@@ -91,6 +92,7 @@ Este comando se ejecutará en el host de destino en el paso siguiente.
 
 
 
+[[import-node-on-target-host]]
 == Importar nodo en host de destino
 
 Después de exportar el nodo desde el host de origen, debe importar y validar el nodo en el host de destino. La validación confirma que el nodo tiene acceso a los mismos dispositivos de interfaz de red y de almacenamiento basado en bloques que los que tenía en el host de origen.
@@ -133,6 +135,7 @@ Para obtener información sobre la solución de problemas, consulte StorageGRIDl
 
 
 
+[[start-migrated-node]]
 == Inicie el nodo migrado
 
 Después de validar el nodo migrado, inicie el nodo ejecutando un comando en el _host de destino_.

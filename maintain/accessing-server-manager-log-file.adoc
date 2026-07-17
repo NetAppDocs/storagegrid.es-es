@@ -19,6 +19,7 @@ Compruebe si hay mensajes de error en este archivo. Si es necesario, Escale el p
 
 
 
+[[service-with-an-error-state]]
 == Servicio con estado de error
 
 Si detecta que un servicio ha introducido un estado de error, intente reiniciar el servicio.

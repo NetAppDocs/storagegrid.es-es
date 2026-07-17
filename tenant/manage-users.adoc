@@ -24,6 +24,7 @@ NOTE: Si el inicio de sesión único (SSO) está habilitado para el sistema Stor
 
 
 
+[[create-usercreate-a-local-user]]
 == [[create-user]]Cree un usuario local
 
 Puede crear un usuario local y asignarlos a uno o varios grupos locales para controlar sus permisos de acceso.
@@ -32,6 +33,7 @@ Los usuarios de S3 que no pertenecen a ningún grupo no tienen permisos de admin
 
 
 
+[[access-the-create-user-wizard]]
 === Acceda al asistente Crear usuario
 
 .Pasos
@@ -47,6 +49,7 @@ image:grid-federation-tenant-user-banner.png["Imagen del banner azul en la pági
 
 
 
+[[enter-credentials]]
 === Introduzca las credenciales
 
 .Pasos
@@ -93,6 +96,7 @@ Por ejemplo, selecciona *Sí* para suspender temporalmente la capacidad de un us
 
 
 
+[[assign-to-groups]]
 === Asignar a grupos
 
 .Pasos
@@ -112,6 +116,7 @@ Si su cuenta de inquilino tiene el permiso *Usar conexión de federación de gri
 
 
 
+[[view-or-edit-local-user]]
 == Ver o editar usuario local
 
 .Pasos
@@ -172,6 +177,7 @@ No puede cambiar el nombre de usuario.
 
 
 
+[[import-federated-users]]
 == Importar usuarios federados
 
 Puede importar uno o más usuarios federados, hasta un máximo de 100 usuarios, directamente a la página Usuarios.
@@ -199,6 +205,7 @@ Después de cerrar el cuadro de diálogo *Importar usuarios federados*, la infor
 
 
 
+[[duplicate-local-user]]
 == Usuario local duplicado
 
 Puede duplicar un usuario local para crear un usuario nuevo más rápidamente.
@@ -216,6 +223,7 @@ NOTE: Si su cuenta de inquilino tiene el permiso *Usar conexión de federación 
 
 
 
+[[clone-usersretry-user-clone]]
 == [[clone-users]]Reintente clonar el usuario
 
 Para volver a intentar un clon que generó errores:
@@ -229,6 +237,7 @@ Para obtener más información, consulte link:grid-federation-account-clone.html
 
 
 
+[[delete-one-or-more-local-users]]
 == Elimine uno o varios usuarios locales
 
 Puede eliminar de forma permanente uno o varios usuarios locales que ya no necesiten acceder a la cuenta de inquilino de StorageGRID.

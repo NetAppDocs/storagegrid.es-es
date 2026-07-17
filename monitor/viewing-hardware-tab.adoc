@@ -30,6 +30,7 @@ Si el nodo es un nodo de dispositivo, en esta pestaña también se incluye una s
 
 
 
+[[view-information-about-appliance-storage-nodes]]
 == Ver información sobre los nodos de almacenamiento de dispositivos
 
 En la página Nodes, se incluye información sobre el estado del servicio y todos los recursos computacionales, de dispositivo de disco y de red para cada nodo de almacenamiento del dispositivo. También puede ver memoria, hardware de almacenamiento, versión del firmware de la controladora, recursos de red, interfaces de red, direcciones de red, y recibir y transmitir datos.
@@ -496,6 +497,7 @@ image:nodes_page_storage_tables.png["Tablas de almacenamiento de páginas de nod
 
 
 
+[[view-information-about-appliance-admin-nodes-and-gateway-nodes]]
 == Consulte información sobre los nodos de administración del dispositivo y los nodos de puerta de enlace
 
 En la página Nodes, se incluye información sobre el estado del servicio y todos los recursos computacionales, de disco y de red para cada dispositivo de servicios que se utiliza como nodo de administración o nodo de puerta de enlace. También puede ver memoria, hardware de almacenamiento, recursos de red, interfaces de red, direcciones de red, y recibir y transmitir datos.

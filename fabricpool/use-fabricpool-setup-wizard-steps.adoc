@@ -24,6 +24,7 @@ NOTE: Si desea configurar StorageGRID para utilizarlo con cualquier otra aplicac
 
 
 
+[[access-the-wizard]]
 == Acceda al asistente
 
 Puede completar el asistente de configuración de FabricPool cuando empiece a usar el Administrador de grid de StorageGRID, o bien puede acceder al asistente y completarlo en cualquier momento posterior.
@@ -42,6 +43,7 @@ image:help_menu.png["menú ayuda"]
 
 
 
+[[step-1-of-9-configure-ha-group]]
 == Paso 1 de 9: Configurar el grupo de alta disponibilidad
 
 Un grupo de alta disponibilidad es una colección de nodos que contienen el servicio de equilibrador de carga de StorageGRID. Un grupo de alta disponibilidad puede contener nodos de pasarela, nodos de administración o ambos.
@@ -144,6 +146,7 @@ Al menos una dirección debe ser IPv4. De manera opcional, es posible especifica
 
 
 
+[[step-2-of-9-configure-load-balancer-endpoint]]
 == Paso 2 de 9: Configurar punto final de equilibrio de carga
 
 StorageGRID utiliza un balanceador de carga para gestionar la carga de trabajo desde aplicaciones cliente, como FabricPool. El equilibrio de carga maximiza la velocidad y la capacidad de conexión en varios nodos de almacenamiento.
@@ -347,6 +350,7 @@ Copie el certificado del servidor para el equilibrador de carga externo y pégue
 
 
 
+[[step-3-of-9-tenant-and-bucket]]
 == Paso 3 de 9: Inquilino y cubo
 
 Un inquilino es una entidad que puede utilizar aplicaciones S3 para almacenar y recuperar objetos en StorageGRID. Cada inquilino tiene sus propios usuarios, claves de acceso, bloques, objetos y un conjunto específico de funcionalidades. Debe crear un inquilino de StorageGRID antes de poder crear el bloque que utilizará FabricPool.
@@ -427,6 +431,7 @@ NOTE: No seleccione un depósito que tenga S3 Object Lock habilitado para su uso
 ====
 
 
+[[step-4-of-9-download-ontap-settings]]
 == Paso 4 de 9: Descargar la configuración de ONTAP
 
 Durante este paso, debe descargar un archivo que puede usar para introducir valores en ONTAP System Manager.
@@ -457,6 +462,7 @@ CAUTION: No cierre esta página hasta que haya copiado ambas claves de acceso, d
 
 
 
+[[step-5-of-9-select-a-storage-pool]]
 == Paso 5 de 9: Seleccione un pool de almacenamiento
 
 Un pool de almacenamiento es un grupo de nodos de almacenamiento. Cuando se selecciona un pool de almacenamiento, se determina qué nodos StorageGRID utilizará para almacenar los datos organizados en niveles de ONTAP.
@@ -474,6 +480,7 @@ El pool de almacenamiento para un sitio incluye todos los nodos de almacenamient
 
 
 
+[[step-6-of-9-review-ilm-rule-for-fabricpool]]
 == Paso 6 de 9: Revise la regla de gestión de la vida útil de la información para FabricPool
 
 Las reglas de gestión de la vida útil de la información controlan la ubicación, la duración y el comportamiento de procesamiento de todos los objetos del sistema StorageGRID.
@@ -539,6 +546,7 @@ Use el código de borrado 2+1
 
 
 
+[[step-7-of-9-review-and-activate-ilm-policy]]
 == Paso 7 de 9: Revisar y activar la política de ILM
 
 Una vez que el asistente de configuración de FabricPool crea la regla de ILM para su uso en FabricPool, crea una política de ILM. Debe simular y revisar cuidadosamente esta política antes de activarla.
@@ -578,6 +586,8 @@ CAUTION: Los errores en una política de ILM pueden provocar una pérdida de dat
 
 
 
+[[step-8-of-9-create-traffic-classification-policy]]
+[[traffic-classification]]
 == Paso 8 de 9: Crear política de clasificación de tráfico
 
 Como opción, el asistente de configuración de FabricPool puede crear una política de clasificación del tráfico que puede utilizar para supervisar la carga de trabajo de FabricPool. La política creada por el sistema utiliza una regla de coincidencia para identificar todo el tráfico de red relacionado con el bloque que ha creado. Esta política supervisa únicamente el tráfico; no limita el tráfico de FabricPool ni de otros clientes.
@@ -595,6 +605,7 @@ Tan pronto como FabricPool empiece a organizar los datos en niveles en StorageGR
 
 
 
+[[step-9-of-9-review-summary]]
 == Paso 9 de 9: Resumen de la revisión
 
 El resumen proporciona detalles sobre los elementos configurados, incluidos el nombre del equilibrador de carga, el inquilino y el bloque, la política de clasificación de tráfico y la política de ILM activa.
@@ -606,6 +617,7 @@ El resumen proporciona detalles sobre los elementos configurados, incluidos el n
 
 
 
+[[next-steps]]
 == Siguientes pasos
 
 Después de completar el asistente FabricPool, realice estos pasos adicionales.

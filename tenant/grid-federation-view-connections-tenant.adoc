@@ -55,6 +55,7 @@ Para cada conexión de federación de grid, se produce el error más reciente, s
 
 
 
+[[clear-last-errorclear-the-last-error]]
 == [[clear-last-error]]Borrar el último error
 
 Un error puede aparecer en la columna *last error* por uno de estos motivos:

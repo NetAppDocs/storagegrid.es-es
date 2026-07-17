@@ -15,6 +15,7 @@ El sistema StorageGRID es compatible con un conjunto limitado de conjuntos de ci
 
 
 
+[[supported-versions-of-tls]]
 == Versiones compatibles de TLS
 
 StorageGRID admite TLS 1.2 y TLS 1.3 para conexiones a sistemas externos que se utilizan para la federación de identidades y los pools de almacenamiento en cloud.

@@ -161,6 +161,7 @@ Se guardará la configuración del correo electrónico.
 
 
 
+[[information-included-in-alert-email-notifications]]
 == Información incluida en las notificaciones por correo electrónico de alertas
 
 Una vez configurado el servidor de correo electrónico SMTP, las notificaciones por correo electrónico se envían a los destinatarios designados cuando se activa una alerta, a menos que la regla de alerta se suprima con un silencio. Consulte link:silencing-alert-notifications.html["Silenciar notificaciones de alerta"].
@@ -210,6 +211,7 @@ El nombre de host del nodo de administrador que envió la notificación.
 |===
 
 
+[[how-alerts-are-grouped]]
 == Cómo se agrupan las alertas
 
 Para evitar que se envíe un número excesivo de notificaciones por correo electrónico cuando se activan alertas, StorageGRID intenta agrupar varias alertas en la misma notificación.
@@ -278,6 +280,7 @@ StorageGRID continúa enviando notificaciones por correo electrónico una vez ca
 |===
 
 
+[[troubleshoot-alert-email-notifications]]
 == Solucione problemas de notificaciones de correo electrónico de alertas
 
 Si se activa la alerta *error de notificación por correo electrónico* o no puede recibir la notificación por correo electrónico de alerta de prueba, siga estos pasos para resolver el problema.

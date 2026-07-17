@@ -15,6 +15,7 @@ Según la configuración del ciclo de vida, los objetos siguen los ajustes de re
 
 
 
+[[example-of-bucket-lifecycle-taking-priority-over-ilm-policy]]
 == Ejemplo de ciclo de vida del bloque que tiene prioridad sobre la política de ILM
 
 Política de ILM::
@@ -50,6 +51,7 @@ Resultado::
 
 
 
+[[example-of-bucket-lifecycle-implicitly-keeping-forever]]
 == Ejemplo de ciclo de vida del segmento que se mantiene implícitamente para siempre
 
 Política de ILM::
@@ -85,6 +87,7 @@ Los marcadores de borrado que comienzan con «docs/» se eliminan cuando caducan
 
 
 
+[[example-of-using-bucket-lifecycle-to-duplicate-ilm-and-clean-up-expired-delete-markers]]
 == Ejemplo de uso del ciclo de vida de bloque para duplicar ILM y borrar los marcadores de eliminación vencidos
 
 Política de ILM::

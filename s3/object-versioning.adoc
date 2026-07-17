@@ -24,6 +24,7 @@ NOTE: El control de versiones solo se puede habilitar en bloques creados con Sto
 
 
 
+[[ilm-and-versioning]]
 == ILM y versiones
 
 Las políticas de ILM se aplican a cada versión de un objeto. Un proceso de análisis de ILM analiza continuamente todos los objetos y los vuelve a evaluar en relación con la política actual de ILM. Todos los cambios realizados en las políticas de ILM se aplican a todos los objetos procesados anteriormente. Esto incluye versiones que se han ingerido previamente si la versión está activada. El análisis de ILM aplica nuevos cambios de ILM a los objetos procesados previamente.

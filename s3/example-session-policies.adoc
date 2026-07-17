@@ -15,6 +15,7 @@ Utilice el siguiente ejemplo para crear una política de sesión StorageGRID .
 
 
 
+[[example-set-up-a-session-policy-that-allows-object-retrieval]]
 == Ejemplo: Configurar una política de sesión que permita la recuperación de objetos
 
 En este ejemplo, el principal de la sesión solo tiene permiso para recuperar objetos de bucket1. Todas las demás acciones están implícitamente denegadas, excepto las acciones específicas de StorageGRID, como usar el permiso link:../s3/use-access-policies.html#use-putoverwriteobject-permission["s3:PutOverwriteObject"]. La política de sesión puede proporcionarse como un archivo JSON al llamar a la API AssumeRole.

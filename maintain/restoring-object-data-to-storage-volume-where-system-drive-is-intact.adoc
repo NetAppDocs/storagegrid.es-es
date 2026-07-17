@@ -15,6 +15,7 @@ Después de recuperar un volumen de almacenamiento en un nodo de almacenamiento 
 
 
 
+[[which-procedure-should-i-use]]
 == ¿Qué procedimiento debo usar?
 
 Siempre que sea posible, restaure los datos del objeto utilizando la página *Volume restoration* en Grid Manager.
@@ -31,6 +32,7 @@ NOTE: El script repair-data está obsoleto y se eliminará en una versión futur
 
 
 
+[[use-the-repair-data-script-to-restore-object-data]]
 == Utilice `repair-data` el script para restaurar datos de objetos
 
 .Antes de empezar
@@ -48,6 +50,7 @@ Tenga en cuenta lo siguiente:
 
 
 
+[[about-the-repair-data-script]]
 == Acerca del `repair-data` script
 
 Para restaurar los datos de objetos, se ejecuta `repair-data` el script. Este script inicia el proceso de restauración de datos de objetos y funciona con el análisis de ILM para garantizar que se cumplan las reglas de ILM.
@@ -97,6 +100,7 @@ NOTE: El trabajo de reparación de la CE reserva temporalmente una gran cantidad
 ====
 
 
+[[find-hostname-for-storage-node]]
 == Busque el nombre de host del nodo de almacenamiento
 
 . Inicie sesión en cualquier nodo de administración:
@@ -115,6 +119,7 @@ Al iniciar sesión como root, la petición de datos cambia de `$` a `#`.
 
 
 
+[[repair-data-if-all-volumes-have-failed]]
 == Repare los datos si todos los volúmenes presentan errores
 
 Si todos los volúmenes de almacenamiento presentan errores, repare todo el nodo. Siga las instrucciones para *datos replicados*, *datos codificados con borrado (EC)*, o ambos, en función de si utiliza datos replicados, datos codificados con borrado (EC), o ambos.
@@ -154,6 +159,7 @@ Las reparaciones de datos codificados para borrado pueden comenzar con algunos n
 ====
 
 
+[[repair-data-if-only-some-volumes-have-failed]]
 == Repare los datos si solo algunos volúmenes han fallado
 
 Si solo se produjo un error en algunos de los volúmenes, repare los volúmenes afectados. Siga las instrucciones para *datos replicados*, *datos codificados con borrado (EC)*, o ambos, en función de si utiliza datos replicados, datos codificados con borrado (EC), o ambos.
@@ -211,6 +217,7 @@ NOTE: Las reparaciones de datos codificados para borrado pueden comenzar con alg
 ====
 
 
+[[monitor-repairs]]
 == Reparaciones del monitor
 
 Supervise el estado de los trabajos de reparación, en función de si utiliza *datos replicados*, *datos codificados por borrado (EC)* o ambos.

@@ -19,6 +19,7 @@ Opcionalmente, puede cambiar el destino de los registros de auditoría y enviar 
 
 
 
+[[file-rotation-for-bycast-log]]
 == Rotación de archivos para bycast.log
 
 Cuando el `bycast.log` archivo alcanza los 1 GB, se guarda el archivo existente y se inicia un nuevo archivo de registro.
@@ -39,6 +40,7 @@ link:collecting-log-files-and-system-data.html["Recopilar archivos de registro y
 
 
 
+[[messages-in-bycast-log]]
 == Mensajes en bycast.log
 
 Los mensajes en `bycast.log` los son escritos por el ADE (Entorno distribuido asíncrono). ADE es el entorno de tiempo de ejecución que utilizan los servicios de cada nodo de grid.
@@ -99,6 +101,7 @@ Mensaje
 |===
 
 
+[[message-severities-in-bycast-log]]
 == Niveles de gravedad del mensaje en bycast.log
 
 Los mensajes `bycast.log` de tienen asignados niveles de gravedad.
@@ -113,6 +116,7 @@ Por ejemplo:
 
 
 
+[[error-codes-in-bycast-log]]
 == Códigos de error en `bycast.log`
 
 La mayoría de los mensajes de error de `bycast.log` contienen códigos de error.

@@ -15,6 +15,7 @@ Si a su cuenta de inquilino se le asignó el permiso *Usar conexión de federaci
 
 
 
+[[workflow-for-cross-grid-replication]]
 == Flujo de trabajo de replicación entre grid
 
 El diagrama de flujo de trabajo resume los pasos que se realizan para configurar la replicación entre cuadrículas entre depósitos en dos cuadrículas.  Estos pasos se describen con más detalle a continuación del diagrama.
@@ -23,6 +24,7 @@ image:grid-federation-cgr-workflow.png["Flujo de trabajo de replicación entre g
 
 
 
+[[configure-cross-grid-replication]]
 == Configurar la replicación entre grid
 
 Antes de poder utilizar la replicación entre redes, debe iniciar sesión en las cuentas de inquilino correspondientes en cada red y crear dos grupos.  Luego, puedes habilitar la replicación entre redes en uno o ambos depósitos.
@@ -37,6 +39,7 @@ Antes de poder utilizar la replicación entre redes, debe iniciar sesión en las
 
 
 
+[[create-two-buckets]]
 === Crea dos cubos
 
 Como primer paso, inicie sesión en las cuentas de inquilino correspondientes en cada red y cree un depósito en cada red.
@@ -68,6 +71,7 @@ TIP: Según sea necesario, cada cubo puede utilizar una región diferente.
 
 
 
+[[enable-cross-grid-replication]]
 === Habilite la replicación entre grid
 
 Debe realizar estos pasos antes de agregar cualquier objeto a cada bloque.
@@ -115,6 +119,7 @@ Después de unos momentos, aparece un mensaje de éxito.  Los objetos agregados 
 
 
 
+[[test-replication-between-grids]]
 == Probar la replicación entre grids
 
 Si se habilita la replicación entre grid para un bloque, es posible que deba comprobar que la conexión y la replicación entre grid funcionan correctamente y que los buckets de origen y de destino siguen cumpliendo todos los requisitos (por ejemplo, las versiones siguen activadas).
@@ -138,6 +143,7 @@ Si la conexión es saludable, aparece un banner de éxito.  De lo contrario, apa
 
 
 
+[[disable-cross-grid-replication]]
 == Desactive la replicación entre grid
 
 Puede detener de forma permanente la replicación entre grid si ya no desea copiar objetos en la otra grid.

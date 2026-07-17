@@ -9,12 +9,14 @@ CAUTION: Para las fuentes de identidad que no sean Active Directory o Microsoft 
 
 
 
+[[memberof-and-refint-overlays]]
 === Revestimientos memberOf y reft
 
 Se deben habilitar las superposiciones memberof y reft. Para obtener más información, consulte las instrucciones para invertir el mantenimiento de los miembros del grupo en la http://www.openldap.org/doc/admin24/index.html["Documentación de OpenLDAP: Guía del administrador de la versión 2.4"^]sección .
 
 
 
+[[indexing]]
 === Indización
 
 Debe configurar los siguientes atributos OpenLDAP con las palabras clave de índice especificadas:

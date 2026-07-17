@@ -20,6 +20,7 @@ CAUTION: No inicie la actualización si necesita urgentemente ampliar su almacen
 
 
 
+[[before-you-upgrade]]
 == Antes de actualizar
 
 Revise estos temas para conocer las nuevas características y mejoras en StorageGRID 12.0, determinar si alguna característica ha quedado obsoleta o se ha eliminado y obtener información sobre los cambios en las API de StorageGRID .

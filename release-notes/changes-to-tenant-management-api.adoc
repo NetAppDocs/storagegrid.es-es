@@ -20,6 +20,7 @@ Para obtener más información, vaya a link:../tenant/understanding-tenant-manag
 
 
 
+[[new-api-for-object-replication]]
 == Nueva API para la replicación de objetos
 
 Puedes utilizar el `/org/cross-grid-replication/{versionId}/replicate` API para replicar manualmente objetos en un depósito existente que tiene replicación entre redes recién configurada.

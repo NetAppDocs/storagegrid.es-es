@@ -24,6 +24,7 @@ CAUTION: Al configurar su implementación de StorageGRID para la protección con
 
 
 
+[[replication-example]]
 == Ejemplo de replicación
 
 De forma predeterminada, se crea un pool de almacenamiento para cada sitio durante la instalación de StorageGRID. Tener pools de almacenamiento compuestos solo por un sitio le permite configurar reglas de ILM que utilizan la replicación para la protección contra pérdida de sitio. En este ejemplo:
@@ -48,6 +49,7 @@ Si se pierde un sitio, hay copias de los objetos disponibles en el otro.
 
 
 
+[[erasure-coding-example]]
 == Ejemplo de código de borrado
 
 Tener pools de almacenamiento compuestos por más de un sitio por pool de almacenamiento permite configurar reglas de ILM que utilicen código de borrado para la protección contra pérdida de sitio. En este ejemplo:

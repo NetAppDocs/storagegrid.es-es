@@ -15,18 +15,21 @@ A medida que los nodos de almacenamiento alcancen la capacidad, debe ampliar el 
 
 
 
+[[add-storage-volumes]]
 == Añadir volúmenes de almacenamiento
 
 Cada nodo de almacenamiento es compatible con un número máximo de volúmenes de almacenamiento. El máximo definido varía según la plataforma. Si un nodo de almacenamiento contiene menos de la cantidad máxima de volúmenes de almacenamiento, es posible añadir volúmenes para aumentar su capacidad. Consulte las instrucciones para link:../expand/index.html["Expandir un sistema StorageGRID"].
 
 
 
+[[add-storage-expansion-shelves]]
 == Añada bandejas de ampliación del almacenamiento
 
 Algunos nodos de almacenamiento de los dispositivos StorageGRID, como SG6060 o SG6160, pueden admitir bandejas de almacenamiento adicionales. Si tiene dispositivos StorageGRID con funcionalidades de expansión que todavía no se han expandido hasta la máxima capacidad, se pueden añadir bandejas de almacenamiento para aumentar la capacidad. Consulte las instrucciones para link:../expand/index.html["Expandir un sistema StorageGRID"].
 
 
 
+[[add-storage-nodes]]
 == Añada nodos de almacenamiento
 
 Puede aumentar la capacidad de almacenamiento con la adición de nodos de almacenamiento. Al añadir almacenamiento, deben tenerse en cuenta las reglas de ILM activas y los requisitos de capacidad. Consulte las instrucciones para link:../expand/index.html["Expandir un sistema StorageGRID"].

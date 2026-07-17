@@ -28,6 +28,7 @@ Si es posible, utilice servidores DNS a los que cada sitio puede acceder localme
 
 
 
+[[add-a-dns-server]]
 == Añada un servidor DNS
 
 Siga estos pasos para agregar un servidor DNS.
@@ -40,6 +41,7 @@ Siga estos pasos para agregar un servidor DNS.
 
 
 
+[[modify-a-dns-server]]
 == Modificar un servidor DNS
 
 Siga estos pasos para modificar un servidor DNS.
@@ -52,6 +54,7 @@ Siga estos pasos para modificar un servidor DNS.
 
 
 
+[[delete-a-dns-server]]
 == Eliminar un servidor DNS
 
 Siga estos pasos para eliminar una dirección IP de un servidor DNS.

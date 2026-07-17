@@ -4,6 +4,7 @@
 
 
 
+[[location-for-node-configuration-files]]
 == Ubicación de los archivos de configuración del nodo
 
 Coloque el archivo de configuración para cada nodo StorageGRID en el `/etc/storagegrid/nodes` directorio del host donde se ejecutará el nodo. Por ejemplo, si planea ejecutar un nodo de administración, un nodo de puerta de enlace y un nodo de almacenamiento en el host A, debe colocar los archivos de configuración de tres nodos en `/etc/storagegrid/nodes` el host A.
@@ -12,6 +13,7 @@ Puede crear los archivos de configuración directamente en cada host mediante un
 
 
 
+[[naming-of-node-configuration-files]]
 == Nomenclatura de los archivos de configuración de nodos
 
 Los nombres de los archivos de configuración son significativos. El formato es `node-name.conf`, donde `node-name` es un nombre que se asigna al nodo. Este nombre aparece en el instalador de StorageGRID y se utiliza para operaciones de mantenimiento de nodos, como la migración de nodos.
@@ -36,6 +38,7 @@ Por ejemplo, puede utilizar `dc1-adm1.conf` para el primer nodo de administraci�
 
 
 
+[[contents-of-a-node-configuration-file]]
 == Contenido de un archivo de configuración de nodo
 
 Un archivo de configuración contiene pares clave/valor, con una clave y un valor por línea. Para cada par clave/valor, siga estas reglas:
@@ -55,6 +58,7 @@ La siguiente tabla define los valores de todas las claves admitidas. Cada clave 
 
 
 
+[[admin-network-keys]]
 === Claves de red de administración
 
 
@@ -303,6 +307,7 @@ Opcional de lo contrario.
 |===
 
 
+[[block-device-keys]]
 === Bloquear las teclas del dispositivo
 
 
@@ -439,6 +444,7 @@ Obligatorio
 |===
 
 
+[[client-network-keys]]
 === Claves de red cliente
 
 
@@ -642,6 +648,7 @@ Mejor práctica
 |===
 
 
+[[grid-network-keys]]
 === Claves de red de cuadrícula
 
 
@@ -833,6 +840,7 @@ Mejor práctica
 |===
 
 
+[[installation-password-key-temporary]]
 === Clave de contraseña de instalación (temporal)
 
 
@@ -862,6 +870,7 @@ Mejor práctica
 |===
 
 
+[[interfaces-key]]
 === Clave de interfaces
 
 
@@ -889,6 +898,7 @@ Opcional
 |===
 
 
+[[maximum-ram-key]]
 === Clave RAM máxima
 
 
@@ -920,6 +930,7 @@ Opcional
 |===
 
 
+[[node-type-keys]]
 === Claves de tipo de nodo
 
 
@@ -967,6 +978,7 @@ Opcional
 |===
 
 
+[[port-remap-keys]]
 === Claves de reasignación de puertos
 
 

@@ -47,12 +47,14 @@ Al reiniciar el nodo de administración principal, el explorador pierde temporal
 
 
 
+[[perform-a-rolling-reboot]]
 == Realice un reinicio gradual
 
 Debe seleccionar los nodos que desea reiniciar, revisar las selecciones, iniciar el procedimiento de reinicio y supervisar el progreso.
 
 
 
+[[select-nodes]]
 === Seleccione los nodos
 
 Como primer paso, acceda a la página Rolling reboot y seleccione los nodos que desea reiniciar.
@@ -79,6 +81,7 @@ Puede utilizar las opciones de filtro de la tabla para ver los subconjuntos de n
 
 
 
+[[review-selection]]
 === Revisar selección
 
 En este paso, puede determinar cuánto tiempo puede tardar el procedimiento de reinicio total y confirmar que ha seleccionado los nodos correctos.
@@ -96,6 +99,7 @@ NOTE: El nodo de administración principal será el último nodo en reiniciarse.
 
 
 
+[[monitor-a-rolling-reboot]]
 === Supervisar un reinicio sucesivo
 
 Mientras se ejecuta el procedimiento de reinicio sucesivo, puede supervisarlo desde el nodo de administración principal.
@@ -124,6 +128,7 @@ Las tablas proporcionan una barra de progreso de la operación en cada nodo y mu
 
 
 
+[[stop-the-rolling-reboot-procedure]]
 == Detenga el procedimiento de reinicio progresivo
 
 Puede detener el procedimiento de reinicio gradual desde el nodo de administración principal. Cuando detenga el procedimiento, cualquier nodo que tenga el estado de detención de servicios, reinicio del sistema o inicio de servicios completará la operación de reinicio. Sin embargo, ya no se realizará el seguimiento de estos nodos como parte del procedimiento.

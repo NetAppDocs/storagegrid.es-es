@@ -23,6 +23,7 @@ Cuando se actualiza a StorageGRID 11,6 o superior, las marcas de agua optimizada
 
 
 
+[[understand-the-alert]]
 == Comprenda la alerta
 
 Si utiliza valores personalizados para las marcas de agua del volumen de almacenamiento, puede activarse la alerta *anulación de Marca de agua de sólo lectura baja* para uno o más nodos de almacenamiento.
@@ -66,6 +67,7 @@ La alerta *Baja de sólo lectura de anulación de Marca de agua* se activa para 
 
 
 
+[[resolve-the-alert]]
 == Resolver la alerta
 
 Siga estos pasos si se ha activado una o más alertas *Baja de sustitución de Marca de agua de sólo lectura*. También puede utilizar estas instrucciones si actualmente utiliza la configuración personalizada de Marca de agua y desea comenzar a utilizar la configuración optimizada incluso si no se ha activado ninguna alerta.
@@ -81,6 +83,7 @@ Puede resolver la alerta *anulación de Marca de agua de sólo lectura baja* act
 
 
 
+[[assess-object-data-usage-for-entire-grid]]
 === Evalúe el uso de datos de objetos en todo el grid
 
 .Pasos
@@ -100,6 +103,7 @@ image:nodes_page_object_data_used_with_alert.png["Página Nodes donde se muestra
 
 
 
+[[view-optimized-watermarksview-optimized-storage-watermarks]]
 === [[view-optimized-watermarks]]Ver marcas de agua de almacenamiento optimizadas
 
 StorageGRID usa dos métricas de Prometheus para mostrar los valores optimizados que ha calculado para la marca de agua variable de solo lectura del volumen de almacenamiento. Puede ver los valores mínimos y máximos optimizados para cada nodo de almacenamiento en la cuadrícula.
@@ -126,6 +130,7 @@ La última columna muestra el valor máximo optimizado de la marca de agua soft 
 
 
 
+[[determine-optimized-watermarksdetermine-if-you-can-use-optimized-watermarks]]
 === [[determine-optimized-watermarks]]Determine si puede utilizar marcas de agua optimizadas
 
 .Pasos
@@ -150,6 +155,7 @@ NOTE: Los mismos valores de Marca de agua personalizados se aplican a cada volum
 
 
 
+[[use-optimized-watermarksuse-optimized-watermarks]]
 === [[use-optimized-watermarks]]Utilice marcas de agua optimizadas
 
 .Pasos

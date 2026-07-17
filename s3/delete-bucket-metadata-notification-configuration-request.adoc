@@ -17,6 +17,7 @@ Para completar esta operación, debe tener el permiso s3:DeleteBucketMetadataNot
 
 
 
+[[request-example]]
 == Ejemplo de solicitud
 
 Este ejemplo muestra cómo deshabilitar el servicio de integración de búsqueda para un bloque.

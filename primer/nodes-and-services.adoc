@@ -15,6 +15,7 @@ El elemento básico de un sistema StorageGRID es el nodo de Grid. Los nodos cont
 
 
 
+[[types-of-grid-nodes]]
 == Tipos de nodos de cuadrícula
 
 El sistema StorageGRID utiliza tres tipos de nodos de red:
@@ -45,12 +46,14 @@ Consulte link:what-gateway-node-is.html["¿Qué es un nodo de puerta de enlace?"
 
 
 
+[[hardware-and-software-nodes]]
 == Nodos de hardware y software
 
 Los nodos StorageGRID se pueden implementar como nodos de dispositivo StorageGRID o como nodos basados ​​en software.  El número máximo de nodos (incluidos todos los tipos de nodos) por sistema es 220.
 
 
 
+[[storagegrid-appliance-nodes]]
 === Nodos del dispositivo StorageGRID
 
 Los dispositivos de hardware StorageGRID están especialmente diseñados para su uso en un sistema StorageGRID. Algunos dispositivos se pueden usar como nodos de almacenamiento. Otros dispositivos se pueden usar como nodos de administrador o nodos de puerta de enlace. Puede combinar nodos de dispositivos con nodos basados en software o poner en marcha grids de dispositivo completamente diseñados que no tengan dependencias en hipervisores externos, almacenamiento ni hardware de computación.
@@ -63,6 +66,7 @@ Consulte lo siguiente para obtener más información sobre los dispositivos disp
 
 
 
+[[software-based-nodes]]
 === Nodos basados en software
 
 Los nodos de red basados en software se pueden implementar como máquinas virtuales VMware o dentro de motores de contenedores en un host Linux. Ver link:../swnodes/index.html["Instalar StorageGRID en nodos basados ​​en software"] .
@@ -71,6 +75,7 @@ Utilice https://imt.netapp.com/matrix/#welcome["Herramienta de matriz de interop
 
 
 
+[[storagegrid-services]]
 == Servicios de StorageGRID
 
 A continuación, se muestra una lista completa de los servicios StorageGRID.

@@ -207,6 +207,7 @@ Después de aplicar o preparar cambios, se genera un nuevo paquete de recuperaci
 
 
 
+[[temporarily-changing-the-lacp-pdu-rate]]
 == Cambio temporal de la velocidad de PDU de LACP
 
 Para realizar operaciones de mantenimiento en los componentes de red instalados en su dispositivo, como actualizar el firmware de la NIC, puede verificar que la configuración actual de la velocidad de PDU LACP cumpla con los requisitos de sincronización de comunicación de la NIC.  Puede alternar de forma no persistente la velocidad de PDU LACP entre rápida (espera de 1 segundo) y lenta (espera de 30 segundos), si es necesario.

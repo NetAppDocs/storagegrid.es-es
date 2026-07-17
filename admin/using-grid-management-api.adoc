@@ -15,6 +15,7 @@ Puede realizar tareas de administración del sistema mediante la API REST de Gri
 
 
 
+[[top-level-resources]]
 == Recursos de alto nivel
 
 La API de gestión de grid proporciona los siguientes recursos de nivel superior:
@@ -26,6 +27,7 @@ La API de gestión de grid proporciona los siguientes recursos de nivel superior
 
 
 
+[[issue-api-requests]]
 == Emita solicitudes API
 
 La API de gestión de grid utiliza la plataforma API de código abierto de Swagger. Swagger proporciona una interfaz de usuario intuitiva que permite a los desarrolladores y no desarrolladores realizar operaciones en tiempo real en StorageGRID con la API.

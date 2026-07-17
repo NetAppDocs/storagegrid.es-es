@@ -15,6 +15,7 @@ Los nodos de administración, que proporcionan servicios de gestión como config
 
 
 
+[[differences-between-primary-and-non-primary-admin-nodes]]
 == Diferencias entre los nodos de administración primario y no principal
 
 Cuando inicia sesión en Grid Manager o Tenant Manager, se conecta a un nodo de administración.  Puede conectarse a cualquier nodo de administración y cada nodo de administración muestra una vista similar del sistema StorageGRID .  Sin embargo, el nodo de administración principal proporciona más funciones que los nodos de administración no principales.  Por ejemplo, la mayoría de los procedimientos de mantenimiento deben realizarse desde el nodo de administración principal.
@@ -162,6 +163,7 @@ Sí. Actúa como remitente en espera.
 |===
 
 
+[[preferred-senderpreferred-sender-admin-node]]
 == [[preferred-sender]]Nodo de administración de remitente preferido
 
 Si la implementación de StorageGRID incluye varios nodos de administración, el nodo de administración principal es el remitente preferido para las notificaciones de alertas, los paquetes de AutoSupport y las capturas SNMP.
@@ -180,6 +182,7 @@ NOTE: Cuando prueba los paquetes AutoSupport, todos los nodos de administración
 
 
 
+[[primary-services-for-admin-nodes]]
 == Servicios primarios para nodos de administración
 
 En la siguiente tabla se muestran los servicios principales de los nodos de administrador; sin embargo, esta tabla no enumera todos los servicios de nodo.

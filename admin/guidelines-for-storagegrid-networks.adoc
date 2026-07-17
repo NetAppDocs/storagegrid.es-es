@@ -17,6 +17,7 @@ Consulte link:configuring-client-connections.html["Configure las conexiones de c
 
 
 
+[[default-storagegrid-networks]]
 == Redes StorageGRID predeterminadas
 
 De forma predeterminada, StorageGRID admite tres interfaces de red por nodo de grid, lo que permite configurar las redes para cada nodo de grid individual de modo que se ajusten a sus requisitos de seguridad y acceso.
@@ -25,24 +26,28 @@ Para obtener más información sobre la topología de red, consulte link:../netw
 
 
 
+[[grid-network]]
 === Red Grid
 
 Obligatorio. La red de red se utiliza para todo el tráfico interno de StorageGRID. Proporciona conectividad entre todos los nodos de la cuadrícula, en todos los sitios y subredes.
 
 
 
+[[admin-network]]
 === Red de administración
 
 Opcional. La red de administración suele utilizarse para la administración y el mantenimiento del sistema. También se puede utilizar para el acceso a protocolos de cliente. La red de administración suele ser una red privada y no es necesario que se pueda enrutar entre sitios.
 
 
 
+[[client-network]]
 === Red cliente
 
 Opcional. La red cliente es una red abierta que normalmente se utiliza para proporcionar acceso a las aplicaciones cliente S3, por lo que la red de red se puede aislar y proteger. La red de cliente puede comunicarse con cualquier subred accesible a través de la puerta de enlace local.
 
 
 
+[[guidelines]]
 == Directrices
 
 * Cada nodo StorageGRID requiere una interfaz de red dedicada, dirección IP, máscara de subred y pasarela para cada red a la que se asigna.
@@ -83,6 +88,7 @@ eth2
 
 
 
+[[optional-interfaces]]
 == Interfaces opcionales
 
 Opcionalmente, se pueden añadir interfaces adicionales a un nodo. Por ejemplo, puede que desee agregar una interfaz troncal a un nodo de administración o puerta de enlace, de modo que pueda utilizar link:../admin/configure-vlan-interfaces.html["Interfaces de VLAN"] para segregar el tráfico que pertenece a diferentes aplicaciones o inquilinos. O bien, puede que desee agregar una interfaz de acceso para utilizarla en una link:../admin/configure-high-availability-group.html["Grupo de alta disponibilidad"].

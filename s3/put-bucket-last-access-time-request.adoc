@@ -28,6 +28,7 @@ Si se desactivan las actualizaciones de la última hora de acceso para un bloque
 
 
 
+[[request-examples]]
 == Solicitar ejemplos
 
 En este ejemplo se habilita la hora de último acceso para un bloque.

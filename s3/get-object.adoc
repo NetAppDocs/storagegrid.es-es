@@ -15,6 +15,7 @@ Puede usar la solicitud GetObject S3 para recuperar un objeto de un bucket S3.
 
 
 
+[[getobject-and-multipart-objects]]
 == Objetos GetObject y multipart
 
 Puede utilizar el `partNumber` parámetro request para recuperar una parte específica de un objeto segmentado o multiparte. El `x-amz-mp-parts-count` elemento de respuesta indica cuántas partes tiene el objeto.
@@ -23,12 +24,14 @@ Se puede establecer `partNumber` en 1 para objetos segmentados/multiparte y obje
 
 
 
+[[utf-8-characters-in-user-metadata]]
 == Caracteres UTF-8 en los metadatos de usuario
 
 StorageGRID no analiza ni interpreta caracteres UTF-8 escapados en los metadatos definidos por el usuario. Las solicitudes GET para un objeto con caracteres UTF-8 que se han escapado en los metadatos definidos por el usuario no devuelven `x-amz-missing-meta` el encabezado si el nombre o el valor de la clave incluyen caracteres no imprimibles.
 
 
 
+[[supported-request-header]]
 == Cabecera de solicitud admitida
 
 Se admite el siguiente encabezado de solicitud:
@@ -41,6 +44,7 @@ Se admite el siguiente encabezado de solicitud:
 
 
 
+[[unsupported-request-header]]
 == Encabezado de solicitud no compatible
 
 La siguiente cabecera de solicitud no está soportada y devuelve `XNotImplemented`:
@@ -50,12 +54,14 @@ La siguiente cabecera de solicitud no está soportada y devuelve `XNotImplemente
 
 
 
+[[versioning]]
 == Creación de versiones
 
 Si no se especifica un `versionId` subrecurso, la operación recupera la versión más reciente del objeto en un bloque con versiones. Si la versión actual del objeto es un marcador de supresión, se devuelve un estado de no encontrado con la `x-amz-delete-marker` cabecera de respuesta establecida en `true`.
 
 
 
+[[request-headers-for-server-side-encryption-with-customer-provided-encryption-keys-sse-c]]
 == Solicitar encabezados para el cifrado del servidor con claves de cifrado proporcionadas por el cliente (SSE-C)
 
 Utilice los tres encabezados si el objeto está cifrado con una clave única que ha proporcionado.
@@ -70,6 +76,7 @@ CAUTION: Las claves de cifrado que proporcione no se almacenan nunca. Si pierde 
 
 
 
+[[behavior-of-getobject-for-cloud-storage-pool-objects]]
 == Comportamiento de los objetos GetObject para Cloud Storage Pool
 
 Si se ha almacenado un objeto en un link:../ilm/what-cloud-storage-pool-is.html["Pool de almacenamiento en cloud"], el comportamiento de una solicitud GetObject depende del estado del objeto. Consulte link:head-object.html["Objeto principal"] para obtener más información.
@@ -128,6 +135,7 @@ Se recupera una copia del objeto.
 |===
 
 
+[[multipart-or-segmented-objects-in-a-cloud-storage-pool]]
 === Objetos de varias partes o segmentados en un pool de almacenamiento en nube
 
 Si cargó un objeto con varias partes o StorageGRID dividió un objeto grande en segmentos, StorageGRID determina si el objeto está disponible en el pool de almacenamiento en cloud al muestrear un subconjunto de las partes o segmentos del objeto. En algunos casos, una solicitud GetObject podría regresar incorrectamente `200 OK` cuando algunas partes del objeto ya se han trasladado a un estado no recuperable o cuando algunas partes del objeto aún no se han restaurado.
@@ -140,6 +148,7 @@ En estos casos:
 
 
 
+[[getobject-and-cross-grid-replication]]
 == GetObject y replicación entre grid
 
 Si está utilizando link:../admin/grid-federation-overview.html["federación de grid"] y link:../tenant/grid-federation-manage-cross-grid-replication.html["replicación entre grid"] está habilitado para un depósito, el cliente S3 puede verificar el estado de replicación de un objeto emitiendo una solicitud GetObject. La respuesta incluye el encabezado de respuesta específico de StorageGRID `x-ntap-sg-cgr-replication-status`, que tendrá uno de los siguientes valores:

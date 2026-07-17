@@ -15,6 +15,7 @@ Debe revisar los requisitos para habilitar la configuración global de bloqueo d
 
 
 
+[[requirements-for-using-the-global-s3-object-lock-setting]]
 == Requisitos para usar el valor global de bloqueo de objetos S3
 
 * Debe habilitar la configuración global de Object Lock mediante el administrador de grid o la API de gestión de grid antes de que cualquier inquilino de S3 pueda crear un bucket con el bloqueo de objetos S3 habilitado.
@@ -26,6 +27,7 @@ Debe revisar los requisitos para habilitar la configuración global de bloqueo d
 
 
 
+[[requirements-for-compliant-ilm-rules]]
 == Requisitos para las reglas de ILM que cumplen con las normativas
 
 Si desea habilitar la configuración global Bloqueo de objetos S3, debe asegurarse de que la regla predeterminada de todas las políticas de ILM activas sea compatible. Una regla conforme a las normativas satisface los requisitos de ambos bloques con el bloqueo de objetos S3 habilitado y de cualquier bloque existente con el cumplimiento de normativas heredado habilitado:
@@ -39,6 +41,7 @@ Si desea habilitar la configuración global Bloqueo de objetos S3, debe asegurar
 
 
 
+[[requirements-for-ilm-policies]]
 == Requisitos para las políticas de ILM
 
 Cuando se habilita la configuración global Bloqueo de objetos S3, las políticas de ILM activas e inactivas pueden incluir reglas que cumplen y no cumplen.
@@ -52,6 +55,7 @@ link:example-7-compliant-ilm-policy-for-s3-object-lock.html["Ejemplo de una pol�
 
 
 
+[[requirements-for-buckets-with-s3-object-lock-enabled]]
 == Requisitos para bloques con bloqueo de objetos de S3 habilitado
 
 * Si la opción de configuración global de bloqueo de objetos S3 se encuentra habilitada para el sistema StorageGRID, puede usar el administrador de inquilinos, la API de gestión de inquilinos o la API REST de S3 para crear bloques con el bloqueo de objetos S3 habilitado.
@@ -64,6 +68,7 @@ link:example-7-compliant-ilm-policy-for-s3-object-lock.html["Ejemplo de una pol�
 
 
 
+[[requirements-for-objects-in-buckets-with-s3-object-lock-enabled]]
 == Requisitos para objetos en bloques con S3 Object Lock habilitado
 
 * Para proteger una versión de objeto, puede especificar la configuración de retención predeterminada para el bloque, o bien puede especificar la configuración de retención para cada versión de objeto. La configuración de retención a nivel de objeto se puede especificar mediante la aplicación cliente S3 o la API DE REST S3.
@@ -72,6 +77,7 @@ link:example-7-compliant-ilm-policy-for-s3-object-lock.html["Ejemplo de una pol�
 
 
 
+[[lifecycle-of-objects-in-buckets-with-s3-object-lock-enabled]]
 == Ciclo de vida de los objetos en bloques con S3 Object Lock habilitado
 
 Cada objeto que se guarda en un depósito con S3 Object Lock habilitado pasa por las siguientes etapas:

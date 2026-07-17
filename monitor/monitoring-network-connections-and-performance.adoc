@@ -15,6 +15,7 @@ La integridad y el ancho de banda de la red entre nodos y los sitios, y el uso d
 
 
 
+[[monitor-network-connections-and-performance]]
 == Supervisar las conexiones de red y el rendimiento
 
 La conectividad de red y el ancho de banda son especialmente importantes si la política de gestión del ciclo de vida de la información (ILM) copia los objetos replicados entre sitios o almacena objetos codificados con borrado mediante un esquema que proporciona protección contra pérdida de sitio. Si la red entre sitios no está disponible, la latencia de la red es demasiado alta o el ancho de banda de la red es insuficiente, es posible que algunas reglas de ILM no puedan colocar objetos donde se espera. Esto puede provocar errores de ingesta (cuando se selecciona la opción de ingesta estricta para reglas de ILM) o errores en el rendimiento de procesamiento y los trabajos de gestión de la vida útil.
@@ -77,6 +78,7 @@ Si una directiva de clasificación de tráfico está diseñada para limitar el t
 
 
 
+[[monitor-node-level-resources]]
 == Supervise los recursos a nivel de nodo
 
 Supervisar nodos de cuadrícula individuales para comprobar sus niveles de uso de recursos. Si los nodos están sobrecargados de forma continua, es posible que se necesiten más nodos para realizar operaciones eficientes.

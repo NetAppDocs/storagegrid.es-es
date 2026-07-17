@@ -20,6 +20,7 @@ Gestione los grupos de arrendatarios según sea necesario para ver, editar o dup
 
 
 
+[[view-or-edit-group]]
 == Ver o editar grupo
 
 Puede ver y editar la información básica y los detalles de cada grupo.
@@ -104,6 +105,7 @@ Aparece un mensaje de éxito en la parte superior derecha.
 
 
 
+[[duplicate-group]]
 == Grupo duplicado
 
 Puede duplicar un grupo existente para crear nuevos grupos más rápidamente.
@@ -121,6 +123,7 @@ NOTE: Si su cuenta de inquilino tiene el permiso *Usar conexión de federación 
 
 
 
+[[clone-groupsretry-group-clone]]
 == [[clone-groups]]Vuelva a intentar clonar el grupo
 
 Para volver a intentar un clon que generó errores:
@@ -134,6 +137,7 @@ Para obtener más información, consulte link:grid-federation-account-clone.html
 
 
 
+[[delete-one-or-more-groups]]
 == Elimine uno o más grupos
 
 Puede eliminar uno o varios grupos. Cualquier usuario que pertenezca únicamente a un grupo que se haya eliminado ya no podrá iniciar sesión en el gestor de inquilinos ni utilizar la cuenta de inquilino.
@@ -153,6 +157,7 @@ Se muestra un cuadro de diálogo de confirmación.
 
 
 
+[[set-up-assumerole]]
 == Configurar AssumeRole
 
 .Antes de empezar
@@ -176,6 +181,7 @@ Credenciales de seguridad temporales creadas asumiendo que este grupo es válido
 
 
 
+[[example-of-an-assumerole-s3-trust-policy]]
 === Ejemplo de una política de confianza de AssumeRole S3
 
 [listing]

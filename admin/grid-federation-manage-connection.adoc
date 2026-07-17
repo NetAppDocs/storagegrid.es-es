@@ -20,6 +20,7 @@ La gestión de las conexiones de federación de grid entre sistemas StorageGRID 
 
 
 
+[[editgridfedconnectionedit-a-grid-federation-connection]]
 == [[edit_grid_fed_connection]]Edite una conexión de federación de cuadrícula
 
 Puede editar una conexión de federación de grid iniciando sesión en el nodo de administración principal en cualquier cuadrícula de la conexión. Después de realizar cambios en la primera cuadrícula, debe descargar un nuevo archivo de verificación y cargarlo en la otra cuadrícula.
@@ -29,6 +30,7 @@ NOTE: Mientras se edita la conexión, las solicitudes de clonación de cuentas o
 
 
 
+[[start-editing-the-connection]]
 === Comience a editar la conexión
 
 .Pasos
@@ -85,6 +87,7 @@ NOTE: Si el estado de la conexión no era *Connected* cuando comenzó a editar l
 
 
 
+[[finish-editing-the-connection]]
 === Termine de editar la conexión
 
 Termine de editar la conexión cargando el archivo de verificación en la otra cuadrícula.
@@ -107,6 +110,7 @@ Si la conexión se puede establecer mediante los valores editados, aparece un me
 
 
 
+[[testgridfedconnectiontest-a-grid-federation-connection]]
 == [[test_grid_fed_connection]]Pruebe una conexión de federación de grid
 
 .Pasos
@@ -177,6 +181,7 @@ La conexión está en estado desconocido, posiblemente debido a un problema de r
 
 
 
+[[rotategridfedcertificatesrotate-connection-certificates]]
 == [[rotate_grid_fed_certificates]]Girar certificados de conexión
 
 Cada conexión de federación de grid utiliza cuatro certificados SSL generados automáticamente para proteger la conexión. Cuando los dos certificados para cada cuadrícula se acercan a su fecha de vencimiento, la alerta *Caducidad del certificado de federación de cuadrícula* le recuerda que debe rotar los certificados.
@@ -201,6 +206,7 @@ En general, utilice el mismo número de días para los certificados en ambos lad
 
 
 
+[[removegridfedconnectionremove-a-grid-federation-connection]]
 == [[remove_grid_fed_connection]]Elimine una conexión de federación de cuadrícula
 
 Puede eliminar una conexión de federación de cuadrícula de cualquiera de las dos cuadrículas de la conexión. Como se muestra en la figura, debe realizar los pasos de requisitos previos en ambas cuadrículas para confirmar que la conexión no está siendo utilizada por ningún inquilino en ninguna de las cuadrículas.
@@ -215,6 +221,7 @@ Antes de eliminar una conexión, tenga en cuenta lo siguiente:
 
 
 
+[[disable-replication-for-all-tenant-buckets]]
 === Desactive la replicación para todos los bloques de inquilinos
 
 .Pasos
@@ -231,6 +238,7 @@ TIP: No puede eliminar el permiso *Usar conexión de federación de grid* si alg
 
 
 
+[[remove-permission-for-each-tenant]]
 === Eliminar permiso para cada inquilino
 
 Después de que la replicación entre redes se haya desactivado para todos los depósitos de inquilinos, elimine el permiso *Usar federación de grid* de todos los inquilinos en ambas cuadrículas.
@@ -244,6 +252,7 @@ Después de que la replicación entre redes se haya desactivado para todos los d
 
 
 
+[[remove-connection]]
 === Retire la conexión
 
 .Pasos
@@ -263,6 +272,7 @@ Después de que la replicación entre redes se haya desactivado para todos los d
 
 
 
+[[force-removegridfedconnectionremove-a-grid-federation-connection-by-force]]
 == [[force-remove_grid_fed_connection]]Elimine una conexión de federación de cuadrícula por fuerza
 
 Si es necesario, puede forzar la eliminación de una conexión que no tiene el estado *CONECTADA*.

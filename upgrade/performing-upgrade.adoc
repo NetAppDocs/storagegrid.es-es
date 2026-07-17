@@ -21,6 +21,7 @@ CAUTION: No inicie la actualización si necesita urgentemente ampliar su almacen
 
 
 
+[[access-storagegrid-upgrade-page]]
 == Acceda a la página Actualización de StorageGRID
 
 Como primer paso, acceda a la página Actualización de StorageGRID en Grid Manager.
@@ -33,6 +34,7 @@ Como primer paso, acceda a la página Actualización de StorageGRID en Grid Mana
 
 
 
+[[select-files]]
 == Seleccione los archivos
 
 La ruta de actualización en la página Actualización de StorageGRID indica qué versiones principales (por ejemplo, 12.0.0) y revisiones (por ejemplo, 12.0.0.1) debe instalar para llegar a la última versión de StorageGRID .  Debe instalar las versiones y revisiones recomendadas en el orden que se muestra.
@@ -60,6 +62,7 @@ Cuando se realiza la carga y la verificación de la firma del código, aparece u
 
 
 
+[[run-prechecks]]
 == Realice comprobaciones previas
 
 Ejecutar comprobaciones previas le permite detectar y resolver cualquier problema de actualización antes de empezar a actualizar su grid.
@@ -93,6 +96,7 @@ Si se han resuelto todos los errores, se le solicitará que inicie la actualizac
 
 
 
+[[start-upgrade-and-upgrade-primary-admin-node]]
 == Inicie la actualización y actualice el nodo de administración principal
 
 Cuando inicia la actualización, las comprobaciones previas a la actualización se vuelven a ejecutar y el nodo de administración primario se actualiza automáticamente. Esta parte de la actualización puede tardar hasta 30 minutos.
@@ -119,6 +123,7 @@ Si el grid tiene otro nodo de administración que está en línea y listo, puede
 
 
 
+[[upgrade-other-nodes]]
 == Actualice otros nodos
 
 Es necesario actualizar todos los nodos de grid, pero es posible realizar varias sesiones de actualización y personalizar la secuencia de actualización. Por ejemplo, quizás prefiera actualizar los nodos en el sitio A en una sesión y luego actualizar los nodos del sitio B en una sesión posterior. Si elige realizar la actualización en más de una sesión, tenga en cuenta que no podrá comenzar a usar las nuevas funciones hasta que se hayan actualizado todos los nodos.
@@ -241,6 +246,7 @@ NOTE: Es posible que algunos modelos de dispositivos se reinicien varias veces p
 
 
 
+[[complete-upgrade]]
 == Se completó la actualización
 
 Cuando todos los nodos de grid han completado las etapas de actualización, la tarea *Actualizar otros nodos de grid* se muestra como completada. Las tareas de actualización restantes se ejecutan automáticamente en segundo plano.

@@ -32,6 +32,7 @@ CAUTION: Después de configurar y crear un bucket de rama, no podrá cambiar la 
 
 
 
+[[create-branch-bucket]]
 == Crear un depósito de ramas
 
 .Pasos
@@ -45,6 +46,7 @@ El botón *Crear rama de depósito* está deshabilitado si el depósito base no 
 
 
 
+[[enter-details]]
 == Introduzca los detalles
 
 .Pasos
@@ -106,6 +108,7 @@ Tipo de cubo de rama
 
 
 
+[[manage-object-settings-optional]]
 == Administrar la configuración de objetos (opcional)
 
 Las configuraciones de objetos para un bucket de rama no afectan las versiones de objetos en el bucket base.

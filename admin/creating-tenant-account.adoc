@@ -39,6 +39,7 @@ TIP: Si este grupo de administración no existe en ambas cuadrículas antes de c
 
 
 
+[[access-the-wizard]]
 == Acceda al asistente
 
 .Pasos
@@ -48,6 +49,7 @@ TIP: Si este grupo de administración no existe en ambas cuadrículas antes de c
 
 
 
+[[enter-details]]
 == Introduzca los detalles
 
 .Pasos
@@ -92,6 +94,7 @@ Si desea que este inquilino tenga una cuota de almacenamiento, un valor numéric
 
 
 
+[[admin-tenant-select-permissionsselect-permissions]]
 == [[admin-tenant-select-permissions]]Seleccione permisos
 
 .Pasos
@@ -163,6 +166,7 @@ Permitir que el inquilino utilice características específicas de S3 Object Loc
 
 
 
+[[define-root-access-and-create-tenant]]
 == Defina el acceso raíz y cree un inquilino
 
 .Pasos
@@ -221,12 +225,14 @@ TIP: Un usuario raíz local no puede iniciar sesión en el gestor de inquilinos 
 
 
 
+[[sign-in-to-tenant-optional]]
 == Iniciar sesión en el inquilino (opcional)
 
 Según sea necesario, puede iniciar sesión en el nuevo inquilino ahora para completar la configuración, o puede iniciar sesión en el inquilino más adelante. Los pasos de inicio de sesión dependen de si ha iniciado sesión en Grid Manager mediante el puerto predeterminado (443) o un puerto restringido. Consulte link:controlling-access-through-firewalls.html["Controle el acceso a un firewall externo"].
 
 
 
+[[sign-in-now]]
 === Inicie sesión ahora
 
 [cols="1a,3a"]
@@ -278,6 +284,7 @@ La dirección URL del administrador de inquilinos tiene el siguiente formato:
 |===
 
 
+[[sign-in-later]]
 === Inicie sesión más tarde
 
 [cols="1a,3a"]
@@ -321,6 +328,7 @@ Un puerto restringido
 |===
 
 
+[[configure-the-tenant]]
 == Configure el inquilino
 
 Siga las instrucciones descritas en link:../tenant/index.html["Usar una cuenta de inquilino"] para gestionar usuarios y grupos de inquilinos, claves de acceso de S3, buckets, servicios de plataforma y replicación entre grid y clonación de cuentas.

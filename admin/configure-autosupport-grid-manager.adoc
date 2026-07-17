@@ -35,6 +35,7 @@ Puede usar cualquier combinación de las siguientes opciones para enviar paquete
 
 
 
+[[specify-protocol-for-autosupport-packagesspecify-the-protocol-for-autosupport-packages]]
 == [[specify-protocol-for-autosupport-packages]]Especifique el protocolo para paquetes AutoSupport
 
 Puede usar cualquiera de los siguientes protocolos para enviar paquetes de AutoSupport:
@@ -60,6 +61,7 @@ El protocolo configurado se utiliza para enviar todos los tipos de paquetes de A
 
 
 
+[[disable-weekly-autosupport]]
 == Deshabilite el AutoSupport semanal
 
 De manera predeterminada, el sistema StorageGRID se configura para enviar un paquete de AutoSupport al soporte técnico una vez a la semana.
@@ -76,6 +78,7 @@ Es posible deshabilitar el envío automático de paquetes de AutoSupport semanal
 
 
 
+[[disable-event-triggered-autosupport]]
 == Deshabilite el AutoSupport activado por eventos
 
 De manera predeterminada, el sistema StorageGRID está configurado para enviar un paquete de AutoSupport al soporte técnico cada hora.
@@ -90,6 +93,7 @@ Puede deshabilitar la AutoSupport activada por eventos en cualquier momento.
 
 
 
+[[enable-autosupport-on-demand]]
 == Habilite AutoSupport bajo demanda
 
 AutoSupport On Demand puede ayudar a resolver problemas en los que el soporte técnico está trabajando activamente.
@@ -111,6 +115,7 @@ AutoSupport On Demand está habilitado y el soporte técnico puede enviar solici
 
 
 
+[[disable-checks-for-software-updates]]
 == Desactive las comprobaciones de actualizaciones de software
 
 De forma predeterminada, StorageGRID se pone en contacto con NetApp para determinar si hay actualizaciones de software disponibles para su sistema. Si hay disponible una revisión o versión nueva de StorageGRID, se muestra la nueva versión en la página actualización de StorageGRID.
@@ -125,6 +130,7 @@ Según sea necesario, puede desactivar opcionalmente la comprobación de actuali
 
 
 
+[[add-an-additional-autosupport-destination]]
 == Añada un destino de AutoSupport adicional
 
 Cuando se habilita AutoSupport, se envían paquetes de estado y estado al soporte técnico. Puede especificar un destino adicional para todos los paquetes de AutoSupport.
@@ -177,6 +183,7 @@ Todos los futuros paquetes de AutoSupport semanales, activados por eventos y act
 
 
 
+[[autosupport-for-appliancesconfigure-autosupport-for-appliances]]
 == [[autosupport-for-appliances]]Configurar AutoSupport para dispositivos
 
 AutoSupport para dispositivos informa de problemas de hardware de StorageGRID y StorageGRID AutoSupport informa de problemas de software de StorageGRID, con una excepción: En el caso del sistema SGF6112, StorageGRID AutoSupport informa de problemas de hardware y software. Tiene que configurar AutoSupport en cada dispositivo, excepto en SGF6112, que no requiere una configuración adicional. AutoSupport se ha implantado de forma diferente en dispositivos de servicios y dispositivos de almacenamiento.

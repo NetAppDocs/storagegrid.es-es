@@ -26,6 +26,7 @@ Opcionalmente, puedeslink:../monitor/considerations-for-external-syslog-server.h
 
 
 
+[[change-audit-message-levels]]
 == Cambiar los niveles de mensajes de auditoría
 
 Se puede establecer un nivel de auditoría diferente para cada una de las siguientes categorías de mensajes en el registro de auditoría:
@@ -148,6 +149,7 @@ NOTE: Si no necesita un registro detallado de las operaciones de lectura del cli
 
 
 
+[[define-http-request-headers]]
 == Definir cabeceras de solicitud HTTP
 
 Opcionalmente, puede definir cualquier encabezado de solicitud HTTP que desee incluir en los mensajes de auditoría de lectura y escritura del cliente.
@@ -170,6 +172,7 @@ NOTE: Los encabezados de solicitud de protocolo de auditoría se registran solo 
 
 
 
+[[configure-log-location]]
 == Configurar la ubicación del registro
 
 De forma predeterminada, los mensajes de auditoría y los registros se guardan en los nodos donde se generan.  Se rotan periódicamente y finalmente se eliminan para evitar que consuman demasiado espacio en disco.  Si desea guardar mensajes de auditoría y un subconjunto de registros de forma externa,<<use-external-syslog-server,utilizar un servidor syslog externo>> .
@@ -178,6 +181,7 @@ Si desea guardar los archivos de registro internamente, elija un inquilino y un 
 
 
 
+[[use-external-syslog-serveruse-an-external-syslog-server]]
 === [[use-external-syslog-server]]Utilice un servidor syslog externo
 
 De manera opcional, es posible configurar un servidor de syslog externo para guardar registros de auditoría, registros de aplicaciones y registros de eventos de seguridad en una ubicación fuera del grid.
@@ -579,6 +583,7 @@ NOTE: La información de auditoría de StorageGRID no se envía al servidor sysl
 
 
 
+[[select-log-location]]
 === Seleccionar la ubicación del registro
 
 Puede especificar dónde se guardan los registros de auditoría y los registros de eventos de seguridad.link:../monitor/storagegrid-software-logs.html["Registros de aplicaciones de StorageGRID"] , y se envían registros de acceso.
@@ -650,6 +655,7 @@ Los nuevos registros se envían a los destinos seleccionados. Los registros exis
 
 
 
+[[use-bucketuse-a-bucket]]
 === [[use-bucket]]Usa un cubo
 
 Los registros se rotan periódicamente.  Utilice un bucket S3 en la misma red para almacenar registros durante un período de tiempo prolongado.

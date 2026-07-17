@@ -22,12 +22,14 @@ Ver ellink:../swnodes/index.html["instrucciones de instalación"] .
 
 
 
+[[host-network-configuration-for-container-engine-deployments]]
 == Configuración de red host para puestas en marcha del motor de contenedores
 
 Antes de iniciar la implementación de StorageGRID en una plataforma de motor de contenedores, determine qué redes (grid, administrador, cliente) utilizará cada nodo. Debe asegurarse de que la interfaz de red de cada nodo esté configurada en la interfaz de host virtual o física correcta y que cada red tenga el ancho de banda suficiente.
 
 
 
+[[physical-hosts]]
 === Hosts físicos
 
 Si utiliza hosts físicos para dar soporte a los nodos de grid:
@@ -52,6 +54,7 @@ NOTE: "Linux" se refiere a una implementación de RHEL, Ubuntu o Debian.  Para o
 
 
 
+[[minimum-bandwidth-recommendations]]
 === Recomendaciones mínimas de ancho de banda
 
 En la siguiente tabla, se presentan las recomendaciones mínimas de ancho de banda LAN para cada tipo de nodo StorageGRID y cada tipo de red. Debe aprovisionar cada host físico o virtual con suficiente ancho de banda de red para satisfacer los requisitos mínimos del agregado de ancho de banda para la cantidad total y el tipo de nodos StorageGRID que planea ejecutar en ese host.

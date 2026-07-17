@@ -32,6 +32,7 @@ NOTE: Si un objeto está cifrado con SSE o SSE-C, se ignorará cualquier configu
 
 
 
+[[use-sse]]
 == Utilice SSE
 
 Para cifrar un objeto con una clave única administrada por StorageGRID, se utiliza el siguiente encabezado de solicitud:
@@ -47,6 +48,7 @@ El encabezado de solicitud SSE es compatible con las siguientes operaciones de o
 
 
 
+[[use-sse-c]]
 == Utilice SSE-C
 
 Para cifrar un objeto con una clave única que administra, se utilizan tres encabezados de solicitud:
@@ -89,6 +91,7 @@ Las siguientes operaciones de objeto admiten los encabezados de solicitud de SSE
 
 
 
+[[considerations-for-using-server-side-encryption-with-customer-provided-keys-sse-c]]
 == Consideraciones para utilizar el cifrado del servidor con claves proporcionadas por el cliente (SSE-C)
 
 Antes de utilizar SSE-C, tenga en cuenta las siguientes consideraciones:

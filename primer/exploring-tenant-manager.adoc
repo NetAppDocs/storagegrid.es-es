@@ -20,6 +20,7 @@ Cuando los usuarios de inquilinos inician sesión en el Administrador de inquili
 
 
 
+[[tenant-manager-dashboard]]
 == Consola del administrador de inquilinos
 
 Una vez que un administrador de grid crea una cuenta de inquilino mediante Grid Manager o la API de gestión de grid, los usuarios de inquilinos pueden iniciar sesión en el Administrador de inquilinos.
@@ -32,6 +33,7 @@ image:tenant_dashboard_with_buckets.png["Consola del administrador de inquilinos
 
 
 
+[[storage-menu-s3]]
 == Menú Almacenamiento (S3)
 
 Este menú permite a los usuarios de S3:
@@ -44,6 +46,7 @@ Este menú permite a los usuarios de S3:
 
 
 
+[[my-access-keys]]
 === Mis claves de acceso
 
 Los usuarios de inquilinos S3 pueden gestionar las claves de acceso de la siguiente manera:
@@ -58,6 +61,7 @@ NOTE: La gestión de las claves de acceso de otros usuarios se realiza desde el 
 
 
 
+[[buckets]]
 === Cucharones
 
 Los usuarios inquilinos de S3 con los permisos correspondientes pueden realizar las siguientes tareas para sus bloques:
@@ -83,18 +87,21 @@ Si un administrador de grid habilitó el uso de servicios de plataforma para la 
 
 
 
+[[platform-services-endpoints]]
 === Extremos de servicios de plataforma
 
 Si un administrador de grid ha habilitado el uso de servicios de plataforma para la cuenta de inquilino, un usuario de inquilino de S3 con el permiso Manage Endpoints puede configurar un punto final de destino para cada servicio de plataforma.
 
 
 
+[[grid-federation-connections]]
 === Conexiones de federación de grid
 
 Si un administrador de grid ha habilitado el uso de una conexión de federación de grid para la cuenta de inquilino, un usuario de S3 que tiene permiso de acceso raíz puede ver el nombre de la conexión, acceder a la página de detalles de bloque de cada bloque que tiene habilitada la replicación entre grid, y ver el error más reciente que se produce cuando los datos del depósito se están replicando en la otra cuadrícula de la conexión. Consulte link:../tenant/grid-federation-view-connections-tenant.html["Ver conexiones de federación de grid"].
 
 
 
+[[access-management-menu]]
 == Menú Access Management
 
 El menú Access Management permite a los inquilinos StorageGRID importar grupos de usuarios desde un origen de identidades federado y asignar permisos de gestión. Los inquilinos también pueden gestionar los usuarios y los grupos de inquilinos locales, a menos que el inicio de sesión único (SSO) esté vigente para todo el sistema StorageGRID.

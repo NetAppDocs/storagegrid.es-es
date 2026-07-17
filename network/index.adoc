@@ -15,6 +15,7 @@ Use estas directrices para obtener más información sobre la arquitectura de St
 
 
 
+[[about-these-instructions]]
 == Acerca de estas instrucciones
 
 Estas directrices ofrecen información que se puede usar para crear la infraestructura de red de StorageGRID antes de implementar y configurar nodos de StorageGRID. Utilice estas directrices para asegurarse de que la comunicación puede producirse entre todos los nodos de la cuadrícula y entre la cuadrícula y los clientes y servicios externos.
@@ -38,6 +39,7 @@ Las redes de StorageGRID deben configurarse de manera adecuada para manejar el t
 
 
 
+[[before-you-begin]]
 == Antes de empezar
 
 Para configurar las redes de un sistema StorageGRID es necesario contar con un alto nivel de experiencia en conmutación Ethernet, redes TCP/IP, subredes, enrutamiento de red y servidores de seguridad.

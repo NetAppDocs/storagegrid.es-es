@@ -4,6 +4,7 @@
 
 
 
+[[find-hostname-for-storage-node]]
 == Busque el nombre de host del nodo de almacenamiento
 
 . Inicie sesión en cualquier nodo de administración:
@@ -22,6 +23,7 @@ Al iniciar sesión como root, la petición de datos cambia de `$` a `#`.
 
 
 
+[[repair-data-if-all-volumes-have-failed]]
 == Repare los datos si todos los volúmenes presentan errores
 
 Si todos los volúmenes de almacenamiento presentan errores, repare todo el nodo. Siga las instrucciones para *datos replicados*, *datos codificados con borrado (EC)*, o ambos, en función de si utiliza datos replicados, datos codificados con borrado (EC), o ambos.
@@ -61,6 +63,7 @@ Las reparaciones de datos codificados para borrado pueden comenzar con algunos n
 ====
 
 
+[[repair-data-if-only-some-volumes-have-failed]]
 == Repare los datos si solo algunos volúmenes han fallado
 
 Si solo se produjo un error en algunos de los volúmenes, repare los volúmenes afectados. Siga las instrucciones para *datos replicados*, *datos codificados con borrado (EC)*, o ambos, en función de si utiliza datos replicados, datos codificados con borrado (EC), o ambos.

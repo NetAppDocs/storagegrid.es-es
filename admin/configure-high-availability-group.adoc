@@ -34,6 +34,7 @@ NOTE: "Linux" se refiere a una implementación de RHEL, Ubuntu o Debian.  Para o
 
 
 
+[[create-a-high-availability-group]]
 == Crear un grupo de alta disponibilidad
 
 Cuando crea un grupo de alta disponibilidad, selecciona una o varias interfaces y las organiza por orden de prioridad. A continuación, debe asignar una o varias direcciones VIP al grupo.
@@ -42,6 +43,7 @@ Una interfaz debe ser para que un nodo de puerta de enlace o un nodo de administ
 
 
 
+[[access-the-wizard]]
 === Acceda al asistente
 
 .Pasos
@@ -51,6 +53,7 @@ Una interfaz debe ser para que un nodo de puerta de enlace o un nodo de administ
 
 
 
+[[enter-details-for-the-ha-group]]
 === Introduzca los detalles del grupo de alta disponibilidad
 
 .Pasos
@@ -61,6 +64,7 @@ Una interfaz debe ser para que un nodo de puerta de enlace o un nodo de administ
 
 
 
+[[add-interfaces-to-the-ha-group]]
 === Añada interfaces al grupo de alta disponibilidad
 
 .Pasos
@@ -95,6 +99,7 @@ image:vlan_parent_interface_tooltip.png["Sugerencia de la herramienta de interfa
 
 
 
+[[determine-the-priority-order]]
 === Determinar el orden de prioridad
 
 Si el grupo HA incluye más de una interfaz, puede determinar cuál es la interfaz principal y cuáles son las interfaces de backup (failover). Si la interfaz principal falla, las direcciones VIP se mueven a la interfaz de mayor prioridad que está disponible. Si falla esa interfaz, las direcciones VIP pasan a la siguiente interfaz de mayor prioridad que esté disponible, etc.
@@ -116,6 +121,7 @@ TIP: Si el grupo ha proporciona acceso a Grid Manager, debe seleccionar una inte
 
 
 
+[[enter-ip-addresses]]
 === Introduzca las direcciones IP
 
 .Pasos
@@ -146,12 +152,14 @@ El grupo ha se ha creado y ahora puede utilizar las direcciones IP virtuales con
 
 
 
+[[next-steps]]
 === Siguientes pasos
 
 Si utilizará este grupo de ha para el equilibrio de carga, cree un extremo de equilibrio de carga para determinar el puerto y el protocolo de red y para conectar los certificados necesarios. Consulte link:configuring-load-balancer-endpoints.html["Configurar puntos finales del equilibrador de carga"].
 
 
 
+[[edit-a-high-availability-group]]
 == Editar un grupo de alta disponibilidad
 
 Puede editar un grupo de alta disponibilidad para cambiar su nombre y descripción, agregar o quitar interfaces, cambiar el orden de prioridad o agregar o actualizar direcciones IP virtuales.
@@ -194,6 +202,7 @@ NOTE: Si el grupo ha proporciona acceso a Grid Manager, debe seleccionar una int
 
 
 
+[[remove-a-high-availability-group]]
 == Eliminar un grupo de alta disponibilidad
 
 Puede eliminar uno o varios grupos de alta disponibilidad al mismo tiempo.

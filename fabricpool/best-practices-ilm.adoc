@@ -18,6 +18,7 @@ CAUTION: FabricPool no conoce las reglas ni las políticas de ILM de StorageGRID
 
 
 
+[[guidelines-for-using-ilm-with-fabricpool]]
 == Directrices para utilizar ILM con FabricPool
 
 Cuando utiliza el asistente de configuración de FabricPool, el asistente crea automáticamente una nueva regla de ILM para cada bloque de S3 que cree y agrega esa regla a una política inactiva. Se le solicitará que active la política. La regla creada automáticamente sigue las mejores prácticas recomendadas: Utiliza código de borrado 2+1 en un solo sitio.

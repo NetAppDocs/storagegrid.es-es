@@ -73,6 +73,7 @@ Para ver las versiones compatibles, consulte la https://imt.netapp.com/matrix/#w
 |===
 
 
+[[download-and-extract-the-storagegrid-installation-files]]
 == Descargue y extraiga los archivos de instalación de StorageGRID
 
 .[[descargar-and-extract-install-files]]
@@ -407,6 +408,7 @@ images-version-SHA.deb`.
 |===
 
 
+[[verify-hardware-and-networking]]
 == Verifique el hardware y las redes
 
 Antes de iniciar la ampliación del sistema StorageGRID, asegúrese de lo siguiente:

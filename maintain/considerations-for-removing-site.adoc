@@ -15,6 +15,7 @@ Antes de utilizar el procedimiento de retirada del sitio para quitar un sitio, d
 
 
 
+[[what-happens-when-you-decommission-a-site]]
 == Qué sucede al retirar un sitio
 
 Al retirar un sitio, StorageGRID quita de forma permanente todos los nodos del sitio y el sitio propio del sistema StorageGRID.
@@ -27,6 +28,7 @@ Una vez completado el procedimiento de retirada de instalaciones:
 
 
 
+[[differences-between-connected-site-and-disconnected-site-decommission-procedures]]
 == Diferencias entre el sitio conectado y los procedimientos de retirada de sitios desconectados
 
 Puede usar el procedimiento de retirada del sitio para quitar un sitio en el que todos los nodos están conectados a StorageGRID (conocido como decomiso de un sitio conectado) o para quitar un sitio en el que todos los nodos estén desconectados de StorageGRID (conocido como decomiso de sitio desconectado). Antes de comenzar, debe comprender las diferencias entre estos procedimientos.
@@ -48,6 +50,7 @@ CAUTION: Antes de realizar un procedimiento de retirada de sitio desconectado, d
 
 
 
+[[general-requirements-for-removing-a-connected-or-a-disconnected-site]]
 == Requisitos generales para quitar un sitio conectado o desconectado
 
 Antes de quitar un sitio conectado o desconectado, debe tener en cuenta los siguientes requisitos:
@@ -74,6 +77,7 @@ NOTE: Si necesita realizar otro procedimiento de mantenimiento durante una retir
 
 
 
+[[requirements-for-information-lifecycle-management-ilm]]
 == Requisitos para la gestión del ciclo de vida de la información (ILM)
 
 Como parte de la eliminación de un sitio, debe actualizar la configuración de ILM. El asistente para el sitio de retirada le guía a través de una serie de pasos previos para garantizar lo siguiente:
@@ -89,6 +93,7 @@ CAUTION: Antes de quitar un sitio, puede que sea necesario crear nuevas reglas d
 
 
 
+[[considerations-for-the-object-data-at-a-connected-site]]
 == Consideraciones sobre los datos del objeto en un sitio conectado
 
 Si va a realizar una retirada de sitios conectados, debe decidir qué hacer con los datos de objetos existentes en el sitio al crear nuevas reglas de ILM y una nueva política de ILM. Puede realizar una de las siguientes acciones o ambas:
@@ -113,6 +118,7 @@ CAUTION: No cree nunca una regla de ILM de una sola copia para acomodar la elimi
 
 
 
+[[additional-requirements-for-a-connected-site-decommission]]
 == Requisitos adicionales para una retirada de sitios conectados
 
 Antes de que StorageGRID pueda eliminar un sitio conectado, debe asegurarse de lo siguiente:
@@ -136,6 +142,7 @@ NOTE: La transferencia o eliminación de datos de objetos de un sitio puede llev
 
 
 
+[[additional-requirements-for-a-disconnected-site-decommission]]
 == Requisitos adicionales para una retirada de sitios desconectada
 
 Antes de que StorageGRID pueda quitar un sitio desconectado, debe asegurarse de lo siguiente:
@@ -162,6 +169,7 @@ NOTE: Si sus reglas y políticas de ILM se diseñaron para proteger contra la p�
 
 
 
+[[considerations-for-consistency-when-you-remove-a-site]]
 == Consideraciones de coherencia al eliminar un sitio
 
 La consistencia de un bloque de S3 determina si StorageGRID replica completamente los metadatos de objetos en todos los nodos y sitios antes de indicar a un cliente que la ingesta del objeto se ha realizado correctamente. La consistencia proporciona un equilibrio entre la disponibilidad de los objetos y la coherencia de dichos objetos en distintos nodos de almacenamiento y sitios.

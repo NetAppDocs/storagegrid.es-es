@@ -19,12 +19,14 @@ Para obtener información adicional sobre la topología de red, los requisitos y
 
 
 
+[[deployment-topologies]]
 == Topologías de puesta en marcha
 
 El sistema StorageGRID se puede implementar en un solo sitio de centro de datos o en varios sitios de centros de datos.  El número máximo de sitios por implementación es 16.
 
 
 
+[[single-site]]
 === Sitio único
 
 En una puesta en marcha con un único sitio, la infraestructura y las operaciones del sistema StorageGRID están centralizadas.
@@ -33,6 +35,7 @@ image:data_center_site_single.png["Sitio de un único centro de datos"]
 
 
 
+[[multiple-sites]]
 === Múltiples sitios
 
 En una implementación con varios sitios, se pueden instalar diferentes tipos y números de recursos de StorageGRID en cada sitio. Por ejemplo, es posible que se necesite más almacenamiento en un centro de datos que en otro.
@@ -45,12 +48,14 @@ También pueden existir múltiples sitios lógicos dentro de un solo centro de d
 
 
 
+[[grid-node-redundancy]]
 === Redundancia de nodos de grid
 
 En una puesta en marcha de un único sitio o de varios sitios, de manera opcional, puede incluir más de un nodo de administración o un nodo de puerta de enlace para obtener redundancia. Por ejemplo, puede instalar más de un nodo de administración en un solo sitio o en varios sitios. Sin embargo, cada sistema StorageGRID solo puede tener un nodo de administrador principal.
 
 
 
+[[system-architecture]]
 == Arquitectura del sistema
 
 Este diagrama muestra cómo se organizan los nodos de cuadrícula en un sistema StorageGRID.

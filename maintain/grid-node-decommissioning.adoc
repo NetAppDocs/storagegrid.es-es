@@ -15,6 +15,7 @@ Puede usar el procedimiento de retirada de nodo para quitar uno o varios nodos d
 
 
 
+[[when-to-decommission-a-node]]
 == Cuándo decomisionar un nodo
 
 Usar el procedimiento de retirada del nodo cuando se cumple alguna de las siguientes condiciones:
@@ -33,6 +34,7 @@ TIP: Si desea reemplazar un dispositivo más antiguo por otro más nuevo, consid
 
 
 
+[[how-to-decommission-a-node]]
 == Cómo decomisionar un nodo
 
 Puede retirar los nodos de grid conectados o los nodos de grid desconectados.
@@ -53,6 +55,7 @@ Para obtener instrucciones, consulte link:decommissioning-disconnected-grid-node
 
 
 
+[[what-to-consider-before-decommissioning-a-node]]
 == Qué tener en cuenta antes de retirar un nodo
 
 Antes de realizar cualquiera de los procedimientos, revise las consideraciones para cada tipo de nodo:

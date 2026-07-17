@@ -28,6 +28,8 @@ image:nodes_table.png["Menú nodos"]
 
 
 
+[[connection-state-icons]]
+[[connection-state]]
 == Iconos de estado de conexión
 
 Si un nodo está desconectado de la cuadrícula, aparece cualquiera de los siguientes iconos junto al nombre del nodo.
@@ -74,6 +76,7 @@ Si un nodo está desconectado de la cuadrícula, puede tener una alerta subyacen
 
 
 
+[[alert-icons]]
 == Iconos de alerta
 
 Si hay una alerta activa de un nodo, aparece uno de los siguientes iconos junto al nombre del nodo:
@@ -86,6 +89,7 @@ image:icon_alert_yellow_minor.png["Alerta de icono menor amarilla"] *Menor*: El 
 
 
 
+[[view-details-for-a-system-site-or-node]]
 == Vea detalles de un sistema, sitio o nodo
 
 Para filtrar la información que se muestra en la tabla de nodos, introduzca una cadena de búsqueda en el campo *Search*. Puede buscar por nombre de sistema, nombre mostrado o tipo (por ejemplo, introduzca *gat* para localizar rápidamente todos los nodos de Gateway).

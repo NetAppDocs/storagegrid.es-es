@@ -15,6 +15,7 @@ Antes de activar el inicio de sesión único (SSO) para un sistema StorageGRID, 
 
 
 
+[[identity-provider-requirements]]
 == Requisitos del proveedor de identidades
 
 StorageGRID admite los siguientes proveedores de identidad de SSO (IDP):
@@ -49,6 +50,7 @@ Identificación de entrada
 |===
 
 
+[[ad-fs-requirements]]
 === Requisitos DE AD FS
 
 Puede utilizar cualquiera de las siguientes versiones de AD FS:
@@ -63,6 +65,7 @@ NOTE: Windows Server 2016 debe utilizar https://support.microsoft.com/en-us/help
 
 
 
+[[additional-requirements]]
 === Requisitos adicionales
 
 * Seguridad de la capa de transporte (TLS) 1.2 ó 1.3
@@ -71,12 +74,14 @@ NOTE: Windows Server 2016 debe utilizar https://support.microsoft.com/en-us/help
 
 
 
+[[considerations-for-entra-id]]
 === Consideraciones para Entra ID
 
 Si utiliza Entra ID como tipo de SSO y los usuarios tienen nombres principales de usuario que no utilizan sAMAccountName como prefijo, pueden surgir problemas de inicio de sesión si StorageGRID pierde su conexión con el servidor LDAP.  Para permitir que los usuarios inicien sesión, debe restaurar la conexión al servidor LDAP.
 
 
 
+[[server-certificate-requirements]]
 == Requisitos de certificado de servidor
 
 De forma predeterminada, StorageGRID utiliza un certificado de interfaz de administración en cada nodo de administración para proteger el acceso al Administrador de Grid, al Administrador de inquilinos, a la API de administración de Grid y a la API de administración de inquilinos.  Cuando configura relaciones de confianza de usuario confiable (AD FS), aplicaciones empresariales (Entra ID) o conexiones de proveedor de servicios (PingFederate) para StorageGRID, utiliza el certificado del servidor como certificado de firma para las solicitudes de StorageGRID .
@@ -90,6 +95,7 @@ Para acceder al certificado de servidor de un nodo de administración, inicie se
 
 
 
+[[port-requirements]]
 == Requisitos de puertos
 
 El inicio de sesión único (SSO) no está disponible en los puertos de administrador de grid restringido o de administrador de inquilinos. Debe utilizar el puerto HTTPS predeterminado (443) si desea que los usuarios se autentiquen con inicio de sesión único. Consulte link:controlling-access-through-firewalls.html["Controle el acceso a un firewall externo"].

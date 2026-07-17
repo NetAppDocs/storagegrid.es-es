@@ -15,6 +15,7 @@ Los nodos de grid en un proceso del sistema de StorageGRID _grid traffic_, _admi
 
 
 
+[[traffic-types]]
 == Tipos de tráfico
 
 [cols="1a,4a,2a"]
@@ -62,6 +63,7 @@ Sólo se puede acceder a los puertos internos a través de la red de cuadrícula
 
 
 
+[[network-interfaces]]
 == Interfaces de red
 
 Los nodos StorageGRID están conectados a cada red de acuerdo con las siguientes interfaces específicas:
@@ -105,6 +107,7 @@ Para obtener detalles sobre cómo asignar puertos virtuales o físicos a interfa
 
 
 
+[[network-information-for-each-node]]
 === Información de red para cada nodo
 
 Tiene que configurar lo siguiente para cada red que habilite en un nodo:
@@ -118,12 +121,14 @@ Solo puede configurar una combinación de dirección IP, máscara y puerta de en
 
 
 
+[[high-availability-groups]]
 === Grupos de alta disponibilidad
 
 Los grupos de alta disponibilidad ofrecen la posibilidad de agregar direcciones IP virtuales (VIP) a la interfaz de red de cliente o de grid. Para obtener más información, consulte link:../admin/managing-high-availability-groups.html["Gestión de grupos de alta disponibilidad"].
 
 
 
+[[grid-network]]
 == Red Grid
 
 Se requiere la red de red. Se utiliza para todo el tráfico interno de StorageGRID. Grid Network proporciona conectividad entre todos los nodos de la cuadrícula, en todos los sitios y subredes. Todos los nodos de la red de cuadrícula deben poder comunicarse con los demás nodos. La red de cuadrícula puede estar compuesta de varias subredes. Las redes que contienen servicios de grid críticos, como NTP, también se pueden agregar como subredes de grid.
@@ -146,6 +151,7 @@ Tenga en cuenta los siguientes requisitos y detalles para el gateway de red de G
 
 
 
+[[admin-network]]
 == Red de administración
 
 La red administrativa es opcional. Una vez configurada, se puede utilizar para el tráfico de administración y mantenimiento del sistema. La red administrativa suele ser una red privada y no es necesario que se pueda enrutar entre nodos.
@@ -170,6 +176,7 @@ Tenga en cuenta los siguientes requisitos y detalles para la puerta de enlace de
 
 
 
+[[client-network]]
 == Red cliente
 
 La red cliente es opcional. Cuando se configura, se utiliza para proporcionar acceso a servicios de grid para aplicaciones cliente como S3. Si piensa hacer que los datos de StorageGRID sean accesibles para un recurso externo (por ejemplo, un pool de almacenamiento en cloud o el servicio de replicación de CloudMirror de StorageGRID), el recurso externo también puede usar la red de clientes. Los nodos de grid pueden comunicarse con cualquier subred accesible a través de la puerta de enlace de red del cliente.
@@ -193,6 +200,7 @@ Tenga en cuenta lo siguiente para la puerta de enlace de red de cliente:
 
 
 
+[[optional-vlan-networks]]
 == Redes VLAN opcionales
 
 Según sea necesario, de forma opcional, puede utilizar redes de LAN virtual (VLAN) para el tráfico de clientes y para algunos tipos de tráfico de administración. Sin embargo, el tráfico de red no puede utilizar una interfaz VLAN. El tráfico interno de StorageGRID entre nodos siempre debe utilizar la red de cuadrícula en eth0.

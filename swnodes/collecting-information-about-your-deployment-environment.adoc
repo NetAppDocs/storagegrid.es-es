@@ -18,6 +18,7 @@ NOTE: Es más eficiente realizar una instalación única de todos los nodos, en 
 
 
 
+[[vmware-information]]
 == Información sobre VMware
 
 Debe acceder al entorno de implementación y recopilar información sobre el entorno de VMware, las redes que se crearon para las redes de grid, administrador y cliente, y los tipos de volúmenes de almacenamiento que se usarán para los nodos de almacenamiento.
@@ -33,6 +34,7 @@ NOTE: VMware Live vMotion hace que salte el tiempo del reloj de la máquina virt
 
 
 
+[[grid-network-information]]
 == Información de red de cuadrícula
 
 Debe recopilar información sobre la red de VMware que se creó para la red de grid de StorageGRID (obligatoria), incluidos los siguientes elementos:
@@ -48,6 +50,7 @@ Debe recopilar información sobre la red de VMware que se creó para la red de g
 
 
 
+[[admin-network-information]]
 == Información de la red de administrador
 
 Para los nodos que se conectarán a la red de administrador de StorageGRID opcional, deberá recopilar información acerca de la red de VMware creada para esta red, incluidos los siguientes:
@@ -64,6 +67,7 @@ Para los nodos que se conectarán a la red de administrador de StorageGRID opcio
 
 
 
+[[client-network-information]]
 == Información de la red de clientes
 
 Para los nodos que se conectarán a la red de cliente de StorageGRID opcional, deberá recopilar información acerca de la red de VMware creada para esta red, incluidos los siguientes:
@@ -75,6 +79,7 @@ Para los nodos que se conectarán a la red de cliente de StorageGRID opcional, d
 
 
 
+[[information-about-additional-interfaces]]
 == Información sobre interfaces adicionales
 
 De manera opcional, puede añadir enlaces o interfaces de acceso a la máquina virtual en vCenter después de instalar el nodo. Por ejemplo, es posible que desee agregar una interfaz troncal a un nodo de administración o puerta de enlace, de modo que pueda utilizar interfaces VLAN para separar el tráfico que pertenece a diferentes aplicaciones o inquilinos. O bien, es posible que desee añadir una interfaz de acceso para utilizarla en un grupo de alta disponibilidad (ha).
@@ -87,6 +92,7 @@ Las interfaces que agregue se muestran en la página interfaces VLAN y en la pá
 
 
 
+[[storage-volumes-for-virtual-storage-nodes]]
 == Volúmenes de almacenamiento para nodos de almacenamiento virtual
 
 Debe recopilar la siguiente información para los nodos de almacenamiento basados en máquinas virtuales:
@@ -96,6 +102,7 @@ Debe recopilar la siguiente información para los nodos de almacenamiento basado
 
 
 
+[[grid-configuration-information]]
 == Información sobre la configuración de grid
 
 Debe recopilar información para configurar la cuadrícula:

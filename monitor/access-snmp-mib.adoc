@@ -17,6 +17,7 @@ Consulte link:using-snmp-monitoring.html["Usar supervisión de SNMP"] para obten
 
 
 
+[[access-mib-files]]
 == Acceda a los archivos MIB
 
 Siga estos pasos para acceder a los archivos MIB.
@@ -57,6 +58,7 @@ TIP: El `snmptranslate` comando tiene muchas opciones que son útiles para explo
 
 
 
+[[mib-file-contents]]
 == Contenido del archivo MIB
 
 Todos los objetos están bajo el OID de StorageGRID.
@@ -72,6 +74,7 @@ Módulo MIB para entidades de NetApp StorageGRID.
 |===
 
 
+[[mib-objects]]
 == Objetos MIB
 
 [cols="1a,1a,1a,1a,1a,2a"]

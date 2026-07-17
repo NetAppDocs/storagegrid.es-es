@@ -18,6 +18,7 @@ TIP: Se han eliminado los detalles de Swift de esta versión del sitio del docum
 
 
 
+[[configuration-tasks]]
 == Tareas de configuración
 
 . Realice tareas de requisitos previos en StorageGRID, según cómo se conectará la aplicación cliente a StorageGRID.
@@ -75,12 +76,14 @@ Si es necesario, realice una configuración de aplicación adicional.
 
 
 
+[[information-needed-to-attach-storagegrid-to-a-client-application]]
 == Información necesaria para asociar StorageGRID a una aplicación cliente
 
 Para poder asociar StorageGRID a una aplicación cliente S3, debe realizar pasos de configuración en StorageGRID y obtener cierto valor.
 
 
 
+[[what-values-do-i-need]]
 === ¿Qué valores necesito?
 
 La siguiente tabla muestra los valores que debe configurar en StorageGRID y dónde los utilizan la aplicación S3 y el servidor DNS.
@@ -147,6 +150,7 @@ Aplicación cliente
 |===
 
 
+[[how-do-i-get-these-values]]
 === ¿Cómo obtengo estos valores?
 
 Dependiendo de sus requisitos, puede hacer cualquiera de los siguientes pasos para obtener la información que necesita:

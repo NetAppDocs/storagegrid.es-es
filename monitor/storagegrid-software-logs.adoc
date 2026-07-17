@@ -18,6 +18,7 @@ NOTE: Si desea enviar sus registros a un servidor syslog externo o cambiar el de
 
 
 
+[[general-storagegrid-logs]]
 == Registros de StorageGRID generales
 
 [cols="3a,3a,2a"]
@@ -49,6 +50,7 @@ Todos los nodos
 |===
 
 
+[[cipher-related-logs]]
 == Registros relacionados con el cifrado
 
 [cols="3a,3a,2a"]
@@ -85,6 +87,7 @@ Todos los nodos
 |===
 
 
+[[grid-federation-logs]]
 == Registros de federación de grid
 
 [cols="3a,3a,2a"]
@@ -100,6 +103,7 @@ Todos los nodos
 |===
 
 
+[[nms-logs]]
 == Registros de NMS
 
 [cols="3a,3a,2a"]
@@ -113,6 +117,7 @@ Todos los nodos
 * Contiene actualizaciones del paquete XML como resultado de los cambios de configuración realizados en el sistema.
 * Contiene mensajes de error relacionados con la reducción del atributo realizada una vez al día.
 * Contiene mensajes de error del servidor Web Java, por ejemplo, errores de generación de páginas y errores de estado HTTP 500.
+* Contiene registros relacionados con AutoSupport.
 
  a| 
 Nodos de administración
@@ -136,6 +141,7 @@ Nodos de administración
 |===
 
 
+[[server-manager-logs]]
 == Registros de Server Manager
 
 [cols="3a,3a,2a"]
@@ -165,6 +171,7 @@ Todos los nodos
 |===
 
 
+[[storagegrid-services-logs]]
 == Registros de servicios de StorageGRID
 
 [cols="3a,3a,2a"]

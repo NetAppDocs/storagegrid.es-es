@@ -15,6 +15,7 @@ Al configurar un sistema StorageGRID para utilizarlo con FabricPool, es posible 
 
 
 
+[[audit-message-and-log-destinations]]
 == Destinos de registro y mensajes de auditoría
 
 Las cargas de trabajo de FabricPool suelen tener una tasa alta de operaciones de lectura, las que pueden generar un alto volumen de mensajes de auditoría.
@@ -25,30 +26,35 @@ Las cargas de trabajo de FabricPool suelen tener una tasa alta de operaciones de
 
 
 
+[[object-encryption]]
 == Cifrado de objetos
 
 Al configurar StorageGRID, puede habilitar opcionalmente el link:../admin/changing-network-options-object-encryption.html["opción global para el cifrado de objetos almacenados"]cifrado de datos IF necesario para otros clientes StorageGRID. Los datos organizados en niveles desde FabricPool a StorageGRID ya están cifrados, por lo que no es necesario habilitar la configuración de StorageGRID. Las claves de cifrado en el cliente son propiedad de ONTAP.
 
 
 
+[[object-compression]]
 == Compresión de objetos
 
 Al configurar StorageGRID, no active el link:../admin/configuring-stored-object-compression.html["opción global para comprimir objetos almacenados"]. Los datos que se organizan en niveles de FabricPool a StorageGRID ya están comprimidos. El uso de la opción StorageGRID no reducirá más el tamaño de un objeto.
 
 
 
+[[s3-object-lock]]
 == Bloqueo de objetos de S3
 
 Si la configuración global de Bloqueo de objetos S3 está habilitada para su sistema StorageGRID , no la habilitelink:../s3/use-s3-api-for-s3-object-lock.html["Bloqueo de objetos de S3"] cuando creas depósitos FabricPool .  El bloqueo de objetos S3 no es compatible con los depósitos FabricPool .
 
 
 
+[[bucket-consistency]]
 == Consistencia del cucharón
 
 Para los depósitos de FabricPool, la consistencia del cucharón recomendada es *Read-after-new-write*, que es la consistencia predeterminada para un nuevo cucharón. No edites cubos de FabricPool para usar *available* o *strong-site*.
 
 
 
+[[fabricpool-tiering]]
 == Organización en niveles de FabricPool
 
 Si un nodo de StorageGRID utiliza almacenamiento asignado desde un sistema ONTAP de NetApp, confirme que el volumen no tiene una política de organización en niveles de FabricPool habilitada. Por ejemplo, si un nodo StorageGRID se ejecuta en un host VMware, asegúrese de que el volumen que realiza el backup del almacén de datos para el nodo StorageGRID no tenga habilitada una política de organización en niveles de FabricPool. Al deshabilitar el almacenamiento en niveles de FabricPool para los volúmenes que se usan con los nodos StorageGRID, se simplifica la solución de problemas y las operaciones de almacenamiento.

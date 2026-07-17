@@ -22,6 +22,7 @@ Los tipos de información de auditoría que se pueden enviar al servidor de sysl
 
 
 
+[[when-to-use-an-external-syslog-server]]
 == Cuándo usar un servidor de syslog externo
 
 Un servidor syslog externo es especialmente útil si tiene un grid grande, utiliza varios tipos de aplicaciones S3 o desea conservar todos los datos de auditoría. El envío de información de auditoría a un servidor de syslog externo permite:
@@ -40,6 +41,7 @@ NOTE: Para maximizar las opciones de recuperación completa de datos en caso de 
 
 
 
+[[how-to-configure-an-external-syslog-server]]
 == Cómo configurar un servidor de syslog externo
 
 Para aprender a configurar un servidor syslog externo, consultelink:../monitor/configure-log-management.html["Configurar la gestión de registros y el servidor syslog externo"] .
@@ -57,6 +59,7 @@ NOTE: Si utiliza un certificado de cliente, también debe usar una clave privada
 
 
 
+[[how-to-estimate-the-size-of-the-external-syslog-server]]
 == Cómo calcular el tamaño del servidor de syslog externo
 
 Normalmente, el tamaño de su grid se ajusta para lograr el rendimiento requerido, definido en términos de operaciones de S3 por segundo o bytes por segundo. Por ejemplo, es posible que exista un requisito de que su grid gestione 1,000 operaciones de S3 por segundo, o 2,000 MB por segundo, de gestión de contenidos y recuperaciones de objetos. Se debe ajustar el tamaño del servidor de syslog externo de acuerdo con los requisitos de datos de la cuadrícula.
@@ -65,6 +68,7 @@ En esta sección, se proporcionan algunas fórmulas heurísticas que ayudan a ca
 
 
 
+[[use-s3-operations-per-second-in-estimation-formulas]]
 === Use las operaciones de S3 por segundo en fórmulas de estimación
 
 Si se ha ajustado el tamaño de un grid para un rendimiento expresado en bytes por segundo, debe convertir este tamaño en operaciones de S3 por segundo para utilizar las fórmulas de estimación. Para convertir el rendimiento del grid, primero debe determinar el tamaño medio del objeto, que puede utilizar la información de los registros de auditoría y las métricas existentes (si las hubiera), o utilizar sus conocimientos de las aplicaciones que utilizarán StorageGRID. Por ejemplo, si se ha ajustado el tamaño de la cuadrícula para conseguir un rendimiento de 2,000 MB/segundo y el tamaño medio del objeto es de 2 MB, el tamaño de la cuadrícula fue capaz de gestionar 1,000 operaciones de S3 por segundo (2,000 MB/2 MB).
@@ -74,6 +78,7 @@ NOTE: Las fórmulas para el ajuste de tamaño del servidor de syslog externo en 
 
 
 
+[[estimation-formulas-for-audit-logs]]
 === Fórmulas de estimación para registros de auditoría
 
 Si no tiene información sobre la carga de trabajo de S3 distinta al número de operaciones de S3 por segundo que se espera compatibilidad con la cuadrícula, puede calcular el volumen de registros de auditoría que tendrá que gestionar el servidor de syslog externo mediante las siguientes fórmulas, En el supuesto de que deja los niveles de auditoría establecidos en los valores predeterminados (todas las categorías se establecen en normal, excepto almacenamiento, que se establece en error):
@@ -142,6 +147,7 @@ Por ejemplo, si el tamaño de su grid se define para 1,000 operaciones de S3 por
 
 
 
+[[estimation-formulas-for-non-default-audit-levels]]
 === Fórmulas de estimación para niveles de auditoría no predeterminados
 
 En las fórmulas proporcionadas para los registros de auditoría se asume el uso de la configuración predeterminada del nivel de auditoría (todas las categorías se establecen en normal, excepto almacenamiento, que está establecido en error). Las fórmulas detalladas para estimar la tasa y el tamaño medio de los mensajes de auditoría para los valores de nivel de auditoría no predeterminados no están disponibles. Sin embargo, la siguiente tabla se puede utilizar para hacer una estimación aproximada de la tasa; puede utilizar la fórmula de tamaño medio proporcionada para los registros de auditoría, pero tenga en cuenta que es probable que resulte en una sobreestimación porque los mensajes de auditoría adicionales son, en promedio, más pequeños que los mensajes de auditoría predeterminados.
@@ -166,12 +172,14 @@ Utilice la misma fórmula que para la configuración predeterminada
 |===
 
 
+[[estimation-formulas-for-security-events]]
 === Fórmulas de estimación para eventos de seguridad
 
 Los eventos de seguridad no están correlacionados con las operaciones de S3 y suelen producir un volumen insignificante de registros y datos. Por estas razones, no se proporcionan fórmulas de estimación.
 
 
 
+[[estimation-formulas-for-application-logs]]
 === Fórmulas de estimación para registros de aplicaciones
 
 Si no tiene información acerca de la carga de trabajo de S3 distinta a la cantidad de operaciones de S3 por segundo que se espera compatibilidad con la cuadrícula, puede calcular el volumen de las aplicaciones que registra el servidor de syslog externo deberá manejar mediante las siguientes fórmulas:
@@ -227,6 +235,7 @@ El nombre de clave S3, sin incluir el nombre del bloque. Las operaciones en los 
 |===
 
 
+[[example-sizing-estimations]]
 == Ejemplo de estimaciones de tamaño
 
 En esta sección se explican casos de ejemplo de cómo utilizar las fórmulas de estimación para cuadrículas con los siguientes métodos de protección de datos:
@@ -237,6 +246,7 @@ En esta sección se explican casos de ejemplo de cómo utilizar las fórmulas de
 
 
 
+[[if-you-use-replication-for-data-protection]]
 === Si utiliza replicación para la protección de datos
 
 Permita que P represente el porcentaje de las operaciones de S3 que put, donde 0 ≤ P ≤ 1 (de modo que para una carga de trabajo PUT del 100 %, P = 1 y para una carga de trabajo DEL 100 %, P = 0).
@@ -254,6 +264,7 @@ Por lo tanto, si, por ejemplo, el tamaño de su grid se ajusta a 1,000 operacion
 
 
 
+[[if-you-use-erasure-coding-for-data-protection]]
 === Si utiliza códigos de borrado para protección de datos
 
 Permita que P represente el porcentaje de las operaciones de S3 que put, donde 0 ≤ P ≤ 1 (de modo que para una carga de trabajo PUT del 100 %, P = 1 y para una carga de trabajo DEL 100 %, P = 0).

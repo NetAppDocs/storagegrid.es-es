@@ -17,6 +17,7 @@ Para completar esta operación, debe tener el permiso s3:GetBucketMetadataNotifi
 
 
 
+[[request-example]]
 == Ejemplo de solicitud
 
 Esta solicitud recupera la configuración de notificación de metadatos para el depósito denominado `bucket`.
@@ -30,6 +31,7 @@ Host: _host_
 ----
 
 
+[[response]]
 == Respuesta
 
 El cuerpo de la respuesta incluye la configuración de notificación de metadatos para el bloque. La configuración de notificaciones de metadatos permite determinar cómo se configura el bloque para la integración de búsquedas. Es decir, permite determinar a qué objetos se indexan y a qué extremos se envían los metadatos de sus objetos.
@@ -153,6 +155,7 @@ Sí
 |===
 
 
+[[response-example]]
 == Ejemplo de respuesta
 
 El XML incluido entre las  `<MetadataNotificationConfiguration></MetadataNotificationConfiguration>` etiquetas muestra cómo se configura la integración con un punto final de integración de búsqueda para el bloque. En este ejemplo, los metadatos del objeto se envían a un índice de Elasticsearch denominado `current` y tipo denominado `2017` que se aloja en un dominio de AWS denominado `records`.

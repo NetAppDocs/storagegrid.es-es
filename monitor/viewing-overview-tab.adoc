@@ -17,6 +17,7 @@ La pestaña Overview se muestra para todos los nodos.
 
 
 
+[[node-information]]
 == Información del nodo
 
 La sección Información de Nodo del separador Visión General muestra información básica sobre el nodo.
@@ -53,6 +54,7 @@ NOTE: Es posible que un nodo aparezca como desconocido durante las operaciones d
 
 
 
+[[alerts]]
 == Alertas
 
 La sección Alertas del separador Visión General muestra cualquier link:monitoring-system-health.html#view-current-and-resolved-alerts["las alertas que afectan actualmente a este nodo que no se han silenciado"]. Seleccione el nombre de la alerta para ver detalles adicionales y acciones recomendadas.

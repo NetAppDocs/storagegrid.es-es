@@ -21,6 +21,7 @@ image:nodes_page_load_balancer_tab.png["Pestaña Nodes Page Load Balancer"]
 
 
 
+[[request-traffic]]
 == Solicitar tráfico
 
 Este gráfico proporciona una media móvil de 3 minutos del rendimiento de los datos transmitidos entre los extremos del equilibrador de carga y los clientes que realizan las solicitudes, en bits por segundo.
@@ -30,18 +31,21 @@ NOTE: Este valor se actualiza al finalizar cada solicitud. Como resultado, este 
 
 
 
+[[incoming-request-rate]]
 == Tasa de solicitudes entrantes
 
 Este gráfico proporciona una media móvil de 3 minutos del número de nuevas solicitudes por segundo, desglosadas por tipo de solicitud (GET, PUT, HEAD y DELETE). Este valor se actualiza cuando se han validado los encabezados de una nueva solicitud.
 
 
 
+[[average-request-duration-non-error]]
 == Duración media de la solicitud (no error)
 
 Este gráfico proporciona una media móvil de 3 minutos de duración de las solicitudes, desglosada por tipo de solicitud (GET, PUT, HEAD y DELETE). Cada duración de la solicitud comienza cuando el servicio Load Balancer analiza una cabecera de solicitud y finaliza cuando se devuelve el cuerpo de respuesta completo al cliente.
 
 
 
+[[error-response-rate]]
 == Tasa de respuesta de error
 
 Este gráfico proporciona un promedio móvil de 3 minutos del número de respuestas de error devueltas a clientes por segundo, desglosado por el código de respuesta de error.

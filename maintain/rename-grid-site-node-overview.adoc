@@ -15,6 +15,7 @@ Según sea necesario, puede cambiar los nombres mostrados en Grid Manager para t
 
 
 
+[[what-is-the-rename-procedure]]
 == ¿Qué es el procedimiento de cambio de nombre?
 
 Cuando se instala StorageGRID inicialmente, se especifica un nombre para la cuadrícula, cada sitio y cada nodo. Estos nombres iniciales se conocen como _nombres del sistema_, y son los nombres mostrados inicialmente en StorageGRID.
@@ -25,6 +26,7 @@ Utilice el procedimiento de cambio de nombre para corregir errores tipográficos
 
 
 
+[[where-do-system-and-display-names-appear]]
 == ¿Dónde aparecen los nombres del sistema y de visualización?
 
 En la siguiente tabla se resume dónde se muestran los nombres del sistema y los nombres mostrados en la interfaz de usuario de StorageGRID y en los archivos StorageGRID.
@@ -121,12 +123,14 @@ Vacío a menos que se haya cambiado el nombre de los elementos; de lo contrario,
 |===
 
 
+[[display-name-requirements]]
 == Requisitos de nombre para mostrar
 
 Antes de utilizar este procedimiento, revise los requisitos para los nombres mostrados.
 
 
 
+[[display-names-for-nodes]]
 === Nombres mostrados de los nodos
 
 Los nombres mostrados de los nodos deben seguir estas reglas:
@@ -144,6 +148,7 @@ Puede cambiar el nombre de un nodo con un nombre mostrado que anteriormente util
 
 
 
+[[display-names-for-grid-and-sites]]
 === Nombres mostrados para cuadrícula y sitios
 
 Los nombres mostrados para la cuadrícula y los sitios siguen las mismas reglas con estas excepciones:
@@ -156,6 +161,7 @@ Los nombres mostrados para la cuadrícula y los sitios siguen las mismas reglas 
 
 
 
+[[display-name-best-practices]]
 == Mostrar las mejores prácticas de nombres
 
 Si tiene pensado cambiar el nombre de varios elementos, documente el esquema de nomenclatura general antes de utilizar este procedimiento. Crea un sistema que garantice que los nombres sean únicos, consistentes y fáciles de entender de un vistazo.
@@ -171,6 +177,7 @@ Piense dos veces antes de agregar detalles específicos a los nombres que probab
 
 
 
+[[example-display-names]]
 === Nombres mostrados de ejemplo
 
 Supongamos que su sistema StorageGRID tiene tres centros de datos y tiene nodos de diferentes tipos en cada centro de datos. Los nombres mostrados pueden ser tan simples como los siguientes:

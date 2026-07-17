@@ -25,6 +25,7 @@ CAUTION: Las siguientes reglas y políticas de ILM son solo ejemplos. Existen va
 
 
 
+[[ilm-rule-1-for-example-5-strict-ingest-to-guarantee-paris-data-center]]
 == Regla 1 de ILM, por ejemplo 5: Ingesta estricta para garantizar el centro de datos de París
 
 Esta regla de ILM de ejemplo usa el comportamiento de ingesta estricto para garantizar que los objetos que ha ahorrado un inquilino basado en París en cubos S3 con la región establecida en la región eu-West-3 (París) nunca se almacenen en el centro de datos de EE. UU.
@@ -88,6 +89,7 @@ image:ilm_rule_1_example_5_strict_ingest.png["Ejemplo de ingesta estricta de la 
 
 
 
+[[ilm-rule-2-for-example-5-balanced-ingest-for-other-objects]]
 == Regla 2 de ILM, por ejemplo 5: Ingesta equilibrada de otros objetos
 
 Esta regla de ILM de ejemplo utiliza el comportamiento de ingesta equilibrada para proporcionar una eficiencia de ILM óptima para cualquier objeto que no sea coincidente con la primera regla. Se almacenarán dos copias de todos los objetos compatibles con esta regla: Una en el centro de datos estadounidense y una en el centro de datos de París. Si la regla no se puede cumplir inmediatamente, las copias provisionales se almacenan en cualquier ubicación disponible.
@@ -149,6 +151,7 @@ Equilibrado. Los objetos que coinciden con esta regla se colocan de acuerdo con 
 |===
 
 
+[[ilm-policy-for-example-5-combining-ingest-behaviors]]
 == Política de ILM, por ejemplo 5: Combinar comportamientos de consumo
 
 La política de ILM de ejemplo incluye dos reglas que tienen comportamientos de consumo diferentes.

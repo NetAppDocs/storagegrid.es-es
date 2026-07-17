@@ -15,6 +15,7 @@ Los nodos StorageGRID se pueden implementar en máquinas virtuales de VMware, en
 
 
 
+[[block-remote-ipmicontrol-remote-ipmi-access-to-bmc]]
 == [[block-remote-ipmi]]Controlar el acceso remoto de IPMI a BMC
 
 Es posible habilitar o deshabilitar el acceso IPMI remoto para todos los dispositivos que contengan un BMC. La interfaz de IPMI remota permite que cualquier persona que tenga una cuenta y una contraseña de BMC acceda al hardware de bajo nivel a sus dispositivos StorageGRID. Si no necesita acceso IPMI remoto a BMC, deshabilite esta opción.
@@ -31,6 +32,7 @@ Para obtener información adicional sobre el endurecimiento de BMC , consulte la
 
 
 
+[[firewall-configuration]]
 == Configuración del firewall
 
 Como parte del proceso de endurecimiento del sistema, debe revisar las configuraciones de firewall externo y modificarlas para que el tráfico se acepte solo de las direcciones IP y en los puertos de los que se necesite estrictamente.
@@ -50,24 +52,28 @@ Para obtener una lista de todos los puertos internos y externos utilizados por S
 
 
 
+[[disable-unused-services]]
 == Desactive los servicios no utilizados
 
 Para todos los nodos de StorageGRID , debe deshabilitar o bloquear el acceso a los servicios no utilizados.  Por ejemplo, si no planea utilizar DHCP, utilice el Administrador de cuadrícula para cerrar el puerto 68.  Seleccione *Configuración* > *Control de firewall* > *Administrar acceso externo*.  A continuación, cambie el interruptor de estado del puerto 68 de *Abierto* a *Cerrado*.
 
 
 
+[[virtualization-containers-and-shared-hardware]]
 == Virtualización, contenedores y hardware compartido
 
 Para todos los nodos de StorageGRID, evite ejecutar StorageGRID en el mismo hardware físico que el software que no es de confianza. No asuma que las protecciones del hipervisor evitarán que el malware acceda a los datos protegidos por StorageGRID si el StorageGRID y el malware existen en el mismo hardware físico. Por ejemplo, los ataques Meltdown y Spectre aprovechan vulnerabilidades críticas en los procesadores modernos y permiten a los programas robar datos en memoria en el mismo equipo.
 
 
 
+[[protect-nodes-during-installation]]
 == Proteja los nodos durante la instalación
 
 No permita que usuarios que no sean de confianza accedan a los nodos StorageGRID a través de la red cuando se van a instalar los nodos. Los nodos no son totalmente seguros hasta que se han unido a la cuadrícula.
 
 
 
+[[limit-physical-access-to-hardware]]
 == Limitar el acceso físico al hardware
 
 Debe limitar el acceso físico a los nodos del dispositivo de hardware StorageGRID , así como a los hosts de máquinas virtuales VMware y a los hosts Linux que ejecutan StorageGRID , únicamente a los administradores autorizados.  Algunos ejemplos de controles de acceso físico incluyen cerraduras, guardias, barreras físicas y videovigilancia.
@@ -76,6 +82,7 @@ Los nodos de dispositivos de hardware están diseñados para ser instalados y op
 
 
 
+[[guidelines-for-admin-nodes]]
 == Directrices para los nodos de administrador
 
 Los nodos de administración, que proporcionan servicios de gestión como configuración, supervisión y registro del sistema. Cuando inicia sesión en el administrador de grid o en el administrador de inquilinos, se conecta a un nodo de administración.
@@ -95,6 +102,7 @@ Para obtener más información, consulte las instrucciones de link:../admin/inde
 
 
 
+[[guidelines-for-storage-nodes]]
 == Directrices para nodos de almacenamiento
 
 Los nodos de almacenamiento gestionan y almacenan metadatos y datos de objetos. Siga estas directrices para proteger los nodos de almacenamiento en el sistema StorageGRID.
@@ -108,6 +116,7 @@ Los nodos de almacenamiento gestionan y almacenan metadatos y datos de objetos. 
 
 
 
+[[guidelines-for-gateway-nodes]]
 == Directrices para los nodos de puerta de enlace
 
 Los nodos de puerta de enlace proporcionan una interfaz opcional de equilibrio de carga que las aplicaciones cliente pueden utilizar para conectarse a StorageGRID. Siga estas directrices para proteger cualquier nodo de puerta de enlace en el sistema StorageGRID:
@@ -119,6 +128,7 @@ Los nodos de puerta de enlace proporcionan una interfaz opcional de equilibrio d
 
 
 
+[[guidelines-for-hardware-appliance-nodes]]
 == Directrices para los nodos de dispositivos de hardware
 
 Los dispositivos de hardware StorageGRID están especialmente diseñados para su uso en un sistema StorageGRID. Algunos dispositivos se pueden usar como nodos de almacenamiento. Otros dispositivos se pueden usar como nodos de administrador o nodos de puerta de enlace. Puede combinar nodos de dispositivos con nodos basados en software o poner en marcha grids totalmente diseñados para todos los dispositivos.

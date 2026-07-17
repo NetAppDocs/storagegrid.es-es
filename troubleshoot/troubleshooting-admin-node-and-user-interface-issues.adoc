@@ -15,6 +15,7 @@ Es posible ejecutar varias tareas para determinar el origen de los problemas rel
 
 
 
+[[admin-node-sign-in-errors]]
 == Errores de inicio de sesión del nodo de administración
 
 Si se produce un error al iniciar sesión en un nodo de administración de StorageGRID, es posible que el sistema tenga un problema con un link:../troubleshoot/troubleshooting-network-hardware-and-platform-issues.html["redes"] problema OR https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/troubleshooting-hardware-installation-sg100-and-sg1000.html["hardware necesario"^], un problema con link:../primer/what-admin-node-is.html["Servicios del nodo de administración"]o link:../maintain/recovering-failed-storage-volumes-and-rebuilding-cassandra-database.html["Problema con la base de datos Cassandra"]en los nodos de almacenamiento conectados.
@@ -165,6 +166,7 @@ Proporcione los registros recopilados al soporte técnico. Consulte también lin
 
 
 
+[[user-interface-issues]]
 == Problemas de la interfaz de usuario
 
 Es posible que la interfaz de usuario de Grid Manager o del Administrador de inquilinos no responda como se espera una vez actualizado el software StorageGRID.

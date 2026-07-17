@@ -15,6 +15,7 @@ Si tieneslink:../admin/how-sso-works.html["Inicio de sesión único configurado 
 
 
 
+[[sign-in-to-the-api-if-single-sign-on-is-enabled]]
 == Inicie sesión en la API si está habilitado el inicio de sesión único
 
 Estas instrucciones se aplican si está utilizando PingFederate como proveedor de identidades SSO
@@ -204,6 +205,7 @@ Ahora puede usar `MYTOKEN` para otras solicitudes, de forma similar a cómo usar
 
 
 
+[[sign-out-of-the-api-if-single-sign-on-is-enabled]]
 == Cierre sesión en la API si el inicio de sesión único está habilitado
 
 Si se ha activado el inicio de sesión único (SSO), debe emitir una serie de solicitudes API para cerrar sesión en la API de gestión de grid o en la API de gestión de inquilinos. Estas instrucciones se aplican si está utilizando PingFederate como proveedor de identidades SSO

@@ -69,6 +69,7 @@ Acceso de clientes S3 para link:../admin/manage-s3-select-for-tenant-accounts.ht
 |===
 
 
+[[limitations-of-using-ha-groups-with-grid-manager-or-tenant-manager]]
 == Limitaciones en el uso de grupos de alta disponibilidad con Grid Manager o Intenant Manager
 
 Si falla un servicio de Grid Manager o de arrendatario Manager, no se activa la conmutación por error del grupo de alta disponibilidad.

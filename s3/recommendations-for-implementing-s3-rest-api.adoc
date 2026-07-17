@@ -15,6 +15,7 @@ Debe seguir estas recomendaciones al implementar la API DE REST de S3 para usar 
 
 
 
+[[recommendations-for-heads-to-non-existent-objects]]
 == Recomendaciones para las cabezas a los objetos no existentes
 
 Si su aplicación verifica rutinariamente si existe un objeto en una ruta en la que no espera que el objeto exista realmente, debe usar la opción "Disponible".link:consistency.html["coherencia"] .  Por ejemplo, debe utilizar la consistencia "Disponible" si su aplicación encabeza una ubicación antes de PUT en ella.
@@ -25,6 +26,7 @@ Puede establecer la consistencia «disponible» para cada depósito mediante lin
 
 
 
+[[recommendations-for-object-keys]]
 == Recomendaciones para las claves de objeto
 
 Siga estas recomendaciones para los nombres de clave del objeto, según cuándo se creó el bloque por primera vez.
@@ -51,6 +53,7 @@ TIP: Una excepción a esto es una carga de trabajo S3 que elimina continuamente 
 
 
 
+[[recommendations-for-range-reads]]
 == Recomendaciones para lecturas de rango
 
 Si link:../admin/configuring-stored-object-compression.html["opción global para comprimir objetos almacenados"]está activado, las aplicaciones cliente S3 deben evitar realizar operaciones GetObject que especifiquen un rango de bytes. Estas operaciones de «lectura de rango» son ineficientes, puesto que StorageGRID debe descomprimir los objetos de forma efectiva para acceder a los bytes solicitados. Las operaciones GetObject que solicitan un rango pequeño de bytes de un objeto muy grande son especialmente ineficientes; por ejemplo, no es eficiente leer un rango de 10 MB de un objeto comprimido de 50 GB.

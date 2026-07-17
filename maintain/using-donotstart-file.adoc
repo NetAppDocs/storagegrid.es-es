@@ -22,6 +22,7 @@ La forma más eficaz de evitar que todos los servicios se reinicien es impedir q
 
 
 
+[[add-donotstart-file-for-service]]
 == Agregue el archivo DoNotStart para el servicio técnico
 
 Puede impedir que un servicio individual comience agregando un archivo DoNotStart al directorio de ese servicio en un nodo de cuadrícula.
@@ -61,6 +62,7 @@ Cuando se reinicia el Administrador del servidor o el nodo de cuadrícula, el Ad
 
 
 
+[[remove-donotstart-file-for-service]]
 == Quitar el archivo DoNotStart para el servicio técnico
 
 Al quitar un archivo DoNotStart que impide que se inicie un servicio, debe iniciar dicho servicio.

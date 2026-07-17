@@ -15,6 +15,7 @@ Debe comprender cómo se utilizan Grid Network y las redes de administración y 
 
 
 
+[[initial-deployment-of-a-node]]
 == Puesta en marcha inicial de un nodo
 
 Cuando implemente un nodo por primera vez, debe conectar el nodo a la red de grid y asegurarse de que tiene acceso al nodo de administración principal. Si la red de cuadrícula está aislada, puede configurar la red de administración en el nodo de administración principal para el acceso de configuración e instalación desde fuera de la red de cuadrícula.
@@ -25,12 +26,14 @@ Si es necesario, las subredes que contienen servidores NTP o que requieren acces
 
 
 
+[[automatic-node-registration-with-primary-admin-node]]
 == Registro automático de nodos con el nodo de administración principal
 
 Una vez que los nodos se han implementado, se registran en el nodo de administrador principal mediante la red de grid. A continuación, puede utilizar Grid Manager, el `configure-storagegrid.py` script Python o la API de instalación para configurar la cuadrícula y aprobar los nodos registrados. Durante la configuración de la cuadrícula, puede configurar varias subredes. Las rutas estáticas a estas subredes a través de la puerta de enlace de red de cuadrícula se crearán en cada nodo cuando complete la configuración de la cuadrícula.
 
 
 
+[[disabling-the-admin-network-or-client-network]]
 == Desactivación de la red de administración o de la red de cliente
 
 Si desea desactivar la red de administración o la red de cliente, puede eliminar la configuración de ellos durante el proceso de aprobación de nodos o puede utilizar la herramienta Cambiar IP una vez finalizada la instalación (consulte link:../maintain/configuring-ip-addresses.html["Configurar las direcciones IP"]).

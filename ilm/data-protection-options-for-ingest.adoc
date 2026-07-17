@@ -17,6 +17,7 @@ Según elija, StorageGRID realiza copias provisionales y pone en cola los objeto
 
 
 
+[[flowchart-of-ingest-options]]
 == Diagrama de flujo de opciones de ingesta
 
 El diagrama de flujo muestra lo que ocurre cuando una regla de ILM se equipara con objetos que utiliza cada una de las tres opciones de ingesta.
@@ -25,6 +26,7 @@ image:ingest_object_lifecycle.png["Diagrama que muestra cómo se produce la inge
 
 
 
+[[dual-commit]]
 == Registro doble
 
 Cuando selecciona la opción Confirmación doble, StorageGRID realiza de forma inmediata copias de objetos provisionales en dos nodos de almacenamiento diferentes y devuelve un mensaje de procesamiento correcto al cliente. El objeto se pone en cola para la evaluación de ILM, y se realicen copias que cumplan con las instrucciones de ubicación de la regla más adelante. Si la política de ILM no puede procesarse inmediatamente después de la confirmación doble, la protección contra pérdida de sitio podría tardar tiempo en lograrse.
@@ -42,6 +44,7 @@ Utilice la opción Dual Commit en uno de los siguientes casos:
 
 
 
+[[balanced-default]]
 == Equilibrada (predeterminado)
 
 Cuando selecciona la opción equilibrada, StorageGRID también utiliza la ubicación síncrona durante la ingesta y hace inmediatamente todas las copias especificadas en las instrucciones de ubicación de la regla. En contraste con la opción estricta, si StorageGRID no puede hacer todas las copias de inmediato, utiliza Confirmación doble en su lugar. Si la política de ILM utiliza ubicaciones en varios sitios y no se puede lograr la protección inmediata contra la pérdida de sitio, se activa la alerta *ILM ubicación inalcanzable*.
@@ -50,6 +53,7 @@ Utilice la opción equilibrada para lograr la mejor combinación de protección 
 
 
 
+[[strict]]
 == Estricto
 
 Al seleccionar la opción estricta, StorageGRID utiliza una ubicación síncrona al procesar y crea inmediatamente todas las copias de los objetos especificadas en las instrucciones de ubicación de la regla. La ingesta genera un error si StorageGRID no puede crear todas las copias, por ejemplo, porque no está disponible en estos momentos una ubicación de almacenamiento necesaria. El cliente debe volver a intentar la operación.

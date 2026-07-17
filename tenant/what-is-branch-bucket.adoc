@@ -33,6 +33,7 @@ Tenga en cuenta las siguientes características de los grupos de ramas:
 
 
 
+[[examples-for-branch-bucket-usage]]
 == Ejemplos de uso de depósitos de sucursales
 
 * Puede utilizar un depósito de rama para eliminar objetos corruptos creando un depósito de rama desde un punto en el tiempo anterior a la ocurrencia de la corrupción y luego apuntando las aplicaciones al depósito de rama en lugar de al depósito base que contiene los objetos corruptos.
@@ -41,6 +42,7 @@ Tenga en cuenta las siguientes características de los grupos de ramas:
 
 
 
+[[operations-on-objects-in-branch-buckets]]
 == Operaciones sobre objetos en depósitos de ramas
 
 * Una operación PUT de objeto en un bucket de rama crea un objeto en la rama.

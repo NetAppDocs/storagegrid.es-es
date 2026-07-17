@@ -20,6 +20,7 @@ NOTE: Los metadatos de objetos no se gestionan por las reglas de ILM. En su luga
 
 
 
+[[elements-of-an-ilm-rule]]
 == Elementos de una regla de ILM
 
 Una regla de ILM consta de tres elementos:
@@ -31,6 +32,7 @@ Una regla de ILM consta de tres elementos:
 
 
 
+[[ilm-rule-filtering]]
 == Filtrado de reglas de ILM
 
 Al crear una regla de ILM, puede especificar filtros para identificar a qué objetos se aplica la regla.
@@ -60,6 +62,7 @@ Puede combinar filtros según sea necesario en una sola regla. Por ejemplo, el d
 
 
 
+[[ilm-rule-placement-instructions]]
 == Instrucciones para colocar las reglas de ILM
 
 Las instrucciones de colocación determinan dónde, cuándo y cómo se almacenan los datos de objetos. Una regla de ILM puede incluir una o varias instrucciones de ubicación. Cada instrucción de colocación se aplica a un único período de tiempo.
@@ -95,6 +98,7 @@ Cuando cada período de tiempo de la regla caduca, se aplican las instrucciones 
 
 
 
+[[ilm-rule-ingest-behavior]]
 == Comportamiento de procesamiento de reglas de ILM
 
 El comportamiento de la ingesta controla si las copias de objetos se colocan inmediatamente según las instrucciones de la regla o si se realizan copias provisionales y se aplican las instrucciones de colocación más adelante. Para las reglas de ILM hay disponibles los siguientes comportamientos de consumo:
@@ -112,6 +116,7 @@ El comportamiento de la ingesta controla si las copias de objetos se colocan inm
 
 
 
+[[example-ilm-rule]]
 == Regla de ILM de ejemplo
 
 Por ejemplo, una regla de ILM podría especificar lo siguiente:

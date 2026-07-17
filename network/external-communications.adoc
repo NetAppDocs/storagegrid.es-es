@@ -15,6 +15,7 @@ Los clientes necesitan comunicarse con los nodos de grid para procesar y recuper
 
 
 
+[[restricted-access-to-ports]]
 == Acceso restringido a los puertos
 
 Si las directivas de red de empresa restringen el acceso a cualquiera de los puertos, puede realizar una de las siguientes acciones:
@@ -33,6 +34,7 @@ NOTE: La compatibilidad con la reasignación de puertos está obsoleta y se elim
 
 
 
+[[ports-used-for-external-communications]]
 == Puertos que se utilizan para comunicaciones externas
 
 En la siguiente tabla se muestran los puertos que se utilizan para el tráfico hacia los nodos.

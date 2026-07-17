@@ -82,6 +82,7 @@ NOTE: La restauración de volúmenes depende de la disponibilidad de recursos do
 
 
 
+[[enable-auto-restore-modeenable-automatic-restore-mode]]
 == [[enable-auto-restore-mode]]Habilite el modo de restauración automática
 
 Cuando se habilita el modo de restauración automática, la restauración de volúmenes se inicia automáticamente cuando los volúmenes están listos para restaurarse.
@@ -108,6 +109,7 @@ Puede desactivar el modo de restauración automática en cualquier momento.
 
 
 
+[[manually-restoremanually-restore-failed-volume-or-node]]
 == [[Manually-restore]]Restaurar manualmente el nodo o el volumen fallido
 
 Siga estos pasos para restaurar un nodo o volumen con errores.
@@ -137,6 +139,7 @@ Si no se puede iniciar una restauración de volumen, el nodo vuelve a la pestañ
 
 
 
+[[view-restoration-progressview-restoration-progress]]
 == [[view-restore-progress]]Ver progreso de restauración
 
 La pestaña *Progreso de la restauración* muestra el estado del proceso de restauración del volumen y la información sobre los volúmenes de un nodo que se está restaurando.
@@ -166,6 +169,7 @@ La sección Trabajos de restauración muestra información sobre restauraciones 
 
 
 
+[[view-restoration-historyview-restoration-history]]
 == [[view-restore-history]]Ver historial de restauración
 
 La pestaña *Historial de restauración* muestra información sobre todas las restauraciones de volumen que se han completado con éxito.

@@ -15,18 +15,21 @@ Puede utilizar la solicitud S3 RestoreObject para restaurar un objeto almacenado
 
 
 
+[[supported-request-type]]
 == Tipo de solicitud admitido
 
 StorageGRID solo admite solicitudes RestoreObject para restaurar un objeto. No apoya el `SELECT` tipo de restauración. Seleccione Solicitudes devueltas `XNotImplemented`.
 
 
 
+[[versioning]]
 == Creación de versiones
 
 De forma opcional, especifique si desea `versionId` restaurar una versión específica de un objeto en un bloque con versiones. Si no especifica `versionId`, se restaurará la versión más reciente del objeto
 
 
 
+[[behavior-of-restoreobject-on-cloud-storage-pool-objects]]
 == Comportamiento de RestoreObject en objetos de Cloud Storage Pool
 
 Si se ha almacenado un objeto en un link:../ilm/what-cloud-storage-pool-is.html["Pool de almacenamiento en cloud"], una solicitud RestoreObject tiene el siguiente comportamiento, según el estado del objeto. Consulte link:head-object.html["Objeto principal"] para obtener más información.

@@ -17,6 +17,7 @@ Para completar esta operación, debe tener el permiso s3:GetBucketLastAccessTime
 
 
 
+[[request-example]]
 == Ejemplo de solicitud
 
 [listing, subs="specialcharacters,quotes"]
@@ -28,6 +29,7 @@ Host: _host_
 ----
 
 
+[[response-example]]
 == Ejemplo de respuesta
 
 Este ejemplo muestra que las actualizaciones de la última hora de acceso están habilitadas para el bloque.

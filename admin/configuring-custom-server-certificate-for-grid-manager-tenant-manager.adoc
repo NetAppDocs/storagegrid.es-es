@@ -34,6 +34,7 @@ Si accede a Grid Manager o a Intenant Manager utilizando un nombre de dominio en
 ====
 
 
+[[add-a-custom-management-interface-certificate]]
 == Añada un certificado de interfaz de gestión personalizado
 
 Para agregar un certificado de interfaz de gestión personalizado, puede proporcionar su propio certificado o generar uno mediante el Gestor de cuadrícula.
@@ -161,6 +162,7 @@ NOTE: Tras cargar o generar un nuevo certificado, permita que se borren las aler
 
 
 
+[[restore-the-default-management-interface-certificate]]
 == Restaure el certificado de interfaz de gestión predeterminado
 
 Puede volver a utilizar el certificado de interfaz de gestión predeterminado para las conexiones de Grid Manager y de arrendatario Manager.
@@ -177,6 +179,7 @@ Cuando restaura el certificado de interfaz de gestión predeterminado, los archi
 
 
 
+[[use-a-script-to-generate-a-new-self-signed-management-interface-certificate]]
 == Use un script para generar un nuevo certificado de interfaz de gestión autofirmado
 
 Si se requiere una validación estricta del nombre de host, puede usar un script para generar el certificado de la interfaz de gestión.
@@ -238,6 +241,7 @@ Incluya las etiquetas INICIAL Y FINAL en su selección.
 
 
 
+[[download-or-copy-the-management-interface-certificate]]
 == Descargue o copie el certificado de la interfaz de gestión
 
 Puede guardar o copiar el contenido del certificado de la interfaz de administración para utilizarlo en otro lugar.

@@ -17,6 +17,7 @@ Los siguientes flujos de trabajo para mensajes de auditoría y retención de men
 
 
 
+[[audit-message-flow]]
 == Flujo de mensajes de auditoría
 
 Los mensajes de auditoría son procesados ​​por los nodos de administración cuando StorageGRID está configurado para *Nodos de administración/nodos locales* o *Nodo de administración y servidor syslog externo* y por aquellos nodos de almacenamiento que tienen un servicio de controlador de dominio administrativo (ADC).
@@ -31,6 +32,7 @@ image:audit_message_flow.gif["Diagrama que resume el flujo de mensajes de audito
 
 
 
+[[audit-message-retention]]
 === Retención de mensajes de auditoría
 
 StorageGRID utiliza un proceso de copia y eliminación para garantizar que no se pierdan mensajes de auditoría antes de que puedan escribirse en el registro de auditoría.
@@ -61,6 +63,7 @@ Los siguientes tipos de problemas pueden hacer que las colas de mensajes de audi
 
 
 
+[[large-audit-queue-alert-and-audit-messages-queued-amqs-alarm]]
 === Alarma de alerta de cola de auditoría grande y mensajes de auditoría en cola (AMQS)
 
 Para ayudarle a supervisar el tamaño de las colas de mensajes de auditoría a lo largo del tiempo, la alerta *cola de auditoría grande* y la alarma AMQS heredada se activan cuando el número de mensajes en una cola de nodos de almacenamiento o cola de nodos de administración alcanza determinados umbrales.
@@ -71,6 +74,7 @@ Si la alerta o alarma persiste y aumenta en gravedad, vea un gráfico del tamañ
 
 
 
+[[duplicate-messages]]
 === Mensajes duplicados
 
 El sistema StorageGRID toma un método conservador si se produce un fallo en la red o en un nodo. Por este motivo, puede haber mensajes duplicados en el registro de auditoría.

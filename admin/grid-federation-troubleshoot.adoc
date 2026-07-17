@@ -15,6 +15,7 @@ Es posible que deba solucionar alertas y errores relacionados con las conexiones
 
 
 
+[[grid-federation-errorsgrid-federation-connection-alerts-and-errors]]
 == [[grid-federation-errors]]Alertas y errores de conexión de federación de grid
 
 Es posible que reciba alertas o se produzcan errores con las conexiones de federación de grid.
@@ -23,6 +24,7 @@ Después de realizar cualquier cambio para resolver un problema de conexión, pr
 
 
 
+[[grid-federation-connection-failure-alert]]
 === Alerta de fallo de conexión de federación de grid
 
 .Problema
@@ -40,6 +42,7 @@ Esta alerta indica que la conexión de federación de rejilla entre las cuadríc
 
 
 
+[[expiration-of-grid-federation-certificate-alert]]
 === La alerta de caducidad del certificado de federación de grid
 
 .Problema
@@ -53,6 +56,7 @@ Consulte las instrucciones para rotar certificados de conexión en link:grid-fed
 
 
 
+[[error-editing-a-grid-federation-connection]]
 === Error al editar una conexión de federación de cuadrícula
 
 .Problema
@@ -69,10 +73,12 @@ Cuando edita una conexión de federación de grid, StorageGRID intenta guardar u
 
 
 
+[[account-clone-errors]]
 == Errores de clonación de cuenta
 
 
 
+[[cant-sign-in-to-a-cloned-tenant-account]]
 === No se puede iniciar sesión en una cuenta de inquilino clonada
 
 .Problema
@@ -88,6 +94,7 @@ Antes de que un usuario local clonado pueda iniciar sesión en la red de destino
 
 
 
+[[tenant-created-without-a-clone]]
 === Inquilino creado sin un clon
 
 .Problema
@@ -110,10 +117,12 @@ image:grid-federation-retry-account-clone.png["Captura de pantalla que muestra u
 
 
 
+[[cross-grid-replication-alerts-and-errors]]
 == Alertas y errores de replicación entre grid
 
 
 
+[[last-error-shown-for-connection-or-tenant]]
 === Último error mostrado para conexión o arrendatario
 
 .Problema
@@ -156,6 +165,7 @@ TIP: Después de borrar el error, puede aparecer un nuevo *last error* si los ob
 
 
 
+[[cross-grid-replication-permanent-failure-alert]]
 === Alerta de error permanente de replicación entre grid
 
 .Problema
@@ -204,6 +214,7 @@ NOTE: Puede que la alerta tarde hasta un día en borrarse una vez que se resuelv
 
 
 
+[[cross-grid-replication-resource-unavailable-alert]]
 === Alerta no disponible del recurso de replicación entre grid
 
 .Problema

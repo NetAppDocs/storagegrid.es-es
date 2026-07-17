@@ -15,12 +15,14 @@ Puede utilizar la solicitud PutObject S3 para agregar un objeto a un depósito.
 
 
 
+[[resolve-conflicts]]
 == Resolver conflictos
 
 Las solicitudes de clientes en conflicto, como dos clientes que escriben en la misma clave, se resuelven en función de las "últimas victorias". El plazo para la evaluación de "logros más recientes" se basa en cuándo el sistema StorageGRID completa una solicitud determinada, y no en cuándo los clientes de S3 comienzan una operación.
 
 
 
+[[object-size]]
 == Tamaño del objeto
 
 El tamaño máximo de _recommended_ para una sola operación PutObject es de 5 GiB (5.368.709.120 bytes). Si tiene objetos de más de 5 GiB, utilice su link:operations-for-multipart-uploads.html["carga de varias partes"] lugar.
@@ -32,12 +34,14 @@ NOTE: Si actualizó desde StorageGRID 11,6 o una versión anterior, se activará
 
 
 
+[[user-metadata-size]]
 == Tamaño de los metadatos del usuario
 
 Amazon S3 limita el tamaño de los metadatos definidos por el usuario dentro de cada encabezado de solicitud PUT a 2 KB. StorageGRID limita los metadatos de usuario a 24 KiB. El tamaño de los metadatos definidos por el usuario se mide tomando la suma del número de bytes de la codificación UTF-8 de cada clave y valor.
 
 
 
+[[utf-8-characters-in-user-metadata]]
 == Caracteres UTF-8 en los metadatos de usuario
 
 Si una solicitud incluye (no escapadas) valores UTF-8 en el nombre de clave o el valor de los metadatos definidos por el usuario, el comportamiento de StorageGRID no está definido.
@@ -50,18 +54,21 @@ StorageGRID no analiza ni interpreta los caracteres UTF-8 escapados incluidos en
 
 
 
+[[object-tag-limits]]
 == Límites de etiqueta de objeto
 
 Puede agregar etiquetas a nuevos objetos cuando los cargue o puede agregarlos a objetos existentes. Tanto StorageGRID como Amazon S3 admiten hasta 10 etiquetas por cada objeto. Las etiquetas asociadas a un objeto deben tener claves de etiqueta únicas. Una clave de etiqueta puede tener hasta 128 caracteres Unicode de longitud y los valores de etiqueta pueden tener hasta 256 caracteres Unicode de longitud. La clave y los valores distinguen entre mayúsculas y minúsculas.
 
 
 
+[[object-ownership]]
 == Propiedad del objeto
 
 En StorageGRID, todos los objetos son propiedad de la cuenta de propietario del bloque, incluidos los objetos creados por una cuenta que no sea propietaria o un usuario anónimo.
 
 
 
+[[supported-request-headers]]
 == Encabezados de solicitud admitidos
 
 Se admiten los siguientes encabezados de solicitud:
@@ -137,6 +144,7 @@ Consulte <<Solicitar encabezados para el cifrado del servidor>>
 
 
 
+[[unsupported-request-headers]]
 == Encabezados de solicitud no compatibles
 
 No se admiten las siguientes cabeceras de solicitud:
@@ -160,6 +168,7 @@ El `x-amz-website-redirect-location` cabezal devuelve `XNotImplemented`.
 
 
 
+[[storage-class-options]]
 == Opciones para clase de almacenamiento
 
  `x-amz-storage-class`Se admite el encabezado de solicitud. El valor enviado para `x-amz-storage-class` afecta a la forma en que StorageGRID protege los datos de los objetos durante la ingesta y no al número de copias persistentes del objeto que se almacenan en el sistema StorageGRID (que viene determinado por ILM).
@@ -198,6 +207,7 @@ NOTE: Si está ingiriendo un objeto en un depósito con S3 Object Lock activado,
 
 
 
+[[request-headers-for-server-side-encryption]]
 == Solicitar encabezados para el cifrado del servidor
 
 Puede utilizar los siguientes encabezados de solicitud para cifrar un objeto con cifrado del servidor. Las opciones SSE y SSE-C son mutuamente excluyentes.
@@ -227,6 +237,7 @@ NOTE: Si un objeto está cifrado con SSE o SSE-C, se ignorará cualquier configu
 
 
 
+[[versioning]]
 == Creación de versiones
 
 Si se activa el control de versiones para un depósito, se genera automáticamente una única `versionId` para la versión del objeto que se está almacenando. Esto `versionId` también se devuelve en la respuesta utilizando `x-amz-version-id` la cabecera de respuesta.
@@ -235,6 +246,7 @@ Si se suspende el control de versiones, la versión del objeto se almacena con u
 
 
 
+[[signature-calculations-for-the-authorization-header]]
 == Cálculos de firma para la cabecera de autorización
 
 Al utilizar `Authorization` el encabezado para autenticar solicitudes, StorageGRID difiere de AWS de las siguientes maneras:

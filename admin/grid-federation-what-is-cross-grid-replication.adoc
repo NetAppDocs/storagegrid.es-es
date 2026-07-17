@@ -15,6 +15,7 @@ La replicación entre grid es la replicación automática de objetos entre bucke
 
 
 
+[[workflow-for-cross-grid-replication]]
 == Flujo de trabajo de replicación entre grid
 
 El diagrama de flujo de trabajo resume los pasos para configurar la replicación entre redes entre depósitos en dos redes.
@@ -23,6 +24,7 @@ image:grid-federation-cgr-workflow.png["Flujo de trabajo de replicación entre g
 
 
 
+[[requirements-for-cross-grid-replication]]
 == Requisitos de la replicación entre grid
 
 Si una cuenta de inquilino tiene el permiso *Usar conexión de federación de red* para usar una o máslink:grid-federation-overview.html["conexiones de federación de grid"] Un usuario inquilino con permiso de acceso raíz puede crear depósitos en las cuentas de inquilino correspondientes en cada red.  Estos cubos:
@@ -40,12 +42,14 @@ link:../tenant/grid-federation-manage-cross-grid-replication.html["Gestionar la 
 
 
 
+[[how-cross-grid-replication-works]]
 == Funcionamiento de la replicación entre grid
 
 Puede configurar la replicación entre redes para que se produzca en una dirección o en ambas direcciones.
 
 
 
+[[replication-in-one-direction]]
 === Replicación en una dirección
 
 Si habilita la replicación entre cuadrículas para un depósito en una sola cuadrícula, los objetos agregados a ese depósito (el depósito de origen) se replican en el depósito correspondiente en la otra cuadrícula (el depósito de destino).  Sin embargo, los objetos agregados al depósito de destino no se replican en el origen.  En la figura, la replicación entre redes está habilitada para `my-bucket` de la cuadrícula 1 a la cuadrícula 2, pero no está habilitado en la otra dirección.
@@ -54,6 +58,7 @@ image:grid-federation-cross-grid-replication-one-direction.png["imagen que muest
 
 
 
+[[replication-in-both-directions]]
 === Replicación en ambas direcciones
 
 Si habilita la replicación entre grid para el mismo bucket en ambos grids, los objetos agregados a cada bucket se replican en el otro grid. En la figura, la replicación entre grid está activada en `my-bucket` ambas direcciones.
@@ -62,6 +67,7 @@ image:grid-federation-cross-grid-replication.png["imagen que muestra la replicac
 
 
 
+[[what-happens-when-objects-are-ingested]]
 === ¿Qué sucede cuando se ingieren objetos?
 
 Cuando un cliente S3 agrega un objeto a un bloque que tiene habilitada la replicación entre grid, sucede lo siguiente:
@@ -101,6 +107,7 @@ NOTE: StorageGRID no es compatible con `x-amz-replication-status` encabezamiento
 
 
 
+[[what-happens-when-objects-are-deleted]]
 === ¿Qué sucede cuando se eliminan los objetos?
 
 Como se describe en link:../primer/delete-data-flow.html["Eliminar flujo de datos"], StorageGRID puede suprimir un objeto por cualquiera de los siguientes motivos:
@@ -144,6 +151,7 @@ NOTE: Si desea mantener las eliminaciones de objetos sincronizadas entre las cua
 
 
 
+[[how-encrypted-objects-are-replicated]]
 === Cómo se replican los objetos cifrados
 
 Cuando se utiliza la replicación entre grid para replicar objetos entre grids, se pueden cifrar objetos individuales, utilizar el cifrado de bucket predeterminado o configurar el cifrado de toda la grid. Puede agregar, modificar o eliminar la configuración de cifrado predeterminada de bloque o de grid antes o después de habilitar la replicación entre grid para un bloque.
@@ -178,6 +186,8 @@ Al determinar cómo cifrar los objetos replicados, StorageGRID aplica estas regl
 
 
 
+[[cross-grid-replication-with-s3-object-lock]]
+[[cgr-with-ol]]
 === Replicación entre cuadrículas con S3 Object Lock
 
 Puede configurar la replicación entre redes entre depósitos StorageGRID con S3 Object Lock habilitado en las siguientes circunstancias.
@@ -230,6 +240,7 @@ Cuando el bloqueo de objetos S3 en el depósito de origen está deshabilitado:
 
 
 
+[[putobjecttagging-and-deleteobjecttagging-arent-supported]]
 === PutObjectTagging y DeleteObjectTagging no son compatibles
 
 Las solicitudes PutObjectTagging y DeleteObjectTagging no están soportadas para los objetos de los depósitos que tienen activada la replicación entre grid.
@@ -238,6 +249,7 @@ Si un cliente S3 emite una solicitud PutObjectTagging o DeleteObjectTagging, `50
 
 
 
+[[putobjectretention-and-putobjectlegalhold-arent-supported]]
 === PutObjectRetention y PutObjectLegalHold no son compatibles
 
 Las solicitudes PutObjectRetention y PutObjectLegalHold no son totalmente compatibles con los objetos en depósitos que tienen habilitada la replicación entre cuadrículas.
@@ -246,6 +258,7 @@ Si un cliente S3 emite una solicitud PutObjectRetention o PutObjectLegalHold, se
 
 
 
+[[how-segmented-objects-are-replicated]]
 === Cómo se replican los objetos segmentados
 
 El tamaño máximo de segmento de la cuadrícula de origen se aplica a los objetos replicados en la cuadrícula de destino.  Cuando los objetos se replican en otra cuadrícula, la configuración *Tamaño máximo de segmento* (*Configuración* > *Sistema* > *Opciones de almacenamiento*) de la cuadrícula de origen se utiliza en ambas cuadrículas.  Por ejemplo, supongamos que el tamaño máximo de segmento para la cuadrícula de origen es 1 GB, mientras que el tamaño máximo de segmento de la cuadrícula de destino es 50 MB.  Si ingiere un objeto de 2 GB en la cuadrícula de origen, ese objeto se guarda como dos segmentos de 1 GB.  También se replica en la red de destino como dos segmentos de 1 GB, aunque el tamaño máximo de segmento de esa red es de 50 MB.

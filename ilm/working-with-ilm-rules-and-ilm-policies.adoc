@@ -20,6 +20,7 @@ A medida que cambian sus requisitos de almacenamiento, es posible que deba imple
 
 
 
+[[view-ilm-policies]]
 == Vea las políticas de ILM
 
 Para ver las políticas de ILM activas e inactivas y el historial de activación de políticas:
@@ -36,6 +37,8 @@ NOTE: Si ve los detalles de una política cuyo estado se ha editado o eliminado,
 
 
 
+[[edit-an-ilm-policy]]
+[[edit-ilm-policy]]
 == Editar una política de ILM
 
 Sólo puede editar una política inactiva. Si desea editar una política activa, desactívela o cree un clon y edítelo.
@@ -53,6 +56,8 @@ CAUTION: Una política de ILM que se configuró incorrectamente puede provocar l
 
 
 
+[[clone-an-ilm-policy]]
+[[clone-ilm-policy]]
 == Clonar una política de ILM
 
 Para clonar una política de ILM:
@@ -67,6 +72,8 @@ CAUTION: Una política de ILM que se configuró incorrectamente puede provocar l
 
 
 
+[[remove-an-ilm-policy]]
+[[remove-ilm-policy]]
 == Quitar una política de ILM
 
 Solo puede quitar una política de ILM si está inactiva. Para eliminar una política:
@@ -78,6 +85,7 @@ Solo puede quitar una política de ILM si está inactiva. Para eliminar una pol�
 
 
 
+[[view-ilm-rule-details]]
 == Vea los detalles de las reglas de ILM
 
 Para ver los detalles de una regla de ILM, incluido el diagrama de retención y las instrucciones de colocación de la regla:
@@ -93,6 +101,8 @@ Además, puede utilizar la página de detalles para clonar, editar o eliminar un
 
 
 
+[[clone-an-ilm-rule]]
+[[clone-ilm-rule]]
 == Clonar una regla de ILM
 
 Puede clonar una regla existente si desea crear una nueva regla que utilice algunos de los valores de la regla existente. Si necesita editar una regla que se utiliza en cualquier política, clone la regla en su lugar y realice cambios en el clon. Después de realizar cambios en el clon, puede eliminar la regla original de la política y sustituirla por la versión modificada según sea necesario.
@@ -111,6 +121,7 @@ Al clonar una regla de ILM, debe introducir un nombre nuevo.
 
 
 
+[[edit-an-ilm-rule]]
 == Editar una regla de ILM
 
 Es posible que deba editar una regla de ILM para cambiar un filtro o una instrucción de ubicación.
@@ -132,6 +143,7 @@ Al editar una regla de ILM, no es posible cambiar su nombre.
 
 
 
+[[remove-an-ilm-rule]]
 == Quite una regla de ILM
 
 Para que la lista de reglas de ILM actuales sea gestionable, elimine las reglas de ILM que probablemente no use.
@@ -162,6 +174,7 @@ Para eliminar una regla de ILM que no se está utilizando actualmente:
 
 
 
+[[view-ilm-metrics]]
 == Ver las métricas de ILM
 
 Se pueden ver métricas para ILM, como el número de objetos de la cola y la tasa de evaluación. Puede supervisar estas métricas para determinar el rendimiento del sistema. Una cola grande o una tasa de evaluación puede indicar que el sistema no es capaz de mantener el ritmo de la tasa de consumo, la carga de las aplicaciones cliente es excesiva o que existe alguna condición anormal.

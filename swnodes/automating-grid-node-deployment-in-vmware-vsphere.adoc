@@ -15,6 +15,7 @@ Puede utilizar la herramienta OVF de VMware para automatizar la implementación 
 
 
 
+[[automate-grid-node-deployment]]
 == Automatice la puesta en marcha del nodo de grid
 
 Utilice la herramienta VMware OVF para automatizar la implementación de nodos de grid.
@@ -81,6 +82,7 @@ El archivo de configuración de ejemplo para utilizar con el `deploy-vsphere-ovf
 |===
 
 
+[[define-the-configuration-file-for-your-deployment]]
 === Defina el archivo de configuración para la implementación
 
 Especifique la información necesaria para desplegar nodos de cuadrícula virtual para StorageGRID en un archivo de configuración, que utiliza el `deploy-vsphere-ovftool.sh` script Bash. Puede modificar un archivo de configuración de ejemplo para que no tenga que crear el archivo desde cero.
@@ -97,6 +99,7 @@ Consulte <<configuration-file-settings,Ajustes del archivo de configuración>> p
 
 
 
+[[configuration-file-settings]]
 === Ajustes del archivo de configuración
 
 El `deploy-vsphere-ovftool.ini` archivo de configuración contiene los ajustes necesarios para desplegar los nodos de la cuadrícula virtual.
@@ -514,6 +517,7 @@ NOTE: Para los nodos de administrador, LAS INSTANCIAS siempre deben ser iguales 
 
 
 
+[[run-the-bash-script]]
 == Ejecute el script Bash
 
 Puede utilizar `deploy-vsphere-ovftool.sh` el script bash y el archivo de configuración de deploy-vsphere-ovftool.ini que modificó para automatizar la implementación de los nodos de StorageGRID en VMware vSphere.
@@ -581,6 +585,7 @@ Deployment Summary
 ----
 
 
+[[automate-the-configuration-of-storagegrid]]
 == Automatice la configuración de StorageGRID
 
 Después de implementar los nodos de grid, puede automatizar la configuración del sistema StorageGRID.

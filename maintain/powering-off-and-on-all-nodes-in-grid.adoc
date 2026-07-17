@@ -17,6 +17,7 @@ Cuando se apagan todos los nodos en un sitio o un grid, no se puede acceder a lo
 
 
 
+[[stop-services-and-shut-down-grid-nodes]]
 == Detenga los servicios y apague los nodos de grid
 
 Antes de poder apagar un sistema StorageGRID, debe detener todos los servicios que se ejecutan en cada nodo de grid y, a continuación, apagar todas las máquinas virtuales de VMware, los motores de contenedor y los dispositivos StorageGRID.
@@ -147,6 +148,7 @@ El grid de StorageGRID se ha apagado.
 
 
 
+[[start-up-grid-nodes]]
 == Inicie nodos de grid
 
 

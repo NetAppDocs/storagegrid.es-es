@@ -19,6 +19,7 @@ Tener varias políticas de ILM activas permite aplicar las reglas de ILM adecuad
 
 
 
+[[create-an-ilm-policy]]
 == Cree una política de ILM
 
 .Acerca de esta tarea
@@ -172,6 +173,8 @@ NOTE: Debe confirmar que las reglas de ILM se encuentran en el orden correcto. C
 
 
 
+[[simulate-a-policy]]
+[[simulate-ilm-policy]]
 == Simular una política
 
 Simule una política sobre objetos de prueba antes de activar la política y aplicarla a los datos de producción.
@@ -201,6 +204,8 @@ link:simulating-ilm-policy-examples.html["Ejemplo de simulaciones de políticas 
 
 
 
+[[activate-a-policy]]
+[[activate-ilm-policy]]
 == Activar una política
 
 Cuando se activa una única nueva política de ILM, los objetos existentes y los objetos recién procesados se gestionan con esa política. Al activar varias políticas, las etiquetas de políticas de ILM asignadas a bloques determinan los objetos que se van a gestionar.

@@ -17,6 +17,7 @@ Las directivas de grupo especifican los permisos de acceso para el grupo al que 
 
 
 
+[[example-set-group-policy-using-tenant-manager]]
 == Ejemplo: Establecer la directiva de grupo mediante el Administrador de inquilinos
 
 Al agregar o editar un grupo en el Gestor de inquilinos, puede seleccionar una política de grupo para determinar qué permisos de acceso S3 tendrán los miembros de este grupo. Consulte link:../tenant/creating-groups-for-s3-tenant.html["Cree grupos para un inquilino de S3"].
@@ -33,6 +34,7 @@ Los usuarios del gestor de inquilinos que tengan el permiso Gestionar todos los 
 
 
 
+[[example-allow-group-full-access-to-all-buckets]]
 == Ejemplo: Permite el acceso total de grupos a todos los bloques
 
 En este ejemplo, a todos los miembros del grupo se les permite el acceso completo a todos los segmentos que pertenecen a la cuenta de inquilino, a menos que la política de bloque lo deniegue explícitamente.
@@ -51,6 +53,7 @@ En este ejemplo, a todos los miembros del grupo se les permite el acceso complet
 ----
 
 
+[[example-allow-group-read-only-access-to-all-buckets]]
 == Ejemplo: Permitir el acceso de solo lectura de grupo a todos los bloques
 
 En este ejemplo, todos los miembros del grupo tienen acceso de solo lectura a recursos S3, a menos que la política de bloque lo deniegue explícitamente. Por ejemplo, los usuarios de este grupo pueden enumerar objetos y leer datos de objetos, metadatos y etiquetas.
@@ -78,6 +81,7 @@ En este ejemplo, todos los miembros del grupo tienen acceso de solo lectura a re
 ----
 
 
+[[example-allow-group-members-full-access-to-only-their-folder-in-a-bucket]]
 == Ejemplo: Permitir a los miembros del grupo acceso completo solo a su carpeta en un depósito
 
 En este ejemplo, sólo se permite a los miembros del grupo que enumeren y tengan acceso a su carpeta específica (prefijo de clave) en el bloque especificado. Tenga en cuenta que los permisos de acceso de otras políticas de grupo y la directiva de bloque deben tenerse en cuenta al determinar la privacidad de estas carpetas.

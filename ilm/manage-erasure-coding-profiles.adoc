@@ -20,6 +20,7 @@ Puede ver los detalles de un perfil de código de borrado y cambiar el nombre de
 
 
 
+[[view-erasure-coding-profile-details]]
 == Consulte los detalles del perfil de código de borrado
 
 Puede ver los detalles de un perfil de código de borrado para determinar su estado, el esquema de código de borrado utilizado y otra información.
@@ -33,6 +34,7 @@ Puede ver los detalles de un perfil de código de borrado para determinar su est
 
 
 
+[[rename-an-erasure-coding-profile]]
 == Cambie el nombre de un perfil de código de borrado
 
 Es posible que desee cambiar el nombre de un perfil de codificación de borrado para que sea más obvio lo que hace el perfil.
@@ -54,6 +56,7 @@ NOTE: Los nombres de perfil de código de borrado deben ser únicos. Se produce 
 
 
 
+[[deactivate-an-erasure-coding-profile]]
 == Desactivar un perfil de código de borrado
 
 Puede desactivar un perfil de código de borrado si ya no tiene pensado utilizarlo y si el perfil no se está utilizando en ninguna regla de ILM.

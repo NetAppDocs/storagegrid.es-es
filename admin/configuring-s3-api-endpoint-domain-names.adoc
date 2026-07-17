@@ -52,6 +52,7 @@ NOTE: Si no agrega nombres de dominio de punto final S3 y la lista está vacía,
 
 
 
+[[add-an-s3-endpoint-domain-name]]
 == Agregue un nombre de dominio de punto final S3
 
 .Pasos
@@ -72,6 +73,7 @@ Ahora, cuando los clientes utilizan el punto final `_bucket.s3.company.com_`, el
 
 
 
+[[rename-an-s3-endpoint-domain-name]]
 == Cambie el nombre de un nombre de dominio de punto final S3
 
 Si cambia un nombre utilizado por las aplicaciones S3, las solicitudes de estilo hospedado virtual fallarán.
@@ -85,6 +87,7 @@ Si cambia un nombre utilizado por las aplicaciones S3, las solicitudes de estilo
 
 
 
+[[delete-an-s3-endpoint-domain-name]]
 == Suprimir un nombre de dominio de punto final S3
 
 Si elimina un nombre utilizado por las aplicaciones S3, las solicitudes de estilo hospedado virtual fallarán.

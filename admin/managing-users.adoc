@@ -20,6 +20,7 @@ Es posible ver usuarios locales y federados. También puede crear usuarios local
 
 
 
+[[create-a-local-user]]
 == Cree un usuario local
 
 Es posible crear uno o varios usuarios locales y asignar cada usuario a uno o varios grupos locales. Los permisos del grupo controlan a qué funciones de Grid Manager y la API de gestión de grid puede acceder el usuario.
@@ -33,6 +34,7 @@ NOTE: Si el inicio de sesión único (SSO) está activado, los usuarios locales 
 
 
 
+[[access-the-wizard]]
 === Acceda al asistente
 
 .Pasos
@@ -42,6 +44,7 @@ NOTE: Si el inicio de sesión único (SSO) está activado, los usuarios locales 
 
 
 
+[[enter-user-credentials]]
 === Introduzca las credenciales de usuario
 
 .Pasos
@@ -52,6 +55,7 @@ NOTE: Si el inicio de sesión único (SSO) está activado, los usuarios locales 
 
 
 
+[[assign-to-groups]]
 === Asignar a grupos
 
 .Pasos
@@ -67,6 +71,7 @@ Si un usuario pertenece a varios grupos, los permisos son acumulativos. Consulte
 
 
 
+[[view-and-edit-local-users]]
 == Ver y editar usuarios locales
 
 Es posible ver detalles de los usuarios locales y federados existentes. Es posible modificar un usuario local para cambiar el nombre completo, la contraseña o la pertenencia a grupos del usuario. También puede impedir temporalmente que un usuario acceda a Grid Manager y a la API de gestión de grid.
@@ -175,6 +180,7 @@ Cambiar grupos (sólo usuarios locales)
 
 
 
+[[import-federated-users]]
 == Importar usuarios federados
 
 Puede importar uno o más usuarios federados, hasta un máximo de 100 usuarios, directamente a la página Usuarios.
@@ -202,6 +208,7 @@ Después de cerrar el cuadro de diálogo *Importar usuarios federados*, la infor
 
 
 
+[[duplicate-a-user]]
 == Duplique un usuario
 
 Puede duplicar un usuario existente para crear un nuevo usuario con los mismos permisos.
@@ -214,6 +221,7 @@ Puede duplicar un usuario existente para crear un nuevo usuario con los mismos p
 
 
 
+[[delete-a-user]]
 == Eliminar un usuario
 
 Puede eliminar un usuario local para eliminar de forma permanente ese usuario del sistema.

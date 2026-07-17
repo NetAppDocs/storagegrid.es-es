@@ -20,12 +20,14 @@ Los valores de coherencia se pueden utilizar para especificar la disponibilidad 
 
 
 
+[[bucket-consistency-guidelines]]
 == Directrices de coherencia de bloques
 
 La coherencia de bloques se utiliza para determinar la coherencia de las aplicaciones cliente que afectan a los objetos dentro de ese bloque S3. En general, debe utilizar la consistencia *Read-after-new-write* para sus cubos.
 
 
 
+[[change-bucket-consistencychange-bucket-consistency]]
 == [[change-bucket-consistency]]Cambie la consistencia del bloque
 
 Si la consistencia de *Read-after-new-write* no cumple con los requisitos de la aplicación cliente, puede cambiar la consistencia configurando la consistencia del depósito o usando el `Consistency-Control` encabezado. El `Consistency-Control` cabezal anula la consistencia del cucharón.
@@ -54,6 +56,7 @@ Aparece la página de detalles bucket.
 
 
 
+[[what-happens-when-you-change-bucket-settings]]
 == Qué sucede cuando se cambia la configuración del bloque
 
 Los cubos tienen varios ajustes que afectan al comportamiento de los cubos y los objetos dentro de esos cubos.

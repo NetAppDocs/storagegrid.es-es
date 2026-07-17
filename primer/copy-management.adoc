@@ -19,6 +19,7 @@ El servicio LDR gestiona los datos de objetos.
 
 
 
+[[content-protection-replication]]
 == Protección de contenido: Replicación
 
 Si las instrucciones de colocación del contenido de una regla de ILM requieren copias replicadas de datos de objetos, los nodos de almacenamiento que componen el pool de almacenamiento configurado y las almacenan en disco.
@@ -36,6 +37,7 @@ image:replication_data_flow.png["diagrama que muestra el proceso descrito en el 
 
 
 
+[[content-protection-erasure-coding]]
 == Protección de contenido: Codificación de borrado
 
 Si una regla de ILM incluye instrucciones para hacer copias con código de borrado de los datos de objetos, el esquema de código de borrado correspondiente divide los datos de los objetos en datos y fragmentos de paridad, y los distribuye por los nodos de almacenamiento que se configuran en el perfil de código de borrado.
@@ -54,6 +56,7 @@ image:erasure_coding_data_flow.png["Flujo de datos de código de borrado"]
 
 
 
+[[content-protection-cloud-storage-pool]]
 == Protección de contenido: Pool de almacenamiento en cloud
 
 Si las instrucciones de colocación de contenido de una regla de ILM requieren que se almacene una copia replicada de los datos de objetos en un Cloud Storage Pool, los datos de objetos se duplican en el bloque de S3 externo o en el contenedor de almacenamiento de Azure Blob que se especificó para el Cloud Storage Pool.

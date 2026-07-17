@@ -36,12 +36,15 @@ NOTE: Los cambios en el certificado de extremo pueden tardar hasta 15 minutos en
 
 
 
+[[create-a-load-balancer-endpoint]]
+[[create-lb-endpoint]]
 == Cree un extremo de equilibrador de carga
 
 Cada punto final del balanceador de carga del cliente S3 especifica un puerto, un tipo de cliente (S3) y un protocolo de red (HTTP o HTTPS).  Los puntos finales del balanceador de carga de la interfaz de administración especifican un puerto, un tipo de interfaz y una red de cliente no confiable.
 
 
 
+[[access-the-wizard]]
 === Acceda al asistente
 
 .Pasos
@@ -53,6 +56,7 @@ Cada punto final del balanceador de carga del cliente S3 especifica un puerto, u
 
 
 
+[[enter-endpoint-details]]
 === Introduzca los detalles de los extremos
 
 .Pasos
@@ -163,6 +167,7 @@ Cuando selecciona *Sí*, el puerto está abierto en todas las redes cliente que 
 
 
 
+[[select-a-binding-mode]]
 === Seleccione un modo de enlace
 
 .Pasos
@@ -230,6 +235,7 @@ Si va a crear extremos de interfaz de gestión, seleccione VIP asociadas sólo a
 
 
 
+[[control-tenant-access]]
 === Controle el acceso de inquilinos
 
 
@@ -270,6 +276,7 @@ Las cuentas de inquilino seleccionadas no pueden utilizar este punto final para 
 
 
 
+[[attach-certificate]]
 === Adjunte el certificado
 
 .Pasos
@@ -396,6 +403,7 @@ Se crea el punto final del equilibrador de carga. El certificado personalizado s
 
 
 
+[[after-you-finish]]
 === Después de terminar
 
 .Pasos
@@ -422,6 +430,7 @@ También debe asegurarse de que el registro DNS hace referencia a todos los nomb
 
 
 
+[[view-and-edit-load-balancer-endpoints]]
 == Ver y editar puntos finales del equilibrador de carga
 
 Puede ver detalles de los extremos de equilibrador de carga existentes, incluidos los metadatos de certificado para un extremo protegido. Puede cambiar determinados valores para un punto final.
@@ -532,6 +541,7 @@ Editar el acceso de inquilinos
 
 
 
+[[remove-load-balancer-endpoints]]
 == Retire los extremos del equilibrador de carga
 
 Puede eliminar uno o varios puntos finales mediante el menú *acciones* o puede eliminar un único punto final de la página de detalles.

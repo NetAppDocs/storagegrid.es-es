@@ -184,6 +184,7 @@ Según sea necesario, se puede deshabilitar la integración de búsqueda para un
 
 
 
+[[example-notification-configexample-metadata-notification-configuration-that-applies-to-all-objects]]
 == [[example-notification-config]]Ejemplo: Configuración de notificación de metadatos que se aplica a todos los objetos
 
 En este ejemplo, los metadatos de objeto de todos los objetos se envían al mismo destino.
@@ -203,6 +204,7 @@ En este ejemplo, los metadatos de objeto de todos los objetos se envían al mism
 ----
 
 
+[[example-metadata-notification-configuration-with-two-rules]]
 == Ejemplo: Configuración de notificación de metadatos con dos reglas
 
 En este ejemplo, los metadatos del objeto para los objetos que coinciden con el prefijo `/images` se envían a un destino, mientras que los metadatos del objeto para los objetos que coinciden con el prefijo `/videos` se envían a un segundo destino.
@@ -231,6 +233,7 @@ En este ejemplo, los metadatos del objeto para los objetos que coinciden con el 
 ----
 
 
+[[metadata-notification-format]]
 == Formato de notificación de metadatos
 
 Al habilitar el servicio de integración de búsqueda para un bloque, se genera un documento JSON y se envía al extremo de destino cada vez que se agregan, actualizan o eliminan metadatos o etiquetas del objeto.
@@ -257,6 +260,7 @@ Este ejemplo muestra un ejemplo del JSON que podría generarse cuando se crea un
 ----
 
 
+[[fields-included-in-the-json-document]]
 === Campos incluidos en el documento JSON
 
 El nombre del documento incluye el nombre del bloque, el nombre del objeto y el ID de versión, si existe.
@@ -301,6 +305,7 @@ Etiquetas::
 
 
 
+[[how-to-view-results-in-elasticsearch]]
 === Cómo ver los resultados en Elasticsearch
 
 Para las etiquetas y los metadatos de usuario, StorageGRID pasa las fechas y los números a Elasticsearch como cadenas o como notificaciones de eventos S3. Para configurar Elasticsearch para interpretar estas cadenas como fechas o números, siga las instrucciones de Elasticsearch para la asignación dinámica de campos y para asignar formatos de fecha. Active las asignaciones de campos dinámicos en el índice antes de configurar el servicio de integración de búsqueda. Después de indexar un documento, no puede editar los tipos de campo del documento en el índice.

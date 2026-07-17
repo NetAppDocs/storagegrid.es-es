@@ -24,6 +24,7 @@ Cada grupo de alta disponibilidad proporciona acceso a los servicios compartidos
 
 
 
+[[how-do-you-create-an-ha-group]]
 == ¿Cómo se crea un grupo de alta disponibilidad?
 
 . Debe seleccionar una interfaz de red para uno o más nodos de administrador o nodos de puerta de enlace. Puede usar una interfaz de red de cuadrícula (eth0), una interfaz de red de cliente (eth2), una interfaz VLAN o una interfaz de acceso que haya agregado al nodo.
@@ -40,6 +41,7 @@ Para obtener instrucciones, consulte link:configure-high-availability-group.html
 
 
 
+[[what-is-the-active-interface]]
 == ¿Cuál es la interfaz activa?
 
 Durante el funcionamiento normal, todas las direcciones VIP del grupo ha se añaden a la interfaz principal, que es la primera interfaz en el orden de prioridad. Siempre que la interfaz principal siga estando disponible, se utiliza cuando los clientes se conectan a cualquier dirección VIP del grupo. Es decir, durante el funcionamiento normal, la interfaz principal es la interfaz activa del grupo.
@@ -48,6 +50,7 @@ Del mismo modo, durante el funcionamiento normal, las interfaces de menor priori
 
 
 
+[[view-the-current-ha-group-status-of-a-node]]
 == Ver el estado actual del grupo de alta disponibilidad de un nodo
 
 Para ver si un nodo está asignado a un grupo de alta disponibilidad y determinar su estado actual, seleccione *Nodos* > *_nodo_*.
@@ -72,6 +75,7 @@ image:ha_group_primary_interface.png["Interfaz primaria del grupo DE ALTA DISPON
 
 
 
+[[what-happens-when-the-active-interface-fails]]
 == ¿Qué ocurre cuando falla la interfaz activa?
 
 La interfaz que aloja actualmente las direcciones VIP es la interfaz activa. Si el grupo ha incluye más de una interfaz y la interfaz activa falla, las direcciones VIP se mueven a la primera interfaz de respaldo disponible en el orden de prioridad. Si falla esa interfaz, las direcciones VIP se mueven a la siguiente interfaz de respaldo disponible, etc.

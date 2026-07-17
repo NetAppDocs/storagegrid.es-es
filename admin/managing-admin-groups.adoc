@@ -21,12 +21,14 @@ Es posible crear grupos de administración para gestionar los permisos de seguri
 
 
 
+[[create-an-admin-group]]
 == Cree un grupo de administración
 
 Los grupos de administración permiten determinar a qué usuarios se puede acceder a qué características y operaciones en Grid Manager y en la API de gestión de grid.
 
 
 
+[[access-the-wizard]]
 === Acceda al asistente
 
 .Pasos
@@ -36,6 +38,7 @@ Los grupos de administración permiten determinar a qué usuarios se puede acced
 
 
 
+[[choose-a-group-type]]
 === Elija un tipo de grupo
 
 Puede crear un grupo local o importar un grupo federado.
@@ -74,6 +77,7 @@ Puede crear un grupo local o importar un grupo federado.
 ====
 
 
+[[manage-group-permissions]]
 === Administrar permisos de grupo
 
 .Pasos
@@ -96,6 +100,7 @@ Debe asignar al menos un permiso a cada grupo; de lo contrario, los usuarios que
 
 
 
+[[add-users-local-groups-only]]
 === Añadir usuarios (sólo grupos locales)
 
 .Pasos
@@ -108,6 +113,7 @@ Si todavía no ha creado usuarios locales, puede guardar el grupo sin agregar us
 
 
 
+[[view-and-edit-admin-groups]]
 == Consulte y edite los grupos de administración
 
 Puede ver los detalles de los grupos existentes, modificar un grupo o duplicar un grupo.
@@ -169,6 +175,7 @@ Edite el modo de acceso o los permisos
 
 
 
+[[duplicate-a-group]]
 == Duplicar un grupo
 
 .Pasos
@@ -179,6 +186,7 @@ Edite el modo de acceso o los permisos
 
 
 
+[[delete-a-group]]
 == Eliminar un grupo
 
 Es posible eliminar un grupo de administración cuando se desea quitar el grupo del sistema y quitar todos los permisos asociados con el grupo. Al eliminar un grupo de administración, se quitan todos los usuarios del grupo, pero no se eliminan los usuarios.

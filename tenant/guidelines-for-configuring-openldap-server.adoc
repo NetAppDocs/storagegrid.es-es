@@ -15,12 +15,14 @@ Si desea utilizar un servidor OpenLDAP para la federación de identidades, debe 
 
 
 
+[[memberof-and-refint-overlays]]
 == Revestimientos memberOf y reft
 
 Se deben habilitar las superposiciones memberof y reft. Para obtener más información, consulte las instrucciones para el mantenimiento de miembros del grupo inverso en la _OpenLDAP Software Administrator's Guide_.
 
 
 
+[[indexing]]
 == Indización
 
 Debe configurar los siguientes atributos OpenLDAP con las palabras clave de índice especificadas:

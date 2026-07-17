@@ -15,6 +15,7 @@ Si planea utilizar un pool de almacenamiento en cloud para mover objetos desde e
 
 
 
+[[general-considerations]]
 == Consideraciones generales
 
 * En general, el almacenamiento de archivado en cloud, como el almacenamiento de Amazon S3 Glacier o Azure Blob, es un lugar económico para almacenar datos de objetos. No obstante, los costes para recuperar datos del almacenamiento de archivado en el cloud son relativamente altos. Para alcanzar el coste general más bajo, debe tener en cuenta cuándo y con qué frecuencia accederá a los objetos en el pool de almacenamiento en cloud. El uso de un Cloud Storage Pool solo se recomienda para el contenido al que espera acceder con poca frecuencia.
@@ -31,6 +32,7 @@ Si planea utilizar un pool de almacenamiento en cloud para mover objetos desde e
 
 
 
+[[considerations-for-the-ports-used-for-cloud-storage-pools]]
 == Consideraciones sobre los puertos utilizados para Cloud Storage Pools
 
 Para garantizar que las reglas de ILM puedan mover objetos desde y hacia el Cloud Storage Pool especificado, debe configurar la red o las redes que contienen los nodos de almacenamiento del sistema. Debe asegurarse de que los siguientes puertos puedan comunicarse con el pool de almacenamiento en cloud.
@@ -47,6 +49,7 @@ Si utiliza un servidor proxy no transparente, también debe link:../admin/config
 
 
 
+[[considerations-for-costs]]
 == Consideraciones sobre los costos
 
 El acceso al almacenamiento en el cloud por medio de un pool de almacenamiento en el cloud requiere conectividad de red al cloud. Debe tener en cuenta el coste de la infraestructura de red que utilizará para acceder al cloud y aprovisionarlo adecuadamente, en función de la cantidad de datos que espera mover entre StorageGRID y el cloud con el pool de almacenamiento en cloud.
@@ -64,6 +67,7 @@ NOTE: Cuando se devuelven objetos a StorageGRID desde un pool de almacenamiento 
 
 
 
+[[s3-permissions-required-for-the-cloud-storage-pool-bucket]]
 == S3: Permisos necesarios para el bloque de Cloud Storage Pool
 
 Las políticas para el bucket externo de S3 utilizado para un pool de almacenamiento en nube deben otorgar permiso a StorageGRID para mover un objeto al depósito, obtener el estado de un objeto, restaurar un objeto desde el almacenamiento de Glacier cuando sea necesario, y mucho más. Lo ideal es que StorageGRID tenga acceso de control total al bloque (`s3:*`); sin embargo, si esto no es posible, la política de bloques debe otorgar los siguientes S3 permisos a StorageGRID:
@@ -80,6 +84,7 @@ Las políticas para el bucket externo de S3 utilizado para un pool de almacenami
 
 
 
+[[s3-considerations-for-the-external-buckets-lifecycle]]
 == S3: Consideraciones para el ciclo de vida del bloque externo
 
 El movimiento de objetos entre StorageGRID y el bloque de S3 externo especificado en el pool de almacenamiento en cloud está controlado por las reglas de ILM y las políticas de ILM activas en StorageGRID. Por el contrario, la configuración del ciclo de vida de ese bloque controla la transición de objetos desde el bloque S3 externo especificado en Cloud Storage Pool a Amazon S3 Glacier o S3 Glacier Deep Archive (o a una solución de almacenamiento que implementa la clase de almacenamiento Glacier).
@@ -113,12 +118,14 @@ Si desea realizar la transición de objetos en Cloud Storage Pool a S3 Glacier D
 
 
 
+[[azure-considerations-for-access-tier]]
 == Azure: Consideraciones para el nivel de acceso
 
 Al configurar una cuenta de almacenamiento de Azure, puede configurar el nivel de acceso predeterminado en Hot o Cool. Al crear una cuenta de almacenamiento para usar con un pool de almacenamiento en el cloud, se debe usar el nivel de función como nivel predeterminado. Aunque StorageGRID establece inmediatamente el nivel Archivado cuando se mueven objetos al pool de almacenamiento en el cloud, el uso de una configuración predeterminada de caliente garantiza que no se cobrará una tarifa de eliminación anticipada de los objetos que se quitan del nivel de refrigeración antes del mínimo de 30 días.
 
 
 
+[[azure-lifecycle-management-not-supported]]
 == Azure: Gestión del ciclo de vida no compatible
 
 No use gestión del ciclo de vida del almacenamiento de Azure Blob para el contenedor que se usa con un pool de almacenamiento en cloud. Las operaciones de ciclo de vida pueden interferir en las operaciones de Cloud Storage Pool.

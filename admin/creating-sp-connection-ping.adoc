@@ -28,12 +28,14 @@ Estas instrucciones resumen cómo configurar PingFederate Server versión 10.3 c
 
 
 
+[[complete-prerequisites-in-pingfederate]]
 == Complete los requisitos previos en PingFederate
 
 Antes de poder crear las conexiones SP que utilizará para StorageGRID, debe completar las tareas previas en PingFederate. Utilizará la información de estos requisitos previos al configurar las conexiones del SP.
 
 
 
+[[create-data-storedata-store]]
 === Crear almacén de datos[[data-store]]
 
 Si aún no lo ha hecho, cree un almacén de datos para conectar PingFederate al servidor LDAP de AD FS. Use los valores que utilizó en link:../admin/using-identity-federation.html["configurando la federación de identidades"]StorageGRID.
@@ -45,6 +47,7 @@ Si aún no lo ha hecho, cree un almacén de datos para conectar PingFederate al 
 
 
 
+[[create-password-credential-validatorpassword-validator]]
 === Crear validador de credenciales de contraseña[[password-validador]]
 
 Si todavía no lo ha hecho, cree un validador de credencial de contraseña.
@@ -58,6 +61,7 @@ Si todavía no lo ha hecho, cree un validador de credencial de contraseña.
 
 
 
+[[create-idp-adapter-instanceadapter-instance]]
 === Crear instancia de adaptador IDP[[instancia de adaptador]]
 
 Si todavía no lo ha hecho, cree una instancia de adaptador de IDP.
@@ -74,6 +78,7 @@ Si todavía no lo ha hecho, cree una instancia de adaptador de IDP.
 
 
 
+[[create-or-import-signing-certificatesigning-certificate]]
 === Crear o importar un certificado de firma[[certificado de firma]]
 
 Si todavía no lo ha hecho, cree o importe el certificado de firma.
@@ -85,6 +90,7 @@ Si todavía no lo ha hecho, cree o importe el certificado de firma.
 
 
 
+[[create-an-sp-connection-in-pingfederate]]
 == Cree una conexión SP en PingFederate
 
 Cuando crea una conexión del SP en PingFederate, importe los metadatos SAML que ha descargado de StorageGRID para el nodo de administración. El archivo de metadatos contiene muchos de los valores específicos necesarios.
@@ -94,6 +100,7 @@ TIP: Debe crear una conexión de SP para cada nodo de administrador en su sistem
 
 
 
+[[choose-sp-connection-type]]
 === Elija el tipo de conexión del SP
 
 .Pasos
@@ -105,6 +112,7 @@ TIP: Debe crear una conexión de SP para cada nodo de administrador en su sistem
 
 
 
+[[import-sp-metadata]]
 === Importe los metadatos de SP
 
 .Pasos
@@ -119,6 +127,7 @@ El ID de entidad del partner y el nombre de conexión se establecen en el ID de 
 
 
 
+[[configure-idp-browser-sso]]
 === Configure el SSO del explorador IDP
 
 .Pasos
@@ -137,6 +146,7 @@ El ID de entidad del partner y el nombre de conexión se establecen en el ID de 
 
 
 
+[[map-adapter-instance]]
 === Asigne la instancia del adaptador
 
 .Pasos
@@ -163,6 +173,7 @@ El ID de entidad del partner y el nombre de conexión se establecen en el ID de 
 
 
 
+[[configure-protocol-settings]]
 === Configure los ajustes de protocolo
 
 .Pasos
@@ -178,6 +189,7 @@ El ID de entidad del partner y el nombre de conexión se establecen en el ID de 
 
 
 
+[[configure-credentials]]
 === Configurar credenciales
 
 .Pasos
@@ -195,6 +207,7 @@ El ID de entidad del partner y el nombre de conexión se establecen en el ID de 
 
 
 
+[[create-additional-sp-connections]]
 === Cree conexiones adicionales del SP
 
 Puede copiar la primera conexión de SP para crear las conexiones de SP que necesita para cada nodo de administrador de su grid. Se cargan metadatos nuevos para cada copia.

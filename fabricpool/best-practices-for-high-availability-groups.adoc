@@ -15,6 +15,7 @@ Antes de asociar StorageGRID como nivel de cloud de FabricPool, conozca los grup
 
 
 
+[[what-is-an-ha-group]]
 == ¿Qué es un grupo de alta disponibilidad?
 
 Un grupo de alta disponibilidad es una colección de interfaces de varios nodos de puerta de enlace StorageGRID, nodos de administración o ambos. Un grupo de alta disponibilidad ayuda a mantener la disponibilidad de las conexiones de datos de cliente. Si falla la interfaz activa del grupo HA, una interfaz de backup puede gestionar la carga de trabajo con poco impacto en las operaciones de FabricPool.
@@ -25,6 +26,7 @@ Para obtener más información sobre los grupos de alta disponibilidad, consulte
 
 
 
+[[using-ha-groups]]
 == Usando grupos de alta disponibilidad
 
 Las mejores prácticas para crear un grupo de alta disponibilidad de StorageGRID para FabricPool dependen de la carga de trabajo.

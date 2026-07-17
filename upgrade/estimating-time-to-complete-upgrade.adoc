@@ -107,6 +107,7 @@ Cuando se complete la tarea *Pasos de actualización finales*, puede realizar to
 |===
 
 
+[[estimate-time-to-upgrade]]
 == Estimar el tiempo de actualización
 
 .Pasos
@@ -125,6 +126,7 @@ Como regla general, los nodos de dispositivos tardan más en actualizarse que lo
 
 
 
+[[example-estimated-time-to-upgrade-to-storagegrid-12-0]]
 == Ejemplo: Tiempo estimado para actualizar a StorageGRID 12.0
 
 Supongamos que el sistema tiene 14 nodos de grid, de los cuales 8 son nodos Linux.

@@ -17,6 +17,7 @@ Existen dos procesos de verificación: Verificación de fondo y verificación de
 
 
 
+[[what-is-background-verification]]
 == ¿Qué es la verificación en segundo plano?
 
 El proceso de verificación en segundo plano comprueba de forma automática y continua si hay copias dañadas de los datos de los objetos e intenta reparar automáticamente los problemas que encuentre.
@@ -39,6 +40,7 @@ La verificación en segundo plano se ejecuta a una velocidad continua diseñada 
 
 
 
+[[alerts-related-to-background-verification]]
 == Alertas relacionadas con la verificación en segundo plano
 
 Si el sistema detecta un objeto corrupto que no puede corregir automáticamente (porque la corrupción impide que el objeto sea identificado), se activa la alerta *Objeto corrupto no identificado detectado*.
@@ -47,6 +49,7 @@ Si la verificación de antecedentes no puede reemplazar un objeto dañado porque
 
 
 
+[[what-is-object-existence-check]]
 == ¿Qué es la comprobación de la existencia de objetos?
 
 La comprobación de existencia de objetos verifica si todas las copias replicadas esperadas de objetos y fragmentos codificados con borrado existen en un nodo de almacenamiento. La comprobación de la existencia de objetos no comprueba los datos del objeto en sí (la verificación en segundo plano lo hace); en su lugar, proporciona una forma de verificar la integridad de los dispositivos de almacenamiento, especialmente si un problema de hardware reciente podría haber afectado a la integridad de los datos.
@@ -61,6 +64,7 @@ La comprobación de la existencia de objetos lee los metadatos de cada objeto al
 
 
 
+[[run-object-existence-check]]
 == Ejecute la comprobación de existencia de objetos
 
 Cree y ejecute un trabajo de comprobación de existencia de objetos a la vez. Cuando crea un trabajo, debe seleccionar los nodos de almacenamiento y los volúmenes que desea verificar. También selecciona la consistencia para el trabajo.

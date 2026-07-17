@@ -52,6 +52,7 @@ Si no configura el filtrado avanzado, la regla se aplica a todos los objetos que
 
 
 
+[[use-advanced-filters-in-ilm-rules]]
 == Usar filtros avanzados en las reglas de ILM
 
 El filtrado avanzado permite crear reglas de ILM que se aplican solo a objetos específicos en función de sus metadatos. Al configurar el filtrado avanzado para una regla, debe seleccionar el tipo de metadatos que desea que coincidan, seleccionar un operador y especificar un valor de metadatos. Cuando se evalúan objetos, la regla de ILM se aplica solo a los objetos que tienen metadatos que coincidan con el filtro avanzado.
@@ -193,6 +194,7 @@ Por ejemplo, para filtrar los objetos que tienen una etiqueta de objeto de `Imag
 |===
 
 
+[[specify-multiple-metadata-types-and-values]]
 == Especifique varios tipos y valores de metadatos
 
 Al definir un filtrado avanzado, es posible especificar varios tipos de metadatos y varios valores de metadatos. Por ejemplo, si desea que una regla coincida con objetos de entre 10 MB y 100 MB de tamaño, debe seleccionar el tipo de metadatos *Tamaño de objeto* y especificar dos valores de metadatos.

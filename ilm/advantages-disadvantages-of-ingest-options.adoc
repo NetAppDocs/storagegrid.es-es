@@ -17,6 +17,7 @@ Para obtener una visión general de las opciones de ingesta, consulte link:data-
 
 
 
+[[advantages-of-the-balanced-and-strict-options]]
 == Ventajas de las opciones equilibradas y estrictas
 
 En comparación con el registro doble, que crea copias provisionales durante la ingesta, las dos opciones de colocación sincrónica pueden proporcionar las siguientes ventajas:
@@ -29,6 +30,7 @@ En comparación con el registro doble, que crea copias provisionales durante la 
 
 
 
+[[disadvantages-of-the-balanced-and-strict-options]]
 == Desventajas de las opciones equilibradas y estrictas
 
 En comparación con la confirmación doble, las opciones equilibradas y estrictas tienen algunas desventajas:
@@ -46,6 +48,7 @@ En comparación con la confirmación doble, las opciones equilibradas y estricta
 
 
 
+[[limitations-on-object-placements-with-the-balanced-and-strict-options]]
 == Limitaciones en la ubicación de objetos con las opciones equilibradas y estrictas
 
 Las opciones equilibradas o estrictas no se pueden usar para reglas de ILM que tengan alguna de estas instrucciones de ubicación:
@@ -58,6 +61,7 @@ Estas restricciones se deben a que StorageGRID no puede realizar copias de forma
 
 
 
+[[how-ilm-rules-and-consistency-interact-to-affect-data-protection]]
 == Cómo interactúan las reglas de ILM y la coherencia para afectar a la protección de datos
 
 Tanto su regla de ILM como su elección de coherencia afectan al modo en que se protegen los objetos. Estos ajustes pueden interactuar.
@@ -96,6 +100,7 @@ NOTE: Antes de seleccionar un valor de consistencia,link:../s3/consistency.html[
 
 
 
+[[example-of-how-consistency-and-ilm-rules-can-interact]]
 == Un ejemplo de cómo pueden interactuar las reglas de coherencia e ILM
 
 Supongamos que tiene una cuadrícula de tres sitios con la siguiente regla ILM y la siguiente consistencia:

@@ -36,6 +36,7 @@ Cuando se completa la solicitud, la función Cambiar contraseña raíz de inquil
 
 
 
+[[reactivate-deactivated-features]]
 == Reactivar las funciones desactivadas
 
 De forma predeterminada, puede utilizar la API de administración de grid para reactivar una función que se haya desactivado. Sin embargo, si desea evitar que alguna vez se reactiven las funciones desactivadas, puede desactivar la propia función *activateFeatures*.

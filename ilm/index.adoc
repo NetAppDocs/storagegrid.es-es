@@ -15,6 +15,7 @@ Las reglas de gestión de la vida útil de la información (ILM) en una polític
 
 
 
+[[about-these-instructions]]
 == Acerca de estas instrucciones
 
 Diseñar e implementar reglas y políticas de ILM requiere una planificación cuidadosa. Debe comprender los requisitos operativos, la topología del sistema StorageGRID, las necesidades de protección de objetos y los tipos de almacenamiento disponibles. A continuación, debe determinar cómo desea copiar, distribuir y almacenar diferentes tipos de objetos.
@@ -29,6 +30,7 @@ Utilice estas instrucciones para:
 
 
 
+[[learn-more]]
 == Leer más
 
 Para obtener más información, consulte estos vídeos:

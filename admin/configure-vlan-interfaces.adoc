@@ -15,6 +15,7 @@ Cree interfaces de LAN virtual (VLAN) en nodos de administración y nodos de pue
 
 
 
+[[considerations-for-vlan-interfaces]]
 == Consideraciones sobre las interfaces VLAN
 
 * Para crear una interfaz de VLAN, introduzca un ID de VLAN y elija una interfaz principal en uno o varios nodos.
@@ -37,6 +38,7 @@ NOTE: "Linux" se refiere a una implementación de RHEL, Ubuntu o Debian.  Para o
 
 
 
+[[create-a-vlan-interface]]
 == Cree una interfaz VLAN
 
 .Antes de empezar
@@ -53,6 +55,7 @@ Puede utilizar Grid Manager para crear interfaces VLAN que permitan a los client
 
 
 
+[[access-the-wizard]]
 === Acceda al asistente
 
 .Pasos
@@ -62,6 +65,7 @@ Puede utilizar Grid Manager para crear interfaces VLAN que permitan a los client
 
 
 
+[[enter-details-for-the-vlan-interfaces]]
 === Introduzca los detalles de las interfaces de VLAN
 
 .Pasos
@@ -75,6 +79,7 @@ Los ID de VLAN no tienen por qué ser únicos. Por ejemplo, puede utilizar el id
 
 
 
+[[choose-parent-interfaces]]
 === Elija interfaces padre
 
 En la tabla, se enumeran las interfaces disponibles para todos los nodos de administrador y los nodos de puerta de enlace en cada sitio del grid. Las interfaces de la red de administración (eth1) no se pueden utilizar como interfaces principales y no se muestran.
@@ -92,6 +97,7 @@ image:vlan-create-parent-interfaces.png["Interfaces principales del asistente de
 
 
 
+[[confirm-the-settings]]
 === Confirme la configuración
 
 .Pasos
@@ -108,6 +114,7 @@ image:vlan-create-parent-interfaces.png["Interfaces principales del asistente de
 
 
 
+[[edit-a-vlan-interface]]
 == Edite una interfaz VLAN
 
 Cuando edite una interfaz de VLAN, puede realizar los siguientes tipos de cambios:
@@ -141,6 +148,7 @@ No se puede actualizar un identificador de VLAN si la VLAN se utiliza en un grup
 
 
 
+[[remove-a-vlan-interface]]
 == Quite una interfaz VLAN
 
 Puede eliminar una o varias interfaces VLAN.

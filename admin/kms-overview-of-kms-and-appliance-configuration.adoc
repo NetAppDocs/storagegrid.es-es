@@ -21,6 +21,7 @@ El diagrama de flujo muestra la configuración de KMS y la configuración de dis
 
 
 
+[[set-up-the-key-management-server-kms]]
 == Configurar el servidor de gestión de claves (KMS)
 
 La configuración de un servidor de gestión de claves incluye los siguientes pasos de alto nivel.
@@ -52,6 +53,7 @@ link:kms-adding.html["Añadir un servidor de gestión de claves (KMS)"]
 |===
 
 
+[[set-up-the-appliance]]
 == Configure el aparato
 
 La configuración de un nodo de dispositivo para el uso de KMS incluye los siguientes pasos de alto nivel.
@@ -74,6 +76,7 @@ Consulte https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/opti
 
 
 
+[[key-management-encryption-process-occurs-automatically]]
 == Proceso de cifrado de gestión de claves (se produce automáticamente)
 
 El cifrado de gestión de claves incluye los siguientes pasos de alto nivel que se realizan automáticamente.

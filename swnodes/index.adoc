@@ -43,6 +43,7 @@ Cuando se hayan desplegado todos los nodos, utilice Grid Manager en link:navigat
 
 
 
+[[automate-the-installation]]
 == Automatizar la instalación
 
 

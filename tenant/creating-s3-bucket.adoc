@@ -30,6 +30,7 @@ NOTE: Cada cuadrícula puede tener un máximo de 100.000 contenedores, incluidos
 
 
 
+[[access-the-wizard]]
 == Acceda al asistente
 
 .Pasos
@@ -39,6 +40,7 @@ NOTE: Cada cuadrícula puede tener un máximo de 100.000 contenedores, incluidos
 
 
 
+[[enter-details]]
 == Introduzca los detalles
 
 .Pasos
@@ -82,6 +84,7 @@ Su administrador de StorageGRID administra las regiones disponibles.  La región
 
 
 
+[[manage-settings]]
 == Gestionar configuración
 
 .Pasos

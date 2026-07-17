@@ -22,6 +22,7 @@ CAUTION: Las siguientes reglas y políticas de ILM son solo ejemplos. Existen va
 
 
 
+[[how-changing-an-ilm-policy-affects-performance]]
 == Cómo el cambio de una política de ILM afecta al rendimiento
 
 Al activar una nueva política de ILM, el rendimiento de su sistema StorageGRID puede verse afectado temporalmente, especialmente si las instrucciones de ubicación de la nueva política requieren que muchos objetos existentes se muevan a nuevas ubicaciones.
@@ -43,6 +44,7 @@ NOTE: StorageGRID considera que cada perfil de código de borrado es único y no
 
 
 
+[[active-ilm-policy-for-example-6-data-protection-at-two-sites]]
 == Política de ILM activa, por ejemplo 6: Protección de datos en dos sitios
 
 En este ejemplo, la activa política de ILM se diseñó inicialmente para un sistema StorageGRID de dos sitios y utiliza dos reglas de ILM.
@@ -53,6 +55,7 @@ En esta política de ILM, los objetos del inquilino A están protegidos con codi
 
 
 
+[[rule-1-one-site-erasure-coding-for-tenant-a]]
 === Regla 1: Codificación de borrado de un sitio para el inquilino A
 
 [cols="1a,2a"]
@@ -89,6 +92,7 @@ Código de borrado 2+1 en el Sitio 1 desde el día 0 hasta siempre
 |===
 
 
+[[rule-2-two-site-replication-for-other-tenants]]
 === Regla 2: Replicación de dos sitios para otros inquilinos
 
 [cols="1a,2a"]
@@ -125,6 +129,7 @@ Dos copias replicadas desde el día 0 hasta siempre: Una copia en el sitio 1 y u
 |===
 
 
+[[ilm-policy-for-example-6-data-protection-at-three-sites]]
 == Política de ILM por ejemplo 6: Protección de datos en tres sitios
 
 En este ejemplo, la política de ILM se está reemplazando por una nueva política para un sistema StorageGRID de tres sitios.
@@ -135,6 +140,7 @@ Cuando se activa esta nueva política de ILM, los objetos que pertenecen al inqu
 
 
 
+[[rule-1-three-site-erasure-coding-for-tenant-a]]
 === Regla 1: Codificación de borrado a tres ubicaciones para el inquilino A
 
 [cols="1a,2a"]
@@ -171,6 +177,7 @@ Código de borrado 2+1 en todos los sitios 3 desde el día 0 hasta siempre
 |===
 
 
+[[rule-2-three-site-replication-for-other-tenants]]
 === Regla 2: Replicación de tres sitios para otros inquilinos
 
 [cols="1a,2a"]
@@ -207,6 +214,7 @@ Tres copias replicadas desde el día 0 hasta siempre: Una copia en el sitio 1, u
 |===
 
 
+[[activating-the-ilm-policy-for-example-6]]
 == Activar la política de ILM por ejemplo 6
 
 Al activar una nueva política de ILM, los objetos existentes se pueden mover a ubicaciones nuevas o se pueden crear copias de objetos nuevas para los objetos existentes, según las instrucciones de ubicación de cualquier regla nueva o actualizada.
@@ -219,6 +227,7 @@ CAUTION: Cuando se activa una nueva política de ILM, StorageGRID la utiliza par
 
 
 
+[[what-happens-when-erasure-coding-instructions-change]]
 === Lo que ocurre al cambiar las instrucciones de codificación de borrado
 
 En la política de ILM actualmente activa en este ejemplo, los objetos que pertenecen al inquilino A se protegen con el código de borrado 2+1 en el sitio 1. En la nueva política de ILM, los objetos pertenecientes al inquilino A se protegerán con el código de borrado 2+1 en los sitios 1, 2 y 3.
@@ -235,6 +244,7 @@ NOTE: Los fragmentos 2+1 existentes en el Sitio 1 no se reutilizan. StorageGRID 
 
 
 
+[[what-happens-when-replication-instructions-change]]
 === Qué ocurre cuando cambian las instrucciones de replicación
 
 En la política de ILM actualmente activa en este ejemplo, los objetos que pertenecen a otros inquilinos se protegen usando dos copias replicadas en los pools de almacenamiento de los sitios 1 y 2. En la nueva política de ILM, los objetos que pertenezcan a otros clientes se protegerán usando tres copias replicadas en pools de almacenamiento de los sitios 1, 2 y 3.
@@ -247,6 +257,7 @@ Cuando se activa la nueva política de ILM, se producen las siguientes operacion
 
 
 
+[[performance-impact-of-activating-this-policy]]
 === Impacto en el rendimiento de la activación de esta política
 
 Cuando se activa la política de ILM en este ejemplo, el rendimiento general de este sistema StorageGRID se verá afectado temporalmente. Se necesitarán niveles superiores a los normales de recursos de grid para crear nuevos fragmentos con código de borrado para los objetos existentes del inquilino A y nuevas copias replicadas en el sitio 3 para los objetos existentes de otros inquilinos.

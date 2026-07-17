@@ -15,12 +15,14 @@ Puede configurar varios ajustes de red desde el Gestor de cuadrícula para ajust
 
 
 
+[[configure-vlan-interfaces]]
 == Configure las interfaces VLAN
 
 Puede link:configure-vlan-interfaces.html["Cree interfaces de LAN virtual (VLAN)"]aislar y crear particiones de tráfico para mejorar la seguridad, la flexibilidad y el rendimiento. Cada interfaz de VLAN está asociada con una o varias interfaces principales en los nodos de administración y de puerta de enlace. Puede utilizar interfaces VLAN en grupos de alta disponibilidad y en extremos de equilibrador de carga para segregar el tráfico cliente o administrador por aplicación o inquilino.
 
 
 
+[[traffic-classification-policies]]
 == Directivas de clasificación de tráfico
 
 Puede utilizar link:managing-traffic-classification-policies.html["políticas de clasificación de tráfico"] para identificar y gestionar diferentes tipos de tráfico de red, incluido el tráfico relacionado con bloques específicos, inquilinos, subredes de clientes o extremos de equilibrador de carga. Estas políticas pueden ayudar a limitar y supervisar el tráfico.

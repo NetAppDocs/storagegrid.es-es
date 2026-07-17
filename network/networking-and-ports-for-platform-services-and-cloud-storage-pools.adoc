@@ -15,6 +15,7 @@ Si piensa utilizar los servicios de plataforma StorageGRID o los pools de almace
 
 
 
+[[networking-for-platform-services]]
 == Conexión en red para servicios de plataforma
 
 Como se describe en link:../admin/manage-platform-services-for-tenants.html["Gestione servicios de plataforma para clientes"] y link:../tenant/considerations-for-platform-services.html["Gestione los servicios de la plataforma"], los servicios de plataforma incluyen servicios externos que proporcionan integración de búsqueda, notificación de eventos y replicación de CloudMirror.
@@ -27,12 +28,14 @@ Los servicios de plataforma requieren acceso desde los nodos de almacenamiento q
 
 
 
+[[networking-for-cloud-storage-pools]]
 == Redes para Cloud Storage Pools
 
 Los pools de almacenamiento en cloud también requieren el acceso de los nodos de almacenamiento a los extremos que proporciona el servicio externo que se utiliza, como el almacenamiento de Amazon S3 Glacier o Microsoft Azure Blob. Para obtener más información, consulte link:../ilm/what-cloud-storage-pool-is.html["Qué es un pool de almacenamiento en la nube"].
 
 
 
+[[ports-for-platform-services-and-cloud-storage-pools]]
 == Puertos para los servicios de plataforma y Cloud Storage Pools
 
 De forma predeterminada, los servicios de plataforma y las comunicaciones de Cloud Storage Pool utilizan los puertos siguientes:
@@ -47,6 +50,7 @@ Si utiliza un servidor proxy no transparente, también debe link:../admin/config
 
 
 
+[[vlans-and-platform-services-and-cloud-storage-pools]]
 == VLAN y servicios de plataforma y Cloud Storage Pools
 
 No puede utilizar redes VLAN para servicios de plataforma o pools de Cloud Storage. Los extremos de destino deben ser accesibles a través de Grid, Admin o Client Network.

@@ -17,6 +17,7 @@ Al crear o editar una regla de ILM, se selecciona un esquema de código de borra
 
 
 
+[[data-protection]]
 == Protección de datos
 
 El sistema StorageGRID utiliza el algoritmo de codificación de borrado Reed-Solomon. El algoritmo divide un objeto en `k` fragmentos de datos y calcula `m` fragmentos de paridad.
@@ -31,6 +32,7 @@ La mejor protección de datos se proporciona por el esquema de código de borrad
 
 
 
+[[storage-overhead]]
 == Gastos generales de almacenamiento
 
 La sobrecarga de almacenamiento de un esquema de código de borrado se calcula dividiendo el número de fragmentos de paridad (`m`) entre el número de fragmentos de datos (`k`). Puede utilizar la sobrecarga del almacenamiento para calcular cuánto espacio en disco necesita cada objeto con código de borrado:
@@ -48,6 +50,7 @@ Seleccione el esquema de código de borrado que tenga el valor total más bajo d
 
 
 
+[[guidelines-for-storage-pools]]
 == Directrices para pools de almacenamiento
 
 Cuando seleccione el pool de almacenamiento que se utilizará en una regla que creará una copia con código de borrado, utilice las siguientes directrices para los pools de almacenamiento:
@@ -75,6 +78,7 @@ El número mínimo de nodos de almacenamiento necesarios es `k+m`. Sin embargo, 
 
 
 
+[[erasure-coding-schemes-for-storage-pools-containing-three-or-more-sites]]
 == Esquemas de codificación de borrado para pools de almacenamiento que contengan tres o más sitios
 
 En la siguiente tabla se describen los esquemas de codificación de borrado que admite actualmente StorageGRID para pools de almacenamiento que incluyen tres o más sitios. Todos estos esquemas proporcionan protección contra pérdida de sitio. Se puede perder un sitio y el objeto seguirá siendo accesible.
@@ -238,6 +242,7 @@ NOTE: Si no está seguro de qué esquema usar, seleccione 4+2 o 6+3, o póngase 
 
 
 
+[[erasure-coding-schemes-for-one-site-storage-pools]]
 == Esquemas de codificación de borrado para pools de almacenamiento in situ
 
 Un pool de almacenamiento in situ admite todos los esquemas de codificación de borrado definidos para tres o más sitios, siempre y cuando el sitio tenga suficientes nodos de almacenamiento.

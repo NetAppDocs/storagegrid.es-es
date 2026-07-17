@@ -15,6 +15,7 @@ Si tieneslink:../admin/how-sso-works.html["Inicio de sesión único configurado 
 
 
 
+[[sign-in-to-the-api-if-entra-id-single-sign-on-is-enabled]]
 == Sign in en la API si el inicio de sesión único de Entra ID está habilitado
 
 Estas instrucciones se aplican si está utilizando Entra ID como proveedor de identidad SSO

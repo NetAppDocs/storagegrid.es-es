@@ -49,6 +49,7 @@ NOTE: Si está ingiriendo un objeto en un depósito con S3 Object Lock activado,
 
 
 
+[[supported-request-headers]]
 == Encabezados de solicitud admitidos
 
 Se admiten los siguientes encabezados de solicitud:
@@ -114,6 +115,7 @@ NOTE: Para obtener más información sobre cómo StorageGRID trata los caractere
 
 
 
+[[request-headers-for-server-side-encryption]]
 == Solicitar encabezados para el cifrado del servidor
 
 Puede utilizar los siguientes encabezados de solicitud para cifrar un objeto de varias partes con cifrado del servidor. Las opciones SSE y SSE-C son mutuamente excluyentes.
@@ -137,6 +139,7 @@ CAUTION: Las claves de cifrado que proporcione no se almacenan nunca. Si pierde 
 
 
 
+[[unsupported-request-headers]]
 == Encabezados de solicitud no compatibles
 
 No se admite el siguiente encabezado de solicitud:
@@ -149,6 +152,7 @@ El `x-amz-website-redirect-location` cabezal devuelve `XNotImplemented`.
 
 
 
+[[versioning]]
 == Creación de versiones
 
 La carga de varias partes consiste en operaciones independientes para iniciar la carga, enumerar cargas, cargar piezas, ensamblar las piezas cargadas y completar la carga. Los objetos se crean (y se versionan si corresponde) cuando se realiza la operación CompleteMultipartUpload.

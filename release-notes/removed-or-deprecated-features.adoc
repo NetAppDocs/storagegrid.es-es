@@ -15,6 +15,7 @@ Conoce las características y capacidades que han sido eliminadas o desaprobadas
 
 
 
+[[definitions]]
 == Definiciones
 
 Anticuado:: La característica *no debe ser usada en nuevos ambientes de producción. Los entornos de producción existentes pueden seguir utilizando la función.
@@ -24,6 +25,7 @@ Quitada:: Primera versión que *no* soporta la característica.
 
 
 
+[[storagegrid-end-of-feature-support]]
 == Compatibilidad con fin de funciones de StorageGRID
 
 Las funciones obsoletas se eliminarán en las versiones principales N+2. Por ejemplo, si una característica está obsoleta en la versión N (por ejemplo, 6,3), la última versión en la que existirá la característica es N+1 (por ejemplo, 6,4). La versión N+2 (por ejemplo, 6,5) es la primera versión cuando la función no existe en el producto.

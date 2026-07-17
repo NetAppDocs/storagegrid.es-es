@@ -20,6 +20,7 @@ Puede quitar un pool de almacenamiento en cloud si no se utiliza en una regla de
 
 
 
+[[if-needed-use-ilm-to-move-object-data]]
 == Si es necesario, utilice ILM para mover datos de objetos
 
 Si el Cloud Storage Pool que desea quitar contiene datos de objetos, debe usar ILM para mover los datos a otra ubicación. Por ejemplo, puede mover los datos a Nodos de almacenamiento en el grid o a otro Pool de almacenamiento en la nube.
@@ -47,6 +48,7 @@ Para el Paso 2 del Asistente para crear reglas de ILM, seleccione la nueva ubica
 
 
 
+[[delete-cloud-storage-pool]]
 == Eliminar Pool de Almacenamiento en Nube
 
 Cuando el pool de almacenamiento en cloud está vacío y no se usa en ninguna regla de ILM, puede eliminarlo.

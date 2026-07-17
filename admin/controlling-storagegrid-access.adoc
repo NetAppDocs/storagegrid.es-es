@@ -15,6 +15,7 @@ Puede controlar quién puede acceder a StorageGRID y qué tareas pueden realizar
 
 
 
+[[control-access-to-the-grid-manager]]
 == Controle el acceso a Grid Manager
 
 Para determinar quién puede acceder a Grid Manager y a la API de gestión de grid, importe grupos y usuarios desde un servicio de federación de identidades o configure grupos locales y usuarios locales.
@@ -30,18 +31,21 @@ De manera opcional, puede configurar un grupo para que sea de sólo lectura. Los
 
 
 
+[[enable-single-sign-on]]
 == Active el inicio de sesión único
 
 El sistema StorageGRID admite el inicio de sesión único (SSO) mediante el estándar Security Assertion Markup Language 2.0 (SAML 2.0).  Después de ustedlink:how-sso-works.html["Configure y habilite SSO"] Todos los usuarios deben estar autenticados por un proveedor de identidad externo antes de poder acceder al Administrador de Grid, al Administrador de Inquilinos, a la API de Administración de Grid o a la API de Administración de Inquilinos.  Los usuarios locales no pueden iniciar sesión en StorageGRID.
 
 
 
+[[change-provisioning-passphrase]]
 == Cambie la clave de acceso de aprovisionamiento
 
 La frase de contraseña de aprovisionamiento es necesaria para muchos procedimientos de instalación y mantenimiento, y para descargar el paquete de recuperación de StorageGRID .  La frase de contraseña también es necesaria para descargar copias de seguridad de la información de topología de la red y de las claves de cifrado para el sistema StorageGRID .  Puedelink:changing-provisioning-passphrase.html["cambie la contraseña"] según sea necesario.
 
 
 
+[[change-node-console-passwords]]
 == Cambie las contraseñas de la consola de los nodos
 
 Cada nodo de su red tiene una contraseña de consola de nodo, que necesita para iniciar sesión en el nodo como "admin" mediante SSH, o como usuario root en una conexión de consola física/VM.  Según sea necesario, puedelink:change-node-console-password.html["cambie la contraseña de la consola del nodo"] para cada nodo.

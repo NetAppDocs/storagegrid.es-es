@@ -35,6 +35,7 @@ CBID (identificador interno del objeto)
 |===
 
 
+[[timing-of-audit-messages]]
 == Plazos de los mensajes de auditoría
 
 Debido a factores como las diferencias de tiempo entre nodos de cuadrícula, tamaño de objeto y retrasos de red, el orden de los mensajes de auditoría generados por los diferentes servicios puede variar con respecto al que se muestra en los ejemplos de esta sección.

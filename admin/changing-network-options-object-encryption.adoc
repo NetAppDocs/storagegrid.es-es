@@ -15,6 +15,7 @@ Puede configurar la seguridad de red y de objetos para cifrar objetos almacenado
 
 
 
+[[stored-object-encryption]]
 == Cifrado de objetos almacenados
 
 El cifrado de objetos almacenados permite el cifrado de todos los datos de objetos tal como se ingieren a través de S3. De forma predeterminada, los objetos almacenados no se cifran, pero puede optar por cifrar objetos mediante el algoritmo de cifrado AES-128 o AES-256. Cuando se activa la configuración, todos los objetos recién ingeridos se cifran pero no se realiza ningún cambio en los objetos almacenados existentes. Si deshabilita el cifrado, los objetos cifrados actualmente permanecen cifrados, pero los objetos recién procesados no se cifran.
@@ -25,12 +26,14 @@ Para obtener más información sobre los métodos de cifrado StorageGRID, consul
 
 
 
+[[prevent-client-modification]]
 == Impida la modificación del cliente
 
 Impedir la modificación del cliente es una configuración en todo el sistema. Cuando se selecciona la opción *Evitar modificación de cliente*, se rechazan las siguientes solicitudes.
 
 
 
+[[s3-rest-api]]
 === API REST DE S3
 
 * Eliminar solicitudes de bloque
@@ -39,6 +42,7 @@ Impedir la modificación del cliente es una configuración en todo el sistema. C
 
 
 
+[[enable-http-for-storage-node-connections]]
 == Active HTTP para las conexiones del nodo de almacenamiento
 
 De forma predeterminada, las aplicaciones cliente utilizan el protocolo de red HTTPS para cualquier conexión directa a los nodos de almacenamiento. Puede habilitar HTTP opcionalmente para estas conexiones, por ejemplo, al probar una cuadrícula que no sea de producción.
@@ -49,6 +53,7 @@ Consulte link:summary-ip-addresses-and-ports-for-client-connections.html["Resume
 
 
 
+[[select-options]]
 == Seleccione las opciones
 
 .Antes de empezar

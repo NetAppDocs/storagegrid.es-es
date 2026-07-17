@@ -22,6 +22,7 @@ image:grid_manager_dashboard.png["Consola de Grid Manager"]
 
 
 
+[[view-the-dashboard]]
 == Vea la consola
 
 La consola consta de pestañas que contienen información específica sobre el sistema StorageGRID. Cada ficha contiene categorías de información que se muestran en las tarjetas.
@@ -73,6 +74,7 @@ Algunas de las tarjetas se pueden maximizar para facilitar su visualización. Se
 
 
 
+[[manage-dashboards]]
 == Gestionar paneles
 
 Si dispone de acceso root (consulte link:../admin/admin-group-permissions.html["Permisos de grupo de administradores"]), puede realizar las siguientes tareas de gestión para los paneles de control:
@@ -95,6 +97,7 @@ image:dashboard_manage.png["Gestionar paneles"]
 
 
 
+[[configure-dashboards]]
 == Configurar paneles de control
 
 Para crear un nuevo panel clonando el panel activo, seleccione *Acciones* > *Clonar panel activo*.

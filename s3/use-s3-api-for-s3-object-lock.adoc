@@ -15,6 +15,7 @@ Si la configuración global Bloqueo de objetos S3 está habilitada para el siste
 
 
 
+[[how-to-enable-s3-object-lock-for-a-bucket]]
 == Cómo habilitar S3 Object Lock para un bucket
 
 Si la opción de configuración global de bloqueo de objetos S3 se encuentra habilitada para el sistema StorageGRID, también puede habilitar el bloqueo de objetos S3 al crear cada bloque.
@@ -31,12 +32,14 @@ S3 Object Lock requiere el control de versiones de bloque, que se habilita autom
 
 
 
+[[default-retention-settings-for-a-bucket]]
 == Configuración de retención predeterminada para un bloque
 
 Cuando S3 Object Lock está habilitado para un depósito, puede habilitar opcionalmente la retención predeterminada para el bloque y especificar un modo de retención predeterminado y un período de retención predeterminado.
 
 
 
+[[default-retention-mode]]
 === Modo de retención predeterminado
 
 * En modo de CUMPLIMIENTO:
@@ -57,12 +60,14 @@ Cuando S3 Object Lock está habilitado para un depósito, puede habilitar opcion
 
 
 
+[[default-retention-period]]
 === Período de retención predeterminado
 
 Cada depósito puede tener un período de retención predeterminado especificado en años o días.
 
 
 
+[[how-to-set-default-retention-for-a-bucket]]
 == Cómo establecer la retención predeterminada para un depósito
 
 Para definir la retención predeterminada de un depósito, utilice uno de estos métodos:
@@ -73,6 +78,7 @@ Para definir la retención predeterminada de un depósito, utilice uno de estos 
 
 
 
+[[putobjectlockconfiguration]]
 === PutObjectLockConfiguration
 
 La solicitud PutObjectLockConfiguration le permite establecer y modificar el modo de retención predeterminado y el período de retención predeterminado para un depósito que tiene S3 Object Lock activado. También es posible eliminar los ajustes de retención predeterminados previamente configurados.
@@ -115,6 +121,7 @@ Authorization: _authorization-string_
 ----
 
 
+[[how-to-determine-the-default-retention-for-a-bucket]]
 == Cómo determinar la retención predeterminada de un depósito
 
 Para determinar si S3 Object Lock está activado para un depósito y para ver el modo de retención y el período de retención predeterminados, utilice uno de estos métodos:
@@ -125,6 +132,7 @@ Para determinar si S3 Object Lock está activado para un depósito y para ver el
 
 
 
+[[getobjectlockconfiguration]]
 === GetObjectLockConfiguration
 
 La solicitud GetObjectLockConfiguration le permite determinar si el bloqueo de objetos S3 está habilitado para un depósito y, si está activado, consulte si hay un modo de retención predeterminado y un período de retención configurado para el depósito.
@@ -173,6 +181,7 @@ Server: AmazonS3
 ----
 
 
+[[how-to-specify-retention-settings-for-an-object]]
 == Cómo especificar la configuración de retención para un objeto
 
 Un bucket con S3 Object Lock habilitado puede contener una combinación de objetos con y sin la configuración de retención de S3 Object Lock.
@@ -227,6 +236,7 @@ Puede utilizar `s3:object-lock-remaining-retention-days` la clave de condición 
 
 
 
+[[how-to-update-retention-settings-for-an-object]]
 == Cómo actualizar la configuración de retención de un objeto
 
 Si necesita actualizar la configuración de retención legal o retención para una versión de objeto existente, puede realizar las siguientes operaciones de subrecursos de objeto:
@@ -246,6 +256,7 @@ Si el nuevo valor de retención legal está ACTIVADO, el objeto se colocará baj
 
 
 
+[[how-to-use-governance-mode]]
 == Cómo utilizar el modo de GOBIERNO
 
 Los usuarios que tienen el `s3:BypassGovernanceRetention` permiso pueden omitir la configuración de retención activa de un objeto que utiliza el modo de GOBIERNO. Cualquier operación DELETE u PutObjectRetention debe incluir la `x-amz-bypass-governance-retention:true` cabecera de solicitud. Estos usuarios pueden realizar las siguientes operaciones adicionales:

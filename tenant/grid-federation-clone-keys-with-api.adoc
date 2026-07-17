@@ -27,6 +27,7 @@ NOTE: Cuando se clonan las claves de acceso S3 para un usuario federado, se agre
 
 
 
+[[clone-your-own-access-keys]]
 == Clone sus propias claves de acceso
 
 Puede clonar sus propias claves de acceso si necesita acceder a los mismos depósitos en ambas cuadrículas.
@@ -56,6 +57,7 @@ image:grid-federation-clone-access-key.png["La API de tenant Manager introduce v
 
 
 
+[[clone-another-users-access-keys]]
 == Clonar las claves de acceso de otro usuario
 
 Puede clonar las claves de acceso de otro usuario si necesita acceder a los mismos depósitos en ambas cuadrículas.

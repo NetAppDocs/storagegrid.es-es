@@ -20,18 +20,21 @@ NOTE: La replicación de CloudMirror no es compatible si el bloque de origen tie
 
 
 
+[[cloudmirror-and-ilm]]
 == CloudMirror y ILM
 
 La replicación de CloudMirror funciona independientemente de las políticas de gestión de la vida útil de la información activas del grid. El servicio CloudMirror replica los objetos cuando se almacenan en el bloque de origen y los envía al Lo antes posible. de bloque de destino. La entrega de objetos replicados se activa cuando la ingesta de objetos se realiza correctamente.
 
 
 
+[[cloudmirror-and-cross-grid-replication]]
 == CloudMirror y replicación entre grid
 
 La replicación de CloudMirror tiene similitudes y diferencias importantes con la función de replicación entre grid. Consulte link:../admin/grid-federation-compare-cgr-to-cloudmirror.html["Compare la replicación entre grid y la replicación de CloudMirror"].
 
 
 
+[[cloudmirror-and-s3-buckets]]
 == CloudMirror y bloques de S3
 
 La replicación de CloudMirror suele configurarse para utilizar un bloque de S3 externo como destino. Sin embargo, también puede configurar la replicación para que utilice otra implementación de StorageGRID o cualquier servicio compatible con S3.
@@ -49,6 +52,7 @@ Bloques con versiones o sin versiones:: Puede configurar la replicación de Clou
 
 
 
+[[deletion-replication-loops-and-events]]
 == Eliminación, bucles de replicación y eventos
 
 Comportamiento de eliminación:: Es el mismo comportamiento que el comportamiento de eliminación del servicio Amazon S3, Replicación entre regiones (CRR). Al eliminar un objeto en un bloque de origen nunca se elimina un objeto replicado en el destino. Si se van a crear versiones de los cubos de origen y de destino, se replica el marcador de borrado. Si el depósito de destino no tiene versiones, al suprimir un objeto del depósito de origen no se replica el marcador de eliminación en el depósito de destino ni se elimina el objeto de destino.
