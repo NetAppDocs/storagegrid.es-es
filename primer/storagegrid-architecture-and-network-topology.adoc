@@ -15,7 +15,7 @@ Un sistema StorageGRID consta de varios tipos de nodos de grid en uno o varios s
 
 Conozca más sobre ellink:nodes-and-services.html["tipos de nodos de cuadrícula"] .
 
-Para obtener información adicional sobre la topología de red, los requisitos y las comunicaciones de red de StorageGRID , consultelink:../network/index.html["Directrices sobre redes"] .
+Para obtener más información sobre la topología de red de StorageGRID, los requisitos y las comunicaciones de la grid, consulta link:../network/index.html["Directrices sobre redes"].
 
 
 
@@ -62,8 +62,8 @@ Este diagrama muestra cómo se organizan los nodos de cuadrícula en un sistema 
 
 image:grid_nodes_and_components.png["diagrama descrito por texto circundante"]
 
-Los clientes S3 almacenan y recuperan objetos en StorageGRID. Otros clientes se usan para enviar notificaciones por correo electrónico, para acceder a la interfaz de gestión de StorageGRID y, opcionalmente, para acceder al recurso compartido de auditoría.
+Los clientes S3 almacenan y recuperan objetos en StorageGRID. Otros clientes se usan para acceder a la interfaz de gestión de StorageGRID y, opcionalmente, para acceder al recurso compartido de auditoría. Además, StorageGRID puede enviar alertas por correo electrónico de forma opcional a través de un servidor SMTP externo.
 
 Los clientes S3 pueden conectarse a un nodo de pasarela o a un nodo de administración para utilizar la interfaz de equilibrio de carga con los nodos de almacenamiento. Asimismo, los clientes S3 pueden conectarse directamente a los nodos de almacenamiento mediante HTTPS.
 
-Los objetos se pueden almacenar dentro de StorageGRID en nodos de almacenamiento basados ​​en software o hardware, o en grupos de almacenamiento en la nube, que consisten en depósitos S3 externos o contenedores de almacenamiento de blobs de Azure.
+Los objetos se pueden almacenar en StorageGRID en nodos de almacenamiento basados en software o en hardware, o en Cloud Storage Pools, que consisten en buckets S3 externos o contenedores de Azure Blob Storage.

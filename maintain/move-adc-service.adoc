@@ -23,16 +23,17 @@ Puede mover el servicio ADC a otro nodo de almacenamiento en el mismo sitio.
 
 
 .Acerca de esta tarea
-Utilice el procedimiento Mover ADC cuando desee:
-
-* Desactivar un nodo de almacenamiento que aloja el servicio ADC
-* Convertir un nodo de almacenamiento que aloja el servicio ADC en un nodo de almacenamiento solo de datos
-
-
-Cuando desee desmantelar un nodo de almacenamiento olink:../maintain/convert-to-data-only-node.html["convertir un nodo de almacenamiento en un nodo de solo datos"] , primero es posible que necesites utilizar el procedimiento Mover ADC.  Necesitará asegurarse de que ellink:../maintain/understanding-adc-service-quorum.html["Se mantiene el quórum de ADC"] .
+Utiliza el procedimiento Move ADC para trasladar manualmente el servicio ADC entre Storage Nodes. Por ejemplo, podrías querer redistribuir los servicios ADC entre nodos o mover el servicio ADC a un nodo de mayor rendimiento.
 
 Este procedimiento mueve los servicios ADC, IDNT, ACCT y RSM de un nodo de almacenamiento a otro en el mismo sitio.  Los servicios RSM, IDNT y ACCT dependen del servicio ADC, por lo que se mueven automáticamente cuando se mueve el servicio ADC.
 
+[NOTE]
+====
+* No necesitas mover manualmente el servicio ADC antes de link:../maintain/convert-to-data-only-node.html["Convertir un nodo de almacenamiento en un nodo de solo datos"] o de decomisionar un nodo de almacenamiento. Estos procedimientos mueven automáticamente el servicio ADC cuando es necesario. Consulta link:../maintain/understanding-adc-service-quorum.html["¿En qué consiste el quórum de la ADC?"] para ver los detalles sobre los requisitos.
+* StorageGRID traslada el servicio ADC a los nodos de almacenamiento más recientes que cumplen los requisitos para alojar dicho servicio.
+
+
+====
 .Pasos
 . Registre los identificadores de los nodos de origen y de destino.
 +

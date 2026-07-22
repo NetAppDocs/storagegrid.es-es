@@ -43,4 +43,4 @@ CAUTION: Al agregar o eliminar sitios de un pool de almacenamiento existente, no
 
 
 .Después de terminar
-Si añadió un nuevo sitio o grado de almacenamiento a un pool de almacenamiento usado en la política de gestión del ciclo de vida de la información activa, active una nueva política de gestión del ciclo de vida de la información para forzar a StorageGRID a usar el nuevo sitio o el grado de almacenamiento. Por ejemplo, Clone la política de ILM existente y luego active el clon. Consulte link:working-with-ilm-rules-and-ilm-policies.html["Trabaje con las reglas de ILM y las políticas de ILM"].
+Si añadiste un nuevo sitio o un nuevo nivel de almacenamiento a un grupo de almacenamiento usado en la política de ILM activa, activa una nueva política de ILM para obligar a StorageGRID a usar el nuevo sitio o nivel de almacenamiento. Por ejemplo, clona tu política de ILM existente y luego activa la copia. Consulta link:working-with-ilm-rules-and-ilm-policies.html["Trabaje con las reglas de ILM y las políticas de ILM"].

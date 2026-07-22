@@ -26,7 +26,7 @@ Con SANtricity System Manager, puede hacer lo siguiente:
 * Lleve a cabo funciones de soporte, como la visualización de datos de diagnóstico y la configuración de E-Series AutoSupport.
 +
 
-NOTE: Para utilizar System Manager de SANtricity y configurar un proxy para la AutoSupport de E-Series, consulte link:../admin/sending-eseries-autosupport-messages-through-storagegrid.html["Envíe los paquetes AutoSupport de E-Series a través de StorageGRID"].
+NOTE: Para usar SANtricity System Manager para configurar un proxy para E-Series AutoSupport, consulta link:sending-eseries-autosupport-messages-through-storagegrid.html["Envíe los paquetes AutoSupport de E-Series a través de StorageGRID"].
 
 
 

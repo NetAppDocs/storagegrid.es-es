@@ -43,7 +43,7 @@ Puede tener una o varias políticas de ILM activas a la vez.
 
 Si su grid utilizará un esquema de protección de datos simple con pocas reglas específicas para inquilinos y bloques, use una única política de ILM activa. Las reglas de ILM pueden contener filtros para gestionar diferentes bloques o inquilinos.
 
-image:ilm-policies-single.png["Diagrama de políticas de ILM"]
+image:ilm_policies_single.png["Diagrama de políticas de ILM"]
 
 Cuando solo tiene una política y cambian los requisitos de un inquilino, debe crear una nueva política de ILM o clonar la política existente para aplicar cambios, simular y, a continuación, activar la nueva política de ILM. Los cambios en la política de ILM pueden provocar movimientos de objetos que podrían tardar muchos días y causar latencia del sistema.
 
@@ -68,7 +68,7 @@ NOTE: Puedelink:../ilm/creating-ilm-policy.html#activate-ilm-policy["crear un m�
 Etiqueta de política de ILM predeterminada:: Una etiqueta de política de ILM predeterminada se crea automáticamente al instalar StorageGRID. Cada cuadrícula debe tener una política activa asignada a la etiqueta predeterminada. La política predeterminada se aplica a cualquier bloque S3 sin etiquetar.
 
 
-image:ilm-policies-tags-conceptual.png["Diagrama de múltiples políticas de ILM"]
+image:ilm_policies_tags_conceptual.png["Diagrama de múltiples políticas de ILM"]
 
 
 

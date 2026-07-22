@@ -48,9 +48,6 @@ image:nodes_page_network_interfaces.png["Nodes Page Network interfaces"]
 +
 Las tablas de recepción y transmisión muestran cuántos bytes y paquetes se han recibido y enviado a través de cada red, así como otras métricas de recepción y transmisión.
 
-+
-image:nodes_page_network_communication.png["Comunicación de red de página nodos"]
-
 
 
 . Utilice las métricas asociadas a las directivas de clasificación del tráfico para supervisar el tráfico de red.
@@ -62,7 +59,7 @@ Aparece la página Directivas de clasificación del tráfico y las directivas ex
 +
 image:traffic_classification_policies_main_screen_w_examples.png["Ejemplo de directiva de tráfico para gráfico"]
 
-.. Para ver gráficos que muestran las métricas de red asociadas a una directiva, seleccione el botón de opción situado a la izquierda de la directiva y, a continuación, haga clic en *métricas*.
+.. Para ver los gráficos que muestran las métricas de red asociadas a una política, selecciona el botón de opción situado a la izquierda de la política y luego selecciona *Métricas*.
 .. Revise los gráficos para comprender el tráfico de red asociado a la directiva.
 +
 Si una directiva de clasificación de tráfico está diseñada para limitar el tráfico de red, analice la frecuencia con la que el tráfico es limitado y decida si la directiva continúa satisfaciendo sus necesidades. De vez en cuando, link:../admin/managing-traffic-classification-policies.html["ajuste cada política de clasificación de tráfico según sea necesario"].

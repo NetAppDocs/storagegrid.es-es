@@ -1,0 +1,31 @@
+---
+permalink: monitor/manually-triggering-autosupport-package.html 
+sidebar: sidebar 
+keywords: autosupport, triggering autosupport, manually triggering autosupport, autosupport triggers 
+summary: Para ayudar al soporte técnico en la solución de problemas con el sistema StorageGRID, puede activar manualmente el envío de un paquete AutoSupport. 
+---
+= Activar manualmente un paquete de AutoSupport en StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para ayudar al soporte técnico en la solución de problemas con el sistema StorageGRID, puede activar manualmente el envío de un paquete AutoSupport.
+
+.Antes de empezar
+* Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Tienes acceso de root u otro permiso de configuración de red.
+
+
+.Pasos
+. Seleccione *Soporte* > *Herramientas* > * AutoSupport*.
+. En la pestaña *Acciones*, selecciona *Enviar AutoSupport activado por el usuario*.
++
+StorageGRID intenta enviar un paquete de AutoSupport al sitio de soporte de NetApp .  Si el intento es exitoso, se actualizan los valores *Resultado más reciente* y *Última vez exitoso* en la pestaña *Resultados*.  Si hay un problema, el valor *Resultado más reciente* se actualiza a "Error" y StorageGRID no intenta enviar el paquete AutoSupport nuevamente.
+
+. Después de 1 minuto, actualice la página de AutoSupport en su navegador para acceder a los resultados más recientes.
+
+
+
+TIP: Además, puedeslink:../monitor/collecting-log-files-and-system-data.html["Recopilar archivos de registro y datos del sistema más extensos"] y envíelos al sitio de soporte de NetApp .

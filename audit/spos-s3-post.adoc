@@ -19,6 +19,28 @@ Cuando un cliente S3 emite una solicitud DE OBJETO POST, el servidor emite este 
 
 
  a| 
+ASRS
+ a| 
+URN de la sesión del rol asumido
+ a| 
+El identificador único de la sesión del rol asumido.
+
+Solo aparece cuando la solicitud S3 utiliza credenciales de seguridad temporales procedentes de una solicitud de AssumeRole.
+
+
+
+ a| 
+ASRU
+ a| 
+URN del rol asumido
+ a| 
+El identificador único del rol asumido.
+
+Solo aparece cuando la solicitud S3 utiliza credenciales de seguridad temporales procedentes de una solicitud de AssumeRole.
+
+
+
+ a| 
 CBID
  a| 
 Identificador de bloque de contenido

@@ -27,6 +27,17 @@ Debe revisar los requisitos para habilitar la configuración global de bloqueo d
 
 
 
+[[requirements-for-allowing-s3-object-lock-to-be-enabled-on-existing-buckets]]
+[[s3-object-lock-existing-buckets]]
+== Requisitos para poder activar S3 Object Lock en buckets existentes
+
+Cuando la configuración global de S3 Object Lock está habilitada, puedes, si lo deseas, permitir que todas las cuentas de inquilino de S3 o los usuarios de S3 con permisos habiliten S3 Object Lock en los buckets existentes. Cuando una cuenta de inquilino de S3 o un usuario de S3 habilita S3 Object Lock en un bucket existente, esto podría provocar una migración involuntaria de datos desde un Cloud Storage Pool de vuelta a StorageGRID, dependiendo de tus reglas de ILM.
+
+
+CAUTION: No puedes detener la migración involuntaria de datos una vez que comienza.
+
+
+
 [[requirements-for-compliant-ilm-rules]]
 == Requisitos para las reglas de ILM que cumplen con las normativas
 
@@ -59,11 +70,9 @@ link:example-7-compliant-ilm-policy-for-s3-object-lock.html["Ejemplo de una pol�
 == Requisitos para bloques con bloqueo de objetos de S3 habilitado
 
 * Si la opción de configuración global de bloqueo de objetos S3 se encuentra habilitada para el sistema StorageGRID, puede usar el administrador de inquilinos, la API de gestión de inquilinos o la API REST de S3 para crear bloques con el bloqueo de objetos S3 habilitado.
-* Si planea utilizar el bloqueo de objetos S3, debe habilitar el bloqueo de objetos S3 al crear el bloque. No puede activar el bloqueo de objetos S3 para un depósito existente.
 * Cuando se habilita el bloqueo de objetos S3 para un bloque, StorageGRID habilita automáticamente el control de versiones para ese bloque. No puede desactivar el bloqueo de objetos de S3 ni suspender el control de versiones del depósito.
 * De manera opcional, puede especificar un modo de retención y un período de retención predeterminados para cada bloque mediante el administrador de inquilinos, la API de gestión de inquilinos o la API DE REST S3. La configuración de retención predeterminada del depósito se aplica solo a los nuevos objetos agregados al depósito que no tienen su propia configuración de retención. Puede anular esta configuración predeterminada especificando un modo de retención y Retain-until-date para cada versión del objeto cuando se cargue.
 * Se admite la configuración de ciclo de vida de bloques para los bloques con S3 Object Lock habilitado.
-* La replicación de CloudMirror no es compatible para bloques con el bloqueo de objetos S3 habilitado.
 
 
 

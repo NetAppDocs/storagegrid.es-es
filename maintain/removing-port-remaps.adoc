@@ -46,3 +46,7 @@ Al iniciar sesión como root, la petición de datos cambia de `$` a `#`.
 . Repita estos pasos en cada nodo de administrador y nodo de puerta de enlace que tenga puertos reasignados en conflicto.
 . Si ha permitido el acceso SSH externo,link:../admin/manage-external-ssh-access.html["bloquear el acceso"] cuando haya terminado de eliminar las reasignaciones de puertos.
 
+
+.Información relacionada
+* link:../network/external-communications.html["Puertos que se utilizan para comunicaciones externas"]
+

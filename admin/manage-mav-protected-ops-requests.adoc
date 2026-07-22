@@ -1,0 +1,29 @@
+---
+permalink: admin/manage-mav-protected-ops-requests.html 
+sidebar: sidebar 
+keywords: multi-admin verification, mav 
+summary: Como administrador de MAV, puedes gestionar las solicitudes de operaciones protegidas por MAV en StorageGRID. Puedes ver tus propias solicitudes pendientes o las de otros, aprobar o rechazar solicitudes y ver el historial de solicitudes anteriores. 
+---
+= Gestiona las solicitudes de operaciones protegidas por MAV en StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Como administrador de MAV, puedes gestionar las solicitudes de operaciones protegidas por MAV en StorageGRID. Puedes ver tus propias solicitudes pendientes o las de otros, aprobar o rechazar solicitudes y ver el historial de solicitudes anteriores.
+
+.Antes de empezar
+* Perteneces a un grupo de administradores de MAV y tienes el link:../admin/admin-group-permissions.html["Permiso de acceso raíz"].
+* Has iniciado sesión en Grid Manager desde el nodo de administración principal.
+
+
+.Pasos
+. Si recibes una notificación por correo electrónico sobre una solicitud de MAV, selecciona *Configuración* > *Verificación de administradores múltiples* > *Otras solicitudes*.
++
+Además, el panel de control de Grid Manager muestra una notificación sobre las solicitudes de MAV pendientes.
+
+. Selecciona el botón de opción correspondiente a cada solicitud que quieras gestionar.
+. Selecciona *Aprobar* o *Rechazar* para aprobar o rechazar las solicitudes seleccionadas.
+. Para ver el historial de solicitudes anteriores, selecciona *Historial*.
+

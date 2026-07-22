@@ -57,9 +57,9 @@ Utilice la política de Criterios Comunes si necesita la certificación de Crite
 --
 .Estricta con FIPS
 --
-Utilice la política estricta FIPS si necesita la certificación Common Criteria y usar el módulo de seguridad criptográfica de NetApp (NCSM) 3.0.8 o el módulo NetApp StorageGRID Kernel Crypto API 6.1.129-1-ntap1-amd64 para conexiones de clientes externos a puntos finales del balanceador de carga, Tenant Manager y Grid Manager.  El uso de esta política podría reducir el rendimiento.
+Utiliza la política estricta FIPS si necesitas la certificación de Common Criteria y necesitas usar el NetApp Cryptographic Security Module (NCSM) 3.1.2 o el módulo NetApp StorageGRID Kernel Crypto API 6.12.63-1+ntap1 para conexiones de clientes externos a los endpoints del balanceador de carga, Tenant Manager y Grid Manager. Usar esta política podría reducir el rendimiento.
 
-El módulo NCSM 3.0.8 y NetApp StorageGRID Kernel Crypto API 6.1.129-1-ntap1-amd64 se utilizan en las siguientes operaciones:
+El NCSM 3.1.2 y el módulo NetApp StorageGRID Kernel Crypto API 6.12.63-1+ntap1 se usan en las siguientes operaciones:
 
 ** NCSM
 +
@@ -71,7 +71,7 @@ El módulo NCSM 3.0.8 y NetApp StorageGRID Kernel Crypto API 6.1.129-1-ntap1-amd
 
 
 +
-Para obtener más información, consulte el Programa de validación de algoritmos criptográficos del NIST.link:https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4838["Certificado #4838"^] .
+Para obtener más información, consulta el Programa de validación de algoritmos criptográficos de NIST link:https://csrc.nist.gov/projects/cryptographic-algorithm-validation-program/details?validation=40426["Certificado n.º A7816"^].
 
 ** Módulo API criptográfica del kernel StorageGRID de NetApp
 +
@@ -80,10 +80,13 @@ El módulo NetApp StorageGRID Kernel Crypto API está presente únicamente en pl
 +
 *** Colección de entropía
 *** Cifrado de nodos
++
+*Nota*: Este módulo aún no se ha presentado para su certificación.
+
 
 
 +
-Para obtener más información, consulte el Programa de validación de algoritmos criptográficos del NIST.link:https://csrc.nist.gov/projects/cryptographic-algorithm-validation-program/validation-search?searchMode=implementation&product=NetApp+StorageGRID+Kernel+Crypto+API&productType=-1&ipp=50["Certificados #A6242 a #A6257"^] ylink:https://csrc.nist.gov/projects/cryptographic-module-validation-program/entropy-validations/certificate/223["Certificado de entropía n.° E223"^] .
+Para obtener más información, consulta el Programa de validación de algoritmos criptográficos del NIST link:https://csrc.nist.gov/projects/cryptographic-module-validation-program/entropy-validations/certificate/223["Certificado de entropía n.° E223"^].
 
 
 
@@ -94,7 +97,7 @@ Para obtener más información, consulte el Programa de validación de algoritmo
 --
 Cree una política personalizada si necesita aplicar sus propios cifrados.
 
-De manera opcional, si su StorageGRID tiene requisitos de criptografía FIPS 140, habilite la función de modo FIPS para usar el módulo NCSM 3.0.8 y NetApp StorageGRID Kernel Crypto API 6.1.129-1-ntap1-amd64:
+Opcionalmente, si tu StorageGRID tiene requisitos de criptografía FIPS 140, activa la función de modo FIPS para usar el módulo NCSM 3.1.2 y el módulo NetApp StorageGRID Kernel Crypto API 6.12.63-1+ntap1:
 
 .. Establezca el `fipsMode` parámetro a `true` .
 .. Cuando se le solicite,link:../maintain/rolling-reboot-procedure.html["realizar un reinicio continuo"] para que todos los nodos activen los módulos de criptografía.  Utilice *Mantenimiento* > *Reinicio progresivo* para iniciar y supervisar los reinicios.
@@ -121,7 +124,7 @@ Puede crear una política personalizada si necesita aplicar sus propios cifrados
 . Desde el mosaico de la política que es más similar a la política personalizada que desea crear, seleccione *Ver detalles*.
 . Selecciona *Copiar al portapapeles* y luego selecciona *Cancelar*.
 +
-image:securitysettings-custom-security-policy-copy.png["copiar una política existente para crear una política personalizada"]
+image:securitysettings_custom_security_policy_copy.png["copiar una política existente para crear una política personalizada"]
 
 . En el mosaico *Política personalizada*, selecciona *Configurar y usar*.
 . Pegue el JSON que copió y realice los cambios necesarios.

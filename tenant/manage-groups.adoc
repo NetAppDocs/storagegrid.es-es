@@ -32,8 +32,7 @@ Puede ver y editar la información básica y los detalles de cada grupo.
 Si la cuenta de inquilino tiene el permiso *Use grid federation connection* y está viendo grupos en la cuadrícula de origen del inquilino:
 
 +
-** Un mensaje de banner indica que si edita o elimina un grupo, los cambios no se sincronizarán con la otra cuadrícula.
-** Según sea necesario, un mensaje de banner indica si los grupos no se clonaron en el inquilino en la cuadrícula de destino. Usted puede <<clone-groups,volver a intentar un clon de grupo>> que falló.
+** Si hay algún grupo que no se haya sincronizado con el inquilino en la grid de destino, sigue los pasos para <<sync-groups,Volver a intentar la sincronización de un grupo>>.
 
 
 . Si desea cambiar el nombre del grupo:
@@ -61,8 +60,8 @@ Si la cuenta de inquilino tiene el permiso *Use grid federation connection* y es
 ** Número de usuarios en este grupo
 ** Campos adicionales si la cuenta de inquilino tiene el permiso *Use grid federation connection* y está viendo el grupo en la cuadrícula de origen del inquilino:
 +
-*** Estado de clonación, ya sea *Success* o *Failure*
-*** Un banner azul que indica que si edita o elimina este grupo, los cambios no se sincronizarán con la otra cuadrícula.
+*** Estado de la sincronización, ya sea *Correcto* o *Fallido*
+*** En el caso de los grupos federados, una barra azul indica que, si editas o eliminas este grupo, tus cambios no se sincronizarán con la otra grid.
 
 
 
@@ -111,7 +110,7 @@ Aparece un mensaje de éxito en la parte superior derecha.
 Puede duplicar un grupo existente para crear nuevos grupos más rápidamente.
 
 
-NOTE: Si su cuenta de inquilino tiene el permiso *Usar conexión de federación de grid* y duplica un grupo de la cuadrícula de origen del inquilino, el grupo duplicado se clonará en la cuadrícula de destino del inquilino.
+NOTE: Si tu cuenta de inquilino tiene el permiso *Utilizar conexión de federación de grid* y duplicas un grupo de la grid de origen del inquilino, el grupo duplicado se sincronizará con la grid de destino del inquilino.
 
 .Pasos
 . Seleccione *Administración de acceso* > *Grupos*.
@@ -123,17 +122,22 @@ NOTE: Si su cuenta de inquilino tiene el permiso *Usar conexión de federación 
 
 
 
-[[clone-groupsretry-group-clone]]
-== [[clone-groups]]Vuelva a intentar clonar el grupo
+[[sync-groupsretry-group-sync]]
+== [[sync-groups]]Reintentar la sincronización de grupos
 
-Para volver a intentar un clon que generó errores:
+Si algún grupo no se sincronizó, aparece "Fallido" en la columna de estado de sincronización para ese grupo. Aparece un banner encima de la tabla para indicar que uno o más grupos no se sincronizaron.
 
-. Seleccione cada grupo que indique _(Error de clonación)_ debajo del nombre del grupo.
-. Selecciona *Acciones* > *Clonar grupos*.
-. Vea el estado de la operación de clonación desde la página de detalles de cada grupo que está clonando.
+.Pasos
+Para volver a intentar la sincronización:
+
+. En la barra superior, selecciona *Reintentar sincronización*. Esta operación vuelve a intentar la sincronización de todos los grupos cuya sincronización haya fallado.
+. Para volver a intentar sincronizar un grupo concreto, selecciona el nombre del grupo. En la página de detalles del grupo, selecciona *Volver a intentar la sincronización*.
+. Consulta el estado de la operación de sincronización en la página de detalles de cada grupo que estás sincronizando.
 
 
-Para obtener más información, consulte link:grid-federation-account-clone.html["Clone los usuarios y los grupos de inquilinos"].
+Si el nuevo intento tiene éxito, aparece "Correcto" en la columna "Estado de la sincronización" de cada grupo que se haya sincronizado correctamente y el banner desaparece.
+
+Para obtener más información, consulta link:grid-federation-account-sync.html["Sincroniza grupos de inquilinos y usuarios"].
 
 
 
@@ -141,9 +145,6 @@ Para obtener más información, consulte link:grid-federation-account-clone.html
 == Elimine uno o más grupos
 
 Puede eliminar uno o varios grupos. Cualquier usuario que pertenezca únicamente a un grupo que se haya eliminado ya no podrá iniciar sesión en el gestor de inquilinos ni utilizar la cuenta de inquilino.
-
-
-NOTE: Si tu cuenta de inquilino tiene el permiso *Usar conexión de federación de grid* y eliminas un grupo, StorageGRID no eliminará el grupo correspondiente en la otra cuadrícula. Si necesita mantener esta información sincronizada, debe eliminar el mismo grupo de ambas cuadrículas.
 
 .Pasos
 . Seleccione *Administración de acceso* > *Grupos*.
@@ -170,7 +171,7 @@ Credenciales de seguridad temporales creadas asumiendo que este grupo es válido
 
 .Pasos
 . Seleccione *Administración de acceso* > *Grupos*.
-. Haga clic en el nombre del grupo.
+. Seleccione el nombre del grupo.
 . Seleccione la pestaña *Política de confianza S3*.
 . Agregue su política de confianza S3, incluida una lista de usuarios que pueden realizar AssumeRole.
 . Seleccione *Guardar cambios*.
@@ -201,4 +202,12 @@ Credenciales de seguridad temporales creadas asumiendo que este grupo es válido
     ]
 }
 ----
+El principal:
+
+* `"Principal": "*"` coincide con todos, incluidas las solicitudes anónimas (no firmadas)
+* `"Principal": { "AWS": "*" }` coincide con cualquier identidad o usuario autenticado (no coincide con las solicitudes anónimas)
+* Solo se aplica a las políticas de bucket
+* El principal es la cuenta(s) o usuario(s) a los que se conceden o deniegan los permisos
+
+
 Una vez completada la configuración, los usuarios enumerados en la política de confianza de S3 pueden ejecutar AssumeRole y recibir credenciales.  Los permisos finales están determinados por la política de grupo, la política de depósito y la política de sesión. Para más información, consulte link:../s3/use-access-policies.html["Utilizar políticas de acceso"] .

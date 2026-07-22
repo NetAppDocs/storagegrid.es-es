@@ -2,7 +2,7 @@
 permalink: admin/grid-federation-what-is-cross-grid-replication.html 
 sidebar: sidebar 
 keywords: cross-grid replication, cgr, disaster recovery, grid federation 
-summary: La replicación entre grid es la replicación automática de objetos entre bloques de S3 seleccionados de dos sistemas StorageGRID conectados en una conexión de federación de grid. Se requiere la clonación de la cuenta para la replicación entre grid. 
+summary: La replicación entre redes consiste en la replicación automática de objetos entre buckets de S3 seleccionados en dos sistemas StorageGRID conectados mediante una conexión de federación de redes. La sincronización de cuentas es necesaria para la replicación entre redes. 
 ---
 = Conoce la replicación entre grids en StorageGRID
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: La replicación entre grid es la replicación automática de objetos en
 
 
 [role="lead"]
-La replicación entre grid es la replicación automática de objetos entre buckets S3 seleccionados en dos sistemas StorageGRID que están conectados en un link:grid-federation-overview.html["conexión de federación de grid"]. link:grid-federation-what-is-account-clone.html["Clon de cuenta"] es necesario para la replicación entre grid.
+La replicación entre grids es la replicación automática de objetos entre buckets S3 seleccionados en dos sistemas StorageGRID que están conectados en una link:grid-federation-overview.html["conexión de federación de grid"]. link:grid-federation-what-is-account-sync.html["Sincronización de cuentas"] es necesario para la replicación entre grids.
 
 
 
@@ -20,22 +20,28 @@ La replicación entre grid es la replicación automática de objetos entre bucke
 
 El diagrama de flujo de trabajo resume los pasos para configurar la replicación entre redes entre depósitos en dos redes.
 
-image:grid-federation-cgr-workflow.png["Flujo de trabajo de replicación entre grid"]
+image:grid_federation_cgr_workflow.png["Flujo de trabajo de replicación entre grid"]
 
 
 
 [[requirements-for-cross-grid-replication]]
 == Requisitos de la replicación entre grid
 
-Si una cuenta de inquilino tiene el permiso *Usar conexión de federación de red* para usar una o máslink:grid-federation-overview.html["conexiones de federación de grid"] Un usuario inquilino con permiso de acceso raíz puede crear depósitos en las cuentas de inquilino correspondientes en cada red.  Estos cubos:
+Si una cuenta de inquilino tiene el permiso *Use grid federation connection* para usar una o más link:grid-federation-overview.html["conexiones de federación de grid"], un usuario del inquilino con permiso de acceso Root puede crear depósitos (depósitos "source" y "destination") en las cuentas de inquilino correspondientes en cada grid. Estos depósitos:
 
 * Pueden tener nombres diferentes entre sí
 * Puede tener diferentes regiones
 * Debe tener el control de versiones activado
-* Debe estar vacío
+* Debe tener una de las siguientes configuraciones de S3 Object Lock:
++
+** origen: *desactivado*, destino: *desactivado*
+** origen: *activado*, destino: *activado*
+** origen: *desactivado*, destino: *activado*
 
 
-Una vez creados ambos bloques, la replicación entre grid se puede configurar para uno o ambos bloques.
+
+
+Después de que hayas creado ambos buckets, puedes configurar la replicación entre grids para cualquiera de los buckets o para ambos.
 
 .Leer más
 link:../tenant/grid-federation-manage-cross-grid-replication.html["Gestionar la replicación entre grid"]
@@ -54,7 +60,7 @@ Puede configurar la replicación entre redes para que se produzca en una direcci
 
 Si habilita la replicación entre cuadrículas para un depósito en una sola cuadrícula, los objetos agregados a ese depósito (el depósito de origen) se replican en el depósito correspondiente en la otra cuadrícula (el depósito de destino).  Sin embargo, los objetos agregados al depósito de destino no se replican en el origen.  En la figura, la replicación entre redes está habilitada para `my-bucket` de la cuadrícula 1 a la cuadrícula 2, pero no está habilitado en la otra dirección.
 
-image:grid-federation-cross-grid-replication-one-direction.png["imagen que muestra una conexión de federación de cuadrícula en una dirección"]
+image:grid_federation_cross_grid_replication_one_direction.png["imagen que muestra una conexión de federación de cuadrícula en una dirección"]
 
 
 
@@ -63,7 +69,7 @@ image:grid-federation-cross-grid-replication-one-direction.png["imagen que muest
 
 Si habilita la replicación entre grid para el mismo bucket en ambos grids, los objetos agregados a cada bucket se replican en el otro grid. En la figura, la replicación entre grid está activada en `my-bucket` ambas direcciones.
 
-image:grid-federation-cross-grid-replication.png["imagen que muestra la replicación en una dirección en comparación con la replicación en ambas direcciones"]
+image:grid_federation_cross_grid_replication.png["imagen que muestra la replicación en una dirección en comparación con la replicación en ambas direcciones"]
 
 
 
@@ -144,7 +150,7 @@ Cuando un cliente S3 elimina un objeto de un bloque que tiene habilitada la repl
 
 En la figura, *Replicar marcadores de eliminación* se configuró en *Sí* cuandolink:../tenant/grid-federation-manage-cross-grid-replication.html["se ha activado la replicación entre grid"] .  Las solicitudes de eliminación del depósito de origen que incluyen un ID de versión no eliminan objetos del depósito de destino.  Las solicitudes de eliminación del depósito de origen que no incluyen un ID de versión parecen eliminar objetos en el depósito de destino.
 
-image:grid-federation-cross-grid-replication-delete.png["imagen que muestra la supresión del cliente de réplica en ambas cuadrículas"]
+image:grid_federation_cross_grid_replication_delete.png["imagen que muestra la supresión del cliente de réplica en ambas cuadrículas"]
 
 
 NOTE: Si desea mantener las eliminaciones de objetos sincronizadas entre las cuadrículas, cree las correspondientes link:../s3/create-s3-lifecycle-configuration.html["Configuraciones de ciclo de vida de S3"] para los depósitos en ambas cuadrículas.
@@ -210,6 +216,12 @@ Desactivado
 Habilitado
 
 |===
+
+CAUTION: Puedes activar S3 Object Lock en buckets ya existentes, lo que podría dar lugar a una configuración incorrecta más adelante.
+
+
+NOTE: Cuando S3 Object Lock está habilitado en el bucket de origen, asegúrate de que también lo esté en el bucket de destino. Si S3 Object Lock está deshabilitado en el bucket de destino, ocurre un error durante la replicación. Consulta link:../admin/grid-federation-troubleshoot.html#cross-grid-replication-alerts-and-errors["Alertas y errores de replicación entre grid"].
+
 Cuando el bloqueo de objetos S3 en el depósito de origen está habilitado:
 
 * Los objetos se bloquean con configuraciones de retención en el destino en este orden:

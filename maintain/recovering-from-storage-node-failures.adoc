@@ -21,16 +21,15 @@ Utilice esta tabla para seleccionar el procedimiento de recuperación de un nodo
 
 
  a| 
-* Se produjo un error en más de un nodo de almacenamiento.
-
+Se produjo un error en más de un nodo de almacenamiento.
  a| 
 Póngase en contacto con el soporte técnico.
  a| 
-La recuperación de más de un nodo de almacenamiento podría afectar la integridad de la base de datos de Cassandra, lo que puede provocar la pérdida de datos.
+Si han fallado varios nodos de almacenamiento, el soporte técnico debe colaborar en la recuperación para evitar inconsistencias en la base de datos de Cassandra que podrían provocar la pérdida de datos. Es posible que sea necesario aplicar un procedimiento de recuperación del sitio.
 
-El soporte técnico puede determinar cuándo es seguro iniciar la recuperación de un segundo nodo de almacenamiento.
+El soporte técnico puede determinar cuándo es seguro iniciar la recuperación de un segundo Storage Node.
 
-*Nota*: Si más de un nodo de almacenamiento que contiene el servicio ADC falla en un sitio, perderá cualquier solicitud de servicio de plataforma pendiente para ese sitio.
+*Nota*: Si en un sitio fallan varios nodos de almacenamiento que contienen el servicio ADC, se perderán todas las solicitudes de servicio de la plataforma pendientes para ese sitio.
 
 
 
@@ -55,7 +54,7 @@ El procedimiento de recuperación de los nodos de almacenamiento del dispositivo
  a| 
 Se produjo un error en uno o más volúmenes de almacenamiento, pero la unidad del sistema está intacta
  a| 
-link:recovering-from-storage-volume-failure-where-system-drive-is-intact.html["Recupérese de un fallo en el volumen de almacenamiento, donde la unidad del sistema está intacta"]
+link:reviewing-warnings-about-storage-volume-recovery.html["Recupérese de un fallo en el volumen de almacenamiento, donde la unidad del sistema está intacta"]
  a| 
 Este procedimiento se usa para nodos de almacenamiento basados en software.
 

@@ -31,12 +31,12 @@ Para acceder a la documentación de la API, vaya a la página web de instalació
 
 La API de instalación de StorageGRID incluye las siguientes secciones:
 
-* *Config* -- Operaciones relacionadas con la versión del producto y las versiones de la API. Puede mostrar la versión de la versión del producto y las versiones principales de la API que admite esa versión.
-* *Grid* -- Operaciones de configuración a nivel de cuadrícula. Puede obtener y actualizar la configuración de la cuadrícula, incluidos los detalles de la cuadrícula, las subredes de la red de cuadrícula, las contraseñas de la cuadrícula y las direcciones IP del servidor NTP y DNS.
-* *Nodes* -- Operaciones de configuración a nivel de nodo. Puede recuperar una lista de nodos de cuadrícula, eliminar un nodo de cuadrícula, configurar un nodo de cuadrícula, ver un nodo de cuadrícula y restablecer la configuración de un nodo de cuadrícula.
-* *Aprovisionamiento* -- Operaciones de aprovisionamiento. Puede iniciar la operación de aprovisionamiento y ver el estado de la operación de aprovisionamiento.
-* *Recuperación* -- Operaciones de recuperación del nodo de administración principal. Puede restablecer la información, cargar el paquete de recuperación, iniciar la recuperación y ver el estado de la operación de recuperación.
-* *Paquete de recuperación* -- Operaciones para descargar el paquete de recuperación.
-* *Sites* -- Operaciones de configuración a nivel de sitio. Puede crear, ver, eliminar y modificar un sitio.
-* *Temporary-password* -- Operaciones en la contraseña temporal para asegurar la mgmt-api durante la instalación.
+* *config*: Operaciones relacionadas con el lanzamiento del producto y las versiones de la API. Puedes consultar la versión de lanzamiento del producto y las versiones principales de la API compatibles con dicho lanzamiento.
+* *grid*: Operaciones de configuración a nivel de grid. Puedes consultar y actualizar los ajustes de grid, incluidos los detalles de grid, las subredes de Grid Network, las contraseñas de grid y las direcciones IP de los servidores NTP y DNS.
+* *nodos*: Operaciones de configuración a nivel de nodo. Puedes obtener una lista de nodos de la red, eliminar un nodo de la red, configurar un nodo de la red, ver un nodo de la red y restablecer la configuración de un nodo de la red.
+* *provision*: Operaciones de aprovisionamiento. Puedes iniciar la operación de aprovisionamiento y ver el estado de la operación de aprovisionamiento.
+* *recuperación*: Operaciones de recuperación del nodo de administración principal. Puedes restablecer la información, cargar el paquete de recuperación, iniciar la recuperación y consultar el estado de la operación de recuperación.
+* *paquete-de-recuperación*: Operaciones para descargar el paquete de recuperación.
+* *sitios*: Operaciones de configuración a nivel de sitio. Puedes crear, ver, eliminar y modificar un sitio.
+* *contraseña-temporal*: Operaciones sobre la contraseña temporal para proteger la mgmt-api durante la instalación.
 

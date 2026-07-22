@@ -55,7 +55,7 @@ Después de crear la cuenta de inquilino, los usuarios de inquilino pueden inici
 
 * Configurar la federación de identidades (a menos que el origen de identidad se comparta con la cuadrícula)
 * Gestionar grupos y usuarios
-* Utilice la federación de grid para la clonación de cuentas y la replicación entre grid
+* Utiliza la federación de grid para la sincronización de cuentas y la replicación entre grids
 * Gestión de claves de acceso de S3
 * Cree y gestione bloques de S3
 * Utilice los servicios de la plataforma S3

@@ -268,18 +268,9 @@ Puede ver problemas con la conectividad de red de los nodos de StorageGRID aloja
 En algunos casos, los problemas de red se pueden resolver mediante la clonación de direcciones MAC.  Si está utilizando hosts virtuales, configure el valor de la clave de clonación de dirección MAC para cada una de sus redes en "verdadero" en su archivo de configuración de nodo.  Esta configuración hace que la dirección MAC del contenedor StorageGRID utilice la dirección MAC del host.  Vea las instrucciones paralink:../swnodes/creating-node-configuration-files.html["crear archivos de configuración de nodo"] .
 
 
-NOTE: Cree interfaces de red virtual independientes que utilice el sistema operativo del host Linux. Al utilizar las mismas interfaces de red para el sistema operativo host Linux y el contenedor StorageGRID, es posible que no se pueda acceder al sistema operativo del host si no se ha habilitado el modo promiscuo en el hipervisor.
+NOTE: Crea interfaces de red virtuales independientes para que las utilice el sistema operativo anfitrión de Linux. Usar las mismas interfaces de red para el sistema operativo anfitrión de Linux y el contenedor de StorageGRID podría hacer que el sistema operativo anfitrión quede inaccesible.
 
 Para obtener más información, consulte las instrucciones paralink:../swnodes/configuring-host-network.html["Habilitar la clonación de MAC"] .
-
-
-
-[[promiscuous-mode]]
-=== Modo promiscuo
-
-Si no desea utilizar la clonación de direcciones MAC y prefiere permitir que todas las interfaces reciban y transmitan datos para direcciones MAC distintas de las asignadas por el hipervisor, Asegúrese de que las propiedades de seguridad en los niveles de conmutador virtual y grupo de puertos estén establecidas en *Aceptar* para el modo promiscuo, los cambios de dirección MAC y las transmisiones falsificadas. Los valores establecidos en el conmutador virtual pueden ser anulados por los valores en el nivel de grupo de puertos, por lo que asegúrese de que la configuración sea la misma en ambos lugares.
-
-Para obtener más información sobre el uso del modo promiscuo, consulte las instrucciones paralink:../swnodes/configuring-host-network.html["Cómo configurar la red del host"] .
 
 
 

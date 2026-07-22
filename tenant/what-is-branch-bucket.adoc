@@ -38,6 +38,7 @@ Tenga en cuenta las siguientes características de los grupos de ramas:
 
 * Puede utilizar un depósito de rama para eliminar objetos corruptos creando un depósito de rama desde un punto en el tiempo anterior a la ocurrencia de la corrupción y luego apuntando las aplicaciones al depósito de rama en lugar de al depósito base que contiene los objetos corruptos.
 * Estás guardando datos en un depósito versionado.  Hubo una vulnerabilidad accidental que provocó que se ingieran muchos objetos no deseados después del tiempo _T_.  Puede crear un depósito de rama para el valor de tiempo anterior, _T_, y redirigir las operaciones del cliente a ese depósito de rama.  Luego, solo los objetos ingeridos antes del tiempo anterior _T_ se exponen a los clientes.
+* Estás almacenando datos en un bucket con control de versiones. Hubo una vulnerabilidad accidental que provocó que se incorporaran muchos objetos no deseados entre los momentos _T1_ y _T2_. Puedes crear un bucket de rama para los valores de tiempo de _Exclusión_, _T1_ y _T2_, y redirigir las operaciones de los clientes a ese bucket de rama. Así, solo los objetos incorporados antes de _T1_ y después de _T2_ estarán expuestos a los clientes.
 
 
 

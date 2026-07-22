@@ -50,7 +50,7 @@ Para implementar una solución por niveles:
 [[maintain-multiple-cloud-endpoints]]
 == Mantenga varios extremos de cloud
 
-Puede configurar varios extremos de Cloud Storage Pool si desea organizar en niveles o realizar backups de datos de objetos en más de una nube. Los filtros de las reglas de ILM permiten especificar los objetos que se almacenan en cada Cloud Storage Pool. Por ejemplo, es posible que desee almacenar objetos de algunos clientes o buckets en Amazon S3 Glacier y objetos de otros inquilinos o buckets en el almacenamiento de Azure Blob. O bien, es posible que desee mover datos entre el almacenamiento de Amazon S3 Glacier y Azure Blob.
+Puedes configurar varios puntos de conexión de Cloud Storage Pool si quieres clasificar por niveles o hacer copias de seguridad de los datos de objetos en más de una nube. Los filtros de tus reglas de ILM te permiten especificar qué objetos se almacenan en cada Cloud Storage Pool. Por ejemplo, podrías querer almacenar objetos de algunos tenants o buckets en Amazon S3 Glacier y objetos de otros tenants o buckets en Azure Blob Storage. O podrías querer mover datos entre Amazon S3 Glacier y Azure Blob Storage.
 
 
 NOTE: Cuando se utilizan varios extremos de Cloud Storage Pool, tenga en cuenta que un objeto se puede almacenar solo en un Cloud Storage Pool cada vez.

@@ -26,6 +26,8 @@ Si alguno de los volúmenes de almacenamiento en bloque se conservó del host an
 [[restore-validate-grid-nodes]]
 == Restaurar y validar nodos de grid
 
+Si recuperas un nodo desde un nodo de administración no principal, configura ADMIN_IP con la dirección IP de la red de la malla del _nodo de administración no principal_, de modo que el nodo recuperado se registre en el nodo de administración no principal en lugar de en el nodo de administración principal. Para consultar las reglas para las claves de la red de administración, consulta link:../swnodes/creating-node-configuration-files.html["Crea archivos de configuración de nodos StorageGRID para implementaciones en Linux"].
+
 Es necesario restaurar los archivos de configuración de grid para los nodos de grid con errores, a continuación, validar los archivos de configuración de grid y resolver los errores que se produzcan.
 
 .Acerca de esta tarea

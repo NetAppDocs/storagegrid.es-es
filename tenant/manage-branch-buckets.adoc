@@ -23,8 +23,27 @@ Utilice el Administrador de inquilinos para crear y ver detalles de las sucursal
 .Acerca de esta tarea
 Tenga en cuenta la siguiente información para los grupos de ramas:
 
-* Los permisos para establecer las propiedades de bloqueo de objetos S3 de depósitos u objetos se pueden otorgar mediantelink:../s3/use-access-policies.html["política de bloques o política de grupo"] .
-* Si suspende el control de versiones en el bucket base, el contenido del bucket base ya no será visible en sus buckets de rama.
+Límite de profundidad del bucket de rama:: Un branch bucket puede tener un máximo de 20 base buckets. A medida que aumenta la profundidad del branch bucket, la latencia de acceso a S3 puede incrementarse, especialmente en las llamadas ListObjectVersions.
++
+--
+* Si creas un depósito derivado a partir de un depósito base que es un depósito normal (un depósito que se creó inicialmente como depósito base), el nuevo depósito derivado tiene un único depósito base.
+* Si el bucket base es a su vez un bucket de rama, el nuevo bucket de rama hereda todos los buckets base de ese bucket de rama. Los usuarios solo especifican directamente un bucket base; los buckets base heredados se dan por supuestos.
+* El número total de cubos base (explícitos e implícitos) no puede superar 20.
++
+Por ejemplo, supongamos que el bucket *A* es un bucket normal con el control de versiones activado:
+
++
+** El bucket de rama *B*, creado a partir de *A*, tiene un bucket base: *A*.
+** El bucket de ramificación *C*, creado a partir de *B*, tiene dos buckets base: *B* (explícito) y *A* (implícito).
+** El bucket de rama *D*, creado a partir de *C*, tiene tres buckets base: *C* (explícito), *B* (implícito) y *A* (implícito).
+** Este patrón se mantiene hasta una profundidad máxima de 20 cubos base.
+
+
+
+
+--
+Permisos de S3 Object Lock:: Los permisos para configurar las propiedades de S3 Object Lock de los buckets u objetos pueden ser concedidos por link:../tenant/using-s3-object-lock.html["política de bloques o política de grupo"].
+Control de versiones suspendido:: Si suspende el control de versiones en el bucket base, el contenido del bucket base ya no será visible en sus buckets de rama.
 
 
 
@@ -85,15 +104,6 @@ La región del depósito de la rama debe coincidir con la región del depósito 
 
 
  a| 
-Antes de tiempo
- a| 
-El tiempo límite para que las versiones de objetos creadas en el depósito base sean accesibles desde el depósito de la rama.  El contenedor de ramas proporciona acceso a versiones de objetos creadas antes del tiempo anterior.
-
-Antes del tiempo debe haber una fecha y hora que haya pasado.  No puede ser una fecha futura.
-
-
-
- a| 
 Tipo de cubo de rama
  a| 
 ** *Lectura y escritura*: puede agregar o eliminar objetos o versiones de objetos en el depósito de ramas.
@@ -104,6 +114,24 @@ Tipo de cubo de rama
 
 |===
 . Seleccione *continuar*.
+
+
+
+
+[[time-filter]]
+== Filtro de tiempo
+
+Selecciona el intervalo de tiempo para incluir las versiones de los objetos del depósito base. Para cualquier filtro de tiempo, selecciona cualquier fecha dentro del siguiente intervalo:
+
+* Fecha mínima: 1 de enero de 2010 (UTC)
+* Fecha máxima: cinco años a partir de la fecha de hoy (UTC)
++
+Antes:: El branch bucket permite acceder a las versiones de objetos creadas antes de la hora _Before_.
+Después de:: El bucket de ramas permite acceder a las versiones de objetos creadas después de la hora _After_.
+Entre:: El bucket de ramas permite acceder a las versiones de objetos creadas entre las horas _From_ y _To_.
+Excluir:: El bucket de rama no permite acceder a las versiones de los objetos creadas entre los momentos de _Excluir desde_ y _Excluir hasta_.
+
+
 
 
 

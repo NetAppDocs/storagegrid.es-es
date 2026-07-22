@@ -21,10 +21,10 @@ Puede usar el administrador de inquilinos para crear bloques S3 para los datos d
 NOTE: Los permisos para establecer o modificar las propiedades de bloqueo de objetos S3 de depósitos u objetos se pueden otorgar mediantelink:../s3/use-access-policies.html["política de bloques o política de grupo"] .
 
 * Si tiene previsto habilitar el bloqueo de objetos de S3 para un depósito, un administrador de grid ha habilitado la configuración global de bloqueo de objetos de S3 para el sistema StorageGRID y ha revisado los requisitos para los bloques y objetos de bloqueo de objetos de S3.
-* Si cada inquilino tendrá 5.000 buckets, cada nodo de almacenamiento del grid tiene un mínimo de 64 GB de RAM.
+* Si hay varios inquilinos y cada uno de ellos tiene hasta 5,000 buckets, cada nodo de almacenamiento en el grid tiene un mínimo de 64 GB de RAM.
 +
 
-NOTE: Cada cuadrícula puede tener un máximo de 100.000 contenedores, incluidoslink:../tenant/what-is-branch-bucket.html["cubos de ramas"] .
+NOTE: El sistema StorageGRID admite un máximo de 20 000 buckets por cada cuenta de inquilino de S3. Cada grid puede tener un máximo de 100 000 buckets, incluyendo link:../tenant/what-is-branch-bucket.html["cubos de ramas"]. También hay un límite para link:../tenant/manage-branch-buckets.html["profundidad del bucket de la rama"].
 
 
 
@@ -63,7 +63,7 @@ Un nombre para el depósito que cumple con estas reglas:
 ** No debe contener periodos en las solicitudes de estilo alojadas virtuales. Los períodos provocarán problemas en la verificación del certificado comodín del servidor.
 
 
-Para obtener más información, consulte la https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html["Documentación de Amazon Web Services (AWS) sobre reglas de nomenclatura de bloques"^].
+Para obtener más información, consulta https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html["Documentación de Amazon Web Services (AWS) sobre reglas de nomenclatura de bloques"^].
 
 *Nota*: No puedes cambiar el nombre del cubo después de crear el cubo.
 

@@ -35,7 +35,7 @@ Debe descargar el archivo de revisión de StorageGRID.
 
 
  a| 
-paquete de recuperación(`.zip` ) archivo
+Paquete de recuperación (`.zip`) archivo
  a| 
 Antes de aplicar una revisión,link:downloading-recovery-package.html["Descargue el archivo del paquete de recuperación más reciente"] en caso de que ocurra algún problema durante la revisión.  Luego, una vez aplicada la revisión, descargue una nueva copia del archivo del paquete de recuperación y guárdelo en una ubicación segura.  El archivo del paquete de recuperación actualizado le permite restaurar el sistema si ocurre una falla.
 

@@ -2,7 +2,7 @@
 permalink: ilm/creating-cloud-storage-pool.html 
 sidebar: sidebar 
 keywords: how to create cloud storage pool 
-summary: Un pool de almacenamiento en la nube especifica un bloque externo de Amazon S3 u otro proveedor compatible con S3 o un contenedor de almacenamiento de Azure Blob. 
+summary: Un grupo de almacenamiento en la nube especifica un único bucket externo de Amazon S3, otro proveedor compatible con S3 o un contenedor de Azure Blob Storage. 
 ---
 = Crea un Cloud Storage Pool en StorageGRID
 :allow-uri-read: 
@@ -11,9 +11,9 @@ summary: Un pool de almacenamiento en la nube especifica un bloque externo de Am
 
 
 [role="lead"]
-Un pool de almacenamiento en la nube especifica un bloque externo de Amazon S3 u otro proveedor compatible con S3 o un contenedor de almacenamiento de Azure Blob.
+Un grupo de almacenamiento en la nube especifica un único bucket externo de Amazon S3, otro proveedor compatible con S3 o un contenedor de Azure Blob Storage.
 
-Al crear un grupo de almacenamiento en la nube, se especifica el nombre y la ubicación del contenedor o depósito externo que StorageGRID usará para almacenar objetos, el tipo de proveedor de nube (almacenamiento de Amazon S3/GCP o Azure Blob) y la información que StorageGRID necesita para acceder al contenedor o depósito externo.
+Al crear un grupo de almacenamiento en la nube, debes especificar el nombre y la ubicación del bucket o contenedor externo que StorageGRID usará para almacenar objetos, el tipo de proveedor de nube (Amazon S3/GCP o Azure Blob Storage) y la información que StorageGRID necesita para acceder al bucket o contenedor externo.
 
 StorageGRID valida el pool de almacenamiento en cloud tan pronto como lo guarde, por lo que debe asegurarse de que existe el bloque o contenedor especificado en el pool de almacenamiento en el cloud y sea posible acceder a él.
 
@@ -227,3 +227,6 @@ Si la validación de Cloud Storage Pool falla, recibirá un mensaje de error que
 
 . Si se produce un error, consulte la link:troubleshooting-cloud-storage-pools.html["Instrucciones para solucionar problemas de Cloud Storage Pools"]sección , Resolver cualquier problema y, a continuación, intente guardar el pool de almacenamiento en cloud de nuevo.
 
+
+.Información relacionada
+link:../network/external-communications.html["Puertos que se utilizan para comunicaciones externas"]

@@ -2,7 +2,7 @@
 permalink: release-notes/changes-to-grid-management-api.html 
 sidebar: sidebar 
 keywords: grid management api, api, api version, swagger, rest api, usageCacheDuration 
-summary: StorageGRID 12.0 utiliza la versión 4 de la API de gestión de Grid. La versión 4 sustituye a la versión 3. No obstante, las versiones 1, 2 y 3 siguen siendo compatibles. 
+summary: StorageGRID 12.1 utiliza la versión 4 de la API de gestión de Grid. La versión 4 deja obsoleta la versión 3. Sin embargo, las versiones 1, 2 y 3 siguen siendo compatibles. 
 ---
 = Cambios en la API de gestión de Grid en StorageGRID
 :allow-uri-read: 
@@ -11,46 +11,24 @@ summary: StorageGRID 12.0 utiliza la versión 4 de la API de gestión de Grid. L
 
 
 [role="lead"]
-StorageGRID 12.0 utiliza la versión 4 de la API de administración de Grid.  La versión 4 deja obsoleta la versión 3; sin embargo, las versiones 1, 2 y 3 aún son compatibles.
+StorageGRID 12.1 utiliza la versión 4 de la API de gestión de Grid. La versión 4 deja obsoleta la versión 3; sin embargo, las versiones 1, 2 y 3 siguen siendo compatibles.
 
 
-NOTE: Puede seguir usando versiones obsoletas de la API de administración con StorageGRID 12.0; sin embargo, la compatibilidad con estas versiones de la API se eliminará en una futura versión de StorageGRID.  Después de actualizar a StorageGRID 12.0, puede desactivar las API obsoletas mediante el uso de `PUT /grid/config/management` API.
+NOTE: Puedes seguir utilizando versiones obsoletas de la API de gestión con StorageGRID; sin embargo, el soporte para estas versiones de la API se eliminará en una futura versión de StorageGRID. Tras actualizar a StorageGRID 12.0 o una versión posterior, puedes desactivar las API obsoletas mediante la  `PUT /grid/config/management` API.
 
 Para obtener más información, vaya a link:../admin/using-grid-management-api.html["Utilice la API de gestión de grid"].
 
 
 
-[[new-endpoints-for-branch-buckets]]
-== Nuevos puntos finales para los depósitos de sucursales
+[[new-endpoints-for-changing-the-bmc-password-and-lan-ip-settings]]
+== Nuevos endpoints para cambiar la contraseña de BMC y la configuración de la IP de la LAN
 
-Se han agregado los siguientes puntos finales para permitirle:link:../tenant/what-is-branch-bucket.html["administrar grupos de sucursales"] :
+Se ha añadido el siguiente endpoint para que puedas link:../harden/hardening-guidelines-for-storagegrid-nodes.html#change-appliance-bmc-password["cambiar la contraseña BMC de un appliance"].
 
-`GET /org/containers/{branchBucketName}/branch`
+`PUT /bmc-configuration/root-password`
 
-`PUT /org/containers/{branchBucketName}/branch`
+Se han añadido los siguientes puntos finales para que puedas link:../maintain/changing-nodes-network-configuration.html#change-appliance-node-bmc-lan-ip-settings["modificar o consultar la configuración de la IP de la LAN de BMC"].
 
+`PUT /grid/bmc/{node-id}/lan-ip-config`
 
-
-[[new-private-endpoints-for-move-adc]]
-== Nuevos puntos finales privados para Move ADC
-
-Se han agregado los siguientes puntos finales privados para permitirle:link:../maintain/move-adc-service.html["mover el servicio ADC"] de un nodo de almacenamiento a otro en el mismo sitio:
-
-`/private/move-adc`
-
-`/private/move-adc/start`
-
-`/private/move-adc/retry`
-
-
-
-[[new-private-endpoints-for-convert-to-data-only-node]]
-== Nuevos puntos finales privados para convertir a nodo de solo datos
-
-Se han agregado los siguientes puntos finales privados para permitirle:link:../maintain/convert-to-data-only-node.html["convertir uno o más nodos de almacenamiento combinados"] que no contienen el servicio ADC en nodos de solo datos.
-
-`/private/convert-to-data-only-node`
-
-`/private/convert-to-data-only-node/start`
-
-`/private/convert-to-data-only-node/retry`
+`GET /grid/bmc/{node-id}/lan-ip-config`

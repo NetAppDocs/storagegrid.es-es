@@ -180,10 +180,6 @@ NOTE: La contraseña de instalación temporal solo se usa durante la instalació
 
 .. En el campo *IP de administración principal*, introduzca la dirección IP del nodo de administración principal para la red de red.
 +
-
-NOTE: Este paso no aplica si el nodo que va a implementar es el nodo de administración principal.
-
-+
 Si omite la dirección IP del nodo de administración principal, la dirección IP se detecta automáticamente si el nodo de administración principal o al menos otro nodo de grid con ADMIN_IP configurado, está presente en la misma subred. Sin embargo, se recomienda establecer aquí la dirección IP del nodo de administración principal.
 
 .. En la sección *Red de administración (eth1)*, seleccione STATIC, DHCP o DISABLED para la *Configuración de IP de red de administración*.
@@ -222,7 +218,7 @@ Tenga en cuenta las siguientes directrices importantes:
 
 . [[vmware-remap-ports]]Si necesita reasignar los puertos utilizados por este nodo, siga estos pasos.
 +
-Es posible que deba reasignar un puerto si las políticas de red de su empresa restringen el acceso a uno o varios puertos utilizados por StorageGRID. Consulte la link:../network/index.html["directrices sobre redes"] para obtener información sobre los puertos que utiliza StorageGRID.
+Es posible que tengas que reasignar un puerto si las políticas de red empresarial restringen el acceso a uno o varios puertos que utiliza StorageGRID. Consulta link:../network/index.html["Directrices sobre redes"] para conocer los puertos que utiliza StorageGRID.
 
 +
 

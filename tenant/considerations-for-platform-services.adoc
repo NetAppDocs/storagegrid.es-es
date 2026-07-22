@@ -24,7 +24,7 @@ Los servicios de plataforma de StorageGRID pueden ayudarte a implementar una est
 
 Puesto que la ubicación objetivo de los servicios de la plataforma suele ser externa a la puesta en marcha de StorageGRID, los servicios de plataforma le proporcionan la potencia y la flexibilidad que se obtiene al utilizar recursos de almacenamiento externo, servicios de notificación y servicios de búsqueda o análisis para sus datos.
 
-Se puede configurar cualquier combinación de servicios de plataforma para un único bloque de S3. Por ejemplo, puede configurar tanto el link:../tenant/understanding-cloudmirror-replication-service.html["Servicio CloudMirror"] como link:../tenant/understanding-notifications-for-buckets.html["notificaciones"] en un bucket de StorageGRID S3 para que pueda reflejar objetos específicos en Amazon Simple Storage Service (S3), mientras envía una notificación sobre cada objeto a una aplicación de supervisión de terceros para ayudarle a realizar un seguimiento de sus gastos de AWS.
+Se puede configurar cualquier combinación de servicios de la plataforma para un único bucket de S3. Por ejemplo, podrías configurar tanto el link:../tenant/understanding-cloudmirror-replication-service.html["Servicio CloudMirror"] como el link:../tenant/understanding-notifications-for-buckets.html["notificaciones"] en un bucket de S3 de StorageGRID, para que puedas reflejar objetos específicos en Amazon Simple Storage Service (S3) y, al mismo tiempo, enviar una notificación sobre cada uno de esos objetos a una aplicación de monitorización de terceros que te ayude a hacer un seguimiento de tus gastos en AWS.
 
 
 TIP: Un administrador de StorageGRID debe habilitar el uso de servicios de plataforma para cada cuenta de inquilino mediante el Administrador de grid o la API de gestión de grid.
@@ -139,8 +139,6 @@ Por el contrario, las solicitudes de integración de búsqueda se envían cuando
  a| 
 Utilizando puntos finales Kafka
  a| 
-Para puntos finales Kafka, TLS mutuo no es compatible. Como resultado, si se ha `ssl.client.auth` establecido en en `required` la configuración de su broker Kafka, puede causar problemas de configuración de punto final Kafka.
-
 La autenticación de los puntos finales de Kafka utiliza los siguientes tipos de autenticación. Estos tipos son diferentes de los utilizados para la autenticación de otros puntos finales, como Amazon SNS, y requieren credenciales de nombre de usuario y contraseña.
 
 * SASL/PLAIN
@@ -182,7 +180,7 @@ Versiones de bloques e ID de versión
  a| 
 Si el bloque de S3 de origen de StorageGRID tiene habilitado el control de versiones, también debe habilitar el control de versiones para el bloque de destino.
 
-Al usar el control de versiones, tenga en cuenta que el orden de las versiones de objetos en el bloque de destino es el mejor esfuerzo y no está garantizado por el servicio CloudMirror, debido a las limitaciones del protocolo S3.
+Al utilizar el control de versiones, ten en cuenta que el orden de las versiones de los objetos en el bucket de destino es un esfuerzo máximo y no está garantizado por el servicio CloudMirror, debido a las limitaciones del protocolo S3. Además, los buckets de destino mantendrán su propia configuración y puede que no proporcionen control de versiones.
 
 *Nota*: Los ID de versión para el depósito de origen en StorageGRID no están relacionados con los ID de versión para el depósito de destino.
 
@@ -214,6 +212,8 @@ El servicio CloudMirror no admite objetos cifrados con SSE-C. Si intenta ingerir
  a| 
 Bloque con S3 Object Lock habilitado
  a| 
-La replicación no es compatible con buckets de origen o destino con el bloqueo de objetos S3 habilitado.
+Si el bucket S3 de origen en StorageGRID tiene habilitado S3 Object Lock, también debes habilitar S3 Object Lock para el bucket de destino con la retención predeterminada configurada.
+
+La replicación de _datos de objetos_ es compatible con los buckets de origen y destino que tengan habilitado S3 Object Lock. Sin embargo, los buckets de destino mantendrán su propia configuración para la retención de objetos y podrían no ofrecer cumplimiento ni control de versiones.
 
 |===

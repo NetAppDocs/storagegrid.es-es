@@ -202,7 +202,7 @@ Recopile datos para el soporte técnico
 Es posible que el soporte técnico le solicite recopilar datos o revisar información específica para ayudar a resolver problemas.
  a| 
 * link:../monitor/collecting-log-files-and-system-data.html["Recopilar archivos de registro y datos del sistema"]
-* link:../monitor/manually-triggering-autosupport-message.html["Active manualmente un paquete AutoSupport"]
+* link:../monitor/manually-triggering-autosupport-package.html["Active manualmente un paquete AutoSupport"]
 * link:../monitor/reviewing-support-metrics.html["Revisar las métricas de soporte"]
 
 

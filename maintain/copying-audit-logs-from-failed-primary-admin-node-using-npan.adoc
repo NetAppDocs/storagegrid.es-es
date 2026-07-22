@@ -1,0 +1,72 @@
+---
+permalink: maintain/copying-audit-logs-from-failed-primary-admin-node-using-npan.html 
+sidebar: sidebar 
+keywords: storagegrid, audit log, copy audit log, copying audit log, primary admin node, primary admin node 
+summary: Si puede copiar los registros de auditoría del nodo de administración principal que ha fallado, debe conservarlos para mantener el registro de actividad y uso del sistema de la cuadrícula. Es posible restaurar los registros de auditoría conservados al nodo administrador principal recuperado después de que esté activo y en ejecución. 
+---
+= Copiar los registros de auditoría de StorageGRID desde un nodo de administración principal que ha fallado
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si puede copiar registros de auditoría del nodo de administración principal con errores, debe conservarlos para mantener el registro de la cuadrícula de la actividad y el uso del sistema. Es posible restaurar los registros de auditoría conservados al nodo administrador principal recuperado después de que esté activo y en ejecución.
+
+.Acerca de esta tarea
+Este procedimiento copia los archivos de registro de auditoría del nodo de administración con errores en una ubicación temporal en un nodo de grid independiente. Estos registros de auditoría conservados se pueden copiar en el nodo admin de reemplazo. Los registros de auditoría no se copian automáticamente en el nuevo nodo de administración.
+
+Según el tipo de error, es posible que no se puedan copiar los registros de auditoría de un nodo administrador con errores. Si la implementación solo tiene un nodo de administrador, el nodo de administrador recuperado inicia la grabación de eventos en el registro de auditoría en un nuevo archivo vacío y se pierden datos registrados previamente. Si la implementación incluye más de un nodo de administrador, puede recuperar los registros de auditoría desde otro nodo de administración.
+
+
+NOTE: Si no se puede acceder a los registros de auditoría en el nodo de administración fallido ahora, es posible que pueda acceder a ellos más adelante, por ejemplo, después de la recuperación del host.
+
+.Pasos
+. Inicie sesión en el nodo de administración principal que falló, si es posible.  De lo contrario, inicie sesión en cualquier nodo de administración disponible.
++
+.. Introduzca el siguiente comando: `ssh admin@_grid_node_IP_`
+.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
+.. Introduce el siguiente comando para cambiar a la cuenta de usuario raíz: `su -`
+.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
++
+Al iniciar sesión como root, la petición de datos cambia de `$` a `#`.
+
+
+
+. Detenga el servicio AMS para evitar que cree un nuevo archivo de registro:``service ams stop``
+. Navegue al directorio de exportación de auditoría:
++
+`cd /var/local/audit/export`
+
++
+(o `cd /var/local/log` en sistemas anteriores)
+
+. Cambie el nombre del archivo de registro de origen a un nombre de archivo numerado único.
++
+[NOTE]
+====
+** Si el archivo de registro está en el `/var/local/audit/export` directorio, su nombre es `audit.log` .
+** Si el archivo de registro está en el `/var/local/log` directorio, su nombre es `localaudit.log` .
+
+
+====
++
+Por ejemplo, cambie el nombre del `localaudit.log` archivo a `2025-10-22.txt.1` .
+
++
+[listing]
+----
+ls -l
+mv localaudit.log 2025-10-22.txt.1
+----
+. Reinicie el servicio AMS: `service ams start`
+. Cree el directorio para copiar todos los archivos log de auditoría en una ubicación temporal en un nodo de cuadrícula independiente: `ssh admin@_grid_node_IP_ mkdir -p /var/local/tmp/saved-audit-logs`
++
+Cuando se te solicite, introduce la contraseña de la cuenta de usuario admin.
+
+. Copie todos los archivos de registro de auditoría en la ubicación temporal: `scp -p * admin@_grid_node_IP_:/var/local/tmp/saved-audit-logs`
++
+Cuando se te solicite, introduce la contraseña de la cuenta de usuario admin.
+
+. Cerrar sesión como usuario raíz: `exit`.
+

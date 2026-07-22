@@ -72,26 +72,13 @@ Active las funciones
  a| 
 Se habilitan las nuevas funciones para la nueva versión.
  a| 
-Menos de 5 minutos
+Hasta 1 hora
  a| 
 * No cambie la configuración de la cuadrícula.
 * No cambie la configuración del nivel de auditoría.
 * No actualice la configuración de ILM.
 * No puede realizar otro procedimiento de mantenimiento.
 
-
-
-
- a| 
-Actualizar la base de datos
- a| 
-El proceso de actualización verifica cada nodo para verificar que no sea necesario actualizar la base de datos de Cassandra.
- a| 
-10 segundos por nodo o unos minutos para todo el grid
- a| 
-La actualización a StorageGRID 12.0 incluye una actualización de la base de datos Cassandra.  Después de actualizar de StorageGRID 11.9 a 12.0, se producirá una actualización del formato de metadatos en segundo plano durante uno a tres días.  Durante este tiempo, ciertos procedimientos de mantenimiento, como la expansión, estarán deshabilitados.
-
-En las próximas versiones de la función StorageGRID, el paso de actualización de la base de datos de Cassandra podría tardar varios días en completarse.
 
 
 
@@ -126,8 +113,8 @@ Como regla general, los nodos de dispositivos tardan más en actualizarse que lo
 
 
 
-[[example-estimated-time-to-upgrade-to-storagegrid-12-0]]
-== Ejemplo: Tiempo estimado para actualizar a StorageGRID 12.0
+[[example-estimated-time-to-upgrade-to-storagegrid-12-1]]
+== Ejemplo: tiempo estimado para actualizar a StorageGRID 12.1
 
 Supongamos que el sistema tiene 14 nodos de grid, de los cuales 8 son nodos Linux.
 
@@ -142,7 +129,7 @@ El tiempo estimado para este paso es de 2 horas.
 
 . Agregue los valores juntos.
 +
-Debe esperar hasta 17 horas para completar la actualización de su sistema a StorageGRID 12.0.0.
+Debes prever hasta 18 horas para completar la actualización de tu sistema a StorageGRID 12.1.0.
 
 
 

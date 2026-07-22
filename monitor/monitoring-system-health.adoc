@@ -245,7 +245,7 @@ CAUTION: Tenga cuidado al decidir silenciar una regla de alerta. Si se silencia 
 +
 Aparece una ventana emergente que muestra la expresión Prometheus de cada gravedad definida.
 
-.. Para cerrar la ventana emergente, haga clic en cualquier lugar fuera de la ventana emergente.
+.. Para cerrar la ventana emergente, selecciona cualquier lugar fuera de la ventana emergente.
 
 
 . Opcionalmente, seleccione *Editar regla* para editar la regla de alerta que provocó que se activara esta alerta.

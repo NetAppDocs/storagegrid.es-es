@@ -13,6 +13,7 @@ summary: Debe comprobar que el sistema esté listo para acomodar la revisión.
 [role="lead"]
 Debe comprobar que el sistema esté listo para acomodar la revisión.
 
+.Pasos
 . Inicie sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
 . Si es posible, asegúrese de que el sistema funciona con normalidad y de que todos los nodos de grid están conectados a la cuadrícula.
 +

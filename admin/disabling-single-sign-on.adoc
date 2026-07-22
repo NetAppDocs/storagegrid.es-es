@@ -23,7 +23,7 @@ Si ya no desea usar esta funcionalidad, puede deshabilitar el inicio de sesión 
 +
 Aparece la página Single Sign-On.
 
-. Seleccione *Deshabilitar SSO*.
+. Selecciona *Desactivar*.
 . Seleccione *Sí*.
 +
 Aparece un mensaje de advertencia que indica que los usuarios locales podrán iniciar sesión.

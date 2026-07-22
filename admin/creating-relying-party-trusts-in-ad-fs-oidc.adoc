@@ -1,0 +1,96 @@
+---
+permalink: admin/creating-relying-party-trusts-in-ad-fs-oidc.html 
+sidebar: sidebar 
+keywords: application group, active directory, ad fs, single sign on, sso 
+summary: 'Debes utilizar los Servicios de federación de Active Directory (AD FS) para crear un grupo de aplicaciones para cada Admin Node en tu sistema.' 
+---
+= Crear grupos de aplicaciones en AD FS para OIDC en StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Debes utilizar Active Directory Federation Services (AD FS) para crear un grupo de aplicaciones para cada Admin Node de OpenID Connect (OIDC) en tu sistema.
+
+.Antes de empezar
+* Dispones del nombre de dominio completo (o la dirección IP) y del identificador de la parte que confía para cada Admin Node en tu sistema.
++
+
+NOTE: Cada nodo de administración de tu sistema StorageGRID debe tener un grupo de aplicaciones. Esto garantiza que los usuarios puedan iniciar sesión y cerrar sesión de forma segura en cualquier nodo de administración. Puedes crear un único grupo de aplicaciones para todos los nodos de administración (recomendado) o un grupo de aplicaciones diferente para cada nodo de administración.
+
+* Tienes experiencia creando grupos de aplicaciones en AD FS o tienes acceso a la documentación de Microsoft AD FS.
+* Está utilizando el complemento Administración de AD FS y pertenece al grupo Administradores.
+
+
+.Acerca de esta tarea
+Estas instrucciones se aplican a Windows Server 2022 AD FS. Si utilizas una versión diferente de AD FS, notarás ligeras diferencias en el procedimiento. Consulta la documentación de Microsoft AD FS si tienes preguntas.
+
+
+
+[[step-1-create-an-application-group]]
+== Paso 1: Crear un grupo de aplicaciones
+
+Puedes usar Windows PowerShell para crear rápidamente un grupo de aplicaciones.
+
+.Pasos
+. En Windows Server Manager, seleccione *Herramientas* > *Administración de AD FS*.
+. Selecciona *Grupos de aplicaciones* > *Add Application Group*
+. Para *Nombre*, introduce el identificador de la parte que confía.
+. En «Plantilla», selecciona *Aplicaciones cliente-servidor* > *Aplicación de servidor que accede a una API web*.
+. Seleccione *Siguiente*.
+. Anota el valor del *identificador de cliente*.
+. En el campo *URI de redirección*, introduce el nombre de dominio completo (o la dirección IP) `callback` y `logged-out` las URI para el nodo de administración:
++
+** `https://<FQDN>/api/v4/oidc-callback` o  `https://<IP_address>/api/v4/oidc-callback`
+** `https://<FQDN>/api/v4/oidc-logged-out` o  `https://<IP_address>/api/v4/oidc-logged-out`
+
+
++
+Introduce los URI de cada nodo de administración si utilizas un único grupo de aplicaciones para todos los nodos de administración. Si utilizas un grupo de aplicaciones diferente para cada nodo de administración, introduce únicamente los URI del nodo de administración correspondiente.
+
+. Seleccione *Agregar*.
+. Selecciona *Generar un secreto compartido*, anota el valor de *Secreto* y luego selecciona *Siguiente*.
+. Introduce el identificador del cliente para *Identificador*.
+. Selecciona *Add* y luego selecciona *Siguiente*.
+. Selecciona *Permitir a todo el mundo*.
+. Comprueba que la aplicación de servidor esté seleccionada en *Client application (caller)*.
+. En «*Ámbitos permitidos*», comprueba que solo estén seleccionadas las siguientes opciones:
++
+** allatclaims
+** correo electrónico
+** openid
+** perfil
+
+
+. Selecciona *Siguiente* > *Siguiente*.
+. Selecciona *Cerrar*.
+
+
+
+
+[[step-2-configure-issuance-transform-rules]]
+== Paso 2: configura las reglas de transformación de emisión
+
+Configura las reglas de transformación de emisión para cada grupo de aplicaciones.
+
+.Pasos
+. En la página *Administración de AD FS*, haz clic con el botón derecho en el grupo de aplicaciones y luego selecciona *Propiedades*.
+. Selecciona la API web creada anteriormente y luego selecciona *Editar*.
+. Selecciona *Issuance Transform Rules* > *Add Rule ...*.
+. En *Plantilla de reglas de reclamaciones:*, selecciona *Enviar atributo LDAP como reclamaciones*.
+. Seleccione *Siguiente*.
+. Introduce un nombre para la regla de reclamación.
+. Selecciona *Active Directory* para el almacén de atributos.
+. Agrega las asignaciones de atributos LDAP a los tipos de reclamaciones salientes:
++
+** `E-Mail Addresses - E-Mail Address`
+** `Token-Groups - Unqualified Names - Group`
+
+
+. Seleccione *Finalizar*.
+. Selecciona *Aplicar* > *OK* > *OK*.
+
+
+.Qué sigue
+Una vez creados los grupos de aplicaciones, link:configure-sso-oidc.html["configura el SSO usando OIDC"].

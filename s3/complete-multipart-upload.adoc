@@ -30,7 +30,21 @@ Las solicitudes de clientes en conflicto, como dos clientes que escriben en la m
 
 Se admiten los siguientes encabezados de solicitud:
 
-* `x-amz-checksum-sha256`
+* Encabezados de solicitud de suma de comprobación:
++
+--
+** `x-amz-checksum-crc32`
+** `x-amz-checksum-crc32c`
+** `x-amz-checksum-crc64nvme`
+** `x-amz-checksum-sha256`
+** `x-amz-checksum-type`
+
+
+--
++
+
+NOTE: Si una solicitud CreateMultipartUpload no especifica una suma de comprobación, StorageGRID no calcula una suma de comprobación CRC-64/NVME por defecto para un objeto.
+
 * `x-amz-storage-class`
 +
  `x-amz-storage-class`El encabezado afecta al número de copias de objetos que crea StorageGRID si la regla de ILM coincidente especifica el link:../ilm/data-protection-options-for-ingest.html["Opción de registro doble o ingesta equilibrada"].
@@ -64,14 +78,18 @@ No se admiten las siguientes cabeceras de solicitud:
 
 * `If-Match`
 +
-El `If-Match header` es aceptado pero no funciona.
+El  `If-Match` encabezado se comporta de forma diferente según tu configuración de StorageGRID. Si proporcionas este encabezado, podría devolverse un mensaje de error (501 Not Implemented). Si el  `If-Match` encabezado se acepta pero no funciona, podría activarse una alerta con instrucciones sobre cómo habilitar el comportamiento más estricto del error 501 Not Implemented.
 
 * `If-None-Match`
 +
-El `If-None-Match header` es aceptado pero no funciona.
+El  `If-None-Match` encabezado se comporta de forma diferente según tu configuración de StorageGRID. Incluir este encabezado podría devolver un mensaje de error (501 Not Implemented). Si el  `If-None-Match` encabezado se acepta pero no funciona, podría activarse una alerta con instrucciones sobre cómo habilitar el comportamiento más estricto del error 501 Not Implemented.
 
-* `x-amz-sdk-checksum-algorithm`
-* `x-amz-trailer`
+* `x-amz-checksum-md5`
+* `x-amz-checksum-sha1`
+* `x-amz-checksum-sha512`
+* `x-amz-checksum-xxhash3`
+* `x-amz-checksum-xxhash64`
+* `x-amz-checksum-xxhash128`
 
 
 

@@ -1,0 +1,56 @@
+---
+permalink: maintain/replacing-primary-admin-node-using-npan.html 
+sidebar: sidebar 
+keywords: storagegrid, replace, primary admin node, non-primary admin node 
+summary: Sustituye un nodo de administración principal que haya fallado usando un nodo de administración no principal. 
+---
+= Sustituye el nodo de administración principal de StorageGRID usando un nodo de administración que no sea principal
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para recuperar un nodo de administrador principal, primero es necesario reemplazar el hardware físico o virtual.
+
+* Puedes sustituir un nodo de administración principal que haya fallado por otro nodo de administración principal que se ejecute en la misma plataforma.
+* Puedes sustituir un nodo de administración principal que se ejecute en VMware o en un host Linux por un nodo de administración principal alojado en un dispositivo de servicios de StorageGRID.
+* Puedes sustituir un nodo de administración principal que se ejecute en un host de VMware por un dispositivo de servicios SG1000 o SG100.
+
+
+Utilice el procedimiento que coincida con la plataforma de reemplazo seleccionada para el nodo. Una vez completado el procedimiento de sustitución de nodo (que es adecuado para todos los tipos de nodos), dicho procedimiento le dirigirá al siguiente paso para la recuperación del nodo de administración principal.
+
+[cols="1a,2a"]
+|===
+| Plataforma de sustitución | Procedimiento 
+
+
+ a| 
+VMware
+ a| 
+link:all-node-types-replacing-vmware-node.html["Sustituir un nodo de VMware por un nodo de recuperación"]
+
+link:replace-vmware-node-with-sg1000-sg100.html["Sustituir el nodo VMware por un appliance de servicios SG1000 o SG100"]
+
+
+
+ a| 
+Linux
+ a| 
+link:all-node-types-replacing-linux-node.html["Sustituya un nodo Linux"]
+
+
+
+ a| 
+Dispositivos de servicios
+ a| 
+link:replacing-failed-node-with-services-appliance.html["Sustituya un dispositivo de servicios"]
+
+
+
+ a| 
+OpenStack
+ a| 
+Las operaciones de recuperación ya no son compatibles con los archivos de disco de máquinas virtuales y los scripts de OpenStack que proporciona NetApp. Si necesita recuperar un nodo que se ejecuta en una implementación de OpenStack, descargue los archivos para el sistema operativo Linux. Luego, siga el procedimiento para link:all-node-types-replacing-linux-node.html["Reemplazar un nodo Linux"].
+
+|===

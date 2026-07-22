@@ -42,8 +42,8 @@ indexpage:
       url: "../tenant/deleting-s3-bucket.html"
   - title: Usar funciones de inquilino
     links:
-    - title: Clon de cuenta
-      url: "../tenant/grid-federation-account-clone.html"
+    - title: Sincronización de cuentas
+      url: "../tenant/grid-federation-account-sync.html"
     - title: Replicación entre grid
       url: "../tenant/grid-federation-manage-cross-grid-replication.html"
     - title: Servicios de plataforma

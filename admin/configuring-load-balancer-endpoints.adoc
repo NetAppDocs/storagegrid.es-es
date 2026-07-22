@@ -86,6 +86,8 @@ El puerto StorageGRID que desea usar para el equilibrio de carga. Este campo se 
 
 Si ingresa *80* o *8443*, el punto final se configura solo en los nodos de Gateway, a menos que haya liberado el puerto 8443. A continuación, puede utilizar el puerto 8443 como punto final S3 y el puerto se configurará en los nodos Gateway y Admin.
 
+Si estás configurando puntos finales del equilibrador de carga para un link:../admin/configure-global-namespace.html["espacio de nombres global"], utiliza el mismo puerto para cada punto final.
+
 
 
  a| 

@@ -22,9 +22,8 @@ Al convertir nodos de solo datos, la cuadrícula debe contener un mínimo de tre
 .Antes de empezar
 * Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
 * Usted tiene el link:../admin/admin-group-permissions.html["Permiso de mantenimiento o acceso raíz"].
-* El nodo de almacenamiento que desea convertir no contiene el servicio ADC o tienelink:../maintain/move-adc-service.html["movió el servicio ADC"] a otro nodo.
 * El nodo de almacenamiento no es un nodo solo de metadatos ni solo de datos.
-* El nodo de almacenamiento que desea convertir no contiene el servicio ADC o tienelink:../maintain/move-adc-service.html["movió el servicio ADC"] a otro nodo.
+* Si el nodo de almacenamiento contiene el servicio ADC, hay más de dos nodos de almacenamiento ADC en línea en toda la grid y hay nodos de almacenamiento que no son ADC disponibles en el mismo sitio para alojar el servicio ADC.
 * Hay suficiente espacio de metadatos en otros nodos del sitio (o tienelink:../expand/index.html["amplió su red"] ) para acomodar los metadatos que migrarán desde el nodo de almacenamiento que está convirtiendo.
 +
 [CAUTION]
@@ -37,12 +36,15 @@ Al convertir nodos de solo datos, la cuadrícula debe contener un mínimo de tre
 
 
 .Acerca de esta tarea
-Utilice este procedimiento para convertir uno o más nodos de almacenamiento combinados que no contienen el servicio ADC en nodos de solo datos.
+Utiliza este procedimiento para convertir uno o varios nodos de almacenamiento combinados en nodos de solo datos. Si un nodo de almacenamiento contiene el servicio ADC, el servicio se traslada automáticamente a otro nodo de almacenamiento en el mismo sitio durante la conversión.
 
 Además de convertir el nodo de almacenamiento, este procedimiento desmantela Cassandra del nodo.  Todos los metadatos se migrarán a nodos de almacenamiento combinados o de solo metadatos.  Dependiendo de la cantidad de metadatos que se deban migrar, este procedimiento podría tardar varios días por nodo en completarse.
 
 
 TIP: Generalmente, puede convertir hasta 10 nodos a la vez si el uso de metadatos por nodo es inferior a 1 TB.  Si el uso de metadatos por nodo es superior a 1 TB, convierta hasta 5 nodos por procedimiento.
+
+
+NOTE: StorageGRID traslada el servicio ADC a los nodos de almacenamiento más recientes que cumplen los requisitos para alojar dicho servicio.
 
 .Pasos
 . Registre los ID de los nodos de almacenamiento que no sean ADC que desea convertir.

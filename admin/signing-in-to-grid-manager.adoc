@@ -18,14 +18,14 @@ Cada sistema StorageGRID incluye un nodo de administrador primario y cualquier n
 
 
 [[connect-to-ha-group]]
-=== Conéctese a un grupo de alta disponibilidad
+== Conéctese a un grupo de alta disponibilidad
 
 Si se incluyen nodos de administración en un grupo de alta disponibilidad (ha), puede conectarse mediante la dirección IP virtual del grupo de alta disponibilidad o un nombre de dominio completo que asigne la dirección IP virtual. El nodo de administración principal se debe seleccionar como la interfaz principal del grupo, de modo que al acceder a Grid Manager, se tiene acceso en el nodo de administración principal a menos que el nodo de administración principal no esté disponible. Consulte link:managing-high-availability-groups.html["Gestión de grupos de alta disponibilidad"].
 
 
 
 [[use-sso]]
-=== Utilice SSO
+== Utilice SSO
 
 Los pasos para iniciar sesión son ligeramente diferentes silink:how-sso-works.html["Se ha configurado el inicio de sesión único (SSO)"] .
 
@@ -51,10 +51,6 @@ Para acceder a Grid Manager en un puerto que no sea el puerto predeterminado par
 
 +
 `https://_FQDN_or_Admin_Node_IP:port_/`
-
-+
-
-NOTE: SSO no está disponible en el puerto restringido de Grid Manager. Se debe usar el puerto 443.
 
 
 

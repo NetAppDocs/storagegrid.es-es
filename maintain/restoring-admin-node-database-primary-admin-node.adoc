@@ -59,7 +59,6 @@ NOTE: La copia de la base de datos del nodo de administración puede llevar vari
 .. Detenga el servicio mgmt-api: `service mgmt-api stop`
 .. Añada la clave privada SSH al agente SSH. Introduzca:``ssh-add``
 .. Introduzca la contraseña de acceso SSH que aparece en `Passwords.txt` el archivo.
-.. Copie la base de datos del nodo de administración de origen en el nodo de administración recuperado: `/usr/local/mi/bin/mi-clone-db.sh Source_Admin_Node_IP`
 .. Cuando se le solicite, confirme que desea sobrescribir la base DE datos MI en el nodo de administración recuperado.
 +
 La base de datos y sus datos históricos se copian en el nodo de administración recuperado. Una vez realizada la operación de copia, el script inicia el nodo de administración recuperado.

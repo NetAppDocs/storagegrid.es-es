@@ -138,7 +138,7 @@ La última columna muestra el valor máximo optimizado de la marca de agua soft 
 . Repita estos pasos para cada nodo de almacenamiento en línea:
 +
 .. Seleccione *_Storage Node_* > *Storage*.
-.. Desplácese hasta la tabla almacenes de objetos.
+.. Desplázate hacia abajo hasta la tabla de almacenes de objetos.
 .. Compare el valor *disponible* de cada almacén de objetos (volumen) con la Marca de agua optimizada máxima que anotó para ese nodo de almacenamiento.
 
 

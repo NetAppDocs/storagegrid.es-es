@@ -60,7 +60,7 @@ Si tiene la seguridad de que el host de máquina virtual tiene suficientes recur
 .. Seleccione *memoria* y, a continuación, utilice el control deslizante Reservación para ajustar el MB reservado para esta máquina virtual.
 
 
-. Haga clic en *Aceptar*.
+. Seleccione *OK*.
 . Repita esto según sea necesario para otras máquinas virtuales alojadas en el mismo host de VM.
 
 

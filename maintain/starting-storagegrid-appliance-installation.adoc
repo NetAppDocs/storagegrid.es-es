@@ -16,7 +16,12 @@ Para instalar StorageGRID en un nodo de almacenamiento del dispositivo, utilice 
 .Antes de empezar
 * El dispositivo se ha instalado en un bastidor, conectado a las redes y encendido.
 * Se han configurado los enlaces de red y las direcciones IP para el dispositivo mediante el instalador de dispositivos de StorageGRID.
-* Conoce la dirección IP del nodo de administrador principal para la cuadrícula StorageGRID.
+* Conoces la dirección IP de uno de los siguientes nodos de administración:
++
+** El nodo de administración principal de la StorageGRID grid
+** Un nodo de administración no principal, si está disponible
+
+
 * Todas las subredes de red de cuadrícula que aparecen en la página Configuración de IP del instalador de dispositivos StorageGRID se definieron en la lista de subredes de redes de cuadrícula del nodo de administración principal.
 * Ha completado estas tareas de requisitos previos siguiendo las instrucciones de instalación para el dispositivo de almacenamiento. Consulte https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/index.html["Inicio rápido para la instalación de hardware"^].
 * Está utilizando una link:../admin/web-browser-requirements.html["navegador web compatible"].
@@ -26,7 +31,7 @@ Para instalar StorageGRID en un nodo de almacenamiento del dispositivo, utilice 
 .Acerca de esta tarea
 Para instalar StorageGRID en un nodo de almacenamiento de dispositivos:
 
-* Especifique o confirme la dirección IP del nodo de administración principal y el nombre de host (nombre del sistema) del nodo.
+* Debes indicar la dirección IP del nodo de administración principal. Si el nodo de administración principal no está disponible, debes indicar la dirección IP del nodo de administración no principal, si está disponible. También debes confirmar el nombre de host (nombre del sistema) del nodo.
 * Inicia la instalación y espera a que los volúmenes estén configurados y el software esté instalado.
 +
 
@@ -86,17 +91,17 @@ Detección automática de todos los nodos principales de administración conecta
 |===
 
 
-. En el campo *Nombre del nodo*, introduzca el mismo nombre de host (nombre del sistema) que se utilizó para el nodo que está recuperando y haga clic en *Guardar*.
-. En la sección Instalación, confirme que el estado actual es “Listo para iniciar la instalación de `_node name_` Into grid con el nodo de administración principal `_admin_ip_`” y que el botón *Iniciar instalación* está habilitado.
+. En el campo *Nombre de nodo*, introduce el mismo nombre de host (nombre del sistema) que se utilizó para el nodo que estás recuperando y selecciona *Guardar*.
+. En la sección «Instalación», comprueba que el estado actual sea «Listo para iniciar la instalación de `_node name_` en la grid con el Primary Admin Node `_admin_ip_`» y que el botón *Iniciar instalación* esté activado.
 +
 Si el botón *Iniciar instalación* no está activado, es posible que deba cambiar la configuración de red o la configuración del puerto. Para obtener instrucciones, consulte las instrucciones de mantenimiento de su aparato.
 
-. En la página de inicio del instalador de dispositivos StorageGRID, haga clic en *Iniciar instalación*.
+. En la página de inicio del instalador de StorageGRID Appliance, selecciona *Iniciar instalación*.
 +
-El estado actual cambia a «Instalación en curso» y se muestra la página de instalación del monitor.
+El estado actual cambia a «Instalación en curso» y se muestra la página de instalación de Monitor.
 
 +
 
-NOTE: Si necesita acceder a la página de instalación del monitor manualmente, haga clic en *instalación del monitor* en la barra de menús. Consulte https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/monitoring-appliance-installation.html["Supervise la instalación del dispositivo"^].
+NOTE: Si necesitas acceder manualmente a la página de instalación de Monitor, selecciona *Monitor installation* en la barra de menús. Consulta https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/monitoring-appliance-installation.html["Supervise la instalación del dispositivo"^].
 
 

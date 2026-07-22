@@ -38,7 +38,7 @@ Puede seleccionar el tipo de nodo de almacenamiento en estas situaciones:
 [[data-and-metadata-storage-node-combined]]
 === Nodo de almacenamiento de datos y metadatos (combinado)
 
-De forma predeterminada, todos los nodos de almacenamiento nuevos almacenarán tanto datos como metadatos de objetos. Este tipo de nodo de almacenamiento se denomina nodo de almacenamiento _Combinado_.
+De forma predeterminada, todos los nuevos nodos de almacenamiento almacenan tanto los datos de los objetos como los metadatos. Este tipo de nodo de almacenamiento se llama nodo de almacenamiento _combinado_.
 
 
 
@@ -49,8 +49,8 @@ El uso exclusivo de un nodo de almacenamiento para metadatos puede tener sentido
 
 Los nodos de almacenamiento solo de metadatos tienen requisitos de hardware específicos:
 
-* Cuando se usan dispositivos StorageGRID, los nodos solo de metadatos se pueden configurar en dispositivos SGF6112 con doce unidades de 1,9 TB o doce de 3,8 TB.
-* Cuando se usan nodos basados en software, los recursos de nodos de solo metadatos deben coincidir con los recursos de nodos de almacenamiento existentes. Por ejemplo:
+* Al utilizar dispositivos StorageGRID, solo puedes configurar nodos exclusivos de metadatos en dispositivos SGF6112 con doce unidades de 1,9 TB o doce de 3,8 TB.
+* Al utilizar nodos basados en software, debes asegurarte de que los recursos de los nodos solo de metadatos coincidan con los recursos de los Storage Nodes existentes. Por ejemplo:
 +
 ** Si el sitio de StorageGRID existente utiliza dispositivos SG6000 o SG6100, los nodos de solo metadatos basados en software deben cumplir con los siguientes requisitos mínimos:
 +
@@ -77,7 +77,7 @@ El uso exclusivo de un nodo de almacenamiento para los datos puede ser lógico s
 
 Además, puede obtener más capacidad de metadatos eliminando nodos con poca RAM de Cassandra, lo que aumenta el límite de capacidad de metadatos por nodo. Consulte link:../admin/managing-object-metadata-storage.html["Gestione el almacenamiento de metadatos de objetos"] .
 
-Puede convertir un nodo de almacenamiento que no contenga el<<adc-service,Servicio ADC>> a un nodo de almacenamiento de solo datos. Consulte link:../maintain/convert-to-data-only-node.html["Convertir un nodo de almacenamiento en un nodo de solo datos"] .
+Puedes convertir un nodo de almacenamiento combinado en un nodo de almacenamiento solo de datos. Si el nodo de almacenamiento contiene el <<adc-service,Servicio ADC>>, y se cumplen los requisitos previos para la conversión, el servicio se traslada automáticamente a otro nodo de almacenamiento en el mismo sitio durante la conversión. Para conocer los requisitos previos y los pasos detallados, consulta link:../maintain/convert-to-data-only-node.html["Convertir un nodo de almacenamiento en un nodo de solo datos"].
 
 
 
@@ -127,7 +127,7 @@ Los nodos de almacenamiento de solo datos no alojan este servicio.
 ====
 El servicio de controlador de dominio administrativo (ADC) autentica los nodos de grid y sus conexiones entre sí. El servicio ADC está alojado en un mínimo de tres nodos de almacenamiento en un sitio.
 
-El servicio ADC mantiene la información de topología, incluida la ubicación y disponibilidad de los servicios. Cuando un nodo de cuadrícula requiere información de otro nodo de cuadrícula o una acción que debe realizar otro nodo de cuadrícula, se pone en contacto con un servicio de ADC para encontrar el mejor nodo de cuadrícula para procesar su solicitud. Además, el servicio ADC conserva una copia de los paquetes de configuración de la implementación de StorageGRID, lo que permite que cualquier nodo de grid recupere la información de configuración actual.
+El servicio ADC gestiona la información sobre la topología, incluida la ubicación y la disponibilidad de los servicios. Cuando un nodo de grid necesita información de otro nodo de grid o que otro nodo de grid realice una acción, se pone en contacto con un servicio ADC para encontrar el nodo de grid más adecuado para procesar su solicitud. Además, el servicio ADC conserva una copia de los paquetes de configuración de la implementación de StorageGRID, lo que permite a cualquier nodo de grid recuperar la información de configuración actual.
 
 Para facilitar las operaciones distribuidas e iaterradas, cada servicio ADC sincroniza certificados, paquetes de configuración e información sobre servicios y topología con los otros servicios ADC del sistema StorageGRID.
 

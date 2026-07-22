@@ -149,7 +149,7 @@ Puede recuperar el nodo de administración principal
  a| 
 Sí
  a| 
-No
+Sí
 
 
 

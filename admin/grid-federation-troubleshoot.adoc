@@ -1,8 +1,8 @@
 ---
 permalink: admin/grid-federation-troubleshoot.html 
 sidebar: sidebar 
-keywords: troubleshoot, grid federation connection, account clone, cross-grid replication, alerts, errors 
-summary: Es posible que deba solucionar alertas y errores relacionados con las conexiones de federación de grid, el clon de cuenta y la replicación entre grid. 
+keywords: troubleshoot, grid federation connection, account sync, cross-grid replication, alerts, errors 
+summary: Es posible que tengas que solucionar problemas relacionados con alertas y errores en las conexiones de la federación de grid, la sincronización de cuentas y la replicación entre grid. 
 ---
 = Soluciona errores de federación de grid en StorageGRID
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Es posible que deba solucionar alertas y errores relacionados con las c
 
 
 [role="lead"]
-Es posible que deba solucionar alertas y errores relacionados con las conexiones de federación de grid, el clon de cuenta y la replicación entre grid.
+Es posible que tengas que solucionar problemas relacionados con alertas y errores en las conexiones de la federación de grid, la sincronización de cuentas y la replicación entre grid.
 
 
 
@@ -73,32 +73,30 @@ Cuando edita una conexión de federación de grid, StorageGRID intenta guardar u
 
 
 
-[[account-clone-errors]]
-== Errores de clonación de cuenta
+[[account-sync-errors]]
+== Errores de sincronización de cuentas
 
 
 
-[[cant-sign-in-to-a-cloned-tenant-account]]
-=== No se puede iniciar sesión en una cuenta de inquilino clonada
+[[cant-sign-in-to-a-synced-tenant-account]]
+=== No puedes iniciar sesión en una cuenta de inquilino sincronizada
 
 .Problema
-No puede iniciar sesión en una cuenta de inquilino clonada. El mensaje de error de la página de inicio de sesión del gestor de inquilinos indica que las credenciales de esta cuenta no son válidas. Inténtelo de nuevo.
+No puedes iniciar sesión en una cuenta de inquilino sincronizada. El mensaje de error en la página de inicio de sesión de Tenant Manager es "Tus credenciales para esta cuenta no son válidas. Por favor, inténtalo de nuevo."
 
 .Detalles
-Por motivos de seguridad, cuando se clona una cuenta de inquilino desde la cuadrícula de origen del inquilino a la cuadrícula de destino del inquilino, la contraseña que configuró para el usuario raíz local del inquilino no se clona. De la misma forma, cuando un inquilino crea usuarios locales en su grid de origen, las contraseñas de usuario local no se clonan en el grid de destino.
+La contraseña que hayas establecido para el usuario raíz local del inquilino y para otros usuarios locales se sincroniza automáticamente. Sin embargo, es posible que tengas que cambiar la contraseña del usuario raíz local del inquilino en la grid de destino antes de poder iniciar sesión en la cuenta del inquilino en esa grid.
 
 .Acciones recomendadas
 Antes de que el usuario root pueda iniciar sesión en la cuadrícula de destino del inquilino, un administrador de grid debe primero en link:changing-password-for-tenant-local-root-user.html["cambie la contraseña del usuario raíz local"]la cuadrícula de destino.
 
-Antes de que un usuario local clonado pueda iniciar sesión en la red de destino del inquilino, el usuario raíz del inquilino clonado debe agregar una contraseña para el usuario en la red de destino.  Para obtener instrucciones, consultelink:../tenant/manage-users.html["Gestionar usuarios"] en las instrucciones para utilizar el Administrador de inquilinos.
 
 
-
-[[tenant-created-without-a-clone]]
-=== Inquilino creado sin un clon
+[[tenant-created-without-a-sync]]
+=== Tenant creado sin sincronización
 
 .Problema
-Puede ver el mensaje “Tenant created without a clone” después de crear un nuevo inquilino con el permiso *use grid federation connection*.
+Ves el mensaje «Tenant created without a sync» después de crear un nuevo tenant con el permiso *Use grid federation connection*.
 
 .Detalles
 Este problema puede ocurrir si las actualizaciones del estado de conexión se retrasan, lo que podría provocar que una conexión no saludable se listara como *Connected*.
@@ -107,12 +105,9 @@ Este problema puede ocurrir si las actualizaciones del estado de conexión se re
 . Revise el motivo que aparece en el mensaje de error y resuelva cualquier problema de red u otros problemas que puedan impedir el funcionamiento de la conexión. Consulte <<grid-federation-errors,Alertas y errores de conexión de federación de grid>>.
 . Siga las instrucciones para probar una conexión de federación de rejilla en link:grid-federation-manage-connection.html["Gestionar conexiones de federación de grid"] para confirmar que se ha solucionado el problema.
 . Desde la cuadrícula de origen del inquilino, seleccione *Inquilinos*.
-. Localice la cuenta de inquilino que no se pudo clonar.
+. Localiza la cuenta de inquilino que no se pudo sincronizar.
 . Seleccione el nombre del arrendatario para mostrar la página de detalles.
-. Seleccione *Reintentar clon de cuenta*.
-+
-image:grid-federation-retry-account-clone.png["Captura de pantalla que muestra un mensaje de error y el botón Reintentar clon de cuenta"] Si el error se ha solucionado, la cuenta del tenant ahora se clonará en la otra grid.
-
+. Selecciona *Reintentar sincronización*. Si el error se ha resuelto, la cuenta del inquilino ahora se sincronizará con la otra grid.
 
 
 
@@ -128,7 +123,7 @@ image:grid-federation-retry-account-clone.png["Captura de pantalla que muestra u
 .Problema
 Cuando link:../monitor/grid-federation-monitor-connections.html["visualización de una conexión de federación de grid"] (o cuando link:grid-federation-manage-tenants.html["gestión de los inquilinos permitidos"] se trata de una conexión), nota un error en la columna *Último error* de la página de detalles de la conexión. Por ejemplo:
 
-image:grid-federation-last-error.png["Captura de pantalla que muestra un mensaje en la última columna de error de una conexión de federación de cuadrícula"]
+image:grid_federation_last_error.png["Captura de pantalla que muestra un mensaje en la última columna de error de una conexión de federación de cuadrícula"]
 
 .Detalles
 Para cada conexión de federación de red, la columna *Último error* muestra el error más reciente que ocurrió, si lo hubo, cuando los datos de un inquilino se estaban replicando a la otra red.  Esta columna muestra únicamente el último error de replicación entre redes que ocurrió; no se muestran los errores anteriores que podrían haber ocurrido.  Un error en esta columna podría ocurrir por una de estas razones:
@@ -147,7 +142,10 @@ Para cada conexión de federación de red, la columna *Último error* muestra el
 Si aparece un mensaje de error en la columna *Último error*, siga estos pasos:
 
 . Revise el texto del mensaje.
-. Realice las acciones recomendadas. Por ejemplo, si se suspendió el control de versiones en el bloque de destino para la replicación entre grid, vuelva a habilitar el control de versiones para ese bloque.
+. Lleva a cabo las acciones recomendadas.
++
+Por ejemplo, si se suspendió el control de versiones en el depósito de destino para la replicación entre grids, vuelve a habilitar el control de versiones para ese depósito. O, si se desactivó S3 Object Lock en el depósito de destino para la replicación entre grids, habilita S3 Object Lock para ese depósito.
+
 . Seleccione la conexión o la cuenta de inquilino de la tabla.
 . Seleccione *Borrar error*.
 . Seleccione *Sí* para borrar el mensaje y actualizar el estado del sistema.

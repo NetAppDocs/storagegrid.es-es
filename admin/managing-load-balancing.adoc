@@ -176,7 +176,7 @@ Subject DN: /C=Country/ST=State/O=Company,Inc./CN=s3.storagegrid.example.com
 ----
 Según sea necesario, el certificado puede utilizar comodines para representar los nombres de dominio totalmente cualificados de todos los nodos de administración y nodos de gateway que ejecutan el servicio de equilibrio de carga. Por ejemplo, `*.storagegrid._example_.com` utiliza el comodín * para representar `adm1.storagegrid._example_.com` y `gn1.storagegrid._example_.com`.
 
-Si planea utilizar S3 solicitudes virtuales de estilo hospedado, el certificado también debe incluir una entrada de *Nombre Alternativo* para cada una de las link:../admin/configuring-s3-api-endpoint-domain-names.html["Nombre de dominio de punto final S3"] que haya configurado, incluidos los nombres comodín. Por ejemplo:
+Si tienes previsto utilizar solicitudes de S3 con alojamiento virtual, el certificado también debe incluir una entrada de *Nombre alternativo* para cada link:../admin/configuring-s3-api-endpoint-domain-names.html["Nombre de dominio de punto final S3"] que hayas configurado, incluidos los nombres con comodín. Por ejemplo:
 
 [listing]
 ----

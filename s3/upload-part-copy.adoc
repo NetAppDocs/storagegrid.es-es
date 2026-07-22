@@ -17,6 +17,11 @@ La operación UploadPartCopy se implementa con todo el comportamiento de la API 
 
 Esta solicitud lee y escribe los datos de objetos especificados en `x-amz-copy-source-range` el sistema StorageGRID.
 
+
+
+[[supported-request-headers]]
+== Encabezados de solicitud admitidos
+
 Se admiten los siguientes encabezados de solicitud:
 
 * `x-amz-copy-source-if-match`
@@ -53,3 +58,10 @@ CAUTION: Las claves de cifrado que proporcione no se almacenan nunca. Si pierde 
 == Creación de versiones
 
 La carga de varias partes consiste en operaciones independientes para iniciar la carga, enumerar cargas, cargar piezas, ensamblar las piezas cargadas y completar la carga. Los objetos se crean (y se versionan si corresponde) cuando se realiza la operación CompleteMultipartUpload.
+
+
+
+[[s3-checksum-support]]
+== Compatibilidad con la suma de comprobación de S3
+
+StorageGRID detecta automáticamente si se ha especificado una suma de comprobación durante una solicitud CreateMultipartUpload y utiliza esta suma de comprobación en la operación UploadPartCopy. No necesitas especificar una suma de comprobación en una solicitud UploadPartCopy. Si una solicitud CreateMultipartUpload no especifica una suma de comprobación, StorageGRID no calcula una suma de comprobación CRC-64/NVME predeterminada para un objeto. StorageGRID no incluye una suma de comprobación para la parte copiada cuando CreateMultipartUpload no ha especificado una suma de comprobación.

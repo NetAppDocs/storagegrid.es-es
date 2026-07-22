@@ -55,7 +55,7 @@ En la sección Alerts de la pestaña Overview se muestran las alertas activas pa
 
 . Seleccione *hardware* para obtener más información sobre el dispositivo.
 +
-.. Consulte los gráficos de utilización de CPU y memoria para determinar los porcentajes de uso de CPU y memoria a lo largo del tiempo. Para mostrar un intervalo de tiempo diferente, seleccione uno de los controles situados encima del gráfico o gráfico. Puede visualizar la información disponible para intervalos de 1 hora, 1 día, 1 semana o 1 mes. También puede establecer un intervalo personalizado, que le permite especificar intervalos de fecha y hora.
+.. Consulta los gráficos de utilización de CPU y de uso de la memoria para determinar los porcentajes de utilización de CPU y de la memoria a lo largo del tiempo. Para mostrar un intervalo de tiempo diferente, selecciona uno de los controles situados encima del gráfico. Puedes visualizar la información disponible para intervalos de 1 hora, 1 día, 1 semana o 1 mes. También puedes establecer un intervalo personalizado, lo que te permite especificar rangos de fecha y hora.
 +
 image:nodes_page_hardware_tab_graphs.png["Gráficos de hardware"]
 
@@ -66,9 +66,6 @@ NOTE: Algunos campos, como el hardware de informática y IP de BMC Controller, a
 
 +
 Los componentes de las bandejas de almacenamiento y las bandejas de expansión si forman parte de la instalación se muestran en una tabla aparte debajo de la tabla del dispositivo.
-
-+
-image:nodes_page_hardware_tab_for_appliance.png["Página nodos ficha hardware para el dispositivo"]
 
 +
 [cols="1a,2a"]
@@ -261,6 +258,20 @@ Temperatura del chasis de la controladora de computación
  a| 
 El estado de temperatura de la controladora de computación.
 
+
+
+ a| 
+Fuente de alimentación del controlador informático A
+ a| 
+El estado de la fuente de alimentación A del controlador de cómputo.
+
+
+
+ a| 
+Fuente de alimentación del controlador informático B
+ a| 
+El estado de la fuente de alimentación B del controlador de cómputo.
+
 |===
 +
 [cols="1a,2a"]
@@ -379,12 +390,12 @@ El gráfico tráfico de red proporciona un resumen del tráfico de red general.
 image:nodes_page_network_traffic_graph.png["Gráfico de tráfico de red de la página Nodes"]
 
 +
-.. Revise la sección Network interfaces.
+.. Consulta la sección de interfaces de red.
 +
 image:nodes_page_network_interfaces.png["Nodes Page Network interfaces"]
 
 +
-Utilice la siguiente tabla con los valores de la columna *velocidad* de la tabla interfaces de red para determinar si los puertos de red 10/25-GbE del dispositivo se han configurado para utilizar el modo activo/backup o el modo LACP.
+Usa la siguiente tabla junto con los valores de la columna *Velocidad* en la tabla de interfaces de red para determinar si los puertos de red de 10/25 GbE del appliance se configuraron para usar el modo activo/de respaldo o el modo LACP.
 
 +
 
@@ -464,12 +475,9 @@ Activa/Backup
 +
 Consulte https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/configuring-network-links.html["Configure los enlaces de red"^] para obtener más información sobre la configuración de los puertos 10/25-GbE.
 
-.. Revise la sección Comunicación de red.
+.. Consulta la sección Comunicación en red.
 +
 Las tablas de recepción y transmisión muestran cuántos bytes y paquetes se han recibido y enviado a través de cada red, así como otras métricas de recepción y transmisión.
-
-+
-image:nodes_page_network_communication.png["Comunicación de red de página nodos"]
 
 
 
@@ -488,9 +496,6 @@ El nombre a nivel mundial de cada disco coincide con el identificador a nivel mu
 +
 Para ayudarle a interpretar las estadísticas de lectura y escritura del disco relacionadas con los puntos de montaje del volumen, la primera parte del nombre que aparece en la columna *Nombre* de la tabla dispositivos de disco (es decir, _sdc_, _sdd_, _sde_, etc.) coincide con el valor que se muestra en la columna *dispositivo* de la tabla de volúmenes.
 
-+
-image:nodes_page_storage_tables.png["Tablas de almacenamiento de páginas de nodos"]
-
 
 
 
@@ -504,7 +509,7 @@ En la página Nodes, se incluye información sobre el estado del servicio y todo
 
 .Pasos
 . En la página Nodes, seleccione un nodo de administrador de dispositivos o un Appliance Gateway Node.
-. Seleccione *Descripción general*.
+. Seleccione la ficha *Descripción general*.
 +
 La sección Información de nodos de la ficha Descripción general muestra información de resumen del nodo, como el nombre, tipo, ID y estado de conexión del nodo. La lista de direcciones IP incluye el nombre de la interfaz de cada dirección de la siguiente manera:
 
@@ -521,16 +526,13 @@ image:nodes_page_overview_tab_services_appliance.png["Pestaña Nodes de la pági
 +
 En la sección Alerts de la pestaña Overview se muestran las alertas activas para el nodo.
 
-. Seleccione *hardware* para obtener más información sobre el dispositivo.
+. Selecciona la pestaña *Hardware* para ver más información sobre el dispositivo.
 +
 .. Consulte los gráficos de utilización de CPU y memoria para determinar los porcentajes de uso de CPU y memoria a lo largo del tiempo. Para mostrar un intervalo de tiempo diferente, seleccione uno de los controles situados encima del gráfico o gráfico. Puede visualizar la información disponible para intervalos de 1 hora, 1 día, 1 semana o 1 mes. También puede establecer un intervalo personalizado, que le permite especificar intervalos de fecha y hora.
 +
 image:nodes_page_hardware_tab_graphs_services_appliance.png["Página nodos gráficos de la pestaña hardware para el dispositivo de servicios"]
 
-.. Desplácese hacia abajo para ver la tabla de componentes del aparato. Esta tabla contiene información, como el nombre del modelo, número de serie, versión de firmware de la controladora y el estado de cada componente.
-+
-image:nodes_page_hardware_tab_services_appliance.png["Página nodos Ficha hardware para el dispositivo de servicios"]
-
+.. Desplázate hacia abajo para ver la tabla de componentes del aparato. La tabla contiene información como el nombre del modelo, el número de serie, la versión del firmware del controlador y el estado de cada componente.
 +
 [cols="1a,2a"]
 |===
@@ -621,7 +623,7 @@ Si un estado no es nominal, revise las alertas actuales.
 
 
 
-. Seleccione *Red* para ver la información de cada red.
+. Selecciona la pestaña *Red* para ver la información de cada red.
 +
 El gráfico tráfico de red proporciona un resumen del tráfico de red general.
 
@@ -629,12 +631,9 @@ El gráfico tráfico de red proporciona un resumen del tráfico de red general.
 image:nodes_page_network_traffic_graph.png["Gráfico de tráfico de red de la página Nodes"]
 
 +
-.. Revise la sección Network interfaces.
+.. Consulta la sección de interfaces de red.
 +
-image:nodes_page_hardware_tab_network_services_appliance.png["Página nodos ficha hardware Network Services Appliance"]
-
-+
-Utilice la siguiente tabla con los valores de la columna *velocidad* de la tabla interfaces de red para determinar si los cuatro puertos de red 40/100-GbE del dispositivo estaban configurados para utilizar el modo activo/backup o el modo LACP.
+Usa la siguiente tabla junto con los valores de la columna *Velocidad* en la tabla de interfaces de red para determinar si los cuatro puertos de red de 40/100 GbE del dispositivo se configuraron para usar el modo activo/de respaldo o el modo LACP.
 
 +
 
@@ -711,17 +710,11 @@ Activa/Backup
 40
 
 |===
-.. Revise la sección Comunicación de red.
+.. Consulta la sección Comunicación en red.
 +
 Las tablas de recepción y transmisión muestran cuántos bytes y paquetes se han recibido y enviado a través de cada red, así como otras métricas de recepción y transmisión.
 
-+
-image:nodes_page_network_communication.png["Comunicación de red de página nodos"]
 
 
-
-. Seleccione *almacenamiento* para ver información sobre los dispositivos de disco y los volúmenes del dispositivo de servicios.
-+
-image:nodes_page_storage_tab_services_appliance.png["Página nodos ficha almacenamiento Servicios dispositivo"]
-
+. Selecciona la pestaña *Almacenamiento* para ver información sobre los dispositivos de disco y los volúmenes en el dispositivo de servicios.
 

@@ -315,6 +315,21 @@ Solicitudes de pools de almacenamiento en la nube enviadas a destinos de AWS que
 
 
  a| 
+636
+ a| 
+TCP/UDP
+ a| 
+LDAP
+ a| 
+Nodos de almacenamiento con ADC
+ a| 
+Active Directory/LDAP
+ a| 
+Se utiliza para conectarse a un servidor Active Directory o LDAP para la Federación de identidades.
+
+
+
+ a| 
 5353
  a| 
 UDP

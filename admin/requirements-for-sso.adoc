@@ -18,13 +18,33 @@ Antes de activar el inicio de sesión único (SSO) para un sistema StorageGRID, 
 [[identity-provider-requirements]]
 == Requisitos del proveedor de identidades
 
-StorageGRID admite los siguientes proveedores de identidad de SSO (IDP):
+StorageGRID es compatible con varios proveedores de identidad (IdP) de inicio de sesión único (SSO).
+
+[role="tabbed-block"]
+====
+.OIDC
+--
+Se admiten los siguientes SSO IdPs para OpenID Connect (OIDC):
+
+* Servicio de Federación de Active Directory (AD FS)
+* Identificador de Microsoft Entra
+* Keycloak
+* PingFederate
+* Okta
+
+
+--
+.SAML
+--
+Se admiten los siguientes SSO IdPs para el Lenguaje de Marcado de Afirmaciones de Seguridad 2.0 (SAML 2.0):
 
 * Servicio de Federación de Active Directory (AD FS)
 * Identificador de Microsoft Entra
 * PingFederate
 
 
+--
+====
 Debe configurar la federación de identidades para el sistema StorageGRID antes de poder configurar un proveedor de identidades SSO. El tipo de servicio LDAP que utiliza para controlar la federación de identidades qué tipo de SSO puede implementar.
 
 [cols="1a,1a"]
@@ -36,6 +56,8 @@ Debe configurar la federación de identidades para el sistema StorageGRID antes 
 Active Directory
  a| 
 * Active Directory
+* Keycloak
+* Okta
 * Identificación de entrada
 * PingFederate
 

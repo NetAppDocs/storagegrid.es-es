@@ -19,12 +19,12 @@ Debe revisar con cuidado la información de configuración que ha introducido pa
 image:11_gmi_installer_summary_page.gif["Página de resumen del instalador de Grid Manager"]
 
 . Verifique que toda la información de configuración de la cuadrícula sea correcta. Utilice los enlaces Modify de la página Summary para volver atrás y corregir los errores.
-. Haga clic en *instalar*.
+. Selecciona *Instalar*.
 +
 
-NOTE: Si un nodo está configurado para utilizar la red de cliente, la puerta de enlace predeterminada para ese nodo cambia de la red de cuadrícula a la red de cliente cuando hace clic en *instalar*. Si se pierde la conectividad, debe asegurarse de acceder al nodo de administración principal a través de una subred accesible. Consulte link:../network/index.html["Directrices sobre redes"] para obtener más información.
+NOTE: Si un nodo está configurado para utilizar la red del cliente, la puerta de enlace predeterminada de ese nodo cambia de la red de grid a la red del cliente cuando seleccionas *Instalar*. Si pierdes la conectividad, debes asegurarte de que estás accediendo al nodo de administración principal a través de una subred accesible. Consulta link:../network/index.html["Directrices sobre redes"] para más detalles.
 
-. Haga clic en *Descargar paquete de recuperación*.
+. Seleccione *Descargar paquete de recuperación*.
 +
 Cuando la instalación avanza hasta el punto en el que se define la topología de cuadrícula, se le solicita que descargue el archivo Recovery Package (`.zip`) y confirme que puede acceder correctamente al contenido de este archivo. Debe descargar el archivo de paquete de recuperación para que pueda recuperar el sistema StorageGRID si falla uno o más nodos de grid. La instalación continúa en segundo plano, pero no es posible completar la instalación y acceder al sistema StorageGRID hasta que se descargue y verifique este archivo.
 
@@ -33,7 +33,7 @@ Cuando la instalación avanza hasta el punto en el que se define la topología d
 
 CAUTION: El archivo del paquete de recuperación debe estar protegido porque contiene claves de cifrado y contraseñas que se pueden usar para obtener datos del sistema StorageGRID.
 
-. Seleccione la casilla de verificación *He descargado y verificado correctamente el archivo del paquete de recuperación* y haga clic en *Siguiente*.
+. Marca la casilla *He descargado y comprobado correctamente el archivo del paquete de recuperación* y selecciona *Siguiente*.
 +
 Si la instalación sigue en curso, aparece la página de estado. Esta página indica el progreso de la instalación para cada nodo de cuadrícula.
 

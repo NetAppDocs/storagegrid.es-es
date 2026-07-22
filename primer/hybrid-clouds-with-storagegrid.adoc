@@ -18,7 +18,7 @@ Utilice StorageGRID en una configuración de cloud híbrido implementando gesti�
 [[cloud-storage-pools]]
 == Pools de almacenamiento en cloud
 
-Los pools de almacenamiento en cloud permiten almacenar objetos fuera del sistema StorageGRID. Por ejemplo, es posible que desee mover objetos a los que se accede con poca frecuencia a un almacenamiento en cloud de bajo coste, como Amazon S3 Glacier, S3 Glacier Deep Archive, Google Cloud o el nivel de acceso de archivado en el almacenamiento de Microsoft Azure Blob. O bien, es posible que desee mantener un backup en cloud de objetos de StorageGRID, que pueden utilizarse para recuperar datos perdidos debido a un fallo del volumen de almacenamiento o del nodo de almacenamiento.
+Los grupos de almacenamiento en la nube te permiten almacenar objetos fuera del sistema StorageGRID. Por ejemplo, podrías querer mover objetos a los que se accede con poca frecuencia a un almacenamiento en la nube de menor coste, como Amazon S3 Glacier, S3 Glacier Deep Archive, Google Cloud o el nivel de acceso Archive en Microsoft Azure Blob Storage. O podrías querer mantener una copia de seguridad en la nube de los objetos de StorageGRID, que puede usarse para recuperar datos perdidos debido a un fallo en un volumen de almacenamiento o en un nodo de almacenamiento.
 
 También es compatible el almacenamiento de partners de terceros, incluido el almacenamiento en disco y en cinta.
 
@@ -34,7 +34,7 @@ Los servicios de plataforma S3 le dan la posibilidad de usar servicios remotos c
 
 * El servicio de replicación de CloudMirror hace automáticamente mirroring de los objetos especificados en un bloque de S3 de destino, que puede estar en un segundo sistema Amazon S3 o en un segundo sistema StorageGRID.
 * El servicio de notificación de eventos envía mensajes sobre acciones específicas a un punto final externo que admite la recepción de eventos del Servicio de notificación simple (Amazon SNS).
-* El servicio de integración de búsqueda envía metadatos de objetos a un servicio de Elasticsearch externo, lo que permite buscar, visualizar y analizar los metadatos con herramientas de terceros.
+* El servicio de integración de búsqueda envía los metadatos de los objetos a un servicio externo de Elasticsearch, lo que permite buscar, visualizar y analizar dichos metadatos mediante herramientas de terceros.
 
 
 Por ejemplo, podría usar la replicación de CloudMirror para reflejar registros de clientes específicos en Amazon S3 y, a continuación, aprovechar los servicios de AWS para realizar análisis de los datos.

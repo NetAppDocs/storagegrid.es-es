@@ -33,10 +33,10 @@ Aparecerá la página nodos de misión. Desde esta página, puede:
 ** Ordene la lista en orden ascendente o descendente por *Nombre*, *Sitio*, *Tipo* o *tiene ADC*.
 ** Introduzca los términos de búsqueda para encontrar rápidamente nodos concretos.
 +
-En este ejemplo, la columna Decomision possible indica que puede decomisionar el nodo de puerta de enlace y uno de los cuatro nodos de almacenamiento.
+En este ejemplo, una marca de verificación verde en la columna «Posibilidad de descomisionamiento» indica que puedes descomisionar el nodo API Gateway y el nodo de almacenamiento solo datos. Los demás nodos no se pueden descomisionar por diversas razones. Por ejemplo, el nodo Admin principal no se puede descomisionar porque no se admite decomisionar este tipo de nodo. El nodo de almacenamiento solo metadatos no se puede descomisionar porque el sitio dejaría de cumplir con el link:../maintain/understanding-adc-service-quorum.html["Quórum ADC"].
 
 +
-image:decommission_nodes_page_all_connected.png["Página Decomisión nodos"]
+image:decommission_nodes_page.png["Página Decomisión nodos"]
 
 
 
@@ -106,11 +106,11 @@ Edite el grupo de alta disponibilidad para quitar la interfaz del nodo o elimina
 
 
  a| 
-No, el sitio _x_ requiere un mínimo de _n_ nodos de almacenamiento con servicios ADC.
+No, el sitio _x_ necesita al menos 3 nodos de almacenamiento con servicios ADC o nodos no ADC disponibles a los que trasladar los servicios ADC. La opción de decomisionar un nodo ADC no está disponible si hay algún nodo desconectado.
  a| 
-*Solo nodos de almacenamiento* (nodos de almacenamiento combinados o solo de metadatos).  No se puede desmantelar un nodo de almacenamiento si no quedan suficientes nodos en el sitio para cumplir con los requisitos de quórum de ADC.  Sin embargo, puede mover el servicio ADC a otro nodo de almacenamiento.
+*Solo nodos de almacenamiento* (nodos de almacenamiento combinados o de solo metadatos). No puedes decomisionar un nodo de almacenamiento si quedarían pocos nodos en el sitio para cumplir los requisitos de quórum del ADC y el servicio ADC no se puede mover automáticamente. El traslado automático requiere que haya más de dos nodos de almacenamiento ADC en línea en toda la grid y nodos de almacenamiento no ADC disponibles en el mismo sitio.
  a| 
-link:../maintain/move-adc-service.html["Mueva el servicio ADC a otro nodo de almacenamiento en el mismo sitio"], o realice una expansión agregando un nuevo nodo de almacenamiento al sitio y especificando que debe tener un servicio ADC. Consulte link:understanding-adc-service-quorum.html["Quórum ADC"] .
+Asegúrate de que se cumplan las condiciones para el traslado automático del servicio ADC (consulta link:../maintain/understanding-adc-service-quorum.html["Quórum ADC"]), o link:../maintain/move-adc-service.html["mueve manualmente el servicio ADC"] a otro nodo de almacenamiento en el mismo sitio. También puedes realizar una ampliación añadiendo un nuevo nodo de almacenamiento al sitio y especificando que debe tener un servicio ADC. Consulta link:../expand/adding-grid-nodes-to-existing-site-or-adding-new-site.html["Resumen del flujo de trabajo para añadir nodos de grid a StorageGRID"].
 
 
 

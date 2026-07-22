@@ -29,9 +29,6 @@ Por ejemplo, podría usar la replicación de CloudMirror para reflejar registros
 La replicación de CloudMirror tiene algunas similitudes y diferencias importantes con la función de replicación entre redes. Para obtener más información, consulte link:../admin/grid-federation-compare-cgr-to-cloudmirror.html["Compare la replicación entre grid y la replicación de CloudMirror"].
 
 
-NOTE: La replicación de CloudMirror no es compatible si el depósito de origen tiene habilitado el bloqueo de objetos S3.
-
-
 
 [[notifications]]
 == Notificaciones

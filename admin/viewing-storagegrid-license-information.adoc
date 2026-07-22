@@ -41,7 +41,7 @@ Este vínculo sólo aparece si hay un problema con la licencia.
 ** Fecha de finalización de la licencia. *N/A* aparece para una licencia perpetua.
 ** Fecha de finalización del soporte
 +
-Esta fecha se lee del archivo de licencia actual y puede estar obsoleta si se amplió o renovó el contrato de servicio de soporte después de obtener el archivo de licencia. Para actualizar este valor, consulte link:updating-storagegrid-license-information.html["Actualice la información de licencia de StorageGRID"]. También puede consultar la fecha de finalización real del contrato mediante Active IQ.
+Esta fecha se lee del archivo de licencia actual y puede estar desactualizada si ampliaste o renovaste el contrato de servicio de soporte después de obtener el archivo de licencia. Para actualizar este valor, consulta link:updating-storagegrid-license-information.html["Actualice la información de licencia de StorageGRID"]. También puedes ver la fecha real de finalización del contrato usando Digital Advisor.
 
 ** Contenido del archivo de texto de licencia
 

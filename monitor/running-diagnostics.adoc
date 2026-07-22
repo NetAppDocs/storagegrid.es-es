@@ -43,7 +43,7 @@ En este ejemplo, un diagnóstico tiene un estado de Atención y tres diagnóstic
 +
 image:support_diagnostics_page.png["Página de diagnóstico de soporte"]
 
-. Para obtener más información acerca de un diagnóstico específico, haga clic en cualquier lugar de la fila.
+. Para obtener más información sobre un diagnóstico concreto, selecciona esa fila.
 +
 Aparecen detalles sobre el diagnóstico y sus resultados actuales. Se enumeran los siguientes detalles:
 
@@ -75,7 +75,7 @@ NOTE: También puede acceder a los paneles de Grafana prediseñados desde la sec
 +
 image:grafana_dashboard_nodes.png["Nodos de la consola de Grafana"]
 
-. *Opcional*: Para ver un gráfico de la expresión Prometheus a lo largo del tiempo, haga clic en *Ver en Prometheus*.
+. *Opcional*: Para ver un gráfico de la expresión de Prometheus a lo largo del tiempo, selecciona *Ver en Prometheus*.
 +
 Aparece un gráfico Prometheus de la expresión utilizada en el diagnóstico.
 

@@ -15,7 +15,7 @@ Consulte esta lista de métricas de Prometheus más utilizadas para comprender m
 
 Usted también puede <<obtain-all-metrics,obtener una lista completa de todas las métricas>>.
 
-Para obtener más información sobre la sintaxis de las consultas de Prometheus, consulte https://prometheus.io/docs/prometheus/latest/querying/basics/["Consultando a Prometeo"^].
+Para obtener más información sobre la sintaxis de las consultas de Prometheus, consulta https://prometheus.io/docs/prometheus/latest/querying/basics/["Conceptos básicos sobre consultas"^].
 
 
 

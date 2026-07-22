@@ -1,0 +1,112 @@
+---
+permalink: admin/configure-multi-admin-verify.html 
+sidebar: sidebar 
+keywords: multi-admin verification, mav, mav administrators, mav approval groups 
+summary: 'La gestión de un sistema de verificación con múltiples administradores (MAV) de StorageGRID implica crear y gestionar grupos de administradores y usuarios de MAV, habilitar la función MAV y configurar o seleccionar operaciones protegidas.' 
+---
+= Configura la verificación de múltiples administradores de StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Configurar un sistema de verificación de múltiples administradores (MAV) de StorageGRID implica crear y gestionar grupos de administradores y usuarios de MAV, habilitar la función MAV y seleccionar o configurar las operaciones protegidas.
+
+Los administradores de MAV tienen facultades de aprobación y veto sobre las operaciones protegidas.
+
+.Antes de empezar
+* Usted tiene el link:../admin/admin-group-permissions.html["Permiso de acceso raíz"].
+* Has iniciado sesión en Grid Manager desde el nodo de administración principal.
+
+
+
+
+[[step-1-create-mav-administrator-groups-and-users]]
+== Paso 1: Crear grupos y usuarios de administrador de MAV
+
+Puedes añadir administradores ya existentes a un grupo MAV o crear nuevos administradores.
+
+Puedes configurar usuarios de Active Directory (AD) como administradores de MAV. El usuario de AD debe estar configurado como administrador de StorageGRID.
+
+.Pasos
+. Para crear un grupo de administradores de MAV, sigue los pasos para link:../admin/managing-admin-groups.html["crear un grupo local o federado"].
+. Para los permisos de grupo, selecciona *Root access* o *Multi-admin verification requests*.
+. Agrega usuarios locales o federados al grupo, o bien crea nuevos usuarios locales y añádelos al grupo siguiendo los pasos para link:../admin/managing-users.html#create-a-local-user["crear un usuario local"].
+
+
+
+
+[[step-2-enable-or-disable-mav]]
+== Paso 2: activar o desactivar MAV
+
+Debes activar la verificación de múltiples administradores (MAV) de forma explícita. Si MAV está activado y decides desactivarlo cuando hay solicitudes de MAV pendientes, una notificación indica que las solicitudes pendientes se eliminarán.
+
+.Pasos
+. Selecciona *Configuración* > *Control de acceso* > *Verificación de administradores múltiples* > *MAV settings*.
+. Marca la casilla *Enable MAV* para activar la verificación por varios administradores.
+. La sección de grupos de aprobadores muestra los grupos de administradores de MAV y los aprobadores.
+. En la sección de Operaciones, selecciona las casillas de verificación para las operaciones que quieras proteger con MAV.
+. (Opcional) Si deseas utilizar notificaciones por correo electrónico para avisar a los administradores de MAV de las solicitudes pendientes de aprobación:
++
+.. Si aún no has configurado un servidor de correo electrónico, sigue los pasos para link:../monitor/configure-email-server.html["configurar un servidor de correo electrónico"].
+.. Introduce la dirección de correo electrónico del remitente.
+.. Introduce uno o varios destinatarios para las notificaciones por correo electrónico.
+
+
+. Selecciona *Guardar* para guardar tus cambios.
++
+
+NOTE: Si decides no configurar las notificaciones por correo electrónico, los administradores de MAV pueden consultar el panel de control de Grid Manager o comprobar la cola de aprobación para ver las solicitudes pendientes de aprobación. Para consultar la cola de aprobación, selecciona *Other requests* en la página de verificación de Multi-admin.
+
+
+
+
+
+[[step-3-manage-protected-operations]]
+== Paso 3: Gestiona las operaciones protegidas
+
+Después de activar la verificación de múltiples administradores, puedes gestionar las operaciones protegidas seleccionando o desmarcando las casillas de las operaciones que quieras proteger con MAV.
+
+
+NOTE: En StorageGRID 12.1, la única operación protegida es la activación de la política de ILM. Debes marcar la casilla de selección correspondiente a la activación de la política de ILM si deseas habilitar MAV.
+
+Una solicitud MAV puede tener uno de los siguientes estados:
+
+* *Pendiente*. La solicitud ha sido iniciada.
+* *Caducado*. La solicitud no se ha tramitado en un plazo de 30 días. O un usuario con permiso de acceso Root desactivó MAV, lo que significa que todas las solicitudes pendientes han caducado.
+* *Retirada*. Un usuario retiró su solicitud.
+* *Aprobado*. Un administrador de MAV aprobó la solicitud pendiente.
+* *Rechazado*. Un administrador de MAV rechazó la solicitud pendiente.
+
+
+
+
+[[troubleshoot-mav-email-notifications]]
+== Soluciona problemas con las notificaciones por correo electrónico de MAV
+
+Si los administradores de MAV no reciben notificaciones por correo electrónico sobre las solicitudes pendientes, sigue estos pasos para resolver el problema.
+
+.Antes de empezar
+* Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Usted tiene el link:../admin/admin-group-permissions.html["Gestionar alertas o permisos de acceso raíz"].
+
+
+.Pasos
+. Compruebe la configuración.
++
+.. Selecciona *Configuración* > *Supervisión* > *Servidor de correo electrónico*.
+.. Compruebe que la configuración del servidor de correo electrónico (SMTP) es correcta.
+.. Compruebe que ha especificado direcciones de correo electrónico válidas para los destinatarios.
+
+
+. Compruebe el filtro de spam y asegúrese de que el correo electrónico no se ha enviado a una carpeta basura.
+. Pídale al administrador de correo electrónico que confirme que los correos electrónicos de la dirección del remitente no están siendo bloqueados.
+. Recoja un archivo de registro del nodo de administración y póngase en contacto con el soporte técnico.
++
+El soporte técnico puede utilizar la información de los registros para determinar el problema. Por ejemplo, el archivo prometheus.log podría mostrar un error al conectarse al servidor especificado.
+
++
+Consulta link:../monitor/collecting-log-files-and-system-data.html["Recopilar archivos de registro y datos del sistema"].
+
+

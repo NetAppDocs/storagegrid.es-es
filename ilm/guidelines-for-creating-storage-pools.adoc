@@ -13,7 +13,7 @@ summary: Configura y utiliza pools de almacenamiento para protegerse frente a la
 [role="lead"]
 Configura y utiliza pools de almacenamiento para protegerse frente a la pérdida de datos distribuyendo los datos entre varios sitios. Las copias replicadas y las copias con código de borrado requieren diferentes configuraciones de pools de almacenamiento.
 
-Consulte link:using-multiple-storage-pools-for-cross-site-replication.html["Ejemplos de habilitación de la protección contra pérdida de sitios mediante replicación y código de borrado"].
+Consulta link:using-multiple-storage-pools-for-cross-site-replication.html["Ejemplos de habilitación de la protección contra pérdida de sitios mediante replicación y código de borrado"].
 
 
 
@@ -54,7 +54,7 @@ El uso de un pool de almacenamiento para cada sitio garantiza que las copias de 
 * Distribuya nodos de almacenamiento en todos los sitios de la forma más equitativa posible. Por ejemplo, para admitir un esquema de codificación de borrado 6+3, configure un pool de almacenamiento que incluya al menos tres nodos de almacenamiento en tres sitios.
 * Si tiene requisitos de alto rendimiento, no se recomienda el uso de un pool de almacenamiento que incluya varios sitios si la latencia de red entre los sitios es superior a 100 ms. A medida que aumenta la latencia, la velocidad a la que StorageGRID puede crear, colocar y recuperar fragmentos de objetos disminuye considerablemente debido al descenso del rendimiento de la red TCP.
 +
-La disminución del rendimiento afecta a las tasas máximas alcanzables de ingesta y recuperación de objetos (cuando se seleccionan equilibrados o estrictos como comportamiento de procesamiento) o puede provocar retrasos en la cola de ILM (cuando se selecciona Dual commit como comportamiento de procesamiento). Consulte link:what-ilm-rule-is.html#ilm-rule-ingest-behavior["Comportamiento de procesamiento de reglas de ILM"].
+La disminución del rendimiento afecta las velocidades máximas alcanzables de incorporación y recuperación de objetos (cuando se seleccionan los comportamientos de incorporación Balanced o Strict) o podría provocar atascos en las colas de ILM (cuando se selecciona el comportamiento de incorporación Dual commit). Consulta link:what-ilm-rule-is.html#ilm-rule-ingest-behavior["Comportamiento de procesamiento de reglas de ILM"].
 
 +
 

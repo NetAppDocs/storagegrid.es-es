@@ -16,7 +16,13 @@ Para instalar un nodo de pasarela o un nodo de administración en un dispositivo
 .Antes de empezar
 * El dispositivo se instala en un bastidor, se conecta a las redes y se enciende.
 * Los enlaces de red y las direcciones IP se configuran para el dispositivo mediante el instalador de dispositivos de StorageGRID.
-* Si va a instalar un nodo de puerta de enlace o un nodo de administrador que no sea primario, conoce la dirección IP del nodo de administrador principal de la cuadrícula de StorageGRID.
+* Si vas a instalar un nodo de puerta de enlace o un nodo de administración que no sea el principal, debes conocer la dirección IP de cualquiera de los siguientes nodos de administración:
++
+** El nodo de administración principal de la StorageGRID grid
+** Un nodo de administración no principal, si hay alguno disponible y si se está utilizando para recuperar el nodo
+
+
+* Si estás recuperando un nodo (incluido el nodo de administración principal) mediante un nodo de administración que no sea el principal, puedes especificar la dirección IP de ese nodo de administración.
 * Todas las subredes de red de grid enumeradas en la página Configuración de IP del instalador de dispositivos StorageGRID se definen en la lista de subredes de red de grid del nodo de administración principal.
 +
 Consulte https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/index.html["Inicio rápido para la instalación de hardware"^].
@@ -33,7 +39,7 @@ NOTE: Una versión reciente del software StorageGRID está precargada en el disp
 .Acerca de esta tarea
 Para instalar el software StorageGRID en un dispositivo de servicios:
 
-* Para un nodo de administración principal, debe especificar el nombre del nodo y luego cargar los paquetes de software adecuados (si es necesario).
+* En el caso de un nodo de administración principal, debes especificar el nombre del nodo y luego cargar los paquetes de software correspondientes (si es necesario). Si estás recuperando el nodo de administración principal y tienes un nodo de administración no principal en tu grid, tienes la opción de recuperar el nodo usando un nodo de administración no principal y especificando la dirección IP de ese nodo de administración, o puedes instalar o recuperar el nodo usando tu configuración actual.
 * En el caso de un nodo de administrador que no sea primario o un nodo de puerta de enlace, debe especificar o confirmar la dirección IP del nodo de administración principal y el nombre del nodo.
 * Inicia la instalación y espera a que los volúmenes estén configurados y el software esté instalado.
 * Paso a través del proceso, la instalación se detiene. Para reanudar la instalación, debe iniciar sesión en Grid Manager y configurar el nodo pendiente como reemplazo del nodo que ha fallado.
@@ -51,26 +57,38 @@ Aparece la página de inicio del instalador de dispositivos de StorageGRID.
 . Para instalar un nodo de administración principal:
 +
 .. En la sección este nodo, para *Tipo de nodo*, seleccione *Administración primaria*.
-.. En el campo *Nombre de nodo*, introduzca el mismo nombre que se utilizó para el nodo que está recuperando y haga clic en *Guardar*.
-.. En la sección instalación, compruebe la versión de software que aparece en el estado actual
+.. En el campo *Nombre de nodo*, introduce el mismo nombre que se utilizó para el nodo que estás recuperando y selecciona *Guardar*.
+.. Selecciona el modo adecuado de entre los dos disponibles en la sección Modo de instalación. Puedes seleccionar el método Instalar un nodo o recuperar este nodo utilizando la configuración actual, o el método Recuperar este nodo utilizando un nodo de administración no principal.
 +
-Si la versión de software que está lista para instalar es correcta, vaya a la <<installation_section_step,Paso de la instalación>>.
+[role="tabbed-block"]
+====
+.Método de configuración actual
+--
+Instala un nodo o recupera este nodo utilizando la configuración actual.
 
-.. Si necesita cargar una versión de software diferente, en el menú *Avanzado*, seleccione *cargar software StorageGRID*.
-+
-Aparece la página Cargar software StorageGRID .
+... En la sección Instalación, comprueba la versión del software que aparece en Estado actual. Si la versión del software lista para instalar es la correcta, pasa directamente a <<installation_section_step,Paso de la instalación>>.
+... Si necesitas cargar una versión diferente del software, en el menú *Avanzado*, selecciona *Cargar StorageGRID software*. Aparece la página Cargar StorageGRID software.
+... Selecciona *Examinar* para cargar el *paquete de software* y el *archivo de suma de comprobación* para el software StorageGRID. Los archivos se cargan automáticamente después de que los selecciones.
+... Selecciona *Inicio* para volver a la página de inicio del instalador de StorageGRID Appliance.
 
-.. Haga clic en *examinar* para cargar el software *paquete de software* y *Archivo de suma de comprobación* para StorageGRID.
-+
-Los archivos se cargan de forma automática después de seleccionarlos.
 
-.. Haga clic en *Inicio* para volver a la página de inicio del instalador de dispositivos StorageGRID.
+--
+.Método de nodo de administración no principal
+--
+Recupera este nodo utilizando un nodo de administración que no sea el principal.
+
+... En el campo «IP del nodo de administración no principal», introduce la dirección IP de la red de grid del nodo de administración no principal que deseas utilizar para la recuperación y selecciona *Guardar*.
+... Si la versión de software que está lista para instalar es correcta, vaya a la <<installation_section_step,Paso de la instalación>>.
+
+
+--
+====
 
 
 . Para instalar un nodo de puerta de enlace o un nodo de administración no principal:
 +
 .. En la sección este nodo, para *Tipo de nodo*, seleccione *Puerta de enlace* o *Administración no primaria*, según el tipo de nodo que esté restaurando.
-.. En el campo *Nombre de nodo*, introduzca el mismo nombre que se utilizó para el nodo que está recuperando y haga clic en *Guardar*.
+.. En el campo *Nombre de nodo*, introduce el mismo nombre que se utilizó para el nodo que estás recuperando y selecciona *Guardar*.
 .. En la sección Conexión del nodo de administración principal, determine si necesita especificar la dirección IP para el nodo de administración principal.
 +
 El instalador de dispositivos de StorageGRID puede detectar esta dirección IP automáticamente, suponiendo que el nodo de administración principal o, al menos, otro nodo de grid con ADMIN_IP configurado, esté presente en la misma subred.
@@ -89,7 +107,7 @@ Entrada IP manual
  a| 
 .. Desactive la casilla de verificación *Enable Admin Node discovery*.
 .. Introduzca la dirección IP de forma manual.
-.. Haga clic en *Guardar*.
+.. Seleccione *Guardar*.
 .. Espere hasta que el estado de conexión de la nueva dirección IP esté listo.
 
 
@@ -100,7 +118,7 @@ Detección automática de todos los nodos principales de administración conecta
  a| 
 .. Seleccione la casilla de verificación *Enable Admin Node discovery*.
 .. En la lista de direcciones IP detectadas, seleccione el nodo de administración principal para la cuadrícula en la que se va a implementar este dispositivo de servicios.
-.. Haga clic en *Guardar*.
+.. Seleccione *Guardar*.
 .. Espere hasta que el estado de conexión de la nueva dirección IP esté listo.
 
 
@@ -109,12 +127,12 @@ Detección automática de todos los nodos principales de administración conecta
 +
 Si el botón *Iniciar instalación* no está habilitado, es posible que necesite cambiar la configuración de red o la configuración del puerto.  Consulte las instrucciones de mantenimiento de su aparato.
 
-. En la página de inicio del instalador de dispositivos StorageGRID, haga clic en *Iniciar instalación*.
+. En la página de inicio del instalador de StorageGRID Appliance, selecciona *Iniciar instalación*.
 +
-El estado actual cambia a «Instalación en curso» y se muestra la página de instalación del monitor.
+El estado actual cambia a «Instalación en curso» y se muestra la página de instalación de Monitor.
 
 +
 
-NOTE: Si necesita acceder a la página de instalación del monitor manualmente, haga clic en *instalación del monitor* en la barra de menús.
+NOTE: Si necesitas acceder manualmente a la página de instalación de Monitor, selecciona *Monitor installation* en la barra de menús.
 
 

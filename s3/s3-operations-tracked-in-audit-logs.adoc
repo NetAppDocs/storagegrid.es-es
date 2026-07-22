@@ -20,13 +20,18 @@ Los servicios de StorageGRID generan los mensajes de auditoría y se almacenan e
 
 * CreateBucket
 * DeleteBucket
+* DeleteBucketPolicy
 * DeleteBucketTagging
 * DeleteObjects
+* GetBucketLifecycleConfiguration
+* GetBucketPolicy
 * Etiquetado de GetBucketTagging
 * Segmento de cabeza
 * ListObjects
 * ListObjectVersions
 * CUMPLIR con la normativa de los bloques
+* PutBucketLifecycleConfiguration
+* Política de PutBucketPolicy
 * PutBucketTagging
 * PutBucketVersioning
 

@@ -29,7 +29,7 @@ Cuando se reconstruye Cassandra, el sistema utiliza información de otros nodos 
 CAUTION: Si más de un nodo de almacenamiento ha fallado (o está fuera de línea), comuníquese con el soporte técnico.  No realice el siguiente procedimiento de recuperación.  Podría ocurrir pérdida de datos. Para obtener más información, consulte link:how-site-recovery-is-performed-by-technical-support.html["Cómo el soporte técnico recupera un sitio"] .
 
 
-CAUTION: Si este nodo de almacenamiento está en modo de mantenimiento de solo lectura para permitir la recuperación de objetos por otro nodo de almacenamiento con volúmenes de almacenamiento con fallos, recupere los volúmenes en el nodo de almacenamiento con volúmenes de almacenamiento con errores antes de recuperar este nodo de almacenamiento con errores. Consulte las instrucciones para link:recovering-from-storage-volume-failure-where-system-drive-is-intact.html["recupere de un fallo en el volumen de almacenamiento donde la unidad del sistema esté intacta"].
+CAUTION: Si este nodo de almacenamiento está en modo de mantenimiento de solo lectura para permitir la recuperación de objetos por parte de otro nodo de almacenamiento con volúmenes de almacenamiento defectuosos, recupera los volúmenes en el nodo de almacenamiento con volúmenes defectuosos antes de recuperar este nodo de almacenamiento defectuoso. Consulta las instrucciones para link:reviewing-warnings-about-storage-volume-recovery.html["recupere de un fallo en el volumen de almacenamiento donde la unidad del sistema esté intacta"].
 
 
 CAUTION: Si las reglas de ILM se configuran para almacenar una sola copia replicada y existe una en un volumen de almacenamiento donde se produjo un error, no podrá recuperar el objeto.

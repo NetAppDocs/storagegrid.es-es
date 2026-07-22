@@ -1,0 +1,212 @@
+---
+permalink: admin/configure-global-namespace.html 
+sidebar: sidebar 
+keywords: global namespace, grid federation, S3 endpoint domain names, default region, grid federation connection, multi-grid 
+summary: Configura un espacio de nombres global para permitir que los inquilinos accedan a los buckets de varios sistemas StorageGRID. 
+---
+= Configura un espacio de nombres global para la federación de grid
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Configura un espacio de nombres global para permitir que los inquilinos accedan a los buckets de varios sistemas StorageGRID.
+
+Para obtener más información sobre el espacio de nombres global, consulta link:learn-about-global-namespace.html["Infórmate sobre el espacio de nombres global para la federación de grid"].
+
+.Antes de empezar
+* Has iniciado sesión en el Grid Manager de cada grid usando una link:../admin/web-browser-requirements.html["navegador web compatible"].
+* Tienes el link:../admin/admin-group-permissions.html["Permiso de acceso raíz"] para cada grid.
+* Has revisado el link:../admin/grid-federation-overview.html["consideraciones y requisitos"] para las conexiones de federación de grid.
+
+
+
+
+[[requirements-for-configuring-global-namespace]]
+== Requisitos para configurar el espacio de nombres global
+
+* Todas las grids del espacio de nombres global deben tener conexiones de federación de grids con el espacio de nombres global habilitado entre cada par de grids.
+* El número máximo de grids que pueden participar en un único espacio de nombres global es 11 (el grid local y 10 grids remotos).
++
+
+CAUTION: El límite de 10 redes viene determinado por el número total máximo de conexiones de federación de redes que admite una implementación de StorageGRID. El límite total de conexiones se aplica a *todas* las conexiones de federación de redes del despliegue, incluidas aquellas que no tienen habilitado el espacio de nombres global, así que debes asegurarte de que el espacio de nombres global totalmente conectado y cualquier conexión adicional de federación de redes no superen en conjunto este límite global.
+
+* Los clientes de S3 deben utilizar la autenticación mediante la versión 4 de la firma (SigV4). Las solicitudes anónimas y con la versión 2 de la firma no son compatibles con las operaciones de enrutamiento en el espacio de nombres global.
++
+** Las solicitudes firmadas normales se especifican tal y como se describe en https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-auth-using-authorization-header.html["Autenticando solicitudes: usando el encabezado Authorization (AWS Signature Version 4)"].
+** Las solicitudes prefirmadas se especifican tal y como se describe en https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html["Autenticación de solicitudes: uso de parámetros de consulta (AWS Signature Version 4)"].
+
+
+
+
+
+
+[[number-of-required-connectionsnumber-of-required-connections]]
+== [[número-de-conexiones-necesarias]]Número de conexiones necesarias
+
+En un espacio de nombres global, todos los pares de grids deben estar conectados. El número de conexiones requeridas depende del número de grids:
+
+[cols="1a,1a"]
+|===
+| Número de grids | Número de conexiones necesarias 
+
+
+ a| 
+2
+ a| 
+1
+
+
+
+ a| 
+3
+ a| 
+3
+
+
+
+ a| 
+4
+ a| 
+6
+
+
+
+ a| 
+5
+ a| 
+10
+
+
+
+ a| 
+_n_
+ a| 
+_n_ × (_n_ − 1) / 2
+
+|===
+
+
+[[step-1-set-a-unique-default-region-for-each-grid]]
+[[configure-default-region]]
+== Paso 1: establece una región predeterminada única para cada grid
+
+Cada grid del espacio de nombres global debe tener una región predeterminada única. La región predeterminada identifica el grid que es propietario de un bucket.
+
+Las solicitudes de CreateBucket y ListBuckets se enrutan según esta región, y todas las demás solicitudes deben coincidir con la región predeterminada a la que se envían.
+
+Para más información, consulta link:../ilm/configuring-regions-optional-and-s3-only.html["Configurar regiones S3"].
+
+.Pasos
+. En cada cuadrícula, link:../ilm/configuring-regions-optional-and-s3-only.html["establece la región predeterminada en un valor único"]. Por ejemplo, configura la cuadrícula A como `us-east-1` y la cuadrícula B como `us-west-1`.
++
+
+NOTE: Aún puedes utilizar regiones no predeterminadas, configuradas mediante el elemento  `LocationConstraint` en link:../s3/operations-on-buckets.html["CreateBucket solicitudes"], para fines de políticas de ILM. Las regiones no predeterminadas no se validan para unicidad entre grids en el espacio de nombres global.
+
+. Repite para cada grid en el espacio de nombres global. Cada grid debe tener una región predeterminada diferente.
+. Configura regiones adicionales según sea necesario.
+
+
+
+
+[[step-2-configure-s3-global-namespace-settings]]
+== Paso 2: Configura los ajustes del espacio de nombres global de S3
+
+En cada grid del espacio de nombres global, añades dos nombres de dominio de endpoint S3:
+
+* Un punto final del espacio de nombres global que es el mismo en todas las grids
+* Un CNAME único para la grid
+
+
+Configurarás tu DNS externo para que el endpoint del espacio de nombres global resuelva a una o más de las grids, y los endpoints CNAME únicos resuelvan a la grid específica.
+
+
+CAUTION: Debes <<configure-default-region,configurar la región predeterminada>> antes de configurar los ajustes del espacio de nombres global de S3. Cuando actives los ajustes del espacio de nombres global, las solicitudes S3 fallarán si no especifican la región correcta. Todas las solicitudes S3 deben estar firmadas con la región predeterminada del grid.
+
+.Pasos
+. En cada grid, selecciona *Configuración* > *Red* > *Nombres de dominio de los endpoints S3* > *Nombres de dominio*.
+. Agrega un nombre de dominio de endpoint de espacio de nombres global que sea el mismo en todas las grids. Por ejemplo: `s3.example.com`.
+. Agrega un CNAME único para el grid. Por ejemplo, `s3.company.com`.
+. Seleccione *Guardar*.
+. Selecciona *Configuración del espacio de nombres global*.
++
+.. Selecciona el punto final del espacio de nombres global.
+.. Selecciona el nombre de dominio CNAME exclusivo del grid.
+
+
+. Seleccione *Guardar*.
+. Asegúrate de que los certificados de servidor que usan los clientes incluyan los nuevos nombres de dominio de los endpoints de S3.
++
+** Si los clientes se conectan a un punto final del equilibrador de carga que utiliza su propio certificado, link:../admin/configuring-load-balancer-endpoints.html["actualice el certificado asociado al punto final"].
+** Si los clientes se conectan a un extremo del equilibrador de carga que utiliza el certificado de API S3 global o directamente a los nodos de almacenamiento, link:../admin/use-s3-setup-wizard-steps.html["Actualice el certificado de API global S3"].
+
+
+. Repite estos pasos en cada grid del espacio de nombres global.
+
+
+Para más información, consulta link:../admin/configuring-s3-api-endpoint-domain-names.html["Configure los nombres de dominio de punto final S3"].
+
+
+
+[[step-3-create-grid-federation-connections-with-global-namespace-enabled]]
+== Paso 3: Crea conexiones de federación de grid con el espacio de nombres global habilitado
+
+Después de configurar los nombres de dominio de los endpoints S3 y las regiones predeterminadas en todas las grids, puedes crear conexiones de federación de grid con el espacio de nombres global habilitado.
+
+.Acerca de esta tarea
+Al crear una conexión de federación de grid y habilitar el espacio de nombres global, los campos de punto final del espacio de nombres global, CNAME y región predeterminada se rellenan automáticamente con los valores que configuraste en los pasos anteriores. Grid Manager impide habilitar el espacio de nombres global si estos campos no están configurados correctamente.
+
+
+CAUTION: Después de crear una conexión de federación de grid con un espacio de nombres global, no se pueden cambiar el endpoint del espacio de nombres global, el CNAME ni la región predeterminada de los grids en esa conexión.
+
+.Pasos
+. En la primera cuadrícula, sigue los pasos descritos en link:../admin/grid-federation-create-connection.html["Crear conexiones de federación de grid"].
+. Al introducir los datos de conexión, selecciona *Habilitar espacio de nombres global*.
++
+Los campos correspondientes al punto final del espacio de nombres global, al CNAME y a la región predeterminada se rellenan automáticamente con los valores que has configurado en los pasos anteriores. Si falta algún valor o alguno no es válido, no podrás habilitar el espacio de nombres global hasta que resuelvas los problemas.
+
+. Completa la conexión descargando el archivo de verificación y subiéndolo en la otra grid.
+. Repite los pasos anteriores para cada par de grids en el espacio de nombres global.
++
+Por ejemplo, con 3 grids, necesitas 3 conexiones (Grid A–Grid B, Grid A–Grid C, Grid B–Grid C). Con 4 grids, necesitas 6 conexiones. Puedes tener un máximo de 10 grids en un espacio de nombres global. Consulta <<number-of-required-connections,Número de conexiones necesarias>>.
+
+
+
+
+
+[[step-4-configure-load-balancer-endpoints]]
+== Paso 4: Configura los puntos de conexión del equilibrador de carga
+
+link:../admin/configuring-load-balancer-endpoints.html["Configura un endpoint de balanceador de carga"] para cada grid en el espacio de nombres global. Utiliza el mismo puerto para cada uno de estos endpoints.
+
+
+NOTE: Asegúrate de configurar los puntos de conexión del equilibrador de carga antes de configurar la resolución de DNS.
+
+
+
+[[config-dns-resolutionstep-5-configure-dns-resolution]]
+== [[config-dns-resolution]]Paso 5: Configura la resolución de DNS
+
+StorageGRID no ofrece un resolutor DNS integrado para el espacio de nombres global. Debes configurar tu infraestructura DNS externa para que las solicitudes S3 se dirijan a la grid correcta.
+
+Tu resolutor DNS debería:
+
+. Resuelve el endpoint del espacio de nombres global (por ejemplo, `s3.example.com`) a los endpoints del balanceador de carga de una o más grids, normalmente usando DNS de tipo round-robin.
+. Resuelve el CNAME único de cada grid (por ejemplo, `s3.grid-a.example.com`) a los endpoints del equilibrador de carga para ese grid específico.
+. Para las solicitudes de buckets de tipo virtual-hosted-style (por ejemplo, `_bucket_.s3.example.com`), usa la política de enrutamiento de tu organización para asignar los nombres de los buckets al CNAME del grid correspondiente.
++
+StorageGRID no ofrece un mecanismo basado en DNS para descubrir qué grid es el propietario de un bucket. Si necesitas enrutamiento automático basado en la propiedad del bucket, usa el link:../tenant/understanding-tenant-management-api.html["API de gestión de inquilinos"] para enviar solicitudes ListBucket y obtener los UUID de los buckets. Mantén un mapeo interno de los UUID de los buckets a los grids. Tu DNS externo debe usar ese mapeo en vez de consultar directamente a StorageGRID.
+
+
+
+
+
+[[related-information]]
+== Información relacionada
+
+* link:grid-federation-overview.html["¿Qué es GRID federation?"]
+* link:grid-federation-create-connection.html["Crear conexiones de federación de grid"]
+* link:configuring-s3-api-endpoint-domain-names.html["Configure los nombres de dominio de punto final S3"]
+* link:grid-federation-manage-connection.html["Gestionar conexiones de federación de grid"]
+

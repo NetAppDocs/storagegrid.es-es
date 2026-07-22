@@ -2,7 +2,7 @@
 permalink: maintain/understanding-adc-service-quorum.html 
 sidebar: sidebar 
 keywords: storagegrid, recover, adc, adc quorum 
-summary: 'Es posible que no pueda retirar determinados nodos de almacenamiento en un sitio si quedan muy pocos servicios de controlador de dominio administrativo (ADC) tras el desmantelamiento.' 
+summary: 'El quórum de ADC garantiza que un número mínimo de servicios de controlador de dominio administrativo (ADC) permanezcan disponibles en cada sitio. StorageGRID mueve automáticamente el servicio ADC durante el proceso de decomisionar cuando es necesario.' 
 ---
 = ¿Qué es el quórum de StorageGRID ADC?
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 'Es posible que no pueda retirar determinados nodos de almacenamiento e
 
 
 [role="lead"]
-Es posible que no pueda retirar determinados nodos de almacenamiento en un sitio si quedan muy pocos servicios de controlador de dominio administrativo (ADC) tras el desmantelamiento.
+El quórum de ADC garantiza que un número mínimo de servicios de controlador de dominio administrativo (ADC) permanezcan disponibles en cada sitio. StorageGRID mueve automáticamente el servicio ADC durante el proceso de decomisionar cuando es necesario.
 
 El servicio ADC, que se encuentra en algunos nodos de almacenamiento, mantiene la información de topología de cuadrícula y proporciona servicios de configuración a la cuadrícula. El sistema StorageGRID requiere que se disponga de quórum de servicios de ADC en todas las instalaciones y en todo momento.
 
@@ -26,4 +26,6 @@ Por ejemplo, supongamos que un sitio incluye actualmente seis nodos de almacenam
 * En el segundo procedimiento de desmantelamiento, puede eliminar el tercer nodo de almacenamiento porque el quórum de ADC ahora requiere que solo tres servicios de ADC permanezcan disponibles: `((0.5 * 4) + 1)` .
 
 
-Si necesitas decomisionar un Nodo de Almacenamiento, puedes continuar cumpliendo con el requisito de quórum del ADC link:../release-notes/changes-to-grid-management-api.html#new-private-endpoints-for-move-adc["Mover el servicio ADC a otro nodo de almacenamiento en el mismo sitio"] o agregando un nuevo Nodo de Almacenamiento en un link:../expand/index.html["expansión"] y especificando que debe tener un servicio de ADC. Luego, puedes decomisionar el Nodo de Almacenamiento existente sin afectar el quórum.
+Cuando decomisionas un nodo de almacenamiento que tiene el servicio ADC, StorageGRID mueve automáticamente el servicio ADC a otro nodo de almacenamiento en el mismo sitio si al decomisionar el nodo el número de ADC en el sitio quedaría por debajo del quórum. El traslado automático requiere que todos los nodos de la grid estén conectados y que haya nodos de almacenamiento que no sean ADC disponibles en el mismo sitio para recibir el servicio. El procedimiento de decomisionar mantiene un mínimo de tres nodos de almacenamiento ADC por sitio. Por ejemplo, si decomisionas cuatro o seis nodos ADC en un sitio, quedarán tres nodos de almacenamiento ADC después del procedimiento, siempre que existan nodos no ADC disponibles en el mismo sitio.
+
+Si no es posible trasladar automáticamente el servicio ADC, puedes link:move-adc-service.html["mueve manualmente el servicio ADC"] a otro nodo de almacenamiento en el mismo sitio o link:../expand/index.html["agrega un nuevo Storage Node en una expansión"] y especificar que debe tener un servicio ADC. Luego, puedes decomisionar el nodo de almacenamiento existente sin afectar el quórum.

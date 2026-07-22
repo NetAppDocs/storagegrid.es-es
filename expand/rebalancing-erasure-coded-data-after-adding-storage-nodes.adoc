@@ -37,7 +37,7 @@ NOTE: Las operaciones de la API de S3 para cargar objetos (o piezas de objetos) 
 * *Condiciones de finalización de trabajo*. El procedimiento de reequilibrio de EC se considera completo cuando se cumple alguna de las siguientes situaciones:
 +
 ** No puede mover más datos con código de borrado.
-** Los datos de todos los nodos están dentro de una desviación del 5% de la partición de datos de destino.
+** Los datos de todos los nodos se encuentran dentro de una desviación del 5 % respecto a la partición del espacio útil previsto.
 ** El procedimiento ha estado en ejecución durante 30 días.
 
 
@@ -105,11 +105,11 @@ Para obtener ayuda sobre el comando de reequilibrio de datos:
 Vaya a la página Nodos para evaluar la distribución de datos en los nodos de almacenamiento del sitio.
 
 +
-La tarea de reequilibrio de EC se considera completada y se detendrá cuando los datos de todos los nodos estén dentro de una desviación del 5 % de la partición de datos de destino.
+La tarea de reequilibrio de EC se considerará completada y se detendrá cuando el espacio utilizable en todos los nodos se encuentre dentro de una desviación del 5 % respecto a la partición de espacio utilizable objetivo.
 
 ** Si `State` es `Success`, opcionalmente <<review_object_storage,revisar el almacenamiento de objetos>> para ver los detalles actualizados de la dirección.
 +
-Los datos codificados con borrado ahora deberían tener más equilibrio entre los nodos de almacenamiento ubicados en las instalaciones.
+El espacio útil debería estar ahora más equilibrado entre los nodos de almacenamiento del sitio.
 
 **  `State`Si es `Failure`:
 +

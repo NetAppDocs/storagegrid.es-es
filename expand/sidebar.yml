@@ -51,8 +51,6 @@ entries:
     url: "/expand/configuring-expanded-storagegrid-system.html"
   - title: Verificar que los nodos de almacenamiento estén activos
     url: "/expand/verifying-storage-node-is-active.html"
-  - title: Copie la base de datos del nodo de administrador
-    url: "/expand/copying-admin-node-database.html"
   - title: Copiar métricas de Prometheus
     url: "/expand/copying-prometheus-metrics.html"
   - title: Copiar registros de auditoría

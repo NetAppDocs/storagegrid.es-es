@@ -31,7 +31,7 @@ Trabaje con su representante de cuenta de NetApp para conocer las opciones y pla
 De manera opcional, colabore con su asesor de servicios profesionales de NetApp para acceder a la herramienta ConfigBuilder de NetApp para completar un libro de configuración para usarlo cuando instale e implemente su nuevo sistema. También puede utilizar esta herramienta para ayudar a automatizar la configuración de cualquier dispositivo StorageGRID. Consulte https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/automating-appliance-installation-and-configuration.html["Automatice la instalación y configuración de los dispositivos"^].
 
 [role="quick-margin-para"]
-Revisión link:index.html["Más información sobre StorageGRID"] y el link:../network/index.html["Directrices sobre redes"].
+Consulta link:index.html["Más información sobre StorageGRID"] y link:../network/index.html["Directrices sobre redes"].
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dos"] Instale los nodos
 [role="quick-margin-para"]
@@ -58,7 +58,7 @@ Descubra cómo:
 [role="quick-margin-list"]
 * link:../admin/signing-in-to-grid-manager.html["Inicie sesión en Grid Manager"]
 * link:../monitor/monitoring-system-health.html["Supervise el estado del sistema"]
-* link:../admin/configure-autosupport-grid-manager.html["Configure AutoSupport"]
+* link:../monitor/configure-autosupport-grid-manager.html["Configure AutoSupport"]
 * link:../monitor/email-alert-notifications.html["Configure notificaciones por correo electrónico para las alertas"]
 * link:../admin/configuring-s3-api-endpoint-domain-names.html["Configure los nombres de dominio de punto final S3"]
 

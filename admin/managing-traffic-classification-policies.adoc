@@ -48,9 +48,9 @@ Los valores límite se aplican por cada equilibrador de carga. Si el tráfico se
 
 NOTE: Puede crear políticas para limitar el ancho de banda agregado o para limitar el ancho de banda por solicitud. Sin embargo, la StorageGRID no puede limitar ambos tipos de ancho de banda a la vez. Los límites de ancho de banda agregados pueden imponer un impacto adicional mínimo en el rendimiento en el tráfico no limitado.
 
-Para límites de ancho de banda agregados o por solicitud, las solicitudes se transmiten de entrada o salida a la velocidad establecida. StorageGRID sólo puede aplicar una velocidad, por lo que la política más específica, por tipo de matrcher, es la aplicada. El ancho de banda consumido por la solicitud no cuenta en comparación con otras políticas que coincidan menos específicas que contengan políticas de límite de ancho de banda agregado. Para todos los demás tipos de límites, las solicitudes de clientes se retrasan 250 milisegundos y reciben una respuesta de reducción lenta de 503 para las solicitudes que exceden cualquier límite de directiva coincidente.
+En el caso de los límites de ancho de banda de agregado o por solicitud, las solicitudes entran o salen a la velocidad que tú establezcas. StorageGRID solo puede aplicar una velocidad, así que la política más específica, según el tipo de comparador, es la que se aplica. El ancho de banda consumido por la solicitud no cuenta para otras políticas coincidentes menos específicas que incluyan políticas de límite de ancho de banda de agregado. Para todos los demás tipos de límite, las solicitudes de los clientes se retrasan 250 milisegundos y reciben una respuesta 503 Slow Down para las solicitudes que superen cualquier límite de las políticas coincidentes.
 
-En Grid Manager, puede ver los gráficos de tráfico y comprobar que las directivas están aplicando los límites de tráfico que espera.
+En el Grid Manager, puedes consultar los gráficos de tráfico y comprobar que las políticas están aplicando los límites de tráfico que esperas.
 
 
 

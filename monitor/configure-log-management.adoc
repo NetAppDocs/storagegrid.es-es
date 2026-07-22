@@ -11,11 +11,11 @@ summary: Según sea necesario, configure los niveles de auditoría, los encabeza
 
 
 [role="lead"]
-Según sea necesario, configure los niveles de auditoría, los encabezados de protocolo y la ubicación de los mensajes y registros de auditoría.
+Según sea necesario, configura los niveles de auditoría, los encabezados de protocolo, la ubicación de los mensajes y registros de auditoría, y la retención de los registros.
 
 Todos los nodos de StorageGRID generan mensajes de auditoría y registros para rastrear la actividad y los eventos del sistema.  Los mensajes y registros de auditoría son herramientas esenciales para la supervisión y la solución de problemas.
 
-Opcionalmente, puedeslink:../monitor/considerations-for-external-syslog-server.html["configurar un servidor syslog externo"] para guardar información de auditoría de forma remota.  El uso de un servidor externo minimiza el impacto en el rendimiento del registro de mensajes de auditoría sin reducir la integridad de los datos de auditoría.  Un servidor syslog externo es especialmente útil si tiene una red grande, utiliza múltiples tipos de aplicaciones S3 o desea conservar todos los datos de auditoría.
+Si lo deseas, puedes link:../monitor/considerations-for-external-syslog-server.html["configurar un servidor syslog externo"] para guardar la información de auditoría de forma remota. Puedes minimizar el impacto en el rendimiento del registro de mensajes de auditoría sin reducir la exhaustividad de los datos de auditoría usando un servidor externo. Un servidor syslog externo es especialmente útil si tienes una grid grande, usas varios tipos de aplicaciones S3 o quieres conservar todos los datos de auditoría.
 
 .Antes de empezar
 * Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
@@ -161,7 +161,7 @@ Utilice un asterisco (\*) como comodín para que coincida con cero o más caract
 
 . Seleccione *Agregar otro encabezado* para crear encabezados adicionales, si es necesario.
 +
-Cuando se encuentran encabezados HTTP en una solicitud, se incluyen en el mensaje de auditoría en el campo HTRH.
+Cuando StorageGRID detecta encabezados HTTP en una solicitud, los incluye en el mensaje de auditoría en el campo HTRH.
 
 +
 
@@ -175,7 +175,7 @@ NOTE: Los encabezados de solicitud de protocolo de auditoría se registran solo 
 [[configure-log-location]]
 == Configurar la ubicación del registro
 
-De forma predeterminada, los mensajes de auditoría y los registros se guardan en los nodos donde se generan.  Se rotan periódicamente y finalmente se eliminan para evitar que consuman demasiado espacio en disco.  Si desea guardar mensajes de auditoría y un subconjunto de registros de forma externa,<<use-external-syslog-server,utilizar un servidor syslog externo>> .
+De forma predeterminada, los mensajes de auditoría y los registros se guardan en los nodos donde se generan. StorageGRID rota periódicamente y, finalmente, elimina los mensajes de auditoría y los registros para evitar que ocupen un espacio excesivo en disco. Para guardar los mensajes de auditoría y un subconjunto de registros de forma externa, <<use-external-syslog-server,utilizar un servidor syslog externo>>.
 
 Si desea guardar los archivos de registro internamente, elija un inquilino y un depósito para el almacenamiento de registros y habilite el archivado de registros.
 
@@ -262,7 +262,7 @@ La definición de valores de gravedad y de utilidad puede ayudarle a agregar los
 +
 .. Para *Gravedad*, selecciona *Passthrough*, o selecciona un valor de gravedad entre 0 y 7.
 +
-Si selecciona un valor, el valor seleccionado se aplicará a todos los mensajes de este tipo. La información sobre diferentes gravedades se perderá si se sustituye la gravedad por un valor fijo.
+Si seleccionas un valor, StorageGRID aplica dicho valor a todos los mensajes de este tipo. Pierdes detalles sobre las diferentes gravedades si sobrescribes la gravedad con un valor fijo.
 
 +
 [cols="1a,3a"]
@@ -547,7 +547,7 @@ local7
 
 ==== Enviar mensajes de prueba
 
-Antes de iniciar el uso de un servidor de syslog externo, debe solicitar que todos los nodos de la cuadrícula envíen mensajes de prueba al servidor de syslog externo. Se deben usar estos mensajes de prueba para ayudar a validar toda la infraestructura de recogida de registros antes de comprometerse a enviar datos al servidor de syslog externo.
+Antes de utilizar un servidor syslog externo, solicita que todos los nodos de tu grid envíen mensajes de prueba al servidor syslog externo. Estos mensajes de prueba te ayudan a validar toda tu infraestructura de recopilación de registros antes de comprometerte a enviar datos al servidor syslog externo.
 
 
 CAUTION: No use la configuración del servidor de syslog externo hasta que confirme que el servidor de syslog externo recibió un mensaje de prueba de cada nodo del grid y que el mensaje se procesó como se esperaba.
@@ -704,3 +704,52 @@ Por ejemplo:
 system-logs/DC1-SN1/var/local/log/localaudit.log--2025-05-12_13:41:44.gz
 ----
 
+
+
+
+[[manage-log-retention]]
+== Gestiona la retención de registros
+
+Puedes gestionar el tiempo que StorageGRID conserva los registros creando una regla de ILM o configurando una política de ciclo de vida del bucket de S3.
+
+[role="tabbed-block"]
+====
+.Regla de ILM
+--
+Crea una regla de ILM para el bucket y añade esta regla a la política de ILM activa.
+
+.Pasos
+. Selecciona *ILM* > *Reglas*.
+. Selecciona *Crear*. link:../ilm/create-ilm-rule-enter-details.html["Paso 1 (Introducir detalles)"] de la pantalla para crear una regla de ILM del asistente aparece:
++
+.. Introduce un nombre único para la regla. Por ejemplo: Regla ILM para registros archivados.
+.. Selecciona la cuenta de S3 del inquilino para el archivado de registros.
+.. Especifica el depósito de S3 para el archivado de registros.
+
+
+. Accede a link:../ilm/create-ilm-rule-define-placements.html["Paso 2 (Definir ubicaciones)"] y define la ubicación de la regla de registros archivados. Por ejemplo, la regla ILM almacena una copia replicada en Site 1 y otra en Site 2 durante el primer año. Después de un año, se crea una copia con código de borrado 2+1 y se guarda únicamente en un sitio.
+. Después de crear la regla, añádela a una política de ILM activa.
+
+
+--
+.Ciclo de vida de un bucket de S3
+--
+Configura una política de ciclo de vida de un bucket S3 en el bucket S3 de archivo de registros:
+
+[listing]
+----
+{
+      "Rules": [
+        {
+            "ID": "Retain logs forever",
+            "Filter": {},
+            "Status": "Enabled"，
+            "Expiration": {}
+        }
+      ]
+}
+----
+Al configurar una política de ciclo de vida de un bucket de S3 en el bucket de S3 destinado al archivo de registros, las acciones de caducidad del ciclo de vida anulan la política de ILM para los objetos que coinciden con el filtro de ciclo de vida del bucket. Los objetos que no coinciden con el filtro de ciclo de vida del bucket usan los ajustes de retención de la política de ILM. Si un objeto coincide con el filtro de ciclo de vida del bucket y no se especifican explícitamente acciones de caducidad, no se usan los ajustes de retención de la política de ILM y se da por supuesto que las versiones del objeto se conservan para siempre.
+
+--
+====

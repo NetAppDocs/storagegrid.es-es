@@ -13,47 +13,12 @@ summary: Antes de retirar un nodo de cuadrícula, debe confirmar que no hay ning
 [role="lead"]
 Antes de desmantelar o expandir un nodo de red, debe confirmar que no haya trabajos de reparación de datos activos.  Si alguna reparación ha fallado, debe reiniciarla y dejar que se complete antes de realizar el procedimiento de desmantelamiento.
 
-Referirse alink:../expand/index.html["Tipos de expansión"] para obtener detalles sobre cómo expandir un nodo de la cuadrícula.
-
-.Acerca de esta tarea
-Si necesita desmantelar un nodo de almacenamiento desconectado, complete estos pasos una vez finalizado el procedimiento de desmantelamiento para asegurarse de que el trabajo de reparación de datos se haya completado.  Debe asegurarse de que se hayan restaurado todos los fragmentos codificados por borrado que estaban en el nodo eliminado.
-
-Estos pasos solo se aplican a sistemas que tienen objetos codificados de borrado.
-
-.Pasos
-. Inicie sesión en el nodo de administración principal:
+* Referirse alink:../expand/index.html["Tipos de expansión"] para obtener detalles sobre cómo expandir un nodo de la cuadrícula.
+* Usa el Grid Manager para supervisar los procesos de restauración en curso y mostrar el historial de restauraciones. Consulta estos procedimientos:
 +
-.. Introduzca el siguiente comando: `ssh admin@_grid_node_IP_`
-.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
-.. Introduzca el siguiente comando para cambiar a raíz: `su -`
-.. Introduzca la contraseña que aparece en el `Passwords.txt` archivo.
-+
-Al iniciar sesión como root, la petición de datos cambia de `$` a `#`.
-
-
-
-. Compruebe si hay reparaciones en marcha: `repair-data show-ec-repair-status`
-+
-** Si nunca ha ejecutado un trabajo de reparación de datos, la salida es `No job found`. No es necesario reiniciar ningún trabajo de reparación.
-** Si el trabajo de reparación de datos se ejecutó anteriormente o se está ejecutando actualmente, la salida muestra información para la reparación. Cada reparación tiene un ID de reparación único.
-+
-image:repair-data-status.png["Reparar el estado de los datos"]
-
-
-
-+
-
-TIP: Opcionalmente, puede utilizar Grid Manager para supervisar los procesos de restauración en curso y mostrar un historial de restauración. Consulte link:../maintain/restoring-volume.html["Restaurar datos de objetos con Grid Manager"].
-
-. Si el estado de todas las reparaciones es `Completed`, no es necesario reiniciar ningún trabajo de reparación.
-. Si el estado de cualquier reparación es `Stopped`, debe reiniciar esa reparación.
-+
-.. Obtenga del resultado el ID de reparación de la reparación fallida.
-.. Ejecute `repair-data start-ec-node-repair` el comando.
-+
-Utilice `--repair-id` la opción para especificar el ID de reparación. Por ejemplo, si desea volver a intentar una reparación con el ID de reparación 949292, ejecute este comando: `repair-data start-ec-node-repair --repair-id 949292`
-
-.. Continúe realizando un seguimiento del estado de las reparaciones de los datos de EC hasta que el estado de todas las reparaciones sea `Completed`.
+** link:../maintain/restoring-object-data-to-storage-volume-for-appliance.html["Restaure datos de objetos al volumen de almacenamiento de dispositivo"]
+** link:../maintain/restoring-object-data-to-storage-volume-where-system-drive-is-intact.html["Restaure los datos de objetos al volumen de almacenamiento donde la unidad del sistema esté intacta"]
+** link:../maintain/restoring-object-data-to-storage-volume.html["Restauración de los datos de objetos en un volumen de almacenamiento (fallo de unidad de sistema)"]
 
 
 

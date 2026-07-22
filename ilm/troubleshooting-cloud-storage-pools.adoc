@@ -38,9 +38,24 @@ Si se ha resuelto el problema subyacente, ya no se muestra el mensaje de error. 
 [[error-health-check-failed-error-from-endpoint]]
 == Error: No se superó la comprobación del estado. Error desde el punto final
 
-Es posible que se produzca este error al habilitar el bloqueo de objetos S3 con retención predeterminada para el depósito de Amazon S3 después de comenzar a utilizar este depósito para un pool de almacenamiento en la nube. Este error se produce cuando la operación PUT no tiene una cabecera HTTP con un valor de suma de comprobación de carga útil como `Content-MD5` . AWS necesita este valor de encabezado para las OPERACIONES PUT en buckets con S3 Object Lock habilitado.
+Es posible que te encuentres con este error en alguno de estos casos:
 
-Para corregir este problema, siga los pasos de link:editing-cloud-storage-pool.html["Editar un pool de almacenamiento en el cloud"] sin realizar ningún cambio. Esta acción activa la validación de la configuración de Cloud Storage Pool que detecta y actualiza automáticamente el indicador S3 Object Lock en una configuración de extremo de Cloud Storage Pool.
+* Cuando activas S3 Object Lock con la retención predeterminada para tu bucket de Amazon S3 después de empezar a utilizar dicho bucket para un Cloud Storage Pool. Este error se produce cuando la operación PUT no incluye un encabezado HTTP con un valor de suma de comprobación de la carga útil, como `Content-MD5`. Este valor de encabezado es obligatorio para las operaciones PUT en buckets con S3 Object Lock activado según AWS.
++
+Para solucionar este problema, sigue los pasos que se indican en link:../ilm/editing-cloud-storage-pool.html["Editar un pool de almacenamiento en el cloud"] sin realizar ningún cambio. Esta acción activa la validación de la configuración del Cloud Storage Pool, que detecta y actualiza automáticamente el indicador S3 Object Lock en la configuración del endpoint del Cloud Storage Pool.
+
+* Cuando activas S3 Object Lock con la retención predeterminada para tu bucket de StorageGRID S3 después de empezar a usar ese bucket para un Cloud Storage Pool.
++
+Para solucionar este problema:
+
++
+** Si utilizas HTTP: los Cloud Storage Pools con S3 Object Lock activado no son compatibles. Edita la conexión del endpoint para usar HTTPS en su lugar.
+** Si utilizas HTTPS: sigue los pasos que se indican en link:../ilm/editing-cloud-storage-pool.html["Editar un pool de almacenamiento en el cloud"] sin realizar ningún cambio. Esta acción activa la validación de la configuración del Cloud Storage Pool, que detecta y actualiza automáticamente el indicador S3 Object Lock en la configuración del endpoint del Cloud Storage Pool.
+
+
+
+
+Si surge algún otro problema, ponte en contacto con soporte técnico.
 
 
 

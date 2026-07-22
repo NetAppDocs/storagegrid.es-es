@@ -60,3 +60,5 @@ Esta documentación no otorga ninguna licencia ni otros derechos sobre la API RE
 Los archivos de notificación proporcionan información sobre los derechos de autor y las licencias de terceros que se utilizan en software de NetApp.
 
 https://library.netapp.com/ecm/ecm_download_file/ECMLP3351268[]
+
+https://library.netapp.com/ecm/ecm_download_file/ECMLP3373066[]

@@ -39,7 +39,7 @@ Configurar la federación de identidades y SSO:: Si planea utilizar la federaci�
 Obtener y configurar nombres de dominio:: Sabe qué nombre de dominio completo (FQDN) debe utilizar para StorageGRID. Las entradas del servidor de nombres de dominio (DNS) asignarán este FQDN a las direcciones IP virtuales (VIP) del grupo de alta disponibilidad que cree con el asistente.
 +
 --
-Si planea utilizar S3 solicitudes virtuales de estilo hospedado, debe tener link:../admin/configuring-s3-api-endpoint-domain-names.html["Nombres de dominio de punto final S3 configurados"]. Se recomienda utilizar solicitudes virtuales de estilo alojado.
+Si tienes pensado utilizar solicitudes de S3 con alojamiento virtual, debes tener link:../admin/configuring-s3-api-endpoint-domain-names.html["Nombres de dominio de punto final S3 configurados"]. Se recomienda utilizar solicitudes con alojamiento virtual.
 
 --
 Revisión de los requisitos del equilibrio de carga y del certificado de seguridad:: Si tiene pensado utilizar el equilibrador de carga de StorageGRID, ha revisado las consideraciones generales sobre el equilibrio de carga. Tiene los certificados que cargará o los valores necesarios para generar un certificado.
@@ -48,7 +48,7 @@ Revisión de los requisitos del equilibrio de carga y del certificado de segurid
 Si planea utilizar un punto final de equilibrio de carga externo (de terceros), tiene el nombre de dominio completo (FQDN), el puerto y el certificado para ese equilibrador de carga.
 
 --
-Configure cualquier conexión de federación de grid:: Si desea permitir que el inquilino S3 clone los datos de la cuenta y replique objetos del bloque en otra cuadrícula mediante una conexión de federación de grid, antes de iniciar el asistente confirme lo siguiente:
+Configure cualquier conexión de federación de grid:: Si deseas permitir que el inquilino de S3 sincronice los datos de la cuenta y replique los objetos del bucket en otra grid mediante una conexión de federación de grids, comprueba lo siguiente antes de iniciar el asistente:
 +
 --
 * Tienes link:grid-federation-manage-connection.html["se ha configurado la conexión de federación de grid"].

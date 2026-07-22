@@ -24,9 +24,6 @@ CAUTION: Las siguientes reglas y políticas de ILM son solo ejemplos. Existen va
 
 NOTE: Para realizar la simulación de política de ILM en una versión no actual de un objeto, debe conocer el UUID o CBID de la versión del objeto. Para encontrar el UUID y CBID, utilice link:verifying-ilm-policy-with-object-metadata-lookup.html["búsqueda de metadatos de objetos"] mientras el objeto sigue siendo actual.
 
-.Información relacionada
-link:how-objects-are-deleted.html["Cómo se eliminan los objetos"]
-
 
 
 [[ilm-rule-1-for-example-4-save-three-copies-for-10-years]]
@@ -79,7 +76,7 @@ Dado que la regla 1 de ILM se aplica a todas las versiones del objeto, debe crea
 
 Para crear una regla que utilice el tiempo no corriente como tiempo de referencia, seleccione *Sí* para la pregunta, ¿Aplicar esta regla solo a versiones de objetos anteriores (en bloques S3 con control de versiones activado)? En el paso 1 (introduzca detalles) del asistente Create an ILM Rule. Cuando selecciona *Sí*, _Tiempo no corriente_ se selecciona automáticamente para el tiempo de referencia y no puede seleccionar un tiempo de referencia diferente.
 
-image:ilm-rule-apply-only-to-older-object-verions.png["Aplique la regla de ILM solo a las versiones de objetos más antiguas (hora no actual)."]
+image:ilm_rule_apply_only_to_older_object_verions.png["Aplique la regla de ILM solo a las versiones de objetos más antiguas (hora no actual)."]
 
 En este ejemplo, sólo se almacenan dos copias de las versiones no corrientes, y esas copias se almacenarán durante dos años.
 
@@ -139,3 +136,6 @@ Al simular la directiva de ejemplo, se esperaría que los objetos de prueba se e
 * Cualquier versión de objeto no actual se haría coincidir con la primera regla. Si una versión de objeto no actual tiene más de 2 años, ILM lo elimina de forma permanente (todas las copias de la versión no actual se eliminan de la cuadrícula).
 * La versión actual del objeto coincidiría con la segunda regla. Cuando la versión actual del objeto se ha almacenado durante 10 años, el proceso de ILM añade un marcador de eliminación como la versión actual del objeto y hace que la versión del objeto anterior sea «no actual». La próxima vez que se produzca una evaluación de ILM, esta versión no actual coincide con la primera regla. Como resultado, la copia en el sitio 3 se purga y las dos copias en el sitio 1 y el sitio 2 se almacenan durante 2 años más.
 
+
+.Información relacionada
+link:how-objects-are-deleted.html["Cómo se eliminan los objetos"]

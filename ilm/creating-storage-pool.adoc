@@ -14,7 +14,7 @@ summary: Se crean pools de almacenamiento para determinar dónde el sistema Stor
 Se crean pools de almacenamiento para determinar dónde el sistema StorageGRID almacena los datos de objetos y el tipo de almacenamiento utilizado. Cada pool de almacenamiento incluye uno o más sitios y una o más calidades de almacenamiento.
 
 
-NOTE: Cuando instala StorageGRID 12.0 en una nueva red, se crean automáticamente grupos de almacenamiento para cada sitio.  Sin embargo, si instaló inicialmente StorageGRID 11.6 o una versión anterior, los grupos de almacenamiento no se crean automáticamente para cada sitio.
+NOTE: Al instalar StorageGRID 12.0 o una versión posterior en una nueva red, se crean automáticamente grupos de almacenamiento para cada sitio. Sin embargo, si inicialmente instalaste StorageGRID 11.6 o una versión anterior, los grupos de almacenamiento no se crean automáticamente para cada sitio.
 
 Si desea crear agrupaciones de almacenamiento en la nube para almacenar datos de objetos fuera del sistema StorageGRID, consulte la link:what-cloud-storage-pool-is.html["Información sobre el uso de Cloud Storage Pools"].
 
@@ -64,7 +64,7 @@ El grado de almacenamiento, _incluye todos los grados de almacenamiento_, incluy
 NOTE: Se le advertirá si agrega más de una entrada con diferentes grados de almacenamiento para un sitio.
 
 +
-Para eliminar una entrada, selecciona el icono de eliminación image:icon-x-to-remove.png["icono de eliminar"].
+Para eliminar una entrada, selecciona el icono de eliminación image:icon_x_to_remove.png["icono de eliminar"].
 
 . Cuando esté satisfecho con sus selecciones, seleccione *Guardar*.
 +

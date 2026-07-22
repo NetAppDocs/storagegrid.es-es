@@ -1,8 +1,8 @@
 ---
 permalink: admin/grid-federation-overview.html 
 sidebar: sidebar 
-keywords: grid federation, cross-grid replication, account clone, cgr, disaster recovery 
-summary: Puede utilizar la federación de grid para clonar inquilinos y replicar sus objetos entre dos sistemas StorageGRID para la recuperación ante desastres. 
+keywords: grid federation, cross-grid replication, account sync, cgr, disaster recovery 
+summary: Puedes utilizar la federación de grid para sincronizar los tenants y replicar sus objetos entre varios sistemas StorageGRID para recuperación ante desastres. 
 ---
 = Conoce la federación de grid de StorageGRID
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Puede utilizar la federación de grid para clonar inquilinos y replicar
 
 
 [role="lead"]
-Puede utilizar la federación de grid para clonar inquilinos y replicar sus objetos entre dos sistemas StorageGRID para la recuperación ante desastres.
+Puedes utilizar la federación de grid para sincronizar los tenants y replicar sus objetos entre varios sistemas StorageGRID para recuperación ante desastres.
 
 
 
@@ -27,7 +27,7 @@ Una conexión de federación de grid es una conexión bidireccional, de confianz
 
 El diagrama de flujo de trabajo resume los pasos para configurar una conexión de federación de grid entre dos cuadrículas.
 
-image:grid-federation-workflow.png["Flujo de trabajo de conexión de federación de grid"]
+image:grid_federation_workflow.png["Flujo de trabajo de conexión de federación de grid"]
 
 
 
@@ -36,11 +36,11 @@ image:grid-federation-workflow.png["Flujo de trabajo de conexión de federación
 
 * Los grids utilizados para la federación de grid deben ejecutar versiones de StorageGRID que sean idénticas o que no tengan más de una diferencia principal entre ellas.
 +
-Para obtener más información sobre los requisitos de versión, consulta la  https://library.netapp.com/ecm/ecm_download_file/ECMLP3351267["Notas de la versión"^]. Debes iniciar sesión con tu cuenta de NetApp o crear una cuenta para acceder a las notas de la versión.
+Para obtener más información sobre los requisitos de versión, consulta la  https://library.netapp.com/ecm/ecm_download_file/ECMLP3373065["Notas de la versión"^]. Debes iniciar sesión con tu cuenta de NetApp o crear una cuenta para acceder a las notas de la versión.
 
 * Un grid puede tener una o más conexiones de federación de grid a otras grids. Cada conexión de federación de grid es independiente de cualquier otra conexión. Por ejemplo, si Grid 1 tiene una conexión con Grid 2 y una segunda conexión con Grid 3, no hay ninguna conexión implícita entre Grid 2 y Grid 3.
 * Las conexiones de federación de grid son bidireccionales. Una vez establecida la conexión, puede supervisar y gestionar la conexión desde cualquiera de las dos redes.
-* Debe existir al menos una conexión de federación de grid para poder utilizar link:grid-federation-what-is-account-clone.html["clon de cuenta"] o.link:grid-federation-what-is-cross-grid-replication.html["replicación entre grid"]
+* Debe existir al menos una conexión de federación de grid antes de que puedas usar link:grid-federation-what-is-account-sync.html["sincronización de cuentas"] o link:grid-federation-what-is-cross-grid-replication.html["replicación entre grid"].
 
 
 
@@ -92,7 +92,7 @@ Cuando se configura una conexión de federación de grid, StorageGRID genera aut
 * Certificados de servidor y cliente para autenticar y cifrar la información enviada desde la cuadrícula 2 a la cuadrícula 1
 
 
-image:grid-federation-certificates.png["Certificados de federación de grid"]
+image:grid_federation_certificates.png["Certificados de federación de grid"]
 
 Por defecto, los certificados son válidos durante 730 días (2 años). Cuando estos certificados se acercan a su fecha de vencimiento, la alerta *Vencimiento del certificado de federación de grid* le recuerda que debe rotar los certificados, lo que puede hacer con el Administrador de grid.
 

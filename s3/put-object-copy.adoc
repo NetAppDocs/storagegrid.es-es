@@ -39,10 +39,10 @@ NOTE: Si actualizó desde StorageGRID 11,6 o una versión anterior, se activará
 
 Si una solicitud incluye (no escapadas) valores UTF-8 en el nombre de clave o el valor de los metadatos definidos por el usuario, el comportamiento de StorageGRID no está definido.
 
-StorageGRID no analiza ni interpreta los caracteres UTF-8 escapados incluidos en el nombre de clave o el valor de los metadatos definidos por el usuario. Los caracteres UTF-8 que se han escapado se tratan como caracteres ASCII:
+StorageGRID no analiza ni interpreta los caracteres UTF-8 escapados incluidos en el nombre o el valor de los metadatos definidos por el usuario. Los caracteres UTF-8 escapados se tratan como caracteres ASCII:
 
 * Las solicitudes se realizan correctamente si los metadatos definidos por el usuario incluyen caracteres UTF-8 que se han escapado.
-* StorageGRID no devuelve `x-amz-missing-meta` el encabezado si el valor interpretado del nombre o valor de la clave incluye caracteres no imprimibles.
+* StorageGRID no devuelve el encabezado  `x-amz-missing-meta` si el valor interpretado del nombre o del valor de la clave incluye caracteres no imprimibles.
 
 
 
@@ -53,6 +53,20 @@ StorageGRID no analiza ni interpreta los caracteres UTF-8 escapados incluidos en
 Se admiten los siguientes encabezados de solicitud:
 
 * `Content-Type`
+* `x-amz-checksum-algorithm`: Indica `CRC32`, `CRC32C`, `CRC64NVME` o `SHA256`
++
+Cuando copias un objeto, si el objeto de origen tiene un  `checksum` o incluye  `x-amz-checksum-algorithm`, el objeto copiado tiene una suma de comprobación FULL_OBJECT.
+
++
+Si el objeto de origen tiene una suma de comprobación pero la solicitud no incluye  `x-amz-checksum-algorithm` o utiliza un valor de suma de comprobación no compatible, el objeto copiado tiene el mismo tipo de suma de comprobación que el objeto de origen. StorageGRID ignora los valores  `x-amz-checksum-algorithm` no válidos o no compatibles.
+
++
+Si el objeto de origen no tiene suma de comprobación y no incluye  `x-amz-checksum-algorithm` o utiliza un valor de suma de comprobación no compatible, el objeto copiado no tiene suma de comprobación.
+
++
+
+NOTE: Si una solicitud CopyObject no especifica una suma de comprobación y el objeto de origen no tiene una suma de comprobación, StorageGRID no calcula una suma de comprobación CRC-64/NVME por defecto para un objeto.
+
 * `x-amz-copy-source`
 * `x-amz-copy-source-if-match`
 * `x-amz-copy-source-if-none-match`
@@ -108,15 +122,11 @@ No se admiten las siguientes cabeceras de solicitud:
 * `Expires`
 * `If-Match`
 +
-El `If-Match header` es aceptado pero no funciona.
+El  `If-Match` encabezado se comporta de forma diferente según tu configuración de StorageGRID. Si proporcionas este encabezado, podría devolverse un mensaje de error (501 Not Implemented). Si el  `If-Match` encabezado se acepta pero no funciona, podría activarse una alerta con instrucciones sobre cómo habilitar el comportamiento más estricto del error 501 Not Implemented.
 
 * `If-None-Match`
 +
-El `If-None-Match header` es aceptado pero no funciona.
-
-* `x-amz-checksum-algorithm`
-+
-Cuando copia un objeto, si el objeto de origen tiene una suma de comprobación, StorageGRID no copia ese valor de suma de comprobación en el nuevo objeto. Este comportamiento se aplica tanto si intenta utilizar en la solicitud de objeto como si no `x-amz-checksum-algorithm`.
+El  `If-None-Match` encabezado se comporta de forma diferente según tu configuración de StorageGRID. Incluir este encabezado podría devolver un mensaje de error (501 Not Implemented). Si el  `If-None-Match` encabezado se acepta pero no funciona, podría activarse una alerta con instrucciones sobre cómo habilitar el comportamiento más estricto del error 501 Not Implemented.
 
 * `x-amz-website-redirect-location`
 
@@ -149,10 +159,10 @@ NOTE: Si está ingiriendo un objeto en un depósito con S3 Object Lock activado,
 
 Si el bloque de origen y la clave, especificados en `x-amz-copy-source` el encabezado, son diferentes del bloque y la clave de destino, se escribe una copia de los datos del objeto de origen en el destino.
 
-Si el origen y el destino coinciden y la `x-amz-metadata-directive` cabecera se especifica como `REPLACE`, los metadatos del objeto se actualizan con los valores de metadatos proporcionados en la solicitud. En este caso, StorageGRID no vuelve a procesar el objeto. Esto tiene dos consecuencias importantes:
+Si el origen y el destino coinciden, y el encabezado  `x-amz-metadata-directive` se especifica como  `REPLACE`, los metadatos del objeto se actualizan con los valores de metadatos proporcionados en la solicitud. En este caso, StorageGRID no vuelve a incorporar el objeto. Esto tiene dos consecuencias importantes:
 
 * No puede utilizar CopyObject para cifrar un objeto existente en su lugar, o para cambiar el cifrado de un objeto existente en su lugar. Si proporciona el `x-amz-server-side-encryption` encabezado o `x-amz-server-side-encryption-customer-algorithm` el encabezado, StorageGRID rechaza la solicitud y devuelve `XNotImplemented`.
-* No se utiliza la opción de comportamiento de procesamiento especificado en la regla de ILM que coincida. Cualquier cambio en la ubicación del objeto que se active por la actualización se realice cuando los procesos de ILM normales se reevalúan el ILM en segundo plano.
+* No se utiliza la opción de «Comportamiento de ingesta» especificada en la regla de ILM correspondiente. Cualquier cambio en la ubicación de los objetos que se derive de la actualización se realiza cuando los procesos normales de ILM en segundo plano vuelven a evaluar el ILM.
 +
 Esto significa que si la regla ILM utiliza la opción estricta para el comportamiento de ingesta, no se realiza ninguna acción si no se pueden realizar las ubicaciones de objetos necesarias (por ejemplo, porque una nueva ubicación requerida no está disponible). El objeto actualizado conserva su ubicación actual hasta que sea posible la colocación requerida.
 

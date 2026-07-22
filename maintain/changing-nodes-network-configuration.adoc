@@ -1,8 +1,8 @@
 ---
 permalink: maintain/changing-nodes-network-configuration.html 
 sidebar: sidebar 
-keywords: storagegrid, network configuration, node network configuration 
-summary: Puede cambiar la configuración de red de uno o varios nodos con la herramienta Cambiar IP. Puede cambiar la configuración de la red de cuadrícula o agregar, cambiar o quitar las redes de administrador o de cliente. 
+keywords: storagegrid, network configuration, node network configuration, bmc ip 
+summary: Puedes cambiar la configuración de red de uno o varios nodos usando la herramienta Change IP. Puedes cambiar la configuración de la Grid Network, o añadir, cambiar o eliminar las Admin o Client Networks. También puedes cambiar la configuración de IP de la LAN para un nodo BMC de un dispositivo. 
 ---
 = Cambiar la configuración de la red de nodos en StorageGRID
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Puede cambiar la configuración de red de uno o varios nodos con la her
 
 
 [role="lead"]
-Puede cambiar la configuración de red de uno o varios nodos con la herramienta Cambiar IP. Puede cambiar la configuración de la red de cuadrícula o agregar, cambiar o quitar las redes de administrador o de cliente.
+Puedes cambiar la configuración de red de uno o varios nodos usando la herramienta Change IP. Puedes cambiar la configuración de la Grid Network, o añadir, cambiar o eliminar las Admin o Client Networks. También puedes cambiar la configuración de IP de la LAN para un nodo BMC de un dispositivo.
 
 .Antes de empezar
 Tiene el `Passwords.txt` archivo.
@@ -36,7 +36,7 @@ Los nodos no se pueden eliminar de la red de grid.
 NOTE: Los intercambios de direcciones IP no están permitidos. Si debe intercambiar direcciones IP entre nodos de cuadrícula, debe utilizar una dirección IP intermedia temporal.
 
 
-NOTE: Si el inicio de sesión único (SSO) está habilitado para su sistema StorageGRID y está cambiando la dirección IP de un nodo de administración, tenga en cuenta que cualquier relación de confianza de usuario que se haya configurado utilizando la dirección IP del nodo de administración (en lugar de su nombre de dominio completo, como se recomienda) dejará de ser válida.  Ya no podrás iniciar sesión en el nodo.  Inmediatamente después de cambiar la dirección IP, debe actualizar o reconfigurar la relación de confianza del usuario autenticado del nodo en los Servicios de federación de Active Directory (AD FS) con la nueva dirección IP.  Vea las instrucciones paralink:../admin/configure-sso.html["Configuración de SSO"] .
+NOTE: Si el inicio de sesión único (SSO) está habilitado en tu sistema StorageGRID y vas a cambiar la dirección IP de un nodo de administración, ten en cuenta que cualquier relación de confianza de parte confiable que se haya configurado usando la dirección IP del nodo de administración (en lugar de su dominio completo, como se recomienda) dejará de ser válida. Ya no podrás iniciar sesión en el nodo. Justo después de cambiar la dirección IP, debes actualizar o reconfigurar la relación de confianza de la parte confiable del nodo en Active Directory Federation Services (AD FS) con la nueva dirección IP. Consulta las instrucciones para configurar el SSO usando link:../admin/learn-about-setting-up-sso-oidc.html["OIDC"] o link:../admin/learn-about-setting-up-sso-saml.html["SAML"].
 
 
 NOTE: Todos los cambios realizados en la red mediante la herramienta Cambiar IP se propagan al firmware del instalador para los dispositivos StorageGRID. De este modo, si se vuelve a instalar el software StorageGRID en un dispositivo o si se pone un dispositivo en modo de mantenimiento, la configuración de red será correcta.
@@ -246,3 +246,18 @@ dónde `_<speed>_` es `fast` o `slow` .
 
 
 La velocidad de PDU LACP volverá a su configuración anterior en el próximo reinicio del dispositivo.
+
+
+
+[[change-appliance-node-bmc-lan-ip-settings]]
+== Cambiar la configuración de la dirección IP LAN BMC del nodo del dispositivo
+
+Puedes cambiar la configuración de la dirección IP LAN de un nodo BMC del dispositivo.
+
+. En Grid Manager, ve a *Nodos* > *_grid node_* > *BMC settings*.
+. En la sección de configuración de IP de la LAN, selecciona un tipo de asignación de IP *Estática* o *DHCP*.
+. Introduce la dirección MAC, la dirección IPv4 (CIDR) y la puerta de enlace predeterminada para el BMC.
+. Seleccione *Guardar*.
+
+
+También puedes modificar o consultar la configuración de la dirección IP de la LAN de BMC usando la `PUT /bmc-configuration/root-password` o la `GET /bmc-configuration/root-password` API.

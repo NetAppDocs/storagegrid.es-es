@@ -80,7 +80,7 @@ TCP
  a| 
 Dispositivos
  a| 
-Nodo de administrador principal
+Nodo de administración principal y nodo de administración no principal
  a| 
 Lo usan los dispositivos StorageGRID para comunicarse con el nodo administrador principal para iniciar la instalación.
 
@@ -106,7 +106,7 @@ TCP
  a| 
 Todos los nodos
  a| 
-Nodo de administrador principal
+Nodo de administración principal y nodo de administración no principal
  a| 
 Se utiliza para comunicar el estado al nodo de administración principal durante la instalación y otros procedimientos de mantenimiento.
 
@@ -119,7 +119,7 @@ TCP
  a| 
 Todos los nodos
  a| 
-Nodo de administrador principal
+Nodo de administración principal y nodo de administración no principal
  a| 
 Tráfico interno para instalación, expansión, recuperación y otros procedimientos de mantenimiento.
 
@@ -277,7 +277,7 @@ TCP
  a| 
 Todos los nodos
  a| 
-Nodo de administrador principal
+Nodo de administración principal y nodo de administración no principal
  a| 
 Tráfico interno para instalación, expansión, recuperación, otros procedimientos de mantenimiento e informes de errores.
 
@@ -290,7 +290,7 @@ TCP
  a| 
 Todos los nodos
  a| 
-Nodo de administrador principal
+Nodo de administración principal y nodo de administración no principal
  a| 
 Tráfico interno para instalación, expansión, recuperación y otros procedimientos de mantenimiento.
 
@@ -355,7 +355,7 @@ TCP
  a| 
 Todos los nodos
  a| 
-Nodo de administrador principal
+Nodo de administración principal y nodo de administración no principal
  a| 
 Tráfico interno para instalación, expansión, recuperación y otros procedimientos de mantenimiento.
 
@@ -366,7 +366,7 @@ Tráfico interno para instalación, expansión, recuperación y otros procedimie
  a| 
 TCP
  a| 
-Nodos de almacenamiento/administrador
+Todos los nodos
  a| 
 Nodos de almacenamiento con ADC
  a| 
@@ -379,7 +379,7 @@ Tráfico interno del servicio de cuentas.
  a| 
 TCP
  a| 
-Nodos de almacenamiento/administrador
+Todos los nodos
  a| 
 Nodos de almacenamiento con ADC
  a| 
@@ -392,7 +392,7 @@ Tráfico interno de Federación de identidades.
  a| 
 TCP
  a| 
-Nodos de almacenamiento/administrador
+Todos los nodos
  a| 
 Nodos de almacenamiento
  a| 
@@ -405,7 +405,7 @@ Tráfico de API interno relacionado con los protocolos de objetos.
  a| 
 TCP
  a| 
-Nodos de almacenamiento/administrador
+Todos los nodos
  a| 
 Nodos de almacenamiento con ADC
  a| 

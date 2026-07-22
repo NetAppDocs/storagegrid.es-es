@@ -114,7 +114,7 @@ Las dos controladoras del dispositivo tienen distintos tamaños de caché.
  a| 
 Fallo de la batería CMOS del aparato
  a| 
-Se ha detectado un problema con la batería CMOS del aparato.
+Se detectó un problema con la batería CMOS del appliance.
 
 
 
@@ -255,6 +255,13 @@ La potencia de un dispositivo StorageGRID se ha desviado de la tensión de funci
 Se requiere actualización del software del sistema operativo SANtricity del dispositivo
  a| 
 La versión del software SANtricity es inferior al mínimo recomendado para esta versión de StorageGRID.
+
+
+
+ a| 
+Se ha detectado un fallo en el SFP del appliance
+ a| 
+Se ha detectado un fallo de SFP en el controlador de cómputo de un dispositivo StorageGRID.
 
 
 
@@ -427,6 +434,13 @@ Un bucket de FabricPool utiliza el nivel de coherencia disponible o de sitio só
 El bloque de FabricPool tiene una configuración de control de versiones no compatible
  a| 
 Un bucket de FabricPool tiene activado el control de versiones o el bloqueo de objetos S3, que no están soportados.
+
+
+
+ a| 
+ListBucket comprobación de permisos para el objeto Get/Head desactivada
+ a| 
+ListBucket la comprobación de permisos para GetObject/HeadObject en claves inexistentes está desactivada.
 
 |===
 
@@ -669,6 +683,13 @@ En las últimas 24 horas, un usuario ha iniciado sesión con Web Console o SSH.
 
 
  a| 
+Servicio Chunk con un elevado número de goroutines
+ a| 
+El servicio «chunk» tiene un número inusualmente alto de goroutines, lo que podría indicar un interbloqueo o una fuga de recursos.
+
+
+
+ a| 
 Fallo de reequilibrio de EC
  a| 
 El procedimiento de reequilibrio de EC ha fallado o se ha detenido.
@@ -693,6 +714,13 @@ Se ha detenido un trabajo de reparación para los datos de EC.
 Error de verificación de fragmentos con código de borrado
  a| 
 Ya no es posible verificar los fragmentos de código de borrado. Es posible que los fragmentos corruptos no se reparen.
+
+
+
+ a| 
+Grupos con código de borrado en estado Needs Repair
+ a| 
+Uno o más grupos con código de borrado están en estado de "Necesita reparación" cuando no hay ninguna reparación de datos con código de borrado en curso.
 
 |===
 
@@ -807,13 +835,6 @@ La conexión de federación de grid entre el grid local y el remoto no funciona.
 [cols="1a,2a"]
 |===
 | Nombre de alerta | Descripción 
-
-
- a| 
-Uso de montón Java alto
- a| 
-Se está utilizando un alto porcentaje de espacio de pila Java.
-
 
 
  a| 
@@ -1309,9 +1330,30 @@ Se han detectado objetos huérfanos.
 
 
  a| 
+El tamaño de una parte de la subida multiparte a S3 es demasiado grande
+ a| 
+Un cliente está intentando realizar una operación de carga en varias partes que supera el límite de tamaño por parte.
+
+
+
+ a| 
 S3 PUT tamaño de objeto demasiado grande
  a| 
 Un cliente está intentando realizar una operación PUT Object que supera los S3 límites de tamaño.
+
+
+
+ a| 
+Solicitudes S3 que utilizan encabezados condicionales no compatibles
+ a| 
+Un cliente S3 está utilizando encabezados condicionales no compatibles (If-Match o If-None-Match) para determinadas operaciones.
+
+
+
+ a| 
+Solicitudes a S3 que utilizan una región incorrecta con el espacio de nombres global activado
+ a| 
+Un cliente de S3 está utilizando una región de firma incorrecta para acceder a los buckets de este grid.
 
 
 

@@ -47,13 +47,9 @@ Si el error no se resuelve automáticamente, vaya al siguiente paso.
 
 
 . Determine si el hardware del nodo está sin conexión.
-. Si el inicio de sesión único (SSO) está habilitado para su sistema StorageGRID , consulte los pasos paralink:../admin/configure-sso.html["configuración del inicio de sesión único"] .
+. Si el inicio de sesión único (SSO) está habilitado para tu sistema StorageGRID, consulta cómo configurar el SSO usando link:../admin/learn-about-setting-up-sso-oidc.html["OIDC"] o link:../admin/learn-about-setting-up-sso-saml.html["SAML"].
 +
 Es posible que deba deshabilitar y volver a habilitar temporalmente el inicio de la sesión único para un nodo de administración a fin de resolver cualquier problema.
-
-+
-
-NOTE: Si SSO está activado, no puede iniciar sesión con un puerto restringido. Se debe usar el puerto 443.
 
 . Determine si la cuenta que está utilizando pertenece a un usuario federado.
 +
@@ -64,7 +60,7 @@ Si la cuenta de usuario federada no funciona, intente iniciar sesión en Grid Ma
 +
 ... Revisar las alertas.
 ... Seleccione *Configuración* > *Control de acceso* > *Federación de identidades*.
-... Haga clic en *probar conexión* para validar la configuración de conexión para el servidor LDAP.
+... Selecciona *Probar conexión* para validar la configuración de tu conexión con el servidor LDAP.
 ... Si la prueba falla, resuelva cualquier error de configuración.
 
 

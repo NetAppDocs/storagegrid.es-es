@@ -21,7 +21,7 @@ NOTE: Los nodos de almacenamiento se pueden configurar durante la instalación p
 Los pools de almacenamiento tienen dos atributos:
 
 * *Grado de almacenamiento*: Para nodos de almacenamiento, el rendimiento relativo del almacenamiento de respaldo.
-* *Sitio*: El centro de datos donde se almacenarán los objetos.
+* *Sitio*: El centro de datos donde se almacenan los objetos.
 
 
 Los pools de almacenamiento se utilizan en las reglas de ILM para determinar dónde se almacenan los datos de objetos y el tipo de almacenamiento utilizado. Cuando se configuran las reglas de ILM para replicación, se seleccionan uno o varios pools de almacenamiento.

@@ -27,7 +27,7 @@ Si alguno de los nodos nuevos tiene una dirección IP de red de cuadrícula en u
 
 [NOTE]
 ====
-No utilice subredes que contengan las siguientes direcciones IPv4 para la red de cuadrícula, la red de administración o la red de cliente de ningún nodo:
+No utilices subredes que contengan las siguientes direcciones IPv4 para la Grid Network, Admin Network o Client Network de ningún nodo:
 
 * 192.168.130.101
 * 192.168.130.121
@@ -41,7 +41,7 @@ No utilice subredes que contengan las siguientes direcciones IPv4 para la red de
 * 198.51.100.4
 
 
-Por ejemplo, no utilice los siguientes rangos de subred para la red de cuadrícula, la red de administración o la red de cliente de ningún nodo:
+Por ejemplo, no utilices los siguientes rangos de subred para la Grid Network, Admin Network o Client Network de ningún nodo:
 
 * 192.168.130.0/24 porque este rango de subred contiene las direcciones IP 192.168.130.101 y 192.168.130.102
 * 192.168.131.0/24 porque este rango de subred contiene las direcciones IP 192.168.131.101 y 192.168.131.102
@@ -59,7 +59,7 @@ Por ejemplo, introduzca `10.96.104.0/22`.
 . Espere hasta que se apliquen los cambios y luego descargue un nuevo paquete de recuperación.
 +
 .. Seleccione *Mantenimiento* > *Sistema* > *Paquete de recuperación*.
-.. Introduzca la *frase de paso de aprovisionamiento*.
+.. Introduce la *frase de contraseña de aprovisionamiento*.
 +
 
 CAUTION: El archivo del paquete de recuperación debe estar protegido porque contiene claves de cifrado y contraseñas que se pueden utilizar para obtener datos del sistema StorageGRID .  También se utiliza para recuperar el nodo de administración principal.

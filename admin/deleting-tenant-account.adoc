@@ -17,7 +17,7 @@ Puede eliminar una cuenta de inquilino si desea eliminar de forma permanente el 
 * Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
 * Tienes link:admin-group-permissions.html["permisos de acceso específicos"].
 * Ha eliminado los S3 buckets y los objetos asociados con la cuenta de inquilino.
-* Si el inquilino puede utilizar una conexión de federación de grid, ha revisado las consideraciones para link:grid-federation-manage-tenants.html["Eliminación de un inquilino con el permiso de conexión Usar federación de grid"].
+* Si se permite al inquilino utilizar conexiones de federación de grid, ya revisaste las consideraciones para link:../admin/grid-federation-manage-tenants.html["Eliminación de un inquilino con el permiso de conexión Usar federación de grid"]. Las eliminaciones se sincronizan, así que si se elimina un inquilino en cualquier grid, se eliminará en todos los grids seleccionados.
 
 
 .Pasos

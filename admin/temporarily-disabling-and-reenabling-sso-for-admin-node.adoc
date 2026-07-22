@@ -37,7 +37,21 @@ Al iniciar sesión como root, la petición de datos cambia de `$` a `#`.
 
 
 
-. Ejecute el siguiente comando:``disable-saml``
+. En función de tu configuración de SSO, ejecuta uno de los siguientes comandos:
++
+[role="tabbed-block"]
+====
+.SAML
+--
+`disable-saml`
+
+--
+.OIDC
+--
+`disable-oidc`
+
+--
+====
 +
 Un mensaje indica que el comando se aplica únicamente a este nodo de administrador.
 

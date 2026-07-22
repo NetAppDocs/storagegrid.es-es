@@ -20,7 +20,7 @@ El elemento básico de un sistema StorageGRID es el nodo de Grid. Los nodos cont
 
 El sistema StorageGRID utiliza tres tipos de nodos de red:
 
-Nodos de administración:: Proporcione servicios de gestión como la configuración, la supervisión y el registro del sistema. Cuando inicia sesión en Grid Manager, se conecta a un nodo de administración. Cada grid debe tener un nodo de administrador primario y puede tener nodos de administrador no primarios adicionales para la redundancia. Puede conectarse a cualquier nodo de administrador y cada nodo de administrador muestra una vista similar del sistema StorageGRID. Sin embargo, se deben realizar los procedimientos de mantenimiento usando el nodo de administración principal.
+Nodos de administración:: Proporciona servicios de gestión, como la configuración del sistema, la supervisión y el registro. Cuando inicias sesión en Grid Manager, te conectas a un nodo de administración. Cada grid debe tener un nodo de administración principal y puede tener nodos de administración no principales adicionales para redundancia. Puedes conectarte a cualquier nodo de administración, y cada nodo de administración muestra una vista similar del sistema StorageGRID. Sin embargo, debes realizar la mayoría de los procedimientos de mantenimiento usando el nodo de administración principal.
 +
 --
 Los nodos de administración también se pueden usar para equilibrar la carga del tráfico de clientes S3.
@@ -31,7 +31,7 @@ Consulte link:what-admin-node-is.html["¿Qué es un nodo de administración?"]
 Nodos de almacenamiento:: Gestione y almacene metadatos y datos de objetos. Cada sitio del sistema StorageGRID debe tener al menos tres nodos de almacenamiento.
 +
 --
-Durante la instalación inicial de un nuevo nodo de almacenamiento, puede especificar que solo se utilice paralink:../primer/what-storage-node-is.html#types-of-storage-nodes["almacenar metadatos"] .
+Durante la instalación inicial de un nuevo nodo de almacenamiento, puedes especificar que solo se utilice para link:../primer/what-storage-node-is.html#types-of-storage-nodes["almacenar metadatos o datos"].
 
 Consulte link:what-storage-node-is.html["¿Qué es un nodo de almacenamiento?"]
 
@@ -60,7 +60,7 @@ Los dispositivos de hardware StorageGRID están especialmente diseñados para su
 
 Consulte lo siguiente para obtener más información sobre los dispositivos disponibles:
 
-* https://docs.netapp.com/us-en/storagegrid-appliances/["Documentación del dispositivo StorageGRID"^]
+* https://docs.netapp.com/us-en/storagegrid-appliances/["Documentación de la appliance StorageGRID"^]
 * https://hwu.netapp.com["NetApp Hardware Universe"^]
 
 
@@ -107,15 +107,6 @@ Al menos tres nodos de almacenamiento que contienen el servicio ADC en cada siti
 AMS (Sistema de Gestión de Auditoría)
  a| 
 Supervisa y registra todos los eventos y transacciones auditados del sistema en un archivo de registro de texto.
- a| 
-Nodos de administración
-
-
-
- a| 
-Apache Tomcat
- a| 
-Servidor web para aplicaciones basadas en Java.
  a| 
 Nodos de administración
 
@@ -203,6 +194,15 @@ Todos los nodos
 
 
  a| 
+gdu-server
+ a| 
+El ejecutor de tareas de backend para las acciones de mantenimiento y aprovisionamiento de grid. Acepta solicitudes de `mgmt-api` y otros scripts de utilidades, las valida y envía cada acción al gestor de tareas GDU correspondiente, como aprovisionamiento, expansión, decomisionar y actualizaciones.
+ a| 
+Nodos de administración
+
+
+
+ a| 
 Grafana
  a| 
 Se utiliza para la visualización de métricas en Grid Manager.
@@ -214,7 +214,7 @@ Nodos de administración
  a| 
 Alta disponibilidad
  a| 
-Gestiona las IP virtuales de alta disponibilidad en los nodos configurados en la página High Availability Groups. Este servicio también se conoce como servicio de keepalived.
+Gestiona las direcciones IP virtuales de alta disponibilidad en los nodos configurados en la página Grupos de alta disponibilidad. Este servicio también se conoce como el servicio _keepalived_.
  a| 
 Nodos de administración y puerta de enlace
 
@@ -241,7 +241,7 @@ Todos los nodos
  a| 
 Equilibrador de carga (nginx-gw)
  a| 
-Proporciona un equilibrio de carga del tráfico S3 desde los clientes a los nodos de almacenamiento. El servicio Load Balancer se puede configurar a través de la página de configuración Load Balancer Endpoints. Este servicio también se conoce como servicio nginx-gw.
+Proporciona un equilibrio de carga del tráfico S3 desde los clientes a los nodos de almacenamiento.
  a| 
 Nodos de administración y puerta de enlace
 
@@ -253,6 +253,15 @@ LDR (enrutador de distribución local)
 Gestiona el almacenamiento y la transferencia de contenido dentro de la cuadrícula.
  a| 
 Nodos de almacenamiento
+
+
+
+ a| 
+mgmt-api
+ a| 
+La API de backend de Grid Manager. Expone endpoints REST autenticados para administrar el grid (configuración, monitoreo y flujos de trabajo de mantenimiento), aplica validaciones y permisos, y orquesta operaciones de larga duración. La API principal del plano de control utilizada por la interfaz de Grid Manager y los clientes de automatización.
+ a| 
+Nodos de administración
 
 
 
@@ -277,7 +286,7 @@ Todos los nodos
  a| 
 Balanceador de carga nginx-gw
  a| 
-Proporciona un equilibrio de carga del tráfico S3 desde los clientes a los nodos de almacenamiento. El servicio Load Balancer se puede configurar a través de la página de configuración Load Balancer Endpoints. Este servicio también se conoce como servicio nginx-gw.
+Proporciona un equilibrio de carga del tráfico S3 desde los clientes a los nodos de almacenamiento.
  a| 
 Nodos de administración y puerta de enlace
 
@@ -302,7 +311,7 @@ Todos los nodos
 
 
  a| 
-ntp
+NTP
  a| 
 Servicio de protocolo de tiempo de red (NTP).
  a| 

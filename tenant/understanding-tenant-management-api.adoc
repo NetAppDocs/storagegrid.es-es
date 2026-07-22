@@ -54,6 +54,7 @@ NOTE: Si está habilitado el inicio de sesión único (SSO) para el sistema Stor
 * *ilm*: Operaciones en la configuración de gestión del ciclo de vida de la información (ILM).
 * *REGIONS*: Operaciones para determinar qué regiones se han configurado para el sistema StorageGRID.
 * *S3*: Operaciones para administrar las claves de acceso S3 para los usuarios inquilinos.
+* *s3-configurations*: Operaciones para recuperar las configuraciones globales de S3.
 * *S3-OBJECT-LOCK*: Operaciones en la configuración global de S3 Object Lock, utilizada para apoyar el cumplimiento normativo.
 * *Usuarios*: Operaciones para ver y administrar usuarios inquilinos.
 

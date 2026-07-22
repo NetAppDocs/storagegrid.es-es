@@ -24,6 +24,14 @@ Las políticas de bloque especifican los permisos de acceso para el bloque al qu
 ----
 
 
+En StorageGRID, el principal:
+
+* `"Principal": "*"` coincide con todos, incluidas las solicitudes anónimas (no firmadas)
+* `"Principal": { "AWS": "*" }` coincide con cualquier identidad o usuario autenticado (no coincide con las solicitudes anónimas)
+* Solo se aplica a las políticas de bucket
+* El principal es la cuenta(s) o usuario(s) a los que se conceden o deniegan los permisos
+
+
 
 
 [[example-allow-everyone-read-only-access-to-a-bucket]]

@@ -1,0 +1,73 @@
+---
+permalink: monitor/configure-email-server.html 
+sidebar: sidebar 
+keywords: notifications, email, system events, technical support 
+summary: Como administrador de StorageGRID, debes configurar un servidor de correo electrónico para enviar notificaciones desde los sistemas de alertas y supervisión de StorageGRID que te informen a ti, a otros administradores y al soporte técnico sobre los eventos y problemas del sistema. 
+---
+= Configura el servidor de correo electrónico
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Como administrador de StorageGRID, debes configurar un servidor de correo electrónico para enviar notificaciones desde los sistemas de alertas y supervisión de StorageGRID que te informen a ti, a otros administradores y al soporte técnico sobre los eventos y problemas del sistema.
+
+Las funciones de StorageGRID que utilizan el servidor de correo electrónico para enviar notificaciones incluyen alertas, AutoSupport y la verificación de múltiples administradores (MAV). Puedes usar el mismo servidor de correo electrónico para todas las notificaciones.
+
+.Antes de empezar
+* Usted tiene el link:../admin/admin-group-permissions.html["Permiso de acceso raíz"].
+* Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
+
+
+.Pasos
+. Selecciona *Configuración* > *Supervisión* > *Servidor de correo electrónico*.
++
+Aparece la página del servidor de correo electrónico.
+
+. Selecciona el menú desplegable *Ver funciones que pueden requerir un servidor de correo electrónico*. Si deseas ver los detalles y la información necesaria para configurar las notificaciones por correo electrónico de una función, selecciona *Ver*.
++
+Se te redirige a la página de configuración de la función en Grid Manager. La página de configuración de cada función incluye un aviso que indica que necesitas un servidor de correo electrónico para enviar notificaciones por correo electrónico.
+
+. Para configurar un servidor de correo electrónico desde la página «Servidor de correo electrónico»:
++
+.. Introduce la dirección IP o el FQDN del servidor de correo electrónico.
+.. Selecciona el número de puerto que utiliza el servidor de correo electrónico. El valor predeterminado es 25.
+.. Para exigir autenticación, selecciona *Usar autenticación* e introduce el nombre de usuario y la contraseña.
+.. Para exigir la verificación de la identidad del servidor SMTP, selecciona *Usar seguridad de la capa de transporte (TLS)*. A continuación:
++
+... Proporciona un paquete de certificados de autoridad (CA).
+... Si el servidor de correo SMTP exige a los remitentes que proporcionen certificados de cliente para la autenticación, selecciona *Enviar certificado de cliente*. Luego proporciona el certificado de cliente y la clave privada.
+
+
+.. Para asegurarte de que la configuración de tu correo electrónico es correcta, envía un correo de prueba introduciendo el remitente y el destinatario. Selecciona *Enviar*.
++
+Aparece un mensaje de confirmación que indica que se ha enviado un correo electrónico de prueba.
+
+.. Active las casillas de todos los destinatarios de correo electrónico y confirme que se ha recibido un mensaje de correo electrónico de prueba.
++
+
+NOTE: Si el correo electrónico no se recibe en unos minutos o si se activa la alerta *error de notificación por correo electrónico*, compruebe la configuración e inténtelo de nuevo.
+
+.. Inicie sesión en cualquier otro nodo de administración y envíe un correo electrónico de prueba para verificar la conectividad desde todos los sitios.
++
+
+NOTE: Cuando prueba las notificaciones de alerta, debe iniciar sesión en cada nodo de administrador para verificar la conectividad. Esto es en contraste con probar paquetes AutoSupport, donde todos los nodos de administración envían el correo electrónico de prueba.
+
+
+
+. Seleccione *Guardar*.
++
+Al enviar un correo electrónico de prueba no se guardan tus ajustes. Debes seleccionar *Guardar*.
+
++
+Se guardará la configuración del correo electrónico.
+
+. Accede a las páginas de configuración de las funciones que utilizan el servidor de correo electrónico y completa los ajustes de notificación por correo electrónico.
++
+** link:../monitor/email-alert-notifications.html["Alertas"]. Para las alertas, también puedes link:../monitor/snmp-alert-notifications.html["configurar las notificaciones SNMP"].
+** link:../monitor/configure-autosupport-grid-manager.html["AutoSupport"]. Puedes enviar paquetes AutoSupport por correo electrónico, HTTPS o HTTP (HTTP no se recomienda).
+** link:../admin/configure-multi-admin-verify.html["Verificación de múltiples administradores (MAV)"].
+
+
+

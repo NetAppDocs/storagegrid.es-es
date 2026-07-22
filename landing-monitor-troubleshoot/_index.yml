@@ -21,12 +21,14 @@ indexpage:
       url: "../monitor/monitoring-storage-capacity.html"
   - title: Gestionar alertas y notificaciones
     links:
+    - title: Utilice AutoSupport
+      url: "../monitor/what-is-autosupport.html"
     - title: Gestionar alertas
       url: "../monitor/managing-alerts.html"
     - title: Crear alertas personalizadas
       url: "../monitor/creating-custom-alert-rules.html"
-    - title: Administrar correos electrónicos de alerta
-      url: "../monitor/email-alert-notifications.html"
+    - title: Configura el servidor de correo electrónico
+      url: "../monitor/configure-email-server.html"
     - title: Usar supervisión de SNMP
       url: "../monitor/using-snmp-monitoring.html"
   - title: Utilice los mensajes de auditoría y otros registros
@@ -41,6 +43,8 @@ indexpage:
       url: "../monitor/logs-files-reference.html"
   - title: Diagnostique y solucione problemas
     links:
+    - title: Utilice AutoSupport
+      url: "../monitor/what-is-autosupport.html"
     - title: Revisar las métricas de soporte
       url: "../monitor/reviewing-support-metrics.html"
     - title: Cambiar la priorización de E/S

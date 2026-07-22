@@ -133,7 +133,7 @@ Al usar servicios alojados localmente en lugar de servicios de cloud, puede espe
 +
 [listing]
 ----
-urn:mysite:s3:optional:optional:bucket-name
+urn:mysite:s3:::bucket-name
 ----
 +
 Para un extremo de CloudMirror alojado en StorageGRID, se puede especificar un URN válido que comience por `urn:sgws`:
@@ -141,7 +141,7 @@ Para un extremo de CloudMirror alojado en StorageGRID, se puede especificar un U
 +
 [listing]
 ----
-urn:sgws:s3:optional:optional:bucket-name
+urn:sgws:s3:::bucket-name
 ----
 * Notificaciones:
 +
@@ -150,7 +150,7 @@ Especifique un punto final de Amazon Simple Notification Service:
 +
 [listing]
 ----
-urn:mysite:sns:optional:optional:sns-topic-name
+urn:aws:sns:region:account-id:sns-topic-name
 ----
 +
 Especifique un punto final Kafka:
@@ -158,21 +158,25 @@ Especifique un punto final Kafka:
 +
 [listing]
 ----
-urn:mysite:kafka:optional:optional:kafka-topic-name
+urn::kafka:::kafka-topic-name
 ----
++
+
+NOTE: Opcionalmente, puedes incluir  `mysite` al especificar un endpoint de Kafka: `urn:mysite:kafka:::kafka-topic-name`
+
 +
 Especifique un punto final de webhook:
 
 +
 [listing]
 ----
-urn:mysite:webhook:optional:optional:webhook-name
+urn:mysite:webhook:::webhook-name
 ----
 * Integración de búsqueda:
 +
 [listing]
 ----
-urn:mysite:es:optional:optional:domain-name/index-name/type-name
+urn:mysite:es:::domain-name/index-name/type-name
 ----
 +
 

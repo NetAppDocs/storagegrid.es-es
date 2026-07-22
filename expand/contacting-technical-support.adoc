@@ -19,7 +19,7 @@ Antes de comunicarse con el soporte técnico, recoja los archivos de registro re
 . El acceso SSH externo está bloqueado de forma predeterminada.  Si es necesario,link:../admin/manage-external-ssh-access.html["permitir el acceso temporalmente"] .
 . Conéctese al nodo de ampliación que ha experimentado errores:
 +
-.. Introduzca el siguiente comando:``ssh -p 8022 admin@_grid_node_IP_``
+.. Introduce el siguiente comando: `ssh -p 8022 admin@_grid_node_IP_`
 +
 El puerto 8022 es el puerto SSH del sistema operativo base, mientras que el puerto 22 es el puerto SSH del motor del contenedor que ejecuta StorageGRID.
 

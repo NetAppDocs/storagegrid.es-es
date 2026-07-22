@@ -37,12 +37,9 @@ CAUTION: Algunos pasos y etapas de expansión pueden tardar una cantidad signifi
 
 
 .Pasos
-. Seleccione *Mantenimiento* > *Tareas* > *Expansión*.
+. Selecciona *Mantenimiento* > *Tareas* > *Ampliación de la red*.
 +
-Aparece la página expansión de cuadrícula. En la sección Pending Nodes, se enumeran los nodos listos para añadir.
-
-+
-image:grid_expansion_page.png["Captura de pantalla que muestra la página expansión de cuadrícula"]
+Aparece la página de expansión de The Grid. La sección Nodos pendientes muestra los nodos que están listos para ser añadidos.
 
 . Seleccione *Configurar expansión*.
 +
@@ -166,7 +163,7 @@ NOTE: Si es posible, debe aprobar todas las notas de cuadrícula pendientes y re
 
 
 
-. Cuando haya aprobado todos los nodos de cuadrícula, introduzca la *frase de paso de aprovisionamiento* y seleccione *expandir*.
+. Cuando hayas aprobado todos los nodos de la red, introduce la *frase de contraseña de aprovisionamiento* y selecciona *Expand*.
 +
 Después de unos minutos, esta página se actualiza para mostrar el estado del procedimiento de expansión. Cuando las tareas que afectan a los nodos de cuadrícula individuales están en curso, la sección Estado de Nodo de Grid muestra el estado actual de cada nodo de cuadrícula.
 

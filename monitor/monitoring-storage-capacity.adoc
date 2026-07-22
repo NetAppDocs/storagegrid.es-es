@@ -106,10 +106,7 @@ image:nodes_page_storage_used_object_data.png["Nodos almacenamiento de páginas 
 . Revise los valores disponibles en las tablas Volumes y Object store, debajo de los gráficos.
 +
 
-NOTE: Para ver gráficos de estos valores, haz clic en los iconos de gráficos image:icon_chart_new_for_11_5.png["Icono de gráfico"] en las columnas disponibles.
-
-+
-image:nodes_page_storage_tables.png["Objeto almacena tablas"]
+NOTE: Para ver gráficos de estos valores, selecciona los iconos de gráficos en las columnas disponibles.
 
 . Supervise los valores a lo largo del tiempo para estimar la tasa a la que se está consumiendo el espacio de almacenamiento útil.
 . Para mantener las operaciones del sistema normales, añada nodos de almacenamiento, añada volúmenes de almacenamiento o datos de objetos de archivado antes de consumir el espacio útil.
@@ -206,4 +203,4 @@ Si tiene una nueva instalación de StorageGRID, permita que los datos y los meta
 . Utilice estos valores para estimar cuándo tendrá que añadir nuevos nodos de almacenamiento para el almacenamiento de datos y metadatos.
 
 
-image:forecast-metadata-usage.png["Previsión de uso de metadatos por sitio"]
+image:forecast_metadata_usage.png["Previsión de uso de metadatos por sitio"]

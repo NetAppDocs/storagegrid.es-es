@@ -2,7 +2,7 @@
 section: admin
 title: Administre StorageGRID
 entries:
-- title: Tareas de administración
+- title: Guía rápida de administración
   pdf-filename: Administrar un sistema StorageGRID
   url: "/admin/index.html"
 - title: Comience a usar Grid Manager
@@ -67,32 +67,68 @@ entries:
       url: "/admin/requirements-for-sso.html"
     - title: Confirmar que los usuarios federados pueden iniciar sesión
       url: "/admin/confirming-federated-users-can-sign-in.html"
-    - title: Configurar SSO
-      url: "/admin/configure-sso.html"
-    - title: Crear confianzas de parte de confianza en AD FS
-      url: "/admin/creating-relying-party-trusts-in-ad-fs.html"
-    - title: Crear aplicaciones empresariales en Entra ID
-      url: "/admin/creating-enterprise-application-entra-id.html"
-    - title: Crear conexiones SP en PingFederate
-      url: "/admin/creating-sp-connection-ping.html"
+    - title: Configura el inicio de sesión único (SSO) con OIDC
+      entries:
+      - title: Conoce
+        url: "/admin/learn-about-setting-up-sso-oidc.html"
+      - title: Crear grupos de aplicaciones en AD FS
+        url: "/admin/creating-relying-party-trusts-in-ad-fs-oidc.html"
+      - title: Crear aplicaciones en Entra ID
+        url: "/admin/creating-enterprise-application-entra-id-oidc.html"
+      - title: Crear clientes en Keycloak
+        url: "/admin/create-client-keycloak-oidc.html"
+      - title: Crear aplicación de Okta
+        url: "/admin/create-okta-application-oidc.html"
+      - title: Crear conexiones SP en PingFederate
+        url: "/admin/creating-sp-connection-ping-oidc.html"
+      - title: Configurar SSO
+        url: "/admin/configure-sso-oidc.html"
+    - title: Configura el inicio de sesión único (SSO) con SAML
+      entries:
+      - title: Conoce
+        url: "/admin/learn-about-setting-up-sso-saml.html"
+      - title: Configurar SSO
+        url: "/admin/configure-sso-saml.html"
+      - title: Crear confianzas de parte de confianza en AD FS
+        url: "/admin/creating-relying-party-trusts-in-ad-fs-saml.html"
+      - title: Crear aplicaciones empresariales en Entra ID
+        url: "/admin/creating-enterprise-application-entra-id-saml.html"
+      - title: Crear conexiones SP en PingFederate
+        url: "/admin/creating-sp-connection-ping-saml.html"
     - title: Deshabilitar SSO
       url: "/admin/disabling-single-sign-on.html"
     - title: Deshabilitar y volver a habilitar temporalmente el SSO para un nodo de
         administración
       url: "/admin/temporarily-disabling-and-reenabling-sso-for-admin-node.html"
+  - title: Usa la verificación de varios administradores
+    entries:
+    - title: Conoce la verificación de varios administradores
+      url: "/admin/about-multi-admin-verify.html"
+    - title: Configura la verificación de varios administradores
+      url: "/admin/configure-multi-admin-verify.html"
+    - title: Solicitar autorización para operaciones protegidas
+      url: "/admin/request-mav-approval-for-protected-ops.html"
+    - title: Gestiona solicitudes de operaciones protegidas
+      url: "/admin/manage-mav-protected-ops-requests.html"
 - title: Usar federación de grid
   entries:
   - title: Qué es GRID federation
     pdf-filename: Usar federación de grid
     url: "/admin/grid-federation-overview.html"
-  - title: Qué es el clon de cuenta
-    url: "/admin/grid-federation-what-is-account-clone.html"
+  - title: "¿Qué es la sincronización de cuentas?"
+    url: "/admin/grid-federation-what-is-account-sync.html"
   - title: Qué es la replicación entre grid
     url: "/admin/grid-federation-what-is-cross-grid-replication.html"
   - title: Compare la replicación entre grid y la replicación de CloudMirror
     url: "/admin/grid-federation-compare-cgr-to-cloudmirror.html"
   - title: Crear conexiones de federación de grid
     url: "/admin/grid-federation-create-connection.html"
+  - title: Automatiza las conexiones de la federación de grid
+    url: "/admin/grid-federation-automate-connections.html"
+  - title: Conoce el espacio de nombres global
+    url: "/admin/learn-about-global-namespace.html"
+  - title: Configura el espacio de nombres global
+    url: "/admin/configure-global-namespace.html"
   - title: Gestionar conexiones de federación de grid
     url: "/admin/grid-federation-manage-connection.html"
   - title: Gestionar inquilinos permitidos
@@ -259,19 +295,6 @@ entries:
     url: "/admin/benefits-of-active-idle-and-concurrent-http-connections.html"
   - title: Gestionar costes de enlaces
     url: "/admin/manage-link-costs.html"
-- title: Utilice AutoSupport
-  entries:
-  - title: Qué es AutoSupport
-    pdf-filename: Utilice AutoSupport
-    url: "/admin/what-is-autosupport.html"
-  - title: Configure AutoSupport
-    url: "/admin/configure-autosupport-grid-manager.html"
-  - title: Active manualmente un paquete AutoSupport
-    url: "/admin/manually-triggering-autosupport-message.html"
-  - title: Solucionar problemas de paquetes AutoSupport
-    url: "/admin/troubleshooting-autosupport-messages.html"
-  - title: Envíe los paquetes AutoSupport de E-Series a través de StorageGRID
-    url: "/admin/sending-eseries-autosupport-messages-through-storagegrid.html"
 - title: Gestione nodos de almacenamiento
   entries:
   - title: Utilice las opciones de almacenamiento

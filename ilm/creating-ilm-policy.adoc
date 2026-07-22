@@ -29,7 +29,7 @@ Antes de crear su propia política, compruebe que link:ilm-policy-overview.html#
 NOTE: Utilice únicamente las políticas proporcionadas por el sistema, la política de 2 copias (para cuadrículas de un sitio) o la copia 1 por sitio (para cuadrículas de varios sitios), en los sistemas de prueba. Para StorageGRID 11,6 y versiones anteriores, la regla predeterminada de esta política utiliza el pool de almacenamiento Todos los nodos de almacenamiento, que contiene todos los sitios. Si su sistema StorageGRID tiene más de un sitio, es posible que se coloquen dos copias de un objeto en el mismo sitio.
 
 
-NOTE: Si link:enabling-s3-object-lock-globally.html["Se ha activado la configuración de bloqueo de objeto global S3"], debe asegurarse de que la política ILM cumple con los requisitos de los depósitos que tienen S3 Object Lock activado. En esta sección, siga las instrucciones que mencionan tener S3 Object Lock habilitado.
+NOTE: Si el link:enabling-s3-object-lock.html["Se ha activado la configuración de bloqueo de objeto global S3"], debes asegurarte de que la política de ILM cumpla con los requisitos de los buckets que tienen habilitado S3 Object Lock. En esta sección, sigue las instrucciones que mencionan tener S3 Object Lock habilitado.
 
 .Antes de empezar
 * Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
@@ -47,7 +47,7 @@ NOTE: Si link:enabling-s3-object-lock-globally.html["Se ha activado la configura
 --
 .S3 Bloqueo de objetos activado
 --
-** link:enabling-s3-object-lock-globally.html["La configuración de bloqueo de objetos global S3 ya está activada"]Para el sistema StorageGRID.
+** El link:enabling-s3-object-lock.html["La configuración de bloqueo de objetos global S3 ya está activada"] para el sistema StorageGRID.
 ** link:what-ilm-rule-is.html["Se han creado las reglas de ILM conforme a las normativas y no conformes"]Desea agregar a la política. Según sea necesario, puede guardar una política, crear reglas adicionales y, a continuación, editar la política para agregar las nuevas reglas.
 ** Usted link:creating-default-ilm-rule.html["Se ha creado una regla de ILM predeterminada"]tiene para la política que es compatible.
 
@@ -180,8 +180,7 @@ NOTE: Debe confirmar que las reglas de ILM se encuentran en el orden correcto. C
 Simule una política sobre objetos de prueba antes de activar la política y aplicarla a los datos de producción.
 
 .Antes de empezar
-* Conoce el bucket/object-key S3 para cada objeto que desea probar.
-
+Conoce el bucket/object-key S3 para cada objeto que desea probar.
 
 .Pasos
 . Utilizando un cliente S3 o link:../tenant/use-s3-console.html["S3 Consola"], ingerir los objetos necesarios para probar cada regla.
@@ -197,7 +196,7 @@ Simule una política sobre objetos de prueba antes de activar la política y apl
 CAUTION: Revise cualquier cambio en la ubicación de los objetos existentes replicados y con código de borrado. El cambio de la ubicación de un objeto existente podría dar lugar a problemas temporales de recursos cuando se evalúan e implementan las nuevas colocaciones.
 
 .Resultados
-Cualquier modificación en las reglas de la política se reflejará en los resultados de la simulación y mostrará la nueva coincidencia y la coincidencia anterior. La ventana Simular policy conserva los objetos que probaste hasta que selecciones *Clear all* o el icono de eliminar image:icon-x-to-remove.png["Icono Eliminar"] para cada objeto en la lista de resultados de la simulación.
+Cualquier modificación en las reglas de la política se reflejará en los resultados de la simulación y mostrará la nueva coincidencia y la coincidencia anterior. La ventana Simular policy conserva los objetos que probaste hasta que selecciones *Clear all* o el icono de eliminar image:icon_x_to_remove.png["Icono Eliminar"] para cada objeto en la lista de resultados de la simulación.
 
 .Información relacionada
 link:simulating-ilm-policy-examples.html["Ejemplo de simulaciones de políticas de ILM"]

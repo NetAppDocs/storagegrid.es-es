@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, primary admin node failure 
 summary: 'Debe completar un conjunto específico de tareas para recuperar el sistema después de un fallo en un nodo de administrador principal. El nodo de administrador principal aloja el servicio Configuration Management Node (CMN) de la cuadrícula.' 
 ---
-= Recupera de fallos del nodo primario de administración de StorageGRID
+= Recupera el nodo de administración principal de StorageGRID usando el mismo nodo de administración principal
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

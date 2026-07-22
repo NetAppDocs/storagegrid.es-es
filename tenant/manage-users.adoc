@@ -2,7 +2,7 @@
 permalink: tenant/manage-users.html 
 sidebar: sidebar 
 keywords: how to create local tenant users, manage users 
-summary: Puedes crear usuarios locales y asignarlos a grupos locales para determinar a qué funciones pueden acceder dichos usuarios. El Tenant Manager incluye un usuario local predefinido, llamado root. Aunque puedes añadir y eliminar usuarios locales, no puedes eliminar al usuario raíz. 
+summary: Puedes crear usuarios locales y asignarlos a grupos locales para determinar a qué funciones pueden acceder estos usuarios. Tenant Manager incluye un usuario local predefinido, llamado root. Aunque puedes añadir y eliminar usuarios locales, no puedes eliminar al usuario raíz. 
 ---
 = Gestiona los usuarios inquilinos de StorageGRID
 :allow-uri-read: 
@@ -11,15 +11,15 @@ summary: Puedes crear usuarios locales y asignarlos a grupos locales para determ
 
 
 [role="lead"]
-Puede crear usuarios locales y asignarlos a grupos locales para determinar a qué funciones pueden acceder estos usuarios.  También puedes importar usuarios federados.  El administrador de inquilinos incluye un usuario local predefinido, llamado "root".  Aunque puedes agregar y eliminar usuarios locales, no puedes eliminar el usuario root.
+Puedes crear usuarios locales y asignarlos a grupos locales para determinar a qué funciones pueden acceder dichos usuarios. También puedes importar usuarios federados. El Tenant Manager incluye un usuario local predefinido, denominado _root_. Aunque puedes añadir y eliminar usuarios locales, no puedes eliminar el usuario raíz.
 
 
-NOTE: Si el inicio de sesión único (SSO) está habilitado para el sistema StorageGRID, los usuarios locales no podrán iniciar sesión en el gestor de inquilinos o en la API de gestión de inquilinos, aunque pueden utilizar aplicaciones cliente para acceder a los recursos del inquilino, según los permisos del grupo.
+NOTE: Si el inicio de sesión único (SSO) está habilitado para tu sistema StorageGRID, los usuarios locales no podrán iniciar sesión en el Tenant Manager ni en la API de gestión de inquilinos, aunque pueden usar aplicaciones cliente para acceder a los recursos del inquilino según los permisos de grupo.
 
 .Antes de empezar
 * Ha iniciado sesión en el gestor de inquilinos mediante un link:../admin/web-browser-requirements.html["navegador web compatible"].
 * Pertenece a un grupo de usuarios que tiene el link:tenant-management-permissions.html["Permiso de acceso raíz"].
-* Si su cuenta de inquilino tiene el permiso *Usar conexión de federación de grid*, ha revisado el flujo de trabajo y las consideraciones de link:grid-federation-account-clone.html["clonación de usuarios y grupos de inquilinos"], y ha iniciado sesión en la cuadrícula de origen del inquilino.
+* Si tu cuenta de inquilino tiene el permiso *Utilizar conexión de federación de redes*, has revisado el flujo de trabajo y las consideraciones para link:grid-federation-account-sync.html["Sincronizando grupos de clientes y usuarios"] y has iniciado sesión en la red de origen del inquilino.
 
 
 
@@ -38,12 +38,6 @@ Los usuarios de S3 que no pertenecen a ningún grupo no tienen permisos de admin
 
 .Pasos
 . Seleccione *Administración de acceso* > *Usuarios*.
-+
-Si su cuenta de inquilino tiene el permiso *Usar conexión de federación de grid*, un banner azul indica que esta es la cuadrícula de origen del inquilino. Todos los usuarios locales que cree en esta cuadrícula se clonarán en la otra cuadrícula de la conexión.
-
-+
-image:grid-federation-tenant-user-banner.png["Imagen del banner azul en la página de usuario si ésta es la cuadrícula de origen de inquilino"]
-
 . Seleccione *Crear usuario*.
 
 
@@ -109,7 +103,7 @@ Los usuarios que no pertenezcan a ningún grupo no tendrán permisos de administ
 
 . Seleccione *Crear usuario*.
 +
-Si su cuenta de inquilino tiene el permiso *Usar conexión de federación de grid* y usted está en la cuadrícula de origen del inquilino, el nuevo usuario local se clona en la cuadrícula de destino del inquilino. *Success* aparece como *Cloning status* en la sección Overview de la página de detalles del usuario.
+Si tu cuenta de inquilino tiene el permiso *Usar conexión de federación de redes* y te encuentras en la red de origen del inquilino, el nuevo usuario local se sincroniza con la red de destino del inquilino. *Correcto* aparece como el *Estado de la sincronización* en la sección de resumen de la página de detalles del usuario.
 
 . Seleccione *Finalizar* para volver a la página Usuarios.
 
@@ -122,14 +116,6 @@ Si su cuenta de inquilino tiene el permiso *Usar conexión de federación de gri
 .Pasos
 . Seleccione *Administración de acceso* > *Usuarios*.
 . Revise la información proporcionada en la página Usuarios, que muestra información básica para todos los usuarios locales y federados de esta cuenta de arrendatario.
-+
-Si la cuenta de inquilino tiene el permiso *Use grid federation connection* y está viendo al usuario en la cuadrícula de origen del inquilino:
-
-+
-** Un mensaje de banner indica que si edita o elimina un usuario, los cambios no se sincronizarán con la otra cuadrícula.
-** Según sea necesario, un mensaje de banner indica si los usuarios no se clonaron en el inquilino en la cuadrícula de destino. Puede <<clone-users,vuelva a intentar un clon de usuario que haya fallado>>.
-
-
 . Si desea cambiar el nombre completo del usuario:
 +
 .. Seleccione la casilla de control para el usuario.
@@ -152,12 +138,6 @@ Si la cuenta de inquilino tiene el permiso *Use grid federation connection* y es
 ** Acceso denegado
 ** Modo de acceso
 ** Pertenencia a grupos
-** Campos adicionales si la cuenta de inquilino tiene el permiso *Use grid federation connection* y está viendo al usuario en la cuadrícula de origen del inquilino:
-+
-*** Estado de clonación, ya sea *Success* o *Failure*
-*** Un banner azul que indica que si edita este usuario, los cambios no se sincronizarán con la otra cuadrícula.
-
-
 
 
 . Edite la configuración del usuario según sea necesario. Consulte <<create-user,Crear usuario local>> para obtener más información acerca de lo que se debe introducir.
@@ -211,7 +191,7 @@ Después de cerrar el cuadro de diálogo *Importar usuarios federados*, la infor
 Puede duplicar un usuario local para crear un usuario nuevo más rápidamente.
 
 
-NOTE: Si su cuenta de inquilino tiene el permiso *Usar conexión de federación de grid* y duplica un usuario de la cuadrícula de origen del inquilino, el usuario duplicado se clonará en la cuadrícula de destino del inquilino.
+NOTE: Si tu cuenta de inquilino tiene el permiso *Utilizar conexión de federación de grid* y duplicas un usuario de la grid de origen del inquilino, el usuario duplicado se sincronizará con la grid de destino del inquilino.
 
 .Pasos
 . Seleccione *Administración de acceso* > *Usuarios*.
@@ -223,17 +203,22 @@ NOTE: Si su cuenta de inquilino tiene el permiso *Usar conexión de federación 
 
 
 
-[[clone-usersretry-user-clone]]
-== [[clone-users]]Reintente clonar el usuario
+[[sync-usersretry-user-sync]]
+== [[sync-users]]Volver a intentar la sincronización de usuarios
 
-Para volver a intentar un clon que generó errores:
+Si algún usuario no se pudo sincronizar, aparece "Fallido" en la columna de estado de sincronización para ese usuario. Aparece un banner encima de la tabla para indicar que uno o más usuarios no se pudieron sincronizar.
 
-. Seleccione cada usuario que indique _(Error de clonación)_ debajo del nombre de usuario.
-. Selecciona *Acciones* > *Clonar usuarios*.
-. Vea el estado de la operación de clonación desde la página de detalles de cada usuario que está clonando.
+.Pasos
+Para volver a intentar la sincronización:
+
+. En el banner, selecciona *Reintentar sincronización*. Esta operación vuelve a intentar la sincronización para todos los usuarios que no se pudieron sincronizar.
+. Para volver a intentar sincronizar un usuario concreto, selecciona el nombre de usuario. En la página de detalles del usuario, selecciona *Volver a intentar la sincronización*.
+. Consulta el estado de la operación de sincronización en la página de detalles de cada usuario que estés sincronizando.
 
 
-Para obtener más información, consulte link:grid-federation-account-clone.html["Clone los usuarios y los grupos de inquilinos"].
+Si el nuevo intento tiene éxito, aparece "Correcto" en la columna de estado de sincronización de cada usuario que se haya sincronizado correctamente y el banner desaparece.
+
+Para obtener más información, consulta link:grid-federation-account-sync.html["Sincroniza grupos de inquilinos y usuarios"].
 
 
 
@@ -243,10 +228,7 @@ Para obtener más información, consulte link:grid-federation-account-clone.html
 Puede eliminar de forma permanente uno o varios usuarios locales que ya no necesiten acceder a la cuenta de inquilino de StorageGRID.
 
 
-NOTE: Si tu cuenta de inquilino tiene el permiso *Usar conexión de federación de grid* y eliminas a un usuario local, StorageGRID no eliminará al usuario correspondiente en la otra cuadrícula. Si necesita mantener esta información sincronizada, debe eliminar el mismo usuario de ambas cuadrículas.
-
-
-NOTE: Debe utilizar el origen de identidad federado para eliminar usuarios federados.
+NOTE: Si tu cuenta de inquilino tiene el permiso *Usar conexión de federación de redes* y eliminas a un usuario local, StorageGRID eliminará al usuario correspondiente en las demás grids de la conexión, a menos que dicho usuario sea un usuario federado en una grid de destino. Debes usar la fuente de identidad federada para eliminar usuarios federados.
 
 .Pasos
 . Seleccione *Administración de acceso* > *Usuarios*.

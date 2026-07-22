@@ -20,7 +20,7 @@ Como administrador de grid, puede habilitar el bloqueo de objetos de S3 GB en su
 
 La función StorageGRID S3 Object Lock es una solución de protección de objetos equivalente a S3 Object Lock en Amazon simple Storage Service (Amazon S3).
 
-Cuando se habilita la configuración global Bloqueo de objetos S3 para un sistema StorageGRID, una cuenta de inquilino S3 puede crear buckets con o sin Bloqueo de objetos S3 habilitado. Si un bucket tiene S3 Object Lock habilitado, se requiere el control de versiones de bucket y se habilita automáticamente.
+Cuando la configuración global de S3 Object Lock está habilitada para un sistema StorageGRID, una cuenta de inquilino de S3 puede crear buckets con o sin S3 Object Lock habilitado. Cuando la configuración permitir S3 Object Lock para buckets existentes está habilitada, una cuenta de inquilino de S3 puede habilitar S3 Object Lock para un bucket existente. Si un bucket tiene S3 Object Lock habilitado, el versionado del bucket es obligatorio y se habilita automáticamente. Después de que una cuenta de inquilino de S3 habilita S3 Object Lock para un bucket nuevo o existente, ya no se puede deshabilitar.
 
 *Un cubo sin S3 Object Lock* solo puede tener objetos sin ajustes de retención especificados. Ningún objeto ingerido tendrá valores de retención.
 
@@ -68,7 +68,7 @@ Si se crea un depósito con S3 Object Lock habilitado, los usuarios pueden utili
 NOTE: Si un objeto se encuentra bajo una conservación legal, nadie puede eliminarlo, independientemente de su modo de retención.
 
 +
-Para obtener más información sobre la configuración del objeto, consulte link:../s3/use-s3-api-for-s3-object-lock.html["Use la API REST DE S3 para configurar el bloqueo de objetos de S3"].
+Para obtener más información sobre la configuración del objeto, consulta link:../s3/use-s3-api-for-s3-object-lock.html["Use la API REST DE S3 para configurar el bloqueo de objetos de S3"].
 
 
 
@@ -85,7 +85,7 @@ Si se crea un depósito con S3 Object Lock habilitado, los usuarios pueden espec
 
 La configuración de bloque predeterminada se aplica solo a objetos nuevos que no tienen su propia configuración de retención. Los objetos de cubo existentes no se ven afectados al agregar o cambiar estos valores predeterminados.
 
-Consulte link:../tenant/creating-s3-bucket.html["Cree un bloque de S3"] y link:../tenant/update-default-retention-settings.html["Actualizar S3 Retención predeterminada de bloqueo de objetos"].
+Consulta link:../tenant/creating-s3-bucket.html["Cree un bloque de S3"] y link:../tenant/update-default-retention-settings.html["Actualizar S3 Retención predeterminada de bloqueo de objetos"].
 
 
 
@@ -95,7 +95,7 @@ Consulte link:../tenant/creating-s3-bucket.html["Cree un bloque de S3"] y link:.
 El bloqueo de objetos de S3 sustituye la función de cumplimiento de normativas que estaba disponible en versiones anteriores de StorageGRID. Debido a que la función Bloqueo de objetos de S3 cumple con los requisitos de Amazon S3, deja en obsoletos la característica de cumplimiento de normativas de StorageGRID, que ahora se conoce como “Cumplimiento de normativas heredado”.
 
 
-NOTE: La configuración de cumplimiento global está anticuada. Si ha habilitado esta configuración con una versión anterior de StorageGRID, la configuración Bloqueo de objetos S3 se activa automáticamente. Puede seguir usando StorageGRID para gestionar la configuración de los buckets compatibles existentes; sin embargo, no puede crear nuevos buckets compatibles. Para obtener más información, consulte https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/How_to_manage_legacy_Compliant_buckets_in_StorageGRID_11.5["Base de conocimientos de NetApp: Cómo gestionar bloques heredados que cumplen con la normativa StorageGRID 11.5"^].
+NOTE: La configuración global de Compliance ha quedado obsoleta. Si activaste esta configuración usando una versión anterior de StorageGRID, la configuración de S3 Object Lock se activa automáticamente. Puedes seguir usando StorageGRID para gestionar la configuración de los buckets conformes existentes; sin embargo, no puedes crear nuevos buckets conformes. Para más detalles, consulta https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/How_to_manage_legacy_Compliant_buckets_in_StorageGRID_11.5["Base de conocimientos de NetApp: Cómo gestionar bloques heredados que cumplen con la normativa StorageGRID 11.5"^].
 
 Si ha utilizado la función de cumplimiento de normativas heredada en una versión anterior de StorageGRID, consulte la siguiente tabla para saber cómo se compara con la función de bloqueo de objetos S3 de StorageGRID.
 

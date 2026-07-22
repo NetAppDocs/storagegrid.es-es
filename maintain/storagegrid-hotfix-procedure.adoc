@@ -36,11 +36,11 @@ Mientras los nodos de cuadrícula se actualizan con la nueva versión de revisi�
 [[how-hotfixes-are-applied-for-recovery-and-expansion]]
 == Cómo se aplican las revisiones para la recuperación y expansión
 
-Después de que se haya aplicado una revisión a la cuadrícula, el nodo de administración principal instala automáticamente la misma versión de revisión en los nodos restaurados por operaciones de recuperación o agregados en una expansión.
+Una vez aplicada una corrección urgente a tu grid, el nodo de administración principal o un nodo de administración no principal instala automáticamente la misma versión de la corrección urgente en cualquier nodo restaurado mediante operaciones de recuperación o añadido en una expansión. Puedes recuperar cualquier nodo (incluido el nodo de administración principal) cuando inicias sesión en un nodo de administración no principal. Si recuperas un nodo desde un nodo de administración no principal, ese nodo de administración aplica la corrección urgente al nodo recuperado.
 
-Sin embargo, si necesita recuperar el nodo de administración principal, debe instalar manualmente la versión de StorageGRID correcta y, a continuación, aplicar la revisión. La versión final de StorageGRID del nodo de administrador principal debe coincidir con la versión de los otros nodos de la cuadrícula.
+Si necesitas restaurar el nodo de administración principal a partir de su propio instalador de StorageGRID, debes instalar manualmente la versión correcta de StorageGRID y luego aplicar la corrección urgente. La versión final de StorageGRID del nodo de administración principal debe coincidir con la versión de los demás nodos de la grid.
 
-En el ejemplo siguiente se ilustra cómo aplicar una revisión al recuperar el nodo de administración principal:
+El siguiente ejemplo ilustra cómo aplicar una corrección urgente al recuperar el nodo de administración principal mientras estás conectado al nodo de administración no principal:
 
 . Suponga que la cuadrícula está ejecutando una versión de StorageGRID 11._A.B_ con la revisión más reciente. La “versión de cuadrícula” es 11._A.B.y_.
 . Se produce un error en el nodo del administrador principal.
@@ -51,5 +51,3 @@ NOTE: Como es necesario para que coincida con la versión de grid, puede utiliza
 
 . A continuación, aplica la revisión 11._A.B.y_ al nodo de administración principal.
 
-
-Para obtener más información, consulte link:configuring-replacement-primary-admin-node.html["Configure el nodo de administración principal de reemplazo"].

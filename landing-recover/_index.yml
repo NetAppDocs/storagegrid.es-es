@@ -31,8 +31,10 @@ indexpage:
     links:
     - title: Sustituya el nodo Linux
       url: "../maintain/all-node-types-replacing-linux-node.html"
-    - title: Sustituya el nodo VMware
+    - title: Sustituir el nodo de VMware por un nodo de recuperación
       url: "../maintain/all-node-types-replacing-vmware-node.html"
+    - title: Sustituye el nodo VMware por un SG1000 o un SG100
+      url: "../maintain/replace-vmware-node-with-sg1000-sg100.html"
     - title: Sustituya el nodo de Linux o VMware por un dispositivo de servicios
       url: "../maintain/installing-services-appliance-platform-change-only.html"
     - title: Clone el nodo del dispositivo

@@ -36,8 +36,8 @@ La replicación de CloudMirror crea una copia independiente de un objeto en una 
 ¿Cómo se configura?
  a| 
 . Configure una conexión de federación de grid entre dos cuadrículas.
-. Agregar nuevas cuentas de inquilino, que se clonan automáticamente en el otro grid.
-. Añadir usuarios y grupos de inquilinos nuevos que también se clonan.
+. Agrega nuevas cuentas de inquilino, que se sincronizan automáticamente con la otra grid.
+. Agrega nuevos grupos de inquilinos y usuarios, que también se sincronizan.
 . Crea los bloques correspondientes en cada grid y permite que la replicación entre grid se realice en una o en ambas direcciones.
 
  a| 

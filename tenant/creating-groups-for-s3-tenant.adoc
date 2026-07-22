@@ -17,7 +17,7 @@ Es posible gestionar permisos para grupos de usuarios S3 importando grupos feder
 * Ha iniciado sesión en el gestor de inquilinos mediante un link:../admin/web-browser-requirements.html["navegador web compatible"].
 * Pertenece a un grupo de usuarios que tiene el link:tenant-management-permissions.html["Permiso de acceso raíz"].
 * Si tiene pensado importar un grupo federado, tiene link:using-identity-federation.html["federación de identidades configurada"], y el grupo federado ya existe en el origen de identidad configurado.
-* Si su cuenta de inquilino tiene el permiso *Usar conexión de federación de grid*, ha revisado el flujo de trabajo y las consideraciones de link:grid-federation-account-clone.html["clonación de usuarios y grupos de inquilinos"], y ha iniciado sesión en la cuadrícula de origen del inquilino.
+* Si tu cuenta de inquilino tiene el permiso *Utilizar conexión de federación de redes*, has revisado el flujo de trabajo y las consideraciones para link:grid-federation-account-sync.html["Sincronizando grupos de clientes y usuarios"] y has iniciado sesión en la red de origen del inquilino.
 
 
 
@@ -29,10 +29,6 @@ Como primer paso, acceda al asistente de creación de grupos.
 
 .Pasos
 . Seleccione *Administración de acceso* > *Grupos*.
-. Si su cuenta de inquilino tiene el permiso *Usar conexión de federación de grid*, confirme que aparece un banner azul, indicando que los nuevos grupos creados en esta cuadrícula se clonarán en el mismo inquilino en la otra cuadrícula de la conexión. Si este banner no aparece, puede que haya iniciado sesión en la cuadrícula de destino del inquilino.
-+
-image:grid-federation-tenant-group-banner.png["Imagen del banner azul en la página Grupos de la cuadrícula de origen de inquilino"]
-
 . Seleccione *Crear grupo*.
 
 
@@ -151,9 +147,6 @@ Para obtener información detallada sobre las políticas de grupo, incluida la s
 
 Puede guardar el grupo sin agregar usuarios o, opcionalmente, puede agregar cualquier usuario local que ya exista.
 
-
-NOTE: Si su cuenta de inquilino tiene el permiso *Usar conexión de federación de grid*, los usuarios que seleccione al crear un grupo local en la cuadrícula de origen no se incluyen cuando el grupo se clona en la cuadrícula de destino. Por este motivo, no seleccione usuarios al crear el grupo. En su lugar, seleccione el grupo cuando cree los usuarios.
-
 .Pasos
 . Opcionalmente, seleccione uno o varios usuarios locales para este grupo.
 . Seleccione *Crear grupo* y *Finalizar*.
@@ -161,6 +154,6 @@ NOTE: Si su cuenta de inquilino tiene el permiso *Usar conexión de federación 
 El grupo creado aparece en la lista de grupos.
 
 +
-Si su cuenta de inquilino tiene el permiso *Use grid federation connection* y usted está en la cuadrícula de origen del inquilino, el nuevo grupo se clona en la cuadrícula de destino del inquilino. *Success* aparece como *Cloning status* en la sección Overview de la página de detalles del grupo.
+Si tu cuenta de inquilino tiene el permiso *Utilizar conexión de federación de redes* y te encuentras en la red de origen del inquilino, el nuevo grupo se sincroniza con la red de destino del inquilino. *Correcto* aparece como estado de la sincronización en la sección Resumen de la página de detalles del grupo.
 
 

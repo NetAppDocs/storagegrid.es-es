@@ -47,7 +47,7 @@ Puede utilizar *Buscar* para buscar entradas en la barra lateral del Gestor de c
 [[help-menu]]
 == Menú de ayuda
 
-El menú de ayuda image:icon-help-menu-bar.png["icono ayuda en la barra de menús"] permite acceder a:
+El menú de ayuda image:icon_help_menu_bar.png["icono ayuda en la barra de menús"] permite acceder a:
 
 * Ellink:../fabricpool/use-fabricpool-setup-wizard.html["FabricPool"] ylink:../admin/use-s3-setup-wizard.html["Configuración de S3"] magos
 * El sitio de documentación de StorageGRID para la versión actual
@@ -68,7 +68,7 @@ En el menú Alertas, puede realizar lo siguiente paralink:../monitor/managing-al
 * Revisar las alertas resueltas
 * Configure silencios para suprimir notificaciones de alerta
 * Defina reglas de alerta para condiciones que activen alertas
-* Configure el servidor de correo electrónico para las notificaciones de alertas
+* Configura las notificaciones por correo electrónico para las alertas de StorageGRID
 
 
 
@@ -148,7 +148,7 @@ Las tareas de seguridad incluyen:
 
 Las tareas del sistema incluyen:
 
-* Usarlink:../admin/grid-federation-overview.html["federación de grid"] Para clonar la información de la cuenta del inquilino y replicar datos de objetos entre dos sistemas StorageGRID
+* Usa link:../admin/grid-federation-overview.html["federación de grid"] para sincronizar la información de la cuenta del tenant y replicar los datos de objetos entre dos sistemas StorageGRID
 * Opcionalmente, habilite lalink:../admin/configuring-stored-object-compression.html["Comprimir objetos almacenados"] opción
 * Opcionalmente, configure ellink:../s3/consistency.html["configuración de consistencia del depósito predeterminada"]
 * link:../ilm/managing-objects-with-s3-object-lock.html["Administrar el bloqueo de objetos S3"]
@@ -163,6 +163,7 @@ Las tareas del sistema incluyen:
 
 Las tareas de supervisión incluyen:
 
+* link:../monitor/configure-email-server.html["Configura el servidor de correo electrónico"]
 * link:../monitor/configure-log-management.html["Configurar la gestión de registros"]
 * link:../monitor/using-snmp-monitoring.html["Usar supervisión de SNMP"]
 
@@ -179,6 +180,7 @@ Las tareas de control de acceso incluyen:
 * Cambiar ellink:../admin/changing-provisioning-passphrase.html["aprovisionamiento de la clave de acceso"] olink:../admin/change-node-console-password.html["contraseñas de la consola del nodo"]
 * link:../admin/using-identity-federation.html["Usar la federación de identidades"]
 * link:../admin/how-sso-works.html["Configurar SSO"]
+* link:../admin/about-multi-admin-verify.html["Configura la verificación de varios administradores"]
 
 
 
@@ -201,7 +203,13 @@ Las tareas de mantenimiento incluyen:
 * link:../maintain/rename-grid-site-node-overview.html["Cambiar el nombre de los procedimientos"] para cambiar los nombres mostrados de la cuadrícula, los sitios y los nodos
 * link:../troubleshoot/verifying-object-integrity.html["Operaciones de comprobación de existencia de objetos"] para verificar la existencia (aunque no la corrección) de los datos de objeto
 * Realizar unalink:../maintain/rolling-reboot-procedure.html["reinicio gradual"] para reiniciar varios nodos de la red
-* link:../maintain/restoring-volume.html["Operaciones de restauración de volúmenes"]
+* Restaurar datos de objetos
++
+** link:../maintain/restoring-object-data-to-storage-volume-for-appliance.html["Restaure datos de objetos al volumen de almacenamiento de dispositivo"]
+** link:../maintain/restoring-object-data-to-storage-volume-where-system-drive-is-intact.html["Restaure los datos de objetos al volumen de almacenamiento donde la unidad del sistema esté intacta"]
+** link:../maintain/restoring-object-data-to-storage-volume.html["Restauración de los datos de objetos en un volumen de almacenamiento (fallo de unidad de sistema)"]
+
+
 
 
 
@@ -249,7 +257,7 @@ El menú Soporte ofrece opciones que ayudan al soporte técnico a analizar y sol
 
 En la sección Herramientas del menú Soporte, puede:
 
-* link:../admin/configure-autosupport-grid-manager.html["Configure AutoSupport"]
+* link:../monitor/configure-autosupport-grid-manager.html["Configure AutoSupport"]
 * link:../monitor/running-diagnostics.html["Ejecutar diagnóstico"] en el estado actual de la cuadrícula
 * link:../monitor/collecting-log-files-and-system-data.html["Recopilar archivos de registro y datos del sistema"]
 * link:../monitor/reviewing-support-metrics.html["Revisar las métricas de soporte"]
@@ -267,7 +275,6 @@ NOTE: Las herramientas disponibles en la opción * Metrics* están diseñadas pa
 Desde la otra sección del menú Soporte, puede:
 
 * Configurarlink:../monitor/manage-io-prioritization.html["Priorización de E/S"]
-* Configurarlink:../admin/configure-autosupport-grid-manager.html["Configuración del correo electrónico de AutoSupport (heredado)"]
 * Gestione link:../admin/manage-link-costs.html["coste de enlace"]
 * Ver los ID de servicio del nodo
 * Gestione link:../admin/what-storage-volume-watermarks-are.html["marcas de agua de almacenamiento"]

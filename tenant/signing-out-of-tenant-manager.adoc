@@ -15,9 +15,6 @@ Cuando haya terminado de trabajar con el Administrador de inquilinos, debe cerra
 
 .Pasos
 . Busque el menú desplegable username en la esquina superior derecha de la interfaz de usuario.
-+
-image:tenant_user_sign_out.png["Enlace para cerrar sesión"]
-
 . Seleccione el nombre de usuario y luego seleccione *Cerrar sesión*.
 +
 ** Si SSO no está en uso:

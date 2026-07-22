@@ -30,6 +30,6 @@ Agregue entradas DNS para asociar el nombre del servidor StorageGRID (nombre de 
 
 
 [[dns-entries-for-virtual-hosted-style-requests]]
-== Entradas DNS para solicitudes virtuales de estilo alojado
+== Entradas DNS para solicitudes de tipo «host virtual»
 
-Si ha definido link:../admin/configuring-s3-api-endpoint-domain-names.html["Nombres de dominio de punto final S3"] y utilizará solicitudes virtuales de estilo hospedado, agregue entradas DNS para todos los nombres de dominio de punto final S3 necesarios, incluidos los nombres comodín.
+Si has definido link:../admin/configuring-s3-api-endpoint-domain-names.html["Nombres de dominio de punto final S3"] y vas a utilizar solicitudes de tipo virtual-hosted, añade entradas DNS para todos los nombres de dominio de los puntos finales de S3 necesarios, incluidos los nombres comodín.

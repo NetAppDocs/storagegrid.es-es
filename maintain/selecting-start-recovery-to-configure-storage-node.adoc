@@ -29,34 +29,30 @@ Si el nodo de almacenamiento está instalado como un contenedor en un host Linux
 
 
 .Pasos
-. Desde el Administrador de red, seleccione *Mantenimiento* > *Tareas* > *Recuperación*.
+. Inicia sesión en el nodo de administración principal. Si el nodo de administración principal no está disponible, usa un nodo de administración no principal, si existe alguno.
+. Desde el Grid Manager, selecciona *Maintenance* > *Tasks* > *Node recovery*.
 . Seleccione el nodo de cuadrícula que desea recuperar en la lista Pending Nodes.
 +
 Los nodos aparecen en la lista después de que fallan, pero no puede seleccionar un nodo hasta que se haya reinstalado y esté listo para la recuperación.
 
-. Introduzca la *frase de paso de aprovisionamiento*.
-. Haga clic en *Iniciar recuperación*.
+. Introduce la *frase de contraseña de aprovisionamiento*.
+. Haz clic en *Iniciar recuperación*.
+. Supervisa el progreso de la recuperación seleccionando *Mantenimiento* > *Tareas* > *Recuperación de nodo* y viendo el progreso de la recuperación.
 +
-image:4b_select_recovery_node.png["Captura de pantalla que muestra la página Mantenimiento > Recuperación"]
-
-. Supervise el progreso de la recuperación en la tabla recuperando Grid Node.
+** Si el nodo de la red llega a la fase "Esperando pasos manuales", debes link:../maintain/remounting-and-reformatting-storage-volumes-manual-steps.html["Vuelve a montar y reformatea los volúmenes de almacenamiento manualmente"]. Una vez completados los pasos manuales, ve a link:../maintain/restoring-object-data-to-storage-volume.html["restaura los datos de los objetos en los volúmenes"].
+** Si la recuperación del nodo de la red ha pasado de *En curso* a *Recuperado* sin pasar por la etapa “Esperando pasos manuales”, no necesitas hacer nada más.
 +
+[NOTE]
+====
+En cualquier momento durante la recuperación, puedes seleccionar *Restablecer* para iniciar una nueva recuperación. Aparecerá un cuadro de diálogo en el que se indica que el nodo quedará en un estado indeterminado si restableces el procedimiento.
 
-NOTE: Mientras se está ejecutando el procedimiento de recuperación, puede hacer clic en *Restablecer* para iniciar una nueva recuperación. Aparece un cuadro de diálogo que indica que el nodo quedará en un estado indeterminado si restablece el procedimiento.
+Si quieres volver a intentar la recuperación después de reiniciar el procedimiento, debes restaurar el nodo del dispositivo a un estado previo a la instalación, así:
 
-+
-image:recovery_reset_warning.gif["captura de pantalla que muestra el cuadro de diálogo de advertencia de restablecimiento de recuperación"]
-
-+
-Si desea volver a intentar la recuperación después de restablecer el procedimiento, debe restaurar el nodo a un estado preinstalado, de la manera siguiente:
-
-+
-** *VMware*: Elimine el nodo de la cuadrícula virtual desplegada. A continuación, una vez que esté listo para reiniciar la recuperación, vuelva a poner el nodo en marcha.
-** *Linux*: Reinicie el nodo ejecutando este comando en el host Linux: `storagegrid node force-recovery _node-name_`
+*** *VMware*: Elimine el nodo de la cuadrícula virtual desplegada. A continuación, una vez que esté listo para reiniciar la recuperación, vuelva a poner el nodo en marcha.
+*** *Linux*: Reinicie el nodo ejecutando este comando en el host Linux: `storagegrid node force-recovery _node-name_`
 
 
-. Cuando el nodo de almacenamiento alcance la etapa «Esperando pasos manuales», vaya a link:remounting-and-reformatting-storage-volumes-manual-steps.html["Volver a montar y volver a formatear los volúmenes de almacenamiento (pasos manuales)"].
-+
-image:recovery_reset_button.gif["captura de pantalla que muestra el escenario \"esperando pasos manuales\""]
+====
+
 
 

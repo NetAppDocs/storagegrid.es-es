@@ -38,7 +38,9 @@ Si ha tomado *cualquiera* de estas acciones correctivas, debe realizar pasos adi
  a| 
 Nodo de administrador principal
  a| 
-link:configuring-replacement-primary-admin-node.html["Configure el nodo de administración principal de reemplazo"]
+* link:selecting-start-recovery-to-configure-primary-admin-node.html["Selecciona Iniciar recuperación para configurar el nodo de administración principal"]
+* link:selecting-start-recovery-to-configure-non-primary-admin-node.html["Recupera el nodo de administración principal usando un nodo de administración no principal"]
+
 
 
 
@@ -74,6 +76,6 @@ Nodo de almacenamiento (basado en software):
 * Si, para Cualquiera `<PURPOSE>`, el valor de `BLOCK_DEVICE_<PURPOSE>` la variable de archivo de configuración hace referencia a un dispositivo de bloque que no contiene los mismos datos que antes del fallo del host.
 
  a| 
-link:recovering-from-storage-volume-failure-where-system-drive-is-intact.html["Recupérese de un fallo en el volumen de almacenamiento, donde la unidad del sistema está intacta"]
+link:reviewing-warnings-about-storage-volume-recovery.html["Recupérese de un fallo en el volumen de almacenamiento, donde la unidad del sistema está intacta"]
 
 |===

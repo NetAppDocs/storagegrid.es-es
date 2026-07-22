@@ -77,17 +77,17 @@ NOTE: Los usuarios deben tener el permiso *Otra configuración de red* para admi
 
 Los usuarios deben tener permiso de mantenimiento para utilizar estas opciones:
 
-* *Configuración* > *Control de acceso*:
+* *Configuración* > *Control de acceso*
 +
 ** Contraseñas de grid
 
 
-* *Configuración* > *Red*:
+* *Configuración* > *Red*
 +
 ** Nombres de dominio de punto final S3
 
 
-* *Mantenimiento* > *Tareas*:
+* *Mantenimiento* > *Tareas*
 +
 ** Retirada
 ** Expansión
@@ -95,13 +95,13 @@ Los usuarios deben tener permiso de mantenimiento para utilizar estas opciones:
 ** Recuperación
 
 
-* *Mantenimiento* > *Sistema*:
+* *Mantenimiento* > *Sistema*
 +
 ** Paquete de recuperación
 ** Actualización de software
 
 
-* *Soporte* > *Herramientas*:
+* *Soporte* > *Herramientas*
 +
 ** Registros
 
@@ -110,29 +110,29 @@ Los usuarios deben tener permiso de mantenimiento para utilizar estas opciones:
 
 Los usuarios que no tienen el permiso de mantenimiento pueden ver, pero no editar, estas páginas:
 
-* *Mantenimiento* > *Red*:
+* *Mantenimiento* > *Red*
 +
 ** Servidores DNS
 ** Red Grid
 ** Servidores NTP
 
 
-* *Mantenimiento* > *Sistema*:
+* *Mantenimiento* > *Sistema*
 +
 ** Licencia
 
 
-* *Configuración* > *Red*:
+* *Configuración* > *Red*
 +
 ** Nombres de dominio de punto final S3
 
 
-* *Configuración* > *Seguridad*:
+* *Configuración* > *Seguridad*
 +
 ** Certificados
 
 
-* *Configuración* > *Monitoreo*:
+* *Configuración* > *Supervisión*
 +
 ** Servidor de auditoría y syslog
 
@@ -172,18 +172,23 @@ Este permiso proporciona acceso a la página *ILM* > *Búsqueda de metadatos de 
 
 Este permiso proporciona acceso a estas opciones de configuración de cuadrícula adicionales:
 
-* *ILM*:
+* *ILM*
 +
 ** Grados de almacenamiento
 
 
-* *Configuración* > *Sistema*:
-* *Soporte* > *Otros*:
+* *Configuración* > *Sistema*
+* *Soporte* > *Otros*
 +
-** Coste del enlace
+** Priorización de E/S
+** Servicios de nodo
+** Marcas de agua de almacenamiento
 
 
 
+
+
+NOTE: El coste del enlace requiere acceso root.
 
 
 

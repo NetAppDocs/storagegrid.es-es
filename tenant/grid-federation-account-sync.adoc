@@ -1,0 +1,125 @@
+---
+permalink: tenant/grid-federation-account-sync.html 
+sidebar: sidebar 
+keywords: account sync, tenant sync, grid federation, cross-grid replication 
+summary: 'Si se ha creado o modificado un inquilino para que utilice conexiones de federación de grid, ese inquilino se replica desde un sistema StorageGRID (el inquilino de origen) a todos los demás sistemas StorageGRID conectados (los inquilinos réplica). Después de que el inquilino se haya replicado, los grupos de inquilinos, los usuarios y las claves de acceso S3 se sincronizan entre las grids conectadas.' 
+---
+= Sincroniza grupos de tenants y usuarios en StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si se ha creado o modificado un inquilino para que utilice conexiones de federación de grid, ese inquilino se replica desde un sistema StorageGRID (el inquilino de origen) a todos los demás sistemas StorageGRID conectados (los inquilinos réplica). Después de que el inquilino se haya replicado, los grupos de inquilinos, los usuarios y las claves de acceso S3 se sincronizan entre las grids conectadas.
+
+El sistema StorageGRID en el que se crea originalmente el inquilino es la _grid de origen_ de este. El inquilino se replica en una o varias _grids de destino_. Las cuentas del inquilino en todas las grids conectadas tienen el mismo ID de cuenta, nombre, descripción, cuota de almacenamiento, permisos asignados y contraseña del usuario raíz. Para obtener más información, consulta link:../admin/grid-federation-what-is-account-sync.html["Conoce la sincronización de cuentas para la federación de grid"] y link:../admin/grid-federation-manage-tenants.html["Gestionar inquilinos permitidos"].
+
+La sincronización de la información de las cuentas de inquilinos es necesaria para link:../admin/grid-federation-what-is-cross-grid-replication.html["replicación entre grid"] de los objetos de los buckets. Tener los mismos grupos y usuarios de inquilinos en todas las grids garantiza que puedas acceder a los buckets y objetos correspondientes en cualquier grid conectada.
+
+
+
+[[tenant-workflow-for-account-sync]]
+== Flujo de trabajo del inquilino para la sincronización de cuentas
+
+Si tu cuenta de inquilino tiene el permiso *Utilizar conexión de federación de grid*, consulta el diagrama del flujo de trabajo para ver los pasos que deberás seguir para sincronizar grupos, usuarios y claves de acceso a S3.
+
+image:grid_federation_account_sync_workflow_tm.png["El flujo de trabajo de sincronización de cuentas del inquilino. Los pasos se describen en el texto siguiente."]
+
+Estos son los pasos principales del flujo de trabajo:
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Una"] Inicie sesión en el inquilino
+[role="quick-margin-para"]
+Inicia sesión en la cuenta de inquilino en cualquier grid conectado.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dos"] Opcionalmente, configure la federación de identidades
+[role="quick-margin-para"]
+Si tu cuenta de inquilino tiene el permiso *Usar fuente de identidad propia* para utilizar grupos y usuarios federados, configura la misma fuente de identidad (con los mismos ajustes) para la cuenta de origen y una o más cuentas de inquilino de destino. Los grupos federados se clonan en el momento de su creación y los usuarios federados se clonan cuando se crea una clave. Para que se produzca la clonación, debe configurarse la misma fuente de identidad en todas las grids. Para obtener instrucciones, consulta link:using-identity-federation.html["Usar la federación de identidades"].
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Tres"] Crear grupos y usuarios
+[role="quick-margin-para"]
+Puedes crear grupos y usuarios desde cualquier grid conectado. Cuando añades un nuevo grupo local, StorageGRID lo sincroniza automáticamente con todos los grids conectados. Los cambios en los grupos locales (editar, eliminar) también se sincronizan de forma continua. Los grupos federados se clonan una vez al crearlos.
+
+[role="quick-margin-list"]
+* Si la federación de identidades está configurada para todo el sistema de StorageGRID o para su cuenta de inquilino, link:creating-groups-for-s3-tenant.html["crear nuevos grupos de arrendatarios"]importando grupos federados desde el origen de identidad.
+
+
+[role="quick-margin-list"]
+* Si no está utilizando la federación de identidad,link:creating-groups-for-s3-tenant.html["crear nuevos grupos locales"] y luegolink:manage-users.html["crear usuarios locales"] .
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Cuatro"] Crear claves de acceso S3
+[role="quick-margin-para"]
+Puedes link:creating-your-own-s3-access-keys.html["cree sus propias claves de acceso"] o link:creating-another-users-s3-access-keys.html["crear claves de acceso de otro usuario"] en cualquier grid para acceder a los buckets en todos los grids conectados.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"] Sincronizar claves de acceso de S3
+[role="quick-margin-para"]
+Si necesitas acceder a los buckets con las mismas claves de acceso en todas las grids, crea las claves de acceso en una de las grids. Para los usuarios locales, las claves de acceso se sincronizan automáticamente de forma predeterminada. Para los usuarios federados, debes crear claves de acceso S3 en la grid de origen y seleccionar *Enable access key sync* para que las claves se sincronicen en todas las grids de destino.
+
+
+
+[[how-are-groups-users-and-s3-access-keys-synced]]
+== ¿Cómo se sincronizan los grupos, los usuarios y las claves de acceso a S3?
+
+Consulta esta sección para comprender cómo se sincronizan los grupos, los usuarios y las claves de acceso S3 entre las grids conectadas.
+
+
+
+[[local-groups-are-continuously-synced]]
+=== Los grupos locales se sincronizan continuamente
+
+Después de que se crea una cuenta de inquilino y se replica en la grid de destino, StorageGRID sincroniza continuamente los grupos locales en todas las grids conectadas. Todos los cambios en los grupos locales, incluyendo las operaciones de creación, edición y eliminación, que se realicen en cualquier grid se replican automáticamente en todas las demás grids conectadas.
+
+Tanto el grupo original como sus copias sincronizadas tienen el mismo modo de acceso, los mismos permisos de grupo y la misma política de grupo de S3. Para obtener instrucciones, consulta link:creating-groups-for-s3-tenant.html["Cree grupos para el inquilino de S3"].
+
+
+
+[[local-users-are-continuously-synced]]
+=== Los usuarios locales se sincronizan continuamente
+
+Cuando creas un nuevo usuario local en cualquier grid conectado, StorageGRID sincroniza automáticamente ese usuario con todos los demás grids conectados. Los cambios posteriores, incluidos las ediciones, eliminaciones y restablecimientos de contraseña, también se sincronizan continuamente. El usuario original y sus copias sincronizadas tienen el mismo nombre completo, nombre de usuario y configuración de *Denegar acceso*. Los mismos usuarios en cada grid también pertenecen a los mismos grupos. Para obtener instrucciones, consulta link:manage-users.html["Gestionar usuarios"].
+
+
+
+[[federated-groups-are-synced-once-at-creation]]
+=== Los grupos federados se sincronizan una vez al crearlos
+
+Siempre que se cumplan los requisitos para utilizar la sincronización de cuentas con link:../admin/grid-federation-what-is-account-sync.html#account-sync-sso["inicio de sesión único"] y link:../admin/grid-federation-what-is-account-sync.html#account-sync-identity-federation["federación de identidades"], los grupos federados que crees (importes) para el tenant en una grid se sincronizan automáticamente con el tenant en todas las demás grids conectadas.
+
+Ambos grupos tienen el mismo modo de acceso, permisos de grupo y política de grupo de S3.
+
+Después de que se crean los grupos federados para el inquilino de origen y se sincronizan con otras grids, los usuarios federados pueden iniciar sesión en el inquilino desde cualquier grid conectada. Los cambios posteriores en los grupos federados no se sincronizan automáticamente entre grids.
+
+
+
+[[s3-access-keys-can-be-automatically-or-manually-synced]]
+=== Las claves de acceso de S3 se pueden sincronizar de forma automática o manual
+
+De forma predeterminada, StorageGRID sincroniza automáticamente las claves de acceso de S3. Por motivos de seguridad, puedes desactivar la sincronización automática de las claves de acceso de S3 para cada tenant y tener claves diferentes para cada tenant en cada grid.
+
+Para gestionar las claves de acceso en las redes conectadas, puedes hacer cualquiera de las siguientes cosas:
+
+* Si no necesitas utilizar las mismas claves para cada grid, puedes desactivar la sincronización automática de claves de acceso y link:creating-your-own-s3-access-keys.html["cree sus propias claves de acceso"] o link:creating-another-users-s3-access-keys.html["crear claves de acceso de otro usuario"] en cada grid.
+
+
+
+NOTE: Al sincronizar las claves de acceso a S3 de un usuario federado, tanto el usuario como las claves de acceso a S3 se sincronizan con los inquilinos de destino.
+
+
+NOTE: Las claves de acceso a S3 de los usuarios locales se sincronizan continuamente entre las grids conectadas, incluso cuando se eliminan dichas claves. Las claves de acceso a S3 de los usuarios federados se sincronizan una sola vez al crearse; los cambios posteriores, incluidas las eliminaciones, no se replican. Puedes activar o desactivar la sincronización de claves de acceso para cada conexión de tenant.
+
+
+
+[[groups-and-users-added-to-destination-grid-are-synced]]
+=== Los grupos y usuarios añadidos a la cuadrícula de destino se sincronizan
+
+Los cambios realizados en cualquier grid conectado, incluida la creación o importación de grupos y usuarios locales, se sincronizan automáticamente con todos los demás grids conectados.
+
+
+
+[[edited-or-deleted-local-groups-users-and-access-keys-are-synced]]
+=== Los grupos locales, usuarios y claves de acceso editados o eliminados se sincronizan
+
+Los cambios en los grupos locales, los usuarios locales y las claves de acceso a S3 propiedad de los usuarios locales se sincronizan continuamente en todas las grids conectadas. Las operaciones sincronizadas incluyen modificaciones, eliminaciones y restablecimientos de contraseña.
+
+Los cambios en los grupos federados y en las claves de acceso a S3 propiedad de los usuarios federados no se sincronizan después de la creación inicial.

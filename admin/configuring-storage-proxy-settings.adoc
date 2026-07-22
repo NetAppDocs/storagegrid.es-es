@@ -44,3 +44,6 @@ NOTE: Los cambios de proxy pueden tardar hasta 10 minutos en surtir efecto.
 . Compruebe la configuración del servidor proxy para asegurarse de que los mensajes de StorageGRID relacionados con el servicio de la plataforma no se bloqueen.
 . Si necesita deshabilitar un proxy de almacenamiento, desactive la casilla de verificación y seleccione *Guardar*.
 
+
+.Información relacionada
+link:../network/external-communications.html["Puertos que se utilizan para comunicaciones externas"]

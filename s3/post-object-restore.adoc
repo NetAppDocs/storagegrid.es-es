@@ -65,7 +65,7 @@ Objeto que ha pasado a un estado no recuperable
 
 De forma opcional, utilice el `Tier` elemento request para determinar cuánto tiempo tardará el trabajo de restauración en finalizar (`Expedited`, `Standard` o `Bulk`). Si no especifica `Tier`, se utilizará el `Standard` nivel.
 
-*Importante*: Si un objeto ha sido trasladado a S3 Glacier Deep Archive o el Cloud Storage Pool usa almacenamiento de Azure Blob, no puede restaurarlo usando el `Expedited` nivel. Se devuelve el siguiente error `403 Forbidden` , `InvalidTier`: `Retrieval option is not supported by this storage class`.
+*Importante*: Si un objeto se ha trasladado a S3 Glacier Deep Archive o el Cloud Storage Pool utiliza Azure Blob Storage, no puedes restaurarlo usando el tier  `Expedited`. Se devuelve el siguiente error `403 Forbidden`, `InvalidTier`: `Retrieval option is not supported by this storage class`.
 
 
 

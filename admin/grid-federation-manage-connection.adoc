@@ -26,7 +26,7 @@ La gestión de las conexiones de federación de grid entre sistemas StorageGRID 
 Puede editar una conexión de federación de grid iniciando sesión en el nodo de administración principal en cualquier cuadrícula de la conexión. Después de realizar cambios en la primera cuadrícula, debe descargar un nuevo archivo de verificación y cargarlo en la otra cuadrícula.
 
 
-NOTE: Mientras se edita la conexión, las solicitudes de clonación de cuentas o replicación entre cuadrículas seguirán utilizando la configuración de conexión existente. Las ediciones que realice en la primera cuadrícula se guardan localmente, pero no se utilizan hasta que se hayan cargado en la segunda cuadrícula, se hayan guardado y probado.
+NOTE: Mientras se edita la conexión, las solicitudes de sincronización de cuentas o de replicación entre grids seguirán utilizando la configuración de conexión existente. Debes editar una conexión a la vez y cargar un archivo de verificación en el grid remoto para cada conexión. Los cambios se aplican después de que se han cargado en los grids remotos.
 
 
 
@@ -211,7 +211,7 @@ En general, utilice el mismo número de días para los certificados en ambos lad
 
 Puede eliminar una conexión de federación de cuadrícula de cualquiera de las dos cuadrículas de la conexión. Como se muestra en la figura, debe realizar los pasos de requisitos previos en ambas cuadrículas para confirmar que la conexión no está siendo utilizada por ningún inquilino en ninguna de las cuadrículas.
 
-image:grid-federation-remove-connection.png["pasos para eliminar la conexión de federación de grid"]
+image:grid_federation_remove_connection.png["pasos para eliminar la conexión de federación de grid"]
 
 Antes de eliminar una conexión, tenga en cuenta lo siguiente:
 

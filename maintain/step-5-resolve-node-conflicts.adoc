@@ -78,7 +78,7 @@ image:decommission_site_step_5_ha_groups.png["Retirada de grupos de alta disponi
 
 
 +
-Si todos los nodos están conectados y no se utiliza ningún nodo en el sitio seleccionado en un grupo ha, se activa el campo *frase de paso* de aprovisionamiento.
+Si todos los nodos están conectados y ningún nodo del sitio seleccionado forma parte de un grupo de HA, el campo *Contraseña de aprovisionamiento* se habilita.
 
 . Introduzca la clave de acceso de aprovisionamiento.
 +

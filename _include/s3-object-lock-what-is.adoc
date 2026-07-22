@@ -9,7 +9,7 @@
 
 La función StorageGRID S3 Object Lock es una solución de protección de objetos equivalente a S3 Object Lock en Amazon simple Storage Service (Amazon S3).
 
-Cuando se habilita la configuración global Bloqueo de objetos S3 para un sistema StorageGRID, una cuenta de inquilino S3 puede crear buckets con o sin Bloqueo de objetos S3 habilitado. Si un bucket tiene S3 Object Lock habilitado, se requiere el control de versiones de bucket y se habilita automáticamente.
+Cuando la configuración global de S3 Object Lock está habilitada para un sistema StorageGRID, una cuenta de inquilino de S3 puede crear buckets con o sin S3 Object Lock habilitado. Cuando la configuración permitir S3 Object Lock para buckets existentes está habilitada, una cuenta de inquilino de S3 puede habilitar S3 Object Lock para un bucket existente. Si un bucket tiene S3 Object Lock habilitado, el versionado del bucket es obligatorio y se habilita automáticamente. Después de que una cuenta de inquilino de S3 habilita S3 Object Lock para un bucket nuevo o existente, ya no se puede deshabilitar.
 
 *Un cubo sin S3 Object Lock* solo puede tener objetos sin ajustes de retención especificados. Ningún objeto ingerido tendrá valores de retención.
 
@@ -57,7 +57,7 @@ Si se crea un depósito con S3 Object Lock habilitado, los usuarios pueden utili
 NOTE: Si un objeto se encuentra bajo una conservación legal, nadie puede eliminarlo, independientemente de su modo de retención.
 
 +
-Para obtener más información sobre la configuración del objeto, consulte link:../s3/use-s3-api-for-s3-object-lock.html["Use la API REST DE S3 para configurar el bloqueo de objetos de S3"].
+Para obtener más información sobre la configuración del objeto, consulta link:../s3/use-s3-api-for-s3-object-lock.html["Use la API REST DE S3 para configurar el bloqueo de objetos de S3"].
 
 
 
@@ -74,4 +74,4 @@ Si se crea un depósito con S3 Object Lock habilitado, los usuarios pueden espec
 
 La configuración de bloque predeterminada se aplica solo a objetos nuevos que no tienen su propia configuración de retención. Los objetos de cubo existentes no se ven afectados al agregar o cambiar estos valores predeterminados.
 
-Consulte link:../tenant/creating-s3-bucket.html["Cree un bloque de S3"] y link:../tenant/update-default-retention-settings.html["Actualizar S3 Retención predeterminada de bloqueo de objetos"].
+Consulta link:../tenant/creating-s3-bucket.html["Cree un bloque de S3"] y link:../tenant/update-default-retention-settings.html["Actualizar S3 Retención predeterminada de bloqueo de objetos"].

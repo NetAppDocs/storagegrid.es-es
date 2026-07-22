@@ -70,7 +70,7 @@ Normalmente, los inquilinos de FabricPool no necesitan usar servicios de platafo
 +
 Los inquilinos de FabricPool no suelen utilizar S3 Select.
 
-.. Opcionalmente, seleccione *Usar conexión de federación de grid* para permitir que el inquilino utilice un link:../admin/grid-federation-overview.html["conexión de federación de grid"]clon de cuenta y replicación entre grid. A continuación, seleccione la conexión de federación de cuadrícula que desea utilizar.
+.. Si lo deseas, selecciona *Usar conexión de federación de grid* para permitir que el inquilino utilice un link:../admin/grid-federation-overview.html["conexión de federación de grid"] para la sincronización de cuentas y la replicación entre grids. Luego, selecciona la conexión de federación de grid que quieres usar.
 
 
 . Para el paso Definir acceso raíz, especifique qué usuario tendrá el permiso de acceso raíz inicial para la cuenta de inquilino, en función de si su sistema StorageGRID utilizalink:../admin/using-identity-federation.html["federación de identidades"] ,link:../admin/how-sso-works.html["Inicio de sesión único (SSO)"] , o ambos.

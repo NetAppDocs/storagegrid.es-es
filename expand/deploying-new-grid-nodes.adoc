@@ -116,7 +116,7 @@ Entrada IP manual
  a| 
 .. Desactive la casilla de verificación *Enable Admin Node discovery*.
 .. Introduzca la dirección IP de forma manual.
-.. Haga clic en *Guardar*.
+.. Seleccione *Guardar*.
 .. Espere a que el estado de la conexión para que la nueva dirección IP se prepare.
 
 
@@ -128,7 +128,7 @@ Detección automática de todos los nodos principales de administración conecta
 .. Seleccione la casilla de verificación *Enable Admin Node discovery*.
 .. Espere a que se muestre la lista de direcciones IP detectadas.
 .. Seleccione el nodo de administrador principal para la cuadrícula en la que se pondrá en marcha este nodo de almacenamiento del dispositivo.
-.. Haga clic en *Guardar*.
+.. Seleccione *Guardar*.
 .. Espere a que el estado de la conexión para que la nueva dirección IP se prepare.
 
 
@@ -143,16 +143,16 @@ Si el botón *Iniciar instalación* no está activado, es posible que deba cambi
 
 . En la página de inicio del instalador de dispositivos StorageGRID, seleccione *Iniciar instalación*.
 +
-El estado actual cambia a «Instalación en curso» y se muestra la página de instalación del monitor.
+El estado actual cambia a «Instalación en curso» y se muestra la página de instalación de Monitor.
 
 . Si su ampliación incluye varios nodos de dispositivos, repita los pasos anteriores para cada dispositivo.
 +
 
 NOTE: Si necesita implementar varios nodos de almacenamiento de dispositivos a la vez, puede automatizar el proceso de instalación utilizando el script de instalación de dispositivos configure-sga.py.
 
-. Si necesita acceder manualmente a la página instalación del monitor, seleccione *instalación del monitor* en la barra de menús.
+. Si necesitas acceder manualmente a la página de instalación de Monitor, selecciona *Monitor Installation* en la barra de menús.
 +
-La página Monitor Installation (instalación del monitor) muestra el progreso de la instalación.
+La página de instalación de Monitor muestra el progreso de la instalación.
 
 +
 La barra de estado azul indica qué tarea está en curso actualmente. Las barras de estado verdes indican tareas que se han completado correctamente.

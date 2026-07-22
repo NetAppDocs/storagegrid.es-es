@@ -13,7 +13,7 @@ summary: Puede crear una configuración del ciclo de vida de S3 para controlar c
 [role="lead"]
 Puede crear una configuración del ciclo de vida de S3 para controlar cuándo se eliminan objetos específicos del sistema StorageGRID.
 
-El ejemplo sencillo de esta sección muestra cómo puede controlar una configuración del ciclo de vida de S3 cuando se eliminan ciertos objetos (caducados) de bloques S3 específicos. El ejemplo de esta sección es solo con fines ilustrativos. Para obtener información detallada sobre la creación de configuraciones del ciclo de vida S3, consulte https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html["Guía del usuario de Amazon Simple Storage Service: Gestión del ciclo de vida de los objetos"^]. Tenga en cuenta que StorageGRID solo admite acciones de caducidad, no admite acciones de transición.
+El sencillo ejemplo de esta sección ilustra cómo una configuración del ciclo de vida de S3 puede controlar cuándo se eliminan (caducan) determinados objetos de buckets específicos de S3. El ejemplo de esta sección tiene únicamente fines ilustrativos. Para obtener información detallada sobre cómo crear configuraciones del ciclo de vida de S3, consulta https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html["Guía del usuario de Amazon Simple Storage Service: gestión del ciclo de vida de los objetos"^]. Ten en cuenta que StorageGRID solo admite acciones de caducidad; no admite acciones de transición.
 
 
 

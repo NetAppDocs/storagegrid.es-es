@@ -59,12 +59,12 @@ Las reparaciones en segundo plano no se ejecutan durante la actualización cuand
 [[appliance-firmware-is-upgraded]]
 == El firmware del dispositivo se ha actualizado
 
-Durante la actualización de StorageGRID 12.0:
+Durante la actualización de StorageGRID 12.1:
 
-* Todos los nodos del dispositivo StorageGRID se actualizan automáticamente a la versión 12.0 del firmware del instalador del dispositivo StorageGRID .
+* Todos los nodos de StorageGRID Appliance se actualizan automáticamente a la versión 12.1 del firmware de StorageGRID Appliance Installer.
 * Los dispositivos SG6060 y SGF6024 se actualizan automáticamente a la versión de firmware BIOS 3B08.EX y a la versión de firmware BMC 4.01.07.
 * Los dispositivos SG100 y SG1000 se actualizan automáticamente a la versión de firmware BIOS 3B13.EC y a la versión de firmware BMC 4.75.07.
-* Los dispositivos SGF6112, SG6160, SG110 y SG1100 se actualizan automáticamente a la versión de firmware BIOS 3A14.QD y a la versión de firmware BMC 3.19.07.
+* Los dispositivos SGF6112, SG6160, SG110 y SG1100 se actualizan automáticamente a la versión 3A14.QD del firmware de BIOS y a la versión 3.21.07 del firmware de BMC.
 
 
 
@@ -84,9 +84,9 @@ Durante la actualización de StorageGRID 12.0:
 
 Es posible que se activen alertas cuando se inician y se detienen los servicios y cuando el sistema StorageGRID funciona como un entorno de versiones mixtas (algunos nodos de grid que ejecutan una versión anterior, mientras que otros se han actualizado a una versión posterior). Es posible que se activen otras alertas una vez que se complete la actualización.
 
-Por ejemplo, es posible que vea la alerta *No se puede comunicar con el nodo* cuando se detienen los servicios, o es posible que vea la alerta *Error de comunicación de Cassandra* cuando algunos nodos se han actualizado a StorageGRID 12.0 pero otros nodos aún ejecutan StorageGRID 11.9.  En general, estas alertas desaparecerán cuando se complete la actualización.
+Por ejemplo, es posible que veas la alerta *No se puede comunicar con el nodo* cuando los servicios están detenidos, o que veas la alerta *Error de comunicación de Cassandra* cuando algunos nodos se han actualizado a StorageGRID 12.0 o una versión posterior, pero otros nodos siguen ejecutando una versión anterior de StorageGRID. En general, estas alertas se eliminarán cuando termine la actualización.
 
-La alerta *Ubicación ILM inalcanzable* podría activarse cuando los nodos de almacenamiento se detienen durante la actualización a StorageGRID 12.0.  Esta alerta podría persistir durante 1 día después de que se complete la actualización.
+La alerta *ILM placement unachievable* puede activarse cuando los nodos de almacenamiento se detienen durante la actualización a StorageGRID 12.0 o una versión posterior. Esta alerta puede persistir durante 1 día después de que se complete la actualización.
 
 Una vez completada la actualización, puede revisar cualquier alerta relacionada con la actualización seleccionando *Alertas resueltas recientemente* o *Alertas actuales* desde el panel de control de Grid Manager.
 
@@ -96,7 +96,7 @@ Una vez completada la actualización, puede revisar cualquier alerta relacionada
 == Los cambios de configuración están restringidos
 
 
-NOTE: Esta lista se aplica específicamente a las actualizaciones de StorageGRID 11.9 a StorageGRID 12.0.  Si está actualizando a otra versión de StorageGRID , consulte la lista de cambios restringidos en las instrucciones de actualización para esa versión.
+NOTE: Las restricciones en los cambios de configuración dependen de cada versión. Si vas a actualizar a otra versión de StorageGRID, consulta la lista de cambios restringidos en las instrucciones de actualización de esa versión.
 
 Hasta que finalice la tarea *Activar nueva función*:
 
@@ -108,8 +108,8 @@ Hasta que finalice la tarea *Activar nueva función*:
 
 NOTE: Si necesita recuperar un nodo durante la actualización, póngase en contacto con el soporte técnico.
 
-* No debe administrar grupos de alta disponibilidad, interfaces VLAN ni puntos finales del equilibrador de carga mientras actualiza a StorageGRID 12.0.
-* No elimine ningún grupo de alta disponibilidad hasta que se complete la actualización a StorageGRID 12.0.  Las direcciones IP virtuales en otros grupos de HA podrían volverse inaccesibles.
+* No debes gestionar grupos de alta disponibilidad, interfaces VLAN ni puntos finales del equilibrador de carga mientras estás actualizando.
+* No elimines ningún grupo de alta disponibilidad hasta que la actualización haya finalizado. Es posible que las direcciones IP virtuales de otros grupos de alta disponibilidad dejen de estar accesibles.
 
 
 Hasta que finalice la tarea *pasos de actualización final*:

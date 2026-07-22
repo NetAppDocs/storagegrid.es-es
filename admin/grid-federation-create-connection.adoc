@@ -2,7 +2,7 @@
 permalink: admin/grid-federation-create-connection.html 
 sidebar: sidebar 
 keywords: grid federation, create connection, configure connection 
-summary: Puede crear una conexión de federación de grid entre dos sistemas StorageGRID si desea clonar detalles de inquilinos y replicar datos de objetos. 
+summary: Puedes crear conexiones de federación de red entre sistemas StorageGRID si quieres sincronizar los detalles de los inquilinos y replicar los datos de los objetos. 
 ---
 = Crear conexiones de federación de grid StorageGRID
 :allow-uri-read: 
@@ -11,11 +11,14 @@ summary: Puede crear una conexión de federación de grid entre dos sistemas Sto
 
 
 [role="lead"]
-Puede crear una conexión de federación de grid entre dos sistemas StorageGRID si desea clonar detalles de inquilinos y replicar datos de objetos.
+Puedes crear conexiones de federación de red entre sistemas StorageGRID si quieres sincronizar los detalles de los inquilinos y replicar los datos de los objetos.
 
 Como se muestra en la figura, la creación de una conexión de federación de cuadrícula incluye pasos en ambas cuadrículas. Agrega la conexión en una cuadrícula y la completa en la otra. Puede empezar desde cualquiera de las dos cuadrículas.
 
-image:grid-federation-create-connection.png["descripción gráfica de los pasos para crear una conexión en dos cuadrículas"]
+
+TIP: Opcionalmente, puedes link:../admin/grid-federation-automate-connections.html["automatiza la creación, edición y mantenimiento de las conexiones de grid federation"].
+
+image:grid_federation_create_connection.png["descripción gráfica de los pasos para crear una conexión en dos cuadrículas"]
 
 .Antes de empezar
 * Ha revisado el link:grid-federation-overview.html["consideraciones y requisitos"] para configurar las conexiones de federación de grid.
@@ -35,18 +38,15 @@ Realice estos pasos en cualquiera de los dos sistemas StorageGRID.
 . Inicie sesión en Grid Manager desde el nodo de administración principal de cualquiera de las cuadrículas.
 . Seleccione *Configuración* > *Sistema* > *Federación de red*.
 . Selecciona *Añadir conexión*.
-. Introduzca los detalles de la conexión.
-+
+. Introduce un nombre de conexión, que debe ser único para que puedas reconocer esta conexión. Por ejemplo, `Grid 1-Grid 2`.
+. Si quieres link:../admin/configure-global-namespace.html["configurar un espacio de nombres global"], selecciona *Habilitar espacio de nombres global*.
+. Seleccione *continuar*.
+. Introduce los datos de la cuadrícula de la siguiente manera:
+
+
 [cols="1a,2a"]
 |===
 | Campo | Descripción 
-
-
- a| 
-Nombre de conexión
- a| 
-Un nombre único para ayudarle a reconocer esta conexión, por ejemplo, “Grid 1-Grid 2”.
-
 
 
  a| 
@@ -54,9 +54,9 @@ FQDN o IP para este grid
  a| 
 Uno de los siguientes:
 
-** El FQDN del grid en el que está conectado actualmente
-** Dirección VIP de un grupo de alta disponibilidad en esta cuadrícula
-** La dirección IP de un nodo de administración o un nodo de pasarela en este grid. La IP puede estar en cualquier red a la que pueda acceder la cuadrícula de destino.
+* El FQDN del grid en el que está conectado actualmente
+* Dirección VIP de un grupo de alta disponibilidad en esta cuadrícula
+* La dirección IP de un nodo de administración o un nodo de pasarela en este grid. La IP puede estar en cualquier red a la que pueda acceder la cuadrícula de destino.
 
 
 
@@ -91,9 +91,9 @@ FQDN o IP para el otro grid
  a| 
 Uno de los siguientes:
 
-** El FQDN del grid al que desea conectarse
-** Una dirección VIP de un grupo de alta disponibilidad en la otra cuadrícula
-** Una dirección IP de un nodo de administración o nodo de pasarela en el otro grid. La IP puede estar en cualquier red a la que pueda acceder la red de origen.
+* El FQDN del grid al que desea conectarse
+* Una dirección VIP de un grupo de alta disponibilidad en la otra cuadrícula
+* Una dirección IP de un nodo de administración o nodo de pasarela en el otro grid. La IP puede estar en cualquier red a la que pueda acceder la red de origen.
 
 
 |===
@@ -155,5 +155,5 @@ Si edita esta conexión, se creará un nuevo archivo de verificación. No se pue
 * link:creating-tenant-account.html["Cree una o más cuentas de arrendatario nuevas"], Asigne el permiso *Use grid federation connection* y seleccione la nueva conexión.
 * link:grid-federation-manage-connection.html["Gestionar la conexión"] según sea necesario. Puede editar valores de conexión, probar una conexión, rotar certificados de conexión o eliminar una conexión.
 * link:../monitor/grid-federation-monitor-connections.html["Supervise la conexión"] Como parte de sus actividades normales de monitoreo de StorageGRID.
-* link:grid-federation-troubleshoot.html["Solucione los problemas de la conexión"], incluyendo la resolución de alertas y errores relacionados con la clonación de cuentas y la replicación entre redes.
+* link:grid-federation-troubleshoot.html["Solucione los problemas de la conexión"], incluida la resolución de cualquier alerta o error relacionado con la sincronización de cuentas y la replicación entre grids.
 

@@ -31,7 +31,7 @@ Los servicios de plataforma requieren acceso desde los nodos de almacenamiento q
 [[networking-for-cloud-storage-pools]]
 == Redes para Cloud Storage Pools
 
-Los pools de almacenamiento en cloud también requieren el acceso de los nodos de almacenamiento a los extremos que proporciona el servicio externo que se utiliza, como el almacenamiento de Amazon S3 Glacier o Microsoft Azure Blob. Para obtener más información, consulte link:../ilm/what-cloud-storage-pool-is.html["Qué es un pool de almacenamiento en la nube"].
+Los grupos de almacenamiento en la nube también requieren que los nodos de almacenamiento tengan acceso a los endpoints proporcionados por el servicio externo utilizado, como Amazon S3 Glacier o Microsoft Azure Blob Storage. Para obtener más información, consulta link:../ilm/what-cloud-storage-pool-is.html["Qué es un pool de almacenamiento en la nube"].
 
 
 

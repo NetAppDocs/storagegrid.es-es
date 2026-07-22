@@ -64,6 +64,11 @@ El archivo de registro de StorageGRID contiene los registros descritos para cada
 | Ubicación del archivo | Descripción 
 
 
+| acct-tunnel.log  a| 
+Registro del asistente de túnel de la cuenta que funciona con el balanceador de carga.
+
+
+
 | auditoría  a| 
 Se generan mensajes de auditoría durante el funcionamiento normal del sistema.
 
@@ -114,6 +119,11 @@ Métricas y registros de grupos de alta disponibilidad.
 
 
 
+| internal-access.log  a| 
+Registro de tráfico del proxy HTTP interno.
+
+
+
 | Árbitro lambda  a| 
 Registros relacionados con la solicitud de proxy de S3 Select.
 
@@ -126,6 +136,11 @@ Registros del servicio leakd.
 
 | lumberjack.log  a| 
 Depurar mensajes relacionados con la colección de registros.
+
+
+
+| manage-audit.log  a| 
+`mgmt-api` acceder a los registros de auditoría.
 
 
 
@@ -174,6 +189,10 @@ Archivos y registros de configuración de federación de grid y equilibrador de 
 
 
 * `nginx-gw-dns-check.log`: Relacionado con la nueva alerta de comprobación de DNS.
+* stream-access.log: Sesiones de proxy de stream TCP/TLS (capa 4) para el bloque de stream.
++
+*Nota*: Esto no es un registro de solicitudes HTTP.
+
 
 
 
@@ -220,6 +239,16 @@ Registros del clúster Raft utilizados en los servicios de la plataforma.
 
 
 
+| revision_history.json  a| 
+Historial de revisiones.
+
+
+
+| routed-s3-access.log.gz  a| 
+Registro de acceso para el tráfico de la federación de grid que se enruta como S3 (espacio de nombres global/URLs de federación).
+
+
+
 | ssh  a| 
 Registros relacionados con la configuración y el servicio SSH.
 
@@ -235,6 +264,11 @@ Sockets de datos para la depuración de red.
 
 
 
+| system-bucket.log  a| 
+`update-system-bucket-configuration.log`: Registros del bucket del sistema.
+
+
+
 | system-commands.txt  a| 
 Resultado de los comandos de contenedor de StorageGRID. Contiene información del sistema, como el uso de redes y discos.
 
@@ -242,5 +276,15 @@ Resultado de los comandos de contenedor de StorageGRID. Contiene información de
 
 | paquete de recuperación sincronizada  a| 
 Relacionado con el mantenimiento de la coherencia del último paquete de recuperación en todos los nodos de administración y nodos de almacenamiento que alojan el servicio ADC.
+
+
+
+| update-cipher-configurations.log  a| 
+`update-cors-configurations.log`: Registra los logs relacionados con los cambios en TLS/cifrado y CORS.
+
+
+
+| update-leakd-configurations.log  a| 
+Registro de configuración de la detección de archivos huérfanos.
 
 |===

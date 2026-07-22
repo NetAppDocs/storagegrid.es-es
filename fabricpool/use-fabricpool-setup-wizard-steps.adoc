@@ -31,10 +31,7 @@ Puede completar el asistente de configuración de FabricPool cuando empiece a us
 
 .Pasos
 . Inicie sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
-. Si el banner del asistente de configuración *FabricPool y S3* aparece en el panel de control, seleccione el enlace en el banner. Si el banner ya no aparece, seleccione el icono de ayuda en la barra de encabezado del Administrador de cuadrículas y seleccione *FabricPool y el asistente de configuración S3*.
-+
-image:help_menu.png["menú ayuda"]
-
+. Si aparece en el panel de control el banner *FabricPool y asistente de configuración de S3*, selecciona el enlace que aparece en el banner. Si el banner ya no aparece, selecciona el icono de ayuda image:icon_help_menu_bar.png["Icono de ayuda"] en la barra de encabezado de Grid Manager y selecciona *FabricPool y asistente de configuración de S3*.
 . En la sección FabricPool de la página del asistente de configuración de FabricPool y S3, seleccione *Configurar ahora*.
 +
 *Paso 1 de 9: Aparece CONFIGURAR GRUPO HA*.

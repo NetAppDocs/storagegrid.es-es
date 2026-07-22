@@ -14,9 +14,9 @@ summary: El instalador del dispositivo StorageGRID proporciona el estado hasta q
 El instalador del dispositivo StorageGRID proporciona el estado hasta que se completa la instalación. Una vez finalizada la instalación del software, el dispositivo se reinicia.
 
 .Pasos
-. Para supervisar el progreso de la instalación, haga clic en *instalación del monitor* en la barra de menús.
+. Para supervisar el progreso de la instalación, selecciona *Monitor installation* en la barra de menús.
 +
-La página Monitor Installation (instalación del monitor) muestra el progreso de la instalación.
+La página de instalación de Monitor muestra el progreso de la instalación.
 
 +
 La barra de estado azul indica qué tarea está en curso actualmente. Las barras de estado verdes indican tareas que se han completado correctamente.

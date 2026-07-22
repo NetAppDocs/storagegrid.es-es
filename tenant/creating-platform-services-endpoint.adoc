@@ -363,9 +363,9 @@ Utilice el certificado de CA de cuadrícula predeterminado instalado en el siste
 
 |===
 --
-.Solo puntos finales de webhook
+.Puntos de conexión de Webhook y Kafka
 --
-Verificar la conexión TLS para los puntos finales del webhook.
+Comprueba la conexión TLS para los puntos finales de webhook o Kafka.
 
 [cols="1a,2a"]
 |===
@@ -397,6 +397,15 @@ La verificación del certificado está deshabilitada.  Esta opción no es segura
 Utilizar certificado de CA personalizado
  a| 
 El certificado CA personalizado se utiliza para verificar la identidad del servidor cuando se conecta al punto final.
+
+
+
+ a| 
+Utilizar certificado de CA del sistema operativo
+ a| 
+Utilice el certificado de CA de cuadrícula predeterminado instalado en el sistema operativo para asegurar las conexiones.
+
+*Nota*: Los endpoints de Webhook no tienen esta opción.
 
 |===
 Cuando selecciona *mTLS*, estas opciones estarán disponibles.
@@ -454,4 +463,5 @@ Una vez que haya configurado un extremo, puede utilizar su URN para configurar u
 * link:configuring-cloudmirror-replication.html["Configure la replicación de CloudMirror"]
 * link:configuring-event-notifications.html["Configure las notificaciones de eventos"]
 * link:configuring-search-integration-service.html["Configure el servicio de integración de búsqueda"]
+* link:../network/external-communications.html["Puertos que se utilizan para comunicaciones externas"]
 

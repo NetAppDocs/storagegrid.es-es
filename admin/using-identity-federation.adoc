@@ -244,3 +244,6 @@ Debe configurar los siguientes atributos OpenLDAP con las palabras clave de índ
 Además, asegúrese de que los campos mencionados en la ayuda para Nombre de usuario estén indexados para un rendimiento óptimo.
 
 Consulte la información sobre el mantenimiento inverso de miembros de grupo en la http://www.openldap.org/doc/admin24/index.html["Documentación de OpenLDAP: Guía del administrador de la versión 2.4"^].
+
+.Información relacionada
+link:../network/external-communications.html["Puertos que se utilizan para comunicaciones externas"]

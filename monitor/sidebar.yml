@@ -2,6 +2,19 @@
 section: monitor
 title: Supervise el sistema StorageGRID
 entries:
+- title: Utilice AutoSupport
+  entries:
+  - title: Qué es AutoSupport
+    pdf-filename: Utilice AutoSupport
+    url: "/monitor/what-is-autosupport.html"
+  - title: Configure AutoSupport
+    url: "/monitor/configure-autosupport-grid-manager.html"
+  - title: Active manualmente un paquete AutoSupport
+    url: "/monitor/manually-triggering-autosupport-package.html"
+  - title: Cómo gestiona StorageGRID los errores de paquetes de AutoSupport
+    url: "/monitor/autosupport-package-failure-handling.html"
+  - title: Envíe los paquetes AutoSupport de E-Series a través de StorageGRID
+    url: "/monitor/sending-eseries-autosupport-messages-through-storagegrid.html"
 - title: Tareas de supervisión
   pdf-filename: Supervise el sistema StorageGRID
   url: "/monitor/index.html"
@@ -25,7 +38,7 @@ entries:
   - title: Vea la pestaña ILM
     url: "/monitor/viewing-ilm-tab.html"
   - title: Utilice la pestaña Tareas
-    url: "/monitor/using-task-tab-to-reboot-grid-node.html"
+    url: "/monitor/using-task-tab.html"
   - title: Abra el separador Equilibrador de Carga
     url: "/monitor/viewing-load-balancer-tab.html"
   - title: Consulte la ficha Servicios de plataforma
@@ -97,6 +110,8 @@ entries:
     url: "/monitor/considerations-for-external-syslog-server.html"
   - title: Configurar la gestión de registros
     url: "/monitor/configure-log-management.html"
+- title: Configura el servidor de correo electrónico
+  url: "/monitor/configure-email-server.html"
 - title: Usar supervisión de SNMP
   entries:
   - title: Supervisión de SNMP
@@ -118,8 +133,6 @@ entries:
     url: "/monitor/reviewing-audit-messages.html"
   - title: Recopilar archivos de registro y datos del sistema
     url: "/monitor/collecting-log-files-and-system-data.html"
-  - title: Active manualmente un paquete AutoSupport
-    url: "/monitor/manually-triggering-autosupport-message.html"
   - title: Revisar las métricas de soporte
     url: "/monitor/reviewing-support-metrics.html"
   - title: Cambiar la priorización de E/S

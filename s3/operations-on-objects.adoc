@@ -44,10 +44,14 @@ Restricciones::
 +
 --
 * La autenticación multifactor (MFA) y el encabezado de respuesta `x-amz-mfa` no son compatibles.
-* Las `If-None` y `If-None-Match` cabeceras son aceptadas pero no funcionan.
+* Los encabezados  `If-Match` y  `If-None-Match` se comportan de forma diferente según tu configuración de StorageGRID. Incluir estos encabezados podría devolver un mensaje de error (501 Not Implemented). Si los encabezados  `If-Match` o  `If-None-Match` se aceptan pero no funcionan, podría activarse una alerta con instrucciones sobre cómo habilitar el comportamiento más estricto del error 501 Not Implemented.
 
 
 --
+
+
+El encabezado  `x-amz-bypass-governance-retention` no tiene ningún efecto en los objetos sin S3 Object Lock.
+
 Creación de versiones:: Para eliminar una versión específica, el solicitante debe ser el propietario del depósito y utilizar el `versionId` subrecurso. El uso de este subrecurso elimina permanentemente la versión. Si el `versionId` corresponde a un marcador de borrado, la cabecera de respuesta `x-amz-delete-marker` se devuelve establecida en `true`.
 +
 --
@@ -73,6 +77,8 @@ DeleteObjects
 La autenticación multifactor (MFA) y el encabezado de respuesta `x-amz-mfa` no son compatibles.
 
 Se pueden eliminar varios objetos en el mismo mensaje de solicitud.
+
+El encabezado  `x-amz-bypass-governance-retention` no tiene ningún efecto en los objetos sin S3 Object Lock.
 
 Consulte link:../s3/use-s3-api-for-s3-object-lock.html["Use la API REST DE S3 para configurar el bloqueo de objetos de S3"]para obtener más información sobre cómo eliminar versiones de objetos en el modo de GOBIERNO.
 

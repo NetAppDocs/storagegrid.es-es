@@ -2,7 +2,7 @@
 permalink: ilm/what-cloud-storage-pool-is.html 
 sidebar: sidebar 
 keywords: what is a cloud storage pool 
-summary: Un pool de almacenamiento en cloud permite utilizar ILM para mover datos de objetos fuera de su sistema StorageGRID. Por ejemplo, es posible que desee mover objetos a los que se accede con poca frecuencia a un almacenamiento en cloud de bajo coste, como Amazon S3 Glacier, S3 Glacier Deep Archive, Google Cloud o el nivel de acceso de archivado en el almacenamiento de Microsoft Azure Blob. O bien, puede que quiera mantener un backup en cloud de objetos de StorageGRID para mejorar la recuperación ante desastres. 
+summary: Un grupo de almacenamiento en la nube te permite utilizar ILM para trasladar datos de objetos fuera de tu sistema StorageGRID. Por ejemplo, podrías querer trasladar objetos a los que se accede con poca frecuencia a un almacenamiento en la nube de menor coste, como Amazon S3 Glacier, S3 Glacier Deep Archive, Google Cloud o el nivel de acceso Archive en Microsoft Azure Blob Storage. O podrías querer mantener una copia de seguridad en la nube de los objetos de StorageGRID para mejorar la recuperación ante desastres. 
 ---
 = Conoce los Cloud Storage Pools en StorageGRID
 :allow-uri-read: 
@@ -11,9 +11,9 @@ summary: Un pool de almacenamiento en cloud permite utilizar ILM para mover dato
 
 
 [role="lead"]
-Un pool de almacenamiento en cloud permite utilizar ILM para mover datos de objetos fuera de su sistema StorageGRID. Por ejemplo, es posible que desee mover objetos a los que se accede con poca frecuencia a un almacenamiento en cloud de bajo coste, como Amazon S3 Glacier, S3 Glacier Deep Archive, Google Cloud o el nivel de acceso de archivado en el almacenamiento de Microsoft Azure Blob. O bien, puede que quiera mantener un backup en cloud de objetos de StorageGRID para mejorar la recuperación ante desastres.
+Un grupo de almacenamiento en la nube te permite utilizar ILM para trasladar datos de objetos fuera de tu sistema StorageGRID. Por ejemplo, podrías querer trasladar objetos a los que se accede con poca frecuencia a un almacenamiento en la nube de menor coste, como Amazon S3 Glacier, S3 Glacier Deep Archive, Google Cloud o el nivel de acceso Archive en Microsoft Azure Blob Storage. O podrías querer mantener una copia de seguridad en la nube de los objetos de StorageGRID para mejorar la recuperación ante desastres.
 
-Desde el punto de vista de la gestión del ciclo de vida de la información, un pool de almacenamiento en cloud es similar al de un pool de almacenamiento. Para almacenar objetos en cualquiera de las ubicaciones, debe seleccionar el pool al crear las instrucciones de ubicación para una regla de ILM. Sin embargo, mientras que los pools de almacenamiento constan de nodos de almacenamiento dentro del sistema StorageGRID, un pool de almacenamiento en cloud consta de un bloque externo (S3) o contenedor (almacenamiento de Azure Blob).
+Desde el punto de vista de ILM, un grupo de almacenamiento en la nube es similar a un grupo de almacenamiento. Para almacenar objetos en cualquiera de las ubicaciones, seleccionas el grupo al crear las instrucciones de ubicación para una regla de ILM. Sin embargo, mientras que los grupos de almacenamiento están formados por nodos de almacenamiento dentro del sistema StorageGRID, un grupo de almacenamiento en la nube está formado por un bucket externo (S3) o un contenedor (Azure Blob Storage).
 
 La tabla compara los pools de almacenamiento con los pools de almacenamiento en cloud y muestra las similitudes y las diferencias a alto nivel.
 
@@ -47,7 +47,7 @@ Hasta 10.
  a| 
 En uno o más nodos de almacenamiento en StorageGRID.
  a| 
-En un bloque de Amazon S3, un contenedor de almacenamiento de Azure Blob o Google Cloud externo al sistema StorageGRID.
+En un bucket de Amazon S3, un contenedor de Azure Blob Storage o en Google Cloud que sea externo al sistema StorageGRID.
 
 Si Cloud Storage Pool es un bloque de Amazon S3:
 
@@ -55,9 +55,9 @@ Si Cloud Storage Pool es un bloque de Amazon S3:
 * Puede crear pools de almacenamiento en el cloud para usarlos con los servicios de cloud comercial (C2S) de AWS, compatibles con la región secreta de AWS.
 
 
-Si Cloud Storage Pool es un contenedor de almacenamiento de Azure Blob, StorageGRID realiza la transición del objeto al nivel de archivado.
+Si el Cloud Storage Pool es un contenedor de Azure Blob Storage, StorageGRID traslada el objeto al nivel de archivo.
 
-*Nota:* En general, no configure la gestión del ciclo de vida del almacenamiento de Azure Blob para el contenedor utilizado para un Cloud Storage Pool. Las operaciones de RestoreObject en objetos del Cloud Storage Pool pueden verse afectadas por el ciclo de vida configurado.
+*Nota:* En general, no configures la gestión del ciclo de vida de Azure Blob Storage para el contenedor utilizado para un Cloud Storage Pool. RestoreObject operations en los objetos en el Cloud Storage Pool pueden verse afectadas por el ciclo de vida configurado.
 
 
 

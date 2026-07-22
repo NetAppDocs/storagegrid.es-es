@@ -1,0 +1,122 @@
+---
+permalink: admin/grid-federation-what-is-account-sync.html 
+sidebar: sidebar 
+keywords: account sync, tenant replication, disaster recovery, grid federation 
+summary: La sincronización de cuentas es la replicación automática y continua de una cuenta de inquilino, grupos de inquilinos, usuarios de inquilinos y claves de acceso S3 entre los sistemas de StorageGRID en una o más conexiones de federación de grid. 
+---
+= Conoce la sincronización de cuentas en StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La sincronización de cuentas es la replicación automática y continua de una cuenta de inquilino, grupos de inquilinos, usuarios de inquilinos y, opcionalmente, claves de acceso S3 entre los sistemas StorageGRID en uno o más link:grid-federation-overview.html["conexiones de federación de grid"].
+
+La sincronización de cuentas es necesaria para link:grid-federation-what-is-cross-grid-replication.html["replicación entre grid"]. La sincronización de la información de cuentas entre los sistemas StorageGRID garantiza que los usuarios y grupos de los inquilinos puedan acceder a los buckets y objetos correspondientes en cualquier grid conectado.
+
+
+
+[[workflow-for-account-sync]]
+== Flujo de trabajo para la sincronización de cuentas
+
+El diagrama de flujo muestra los pasos que los administradores de grid y los inquilinos permitidos realizarán para configurar la sincronización de cuentas. Estos pasos se realizan después del link:grid-federation-create-connection.html["la conexión de federación de grid está configurada"].
+
+image:grid_federation_account_sync_workflow.png["flujo de trabajo para la sincronización de cuentas"]
+
+
+
+[[grid-admin-workflow]]
+== Flujo de trabajo del administrador de grid
+
+Los pasos que realizan los administradores de grid dependen de si los sistemas de StorageGRID en el link:grid-federation-overview.html["conexión de federación de grid"] uso de inicio de sesión único (SSO) o federación de identidades.
+
+
+
+[[account-sync-ssoconfigure-sso-for-account-sync-optional]]
+=== [[account-sync-sso]]Configura el inicio de sesión único para la sincronización de cuentas (opcional)
+
+Si alguno de los sistemas StorageGRID de la conexión de federación de grid utiliza SSO, ambos grids deben utilizar SSO. Antes de crear las cuentas de inquilino para la federación de grid, los administradores de grid de origen y destino del inquilino deben realizar estos pasos.
+
+.Pasos
+. Configure el mismo origen de identidad para ambas cuadrículas. Consulte link:using-identity-federation.html["Usar la federación de identidades"].
+. Configure el mismo proveedor de identidad SSO (IdP) para ambas redes. Ver link:how-sso-works.html["Configurar el inicio de sesión único"] .
+. link:managing-admin-groups.html["Cree el mismo grupo de administración"] en ambas cuadrículas importando el mismo grupo federado.
++
+Al crear el inquilino, seleccionará este grupo para que tenga el permiso inicial de acceso raíz para las cuentas de inquilino de origen y de destino.
+
++
+
+NOTE: Si este grupo de administración no existe en ambas cuadrículas antes de crear el arrendatario, el arrendatario no se replica en el destino.
+
+
+
+
+
+[[account-sync-identity-federationconfigure-grid-level-identity-federation-for-account-sync-optional]]
+=== [[account-sync-identity-federation]]Configura la federación de identidades a nivel de grid para la sincronización de cuentas (opcional)
+
+Si alguno de los sistemas StorageGRID utiliza la federación de identidades sin SSO, ambas cuadrículas deben utilizar la federación de identidades. Antes de crear las cuentas de inquilino para la federación de grid, los administradores de grid de origen y destino del inquilino deben realizar estos pasos.
+
+.Pasos
+. Configure el mismo origen de identidad para ambas cuadrículas. Consulte link:using-identity-federation.html["Usar la federación de identidades"].
+. Opcionalmente, si un grupo federado tendrá permiso de acceso raíz inicial para las cuentas de arrendatario de origen y de destino, link:managing-admin-groups.html["cree el mismo grupo de administración"] en ambas cuadrículas importando el mismo grupo federado.
++
+
+NOTE: Si asigna permiso de acceso raíz a un grupo federado que no existe en ambas cuadrículas, el inquilino no se replica en la cuadrícula de destino.
+
+. Si no desea que un grupo federado tenga permiso de acceso raíz inicial para ambas cuentas, especifique una contraseña para el usuario raíz local.
+
+
+
+
+[[create-permitted-s3-tenant-account]]
+=== Cree una cuenta de inquilino de S3 permitida
+
+Después de configurar, de manera opcional, el inicio de sesión único o la federación de identidades, un administrador de grid lleva a cabo estos pasos para determinar qué inquilinos pueden replicar objetos del bloque en otros sistemas StorageGRID.
+
+.Pasos
+. Determina qué grid quieres que sea el grid de origen del inquilino para las operaciones de sincronización de cuentas.
++
+La cuadrícula donde se creó originalmente el inquilino se conoce como _source grid_ del inquilino. La cuadrícula donde se replica el inquilino se conoce como _grid de destino_ del inquilino.
+
+. En esa cuadrícula, cree una nueva cuenta de inquilino de S3 o edite una cuenta existente.
+. Asigne el permiso *Use grid federation connection*.
+. Si la cuenta de inquilino administrará sus propios usuarios federados, asigne el permiso *Usar propia fuente de identidad*.
++
+Si se asigna este permiso, tanto la cuenta del inquilino de origen como la del de destino deben configurar la misma fuente de identidad antes de crear grupos federados. Los grupos federados añadidos al inquilino de origen no se pueden sincronizar con el inquilino de destino a menos que ambas grids utilicen la misma fuente de identidad.
+
+. Seleccione una conexión de federación de cuadrícula específica.
+. Guarde el inquilino nuevo o modificado.
++
+Cuando se guarda un nuevo inquilino con el permiso *Usar conexión de federación de grid*, StorageGRID crea automáticamente una réplica de ese inquilino en la otra cuadrícula, de la siguiente manera:
+
++
+** Ambas cuentas de inquilino tienen el mismo ID de cuenta, nombre, cuota de almacenamiento y permisos asignados.
+** Si has seleccionado un grupo federado para que tenga permiso de acceso de usuario raíz para el inquilino, ese grupo se clona en el inquilino de destino. Sin embargo, la replicación continua no ocurre para los grupos y usuarios federados. Solo se realiza una clonación única.
+** Si has seleccionado un usuario local para que tenga permiso de usuario raíz para el inquilino, ese usuario se sincroniza con el inquilino de destino.
+
+
+
+
+Para más información, consulta link:grid-federation-manage-tenants.html["Gestionar inquilinos permitidos para la federación de grid"].
+
+
+
+[[permitted-tenant-account-workflow]]
+== Flujo de trabajo de cuenta de inquilino permitido
+
+Después de que un inquilino con el permiso *Use grid federation connection* se replica en la grid de destino, las cuentas de inquilino autorizadas pueden realizar estos pasos para sincronizar los grupos de inquilinos, los usuarios y las claves de acceso S3.
+
+.Pasos
+. Inicia sesión en la cuenta de inquilino en cualquier grid conectado.
+. Si está permitido, configura la federación de identidades tanto en la cuenta del tenant de origen como en la de destino.
+. Crea grupos y usuarios en cualquier grid conectado.
++
+Cuando se crean nuevos grupos o usuarios en un inquilino, StorageGRID los sincroniza automáticamente con el inquilino de destino.
+
+. Crear claves de acceso S3.
+. Si lo deseas, sincroniza las claves de acceso S3 del inquilino de origen al inquilino de destino.
+
+
+Para obtener más información sobre el flujo de trabajo permitido para las cuentas de inquilino y para saber cómo se sincronizan los grupos, los usuarios y las claves de acceso a S3, consulta link:../tenant/grid-federation-account-sync.html["Sincroniza grupos de inquilinos y usuarios"].

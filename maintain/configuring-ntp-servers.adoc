@@ -44,7 +44,7 @@ Siga estas directrices para protegerse contra problemas de tiempo:
 
 
 
-NOTE: Al especificar el origen NTP externo para una instalación de StorageGRID en el nivel de producción, no use el servicio Windows Time (W32Time) en una versión de Windows anterior a Windows Server 2016. El servicio de hora en versiones anteriores de Windows no es lo suficientemente preciso y no es compatible con Microsoft para su uso en entornos de alta precisión, incluido StorageGRID. Para obtener más información, consulte https://support.microsoft.com/en-us/help/939322/support-boundary-to-configure-the-windows-time-service-for-high-accura["Límite de soporte para configurar el servicio de tiempo de Windows para entornos de alta precisión"^].
+NOTE: Al especificar la fuente NTP externa para una instalación de StorageGRID en entorno de producción, no utilices el servicio Windows Time (W32Time) en versiones de Windows anteriores a Windows Server 2016. El servicio de hora en versiones anteriores de Windows no es lo suficientemente preciso y no está soportado por Microsoft para su uso en entornos de alta precisión, incluido StorageGRID. Para más detalles, consulta https://learn.microsoft.com/en-us/troubleshoot/windows-server/active-directory/support-boundary-high-accuracy-time["Límite de soporte para alta precisión de tiempo"^].
 
 
 

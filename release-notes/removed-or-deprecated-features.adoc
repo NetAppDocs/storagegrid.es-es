@@ -2,7 +2,7 @@
 permalink: release-notes/removed-or-deprecated-features.html 
 sidebar: sidebar 
 keywords:  
-summary: Conoce las características y capacidades que han sido eliminadas o desaprobadas en StorageGRID 12.0. Antes de actualizar, revisa si alguna característica eliminada o desaprobada afecta a tus aplicaciones cliente o a la configuración de tu grid. 
+summary: Infórmate sobre las funciones y capacidades que se han eliminado o que han quedado obsoletas en StorageGRID 12.1.0. Antes de actualizar, comprueba si alguna de las funciones eliminadas u obsoletas afecta a tus aplicaciones cliente o a la configuración de tu grid. 
 ---
 = Funciones y capacidades eliminadas o en desuso en StorageGRID
 :allow-uri-read: 
@@ -11,14 +11,14 @@ summary: Conoce las características y capacidades que han sido eliminadas o des
 
 
 [role="lead"]
-Conoce las características y capacidades que han sido eliminadas o desaprobadas en StorageGRID 12.0. Antes de actualizar, revisa si alguna característica eliminada o desaprobada afecta a tus aplicaciones cliente o a la configuración de tu grid.
+Infórmate sobre las funciones y capacidades que se han eliminado o que han quedado obsoletas en StorageGRID 12.1.0. Antes de actualizar, comprueba si alguna de las funciones eliminadas u obsoletas afecta a tus aplicaciones cliente o a la configuración de tu grid.
 
 
 
 [[definitions]]
 == Definiciones
 
-Anticuado:: La característica *no debe ser usada en nuevos ambientes de producción. Los entornos de producción existentes pueden seguir utilizando la función.
+Anticuado:: *No debes* utilizar esta función en nuevos entornos de producción. Los entornos de producción ya existentes pueden seguir utilizando esta función.
 Fin de la vida:: Última versión enviada que admite la función. En algunos casos, la documentación de la característica puede eliminarse en esta etapa.
 Quitada:: Primera versión que *no* soporta la característica.
 
@@ -38,6 +38,19 @@ NOTE: En ciertas situaciones, NetApp podría terminar el soporte para determinad
 [cols="2a,1a,1a,1a,3a"]
 |===
 | Función | Anticuado | Fin de la vida | Quitada | Enlaces a documentación anterior 
+
+
+ a| 
+Configuración global de SSE para el cifrado AES-128
+ a| 
+12,1
+ a| 
+12,2
+ a| 
+12,3
+ a| 
+A partir de StorageGRID 12.1.0, la compatibilidad con el cifrado AES-128 de los nuevos datos de objetos almacenados en reposo está obsoleta. La compatibilidad para la recuperación de objetos almacenados que se cifraron originalmente con AES-128 continúa.
+
 
 
  a| 
@@ -66,8 +79,8 @@ https://docs.netapp.com/us-en/storagegrid-118/maintain/considerations-for-decomm
 
 *Nota*: Antes de comenzar tu actualización, debes:
 
-. Retirar todos los nodos de archivado. Consulte https://docs.netapp.com/us-en/storagegrid-118/maintain/grid-node-decommissioning.html["Retirada de nodo de grid (sitio de documentación de StorageGRID 11,8)"^].
-. Elimine todas las referencias de nodos de archivado de los pools de almacenamiento y las políticas de ILM. Consulte https://kb.netapp.com/hybrid/StorageGRID/Maintenance/StorageGRID_11.9_software_upgrade_resolution_guide["Base de conocimientos de NetApp: Guía de resolución de actualización de software de StorageGRID 11,9"^].
+. Decomisiona todos los nodos de archivo. Consulta https://docs.netapp.com/us-en/storagegrid-118/maintain/grid-node-decommissioning.html["Retirada de nodo de grid (sitio de documentación de StorageGRID 11,8)"^].
+. Elimina todas las referencias a los nodos de archivo de los grupos de almacenamiento y las políticas de ILM. Consulta https://kb.netapp.com/hybrid/StorageGRID/Maintenance/StorageGRID_11.9_software_upgrade_resolution_guide["Base de conocimientos de NetApp: Guía de resolución de actualización de software de StorageGRID 11,9"^].
 
 
 

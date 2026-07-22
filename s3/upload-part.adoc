@@ -20,7 +20,23 @@ La operación UploadPart carga una pieza en una carga de varias partes para un o
 
 Se admiten los siguientes encabezados de solicitud:
 
-* `x-amz-checksum-sha256`
+* Encabezados de solicitud de suma de comprobación:
++
+--
+** `x-amz-checksum-crc32`
+** `x-amz-checksum-crc32c`
+** `x-amz-checksum-crc64nvme`
+** `x-amz-checksum-sha256`
+
+
+--
++
+Si especificaste una suma de comprobación CRC-32, CRC-32C, CRC-64/NVME o SHA-256 durante la solicitud CreateMultipartUpload, también debes incluir el encabezado de solicitud de suma de comprobación en cada solicitud UploadPart.
+
++
+
+NOTE: Si una solicitud CreateMultipartUpload no especifica una suma de comprobación, StorageGRID no calcula una suma de comprobación CRC-64/NVME por defecto para un objeto.
+
 * `Content-Length`
 * `Content-MD5`
 
@@ -40,11 +56,6 @@ Si especificó el cifrado SSE-C para la solicitud CreateMultipartUpload, tambié
 
 CAUTION: Las claves de cifrado que proporcione no se almacenan nunca. Si pierde una clave de cifrado, perderá el objeto correspondiente. Antes de utilizar las claves proporcionadas por el cliente para proteger los datos de objetos, revise las consideraciones en link:using-server-side-encryption.html["Usar cifrado del servidor"].
 
-Si especificó una suma de comprobación SHA-256 durante la solicitud CreateMultipartUpload, también debe incluir la siguiente cabecera de solicitud en cada solicitud UploadPart:
-
-* `x-amz-checksum-sha256`: Especifique la suma de comprobación SHA-256 para esta parte.
-
-
 
 
 [[unsupported-request-headers]]
@@ -54,6 +65,12 @@ No se admiten las siguientes cabeceras de solicitud:
 
 * `x-amz-sdk-checksum-algorithm`
 * `x-amz-trailer`
+* `x-amz-checksum-md5`
+* `x-amz-checksum-sha1`
+* `x-amz-checksum-sha512`
+* `x-amz-checksum-xxhash3`
+* `x-amz-checksum-xxhash64`
+* `x-amz-checksum-xxhash128`
 
 
 

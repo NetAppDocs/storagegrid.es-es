@@ -13,7 +13,7 @@ summary: Puede que tenga que apagar todo el sistema StorageGRID, por ejemplo, si
 [role="lead"]
 Puede que tenga que apagar todo el sistema StorageGRID, por ejemplo, si va a mover un centro de datos. Estos pasos proporcionan una descripción general de alto nivel de la secuencia recomendada para realizar un apagado controlado e inicio.
 
-Cuando se apagan todos los nodos en un sitio o un grid, no se puede acceder a los objetos procesados mientras los nodos de almacenamiento están sin conexión.
+Cuando apagas todos los nodos de un sitio o grid, no puedes acceder a los objetos ingeridos mientras los Storage Nodes estén desconectados.
 
 
 
@@ -23,7 +23,7 @@ Cuando se apagan todos los nodos en un sitio o un grid, no se puede acceder a lo
 Antes de poder apagar un sistema StorageGRID, debe detener todos los servicios que se ejecutan en cada nodo de grid y, a continuación, apagar todas las máquinas virtuales de VMware, los motores de contenedor y los dispositivos StorageGRID.
 
 .Acerca de esta tarea
-Detenga primero los servicios en los nodos de administración y la puerta de enlace y, a continuación, detenga los servicios en los nodos de almacenamiento.
+Detén primero los servicios en los nodos de administración y los nodos de puerta de enlace, luego detén los servicios en los nodos de almacenamiento.
 
 Este enfoque permite usar el nodo de administración principal para supervisar el estado de los demás nodos de grid durante el mayor tiempo posible.
 
@@ -151,9 +151,6 @@ El grid de StorageGRID se ha apagado.
 [[start-up-grid-nodes]]
 == Inicie nodos de grid
 
-
-CAUTION: Si toda la cuadrícula se ha apagado durante más de 15 días, debe ponerse en contacto con el soporte técnico antes de iniciar cualquier nodo de grid. No intente los procedimientos de recuperación que reconstruyen los datos de Cassandra. Si lo hace, se puede producir la pérdida de datos.
-
 Si es posible, encienda los nodos de la cuadrícula en este orden:
 
 * Aplique primero la alimentación a los nodos de administración.
@@ -161,13 +158,13 @@ Si es posible, encienda los nodos de la cuadrícula en este orden:
 
 
 
-NOTE: Si un host incluye varios nodos de grid, los nodos vuelven a estar en línea automáticamente cuando se enciende el host.
+NOTE: Si un host incluye varios nodos de grid, los nodos vuelven a estar en línea automáticamente cuando enciendes el host.
 
 .Pasos
 . Encienda los hosts del nodo de administrador principal y los nodos de administrador que no son primarios.
 +
 
-NOTE: No podrá iniciar sesión en los nodos de administrador hasta que se hayan reiniciado los nodos de almacenamiento.
+NOTE: No podrás iniciar sesión en los nodos de administración hasta que se hayan reiniciado los nodos de almacenamiento.
 
 . Encienda los hosts para todos los nodos de almacenamiento.
 +

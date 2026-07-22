@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: replace VMware node 
 summary: Cuando se recupera un nodo StorageGRID con fallos que se encontraba en VMware, se elimina el nodo fallido y se implementa un nodo de recuperación. 
 ---
-= Reemplazar un nodo VMware en StorageGRID
+= Sustituye un nodo de VMware en StorageGRID por un nodo de recuperación
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -49,16 +49,9 @@ NOTE: Después de implementar el nuevo nodo, puede agregar nuevos discos virtual
 
 
  a| 
-Nodo de administrador principal
+Nodos de administración
  a| 
-link:configuring-replacement-primary-admin-node.html["Configure el nodo de administración principal de reemplazo"]
-
-
-
- a| 
-Nodo de administrador no primario
- a| 
-link:selecting-start-recovery-to-configure-non-primary-admin-node.html["Seleccione Start Recovery para configurar el nodo de administrador que no es primario"]
+link:recovering-from-admin-node-failures.html["Recuperación del nodo de administración primario o no primario en StorageGRID"]
 
 
 

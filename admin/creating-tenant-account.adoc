@@ -19,7 +19,7 @@ Los pasos para crear una cuenta de inquilino varían según silink:using-identit
 * Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
 * Usted tiene el link:admin-group-permissions.html["Acceso raíz o cuentas de inquilino"].
 * Si la cuenta de arrendatario utilizará el origen de identidad configurado para el Administrador de grid y desea otorgar permiso de acceso raíz para la cuenta de arrendatario a un grupo federado, ha importado ese grupo federado en el Gestor de grid. No es necesario asignar ningún permiso de Grid Manager a este grupo de administración. Consulte link:managing-admin-groups.html["Gestione los grupos de administradores"].
-* Si desea permitir que un inquilino de S3 clone los datos de su cuenta y replique objetos de bucket en otro grid mediante una conexión de federación de grid:
+* Si deseas permitir que un inquilino de S3 sincronice los datos de la cuenta y replique los objetos del bucket a otra grid mediante una conexión de federación de grids:
 +
 ** Tienes link:grid-federation-create-connection.html["se ha configurado la conexión de federación de grid"].
 ** El estado de la conexión es *Conectado*.
@@ -141,9 +141,13 @@ El inquilino puede emitir solicitudes de API S3 SelectObjectContent para filtrar
  a| 
 Conexión de federación de grid
  a| 
-El inquilino puede usar una conexión de federación de grid, que:
+El inquilino puede utilizar conexiones de federación de grid, que:
 
-** Hace que este arrendatario y todos los grupos de arrendatarios y usuarios agregados a la cuenta se clonen desde esta cuadrícula (la cuadrícula _source_) a la otra cuadrícula de la conexión seleccionada (la cuadrícula _destination_).
+** Hace que esta cuenta de inquilino y todos los grupos de inquilinos, usuarios y claves de acceso a S3 se sincronicen entre esta grid y las demás grids de las conexiones seleccionadas.
++
+
+TIP: Si fuera necesario por motivos de seguridad o de cumplimiento normativo, puedes desmarcar la opción *Habilitar sincronización de claves de acceso*.
+
 ** Permite a este inquilino configurar la replicación entre grid entre bloques correspondientes en cada grid.
 
 
@@ -207,19 +211,10 @@ Aparece un mensaje Correcto y el nuevo arrendatario aparece en la página Inquil
 
 NOTE: La aplicación de la configuración de inquilino a través del grid puede tardar 15 minutos o más en función de la conectividad de red, el estado del nodo y las operaciones de Cassandra.
 
-. Si seleccionó el permiso *Usar conexión de federación de grid* para el inquilino:
-+
-.. Confirme que se ha replicado un inquilino idéntico en la otra cuadrícula de la conexión. Los inquilinos de ambas cuadrículas tendrán el mismo ID de cuenta de 20 dígitos, nombre, descripción, cuota y permisos.
+. Si has seleccionado el permiso *Usar conexión de federación de grid* para el tenant, confirma que se haya replicado un tenant idéntico en el otro grid de la conexión. Los tenants en ambos grids tendrán el mismo ID de cuenta de 20 dígitos, nombre, descripción, cuota y permisos.
 +
 
-NOTE: Si ve el mensaje de error “Inquilino creado sin un clon”, consulte las instrucciones en link:grid-federation-troubleshoot.html["Solucionar errores de federación de grid"].
-
-.. Si proporcionó una contraseña de usuario raíz local al definir el acceso raíz, link:changing-password-for-tenant-local-root-user.html["cambie la contraseña del usuario raíz local"] para el inquilino replicado.
-+
-
-TIP: Un usuario raíz local no puede iniciar sesión en el gestor de inquilinos en la cuadrícula de destino hasta que se cambie la contraseña.
-
-
+NOTE: Si aparece un mensaje de error que indica que la cuenta de inquilino se creó en esta grid pero no se sincronizó con las otras grids, consulta las instrucciones en link:grid-federation-troubleshoot.html["Solucionar errores de federación de grid"].
 
 
 
@@ -331,4 +326,4 @@ Un puerto restringido
 [[configure-the-tenant]]
 == Configure el inquilino
 
-Siga las instrucciones descritas en link:../tenant/index.html["Usar una cuenta de inquilino"] para gestionar usuarios y grupos de inquilinos, claves de acceso de S3, buckets, servicios de plataforma y replicación entre grid y clonación de cuentas.
+Sigue las instrucciones en link:../tenant/index.html["Usar una cuenta de inquilino"] para gestionar grupos de inquilinos y usuarios, claves de acceso S3, buckets, servicios de plataforma y la sincronización de cuentas y replicación entre grids.

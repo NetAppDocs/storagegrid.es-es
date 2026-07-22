@@ -24,7 +24,7 @@ Debe especificar cuatro referencias de servidor NTP de estrato 3 o superior para
 ====
 Al especificar el origen NTP externo para una instalación de StorageGRID en el nivel de producción, no use el servicio Windows Time (W32Time) en una versión de Windows anterior a Windows Server 2016. El servicio de tiempo en versiones anteriores de Windows no es lo suficientemente preciso y no es compatible con Microsoft para su uso en entornos de gran precisión como StorageGRID.
 
-https://support.microsoft.com/en-us/help/939322/support-boundary-to-configure-the-windows-time-service-for-high-accura["Límite de soporte para configurar el servicio de tiempo de Windows para entornos de alta precisión"^]
+https://learn.microsoft.com/en-us/troubleshoot/windows-server/active-directory/support-boundary-high-accuracy-time["Límite de soporte para la hora de alta precisión"^]
 
 ====
 Los nodos a los que asignó previamente roles NTP primarios utilizan los servidores NTP externos.

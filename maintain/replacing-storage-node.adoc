@@ -20,7 +20,7 @@ NOTE: Este procedimiento se aplica únicamente a nodos de almacenamiento basados
 
 *Linux:* Si no está seguro de si la unidad del sistema ha fallado, siga las instrucciones para reemplazar el nodo para determinar qué pasos de recuperación son necesarios.
 
-[cols="1a,2a"]
+[cols="1a,3a"]
 |===
 | Plataforma | Procedimiento 
 

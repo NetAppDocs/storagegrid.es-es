@@ -15,10 +15,12 @@ indexpage:
   tiles:
   - title: Manos a la obra
     links:
+    - title: Requisitos del navegador web
+      url: "../admin/web-browser-requirements.html"
     - title: Inicie sesión en Grid Manager
       url: "../admin/signing-in-to-grid-manager.html"
-    - title: Configure AutoSupport
-      url: "../admin/configure-autosupport-grid-manager.html"
+    - title: Cierre la sesión en Grid Manager
+      url: "../admin/signing-out-of-grid-manager.html"
     - title: Utilice la API de gestión de grid
       url: "../admin/using-grid-management-api.html"
   - title: Gestionar usuarios y grupos de administración
@@ -27,8 +29,8 @@ indexpage:
       url: "../admin/using-identity-federation.html"
     - title: Gestione los grupos de administradores
       url: "../admin/managing-admin-groups.html"
-    - title: Permisos de grupo de administradores
-      url: "../admin/admin-group-permissions.html"
+    - title: Conoce la verificación de varios administradores
+      url: "../admin/about-multi-admin-verify.html"
     - title: Configurar el inicio de sesión único
       url: "../admin/how-sso-works.html"
   - title: Usar federación de grid
@@ -41,6 +43,8 @@ indexpage:
       url: "../admin/grid-federation-create-connection.html"
     - title: Gestionar inquilinos permitidos
       url: "../admin/grid-federation-manage-tenants.html"
+    - title: Configura el espacio de nombres global
+      url: "../admin/configure-global-namespace.html"
   - title: Gestionar las conexiones e inquilinos de clientes
     links:
     - title: Configure los nombres de dominio de punto final S3

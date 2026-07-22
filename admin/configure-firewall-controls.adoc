@@ -29,9 +29,9 @@ StorageGRID incluye un firewall interno en cada nodo que le permite abrir o cerr
 
 Limitar el número de puertos abiertos a direcciones IP fuera de su red a solo aquellos que son absolutamente necesarios mejora la seguridad de su red. Utilice la configuración en cada una de las tres pestañas de control de Firewall para asegurarse de que solo los puertos necesarios estén abiertos.
 
-Para obtener más información sobre el uso de controles de firewall, incluidos ejemplos, consulte link:../admin/manage-firewall-controls.html["Gestionar los controles del firewall"].
+Para obtener más información sobre el uso de los controles del cortafuegos, incluidos ejemplos, consulta link:../admin/manage-firewall-controls.html["Gestionar los controles del firewall"].
 
-Para obtener más información sobre los firewalls externos y la seguridad de la red, consulte link:../admin/controlling-access-through-firewalls.html["Controle el acceso a un firewall externo"].
+Para obtener más información sobre los cortafuegos externos y la seguridad de la red, consulta link:../admin/controlling-access-through-firewalls.html["Controle el acceso a un firewall externo"].
 
 
 
@@ -60,16 +60,16 @@ Utilice el separador Lista de Direcciones con Privilegios para otorgar a los hos
 Las direcciones IP y subredes con privilegios no tienen acceso interno a la cuadrícula por defecto. Además, los puntos finales del equilibrador de carga y los puertos adicionales abiertos en la pestaña de lista de direcciones con privilegios son accesibles incluso si están bloqueados en la pestaña Gestionar acceso externo.
 
 
-NOTE: La configuración de la pestaña Lista de direcciones con privilegios no puede sustituir la configuración de la pestaña Red de clientes sin confianza.
+NOTE: La configuración de la pestaña «Lista de direcciones privilegiadas» puede anular la configuración de la pestaña «Red de clientes no fiables».
 
 .Pasos
 . En la pestaña Lista de direcciones con privilegios, introduzca la dirección o subred IP que desea otorgar acceso a los puertos cerrados.
-. Opcionalmente, seleccione *Agregar otra dirección IP o subred en notación CIDR* para agregar clientes con privilegios adicionales.
+. Si lo deseas, selecciona *Add another IP o una subred en notación CIDR* para añadir clientes con privilegios adicionales.
 +
 
 TIP: Agregue el menor número posible de direcciones a la lista de privilegios.
 
-. Opcionalmente, seleccione *Permitir direcciones IP privilegiadas para acceder a los puertos internos de StorageGRID*. Consulte link:../network/internal-grid-node-communications.html["Puertos internos StorageGRID"].
+. Si lo deseas, selecciona *Permitir que las direcciones IP con privilegios accedan a los puertos internos de StorageGRID*. Consulta link:../network/internal-grid-node-communications.html["Puertos internos StorageGRID"].
 +
 
 TIP: Esta opción elimina algunas protecciones para los servicios internos. Déjelo desactivado si es posible.
@@ -96,7 +96,7 @@ NOTE: La configuración de la pestaña Administrar acceso externo no puede susti
 ** Seleccione *Cerrar todos los puertos mostrados* para cerrar todos los puertos enumerados en la tabla.
 +
 
-CAUTION: Si cierra los puertos 443 o 8443 de Grid Manager, cualquier usuario conectado actualmente a un puerto bloqueado, incluido usted, perderá el acceso a Grid Manager a menos que su dirección IP se haya agregado a la lista de direcciones con privilegios.
+CAUTION: Si cierras los puertos 443 o 8443 de Grid Manager, cualquier usuario que esté conectado en ese momento a un puerto bloqueado, incluido tú, perderá el acceso a Grid Manager a menos que su dirección IP se haya añadido a la lista de direcciones privilegiadas.
 
 +
 
@@ -150,6 +150,6 @@ NOTE: Use la barra de desplazamiento en la parte derecha de la tabla para asegur
 
 . Seleccione *Guardar*.
 +
-La nueva configuración del firewall se aplica y aplica inmediatamente. Las conexiones de cliente existentes podrían fallar si no se han configurado extremos de equilibrador de carga.
+La nueva configuración del cortafuegos se aplica y se hace efectiva de forma inmediata. Las conexiones de los clientes existentes podrían fallar si no se han configurado los endpoints del balanceador de carga.
 
 

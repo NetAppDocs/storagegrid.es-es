@@ -59,5 +59,4 @@ CAUTION: No cierre este cuadro de diálogo hasta que haya copiado o descargado e
 +
 La nueva clave aparece en la página Mis claves de acceso.
 
-. Si su cuenta de inquilino tiene el permiso *Usar conexión de federación de grid*, utilice opcionalmente la API de administración de inquilinos para clonar manualmente las claves de acceso S3 del inquilino en la cuadrícula de origen al inquilino en la cuadrícula de destino. Consulte link:grid-federation-clone-keys-with-api.html["Clone las claves de acceso S3 mediante la API"].
 

@@ -27,9 +27,10 @@ Procedimiento de reequilibrio de EC:
 * Solo mueve datos de objetos codificados con borrado. No mueve los datos de objetos replicados.
 * Redistribuye los datos dentro de un sitio. No mueve datos de un sitio a otro.
 * Redistribuye los datos entre todos los nodos de almacenamiento de un sitio. No redistribuye datos dentro de los volúmenes de almacenamiento.
-* Intenta distribuir la misma cantidad de bytes a cada nodo.  Los nodos que contienen más datos replicados almacenarán menos datos codificados por borrado una vez que se complete el reequilibrio.
-* Redistribuye los datos codificados por borrado de manera uniforme entre los nodos de almacenamiento sin tener en cuenta las capacidades relativas de cada nodo.  Los datos replicados se incluyen en el cálculo.
-* No distribuirá datos codificados por borrado a nodos de almacenamiento que estén llenos en más del 80 %.
+* Intenta distribuir los bytes de datos de manera que cada nodo disponga del mismo espacio útil. Es posible que los nodos que contengan más datos replicados almacenen menos datos con código de borrado una vez finalizado el reequilibrio.
+* Redistribuye el espacio utilizable de forma uniforme entre los nodos de almacenamiento sin tener en cuenta las capacidades relativas de cada nodo. Los datos replicados se incluyen en el cálculo.
+* El procedimiento de reequilibrio se considera completado si ya no puede mover más datos con código de borrado, aunque el espacio utilizable aún no esté distribuido de manera uniforme.
+* No distribuirá datos con código de borrado a nodos de almacenamiento que estén llenos en más del 80 % ni a nodos de almacenamiento solo de metadatos.
 * Puede disminuir el rendimiento de las operaciones de ILM y de las operaciones de cliente del S3 cuando este se ejecuta&#8212; se necesitan recursos adicionales para redistribuir los fragmentos de código de borrado.
 
 
@@ -40,9 +41,9 @@ Una vez finalizado el procedimiento de reequilibrio de EC:
 * Los valores usados (%) pueden ser diferentes entre los nodos de almacenamiento por dos motivos:
 +
 ** Las copias de objetos replicados seguirán consumiendo espacio en los nodos existentes&#8212;El procedimiento de reequilibrio de EC no mueve datos replicados.
-** Los nodos de mayor capacidad estarán relativamente menos llenos que los de menor capacidad, aunque todos los nodos terminarán con aproximadamente la misma cantidad de datos.
+** Es posible que los nodos de mayor capacidad estén relativamente menos llenos que los de menor capacidad, aunque todos los nodos acabarán teniendo aproximadamente la misma cantidad de espacio útil.
 +
-Por ejemplo, suponga que tres nodos de 200 TB se llenan al 80 % cada uno (200 &#215; 0,8 = 160 TB en cada nodo o 480 TB en el sitio). Si agrega un nodo de 400 TB y ejecuta el procedimiento de reequilibrio, ahora todos los nodos tendrán aproximadamente la misma cantidad de datos de código de borrado (480/4 TB = 120 TB). Sin embargo, el utilizado (%) para el nodo más grande será menor que el usado (%) para los nodos más pequeños.
+Por ejemplo, con un esquema de código de borrado 2+1, supón que tres nodos de 200 TB están llenos al 80 % cada uno (200 × 0,8 = 160 TB en cada nodo, o 480 TB para el sitio). Si añades un nodo de 400 TB y ejecutas el procedimiento de reequilibrio, todos los nodos anteriores tendrán ahora aproximadamente la misma cantidad de datos codificados con código de borrado (106,66 TB o 53 % de uso). El nuevo nodo tendrá (160 TB de datos o 40 % de uso). En este caso, el porcentaje de uso (%) del nodo más grande será menor que el porcentaje de uso (%) de los nodos más pequeños. El procedimiento de reequilibrio termina antes de que se equilibre el espacio utilizable, ya que no se pueden mover más datos codificados con código de borrado sin romper las restricciones del esquema de código de borrado.
 
 +
 image:used_space_with_larger_node.png["Espacio usado antes de la expansión"]
@@ -72,8 +73,8 @@ image:used_space_before_expansion.png["Espacio usado antes de la expansión"]
 
 
 
-[[rebalance-is-not-required-if-you-add-enough-nodes]]
-=== No es necesario reequilibrar si se agregan suficientes nodos
+[[rebalance-isnt-required-if-you-add-enough-nodes]]
+=== No es necesario reequilibrar si añades suficientes nodos
 
 Para comprender cuándo no es necesario reequilibrar EC, suponga que se han añadido tres (o más) nuevos nodos de almacenamiento. En este caso, no es necesario realizar un reequilibrio de EC. Los nodos de almacenamiento originales se mantendrán llenos, pero los objetos nuevos ahora usarán los tres nodos nuevos para 2+1 código de borrado&#8212;Los dos fragmentos de datos y el fragmento de paridad único podrán almacenarse en un nodo diferente.
 
@@ -91,7 +92,7 @@ Para comprender cuándo es necesario reequilibrar EC, suponga que solo puede añ
 
 image:used_space_after_2_node_expansion.png["Espacio utilizado tras la ampliación de 2 nodos"]
 
-Para utilizar los nuevos nodos de almacenamiento, debe ejecutar el procedimiento de reequilibrio de EC. Cuando este procedimiento se ejecuta, StorageGRID redistribuye los datos existentes con código de borrado y los fragmentos de paridad entre todos los nodos de almacenamiento del sitio. En este ejemplo, cuando se haya completado el procedimiento de reequilibrio de EC, los cinco nodos ahora sólo estarán llenos al 60 % y los objetos pueden seguir ingiriendo en el esquema de código de borrado 2+1 en todos los nodos de almacenamiento.
+Para utilizar los nuevos nodos de almacenamiento, debes ejecutar el procedimiento de reequilibrio de EC. Cuando se ejecuta este procedimiento, StorageGRID redistribuye los datos con código de borrado y los fragmentos de paridad existentes, de modo que el espacio utilizable se distribuya de manera uniforme entre todos los nodos de almacenamiento del sitio. En este ejemplo, una vez finalizado el procedimiento de reequilibrio de EC, los cinco nodos están ahora al 60 % de su capacidad, con un 40 % de espacio útil, y se pueden seguir incorporando objetos al esquema de código de borrado 2+1 en todos los nodos de almacenamiento.
 
 image:used_space_after_ec_rebalance.png["Espacio usado aAfter EC reequilibrar"]
 

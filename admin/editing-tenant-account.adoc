@@ -13,9 +13,6 @@ summary: Una cuenta de inquilino se puede editar para cambiar el nombre para mos
 [role="lead"]
 Una cuenta de inquilino se puede editar para cambiar el nombre para mostrar, la cuota de almacenamiento o los permisos de inquilino.
 
-
-TIP: Si un inquilino tiene el permiso *Usar conexión de federación de grid*, puede editar los detalles del inquilino desde cualquier cuadrícula en la conexión. Sin embargo, los cambios que realice en una cuadrícula de la conexión no se copiarán en la otra cuadrícula. Si desea mantener los detalles del arrendatario exactamente sincronizados entre las cuadrículas, realice las mismas modificaciones en ambas cuadrículas. Consulte link:grid-federation-manage-tenants.html["Gestione los inquilinos permitidos para la conexión de federación de grid"].
-
 .Antes de empezar
 * Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
 * Usted tiene el link:admin-group-permissions.html["Acceso raíz o cuentas de inquilino"].
@@ -62,7 +59,8 @@ Si *Usar la propia fuente de identidad* es:
 ** Seleccione o desactive el permiso *Permitir S3 Select* según sea necesario. Consulte link:manage-s3-select-for-tenant-accounts.html["Gestione S3 Select para cuentas de inquilinos"].
 ** Para eliminar el permiso *Use grid federation connection*:
 +
-... Seleccione la pestaña *Grid federation*.
+... Selecciona la pestaña Grid federation en la página de detalles del inquilino.
+... Selecciona la conexión que deseas eliminar.
 ... Selecciona *Eliminar permiso*.
 
 
@@ -71,6 +69,10 @@ Si *Usar la propia fuente de identidad* es:
 ... Seleccione la pestaña *Grid federation*.
 ... Seleccione la casilla de verificación *Usar conexión de federación de cuadrícula*.
 ... Opcionalmente, seleccione *Clonar usuarios y grupos locales existentes* para clonarlos a la cuadrícula remota. Si desea, puede detener la clonado en curso o volver a intentar la clonado si no se pudieron clonar algunos usuarios o grupos locales después de completar la última operación de clonado.
++
+
+TIP: Si fuera necesario por motivos de seguridad o de cumplimiento normativo, puedes desmarcar la opción *Habilitar sincronización de claves de acceso*.
+
 
 
 ** Para establecer un período de retención máximo o permitir el modo de cumplimiento:

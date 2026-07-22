@@ -16,13 +16,14 @@ Puede recuperar archivos de registro y datos del sistema de StorageGRID , inclui
 .Antes de empezar
 * Ha iniciado sesión en el Administrador de cuadrícula en cualquier nodo de administración mediante unlink:../admin/web-browser-requirements.html["navegador web compatible"] .
 * Tienes link:../admin/admin-group-permissions.html["permisos de acceso específicos"].
-* Tiene la clave de acceso de aprovisionamiento.
 
 
 .Acerca de esta tarea
 Utilice el Administrador de cuadrícula para recopilarlink:logs-files-reference.html["archivos de registro"] , datos del sistema y datos de configuración de cualquier nodo de la red durante el período de tiempo que seleccione.  Los datos se recopilan y archivan en un `.tar.gz` archivo que luego puede descargar a su computadora local o enviar al soporte técnico.
 
 Opcionalmente, puede cambiar el destino de los registros de auditoría y enviar información de auditoría a un servidor syslog externo.  Los registros locales de registros de auditoría continúan generándose y almacenándose cuando se configura un servidor syslog externo. Ver link:../monitor/configure-log-management.html["Configurar la gestión de registros y el servidor syslog externo"] .
+
+Si el nodo de administración usado para iniciar la recopilación de registros se desconecta durante la recopilación, StorageGRID no conserva los resultados. Necesitas reiniciar el nodo y volver a iniciar la recopilación de registros después de que termine el reinicio.
 
 .Pasos
 . Seleccione *Soporte* > *Herramientas* > *Recopilación de registros*.  Se muestra una tabla de nodos.
@@ -47,7 +48,6 @@ Si selecciona un período de tiempo muy largo o recopila registros de todos los 
 +
 Puede usar estas notas para brindar información de soporte técnico acerca del problema que le pidió que recopile los archivos de registro. Las notas se agregan a un archivo llamado `info.txt`, junto con otra información sobre la recopilación de archivos de registro.  `info.txt`El archivo se guarda en el paquete de archivo de registro.
 
-. En el cuadro de texto *Frase de contraseña de aprovisionamiento*, ingrese la frase de contraseña de aprovisionamiento para su sistema StorageGRID .
 . Seleccione *Recopilar registros*.
 +
 Puede utilizar la página de Recopilación de registros para supervisar el progreso de la recopilación de archivos de registro para cada nodo de la cuadrícula.
@@ -57,9 +57,15 @@ Si recibe un mensaje de error acerca del tamaño del registro, intente recopilar
 
 . Si falla la recopilación de registros:
 +
+--
 ** Si aparece el mensaje "Error en la recopilación de registros", puede volver a intentar la recopilación de registros o finalizar la sesión sin volver a intentarlo.
 ** Si aparece el mensaje "La recopilación de registros falló parcialmente", puede volver a intentar la recopilación de registros, finalizar la sesión, descargar el archivo de registro parcial o enviar el archivo de registro parcial a AutoSupport.
 
+
+--
++
+
+NOTE: Puedes dejar en blanco el campo «Contraseña de aprovisionamiento» para realizar un reintento estándar, o puedes introducir la contraseña para volver a intentarlo usando SSH.
 
 . Cuando se complete la recopilación de archivos de registro:
 +

@@ -1,0 +1,40 @@
+---
+permalink: admin/request-mav-approval-for-protected-ops.html 
+sidebar: sidebar 
+keywords: multi-admin verification, mav 
+summary: Como administrador o usuario de StorageGRID, cuando inicias una operación protegida por MAV en StorageGRID, se genera automáticamente una solicitud. Aparece un mensaje para informarte de que la operación requiere aprobación. 
+---
+= Solicitar autorización para operaciones protegidas por MAV en StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Como administrador o usuario de StorageGRID, cuando inicias una operación protegida por MAV en StorageGRID, se genera automáticamente una solicitud. Aparece un mensaje para informarte de que la operación requiere aprobación.
+
+El sistema StorageGRID define qué operaciones están protegidas por MAV. Cuando inicias una operación protegida por MAV, la solicitud se envía a los administradores de MAV para su aprobación.
+
+.Pasos
+El sistema StorageGRID te informa de que has iniciado una operación protegida por MAV.
+
+. Según sea necesario, realiza cualquiera de las siguientes tareas:
++
+.. Comprueba el estado de tu solicitud seleccionando *Configuración* > *Control de acceso* > *Verificación de administradores múltiples* > *Mis solicitudes*.
++
+*** *Pendiente*. La solicitud ha sido iniciada.
+*** *Caducado*. La solicitud no se ha tramitado en un plazo de 30 días. O un usuario con permiso de acceso Root desactivó MAV, lo que significa que todas las solicitudes pendientes han caducado.
+*** *Retirada*. Un usuario retiró su solicitud.
+*** *Aprobado*. Un administrador de MAV aprobó la solicitud pendiente.
+*** *Rechazado*. Un administrador de MAV rechazó la solicitud pendiente.
+
+
+.. Consulta las solicitudes pendientes de otros usuarios seleccionando *Configuración* > *Control de acceso* > *Verificación de administradores múltiples* > *Otras solicitudes*.
+.. Para cancelar una operación, selecciona *Mis solicitudes* > *_la solicitud que deseas cancelar_* > *Retirar*.
+
+
+
+
+Después de que un administrador de MAV apruebe la solicitud, la operación se realiza automáticamente.
+
+Si se rechaza tu solicitud, la operación no se realiza y puedes enviar una nueva solicitud si es necesario.

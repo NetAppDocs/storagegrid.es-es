@@ -45,4 +45,6 @@ NOTE: Si se usa una puesta en marcha de StorageGRID como destino de la replicaci
 Si utiliza un servidor proxy no transparente, también debe link:configuring-storage-proxy-settings.html["configure las opciones del proxy de almacenamiento"]permitir que los mensajes se envíen a puntos finales externos, como un punto final en Internet.
 
 .Información relacionada
-link:../tenant/index.html["Usar una cuenta de inquilino"]
+* link:../tenant/index.html["Usar una cuenta de inquilino"]
+* link:../network/external-communications.html["Puertos que se utilizan para comunicaciones externas"]
+

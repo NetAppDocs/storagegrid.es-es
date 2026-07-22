@@ -2,7 +2,7 @@
 permalink: upgrade/performing-upgrade.html 
 sidebar: sidebar 
 keywords: upgrade, how to perform a software upgrade 
-summary: Puede actualizar a StorageGRID 12.0 y aplicar la última revisión para esa versión al mismo tiempo.  La página de actualización de StorageGRID proporciona la ruta de actualización recomendada y enlaces directos a las páginas de descarga correctas. 
+summary: Puedes actualizar a StorageGRID 12.1 y aplicar al mismo tiempo la última corrección urgente para esa versión. La página de actualización de StorageGRID ofrece la ruta de actualización recomendada y enlaces directos a las páginas de descarga correspondientes. 
 ---
 = Realiza una actualización de StorageGRID
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Puede actualizar a StorageGRID 12.0 y aplicar la última revisión para
 
 
 [role="lead"]
-Puede actualizar a StorageGRID 12.0 y aplicar la última revisión para esa versión al mismo tiempo.  La página de actualización de StorageGRID proporciona la ruta de actualización recomendada y enlaces directos a las páginas de descarga correctas.
+Puedes actualizar a StorageGRID 12.1 y aplicar al mismo tiempo la última corrección urgente para esa versión. La página de actualización de StorageGRID ofrece la ruta de actualización recomendada y enlaces directos a las páginas de descarga correspondientes.
 
 .Antes de empezar
 Ha revisado todas las consideraciones y completado todos los pasos de planificación y preparación.
@@ -37,7 +37,7 @@ Como primer paso, acceda a la página Actualización de StorageGRID en Grid Mana
 [[select-files]]
 == Seleccione los archivos
 
-La ruta de actualización en la página Actualización de StorageGRID indica qué versiones principales (por ejemplo, 12.0.0) y revisiones (por ejemplo, 12.0.0.1) debe instalar para llegar a la última versión de StorageGRID .  Debe instalar las versiones y revisiones recomendadas en el orden que se muestra.
+La ruta de actualización que aparece en la página «Actualización de StorageGRID» indica qué versiones principales (por ejemplo, 12.1.0) y correcciones urgentes (por ejemplo, 12.1.0.1) debes instalar para llegar a la última versión de StorageGRID. Debes instalar las versiones y correcciones urgentes recomendadas en el orden indicado.
 
 
 TIP: Si no se muestra ninguna ruta de actualización, es posible que su navegador no pueda acceder al sitio de soporte de NetApp o que la casilla de verificación *Buscar actualizaciones de software* en la página AutoSupport (*Soporte* > *Herramientas* > * AutoSupport* > *Configuración*) esté deshabilitada.
@@ -52,7 +52,7 @@ Si no se muestra ninguna ruta de actualización, vaya a https://mysupport.netapp
 
 NOTE: Si necesitaba descargar e instalar un paquete RPM o DEB en todos los hosts Linux, es posible que ya tenga los archivos de actualización y correcciones urgentes de StorageGRID enumerados en la ruta de actualización.
 
-. Seleccione *Explorar* para cargar el archivo de actualización de versión a StorageGRID: `NetApp_StorageGRID_12.0.0_Software_uniqueID.upgrade`
+. Selecciona *Examinar* para cargar el archivo de actualización de versión en StorageGRID: `NetApp_StorageGRID_12.1.0_Software_uniqueID.upgrade`
 +
 Cuando se realiza la carga y la verificación de la firma del código, aparece una marca de verificación verde junto al nombre del archivo.
 
@@ -80,7 +80,7 @@ Debe descargar la copia actual del archivo del paquete de recuperación antes de
 CAUTION: El archivo del paquete de recuperación debe estar protegido porque contiene claves de cifrado y contraseñas que se pueden utilizar para obtener datos del sistema StorageGRID .
 
 . Seleccione *Ejecutar comprobaciones previas* y espere a que se completen las comprobaciones previas.
-. Revise los detalles de cada verificación previa informada y resuelva cualquier error informado.  Ver el https://kb.netapp.com/hybrid/StorageGRID/Maintenance/StorageGRID_12.0_software_upgrade_resolution_guide["Guía de resolución de actualización de software StorageGRID"^] para la versión StorageGRID 12.0.
+. Revisa los detalles de cada comprobación previa notificada y resuelve los errores detectados. Consulta el  https://kb.netapp.com/hybrid/StorageGRID/Maintenance/StorageGRID_12.1_software_upgrade_resolution_guide["Guía de resolución de actualización de software StorageGRID"^] para la versión 12.1 de StorageGRID.
 +
 Debe resolver todas las comprobaciones previas _ERRORES_ antes de actualizar el sistema. Sin embargo, no es necesario abordar la comprobación previa _WARNINGS_ antes de actualizar.
 
@@ -158,7 +158,7 @@ Un nodo de cuadrícula puede estar en una de estas etapas cuando aparecen las ta
 . [[APPROVAL-STEP]]Cuando esté listo para seleccionar nodos de cuadrícula para la actualización (o si necesita anular la aprobación de los nodos seleccionados), siga estas instrucciones:
 +
 
-NOTE: Para una actualización de StorageGRID 12.0, si desea aprobar nodos individuales en lugar de todos los nodos, la mejor práctica es actualizar un sitio completo antes de pasar al siguiente sitio.
+NOTE: Para una actualización a StorageGRID 12.1, si quieres aprobar nodos individuales en lugar de todos los nodos, la mejor práctica es actualizar un sitio completo antes de pasar al siguiente sitio.
 
 +
 [cols="1a,1a"]
@@ -252,9 +252,10 @@ NOTE: Es posible que algunos modelos de dispositivos se reinicien varias veces p
 Cuando todos los nodos de grid han completado las etapas de actualización, la tarea *Actualizar otros nodos de grid* se muestra como completada. Las tareas de actualización restantes se ejecutan automáticamente en segundo plano.
 
 .Pasos
-. Tan pronto como se complete la tarea *Habilitar funciones* (que ocurre rápidamente), puede comenzar a usar link:whats-new.html["otras nuevas"]en la versión actualizada de StorageGRID.
-. Comienza la actualización de la base de datos de Cassandra.  Esta actualización se realizará en segundo plano durante uno a tres días, y el servicio Cassandra se detendrá y se reiniciará en cada nodo de almacenamiento.  Durante este tiempo, ciertos procedimientos de mantenimiento que involucran la transmisión de metadatos, como la expansión, estarán deshabilitados.
-. Cuando se hayan completado los *Pasos de actualización finales*, la actualización se realizará. El primer paso, *Seleccionar archivos*, se vuelve a mostrar con un banner de éxito verde.
+. En cuanto se haya completado la tarea *Habilitar funciones* (lo que puede tardar hasta una hora), puedes empezar a usar el link:whats-new.html["otras nuevas"] en la versión actualizada de StorageGRID.
++
+Cuando se hayan completado los *Pasos de actualización finales*, la actualización se realizará. El primer paso, *Seleccionar archivos*, se vuelve a mostrar con un banner de éxito verde.
+
 . Compruebe que las operaciones de grid se han vuelto a la normalidad:
 +
 .. Compruebe que los servicios funcionan con normalidad y que no hay alertas inesperadas.

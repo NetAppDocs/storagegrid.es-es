@@ -23,5 +23,5 @@ image:retrieve_data_flow.png["Recuperar"]
 . El servicio LDR recibe una solicitud de recuperación de la aplicación cliente.
 . El servicio LDR consulta al almacén de metadatos de la ubicación y los metadatos de los datos de objetos.
 . El servicio LDR reenvía la solicitud de recuperación al servicio LDR de origen.
-. El servicio LDR de origen devuelve los datos de objeto del servicio LDR consultado y el sistema devuelve el objeto a la aplicación cliente.
+. El servicio LDR de origen devuelve los datos del objeto recuperado al servicio LDR consultado, y el sistema devuelve el objeto a la aplicación cliente.
 

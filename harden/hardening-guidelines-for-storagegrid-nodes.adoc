@@ -1,7 +1,7 @@
 ---
 permalink: harden/hardening-guidelines-for-storagegrid-nodes.html 
 sidebar: sidebar 
-keywords: StorageGRID, hardening guidelines, nodes, security 
+keywords: StorageGRID, hardening guidelines, nodes, security, bmc password 
 summary: Los nodos StorageGRID se pueden implementar en máquinas virtuales de VMware, en un motor de contenedores en hosts Linux o como dispositivos de hardware dedicados. Cada tipo de plataforma y cada tipo de nodo tiene su propio conjunto de prácticas recomendadas de endurecimiento. 
 ---
 = Directrices de refuerzo para nodos de StorageGRID
@@ -18,9 +18,9 @@ Los nodos StorageGRID se pueden implementar en máquinas virtuales de VMware, en
 [[block-remote-ipmicontrol-remote-ipmi-access-to-bmc]]
 == [[block-remote-ipmi]]Controlar el acceso remoto de IPMI a BMC
 
-Es posible habilitar o deshabilitar el acceso IPMI remoto para todos los dispositivos que contengan un BMC. La interfaz de IPMI remota permite que cualquier persona que tenga una cuenta y una contraseña de BMC acceda al hardware de bajo nivel a sus dispositivos StorageGRID. Si no necesita acceso IPMI remoto a BMC, deshabilite esta opción.
+Puedes activar o desactivar el acceso IPMI remoto para todos los dispositivos que incluyan un BMC. La interfaz IPMI remota permite el acceso a bajo nivel de hardware a tus dispositivos StorageGRID a cualquier persona que tenga una cuenta y contraseña de BMC. Si no necesitas acceso IPMI remoto al BMC, desactiva esta opción.
 
-* Para controlar el acceso remoto de IPMI al BMC en Grid Manager, vaya a *Configuración* > *Seguridad* > *Configuración de seguridad* > *Dispositivos*:
+* Para controlar el acceso IPMI remoto al BMC en Grid Manager, ve a *Configuración* > *Seguridad* > *Ajustes de seguridad* > *Dispositivos* > *Acceso IPMI remoto*:
 +
 ** Desactive la casilla de verificación *Enable remote IPMI access* para desactivar el acceso IPMI a BMC.
 ** Seleccione la casilla de verificación *Enable remote IPMI access* para habilitar el acceso de IPMI a BMC.
@@ -29,6 +29,38 @@ Es posible habilitar o deshabilitar el acceso IPMI remoto para todos los disposi
 
 
 Para obtener información adicional sobre el endurecimiento de BMC , consulte la https://media.defense.gov/2023/Jun/14/2003241405/-1/-1/0/CSI_HARDEN_BMCS.PDF["Controladores de administración de placa base Harden"^] Hoja informativa sobre ciberseguridad de la https://www.nsa.gov/["Agencia de Seguridad Nacional (NSA)"^] y https://www.cisa.gov/["Agencia de Ciberseguridad y Seguridad de Infraestructura (CISA)"^] .
+
+
+
+[[change-appliance-bmc-password]]
+== Cambiar la contraseña BMC del dispositivo
+
+Puedes cambiar la contraseña de BMC de un dispositivo para limitar el acceso y mejorar la seguridad del sistema.
+
+. En Grid Manager, ve a *Nodos* > *_grid node_* > *BMC settings*.
+. En la sección «Cambiar contraseña», introduce una nueva contraseña de BMC de entre 8 y 16 caracteres en *Nueva contraseña* y luego vuelve a introducirla en *Confirmar nueva contraseña*.
+. Seleccione *Guardar*.
+
+
+También puedes cambiar la contraseña del BMC usando la  `PUT /bmc-configuration/root-password` API.
+
+
+
+[[control-remote-access-through-usb-portscontrol-external-usb-port-access-on-appliances]]
+== [[control-remote-access-through-usb-ports]]Controla el acceso a los puertos USB externos en los dispositivos
+
+Puedes habilitar los puertos USB de los dispositivos para permitir el acceso del soporte técnico con fines de diagnóstico y resolución de problemas. Si no necesitas acceso a los puertos USB, desactiva los puertos por seguridad. Los puertos USB están habilitados de forma predeterminada después de la instalación inicial o una actualización.
+
+* En el Grid Manager, ve a *Configuración* > *Seguridad* > *Ajustes de seguridad* > *Dispositivos* > *Acceso a los puertos USB* para activar o desactivar los puertos USB:
++
+** Marca la casilla *Habilitar puertos USB* y guarda para habilitar los puertos.
++
+Si la casilla de selección USB estaba desmarcada y se había guardado, marca la casilla *Habilitar puertos USB* y guarda para volver a habilitar los puertos USB.
+
+** Desmarca la casilla *Habilitar puertos USB* y guarda para desactivar los puertos.
+
+
+
 
 
 
@@ -107,7 +139,7 @@ Para obtener más información, consulte las instrucciones de link:../admin/inde
 
 Los nodos de almacenamiento gestionan y almacenan metadatos y datos de objetos. Siga estas directrices para proteger los nodos de almacenamiento en el sistema StorageGRID.
 
-* No permita que los clientes que no son de confianza se conecten directamente con los nodos de almacenamiento. Utilice un punto final de equilibrio de carga servido por un nodo de gateway o un equilibrador de carga de terceros.
+* No permitas que los clientes no fiables se conecten directamente a los nodos de almacenamiento. Utiliza un endpoint de equilibrador de carga servido por un Gateway Node o un equilibrador de carga de terceros.
 * No habilite los servicios de salida para inquilinos que no son de confianza. Por ejemplo, al crear la cuenta para un inquilino que no sea de confianza, no permita que el inquilino utilice su propia fuente de identidad y no permita el uso de servicios de plataforma. Consulte los pasos para link:../admin/creating-tenant-account.html["crear una cuenta de inquilino"].
 * Utilice un equilibrador de carga de terceros para el tráfico de clientes que no sea de confianza. El equilibrio de carga de terceros ofrece más control y niveles adicionales de protección frente a ataques.
 * Opcionalmente, utilice un proxy de almacenamiento para tener un mayor control sobre la comunicación de los pools de Cloud Storage y los servicios de plataforma de los nodos de almacenamiento a los servicios externos. Consulte los pasos para link:../admin/configuring-storage-proxy-settings.html["creación de un proxy de almacenamiento"].
@@ -144,12 +176,13 @@ Puede establecer una VLAN para aislar las conexiones de red de BMC y restringir 
 Si no hay disponible una red de administración interna segura y confiable, deje el puerto de administración de BMC desconectado o bloqueado.  El soporte técnico podría solicitar acceso temporal durante un caso de soporte.
 
 * Si el dispositivo admite la administración remota del hardware de la controladora a través de Ethernet mediante el estándar de interfaz de gestión de plataforma inteligente (IPMI), bloquee el tráfico que no sea de confianza en el puerto 623.
++
+También puedes <<block-remote-ipmi,deshabilitar el acceso remoto a IPMI>>.
+
 
 
 
 NOTE: Puede habilitar o deshabilitar el acceso IPMI remoto para todos los dispositivos que contengan un BMC.  La interfaz IPMI remota permite el acceso de hardware de bajo nivel a sus dispositivos StorageGRID por parte de cualquier persona con una cuenta y contraseña de BMC .  Si no necesita acceso IPMI remoto al BMC, deshabilite esta opción utilizando uno de los siguientes métodos: + En Grid Manager, vaya a *Configuración* > *Seguridad* > *Configuración de seguridad* > *Dispositivos* y desmarque la casilla de verificación *Habilitar acceso IPMI remoto*.  + En la API de administración de Grid, use el punto final privado: `PUT /private/bmc` .
-
-+ También puedes<<block-remote-ipmi,deshabilitar el acceso remoto a IPMI>> .
 
 * Para los modelos de dispositivos que contienen unidades SED, FDE o FIPS NL-SAS que se gestionan con el administrador del sistema de SANtricity, https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/accessing-and-configuring-santricity-system-manager.html["Habilite y configure SANtricity Drive Security"^].
 * Para los modelos de dispositivos que contienen SSD NVMe SED o FIPS que administra mediante el instalador de dispositivos StorageGRID y el administrador de red, https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/optional-enabling-node-encryption.html#enable-drive-encryption["Habilite y configure el cifrado de unidades StorageGRID"^] .

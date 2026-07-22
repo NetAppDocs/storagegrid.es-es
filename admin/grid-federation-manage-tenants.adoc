@@ -2,7 +2,7 @@
 permalink: admin/grid-federation-manage-tenants.html 
 sidebar: sidebar 
 keywords: grid federation, manage tenant, use grid federation permission, remove permission, cross grid replication 
-summary: Puede permitir que las cuentas de inquilino de S3 usen una conexión de federación de grid entre dos sistemas StorageGRID. Cuando se permite a los inquilinos utilizar una conexión, se requieren pasos especiales para editar los detalles del arrendatario o para eliminar permanentemente el permiso del arrendatario para usar la conexión. 
+summary: Puedes permitir que las cuentas de inquilino de S3 utilicen una o varias conexiones de federación de red entre varios sistemas StorageGRID. Cuando se permite a los inquilinos utilizar una conexión, se requieren pasos especiales para editar los detalles del inquilino o para eliminar de forma permanente el permiso del inquilino para usar la conexión. 
 ---
 = Administra los inquilinos permitidos para la federación de grid de StorageGRID
 :allow-uri-read: 
@@ -11,14 +11,14 @@ summary: Puede permitir que las cuentas de inquilino de S3 usen una conexión de
 
 
 [role="lead"]
-Puede permitir que las cuentas de inquilino de S3 usen una conexión de federación de grid entre dos sistemas StorageGRID. Cuando se permite a los inquilinos utilizar una conexión, se requieren pasos especiales para editar los detalles del arrendatario o para eliminar permanentemente el permiso de un arrendatario para usar la conexión.
+Puedes permitir que las cuentas de inquilino de S3 usen una o varias conexiones de federación de grid entre varios sistemas StorageGRID. Cuando permites a los inquilinos usar una conexión, se requieren pasos especiales para editar los detalles del inquilino o para eliminar de forma permanente el permiso del inquilino para usar la conexión.
 
 .Antes de empezar
 * Ha iniciado sesión en Grid Manager en cualquiera de las cuadrículas mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
 * Tiene link:admin-group-permissions.html["Permiso de acceso raíz"]el para la cuadrícula en la que ha iniciado sesión.
 * Hay link:grid-federation-create-connection.html["se ha creado una conexión de federación de grid"] entre dos cuadrículas.
-* Ha revisado los flujos de trabajo para link:grid-federation-what-is-account-clone.html["clon de cuenta"] y.link:grid-federation-what-is-cross-grid-replication.html["replicación entre grid"]
-* Según sea necesario, ya ha configurado Single Sign-On (SSO) o Identify federation para ambas cuadrículas en la conexión. Consulte link:grid-federation-what-is-account-clone.html["Qué es el clon de cuenta"].
+* Has revisado los flujos de trabajo de link:grid-federation-what-is-account-sync.html["sincronización de cuentas"] y link:grid-federation-what-is-cross-grid-replication.html["replicación entre grid"].
+* Como se requiere, ya has configurado el inicio de sesión único (SSO) o la federación de identidades para ambas grids en la conexión. Consulta link:grid-federation-what-is-account-sync.html["Conoce la sincronización de cuentas para la federación de grid"].
 
 
 
@@ -26,7 +26,7 @@ Puede permitir que las cuentas de inquilino de S3 usen una conexión de federaci
 [[create-a-permitted-tenant]]
 == Cree un inquilino permitido
 
-Si desea permitir que una cuenta de inquilino nueva o existente utilice una conexión de federación de grid para la clonación de cuentas y la replicación entre grid, siga las instrucciones generales de link:creating-tenant-account.html["Cree un nuevo inquilino S3"] o link:editing-tenant-account.html["edite una cuenta de inquilino"]tenga en cuenta lo siguiente:
+Si deseas permitir que una cuenta de inquilino nueva o ya existente utilice una conexión de federación de grid para la sincronización de cuentas y la replicación entre grids, sigue las instrucciones generales para link:creating-tenant-account.html["Cree un nuevo inquilino S3"] o link:editing-tenant-account.html["edite una cuenta de inquilino"] y ten en cuenta lo siguiente:
 
 * Puede crear el inquilino desde cualquier cuadrícula en la conexión. La cuadrícula donde se crea un inquilino es la cuadrícula de origen del _tenant_.
 * El estado de la conexión debe ser *Conectado*.
@@ -39,8 +39,12 @@ TIP: Antes de que un usuario raíz local pueda iniciar sesión en el inquilino r
 
 * Una vez que el arrendatario nuevo o editado esté disponible en ambas cuadrículas, los usuarios del arrendatario pueden realizar estas operaciones:
 +
-** A partir del grid de origen del inquilino, cree grupos y usuarios locales que se clonan automáticamente en el grid de destino del inquilino. Consulte link:../tenant/grid-federation-account-clone.html["Clone los usuarios y los grupos de inquilinos"].
-** Crear nuevas claves de acceso S3, que se pueden clonar opcionalmente en el grid de destino del inquilino. Consulte link:../tenant/grid-federation-clone-keys-with-api.html["Clone las claves de acceso S3 mediante la API"].
+** Desde cualquier red conectada, crea grupos y usuarios locales, que se sincronizan automáticamente con todas las demás redes conectadas. Consulta link:../tenant/grid-federation-account-sync.html["Sincroniza grupos de inquilinos y usuarios"].
+** Crea nuevas claves de acceso a S3 para los usuarios locales, que se sincronizan automáticamente con otras grids conectadas cuando la sincronización de claves de acceso está habilitada para el tenant.
++
+
+NOTE: Las claves de acceso a S3 de los usuarios federados se clonan una sola vez de origen a destino en el momento de su creación. Si se eliminan estas claves de acceso a S3, estos cambios no se sincronizan con otras grids. Debes eliminar manualmente las claves de acceso a S3 en las otras grids.
+
 ** Cree depósitos idénticos en ambas cuadrículas de la conexión y habilite la replicación entre cuadrículas en una dirección o en ambas direcciones. Consulte link:../tenant/grid-federation-manage-cross-grid-replication.html["Gestionar la replicación entre grid"].
 
 
@@ -56,13 +60,7 @@ Puede ver los detalles de un inquilino con permiso para utilizar una conexión d
 .Pasos
 . Seleccione *Inquilinos*.
 . En la página Tenedores, seleccione el nombre del arrendatario para ver la página de detalles del arrendatario.
-+
-Si se trata de la cuadrícula de origen del inquilino (es decir, si el inquilino se creó en esta cuadrícula), aparece un banner para recordarle que el inquilino se clonó en otra cuadrícula. Si edita o elimina este arrendatario, los cambios no se sincronizarán con la otra cuadrícula.
-
-+
-image:grid-federation-tenant-detail.png["federación de grid en la página de detalles de inquilino"]
-
-. Opcionalmente, seleccione la pestaña *Grid federation* en link:../monitor/grid-federation-monitor-connections.html["supervise la conexión de federación de grid"].
+. Si lo deseas, selecciona la pestaña *Grid federation* para link:../monitor/grid-federation-monitor-connections.html["supervisar las conexiones de la federación de grid"].
 
 
 
@@ -72,9 +70,15 @@ image:grid-federation-tenant-detail.png["federación de grid en la página de de
 
 Si necesita editar un inquilino que tiene el permiso *Usar conexión de federación de grid*, siga las instrucciones generales para link:editing-tenant-account.html["editar una cuenta de inquilino"] y tenga en cuenta lo siguiente:
 
-* Si un inquilino tiene el permiso *Usar conexión de federación de grid*, puede editar los detalles del inquilino desde cualquier cuadrícula en la conexión. Sin embargo, los cambios que realice no se copiarán en la otra cuadrícula. Si desea mantener sincronizados los detalles del arrendatario entre las cuadrículas, debe realizar las mismas modificaciones en ambas cuadrículas.
-* No puede borrar el permiso *Usar conexión de federación de grid* cuando está editando un inquilino.
-* No puede seleccionar una conexión de federación de grid diferente al editar un inquilino.
+* Si un usuario tiene el permiso *Usar conexión de federación de grid*:
+* Puedes editar los detalles del inquilino desde cualquier grid en la conexión. Los cambios en la configuración a nivel de inquilino (como el nombre, la descripción o la cuota), así como en los grupos, usuarios locales y claves de acceso S3 propiedad de los usuarios locales, se sincronizan automáticamente con todos los grids conectados.
+* Puedes modificar las *conexiones de federación de grid permitidas* _solo en el grid de origen_.
+* Puedes añadir una nueva conexión de federación de grid.
++
+
+NOTE: No es posible desmarcar ninguna conexión existente. Para eliminar una conexión, ve a la página de detalles del inquilino, selecciona la pestaña *Grid federation* y elimina el permiso.
+
+* Si añades una nueva conexión mientras editas un inquilino, dicho inquilino se replicará en la grid remota especificada por esa nueva conexión.
 
 
 
@@ -82,16 +86,15 @@ Si necesita editar un inquilino que tiene el permiso *Usar conexión de federaci
 [[delete-a-permitted-tenant]]
 == Suprimir un arrendatario permitido
 
+
+CAUTION: Si eliminas el inquilino original de la red de origen o el inquilino sincronizado de la red de destino, el inquilino se elimina de todas las redes, así que la cuenta ya no se puede usar.
+
 Si necesita eliminar un inquilino que tiene el permiso *Usar conexión de federación de grid*, siga las instrucciones generales para link:deleting-tenant-account.html["eliminación de una cuenta de inquilino"] y tenga en cuenta lo siguiente:
 
-* Antes de poder eliminar el arrendatario original en la cuadrícula de origen, debe eliminar todos los depósitos de la cuenta en la cuadrícula de origen.
-* Para poder quitar el inquilino clonado en la cuadrícula de destino, debe eliminar todos los buckets de la cuenta de la cuadrícula de destino.
-* Si quita el inquilino original o el clonado, la cuenta ya no se puede usar para la replicación entre grid.
-* Si va a eliminar el inquilino original en la cuadrícula de origen, los grupos de inquilinos, usuarios o las claves que se hayan clonado en el grid de destino no se verán afectados. Puede eliminar el inquilino clonado o permitir que gestione sus propios grupos, usuarios, claves de acceso y bloques.
-* Si va a quitar el inquilino clonado en la cuadrícula de destino, se producirán errores de clonado si se añaden usuarios o grupos nuevos al inquilino original.
-+
-Para evitar estos errores, elimine el permiso del inquilino para utilizar la conexión de federación de grid antes de eliminar el inquilino de esta cuadrícula.
-
+* Antes de poder eliminar el inquilino en la grid de origen, debes eliminar todos los buckets de la cuenta en la grid de origen.
+* Antes de poder eliminar el inquilino sincronizado en la grid de destino, debes eliminar todos los buckets de la cuenta en la grid de destino.
+* Si eliminas el inquilino original o el sincronizado, la cuenta ya no se podrá utilizar para la replicación entre grids.
+* Si eliminas el inquilino original en la red de origen o en cualquier red de destino, también se eliminan los grupos de inquilinos, los usuarios y las claves que se sincronizaron con las redes de destino.
 
 
 
@@ -101,7 +104,7 @@ Para evitar estos errores, elimine el permiso del inquilino para utilizar la con
 
 Para evitar que un inquilino utilice una conexión de federación de grid, debe eliminar el permiso *Usar conexión de federación de grid*.
 
-image:grid-federation-remove-permission.png["pasos para eliminar la conexión de federación de grid"]
+image:grid_federation_remove_permission.png["pasos para eliminar la conexión de federación de grid"]
 
 Antes de eliminar el permiso de un inquilino para utilizar una conexión de federación de grid, tenga en cuenta lo siguiente:
 
@@ -111,7 +114,7 @@ Antes de eliminar el permiso de un inquilino para utilizar una conexión de fede
 
 
 
-NOTE: Al volver a habilitar el permiso *Usar conexión de federación de grid*, la cuadrícula local se convierte en la cuadrícula de origen y activa la clonación en la cuadrícula remota especificada por la conexión de federación de grid seleccionada. Si la cuenta de inquilino ya existe en la cuadrícula remota, la clonación provocará un error de conflicto.
+NOTE: Al volver a habilitar el permiso *Usar conexión de federación de grid*, la grid local pasa a ser la grid de origen y se inicia la sincronización con la grid remota especificada por la conexión de federación de grid seleccionada. Si la cuenta de tenant ya existe en la grid remota, la sincronización dará lugar a un error de conflicto.
 
 .Antes de empezar
 * Está utilizando una link:../admin/web-browser-requirements.html["navegador web compatible"].
@@ -174,7 +177,7 @@ Una vez deshabilitada la replicación entre grid para bloques de inquilinos, pue
 ** Si el permiso se puede eliminar, volverá a la página de detalles y aparecerá un mensaje de éxito. Este inquilino ya no puede utilizar la conexión de federación de grid.
 ** Si uno o más bloques de inquilinos aún tienen habilitada la replicación entre grid, se muestra un error.
 +
-image:grid-federation-remove-permission-error.png["se muestra un mensaje de error si el inquilino tiene cgr activado para un depósito"]
+image:grid_federation_remove_permission_error.png["se muestra un mensaje de error si el inquilino tiene cgr activado para un depósito"]
 
 +
 Puede realizar una de las siguientes acciones:

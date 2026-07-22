@@ -20,12 +20,12 @@ Los costes de enlace le permiten priorizar qué sitio de centro de datos proporc
 
 * Los costes de enlace se utilizan para priorizar qué copia de objetos se utiliza para llevar a cabo las recuperaciones de objetos.
 * Los costes de enlace los utiliza la API de gestión de grid y la API de gestión de inquilinos para determinar qué servicios StorageGRID internos utilizar.
-* Los costes de enlace los utiliza el servicio de equilibrio de carga en los nodos de administración y de gateway para dirigir las conexiones de cliente. Consulte link:../admin/managing-load-balancing.html["Consideraciones que tener en cuenta al equilibrio de carga"].
+* El servicio Load Balancer utiliza los costes de enlace en los nodos de administración y los nodos de puerta de enlace para dirigir las conexiones de los clientes. Consulta link:../admin/managing-load-balancing.html["Consideraciones que tener en cuenta al equilibrio de carga"].
 
 
-El diagrama muestra una cuadrícula de tres sitios con costes de enlace configurados entre sitios:
+El diagrama muestra una red de tres sitios en la que se han configurado los costes de enlace entre los sitios:
 
-image:link_costs.gif["Diagrama conceptual para vincular costes entre centros de datos"]
+image:link_costs.png["Diagrama conceptual para vincular costes entre centros de datos"]
 
 * El servicio Load Balancer en los nodos de administración y de puerta de enlace distribuye equitativamente las conexiones de los clientes a todos los nodos de almacenamiento en el mismo sitio del centro de datos y a cualquier sitio del centro de datos con un coste de enlace de 0.
 +
@@ -70,20 +70,19 @@ Puede actualizar los costes de enlace entre los sitios de centros de datos para 
 
 .Antes de empezar
 * Ha iniciado sesión en Grid Manager mediante una link:../admin/web-browser-requirements.html["navegador web compatible"].
-* Tú tienes ellink:admin-group-permissions.html["Otros permisos de configuración de la red"] .
+* Usted tiene el link:../admin/admin-group-permissions.html["Permiso de acceso raíz"].
 
 
 .Pasos
 . Seleccione *Soporte* > *Otro* > *Costo del enlace*.
-+
-image:configuring_link_costs.png["Coste del enlace"]
-
-. Seleccione un sitio en *origen de enlace* e introduzca un valor de coste entre 0 y 100 en *destino de enlace*.
+. Para cada sitio que figure en la columna Site/Link cost, introduce un valor de coste de 0 a 100 para los demás sitios.
 +
 No puede cambiar el coste del enlace si el origen es el mismo que el destino.
 
+. Descartar o guardar los cambios:
 +
-Para cancelar los cambios, selecciona image:nms_revert.gif["icono de deshacer"]*Revert*.
+** Para descartar los cambios, selecciona *Clear changes*.
+** Para guardar los cambios, selecciona *Guardar*.
 
-. Seleccione *aplicar cambios*.
+
 

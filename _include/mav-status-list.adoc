@@ -1,0 +1,10 @@
+= 
+:allow-uri-read: 
+
+
+* *Pendiente*. La solicitud ha sido iniciada.
+* *Caducado*. La solicitud no se ha tramitado en un plazo de 30 días. O un usuario con permiso de acceso Root desactivó MAV, lo que significa que todas las solicitudes pendientes han caducado.
+* *Retirada*. Un usuario retiró su solicitud.
+* *Aprobado*. Un administrador de MAV aprobó la solicitud pendiente.
+* *Rechazado*. Un administrador de MAV rechazó la solicitud pendiente.
+

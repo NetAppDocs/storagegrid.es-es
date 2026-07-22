@@ -55,10 +55,12 @@ NOTE: Si está ingiriendo un objeto en un depósito con S3 Object Lock activado,
 Se admiten los siguientes encabezados de solicitud:
 
 * `Content-Type`
-* `x-amz-checksum-algorithm`
+* `x-amz-checksum-algorithm`: Indica `CRC32`, `CRC32C`, `CRC64NVME` o `SHA256`
 +
-Actualmente, solo se admite el valor de SHA256 para `x-amz-checksum-algorithm`.
 
+NOTE: Si la solicitud CreateMultipartUpload no especifica una suma de comprobación, StorageGRID no calcula una suma de comprobación CRC-64/NVME por defecto para un objeto. StorageGRID ignora valores inválidos o no compatibles `x-amz-checksum-algorithm`.
+
+* `x-amz-checksum-type`
 * `x-amz-meta-`, seguido de un par nombre-valor que contiene metadatos definidos por el usuario
 +
 Cuando especifique la pareja nombre-valor para los metadatos definidos por el usuario, utilice este formato general:

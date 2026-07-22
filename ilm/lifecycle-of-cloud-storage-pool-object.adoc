@@ -73,18 +73,18 @@ Para iniciar el ciclo de vida, una aplicación cliente almacena un objeto en Sto
 
 . *Objeto movido a Azure Cloud Storage Pool*
 +
-Cuando el objeto coincide con una regla de gestión de la vida útil de la información que utiliza un pool de almacenamiento en cloud de Azure como ubicación, StorageGRID mueve el objeto al contenedor de almacenamiento externo de Azure Blob especificado por el pool de almacenamiento en cloud.
+Cuando el objeto coincide con una regla de ILM que utiliza un grupo de almacenamiento en la nube de Azure como ubicación de almacenamiento, StorageGRID mueve el objeto al contenedor externo de Azure Blob Storage especificado por el Cloud Storage Pool.
 
 . *Objeto que ha pasado a la capa de archivado (estado no recuperable)*
 +
-Inmediatamente después de mover el objeto a Azure Cloud Storage Pool, StorageGRID realiza una transición automática del objeto al nivel de archivado de almacenamiento de Azure Blob.
+Inmediatamente después de trasladar el objeto al grupo de almacenamiento en la nube de Azure, StorageGRID transfiere automáticamente el objeto al nivel de archivo de Azure Blob Storage.
 
 . *Objeto restaurado desde el nivel de archivo*
 +
 Si un objeto se ha trasladado al nivel de archivado, la aplicación cliente puede emitir una solicitud S3 RestoreObject para restaurar una copia recuperable en Azure Cloud Storage Pool.
 
 +
-Cuando StorageGRID recibe el RestoreObject, hace la transición temporal del objeto al nivel Cool de almacenamiento de Azure Blob. Tan pronto como se alcanza la fecha de caducidad en la solicitud RestoreObject, StorageGRID devuelve el objeto al nivel Archive.
+Cuando StorageGRID recibe la RestoreObject, traslada temporalmente el objeto al nivel Cool de Azure Blob Storage. En cuanto se alcanza la fecha de caducidad en la solicitud RestoreObject, StorageGRID traslada el objeto de nuevo al nivel Archive.
 
 +
 

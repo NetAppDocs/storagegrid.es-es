@@ -13,7 +13,7 @@ summary: 'El sistema StorageGRID implementa la API de servicio de almacenamiento
 [role="lead"]
 El sistema StorageGRID implementa la API de servicio de almacenamiento simple (API 2006-03-01) con compatibilidad para la mayoría de las operaciones y con algunas limitaciones. Debe comprender los detalles de la implementación al integrar las aplicaciones cliente de la API DE REST de S3.
 
-El sistema StorageGRID admite tanto solicitudes virtuales de tipo hospedado como solicitudes de tipo path.
+El sistema StorageGRID admite tanto solicitudes de tipo «host virtual» como solicitudes de tipo «ruta».
 
 
 

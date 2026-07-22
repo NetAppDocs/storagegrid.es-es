@@ -11,7 +11,7 @@ summary: 'Puede controlar quién puede acceder a StorageGRID y qué tareas puede
 
 
 [role="lead"]
-Puede controlar quién puede acceder a StorageGRID y qué tareas pueden realizar los usuarios creando o importando grupos y usuarios, y asignando permisos a cada grupo. De manera opcional, puede habilitar el inicio de sesión único (SSO), crear certificados de cliente y cambiar contraseñas de grid.
+Puedes controlar quién puede acceder a StorageGRID y qué tareas pueden realizar los usuarios creando o importando grupos y usuarios y asignando permisos a cada grupo. Opcionalmente, puedes habilitar el inicio de sesión único (SSO), crear certificados de cliente, cambiar contraseñas de grid y usar la verificación de múltiples administradores.
 
 
 
@@ -34,7 +34,7 @@ De manera opcional, puede configurar un grupo para que sea de sólo lectura. Los
 [[enable-single-sign-on]]
 == Active el inicio de sesión único
 
-El sistema StorageGRID admite el inicio de sesión único (SSO) mediante el estándar Security Assertion Markup Language 2.0 (SAML 2.0).  Después de ustedlink:how-sso-works.html["Configure y habilite SSO"] Todos los usuarios deben estar autenticados por un proveedor de identidad externo antes de poder acceder al Administrador de Grid, al Administrador de Inquilinos, a la API de Administración de Grid o a la API de Administración de Inquilinos.  Los usuarios locales no pueden iniciar sesión en StorageGRID.
+El sistema StorageGRID admite el inicio de sesión único (SSO) mediante Security Assertion Markup Language 2.0 (SAML 2.0) o el estándar OpenID Connect (OIDC). Después de que link:how-sso-works.html["Configure y habilite SSO"], todos los usuarios deben ser autenticados por un proveedor de identidad externo antes de poder acceder a Grid Manager, Tenant Manager, la API de gestión de la red o la API de gestión de inquilinos. Los usuarios locales no pueden iniciar sesión en StorageGRID.
 
 
 
@@ -49,3 +49,10 @@ La frase de contraseña de aprovisionamiento es necesaria para muchos procedimie
 == Cambie las contraseñas de la consola de los nodos
 
 Cada nodo de su red tiene una contraseña de consola de nodo, que necesita para iniciar sesión en el nodo como "admin" mediante SSH, o como usuario root en una conexión de consola física/VM.  Según sea necesario, puedelink:change-node-console-password.html["cambie la contraseña de la consola del nodo"] para cada nodo.
+
+
+
+[[use-multi-admin-verification]]
+== Usa la verificación de varios administradores
+
+Puedes utilizar la verificación por múltiples administradores (MAV) para garantizar que determinadas operaciones de StorageGRID solo puedan realizarse tras la aprobación de los administradores designados. MAV evita que administradores comprometidos, malintencionados o sin experiencia realicen cambios indeseados o eliminen datos.
