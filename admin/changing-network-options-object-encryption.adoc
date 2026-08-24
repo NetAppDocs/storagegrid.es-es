@@ -65,6 +65,10 @@ Consulte link:summary-ip-addresses-and-ports-for-client-connections.html["Resume
 . Seleccione *Configuración* > *Seguridad* > *Configuración de seguridad*.
 . Seleccione la pestaña *Red y objetos*.
 . Para el cifrado de objetos almacenados, utilice la configuración *Ninguno* (predeterminada) si no desea que los objetos almacenados se cifren, o seleccione *AES-128* o *AES-256* para cifrar los objetos almacenados.
++
+
+NOTE: A partir de StorageGRID 12.1.0, la compatibilidad con el cifrado AES-128 de los nuevos datos de objetos almacenados en reposo está obsoleta. La compatibilidad para la recuperación de objetos almacenados que se cifraron originalmente con AES-128 continúa.
+
 . Opcionalmente, seleccione *Evitar modificación de cliente* si desea evitar que los clientes de S3 realicen solicitudes específicas.
 +
 
