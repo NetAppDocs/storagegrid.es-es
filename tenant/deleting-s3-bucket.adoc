@@ -22,7 +22,7 @@ Puede usar el administrador de inquilinos para eliminar uno o varios bloques de 
 .Acerca de esta tarea
 Estas instrucciones describen cómo eliminar un bloque de S3 mediante el administrador de inquilinos. También puede eliminar S3 cubos utilizando link:understanding-tenant-management-api.html["API de gestión de inquilinos"]o el link:../s3/operations-on-buckets.html["API REST DE S3"].
 
-No se puede eliminar un bucket de S3 si contiene objetos, versiones de objetos no actuales o marcadores de eliminación. Para obtener más información sobre cómo se suprimen los objetos con versiones S3, consulte link:../ilm/how-objects-are-deleted.html["Cómo se eliminan los objetos"].
+No puedes eliminar un bucket de S3 si contiene objetos, versiones de objetos no actuales o marcadores de eliminación. Para obtener información sobre cómo se eliminan los objetos versionados de S3, consulta link:../ilm/how-objects-and-delete-markers-are-deleted.html["Cómo se eliminan los objetos y los marcadores de eliminación"].
 
 .Pasos
 . Seleccione *Ver cubos* en el panel de control o seleccione *ALMACENAMIENTO (S3)* > *Buckets*.

@@ -44,6 +44,7 @@ Tenga en cuenta las siguientes características de los grupos de ramas:
 
 
 [[operations-on-objects-in-branch-buckets]]
+[[operations-in-branch-buckets]]
 == Operaciones sobre objetos en depósitos de ramas
 
 * Una operación PUT de objeto en un bucket de rama crea un objeto en la rama.
@@ -110,4 +111,4 @@ HEAD/GET devuelve La versión del objeto no existe
 |===
 
 
-Consulte tambiénlink:../ilm/how-objects-are-deleted.html#delete-s3-versioned-objects["Cómo se eliminan los objetos con versiones de S3"] .
+También consulta link:../ilm/how-objects-and-delete-markers-are-deleted.html#delete-s3-versioned-objects["Cómo se eliminan los objetos con versiones de S3"].

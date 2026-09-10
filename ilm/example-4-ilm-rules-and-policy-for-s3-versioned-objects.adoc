@@ -138,4 +138,4 @@ Al simular la directiva de ejemplo, se esperaría que los objetos de prueba se e
 
 
 .Información relacionada
-link:how-objects-are-deleted.html["Cómo se eliminan los objetos"]
+link:how-objects-and-delete-markers-are-deleted.html["Cómo se eliminan los objetos y los marcadores de eliminación"]

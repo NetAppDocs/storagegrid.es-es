@@ -1,0 +1,49 @@
+---
+permalink: ilm/example-9-delete-noncurrent-versions-and-expired-delete-markers.html 
+sidebar: sidebar 
+keywords: retention priority, example S3 bucket lifecycle, example ILM policy 
+summary: Según la configuración del ciclo de vida, los objetos siguen los ajustes de retención del ciclo de vida de bloques de S3 o una política de ILM. 
+---
+= Eliminar versiones obsoletas y marcadores de eliminación caducados en StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cuando suspendes el control de versiones en un bucket, necesitas configurar el ciclo de vida del bucket para gestionar las versiones no actuales y los marcadores de eliminación caducados sin versión.
+
+Ejemplo de una configuración del ciclo de vida de un bucket que gestiona versiones obsoletas y marcadores de eliminación caducados:: Estos pasos se llevan a cabo en un bucket con una política de ILM activa:
++
+--
+. Habilita el control de versiones. Cuando se importan objetos con el mismo nombre, las versiones anteriores siguen estando disponibles como versiones no actuales y las solicitudes de eliminación crean marcadores de eliminación. Se puede acceder a las versiones no actuales, pero ocupan espacio de almacenamiento.
+. Desactiva el control de versiones porque la configuración deseada es conservar solo una versión y liberar el espacio de almacenamiento usado por las versiones no actuales. Esto se configura en el siguiente paso.
+. Configura un ciclo de vida de bucket para manejar las versiones no actuales y los marcadores de eliminación que quedan después de suspender el versionado.
+
+
+--
+Política de ILM::
++
+--
+Regla basada en la referencia de tiempo de ingesta (predeterminado): En el día 0, mantenga X copias para siempre
+
+--
+Ciclo de vida del cucharón::
++
+--
+`"Filter": {}, "Expiration": {"ExpiredObjectDeleteMarker": true}, "NoncurrentVersionExpiration": {"NoncurrentDays": 1}`
+
+--
+Resultado:: El ciclo de vida del bucket está configurado para gestionar versiones obsoletas y marcadores de eliminación caducados:
++
+--
+. Las versiones que llevan más de un día sin estar activas se eliminan. Solo la versión actual permanece para siempre.
+. Se importa un objeto llamado  `draftdoc` y tiene el ID de versión  `NULL`.
+. Si se introduce otro objeto con el mismo nombre (`draftdoc`), sobrescribe y reemplaza la versión nula y elimina inmediatamente la versión anterior.
+. Si se envía una solicitud de eliminación a `draftdoc` sin especificar un identificador de versión, se crea un marcador de eliminación sin versión, que sustituye y elimina el objeto sin versión.
+. El marcador de eliminación sin versión ha caducado porque no hay versiones no actuales.
+. Poco después, se elimina el marcador de eliminación sin versión que ha caducado.
+
+
+--
+

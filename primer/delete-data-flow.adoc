@@ -38,7 +38,7 @@ NOTE: Cuando se configura el ciclo de vida de un bloque de S3, las acciones de c
 
 
 
-Consulte link:../ilm/how-objects-are-deleted.html["Cómo se eliminan los objetos"] para obtener más información.
+Consulta link:../ilm/how-objects-and-delete-markers-are-deleted.html["Cómo se eliminan los objetos y los marcadores de eliminación"] para más información.
 
 
 

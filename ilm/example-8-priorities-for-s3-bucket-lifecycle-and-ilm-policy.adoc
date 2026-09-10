@@ -88,6 +88,7 @@ Los marcadores de borrado que comienzan con «docs/» se eliminan cuando caducan
 
 
 [[example-of-using-bucket-lifecycle-to-duplicate-ilm-and-clean-up-expired-delete-markers]]
+[[use-bucket-to-lifecycle-remove-expired-delete-markers]]
 == Ejemplo de uso del ciclo de vida de bloque para duplicar ILM y borrar los marcadores de eliminación vencidos
 
 Política de ILM::

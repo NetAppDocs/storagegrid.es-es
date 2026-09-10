@@ -34,7 +34,19 @@ Para los objetos S3 en bloques con control de versiones, el soporte de control d
 
 NOTE: Cuando se carga una nueva versión de un objeto mediante una operación de carga de varias partes, la hora no actual de la versión original del objeto se refleja cuando se creó la carga de varias partes para la nueva versión, no cuando se completó la carga de varias partes. En casos limitados, la hora no actual de la versión original puede ser horas o días antes de la hora de la versión actual.
 
+
+
+[[how-object-versioning-uses-storage-capacity-in-storagegrid]]
+== Cómo utiliza el control de versiones de objetos la capacidad de almacenamiento en StorageGRID
+
+La cantidad de espacio de almacenamiento que se utiliza para el control de versiones de los objetos depende del número de veces que subas un objeto, de las reglas de la política de ILM y de la acumulación de versiones obsoletas:
+
+* Cuando se habilita el control de versiones en un bucket, cada versión de un objeto se almacena como un objeto completo e independiente. Si subes un archivo de 1 GB cinco veces, StorageGRID almacena 5 GB de datos sin procesar (5 x 1 GB) para ese objeto.
+* La política de ILM se evalúa para cada versión del objeto. Por ejemplo, si tienes una regla de ILM de replicación de dos copias, StorageGRID almacena dos copias replicadas de cada versión del objeto (actual y no actual). Cuando esta regla de ILM se aplica a un bucket con 10 versiones de un objeto de 1 GB, se usan 20 GB de almacenamiento físico.
+* Si no se aplica una política de ciclo de vida del bucket de S3 ni una regla de ILM dirigida a las versiones obsoletas, StorageGRID conserva todas las versiones antiguas de forma indefinida y estas siguen consumiendo espacio de almacenamiento. Esta es la causa más habitual del aumento inesperado del espacio de almacenamiento en los buckets con versiones.
+
+
 .Información relacionada
-* link:../ilm/how-objects-are-deleted.html#delete-s3-versioned-objects["Cómo se eliminan los objetos con versiones de S3"]
+* link:../ilm/how-objects-and-delete-markers-are-deleted.html#delete-s3-versioned-objects["Cómo se eliminan los objetos con versiones de S3"]
 * link:../ilm/example-4-ilm-rules-and-policy-for-s3-versioned-objects.html["Reglas de ILM y políticas para objetos con versiones de S3 (ejemplo 4)"].
 

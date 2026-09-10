@@ -32,7 +32,7 @@ TIP: Un depósito que utiliza S3 Object Lock permanecerá en el estado *Deleting
 
 
 * Si un bloque tiene el control de versiones de objetos activado, los marcadores de eliminación que se crearon en StorageGRID 11,8 o posterior se pueden eliminar mediante la eliminación de objetos en las operaciones de bloque.
-* Si un bloque tiene el control de versiones de objetos activado, la operación de supresión de objetos no eliminará los marcadores de supresión creados en StorageGRID 11,7 o anteriores. Consulte la información sobre la supresión de objetos en un depósito en link:../ilm/how-objects-are-deleted.html#delete-s3-versioned-objects["Cómo se eliminan los objetos con versiones de S3"].
+* Si en un bucket está habilitado el control de versiones de objetos, la operación de eliminación de objetos no eliminará los marcadores de eliminación creados en StorageGRID 11.7 o versiones anteriores. Consulta la información sobre cómo eliminar objetos de un bucket en link:../ilm/how-objects-and-delete-markers-are-deleted.html#delete-s3-versioned-objects["Cómo se eliminan los objetos con versiones de S3"].
 * Si utiliza link:grid-federation-manage-cross-grid-replication.html["replicación entre grid"], tenga en cuenta lo siguiente:
 +
 ** El uso de esta opción no elimina ningún objeto del depósito en la otra cuadrícula.
