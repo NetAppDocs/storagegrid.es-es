@@ -37,9 +37,6 @@ NOTE: No cree más grados de almacenamiento de los necesarios. Por ejemplo, no c
 +
 .. Para cada nivel de almacenamiento personalizado que quieras añadir, selecciona *Insert* image:icon_nms_insert.gif["insertar icono"] para añadir una fila.
 .. Introduzca una etiqueta descriptiva.
-+
-image:editing_storage_grades.gif["Página Storage Grades"]
-
 .. Seleccione *aplicar cambios*.
 .. Si lo deseas, si necesitas modificar una etiqueta guardada, selecciona *Editar* image:icon_nms_edit.gif["icono editar"] y selecciona *Aplicar cambios*.
 +
@@ -52,9 +49,6 @@ NOTE: No se pueden eliminar los grados de almacenamiento.
 +
 .. Busca el nodo de almacenamiento en la lista LDR y selecciona su icono *Editar* image:icon_nms_edit.gif["icono editar"].
 .. Seleccione el grado de almacenamiento adecuado en la lista.
-+
-image:assigning_storage_grades_to_storage_nodes.gif["Página Storage Grades"]
-
 +
 
 NOTE: Asigne un nivel de almacenamiento solo una vez a un nodo de almacenamiento determinado. Un nodo de almacenamiento recuperado del error mantiene el grado de almacenamiento anteriormente asignado. No cambie esta asignación después de activar la política de ILM. Si se modifica la asignación, los datos se almacenan según el nuevo grado de almacenamiento.

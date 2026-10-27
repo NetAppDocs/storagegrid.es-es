@@ -133,7 +133,7 @@ Según sea necesario, puede desactivar opcionalmente la comprobación de actuali
 [[add-an-additional-autosupport-destination]]
 == Añada un destino de AutoSupport adicional
 
-Cuando se habilita AutoSupport, se envían paquetes de estado y estado al soporte técnico. Puede especificar un destino adicional para todos los paquetes de AutoSupport.
+Al activar AutoSupport, se envían al soporte técnico los paquetes de estado y salud. Puedes especificar un destino adicional para todos los paquetes de AutoSupport.
 
 Para verificar o cambiar el protocolo utilizado para enviar paquetes AutoSupport, consulte las instrucciones para <<specify-protocol-for-autosupport-packages,Especifique el protocolo para paquetes AutoSupport>>.
 
